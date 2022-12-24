@@ -6,11 +6,12 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "Run Extension",
+			"name": "Run Extension on Test Workspace 00",
 			"type": "extensionHost",
 			"request": "launch",
 			"args": [
-				"--extensionDevelopmentPath=${workspaceFolder}"
+				"--extensionDevelopmentPath=${workspaceFolder}",
+                "${workspaceFolder}/test_workspaces/workspace00"
 			],
 			"outFiles": [
 				"${workspaceFolder}/out/**/*.js"
