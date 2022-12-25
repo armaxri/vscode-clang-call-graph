@@ -11,5 +11,7 @@
     "[typescript]": {
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    },
+    "cSpell.diagnosticLevel": "Hint",
+    "cSpell.enableFiletypes": ["*"]
 }
