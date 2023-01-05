@@ -1,45 +1,79 @@
 {
-  "name": "clang-call-graph",
-  "displayName": "Clang Call Graph",
-  "description": "Generate call graphs for C and C++ using LLVM/Clang.",
-  "version": "0.0.1",
-  "engines": {
-    "vscode": "^1.74.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [
-    "onCommand:clang-call-graph.helloWorld"
-  ],
-  "main": "./out/extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "clang-call-graph.helloWorld",
-        "title": "Hello World"
-      }
-    ]
-  },
-  "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
-  },
-  "devDependencies": {
-    "@types/vscode": "^1.74.0",
-    "@types/glob": "^8.0.0",
-    "@types/mocha": "^10.0.1",
-    "@types/node": "16.x",
-    "@typescript-eslint/eslint-plugin": "^5.45.0",
-    "@typescript-eslint/parser": "^5.45.0",
-    "eslint": "^8.28.0",
-    "glob": "^8.0.3",
-    "mocha": "^10.1.0",
-    "typescript": "^4.9.3",
-    "@vscode/test-electron": "^2.2.0"
-  }
+    "name": "clang-call-graph",
+    "displayName": "Clang Call Graph",
+    "description": "Generate call graphs for C and C++ using LLVM/Clang.",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.74.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onLanguage:cpp",
+        "onCommand:clang-call-graph.startCallGraphParser",
+        "onCommand:clang-call-graph.stopCallGraphParser"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "clang-call-graph.startCallGraphParser",
+                "title": "Start (or restart) the Clang call graph parser",
+                "category": "ClangCallGraph"
+            },
+            {
+                "command": "clang-call-graph.stopCallGraphParser",
+                "title": "Stop the Clang call graph parser",
+                "category": "ClangCallGraph"
+            }
+        ],
+        "configuration": [
+            {
+                "title": "ClangCallGraph",
+                "properties": {
+                    "clangCallGraph.compileCommandsJsonDir": {
+                        "type": "string",
+                        "description": "Path to the directory holding the compile_commands.json file, which shall be used to create the call graph.",
+                        "default": "${workspaceFolder}"
+                    },
+                    "clangCallGraph.callGraphDatabasePath": {
+                        "type": "string",
+                        "description": "Path for the database file (json format), which shall be used to store the parser output and as source for the displayed call graph.",
+                        "default": "${workspaceFolder}/clangCallGraph.json"
+                    },
+                    "clangCallGraph.numOfParserThreads": {
+                        "type": "number",
+                        "description": "Number of threads that are used to parse the C/C++ files.",
+                        "default": 8,
+                        "minimum": 1
+                    }
+                }
+            }
+        ]
+    },
+    "dependencies": {
+        "lowdb":"^5.0.5"
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src --ext ts",
+        "test": "node ./out/test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.74.0",
+        "@types/glob": "^8.0.0",
+        "@types/mocha": "^10.0.1",
+        "@types/node": "16.x",
+        "@typescript-eslint/eslint-plugin": "^5.45.0",
+        "@typescript-eslint/parser": "^5.45.0",
+        "eslint": "^8.28.0",
+        "glob": "^8.0.3",
+        "mocha": "^10.1.0",
+        "typescript": "^4.9.3",
+        "@vscode/test-electron": "^2.2.0"
+    }
 }

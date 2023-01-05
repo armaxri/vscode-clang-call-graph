@@ -13,5 +13,8 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "cSpell.diagnosticLevel": "Hint",
-    "cSpell.enableFiletypes": ["*"]
+    "cSpell.enableFiletypes": [
+        "*"
+    ],
+    "cmake.configureOnOpen": false
 }
