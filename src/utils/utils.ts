@@ -99,7 +99,9 @@ export function splitArguments(inputString: string): Array<string> {
             if (stringStart !== "") {
                 currentArg = currentArg + currentChar;
             } else {
-                args.push(currentArg);
+                if (currentArg !== "") {
+                    args.push(currentArg);
+                }
                 currentArg = "";
             }
         } else {
@@ -114,4 +116,35 @@ export function splitArguments(inputString: string): Array<string> {
     }
 
     return args;
+}
+
+export function createClangAstCall(command: string): Array<string> {
+    // Reverse the order to use pop and start at the far left of the command.
+    let splitCommand = splitArguments(command).reverse();
+
+    let adjustedCommand = new Array<string>();
+
+    // Used to workaround typescript check.
+    let skipNext = false;
+    while (splitCommand.length > 0) {
+        let currentElement = splitCommand.pop();
+        if (skipNext) {
+            skipNext = false;
+        } else {
+            if (typeof currentElement === "string") {
+                if (currentElement === "-o") {
+                    // Pop the target file name.
+                    skipNext = true;
+                } else {
+                    adjustedCommand.push(currentElement!);
+                }
+            }
+        }
+    }
+
+    adjustedCommand.push("-Xclang");
+    adjustedCommand.push("-ast-dump=json");
+    adjustedCommand.push("-fsyntax-only");
+
+    return adjustedCommand;
 }

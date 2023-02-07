@@ -13,6 +13,11 @@ export class PathUtils {
         return this.internalPathStr;
     }
 
+    public getModificationTime(): Date {
+        const fileStats = fs.statSync(this.internalPathStr);
+        return fileStats.mtime;
+    }
+
     public isDirectory(): boolean {
         return fs.lstatSync(this.internalPathStr).isDirectory();
     }

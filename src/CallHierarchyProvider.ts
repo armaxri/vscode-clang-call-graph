@@ -1,8 +1,6 @@
 import * as vscode from "vscode";
 
-export class ClangCallHierarchyProvider
-    implements vscode.CallHierarchyProvider
-{
+export class CallHierarchyProvider implements vscode.CallHierarchyProvider {
     prepareCallHierarchy(
         document: vscode.TextDocument,
         position: vscode.Position,

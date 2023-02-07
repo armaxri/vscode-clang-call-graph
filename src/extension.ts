@@ -1,9 +1,11 @@
 import * as vscode from "vscode";
-import { ClangCallGraphConfiguration } from "./ClangCallGraphConfiguration";
+import { Configuration } from "./Configuration";
+import { Database } from "./Database";
 import { ClangCallGraphParser } from "./ClangCallGraphParser";
-import { ClangCallHierarchyProvider } from "./ClangCallHierarchyProvider";
+import { CallHierarchyProvider } from "./CallHierarchyProvider";
 
-let clangCallGraphParser: ClangCallGraphParser;
+let callGraphDatabase: Database;
+let callGraphParser: ClangCallGraphParser;
 
 export function activate(context: vscode.ExtensionContext) {
     // Use the console to output diagnostic information (console.log) and errors (console.error)
@@ -12,22 +14,22 @@ export function activate(context: vscode.ExtensionContext) {
         "Congratulations, your extension 'clang-call-graph' is now active!"
     );
 
-    clangCallGraphParser = new ClangCallGraphParser(
-        new ClangCallGraphConfiguration()
-    );
+    let config = new Configuration();
+    callGraphDatabase = new Database(config);
+    callGraphParser = new ClangCallGraphParser(config, callGraphDatabase);
 
     context.subscriptions.push(
         vscode.commands.registerCommand(
             "clang-call-graph.startCallGraphParser",
             () => {
-                if (clangCallGraphParser.running) {
+                if (callGraphParser.running) {
                     console.log("Stop the clang call graph parser.");
-                    clangCallGraphParser.stopParser();
+                    callGraphParser.stopParser();
                 }
                 console.log("Start the clang call graph parser.");
-                clangCallGraphParser.startParser(
-                    new ClangCallGraphConfiguration()
-                );
+                let config = new Configuration();
+                callGraphDatabase.resetDatabase(config);
+                callGraphParser.startParser(config);
             }
         )
     );
@@ -36,9 +38,9 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.registerCommand(
             "clang-call-graph.stopCallGraphParser",
             () => {
-                if (clangCallGraphParser.running) {
+                if (callGraphParser.running) {
                     console.log("Stop the clang call graph parser.");
-                    clangCallGraphParser.stopParser();
+                    callGraphParser.stopParser();
                 }
             }
         )
@@ -54,7 +56,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 // This method is called when your extension is deactivated
 export function deactivate() {
-    if (clangCallGraphParser) {
-        clangCallGraphParser.stopParser();
+    if (callGraphParser) {
+        callGraphParser.stopParser();
     }
 }

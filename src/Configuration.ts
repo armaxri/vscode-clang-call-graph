@@ -2,7 +2,7 @@ import * as vscode from "vscode";
 import * as utils from "./utils/utils";
 import { StringReplacer } from "./utils/ConfigStringReplacer";
 
-export class ClangCallGraphConfiguration {
+export class Configuration {
     compileCommandsJsonPath: string = "";
     callGraphDatabasePath: string = "";
     numOfParserThreads: number = 8;

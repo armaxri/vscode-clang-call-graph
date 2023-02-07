@@ -1,5 +1,8 @@
 import * as fs from "fs";
-import { ClangCallGraphConfiguration } from "./ClangCallGraphConfiguration";
+import * as child_process from "child_process";
+import * as clang_ast from "./clang_ast_json";
+import { Configuration } from "./Configuration";
+import { Database } from "./Database";
 import { PathUtils } from "./utils/PathUtils";
 import * as utils from "./utils/utils";
 
@@ -17,16 +20,18 @@ enum CallGraphParsingState {
 
 export class ClangCallGraphParser {
     running: boolean = false;
-    config: ClangCallGraphConfiguration;
+    config: Configuration;
+    database: Database;
     compileCommands: Array<ICompileCommand> = new Array<ICompileCommand>();
     callGraphParsingState: CallGraphParsingState =
         CallGraphParsingState.readCompileCommandsJson;
 
-    constructor(tempConfig: ClangCallGraphConfiguration) {
-        this.config = tempConfig;
+    constructor(config: Configuration, database: Database) {
+        this.config = config;
+        this.database = database;
     }
 
-    public startParser(newConfig: ClangCallGraphConfiguration) {
+    public startParser(newConfig: Configuration) {
         this.config = newConfig;
         this.callGraphParsingState =
             CallGraphParsingState.readCompileCommandsJson;
@@ -52,6 +57,9 @@ export class ClangCallGraphParser {
                     break;
                 }
                 case CallGraphParsingState.readCppFiles: {
+                    this.compileCommands.forEach((compileCommand) => {
+                        this.parseCppFile(compileCommand);
+                    });
                     break;
                 }
                 case CallGraphParsingState.updateCppAndHppFiles: {
@@ -91,5 +99,14 @@ export class ClangCallGraphParser {
         this.compileCommands = jsonCompileCommands as Array<ICompileCommand>;
 
         return true;
+    }
+
+    async parseCppFile(command: ICompileCommand) {
+        const clangAstCommand = utils.createClangAstCall(command.command);
+        var clangCall = clangAstCommand.join(" ");
+
+        child_process.exec(clangCall, (error, stdout, stderr) => {
+            var jsonClangAst = JSON.parse(stdout);
+        });
     }
 }

@@ -1,0 +1,21 @@
+#include <simple_c_style_func.h>
+
+int mult(unsigned int val1, unsigned int val2)
+{
+    auto result = 0;
+    for (int i = 0; i < val2; i++)
+    {
+        result = foo::add(val1, result);
+    }
+    return result;
+}
+
+namespace foo
+{
+
+int add(unsigned int val1, unsigned int val2)
+{
+    return val1 + val2;
+}
+
+}
