@@ -1,6 +1,6 @@
 #include <simple_c_style_func.h>
 
-int mult(unsigned int val1, unsigned int val2)
+int mult(int val1, int val2)
 {
     auto result = 0;
     for (int i = 0; i < val2; i++)
@@ -13,7 +13,7 @@ int mult(unsigned int val1, unsigned int val2)
 namespace foo
 {
 
-int add(unsigned int val1, unsigned int val2)
+int add(int val1, int val2)
 {
     return val1 + val2;
 }

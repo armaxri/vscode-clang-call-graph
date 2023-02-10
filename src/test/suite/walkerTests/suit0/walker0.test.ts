@@ -6,6 +6,14 @@ import { MockDatabase } from "../../utils/MockDatabase";
 import { FuncMentioning } from "../../../../IDatabase";
 import { ClangAstWalker } from "../../../../ClangAstWalker";
 
+function orderArraysByLine(
+    input: Array<FuncMentioning>
+): Array<FuncMentioning> {
+    return input.sort((element0, element1) => {
+        return element0.line - element1.line;
+    });
+}
+
 suite("Clang AST Test Suite 0", () => {
     test("test main implementation", () => {
         const clangAst = loadAst(adjustTsToJsPath(__dirname), "main.json");
@@ -16,9 +24,17 @@ suite("Clang AST Test Suite 0", () => {
 
         const expectedImpls: Array<FuncMentioning> = [
             {
+                funcName: "divide",
+                funcAstName: "__Z6divideii",
+                file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit0/simple_c_style_func.h",
+                line: 5,
+                columnStart: 5,
+                columnEnd: 11,
+            },
+            {
                 funcName: "sub",
-                funcAstName: "__Z3subjj",
-                file: "/Users/arne/work/git/vscode-clang-call-graph/test_workspaces/workspace00/main.cpp",
+                funcAstName: "__Z3subii",
+                file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit0/main.cpp",
                 line: 5,
                 columnStart: 5,
                 columnEnd: 8,
@@ -26,20 +42,17 @@ suite("Clang AST Test Suite 0", () => {
             {
                 funcName: "main",
                 funcAstName: "_main",
-                file: "/Users/arne/work/git/vscode-clang-call-graph/test_workspaces/workspace00/main.cpp",
-                line: 7,
+                file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit0/main.cpp",
+                line: 10,
                 columnStart: 5,
                 columnEnd: 9,
             },
         ];
 
-        assert.strictEqual(
-            database.funcImplementations.length,
-            expectedImpls.length
+        assert.deepEqual(
+            orderArraysByLine(database.funcImplementations),
+            orderArraysByLine(expectedImpls)
         );
-        database.funcImplementations.forEach((element, index) => {
-            assert.deepEqual(element, expectedImpls.at(index));
-        });
     });
 
     test("test simple_c_style_func implementation", () => {
@@ -54,8 +67,16 @@ suite("Clang AST Test Suite 0", () => {
 
         const expectedImpls: Array<FuncMentioning> = [
             {
+                funcName: "divide",
+                funcAstName: "__Z6divideii",
+                file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit0/simple_c_style_func.h",
+                line: 5,
+                columnStart: 5,
+                columnEnd: 11,
+            },
+            {
                 funcName: "mult",
-                funcAstName: "__Z4multjj",
+                funcAstName: "__Z4multii",
                 file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit0/simple_c_style_func.cpp",
                 line: 3,
                 columnStart: 5,
@@ -63,7 +84,7 @@ suite("Clang AST Test Suite 0", () => {
             },
             {
                 funcName: "add",
-                funcAstName: "__ZN3foo3addEjj",
+                funcAstName: "__ZN3foo3addEii",
                 file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit0/simple_c_style_func.cpp",
                 line: 16,
                 columnStart: 5,
@@ -71,12 +92,9 @@ suite("Clang AST Test Suite 0", () => {
             },
         ];
 
-        assert.strictEqual(
-            database.funcImplementations.length,
-            expectedImpls.length
+        assert.deepEqual(
+            orderArraysByLine(database.funcImplementations),
+            orderArraysByLine(expectedImpls)
         );
-        database.funcImplementations.forEach((element, index) => {
-            assert.deepEqual(element, expectedImpls.at(index));
-        });
     });
 });

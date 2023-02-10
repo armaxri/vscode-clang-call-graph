@@ -1,10 +1,15 @@
 #pragma once
 
-int mult(unsigned int val1, unsigned int val2);
+int mult(int val1, int val2);
+
+int divide(int val1, int val2)
+{
+    return val1 / val2;
+}
 
 namespace foo
 {
 
-int add(unsigned int val1, unsigned int val2);
+int add(int val1, int val2);
 
 }
