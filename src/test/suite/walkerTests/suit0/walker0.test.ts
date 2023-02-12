@@ -140,6 +140,7 @@ suite("Clang AST Test Suite 0", () => {
                     file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit0/main.cpp",
                     line: 12,
                     columnStart: 25,
+                    // TODO: Should be 33 but the walker only sees the namespace name.
                     columnEnd: 28,
                 },
             },
