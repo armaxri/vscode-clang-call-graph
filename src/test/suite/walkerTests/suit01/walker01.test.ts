@@ -61,4 +61,55 @@ suite("Clang AST Walker Test Suite 01", () => {
             orderArraysByLineAndColumn(expectedCalls)
         );
     });
+
+    test("multiline_func_call_in_func_call", () => {
+        const clangAst = loadAst(
+            adjustTsToJsPath(__dirname),
+            "multiline_func_call_in_func_call.json"
+        );
+        var database = new MockDatabase();
+        var astWalker = new ClangAstWalker(clangAst, database);
+
+        astWalker.walkAst();
+
+        const expectedCalls: Array<FuncCall> = [
+            {
+                callingFuncAstName: "_main",
+                callDetails: {
+                    funcName: "add",
+                    funcAstName: "__Z3addii",
+                    file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit01/multiline_func_call_in_func_call.cpp",
+                    startLoc: {
+                        line: 8,
+                        column: 12,
+                    },
+                    endLoc: {
+                        line: 10,
+                        column: 11,
+                    },
+                },
+            },
+            {
+                callingFuncAstName: "_main",
+                callDetails: {
+                    funcName: "add",
+                    funcAstName: "__Z3addii",
+                    file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit01/multiline_func_call_in_func_call.cpp",
+                    startLoc: {
+                        line: 9,
+                        column: 9,
+                    },
+                    endLoc: {
+                        line: 9,
+                        column: 18,
+                    },
+                },
+            },
+        ];
+
+        assert.deepEqual(
+            orderArraysByLineAndColumn(database.funcCalls),
+            orderArraysByLineAndColumn(expectedCalls)
+        );
+    });
 });
