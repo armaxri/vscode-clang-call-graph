@@ -4,7 +4,13 @@ export function orderArrayorderArraysByLineAndColumnsByLine(
     input: Array<iDb.FuncMentioning>
 ): Array<iDb.FuncMentioning> {
     return input.sort((element0, element1) => {
-        return element0.funcAstName > element1.funcAstName ? -1 : 1;
+        return element0.funcAstName > element1.funcAstName
+            ? -1
+            : element0.funcAstName < element1.funcAstName
+            ? 1
+            : element0.startLoc.line !== element1.startLoc.line
+            ? element0.startLoc.line - element1.startLoc.line
+            : element0.startLoc.column - element1.startLoc.column;
     });
 }
 
@@ -15,7 +21,15 @@ export function orderArraysByLineAndColumn(
         return element0.callDetails.funcAstName >
             element1.callDetails.funcAstName
             ? -1
-            : 1;
+            : element0.callDetails.funcAstName <
+              element1.callDetails.funcAstName
+            ? 1
+            : element0.callDetails.startLoc.line !==
+              element1.callDetails.startLoc.line
+            ? element0.callDetails.startLoc.line -
+              element1.callDetails.startLoc.line
+            : element0.callDetails.startLoc.column -
+              element1.callDetails.startLoc.column;
     });
 }
 
