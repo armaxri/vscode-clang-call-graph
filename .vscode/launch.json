@@ -6,12 +6,12 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "Run Extension on Test Workspace 00",
+			"name": "Run Extension on Walker Tests Suit 00",
 			"type": "extensionHost",
 			"request": "launch",
 			"args": [
 				"--extensionDevelopmentPath=${workspaceFolder}",
-                "${workspaceFolder}/test_workspaces/workspace00"
+                "${workspaceFolder}/src/test/suite/walkerTests/suit00"
 			],
 			"outFiles": [
 				"${workspaceFolder}/out/**/*.js"

@@ -2,28 +2,15 @@ import * as assert from "assert";
 import * as vscode from "vscode";
 import { loadAst } from "../../utils/clang_ast_json_loader";
 import { adjustTsToJsPath } from "../../utils/adjust_ts_to_js_path";
-import { MockDatabase } from "../../utils/MockDatabase";
+import {
+    MockDatabase,
+    orderArrayorderArraysByLineAndColumnsByLine,
+    orderArraysByLineAndColumn,
+} from "../../utils/MockDatabase";
 import { FuncCall, FuncMentioning } from "../../../../IDatabase";
 import { ClangAstWalker } from "../../../../ClangAstWalker";
 
-function orderArrayorderArraysByLineAndColumnsByLine(
-    input: Array<FuncMentioning>
-): Array<FuncMentioning> {
-    return input.sort((element0, element1) => {
-        return element0.funcAstName > element1.funcAstName ? -1 : 1;
-    });
-}
-
-function orderArraysByLineAndColumn(input: Array<FuncCall>): Array<FuncCall> {
-    return input.sort((element0, element1) => {
-        return element0.callDetails.funcAstName >
-            element1.callDetails.funcAstName
-            ? -1
-            : 1;
-    });
-}
-
-suite("Clang AST Test Suite 0", () => {
+suite("Clang AST Walker Test Suite 00", () => {
     test("main implementation", () => {
         const clangAst = loadAst(adjustTsToJsPath(__dirname), "main.json");
         var database = new MockDatabase();
@@ -35,7 +22,7 @@ suite("Clang AST Test Suite 0", () => {
             {
                 funcName: "divide",
                 funcAstName: "__Z6divideii",
-                file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit0/simple_c_style_func.h",
+                file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit00/simple_c_style_func.h",
                 startLoc: {
                     line: 5,
                     column: 5,
@@ -48,7 +35,7 @@ suite("Clang AST Test Suite 0", () => {
             {
                 funcName: "sub",
                 funcAstName: "__Z3subii",
-                file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit0/main.cpp",
+                file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit00/main.cpp",
                 startLoc: {
                     line: 5,
                     column: 5,
@@ -61,7 +48,7 @@ suite("Clang AST Test Suite 0", () => {
             {
                 funcName: "main",
                 funcAstName: "_main",
-                file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit0/main.cpp",
+                file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit00/main.cpp",
                 startLoc: {
                     line: 10,
                     column: 5,
@@ -95,7 +82,7 @@ suite("Clang AST Test Suite 0", () => {
             {
                 funcName: "divide",
                 funcAstName: "__Z6divideii",
-                file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit0/simple_c_style_func.h",
+                file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit00/simple_c_style_func.h",
                 startLoc: {
                     line: 5,
                     column: 5,
@@ -108,7 +95,7 @@ suite("Clang AST Test Suite 0", () => {
             {
                 funcName: "mult",
                 funcAstName: "__Z4multii",
-                file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit0/simple_c_style_func.cpp",
+                file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit00/simple_c_style_func.cpp",
                 startLoc: {
                     line: 3,
                     column: 5,
@@ -121,7 +108,7 @@ suite("Clang AST Test Suite 0", () => {
             {
                 funcName: "add",
                 funcAstName: "__ZN3foo3addEii",
-                file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit0/simple_c_style_func.cpp",
+                file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit00/simple_c_style_func.cpp",
                 startLoc: {
                     line: 16,
                     column: 5,
@@ -154,7 +141,7 @@ suite("Clang AST Test Suite 0", () => {
                 callDetails: {
                     funcName: "mult",
                     funcAstName: "__Z4multii",
-                    file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit0/main.cpp",
+                    file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit00/main.cpp",
                     startLoc: {
                         line: 12,
                         column: 12,
@@ -170,7 +157,7 @@ suite("Clang AST Test Suite 0", () => {
                 callDetails: {
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
-                    file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit0/main.cpp",
+                    file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit00/main.cpp",
                     startLoc: {
                         line: 12,
                         column: 25,
@@ -186,7 +173,7 @@ suite("Clang AST Test Suite 0", () => {
                 callDetails: {
                     funcName: "sub",
                     funcAstName: "__Z3subii",
-                    file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit0/main.cpp",
+                    file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit00/main.cpp",
                     startLoc: {
                         line: 14,
                         column: 9,
@@ -202,7 +189,7 @@ suite("Clang AST Test Suite 0", () => {
                 callDetails: {
                     funcName: "divide",
                     funcAstName: "__Z6divideii",
-                    file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit0/main.cpp",
+                    file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit00/main.cpp",
                     startLoc: {
                         line: 15,
                         column: 9,
@@ -237,7 +224,7 @@ suite("Clang AST Test Suite 0", () => {
                 callDetails: {
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
-                    file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit0/simple_c_style_func.cpp",
+                    file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit00/simple_c_style_func.cpp",
                     startLoc: {
                         line: 8,
                         column: 18,
