@@ -9,5 +9,9 @@ int sub(int val1, int val2)
 
 int main(int argc, char* argv[])
 {
-    return mult(2, 2) + foo::add(4, 4) + sub(8, 10) + divide(4, 2);
+    return mult(2, 2) + foo::add(
+        4, 4) +
+        sub(8, 10) +
+        divide(
+            4, 2);
 }

@@ -1,5 +1,5 @@
 import * as clang_ast from "./clang_ast_json";
-import { IDatabase, FuncMentioning, FuncCall } from "./IDatabase";
+import { IDatabase, FuncMentioning, FuncCall, Location } from "./IDatabase";
 
 function hasCompoundStmtInInner(astElement: clang_ast.AstElement): boolean {
     if (astElement.inner) {
@@ -26,6 +26,9 @@ export class ClangAstWalker {
     private lastSeenFileNameInFuncDecl: string = "";
     private lastSeenLocLineNumber: number = -1;
     private lastSeenRangeBeginLine: number = -1;
+    private lastSeenRangeEndLine: number = -1;
+    private lastCallExprBeginLocation: Location = { line: -1, column: -1 };
+    private lastCallExprEndLocation: Location = { line: -1, column: -1 };
 
     private callingFuncName: string = "";
     private baseAstElement: clang_ast.AstElement;
@@ -54,6 +57,12 @@ export class ClangAstWalker {
         }
         if (astElement.range && astElement.range.begin.line) {
             this.lastSeenRangeBeginLine = astElement.range.begin.line;
+            // The end also may hit a new line. But in case it doesn't,
+            // we record it here.
+            this.lastSeenRangeEndLine = this.lastSeenRangeBeginLine;
+        }
+        if (astElement.range && astElement.range.end.line) {
+            this.lastSeenRangeEndLine = astElement.range.end.line;
         }
 
         if (astElement.kind === "FunctionDecl") {
@@ -84,7 +93,9 @@ export class ClangAstWalker {
 
             this.callingFuncName = currentCallingFuncName;
         } else {
-            if (astElement.kind === "DeclRefExpr") {
+            if (astElement.kind === "CallExpr") {
+                this.updateLastCallExprLocation(astElement);
+            } else if (astElement.kind === "DeclRefExpr") {
                 if (astElement.referencedDecl) {
                     const calledFuncId = Number(astElement.referencedDecl.id);
                     const referencedDecl = this.funcDeclarations.find(
@@ -131,9 +142,55 @@ export class ClangAstWalker {
                 ? astElement.mangledName
                 : "Error! No mangledName present.",
             file: this.lastSeenFileNameInFuncDecl,
-            line: this.lastSeenLocLineNumber,
-            columnStart: columnStart,
-            columnEnd: columnEnd,
+            startLoc: {
+                line: this.lastSeenLocLineNumber,
+                column: columnStart,
+            },
+            endLoc: {
+                line: this.lastSeenLocLineNumber,
+                column: columnEnd,
+            },
+        };
+    }
+
+    private getRangeStartLocation(astElement: clang_ast.AstElement): Location {
+        return {
+            line:
+                astElement.range &&
+                astElement.range.begin &&
+                astElement.range.begin.line
+                    ? astElement.range.begin.line
+                    : this.lastSeenRangeBeginLine,
+            column:
+                astElement.range &&
+                astElement.range.begin &&
+                astElement.range.begin.col
+                    ? astElement.range.begin.col
+                    : -1,
+        };
+    }
+
+    private getRangeEndLocation(astElement: clang_ast.AstElement): Location {
+        return {
+            line:
+                astElement.range &&
+                astElement.range.end &&
+                astElement.range.end.line
+                    ? astElement.range.end.line
+                    : astElement.range &&
+                      astElement.range.begin &&
+                      astElement.range.begin.line
+                    ? astElement.range.begin.line
+                    : this.lastSeenRangeBeginLine,
+            column:
+                astElement.range &&
+                astElement.range.end &&
+                astElement.range.end.col
+                    ? astElement.range.end.col +
+                      (astElement.range.end.tokLen
+                          ? astElement.range.end.tokLen
+                          : 0)
+                    : -1,
         };
     }
 
@@ -149,31 +206,23 @@ export class ClangAstWalker {
         this.funcDeclarations.push(newDecl);
     }
 
+    private updateLastCallExprLocation(astElement: clang_ast.AstElement) {
+        this.lastCallExprBeginLocation = this.getRangeStartLocation(astElement);
+        this.lastCallExprEndLocation = this.getRangeEndLocation(astElement);
+    }
+
     private createFuncCall(
         astElement: clang_ast.AstElement,
         referencedDecl: SimpleFuncDeclaration
     ): FuncCall {
-        const columnStart = astElement.range
-            ? astElement.range.begin.col
-                ? astElement.range.begin.col
-                : -1
-            : -1;
-        const columnEnd =
-            columnStart +
-            (astElement.range
-                ? astElement.range.begin.tokLen
-                    ? astElement.range.begin.tokLen
-                    : 0
-                : 0);
         return {
             callingFuncAstName: this.callingFuncName,
             callDetails: {
                 funcName: referencedDecl.mentioningData.funcName,
                 funcAstName: referencedDecl.mentioningData.funcAstName,
                 file: this.lastSeenFileNameInFuncDecl,
-                line: this.lastSeenRangeBeginLine,
-                columnStart: columnStart,
-                columnEnd: columnEnd,
+                startLoc: this.lastCallExprBeginLocation,
+                endLoc: this.lastCallExprEndLocation,
             },
         };
     }

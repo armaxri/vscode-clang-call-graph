@@ -1,10 +1,14 @@
+export type Location = {
+    line: number;
+    column: number;
+};
+
 export type FuncMentioning = {
     funcName: string;
     funcAstName: string;
     file: string;
-    line: number;
-    columnStart: number;
-    columnEnd: number;
+    startLoc: Location;
+    endLoc: Location;
 };
 
 export type FuncCall = {

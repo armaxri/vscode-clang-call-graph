@@ -29,7 +29,7 @@ This extension contributes the following settings:
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+* For the detection of the function name, the whole range is used from the beginning of the first character to the closing bracket and not just the function name part. This comes from a limitation of clang´s AST. On the function call `foo::add(4, 4)` clang will report as location for the function start only the namespace `foo`.
 
 ## Release Notes
 
