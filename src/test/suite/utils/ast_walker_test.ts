@@ -34,7 +34,7 @@ function loadAst(dirname: string, filename: string): astJson.AstElement {
     return convertedAst;
 }
 
-function orderArrayorderArraysByLineAndColumnsByLine(
+function orderArrayOfFuncMentioningByFuncNameLineAndColumns(
     input: Array<FuncMentioning>
 ): Array<FuncMentioning> {
     return input.sort((element0, element1) => {
@@ -48,7 +48,9 @@ function orderArrayorderArraysByLineAndColumnsByLine(
     });
 }
 
-function orderArraysByLineAndColumn(input: Array<FuncCall>): Array<FuncCall> {
+function orderArrayOfFuncCallByFuncNameLineAndColumn(
+    input: Array<FuncCall>
+): Array<FuncCall> {
     return input.sort((element0, element1) => {
         return element0.callDetails.funcAstName >
             element1.callDetails.funcAstName
@@ -81,14 +83,18 @@ export function testAstWalkerResults(
 
     if (expectedImplementations) {
         assert.deepEqual(
-            orderArrayorderArraysByLineAndColumnsByLine(parsedImplementations),
-            orderArrayorderArraysByLineAndColumnsByLine(expectedImplementations)
+            orderArrayOfFuncMentioningByFuncNameLineAndColumns(
+                parsedImplementations
+            ),
+            orderArrayOfFuncMentioningByFuncNameLineAndColumns(
+                expectedImplementations
+            )
         );
     }
     if (expectedCalls) {
         assert.deepEqual(
-            orderArraysByLineAndColumn(parsedCalls),
-            orderArraysByLineAndColumn(expectedCalls)
+            orderArrayOfFuncCallByFuncNameLineAndColumn(parsedCalls),
+            orderArrayOfFuncCallByFuncNameLineAndColumn(expectedCalls)
         );
     }
 }
