@@ -65,7 +65,11 @@ export class ClangAstWalker {
             this.lastSeenRangeEndLine = astElement.range.end.line;
         }
 
-        if (astElement.kind === "FunctionDecl") {
+        if (
+            astElement.kind === "FunctionDecl" ||
+            (astElement.kind === "CXXMethodDecl" &&
+                astElement.storageClass === "static")
+        ) {
             // Function declaration in function declaration is no C++ thing.
             // But still we do this since maybe we one day walk some nice
             // language like python or C++ gets extended.

@@ -8,7 +8,7 @@ suite("Clang AST Walker Test Suite 02", () => {
             [
                 {
                     funcName: "add",
-                    funcAstName: "__Z3subii",
+                    funcAstName: "__ZN9TestClass3addEii",
                     file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit02/simple_static_method.cpp",
                     startLoc: {
                         line: 4,
@@ -47,15 +47,15 @@ suite("Clang AST Walker Test Suite 02", () => {
                     callingFuncAstName: "_main",
                     callDetails: {
                         funcName: "add",
-                        funcAstName: "__Z3addii",
+                        funcAstName: "__ZN9TestClass3addEii",
                         file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit02/simple_static_method.cpp",
                         startLoc: {
-                            line: 8,
+                            line: 12,
                             column: 12,
                         },
                         endLoc: {
-                            line: 8,
-                            column: 29,
+                            line: 12,
+                            column: 32,
                         },
                     },
                 },
