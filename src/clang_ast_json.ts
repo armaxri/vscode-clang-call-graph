@@ -39,6 +39,7 @@ export interface AstElement {
     opcode?: string;
     decl?: AstElement;
     storageClass?: string;
+    referencedMemberDecl?: string;
     inner?: Array<AstElement>;
 }
 

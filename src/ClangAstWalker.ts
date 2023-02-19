@@ -67,8 +67,7 @@ export class ClangAstWalker {
 
         if (
             astElement.kind === "FunctionDecl" ||
-            (astElement.kind === "CXXMethodDecl" &&
-                astElement.storageClass === "static")
+            astElement.kind === "CXXMethodDecl"
         ) {
             // Function declaration in function declaration is no C++ thing.
             // But still we do this since maybe we one day walk some nice
@@ -97,13 +96,26 @@ export class ClangAstWalker {
 
             this.callingFuncName = currentCallingFuncName;
         } else {
-            if (astElement.kind === "CallExpr") {
+            if (
+                astElement.kind === "CallExpr" ||
+                astElement.kind === "CXXMemberCallExpr"
+            ) {
                 this.updateLastCallExprLocation(astElement);
-            } else if (astElement.kind === "DeclRefExpr") {
-                if (astElement.referencedDecl) {
-                    const calledFuncId = Number(astElement.referencedDecl.id);
+            } else if (
+                astElement.kind === "DeclRefExpr" ||
+                astElement.kind === "MemberExpr"
+            ) {
+                const calledFuncId: string | undefined =
+                    astElement.referencedDecl
+                        ? astElement.kind === "DeclRefExpr"
+                            ? astElement.referencedDecl.id
+                            : astElement.referencedMemberDecl
+                        : astElement.referencedMemberDecl
+                        ? astElement.referencedMemberDecl
+                        : undefined;
+                if (calledFuncId) {
                     const referencedDecl = this.funcDeclarations.find(
-                        (funcDec) => funcDec.id === calledFuncId
+                        (funcDec) => funcDec.id === Number(calledFuncId)
                     );
                     if (referencedDecl) {
                         const funcCall = this.createFuncCall(
