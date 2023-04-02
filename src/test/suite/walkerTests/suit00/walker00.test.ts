@@ -47,8 +47,8 @@ suite("Clang AST Walker Test Suite 00", () => {
                 },
             ],
             undefined,
-            undefined,
-            undefined
+            [],
+            []
         );
     });
 
@@ -98,8 +98,8 @@ suite("Clang AST Walker Test Suite 00", () => {
                 },
             ],
             undefined,
-            undefined,
-            undefined
+            [],
+            []
         );
     });
 
@@ -174,8 +174,8 @@ suite("Clang AST Walker Test Suite 00", () => {
                     },
                 },
             ],
-            undefined,
-            undefined
+            [],
+            []
         );
     });
 
@@ -202,8 +202,8 @@ suite("Clang AST Walker Test Suite 00", () => {
                     },
                 },
             ],
-            undefined,
-            undefined
+            [],
+            []
         );
     });
 });
