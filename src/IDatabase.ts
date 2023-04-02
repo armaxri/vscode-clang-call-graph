@@ -31,10 +31,7 @@ export interface IDatabase {
     registerFuncDeclaration(funcDec: FuncMentioning): void;
     registerFuncImplementation(funcImpl: FuncMentioning): void;
     registerFuncCall(funcCall: FuncCall): void;
-    registerVirtualFuncDeclaration(funcDec: FuncMentioning): void;
-    registerInheritedVirtualFuncDeclaration(
-        funcDec: VirtualFuncMentioning
-    ): void;
+    registerVirtualFuncDeclaration(funcDec: VirtualFuncMentioning): void;
     registerVirtualFuncImplementation(funcImpl: VirtualFuncMentioning): void;
     registerVirtualFuncCall(funcCall: VirtualFuncCall): void;
 }

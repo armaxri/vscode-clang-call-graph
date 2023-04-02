@@ -1,5 +1,12 @@
 import * as clang_ast from "./clang_ast_json";
-import { IDatabase, FuncMentioning, FuncCall, Location } from "./IDatabase";
+import {
+    IDatabase,
+    FuncMentioning,
+    FuncCall,
+    Location,
+    VirtualFuncMentioning,
+    VirtualFuncCall,
+} from "./IDatabase";
 
 function hasCompoundStmtInInner(astElement: clang_ast.AstElement): boolean {
     if (astElement.inner) {
@@ -19,6 +26,10 @@ type SimpleFuncDeclaration = {
     id: number;
     mentioningData: FuncMentioning;
 };
+type SimpleVirtualFuncDeclaration = {
+    id: number;
+    mentioningData: VirtualFuncMentioning;
+};
 
 export class ClangAstWalker {
     // Sadly we need to cache a few data, which are reported once
@@ -35,6 +46,8 @@ export class ClangAstWalker {
     private database: IDatabase;
     private funcDeclarations: Array<SimpleFuncDeclaration> =
         new Array<SimpleFuncDeclaration>();
+    private virtualFuncDeclarations: Array<SimpleVirtualFuncDeclaration> =
+        new Array<SimpleVirtualFuncDeclaration>();
 
     constructor(baseAstElement: clang_ast.AstElement, database: IDatabase) {
         this.baseAstElement = baseAstElement;
@@ -74,13 +87,29 @@ export class ClangAstWalker {
             // language like python or C++ gets extended.
             const currentCallingFuncName = this.callingFuncName;
 
-            const funcMentioning = this.createFuncMentioning(astElement);
-            this.recordFuncDecl(astElement, funcMentioning);
+            if (astElement.virtual === true) {
+                const virtualFuncMentioning =
+                    this.createVirtualFuncMentioning(astElement);
+                this.recordVirtualFuncDecl(astElement, virtualFuncMentioning);
 
-            if (hasCompoundStmtInInner(astElement)) {
-                this.database.registerFuncImplementation(funcMentioning);
+                if (hasCompoundStmtInInner(astElement)) {
+                    this.database.registerVirtualFuncImplementation(
+                        virtualFuncMentioning
+                    );
+                } else {
+                    this.database.registerVirtualFuncDeclaration(
+                        virtualFuncMentioning
+                    );
+                }
             } else {
-                this.database.registerFuncDeclaration(funcMentioning);
+                const funcMentioning = this.createFuncMentioning(astElement);
+                this.recordFuncDecl(astElement, funcMentioning);
+
+                if (hasCompoundStmtInInner(astElement)) {
+                    this.database.registerFuncImplementation(funcMentioning);
+                } else {
+                    this.database.registerFuncDeclaration(funcMentioning);
+                }
             }
 
             this.callingFuncName =
@@ -124,6 +153,17 @@ export class ClangAstWalker {
                         );
                         this.database.registerFuncCall(funcCall);
                     }
+                    const referencedVirtualDecl =
+                        this.virtualFuncDeclarations.find(
+                            (funcDec) => funcDec.id === Number(calledFuncId)
+                        );
+                    if (referencedVirtualDecl) {
+                        const funcCall = this.createVirtualFuncCall(
+                            astElement,
+                            referencedVirtualDecl
+                        );
+                        this.database.registerVirtualFuncCall(funcCall);
+                    }
                 }
             }
 
@@ -166,6 +206,16 @@ export class ClangAstWalker {
                 line: this.lastSeenLocLineNumber,
                 column: columnEnd,
             },
+        };
+    }
+
+    private createVirtualFuncMentioning(
+        astElement: clang_ast.AstElement
+    ): VirtualFuncMentioning {
+        const funcMentioning = this.createFuncMentioning(astElement);
+        return {
+            baseFuncAstName: funcMentioning.funcAstName,
+            funcImpl: funcMentioning,
         };
     }
 
@@ -222,6 +272,18 @@ export class ClangAstWalker {
         this.funcDeclarations.push(newDecl);
     }
 
+    private recordVirtualFuncDecl(
+        astElement: clang_ast.AstElement,
+        funcMentioning: VirtualFuncMentioning
+    ) {
+        const newDecl: SimpleVirtualFuncDeclaration = {
+            id: Number(astElement.id),
+            mentioningData: funcMentioning,
+        };
+
+        this.virtualFuncDeclarations.push(newDecl);
+    }
+
     private updateLastCallExprLocation(astElement: clang_ast.AstElement) {
         this.lastCallExprBeginLocation = this.getRangeStartLocation(astElement);
         this.lastCallExprEndLocation = this.getRangeEndLocation(astElement);
@@ -236,6 +298,23 @@ export class ClangAstWalker {
             callDetails: {
                 funcName: referencedDecl.mentioningData.funcName,
                 funcAstName: referencedDecl.mentioningData.funcAstName,
+                file: this.lastSeenFileNameInFuncDecl,
+                startLoc: this.lastCallExprBeginLocation,
+                endLoc: this.lastCallExprEndLocation,
+            },
+        };
+    }
+
+    private createVirtualFuncCall(
+        astElement: clang_ast.AstElement,
+        referencedDecl: SimpleVirtualFuncDeclaration
+    ): VirtualFuncCall {
+        return {
+            callingFuncAstName: this.callingFuncName,
+            baseFuncAstName: referencedDecl.mentioningData.baseFuncAstName,
+            callDetails: {
+                funcName: referencedDecl.mentioningData.funcImpl.funcName,
+                funcAstName: referencedDecl.mentioningData.funcImpl.funcAstName,
                 file: this.lastSeenFileNameInFuncDecl,
                 startLoc: this.lastCallExprBeginLocation,
                 endLoc: this.lastCallExprEndLocation,
