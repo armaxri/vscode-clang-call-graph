@@ -38,6 +38,7 @@ export interface AstElement {
     referencedDecl?: AstElement;
     opcode?: string;
     decl?: AstElement;
+    virtual?: boolean;
     storageClass?: string;
     referencedMemberDecl?: string;
     inner?: Array<AstElement>;

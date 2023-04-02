@@ -33,28 +33,37 @@ suite("Clang AST Walker Test Suite 03", () => {
                     },
                 },
             ],
+            undefined,
+            undefined,
             undefined
         );
     });
 
     test("simple_method call", () => {
-        testAstWalkerResults(__dirname, "simple_method.json", undefined, [
-            {
-                callingFuncAstName: "_main",
-                callDetails: {
-                    funcName: "add",
-                    funcAstName: "__ZN9TestClass3addEii",
-                    file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit03/simple_method.cpp",
-                    startLoc: {
-                        line: 13,
-                        column: 12,
-                    },
-                    endLoc: {
-                        line: 13,
-                        column: 26,
+        testAstWalkerResults(
+            __dirname,
+            "simple_method.json",
+            undefined,
+            [
+                {
+                    callingFuncAstName: "_main",
+                    callDetails: {
+                        funcName: "add",
+                        funcAstName: "__ZN9TestClass3addEii",
+                        file: "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit03/simple_method.cpp",
+                        startLoc: {
+                            line: 13,
+                            column: 12,
+                        },
+                        endLoc: {
+                            line: 13,
+                            column: 26,
+                        },
                     },
                 },
-            },
-        ]);
+            ],
+            undefined,
+            undefined
+        );
     });
 });

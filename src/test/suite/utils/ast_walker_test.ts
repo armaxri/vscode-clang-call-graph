@@ -2,7 +2,12 @@ import * as assert from "assert";
 import * as fs from "fs";
 import { PathUtils } from "../../../utils/PathUtils";
 import * as astJson from "../../../clang_ast_json";
-import { FuncMentioning, FuncCall } from "../../../IDatabase";
+import {
+    FuncMentioning,
+    FuncCall,
+    VirtualFuncImplementation,
+    VirtualFuncCall,
+} from "../../../IDatabase";
 import { ClangAstWalker } from "../../../ClangAstWalker";
 import { MockDatabase } from "./MockDatabase";
 
@@ -67,11 +72,31 @@ function orderArrayOfFuncCallByFuncNameLineAndColumn(
     });
 }
 
+function orderArrayOfVirtualFuncImplByFuncNameLineAndColumns(
+    input: Array<VirtualFuncImplementation>
+): Array<VirtualFuncImplementation> {
+    return input.sort((element0, element1) => {
+        return element0.funcImpl.funcAstName > element1.funcImpl.funcAstName
+            ? -1
+            : element0.funcImpl.funcAstName < element1.funcImpl.funcAstName
+            ? 1
+            : element0.funcImpl.startLoc.line !==
+              element1.funcImpl.startLoc.line
+            ? element0.funcImpl.startLoc.line - element1.funcImpl.startLoc.line
+            : element0.funcImpl.startLoc.column -
+              element1.funcImpl.startLoc.column;
+    });
+}
+
 export function testAstWalkerResults(
     callingFileDirName: string,
     filename: string,
     expectedImplementations: Array<FuncMentioning> | undefined,
-    expectedCalls: Array<FuncCall> | undefined
+    expectedCalls: Array<FuncCall> | undefined,
+    expectedVirtualImplementations:
+        | Array<VirtualFuncImplementation>
+        | undefined,
+    expectedVirtualCalls: Array<VirtualFuncCall> | undefined
 ) {
     const clangAst = loadAst(adjustTsToJsPath(callingFileDirName), filename);
     var database = new MockDatabase();
@@ -80,6 +105,8 @@ export function testAstWalkerResults(
     astWalker.walkAst();
     const parsedImplementations = database.funcImplementations;
     const parsedCalls = database.funcCalls;
+    const parsedVirtualImplementations = database.virtualFuncImplementation;
+    const parsedVirtualCalls = database.virtualFuncCall;
 
     if (expectedImplementations) {
         assert.deepEqual(
@@ -95,6 +122,22 @@ export function testAstWalkerResults(
         assert.deepEqual(
             orderArrayOfFuncCallByFuncNameLineAndColumn(parsedCalls),
             orderArrayOfFuncCallByFuncNameLineAndColumn(expectedCalls)
+        );
+    }
+    if (expectedVirtualImplementations) {
+        assert.deepEqual(
+            orderArrayOfVirtualFuncImplByFuncNameLineAndColumns(
+                parsedVirtualImplementations
+            ),
+            orderArrayOfVirtualFuncImplByFuncNameLineAndColumns(
+                expectedVirtualImplementations
+            )
+        );
+    }
+    if (expectedVirtualCalls) {
+        assert.deepEqual(
+            orderArrayOfFuncCallByFuncNameLineAndColumn(parsedVirtualCalls),
+            orderArrayOfFuncCallByFuncNameLineAndColumn(expectedVirtualCalls)
         );
     }
 }
