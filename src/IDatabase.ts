@@ -16,12 +16,7 @@ export type FuncCall = {
     callDetails: FuncMentioning;
 };
 
-export type InheritedVirtualFuncDeclaration = {
-    baseFuncAstName: string;
-    funcDec: FuncMentioning;
-};
-
-export type VirtualFuncImplementation = {
+export type VirtualFuncMentioning = {
     baseFuncAstName: string;
     funcImpl: FuncMentioning;
 };
@@ -38,10 +33,8 @@ export interface IDatabase {
     registerFuncCall(funcCall: FuncCall): void;
     registerVirtualFuncDeclaration(funcDec: FuncMentioning): void;
     registerInheritedVirtualFuncDeclaration(
-        funcDec: InheritedVirtualFuncDeclaration
+        funcDec: VirtualFuncMentioning
     ): void;
-    registerVirtualFuncImplementation(
-        funcImpl: VirtualFuncImplementation
-    ): void;
+    registerVirtualFuncImplementation(funcImpl: VirtualFuncMentioning): void;
     registerVirtualFuncCall(funcCall: VirtualFuncCall): void;
 }

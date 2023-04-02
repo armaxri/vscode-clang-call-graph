@@ -5,7 +5,7 @@ import * as astJson from "../../../clang_ast_json";
 import {
     FuncMentioning,
     FuncCall,
-    VirtualFuncImplementation,
+    VirtualFuncMentioning,
     VirtualFuncCall,
 } from "../../../IDatabase";
 import { ClangAstWalker } from "../../../ClangAstWalker";
@@ -73,8 +73,8 @@ function orderArrayOfFuncCallByFuncNameLineAndColumn(
 }
 
 function orderArrayOfVirtualFuncImplByFuncNameLineAndColumns(
-    input: Array<VirtualFuncImplementation>
-): Array<VirtualFuncImplementation> {
+    input: Array<VirtualFuncMentioning>
+): Array<VirtualFuncMentioning> {
     return input.sort((element0, element1) => {
         return element0.funcImpl.funcAstName > element1.funcImpl.funcAstName
             ? -1
@@ -93,9 +93,7 @@ export function testAstWalkerResults(
     filename: string,
     expectedImplementations: Array<FuncMentioning> | undefined,
     expectedCalls: Array<FuncCall> | undefined,
-    expectedVirtualImplementations:
-        | Array<VirtualFuncImplementation>
-        | undefined,
+    expectedVirtualImplementations: Array<VirtualFuncMentioning> | undefined,
     expectedVirtualCalls: Array<VirtualFuncCall> | undefined
 ) {
     const clangAst = loadAst(adjustTsToJsPath(callingFileDirName), filename);

@@ -8,10 +8,10 @@ export class MockDatabase implements iDb.IDatabase {
     public funcCalls: Array<iDb.FuncCall> = new Array<iDb.FuncCall>();
     public virtualFuncDeclaration: Array<iDb.FuncMentioning> =
         new Array<iDb.FuncMentioning>();
-    public inheritedVirtualFuncDeclaration: Array<iDb.InheritedVirtualFuncDeclaration> =
-        new Array<iDb.InheritedVirtualFuncDeclaration>();
-    public virtualFuncImplementation: Array<iDb.VirtualFuncImplementation> =
-        new Array<iDb.VirtualFuncImplementation>();
+    public inheritedVirtualFuncDeclaration: Array<iDb.VirtualFuncMentioning> =
+        new Array<iDb.VirtualFuncMentioning>();
+    public virtualFuncImplementation: Array<iDb.VirtualFuncMentioning> =
+        new Array<iDb.VirtualFuncMentioning>();
     public virtualFuncCall: Array<iDb.VirtualFuncCall> =
         new Array<iDb.VirtualFuncCall>();
 
@@ -28,12 +28,12 @@ export class MockDatabase implements iDb.IDatabase {
         this.virtualFuncDeclaration.push(funcDec);
     }
     registerInheritedVirtualFuncDeclaration(
-        funcDec: iDb.InheritedVirtualFuncDeclaration
+        funcDec: iDb.VirtualFuncMentioning
     ): void {
         this.inheritedVirtualFuncDeclaration.push(funcDec);
     }
     registerVirtualFuncImplementation(
-        funcImpl: iDb.VirtualFuncImplementation
+        funcImpl: iDb.VirtualFuncMentioning
     ): void {
         this.virtualFuncImplementation.push(funcImpl);
     }
