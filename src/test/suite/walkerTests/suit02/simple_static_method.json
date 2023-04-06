@@ -1,5 +1,5 @@
 {
-  "id": "0x12b041a08",
+  "id": "0x142841a08",
   "kind": "TranslationUnitDecl",
   "loc": {},
   "range": {
@@ -8,7 +8,7 @@
   },
   "inner": [
     {
-      "id": "0x12b042890",
+      "id": "0x142842890",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -22,7 +22,7 @@
       },
       "inner": [
         {
-          "id": "0x12b041fd0",
+          "id": "0x142841fd0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__int128"
@@ -31,7 +31,7 @@
       ]
     },
     {
-      "id": "0x12b042900",
+      "id": "0x142842900",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -45,7 +45,7 @@
       },
       "inner": [
         {
-          "id": "0x12b041ff0",
+          "id": "0x142841ff0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "unsigned __int128"
@@ -54,7 +54,7 @@
       ]
     },
     {
-      "id": "0x12b0dda90",
+      "id": "0x14300bc90",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -68,13 +68,13 @@
       },
       "inner": [
         {
-          "id": "0x12b0dd800",
+          "id": "0x14300ba00",
           "kind": "RecordType",
           "type": {
             "qualType": "__NSConstantString_tag"
           },
           "decl": {
-            "id": "0x12b042958",
+            "id": "0x142842958",
             "kind": "CXXRecordDecl",
             "name": "__NSConstantString_tag"
           }
@@ -82,7 +82,7 @@
       ]
     },
     {
-      "id": "0x12b0ddaf8",
+      "id": "0x14300bcf8",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -96,7 +96,7 @@
       },
       "inner": [
         {
-          "id": "0x12b0421d0",
+          "id": "0x1428421d0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__SVInt8_t"
@@ -105,7 +105,7 @@
       ]
     },
     {
-      "id": "0x12b0ddb60",
+      "id": "0x14300bd60",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -119,7 +119,7 @@
       },
       "inner": [
         {
-          "id": "0x12b0421f0",
+          "id": "0x1428421f0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__SVInt16_t"
@@ -128,7 +128,7 @@
       ]
     },
     {
-      "id": "0x12b0ddbc8",
+      "id": "0x14300bdc8",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -142,7 +142,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042210",
+          "id": "0x142842210",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__SVInt32_t"
@@ -151,7 +151,7 @@
       ]
     },
     {
-      "id": "0x12b0ddc30",
+      "id": "0x14300be30",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -165,7 +165,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042230",
+          "id": "0x142842230",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__SVInt64_t"
@@ -174,7 +174,7 @@
       ]
     },
     {
-      "id": "0x12b0ddc98",
+      "id": "0x14300be98",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -188,7 +188,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042250",
+          "id": "0x142842250",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__SVUint8_t"
@@ -197,7 +197,7 @@
       ]
     },
     {
-      "id": "0x12b0ddd00",
+      "id": "0x14300bf00",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -211,7 +211,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042270",
+          "id": "0x142842270",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__SVUint16_t"
@@ -220,7 +220,7 @@
       ]
     },
     {
-      "id": "0x12b0ddd68",
+      "id": "0x14300bf68",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -234,7 +234,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042290",
+          "id": "0x142842290",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__SVUint32_t"
@@ -243,7 +243,7 @@
       ]
     },
     {
-      "id": "0x12b0dddd0",
+      "id": "0x14300bfd0",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -257,7 +257,7 @@
       },
       "inner": [
         {
-          "id": "0x12b0422b0",
+          "id": "0x1428422b0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__SVUint64_t"
@@ -266,7 +266,7 @@
       ]
     },
     {
-      "id": "0x12b0dde38",
+      "id": "0x14300c038",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -280,7 +280,7 @@
       },
       "inner": [
         {
-          "id": "0x12b0422d0",
+          "id": "0x1428422d0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__SVFloat16_t"
@@ -289,7 +289,7 @@
       ]
     },
     {
-      "id": "0x12b0ddea0",
+      "id": "0x14300c0a0",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -303,7 +303,7 @@
       },
       "inner": [
         {
-          "id": "0x12b0422f0",
+          "id": "0x1428422f0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__SVFloat32_t"
@@ -312,7 +312,7 @@
       ]
     },
     {
-      "id": "0x12b0ddf08",
+      "id": "0x14300c108",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -326,7 +326,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042310",
+          "id": "0x142842310",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__SVFloat64_t"
@@ -335,7 +335,7 @@
       ]
     },
     {
-      "id": "0x12b0ddf70",
+      "id": "0x14300c170",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -349,7 +349,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042330",
+          "id": "0x142842330",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__SVBFloat16_t"
@@ -358,7 +358,7 @@
       ]
     },
     {
-      "id": "0x12b0ddfd8",
+      "id": "0x14300c1d8",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -372,7 +372,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042350",
+          "id": "0x142842350",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svint8x2_t"
@@ -381,7 +381,7 @@
       ]
     },
     {
-      "id": "0x12b0de040",
+      "id": "0x14300c240",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -395,7 +395,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042370",
+          "id": "0x142842370",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svint16x2_t"
@@ -404,7 +404,7 @@
       ]
     },
     {
-      "id": "0x12b0de0a8",
+      "id": "0x14300c2a8",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -418,7 +418,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042390",
+          "id": "0x142842390",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svint32x2_t"
@@ -427,7 +427,7 @@
       ]
     },
     {
-      "id": "0x12b0de110",
+      "id": "0x14300c310",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -441,7 +441,7 @@
       },
       "inner": [
         {
-          "id": "0x12b0423b0",
+          "id": "0x1428423b0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svint64x2_t"
@@ -450,7 +450,7 @@
       ]
     },
     {
-      "id": "0x12b0de178",
+      "id": "0x14300c378",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -464,7 +464,7 @@
       },
       "inner": [
         {
-          "id": "0x12b0423d0",
+          "id": "0x1428423d0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svuint8x2_t"
@@ -473,7 +473,7 @@
       ]
     },
     {
-      "id": "0x12b0de1e0",
+      "id": "0x14300c3e0",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -487,7 +487,7 @@
       },
       "inner": [
         {
-          "id": "0x12b0423f0",
+          "id": "0x1428423f0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svuint16x2_t"
@@ -496,7 +496,7 @@
       ]
     },
     {
-      "id": "0x12b0de248",
+      "id": "0x14300c448",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -510,7 +510,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042410",
+          "id": "0x142842410",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svuint32x2_t"
@@ -519,7 +519,7 @@
       ]
     },
     {
-      "id": "0x12b0de2b0",
+      "id": "0x14300c4b0",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -533,7 +533,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042430",
+          "id": "0x142842430",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svuint64x2_t"
@@ -542,7 +542,7 @@
       ]
     },
     {
-      "id": "0x12b0de318",
+      "id": "0x14300c518",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -556,7 +556,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042450",
+          "id": "0x142842450",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svfloat16x2_t"
@@ -565,7 +565,7 @@
       ]
     },
     {
-      "id": "0x12b0de380",
+      "id": "0x14300c580",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -579,7 +579,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042470",
+          "id": "0x142842470",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svfloat32x2_t"
@@ -588,7 +588,7 @@
       ]
     },
     {
-      "id": "0x12b0de3e8",
+      "id": "0x14300c5e8",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -602,7 +602,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042490",
+          "id": "0x142842490",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svfloat64x2_t"
@@ -611,7 +611,7 @@
       ]
     },
     {
-      "id": "0x12b0de450",
+      "id": "0x14300c650",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -625,7 +625,7 @@
       },
       "inner": [
         {
-          "id": "0x12b0424b0",
+          "id": "0x1428424b0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svbfloat16x2_t"
@@ -634,7 +634,7 @@
       ]
     },
     {
-      "id": "0x12b0de4b8",
+      "id": "0x14300c6b8",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -648,7 +648,7 @@
       },
       "inner": [
         {
-          "id": "0x12b0424d0",
+          "id": "0x1428424d0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svint8x3_t"
@@ -657,7 +657,7 @@
       ]
     },
     {
-      "id": "0x12b0de520",
+      "id": "0x14300c720",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -671,7 +671,7 @@
       },
       "inner": [
         {
-          "id": "0x12b0424f0",
+          "id": "0x1428424f0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svint16x3_t"
@@ -680,7 +680,7 @@
       ]
     },
     {
-      "id": "0x12b0de588",
+      "id": "0x14300c788",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -694,7 +694,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042510",
+          "id": "0x142842510",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svint32x3_t"
@@ -703,7 +703,7 @@
       ]
     },
     {
-      "id": "0x12b0de5f0",
+      "id": "0x14300c7f0",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -717,7 +717,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042530",
+          "id": "0x142842530",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svint64x3_t"
@@ -726,7 +726,7 @@
       ]
     },
     {
-      "id": "0x12b0de658",
+      "id": "0x14300c858",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -740,7 +740,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042550",
+          "id": "0x142842550",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svuint8x3_t"
@@ -749,7 +749,7 @@
       ]
     },
     {
-      "id": "0x12b0de6c0",
+      "id": "0x14300c8c0",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -763,7 +763,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042570",
+          "id": "0x142842570",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svuint16x3_t"
@@ -772,7 +772,7 @@
       ]
     },
     {
-      "id": "0x12b0de728",
+      "id": "0x14300c928",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -786,7 +786,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042590",
+          "id": "0x142842590",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svuint32x3_t"
@@ -795,7 +795,7 @@
       ]
     },
     {
-      "id": "0x12b0de790",
+      "id": "0x14300c990",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -809,7 +809,7 @@
       },
       "inner": [
         {
-          "id": "0x12b0425b0",
+          "id": "0x1428425b0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svuint64x3_t"
@@ -818,7 +818,7 @@
       ]
     },
     {
-      "id": "0x12b0df000",
+      "id": "0x14300d200",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -832,7 +832,7 @@
       },
       "inner": [
         {
-          "id": "0x12b0425d0",
+          "id": "0x1428425d0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svfloat16x3_t"
@@ -841,7 +841,7 @@
       ]
     },
     {
-      "id": "0x12b0df068",
+      "id": "0x14300d268",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -855,7 +855,7 @@
       },
       "inner": [
         {
-          "id": "0x12b0425f0",
+          "id": "0x1428425f0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svfloat32x3_t"
@@ -864,7 +864,7 @@
       ]
     },
     {
-      "id": "0x12b0df0d0",
+      "id": "0x14300d2d0",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -878,7 +878,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042610",
+          "id": "0x142842610",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svfloat64x3_t"
@@ -887,7 +887,7 @@
       ]
     },
     {
-      "id": "0x12b0df138",
+      "id": "0x14300d338",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -901,7 +901,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042630",
+          "id": "0x142842630",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svbfloat16x3_t"
@@ -910,7 +910,7 @@
       ]
     },
     {
-      "id": "0x12b0df1a0",
+      "id": "0x14300d3a0",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -924,7 +924,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042650",
+          "id": "0x142842650",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svint8x4_t"
@@ -933,7 +933,7 @@
       ]
     },
     {
-      "id": "0x12b0df208",
+      "id": "0x14300d408",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -947,7 +947,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042670",
+          "id": "0x142842670",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svint16x4_t"
@@ -956,7 +956,7 @@
       ]
     },
     {
-      "id": "0x12b0df270",
+      "id": "0x14300d470",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -970,7 +970,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042690",
+          "id": "0x142842690",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svint32x4_t"
@@ -979,7 +979,7 @@
       ]
     },
     {
-      "id": "0x12b0df2d8",
+      "id": "0x14300d4d8",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -993,7 +993,7 @@
       },
       "inner": [
         {
-          "id": "0x12b0426b0",
+          "id": "0x1428426b0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svint64x4_t"
@@ -1002,7 +1002,7 @@
       ]
     },
     {
-      "id": "0x12b0df340",
+      "id": "0x14300d540",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -1016,7 +1016,7 @@
       },
       "inner": [
         {
-          "id": "0x12b0426d0",
+          "id": "0x1428426d0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svuint8x4_t"
@@ -1025,7 +1025,7 @@
       ]
     },
     {
-      "id": "0x12b0df3a8",
+      "id": "0x14300d5a8",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -1039,7 +1039,7 @@
       },
       "inner": [
         {
-          "id": "0x12b0426f0",
+          "id": "0x1428426f0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svuint16x4_t"
@@ -1048,7 +1048,7 @@
       ]
     },
     {
-      "id": "0x12b0df410",
+      "id": "0x14300d610",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -1062,7 +1062,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042710",
+          "id": "0x142842710",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svuint32x4_t"
@@ -1071,7 +1071,7 @@
       ]
     },
     {
-      "id": "0x12b0df478",
+      "id": "0x14300d678",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -1085,7 +1085,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042730",
+          "id": "0x142842730",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svuint64x4_t"
@@ -1094,7 +1094,7 @@
       ]
     },
     {
-      "id": "0x12b0df4e0",
+      "id": "0x14300d6e0",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -1108,7 +1108,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042750",
+          "id": "0x142842750",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svfloat16x4_t"
@@ -1117,7 +1117,7 @@
       ]
     },
     {
-      "id": "0x12b0df548",
+      "id": "0x14300d748",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -1131,7 +1131,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042770",
+          "id": "0x142842770",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svfloat32x4_t"
@@ -1140,7 +1140,7 @@
       ]
     },
     {
-      "id": "0x12b0df5b0",
+      "id": "0x14300d7b0",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -1154,7 +1154,7 @@
       },
       "inner": [
         {
-          "id": "0x12b042790",
+          "id": "0x142842790",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svfloat64x4_t"
@@ -1163,7 +1163,7 @@
       ]
     },
     {
-      "id": "0x12b0df618",
+      "id": "0x14300d818",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -1177,7 +1177,7 @@
       },
       "inner": [
         {
-          "id": "0x12b0427b0",
+          "id": "0x1428427b0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__clang_svbfloat16x4_t"
@@ -1186,7 +1186,7 @@
       ]
     },
     {
-      "id": "0x12b0df680",
+      "id": "0x14300d880",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -1200,7 +1200,7 @@
       },
       "inner": [
         {
-          "id": "0x12b0427d0",
+          "id": "0x1428427d0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__SVBool_t"
@@ -1209,7 +1209,7 @@
       ]
     },
     {
-      "id": "0x12b0df728",
+      "id": "0x14300d928",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -1223,14 +1223,14 @@
       },
       "inner": [
         {
-          "id": "0x12b0df6e0",
+          "id": "0x14300d8e0",
           "kind": "PointerType",
           "type": {
             "qualType": "char *"
           },
           "inner": [
             {
-              "id": "0x12b041ab0",
+              "id": "0x142841ab0",
               "kind": "BuiltinType",
               "type": {
                 "qualType": "char"
@@ -1241,7 +1241,7 @@
       ]
     },
     {
-      "id": "0x12b0df798",
+      "id": "0x14300d998",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -1255,14 +1255,14 @@
       },
       "inner": [
         {
-          "id": "0x12b0df6e0",
+          "id": "0x14300d8e0",
           "kind": "PointerType",
           "type": {
             "qualType": "char *"
           },
           "inner": [
             {
-              "id": "0x12b041ab0",
+              "id": "0x142841ab0",
               "kind": "BuiltinType",
               "type": {
                 "qualType": "char"
@@ -1273,11 +1273,11 @@
       ]
     },
     {
-      "id": "0x12b0df7f0",
+      "id": "0x14300d9f0",
       "kind": "CXXRecordDecl",
       "loc": {
         "offset": 6,
-        "file": "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit02/simple_static_method.cpp",
+        "file": "/Users/arne/work/git/vscode-clang-call-graph/src/test/suite/walkerTests/suit00/../suit02/simple_static_method.cpp",
         "line": 1,
         "col": 7,
         "tokLen": 9
@@ -1351,7 +1351,7 @@
       },
       "inner": [
         {
-          "id": "0x12b0df908",
+          "id": "0x14300db08",
           "kind": "CXXRecordDecl",
           "loc": {
             "offset": 6,
@@ -1376,7 +1376,7 @@
           "tagUsed": "class"
         },
         {
-          "id": "0x12b0df998",
+          "id": "0x14300db98",
           "kind": "AccessSpecDecl",
           "loc": {
             "offset": 18,
@@ -1399,7 +1399,7 @@
           "access": "public"
         },
         {
-          "id": "0x12b0dfb30",
+          "id": "0x14300dd30",
           "kind": "CXXMethodDecl",
           "loc": {
             "offset": 41,
@@ -1429,7 +1429,7 @@
           "storageClass": "static",
           "inner": [
             {
-              "id": "0x12b0df9d8",
+              "id": "0x14300dbd8",
               "kind": "ParmVarDecl",
               "loc": {
                 "offset": 49,
@@ -1457,7 +1457,7 @@
               }
             },
             {
-              "id": "0x12b0dfa58",
+              "id": "0x14300dc58",
               "kind": "ParmVarDecl",
               "loc": {
                 "offset": 59,
@@ -1484,7 +1484,7 @@
               }
             },
             {
-              "id": "0x12b0dfcd0",
+              "id": "0x14300ded0",
               "kind": "CompoundStmt",
               "range": {
                 "begin": {
@@ -1502,7 +1502,7 @@
               },
               "inner": [
                 {
-                  "id": "0x12b0dfcc0",
+                  "id": "0x14300dec0",
                   "kind": "ReturnStmt",
                   "range": {
                     "begin": {
@@ -1519,7 +1519,7 @@
                   },
                   "inner": [
                     {
-                      "id": "0x12b0dfca0",
+                      "id": "0x14300dea0",
                       "kind": "BinaryOperator",
                       "range": {
                         "begin": {
@@ -1540,7 +1540,7 @@
                       "opcode": "+",
                       "inner": [
                         {
-                          "id": "0x12b0dfc70",
+                          "id": "0x14300de70",
                           "kind": "ImplicitCastExpr",
                           "range": {
                             "begin": {
@@ -1561,7 +1561,7 @@
                           "castKind": "LValueToRValue",
                           "inner": [
                             {
-                              "id": "0x12b0dfc30",
+                              "id": "0x14300de30",
                               "kind": "DeclRefExpr",
                               "range": {
                                 "begin": {
@@ -1580,7 +1580,7 @@
                               },
                               "valueCategory": "lvalue",
                               "referencedDecl": {
-                                "id": "0x12b0df9d8",
+                                "id": "0x14300dbd8",
                                 "kind": "ParmVarDecl",
                                 "name": "val1",
                                 "type": {
@@ -1591,7 +1591,7 @@
                           ]
                         },
                         {
-                          "id": "0x12b0dfc88",
+                          "id": "0x14300de88",
                           "kind": "ImplicitCastExpr",
                           "range": {
                             "begin": {
@@ -1612,7 +1612,7 @@
                           "castKind": "LValueToRValue",
                           "inner": [
                             {
-                              "id": "0x12b0dfc50",
+                              "id": "0x14300de50",
                               "kind": "DeclRefExpr",
                               "range": {
                                 "begin": {
@@ -1631,7 +1631,7 @@
                               },
                               "valueCategory": "lvalue",
                               "referencedDecl": {
-                                "id": "0x12b0dfa58",
+                                "id": "0x14300dc58",
                                 "kind": "ParmVarDecl",
                                 "name": "val2",
                                 "type": {
@@ -1652,7 +1652,7 @@
       ]
     },
     {
-      "id": "0x12b0dff50",
+      "id": "0x14300e150",
       "kind": "FunctionDecl",
       "loc": {
         "offset": 113,
@@ -1680,7 +1680,7 @@
       },
       "inner": [
         {
-          "id": "0x12b0dfd00",
+          "id": "0x14300df00",
           "kind": "ParmVarDecl",
           "loc": {
             "offset": 122,
@@ -1707,7 +1707,7 @@
           }
         },
         {
-          "id": "0x12b0dfe30",
+          "id": "0x14300e030",
           "kind": "ParmVarDecl",
           "loc": {
             "offset": 134,
@@ -1734,7 +1734,7 @@
           }
         },
         {
-          "id": "0x12b0f5398",
+          "id": "0x14302bf98",
           "kind": "CompoundStmt",
           "range": {
             "begin": {
@@ -1752,7 +1752,7 @@
           },
           "inner": [
             {
-              "id": "0x12b0f5388",
+              "id": "0x14302bf88",
               "kind": "ReturnStmt",
               "range": {
                 "begin": {
@@ -1769,7 +1769,7 @@
               },
               "inner": [
                 {
-                  "id": "0x12b0f5358",
+                  "id": "0x14302bf58",
                   "kind": "CallExpr",
                   "range": {
                     "begin": {
@@ -1789,7 +1789,7 @@
                   "valueCategory": "prvalue",
                   "inner": [
                     {
-                      "id": "0x12b0f5340",
+                      "id": "0x14302bf40",
                       "kind": "ImplicitCastExpr",
                       "range": {
                         "begin": {
@@ -1810,7 +1810,7 @@
                       "castKind": "FunctionToPointerDecay",
                       "inner": [
                         {
-                          "id": "0x12b0f5298",
+                          "id": "0x14302be98",
                           "kind": "DeclRefExpr",
                           "range": {
                             "begin": {
@@ -1829,7 +1829,7 @@
                           },
                           "valueCategory": "lvalue",
                           "referencedDecl": {
-                            "id": "0x12b0dfb30",
+                            "id": "0x14300dd30",
                             "kind": "CXXMethodDecl",
                             "name": "add",
                             "type": {
@@ -1840,7 +1840,7 @@
                       ]
                     },
                     {
-                      "id": "0x12b0f52c8",
+                      "id": "0x14302bec8",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -1861,7 +1861,7 @@
                       "value": "1"
                     },
                     {
-                      "id": "0x12b0f52e8",
+                      "id": "0x14302bee8",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
