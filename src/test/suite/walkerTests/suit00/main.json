@@ -1951,7 +1951,7 @@
         }
       },
       "isUsed": true,
-      "previousDecl": "0x11d8294a0",
+      "previousDecl": "0x0000000000000084",
       "name": "sub",
       "mangledName": "__Z3subii",
       "type": {

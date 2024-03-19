@@ -1866,7 +1866,7 @@
           "tokLen": 1
         }
       },
-      "previousDecl": "0x15000db60",
+      "previousDecl": "0x0000000000000071",
       "name": "mult",
       "mangledName": "__Z4multii",
       "type": {
@@ -2637,7 +2637,7 @@
           "tokLen": 1
         }
       },
-      "previousDecl": "0x15000def8",
+      "previousDecl": "0x0000000000000080",
       "name": "foo",
       "originalNamespace": {
         "id": "0x00000000000000ac",
@@ -2668,7 +2668,7 @@
             }
           },
           "isUsed": true,
-          "previousDecl": "0x15000e0a0",
+          "previousDecl": "0x00000000000000a0",
           "name": "add",
           "mangledName": "__ZN3foo3addEii",
           "type": {

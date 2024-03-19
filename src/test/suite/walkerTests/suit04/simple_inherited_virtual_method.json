@@ -2109,7 +2109,7 @@
                           "valueCategory": "prvalue",
                           "name": "add",
                           "isArrow": true,
-                          "referencedMemberDecl": "0x12b80dd30",
+                          "referencedMemberDecl": "0x0000000000000074",
                           "inner": [
                             {
                               "id": "0x0000000000000091",
@@ -2744,7 +2744,7 @@
                       "valueCategory": "prvalue",
                       "name": "add",
                       "isArrow": false,
-                      "referencedMemberDecl": "0x12b82c148",
+                      "referencedMemberDecl": "0x000000000000008a",
                       "inner": [
                         {
                           "id": "0x00000000000000ac",

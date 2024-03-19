@@ -26,21 +26,27 @@ def get_cpp_files_int_test_dir():
     project_dir = get_project_test_dir()
     return [f for f in project_dir.glob("**/*.cpp")]
 
+def split_json_line(line):
+    """Split a json line into its components."""
+    string_components = line.split('": "')
+    if string_components[1][-1] == ',':
+        right_string = string_components[1][:-2]
+        end_char = ','
+    else:
+        right_string = string_components[1][:-1]
+        end_char = ''
+
+    return string_components[0], right_string, end_char
+
 def find_lines_with_file_string(json_lines):
     """Find the lines containing the file string and generate an absolute path of the string and remove the project directory from the path."""
     new_lines = []
     for line in json_lines:
         if '  "file": "' in line:
-            string_components = line.split(': "')
-            if string_components[1][-1] == ',':
-                file_string = string_components[1][:-2]
-                end_char = ','
-            else:
-                file_string = string_components[1][:-1]
-                end_char = ''
+            left_string, file_string, end_char = split_json_line(line)
             file_path = str(pathlib.Path(file_string).absolute())
             file_path = remove_project_test_dir_prefix(file_path)
-            new_lines.append(string_components[0]+ ': "' + file_path + '"' + end_char)
+            new_lines.append(left_string + '": "' + file_path + '"' + end_char)
         else:
             new_lines.append(line)
 
@@ -49,18 +55,20 @@ def find_lines_with_file_string(json_lines):
 def adjust_id_lines(json_lines):
     """Adjust the ids of the json file."""
     new_lines = []
+    known_ids = {}
     current_id = 0
     for line in json_lines:
         if '  "id": "' in line:
-            string_components = line.split(': "')
-            if string_components[1][-1] == ',':
-                # old_id = string_components[1][:-2]
-                end_char = ','
-            else:
-                # old_id = string_components[1][:-1]
-                end_char = ''
+            left_string, old_id, end_char = split_json_line(line)
             current_id += 1
-            new_lines.append(string_components[0]+ ': "0x' + format(current_id, f'0{16}x') + '"' + end_char)
+            known_ids[old_id] = current_id
+            new_lines.append(left_string + '": "0x' + format(current_id, f'0{16}x') + '"' + end_char)
+        elif '  "previousDecl": "' in line:
+            left_string, old_id, end_char = split_json_line(line)
+            new_lines.append(left_string + '": "0x' + format(known_ids[old_id], f'0{16}x') + '"' + end_char)
+        elif '  "referencedMemberDecl": "' in line:
+            left_string, old_id, end_char = split_json_line(line)
+            new_lines.append(left_string + '": "0x' + format(known_ids[old_id], f'0{16}x') + '"' + end_char)
         else:
             new_lines.append(line)
 
