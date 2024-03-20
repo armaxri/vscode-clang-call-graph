@@ -78,21 +78,7 @@ export class ClangAstWalker {
         // The file name and the source line are only mentioned in the first
         // seen element of the file.
         // Therefore we need to cache the value.
-        if (astElement.loc && astElement.loc.file) {
-            this.lastSeenFileNameInFuncDecl = astElement.loc.file;
-        }
-        if (astElement.loc && astElement.loc.line) {
-            this.lastSeenLocLineNumber = astElement.loc.line;
-        }
-        if (astElement.range && astElement.range.begin.line) {
-            this.lastSeenRangeBeginLine = astElement.range.begin.line;
-            // The end also may hit a new line. But in case it doesn't,
-            // we record it here.
-            this.lastSeenRangeEndLine = this.lastSeenRangeBeginLine;
-        }
-        if (astElement.range && astElement.range.end.line) {
-            this.lastSeenRangeEndLine = astElement.range.end.line;
-        }
+        this.handleLocAndRange(astElement);
 
         if (
             astElement.kind === "FunctionDecl" ||
@@ -117,6 +103,24 @@ export class ClangAstWalker {
                     this.analyzeAstElement(newAstElement)
                 );
             }
+        }
+    }
+
+    private handleLocAndRange(astElement: clang_ast.AstElement) {
+        if (astElement.loc && astElement.loc.file) {
+            this.lastSeenFileNameInFuncDecl = astElement.loc.file;
+        }
+        if (astElement.loc && astElement.loc.line) {
+            this.lastSeenLocLineNumber = astElement.loc.line;
+        }
+        if (astElement.range && astElement.range.begin.line) {
+            this.lastSeenRangeBeginLine = astElement.range.begin.line;
+            // The end also may hit a new line. But in case it doesn't,
+            // we record it here.
+            this.lastSeenRangeEndLine = this.lastSeenRangeBeginLine;
+        }
+        if (astElement.range && astElement.range.end.line) {
+            this.lastSeenRangeEndLine = astElement.range.end.line;
         }
     }
 
