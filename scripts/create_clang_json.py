@@ -60,9 +60,13 @@ def adjust_id_lines(json_lines):
     for line in json_lines:
         if '  "id": "' in line:
             left_string, old_id, end_char = split_json_line(line)
-            current_id += 1
+            if old_id not in known_ids:
+                current_id += 1
+                used_id = current_id
+            else:
+                used_id = known_ids[old_id]
             known_ids[old_id] = current_id
-            new_lines.append(left_string + '": "0x' + format(current_id, f'0{16}x') + '"' + end_char)
+            new_lines.append(left_string + '": "0x' + format(used_id, f'0{16}x') + '"' + end_char)
         elif '  "previousDecl": "' in line:
             left_string, old_id, end_char = split_json_line(line)
             new_lines.append(left_string + '": "0x' + format(known_ids[old_id], f'0{16}x') + '"' + end_char)
