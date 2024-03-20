@@ -31,6 +31,22 @@ type SimpleVirtualFuncDeclaration = {
     mentioningData: VirtualFuncMentioning;
 };
 
+function isElementVirtualFuncDeclaration(
+    element: clang_ast.AstElement
+): boolean {
+    const hasOtherAttribute: boolean = element.inner
+        ? element.inner.some(
+              (innerElement) =>
+                  innerElement.kind === "CXXFinalAttr" ||
+                  innerElement.kind === "OverrideAttr"
+          )
+        : false;
+    return (
+        element.kind === "CXXMethodDecl" &&
+        (element.virtual === true || hasOtherAttribute)
+    );
+}
+
 export class ClangAstWalker {
     // Sadly we need to cache a few data, which are reported once
     // and no longer until a new value is seen.
@@ -87,7 +103,7 @@ export class ClangAstWalker {
             // language like python or C++ gets extended.
             const currentCallingFuncName = this.callingFuncName;
 
-            if (astElement.virtual === true) {
+            if (isElementVirtualFuncDeclaration(astElement)) {
                 const virtualFuncMentioning =
                     this.createVirtualFuncMentioning(astElement);
                 this.recordVirtualFuncDecl(astElement, virtualFuncMentioning);
