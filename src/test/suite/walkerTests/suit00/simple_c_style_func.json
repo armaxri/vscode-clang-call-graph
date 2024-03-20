@@ -2273,7 +2273,7 @@
                       },
                       "valueCategory": "lvalue",
                       "referencedDecl": {
-                        "id": "0x000000000000008d",
+                        "id": "0x0000000000000089",
                         "kind": "VarDecl",
                         "name": "i",
                         "type": {
@@ -2519,7 +2519,7 @@
                                   },
                                   "valueCategory": "lvalue",
                                   "referencedDecl": {
-                                    "id": "0x0000000000000094",
+                                    "id": "0x0000000000000085",
                                     "kind": "VarDecl",
                                     "name": "result",
                                     "type": {
@@ -2598,7 +2598,7 @@
                       },
                       "valueCategory": "lvalue",
                       "referencedDecl": {
-                        "id": "0x000000000000009b",
+                        "id": "0x0000000000000085",
                         "kind": "VarDecl",
                         "name": "result",
                         "type": {
@@ -2668,7 +2668,7 @@
             }
           },
           "isUsed": true,
-          "previousDecl": "0x0000000000000097",
+          "previousDecl": "0x000000000000007d",
           "name": "add",
           "mangledName": "__ZN3foo3addEii",
           "type": {
