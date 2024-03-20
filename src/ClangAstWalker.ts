@@ -98,9 +98,32 @@ export class ClangAstWalker {
             astElement.kind === "FunctionDecl" ||
             astElement.kind === "CXXMethodDecl"
         ) {
-            // Function declaration in function declaration is no C++ thing.
-            // But still we do this since maybe we one day walk some nice
-            // language like python or C++ gets extended.
+            this.handleFunctionDecl(astElement);
+        } else {
+            if (
+                astElement.kind === "CallExpr" ||
+                astElement.kind === "CXXMemberCallExpr"
+            ) {
+                this.updateLastCallExprLocation(astElement);
+            } else if (
+                astElement.kind === "DeclRefExpr" ||
+                astElement.kind === "MemberExpr"
+            ) {
+                this.handleExprStmt(astElement);
+            }
+
+            if (astElement.inner) {
+                astElement.inner.forEach((newAstElement) =>
+                    this.analyzeAstElement(newAstElement)
+                );
+            }
+        }
+    }
+
+    private handleFunctionDecl(astElement: clang_ast.AstElement) {
+        // Function declaration in function declaration is no C++ thing.
+        // But still we do this since maybe we one day walk some nice
+        // language like python or C++ gets extended.
             const currentCallingFuncName = this.callingFuncName;
 
             if (isElementVirtualFuncDeclaration(astElement)) {
@@ -137,24 +160,16 @@ export class ClangAstWalker {
                 astElement.inner.forEach((newAstElement) =>
                     this.analyzeAstElement(newAstElement)
                 );
-            }
+        }
 
-            this.callingFuncName = currentCallingFuncName;
-        } else {
-            if (
-                astElement.kind === "CallExpr" ||
-                astElement.kind === "CXXMemberCallExpr"
-            ) {
-                this.updateLastCallExprLocation(astElement);
-            } else if (
-                astElement.kind === "DeclRefExpr" ||
-                astElement.kind === "MemberExpr"
-            ) {
-                const calledFuncId: string | undefined =
-                    astElement.referencedDecl
-                        ? astElement.kind === "DeclRefExpr"
-                            ? astElement.referencedDecl.id
-                            : astElement.referencedMemberDecl
+        this.callingFuncName = currentCallingFuncName;
+    }
+
+    private handleExprStmt(astElement: clang_ast.AstElement) {
+        const calledFuncId: string | undefined = astElement.referencedDecl
+            ? astElement.kind === "DeclRefExpr"
+                ? astElement.referencedDecl.id
+                : astElement.referencedMemberDecl
                         : astElement.referencedMemberDecl
                         ? astElement.referencedMemberDecl
                         : undefined;
@@ -166,28 +181,19 @@ export class ClangAstWalker {
                         const funcCall = this.createFuncCall(
                             astElement,
                             referencedDecl
-                        );
-                        this.database.registerFuncCall(funcCall);
-                    }
-                    const referencedVirtualDecl =
-                        this.virtualFuncDeclarations.find(
-                            (funcDec) => funcDec.id === Number(calledFuncId)
-                        );
-                    if (referencedVirtualDecl) {
+                );
+                this.database.registerFuncCall(funcCall);
+            }
+            const referencedVirtualDecl = this.virtualFuncDeclarations.find(
+                (funcDec) => funcDec.id === Number(calledFuncId)
+            );
+            if (referencedVirtualDecl) {
                         const funcCall = this.createVirtualFuncCall(
                             astElement,
                             referencedVirtualDecl
                         );
                         this.database.registerVirtualFuncCall(funcCall);
                     }
-                }
-            }
-
-            if (astElement.inner) {
-                astElement.inner.forEach((newAstElement) =>
-                    this.analyzeAstElement(newAstElement)
-                );
-            }
         }
     }
 
