@@ -39,10 +39,7 @@ suite("Clang AST Walker Test Suite 05", () => {
                     },
                 },
                 {
-                    // TODO: Should be:
-                    // baseFuncAstName: "__ZN13TestBaseClass3addEii",
-                    // Currently the mapping to base classes is not implemented.
-                    baseFuncAstName: "__ZN9TestClass3addEii",
+                    baseFuncAstName: "__ZN13TestBaseClass3addEii",
                     funcImpl: {
                         funcName: "add",
                         funcAstName: "__ZN9TestClass3addEii",
