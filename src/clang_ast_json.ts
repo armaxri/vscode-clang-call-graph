@@ -21,6 +21,12 @@ export interface TypeElement {
     qualType: string;
 }
 
+export interface BasesElement {
+    accessSpec?: string;
+    type: TypeElement;
+    writtenAccess?: string;
+}
+
 export interface AstElement {
     id: string;
     kind: string;
@@ -38,7 +44,11 @@ export interface AstElement {
     referencedDecl?: AstElement;
     opcode?: string;
     decl?: AstElement;
+    virtual?: boolean;
+    storageClass?: string;
+    referencedMemberDecl?: string;
     inner?: Array<AstElement>;
+    bases?: Array<BasesElement>;
 }
 
 /*
