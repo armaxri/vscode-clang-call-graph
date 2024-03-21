@@ -12,11 +12,12 @@ class TestClass : public TestBaseClass
 public:
     int add(int val1, int val2) override
     {
-        return val1 + val2;
+        return TestBaseClass::add(val1, val2);
     }
 };
 
 int main(int argc, char *argv[])
 {
-    return 0;
+    TestClass testClass;
+    return testClass.add(1, 2);
 }
