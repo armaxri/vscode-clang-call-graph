@@ -97,7 +97,6 @@ suite("Clang AST Walker Test Suite 05", () => {
                         },
                         endLoc: {
                             line: 22,
-                            // TODO: The location doesn't work correctly yet.
                             column: 31,
                         },
                     },
