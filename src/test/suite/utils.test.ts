@@ -1,6 +1,6 @@
 import * as assert from "assert";
 import * as vscode from "vscode";
-import * as utils from "../../extension/utils/utils";
+import * as utils from "../../backend/utils/utils";
 
 suite("ClangCallGraph utils Test Suite", () => {
     vscode.window.showInformationMessage("Start all tests.");

@@ -4,7 +4,7 @@ import * as clang_ast from "../backend/clang_ast_json";
 import { Configuration } from "./Configuration";
 import { Database } from "./Database";
 import { PathUtils } from "../backend/utils/PathUtils";
-import * as utils from "./utils/utils";
+import * as utils from "../backend/utils/utils";
 
 interface ICompileCommand {
     directory: string;

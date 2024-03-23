@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import * as utils from "./utils/utils";
+import * as utils from "./utils/vscode_utils";
 import { StringReplacer } from "./utils/ConfigStringReplacer";
 
 export class Configuration {
