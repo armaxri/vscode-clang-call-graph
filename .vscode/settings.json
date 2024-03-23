@@ -16,5 +16,9 @@
     "cSpell.enableFiletypes": [
         "*"
     ],
+    "mochaExplorer.ui": "tdd",
+    "mochaExplorer.files": "./out/test/backendSuite/**/*.test.js",
+    "mochaExplorer.require": "source-map-support/register",
+    "mochaExplorer.watch": ["./out/test/backendSuite/**/*.test.js", "./out/backend/**/*.js"],
     "cmake.configureOnOpen": false
 }
