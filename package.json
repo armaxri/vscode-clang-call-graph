@@ -14,7 +14,7 @@
         "onCommand:clang-call-graph.startCallGraphParser",
         "onCommand:clang-call-graph.stopCallGraphParser"
     ],
-    "main": "./out/extension.js",
+    "main": "./out/extension/extension.js",
     "contributes": {
         "commands": [
             {
