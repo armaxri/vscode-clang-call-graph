@@ -18,5 +18,6 @@
     ],
     "mochaExplorer.ui": "tdd",
     "mochaExplorer.files": "./out/test/backendSuite/**/*.test.js",
+    "mochaExplorer.require": "source-map-support/register",
     "cmake.configureOnOpen": false
 }
