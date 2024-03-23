@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import * as path from "path";
-import * as utils from "./utils";
+import * as utils from "./vscode_utils";
 
 export class StringReplacer {
     cwd: string = "";

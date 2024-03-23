@@ -1,7 +1,7 @@
 //import * as lowdb from "lowdb";
 //import * as lowdbNode from "lowdb/lib/node";
 import { Configuration } from "./Configuration";
-import * as iDb from "./IDatabase";
+import * as iDb from "../backend/IDatabase";
 
 const CURRENT_DATABASE_VERSION = 1;
 
