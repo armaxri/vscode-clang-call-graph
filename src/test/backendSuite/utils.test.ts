@@ -1,10 +1,7 @@
 import * as assert from "assert";
-import * as vscode from "vscode";
 import * as utils from "../../backend/utils/utils";
 
 suite("ClangCallGraph utils Test Suite", () => {
-    vscode.window.showInformationMessage("Start all tests.");
-
     test("splitArguments: test simple args split", () => {
         const result = utils.splitArguments("hallo welt!");
         const expected = ["hallo", "welt!"];
