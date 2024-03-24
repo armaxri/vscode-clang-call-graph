@@ -1,8 +1,7 @@
 import * as fs from "fs";
 import * as child_process from "child_process";
-import * as clang_ast from "./clang_ast_json";
 import { Configuration } from "../extension/Configuration";
-import { Database } from "../extension/Database";
+import { IDatabase } from "./IDatabase";
 import { PathUtils } from "./utils/PathUtils";
 import * as utils from "./utils/utils";
 
@@ -21,12 +20,12 @@ enum CallGraphParsingState {
 export class ClangCallGraphParser {
     running: boolean = false;
     config: Configuration;
-    database: Database;
+    database: IDatabase;
     compileCommands: Array<ICompileCommand> = new Array<ICompileCommand>();
     callGraphParsingState: CallGraphParsingState =
         CallGraphParsingState.readCompileCommandsJson;
 
-    constructor(config: Configuration, database: Database) {
+    constructor(config: Configuration, database: IDatabase) {
         this.config = config;
         this.database = database;
     }
