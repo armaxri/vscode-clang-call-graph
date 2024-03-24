@@ -1,11 +1,12 @@
 import * as vscode from "vscode";
 import * as utils from "./utils/vscode_utils";
 import { StringReplacer } from "./utils/ConfigStringReplacer";
+import { IParserConfig } from "../backend/IParserConfig";
 
-export class Configuration {
-    compileCommandsJsonPath: string = "";
-    callGraphDatabasePath: string = "";
-    numOfParserThreads: number = 8;
+export class Configuration implements IParserConfig {
+    private compileCommandsJsonPath: string = "";
+    private callGraphDatabasePath: string = "";
+    private numOfParserThreads: number = 8;
 
     constructor() {
         const stringReplacer = new StringReplacer();
@@ -32,6 +33,18 @@ export class Configuration {
             config.get<number>("numOfParserThreads"),
             this.numOfParserThreads
         );
+    }
+
+    getCompileCommandsJsonPath(): string {
+        return this.compileCommandsJsonPath;
+    }
+
+    getCallGraphDatabasePath(): string {
+        return this.callGraphDatabasePath;
+    }
+
+    getNumOfParserThreads(): number {
+        return this.numOfParserThreads;
     }
 }
 

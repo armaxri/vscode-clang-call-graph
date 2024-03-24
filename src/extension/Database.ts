@@ -29,7 +29,7 @@ type DatabaseStructure = {
     funcCalls: Array<iDb.FuncCall>;
 };
 
-export class Database {
+export class Database implements iDb.IDatabase {
     // databaseFileAdapter: lowdbNode.JSONFile<DatabaseStructure>;
     // database: lowdb.Low<DatabaseStructure>;
 
@@ -40,6 +40,32 @@ export class Database {
         // this.database = new lowdb.Low(this.databaseFileAdapter);
 
         this.initDatabase(config);
+    }
+
+    registerFuncDeclaration(funcDec: iDb.FuncMentioning): void {
+        throw new Error("Method not implemented.");
+    }
+
+    registerFuncImplementation(funcImpl: iDb.FuncMentioning): void {
+        throw new Error("Method not implemented.");
+    }
+
+    registerFuncCall(funcCall: iDb.FuncCall): void {
+        throw new Error("Method not implemented.");
+    }
+
+    registerVirtualFuncDeclaration(funcDec: iDb.VirtualFuncMentioning): void {
+        throw new Error("Method not implemented.");
+    }
+
+    registerVirtualFuncImplementation(
+        funcImpl: iDb.VirtualFuncMentioning
+    ): void {
+        throw new Error("Method not implemented.");
+    }
+
+    registerVirtualFuncCall(funcCall: iDb.VirtualFuncCall): void {
+        throw new Error("Method not implemented.");
     }
 
     public resetDatabase(config: Configuration) {

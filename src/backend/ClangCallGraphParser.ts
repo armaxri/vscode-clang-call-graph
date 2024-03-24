@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import * as child_process from "child_process";
-import { Configuration } from "../extension/Configuration";
+import { IParserConfig } from "./IParserConfig";
 import { IDatabase } from "./IDatabase";
 import { PathUtils } from "./utils/PathUtils";
 import * as utils from "./utils/utils";
@@ -19,18 +19,18 @@ enum CallGraphParsingState {
 
 export class ClangCallGraphParser {
     running: boolean = false;
-    config: Configuration;
+    config: IParserConfig;
     database: IDatabase;
     compileCommands: Array<ICompileCommand> = new Array<ICompileCommand>();
     callGraphParsingState: CallGraphParsingState =
         CallGraphParsingState.readCompileCommandsJson;
 
-    constructor(config: Configuration, database: IDatabase) {
+    constructor(config: IParserConfig, database: IDatabase) {
         this.config = config;
         this.database = database;
     }
 
-    public startParser(newConfig: Configuration) {
+    public startParser(newConfig: IParserConfig) {
         this.config = newConfig;
         this.callGraphParsingState =
             CallGraphParsingState.readCompileCommandsJson;
@@ -70,7 +70,7 @@ export class ClangCallGraphParser {
 
     updateCompileCommands(): boolean {
         const compileCommandsJsonDir = new PathUtils(
-            this.config.compileCommandsJsonPath
+            this.config.getCompileCommandsJsonPath()
         );
         if (!compileCommandsJsonDir.doesExist()) {
             console.log(
