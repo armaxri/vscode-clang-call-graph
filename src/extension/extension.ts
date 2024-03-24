@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
 import { Configuration } from "./Configuration";
 import { Database } from "./Database";
-import { ClangCallGraphParser } from "./ClangCallGraphParser";
+import { ClangCallGraphParser } from "../backend/ClangCallGraphParser";
 import { CallHierarchyProvider } from "./CallHierarchyProvider";
 
 let callGraphDatabase: Database;
