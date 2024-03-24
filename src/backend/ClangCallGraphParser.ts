@@ -4,6 +4,7 @@ import { IParserConfig } from "./IParserConfig";
 import { IDatabase } from "./IDatabase";
 import { PathUtils } from "./utils/PathUtils";
 import * as utils from "./utils/utils";
+import { IAstWalkerFactory } from "./IAstWalkerFactory";
 
 interface ICompileCommand {
     directory: string;
@@ -18,33 +19,46 @@ enum CallGraphParsingState {
 }
 
 export class ClangCallGraphParser {
-    running: boolean = false;
-    config: IParserConfig;
-    database: IDatabase;
-    compileCommands: Array<ICompileCommand> = new Array<ICompileCommand>();
-    callGraphParsingState: CallGraphParsingState =
+    private shouldRun: boolean = false;
+    private running: boolean = false;
+    private config: IParserConfig;
+    private database: IDatabase;
+    private compileCommands: Array<ICompileCommand> =
+        new Array<ICompileCommand>();
+    private callGraphParsingState: CallGraphParsingState =
         CallGraphParsingState.readCompileCommandsJson;
+    private walkerFactory: IAstWalkerFactory;
 
-    constructor(config: IParserConfig, database: IDatabase) {
+    constructor(
+        config: IParserConfig,
+        database: IDatabase,
+        walkerFactory: IAstWalkerFactory
+    ) {
         this.config = config;
         this.database = database;
+        this.walkerFactory = walkerFactory;
     }
 
     public startParser(newConfig: IParserConfig) {
         this.config = newConfig;
         this.callGraphParsingState =
             CallGraphParsingState.readCompileCommandsJson;
+        this.shouldRun = true;
         this.running = true;
 
         this.updateCallGraph();
     }
 
-    public stopParser() {
-        this.running = false;
+    public isRunning(): boolean {
+        return this.running;
     }
 
-    async updateCallGraph() {
-        while (this.running) {
+    public stopParser() {
+        this.shouldRun = false;
+    }
+
+    private async updateCallGraph() {
+        while (!this.shouldRun) {
             switch (this.callGraphParsingState) {
                 case CallGraphParsingState.readCompileCommandsJson: {
                     if (this.updateCompileCommands()) {
@@ -66,9 +80,10 @@ export class ClangCallGraphParser {
                 }
             }
         }
+        this.running = false;
     }
 
-    updateCompileCommands(): boolean {
+    private updateCompileCommands(): boolean {
         const compileCommandsJsonDir = new PathUtils(
             this.config.getCompileCommandsJsonPath()
         );
@@ -100,7 +115,7 @@ export class ClangCallGraphParser {
         return true;
     }
 
-    async parseCppFile(command: ICompileCommand) {
+    private async parseCppFile(command: ICompileCommand) {
         const clangAstCommand = utils.createClangAstCall(command.command);
         var clangCall = clangAstCommand.join(" ");
 

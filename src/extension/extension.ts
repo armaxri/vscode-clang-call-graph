@@ -3,6 +3,7 @@ import { Configuration } from "./Configuration";
 import { Database } from "./Database";
 import { ClangCallGraphParser } from "../backend/ClangCallGraphParser";
 import { CallHierarchyProvider } from "./CallHierarchyProvider";
+import { AstWalkerFactory } from "../backend/AstWalkerFactory";
 
 let callGraphDatabase: Database;
 let callGraphParser: ClangCallGraphParser;
@@ -16,13 +17,17 @@ export function activate(context: vscode.ExtensionContext) {
 
     let config = new Configuration();
     callGraphDatabase = new Database(config);
-    callGraphParser = new ClangCallGraphParser(config, callGraphDatabase);
+    callGraphParser = new ClangCallGraphParser(
+        config,
+        callGraphDatabase,
+        new AstWalkerFactory()
+    );
 
     context.subscriptions.push(
         vscode.commands.registerCommand(
             "clang-call-graph.startCallGraphParser",
             () => {
-                if (callGraphParser.running) {
+                if (callGraphParser.isRunning()) {
                     console.log("Stop the clang call graph parser.");
                     callGraphParser.stopParser();
                 }
@@ -38,7 +43,7 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.registerCommand(
             "clang-call-graph.stopCallGraphParser",
             () => {
-                if (callGraphParser.running) {
+                if (callGraphParser.isRunning()) {
                     console.log("Stop the clang call graph parser.");
                     callGraphParser.stopParser();
                 }
