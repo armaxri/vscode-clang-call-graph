@@ -117,13 +117,24 @@ export class ClangAstWalker implements IAstWalker {
     private currentClassStack: Array<ClassDefinition> =
         new Array<ClassDefinition>();
 
-    constructor(baseAstElement: clang_ast.AstElement, database: IDatabase) {
+    private fileName: string = "";
+
+    constructor(
+        baseAstElement: clang_ast.AstElement,
+        database: IDatabase,
+        fileName: string
+    ) {
         this.baseAstElement = baseAstElement;
         this.database = database;
+        this.fileName = fileName;
     }
 
     public walkAst() {
         this.analyzeAstElement(this.baseAstElement);
+    }
+
+    public getFileName(): string {
+        return this.fileName;
     }
 
     private analyzeAstElement(astElement: clang_ast.AstElement) {

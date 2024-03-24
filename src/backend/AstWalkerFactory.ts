@@ -7,8 +7,9 @@ import { IAstWalker } from "./IAstWalker";
 export class AstWalkerFactory implements IAstWalkerFactory {
     createAstWalker(
         baseAstElement: clang_ast.AstElement,
-        database: IDatabase
+        database: IDatabase,
+        fileName: string
     ): IAstWalker {
-        return new ClangAstWalker(baseAstElement, database);
+        return new ClangAstWalker(baseAstElement, database, fileName);
     }
 }

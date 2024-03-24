@@ -5,6 +5,7 @@ import { IAstWalker } from "./IAstWalker";
 export interface IAstWalkerFactory {
     createAstWalker(
         baseAstElement: clang_ast.AstElement,
-        database: IDatabase
+        database: IDatabase,
+        fileName: string
     ): IAstWalker;
 }
