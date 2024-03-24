@@ -9,7 +9,7 @@ suite("Clang AST Walker Test Suite 03", () => {
                 {
                     funcName: "add",
                     funcAstName: "__ZN9TestClass3addEii",
-                    file: "/suite/walkerTests/suit03/simple_method.cpp",
+                    file: "/backendSuite/walkerTests/suit03/simple_method.cpp",
                     startLoc: {
                         line: 4,
                         column: 9,
@@ -22,7 +22,7 @@ suite("Clang AST Walker Test Suite 03", () => {
                 {
                     funcName: "main",
                     funcAstName: "_main",
-                    file: "/suite/walkerTests/suit03/simple_method.cpp",
+                    file: "/backendSuite/walkerTests/suit03/simple_method.cpp",
                     startLoc: {
                         line: 10,
                         column: 5,
@@ -50,7 +50,7 @@ suite("Clang AST Walker Test Suite 03", () => {
                     callDetails: {
                         funcName: "add",
                         funcAstName: "__ZN9TestClass3addEii",
-                        file: "/suite/walkerTests/suit03/simple_method.cpp",
+                        file: "/backendSuite/walkerTests/suit03/simple_method.cpp",
                         startLoc: {
                             line: 13,
                             column: 12,

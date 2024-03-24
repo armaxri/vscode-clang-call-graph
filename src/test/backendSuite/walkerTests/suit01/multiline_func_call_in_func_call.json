@@ -1277,7 +1277,7 @@
       "kind": "FunctionDecl",
       "loc": {
         "offset": 4,
-        "file": "/suite/walkerTests/suit01/multiline_func_call_in_func_call.cpp",
+        "file": "/backendSuite/walkerTests/suit01/multiline_func_call_in_func_call.cpp",
         "line": 1,
         "col": 5,
         "tokLen": 3
