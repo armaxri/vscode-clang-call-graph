@@ -9,7 +9,7 @@ suite("Clang AST Walker Test Suite 00", () => {
                 {
                     funcName: "divide",
                     funcAstName: "__Z6divideii",
-                    file: "/backendSuite/walkerTests/suit00/simple_c_style_func.h",
+                    file: "/backendSuite/walkerTests/suite00/simple_c_style_func.h",
                     startLoc: {
                         line: 5,
                         column: 5,
@@ -22,7 +22,7 @@ suite("Clang AST Walker Test Suite 00", () => {
                 {
                     funcName: "sub",
                     funcAstName: "__Z3subii",
-                    file: "/backendSuite/walkerTests/suit00/main.cpp",
+                    file: "/backendSuite/walkerTests/suite00/main.cpp",
                     startLoc: {
                         line: 5,
                         column: 5,
@@ -35,7 +35,7 @@ suite("Clang AST Walker Test Suite 00", () => {
                 {
                     funcName: "main",
                     funcAstName: "_main",
-                    file: "/backendSuite/walkerTests/suit00/main.cpp",
+                    file: "/backendSuite/walkerTests/suite00/main.cpp",
                     startLoc: {
                         line: 10,
                         column: 5,
@@ -60,7 +60,7 @@ suite("Clang AST Walker Test Suite 00", () => {
                 {
                     funcName: "divide",
                     funcAstName: "__Z6divideii",
-                    file: "/backendSuite/walkerTests/suit00/simple_c_style_func.h",
+                    file: "/backendSuite/walkerTests/suite00/simple_c_style_func.h",
                     startLoc: {
                         line: 5,
                         column: 5,
@@ -73,7 +73,7 @@ suite("Clang AST Walker Test Suite 00", () => {
                 {
                     funcName: "mult",
                     funcAstName: "__Z4multii",
-                    file: "/backendSuite/walkerTests/suit00/simple_c_style_func.cpp",
+                    file: "/backendSuite/walkerTests/suite00/simple_c_style_func.cpp",
                     startLoc: {
                         line: 3,
                         column: 5,
@@ -86,7 +86,7 @@ suite("Clang AST Walker Test Suite 00", () => {
                 {
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
-                    file: "/backendSuite/walkerTests/suit00/simple_c_style_func.cpp",
+                    file: "/backendSuite/walkerTests/suite00/simple_c_style_func.cpp",
                     startLoc: {
                         line: 16,
                         column: 5,
@@ -114,7 +114,7 @@ suite("Clang AST Walker Test Suite 00", () => {
                     callDetails: {
                         funcName: "mult",
                         funcAstName: "__Z4multii",
-                        file: "/backendSuite/walkerTests/suit00/main.cpp",
+                        file: "/backendSuite/walkerTests/suite00/main.cpp",
                         startLoc: {
                             line: 12,
                             column: 12,
@@ -130,7 +130,7 @@ suite("Clang AST Walker Test Suite 00", () => {
                     callDetails: {
                         funcName: "add",
                         funcAstName: "__ZN3foo3addEii",
-                        file: "/backendSuite/walkerTests/suit00/main.cpp",
+                        file: "/backendSuite/walkerTests/suite00/main.cpp",
                         startLoc: {
                             line: 12,
                             column: 25,
@@ -146,7 +146,7 @@ suite("Clang AST Walker Test Suite 00", () => {
                     callDetails: {
                         funcName: "sub",
                         funcAstName: "__Z3subii",
-                        file: "/backendSuite/walkerTests/suit00/main.cpp",
+                        file: "/backendSuite/walkerTests/suite00/main.cpp",
                         startLoc: {
                             line: 14,
                             column: 9,
@@ -162,7 +162,7 @@ suite("Clang AST Walker Test Suite 00", () => {
                     callDetails: {
                         funcName: "divide",
                         funcAstName: "__Z6divideii",
-                        file: "/backendSuite/walkerTests/suit00/main.cpp",
+                        file: "/backendSuite/walkerTests/suite00/main.cpp",
                         startLoc: {
                             line: 15,
                             column: 9,
@@ -190,7 +190,7 @@ suite("Clang AST Walker Test Suite 00", () => {
                     callDetails: {
                         funcName: "add",
                         funcAstName: "__ZN3foo3addEii",
-                        file: "/backendSuite/walkerTests/suit00/simple_c_style_func.cpp",
+                        file: "/backendSuite/walkerTests/suite00/simple_c_style_func.cpp",
                         startLoc: {
                             line: 8,
                             column: 18,

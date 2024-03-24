@@ -9,7 +9,7 @@ suite("Clang AST Walker Test Suite 05", () => {
                 {
                     funcName: "main",
                     funcAstName: "_main",
-                    file: "/backendSuite/walkerTests/suit05/simple_inherited_virtual_method.cpp",
+                    file: "/backendSuite/walkerTests/suite05/simple_inherited_virtual_method.cpp",
                     startLoc: {
                         line: 19,
                         column: 5,
@@ -27,7 +27,7 @@ suite("Clang AST Walker Test Suite 05", () => {
                     funcImpl: {
                         funcName: "add",
                         funcAstName: "__ZN13TestBaseClass3addEii",
-                        file: "/backendSuite/walkerTests/suit05/simple_inherited_virtual_method.cpp",
+                        file: "/backendSuite/walkerTests/suite05/simple_inherited_virtual_method.cpp",
                         startLoc: {
                             line: 4,
                             column: 17,
@@ -43,7 +43,7 @@ suite("Clang AST Walker Test Suite 05", () => {
                     funcImpl: {
                         funcName: "add",
                         funcAstName: "__ZN9TestClass3addEii",
-                        file: "/backendSuite/walkerTests/suit05/simple_inherited_virtual_method.cpp",
+                        file: "/backendSuite/walkerTests/suite05/simple_inherited_virtual_method.cpp",
                         startLoc: {
                             line: 13,
                             column: 9,
@@ -73,7 +73,7 @@ suite("Clang AST Walker Test Suite 05", () => {
                     callDetails: {
                         funcName: "add",
                         funcAstName: "__ZN13TestBaseClass3addEii",
-                        file: "/backendSuite/walkerTests/suit05/simple_inherited_virtual_method.cpp",
+                        file: "/backendSuite/walkerTests/suite05/simple_inherited_virtual_method.cpp",
                         startLoc: {
                             line: 15,
                             column: 16,
@@ -90,7 +90,7 @@ suite("Clang AST Walker Test Suite 05", () => {
                     callDetails: {
                         funcName: "add",
                         funcAstName: "__ZN9TestClass3addEii",
-                        file: "/backendSuite/walkerTests/suit05/simple_inherited_virtual_method.cpp",
+                        file: "/backendSuite/walkerTests/suite05/simple_inherited_virtual_method.cpp",
                         startLoc: {
                             line: 22,
                             column: 12,
