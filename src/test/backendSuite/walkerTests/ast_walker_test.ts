@@ -9,7 +9,7 @@ import {
     VirtualFuncCall,
 } from "../../../backend/IDatabase";
 import { ClangAstWalker } from "../../../backend/ClangAstWalker";
-import { MockDatabase } from "./MockDatabase";
+import { MockDatabase } from "../utils/MockDatabase";
 
 function adjustTsToJsPath(path: string): string {
     const thisFileDirPath = new PathUtils(path);
