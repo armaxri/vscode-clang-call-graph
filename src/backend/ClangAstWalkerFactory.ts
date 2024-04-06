@@ -4,7 +4,7 @@ import * as clang_ast from "./clang_ast_json";
 import { IDatabase } from "./IDatabase";
 import { IAstWalker } from "./IAstWalker";
 
-export class AstWalkerFactory implements IAstWalkerFactory {
+export class ClangAstWalkerFactory implements IAstWalkerFactory {
     createAstWalker(
         fileName: string,
         database: IDatabase,

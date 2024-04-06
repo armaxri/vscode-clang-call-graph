@@ -3,7 +3,7 @@ import { Configuration } from "./Configuration";
 import { Database } from "./Database";
 import { ClangCallGraphParser } from "../backend/ClangCallGraphParser";
 import { CallHierarchyProvider } from "./CallHierarchyProvider";
-import { AstWalkerFactory } from "../backend/AstWalkerFactory";
+import { ClangAstWalkerFactory } from "../backend/ClangAstWalkerFactory";
 
 let callGraphDatabase: Database;
 let callGraphParser: ClangCallGraphParser;
@@ -20,7 +20,7 @@ export function activate(context: vscode.ExtensionContext) {
     callGraphParser = new ClangCallGraphParser(
         config,
         callGraphDatabase,
-        new AstWalkerFactory()
+        new ClangAstWalkerFactory()
     );
 
     context.subscriptions.push(
