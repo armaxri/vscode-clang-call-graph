@@ -98,7 +98,7 @@ export function testAstWalkerResults(
 ) {
     const clangAst = loadAst(adjustTsToJsPath(callingFileDirName), filename);
     var database = new MockDatabase();
-    var astWalker = new ClangAstWalker(clangAst, database, filename);
+    var astWalker = new ClangAstWalker(filename, database, clangAst);
 
     astWalker.walkAst();
     const parsedImplementations = database.funcImplementations;
