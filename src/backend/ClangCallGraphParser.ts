@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import * as child_process from "child_process";
-import { IParserConfig } from "./IParserConfig";
+import { IConfig } from "./IConfig";
 import { IDatabase } from "./IDatabase";
 import { PathUtils } from "./utils/PathUtils";
 import * as utils from "./utils/utils";
@@ -21,7 +21,7 @@ enum CallGraphParsingState {
 export class ClangCallGraphParser {
     private shouldRun: boolean = false;
     private running: boolean = false;
-    private config: IParserConfig;
+    private config: IConfig;
     private database: IDatabase;
     private compileCommands: Array<ICompileCommand> =
         new Array<ICompileCommand>();
@@ -30,7 +30,7 @@ export class ClangCallGraphParser {
     private walkerFactory: IAstWalkerFactory;
 
     constructor(
-        config: IParserConfig,
+        config: IConfig,
         database: IDatabase,
         walkerFactory: IAstWalkerFactory
     ) {
@@ -39,7 +39,7 @@ export class ClangCallGraphParser {
         this.walkerFactory = walkerFactory;
     }
 
-    public startParser(newConfig: IParserConfig) {
+    public startParser(newConfig: IConfig) {
         this.config = newConfig;
         this.callGraphParsingState =
             CallGraphParsingState.readCompileCommandsJson;

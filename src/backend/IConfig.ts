@@ -1,6 +1,6 @@
 import { IDatabase } from "./IDatabase";
 
-export interface IParserConfig {
+export interface IConfig {
     getCompileCommandsJsonPath(): string;
     getCallGraphDatabasePath(): string;
     getNumOfParserThreads(): number;

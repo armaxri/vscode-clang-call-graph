@@ -1,11 +1,11 @@
 import * as vscode from "vscode";
 import * as utils from "./utils/vscode_utils";
 import { StringReplacer } from "./utils/ConfigStringReplacer";
-import { IParserConfig } from "../backend/IParserConfig";
+import { IConfig } from "../backend/IConfig";
 import { IDatabase } from "../backend/IDatabase";
 import { MockDatabase } from "../test/backendSuite/utils/MockDatabase";
 
-export class Configuration implements IParserConfig {
+export class Configuration implements IConfig {
     private compileCommandsJsonPath: string = "";
     private callGraphDatabasePath: string = "";
     private numOfParserThreads: number = 8;
