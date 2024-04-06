@@ -2,6 +2,8 @@ import * as vscode from "vscode";
 import * as utils from "./utils/vscode_utils";
 import { StringReplacer } from "./utils/ConfigStringReplacer";
 import { IParserConfig } from "../backend/IParserConfig";
+import { IDatabase } from "../backend/IDatabase";
+import { MockDatabase } from "../test/backendSuite/utils/MockDatabase";
 
 export class Configuration implements IParserConfig {
     private compileCommandsJsonPath: string = "";
@@ -33,6 +35,10 @@ export class Configuration implements IParserConfig {
             config.get<number>("numOfParserThreads"),
             this.numOfParserThreads
         );
+    }
+    getDatabase(): IDatabase {
+        // TODO: This is just a temporary solution!
+        return new MockDatabase();
     }
 
     getCompileCommandsJsonPath(): string {
