@@ -6,10 +6,10 @@ import { IAstWalker } from "./IAstWalker";
 
 export class AstWalkerFactory implements IAstWalkerFactory {
     createAstWalker(
-        baseAstElement: clang_ast.AstElement,
+        fileName: string,
         database: IDatabase,
-        fileName: string
+        fileReaderFunc: (fileName: string) => clang_ast.AstElement
     ): IAstWalker {
-        return new ClangAstWalker(baseAstElement, database, fileName);
+        return new ClangAstWalker(fileName, database, fileReaderFunc(fileName));
     }
 }

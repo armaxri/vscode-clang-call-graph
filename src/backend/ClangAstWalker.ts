@@ -97,6 +97,7 @@ function isElementVirtualFuncDeclaration(
 }
 
 export class ClangAstWalker implements IAstWalker {
+    private fileName: string = "";
     // Sadly we need to cache a few data, which are reported once
     // and no longer until a new value is seen.
     private lastSeenFileNameInFuncDecl: string = "";
@@ -117,16 +118,14 @@ export class ClangAstWalker implements IAstWalker {
     private currentClassStack: Array<ClassDefinition> =
         new Array<ClassDefinition>();
 
-    private fileName: string = "";
-
     constructor(
-        baseAstElement: clang_ast.AstElement,
+        fileName: string,
         database: IDatabase,
-        fileName: string
+        baseAstElement: clang_ast.AstElement
     ) {
-        this.baseAstElement = baseAstElement;
-        this.database = database;
         this.fileName = fileName;
+        this.database = database;
+        this.baseAstElement = baseAstElement;
     }
 
     public walkAst() {
