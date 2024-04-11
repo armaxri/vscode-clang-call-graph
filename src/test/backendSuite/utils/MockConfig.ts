@@ -7,8 +7,6 @@ import { adjustTsToJsPath } from "./path_helper";
 export class MockConfig implements IConfig {
     private testDir: string = "";
 
-    public loggedErrors: Array<string> = new Array<string>();
-
     constructor(testDir: string) {
         this.testDir = testDir;
     }
@@ -32,10 +30,5 @@ export class MockConfig implements IConfig {
 
     getDatabase(): IDatabase {
         return new MockDatabase();
-    }
-
-    displayError(message: string): void {
-        console.error(`displayError: "${message}"`);
-        this.loggedErrors.push(message);
     }
 }

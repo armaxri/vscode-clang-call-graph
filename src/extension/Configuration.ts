@@ -53,10 +53,6 @@ export class Configuration implements IConfig {
     getNumOfParserThreads(): number {
         return this.numOfParserThreads;
     }
-
-    displayError(message: string): void {
-        vscode.window.showErrorMessage(message);
-    }
 }
 
 function assignValue<T>(value: T | undefined, defaultValue: T): T {

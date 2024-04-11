@@ -2,6 +2,7 @@ import { IAstWalkerFactory } from "./IAstWalkerFactory";
 import { IDatabase } from "./IDatabase";
 import { IConfig } from "./IConfig";
 import { delay } from "./utils/utils";
+import { IUserInterface } from "./IUserInterface";
 
 export interface ICompileCommand {
     directory: string;
@@ -25,6 +26,7 @@ export enum FilesystemWatcherState {
 export class ClangFilesystemWatcher {
     private state: FilesystemWatcherState = FilesystemWatcherState.initial;
     private config: IConfig;
+    private userInterface: IUserInterface;
     private database: IDatabase;
     private walkerFactory: IAstWalkerFactory;
 
@@ -44,10 +46,12 @@ export class ClangFilesystemWatcher {
 
     constructor(
         config: IConfig,
+        userInterface: IUserInterface,
         walkerFactory: IAstWalkerFactory,
         workerDelay?: number
     ) {
         this.config = config;
+        this.userInterface = userInterface;
         this.database = config.getDatabase();
         this.walkerFactory = walkerFactory;
 
@@ -149,7 +153,7 @@ export class ClangFilesystemWatcher {
         } catch (error) {
             const message = `Failed to read "${compileCommandsJsonPath}" or the file is not a valid compile_commands.json file.`;
             console.error(message);
-            this.config.displayError(message);
+            this.userInterface.displayError(message);
 
             return false;
         }
