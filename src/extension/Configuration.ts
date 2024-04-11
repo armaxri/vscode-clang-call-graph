@@ -36,6 +36,7 @@ export class Configuration implements IConfig {
             this.numOfParserThreads
         );
     }
+
     getDatabase(): IDatabase {
         // TODO: This is just a temporary solution!
         return new MockDatabase();
@@ -51,6 +52,10 @@ export class Configuration implements IConfig {
 
     getNumOfParserThreads(): number {
         return this.numOfParserThreads;
+    }
+
+    displayError(message: string): void {
+        vscode.window.showErrorMessage(message);
     }
 }
 

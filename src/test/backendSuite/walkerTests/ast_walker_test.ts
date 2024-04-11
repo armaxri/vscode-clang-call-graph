@@ -10,25 +10,7 @@ import {
 } from "../../../backend/IDatabase";
 import { ClangAstWalker } from "../../../backend/ClangAstWalker";
 import { MockDatabase } from "../utils/MockDatabase";
-
-function adjustTsToJsPath(path: string): string {
-    const thisFileDirPath = new PathUtils(path);
-    const workspacePath = new PathUtils(
-        thisFileDirPath.pathString(),
-        "../../../../.."
-    ).pathString();
-    const workspaceRelativePath = path.replace(workspacePath, "");
-    const newWorkspaceRelativePath = workspaceRelativePath.replace(
-        "/out/",
-        "/src/"
-    );
-    const newPath = new PathUtils(
-        workspacePath,
-        newWorkspaceRelativePath
-    ).pathString();
-
-    return newPath;
-}
+import { adjustTsToJsPath } from "../utils/path_helper";
 
 function loadAst(dirname: string, filename: string): astJson.AstElement {
     const filePath = new PathUtils(dirname, filename);
