@@ -47,6 +47,13 @@ export class Configuration implements IConfig {
         return numOfParserThreads;
     }
 
+    useDatabaseCaching(): boolean {
+        // Currently not a real configuration option.
+        // TODO: Do some testing if this is a good idea.
+        // May use a fixed strategy or make it configurable.
+        return true;
+    }
+
     runVerbose(): boolean {
         const config = this.getExtensionConfig();
         const runVerbose = assignValue<boolean>(

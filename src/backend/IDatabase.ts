@@ -34,4 +34,6 @@ export interface IDatabase {
     registerVirtualFuncDeclaration(funcDec: VirtualFuncMentioning): void;
     registerVirtualFuncImplementation(funcImpl: VirtualFuncMentioning): void;
     registerVirtualFuncCall(funcCall: VirtualFuncCall): void;
+
+    resetDatabase(): void;
 }

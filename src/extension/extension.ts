@@ -1,12 +1,13 @@
 import * as vscode from "vscode";
 import { Configuration } from "./Configuration";
-import { Database } from "./Database";
+import { SqliteDatabase } from "../backend/SqliteDatabase";
 import { UserInterface } from "./UserInterface";
 import { ClangFilesystemWatcher } from "../backend/ClangFilesystemWatcher";
 import { CallHierarchyProvider } from "./CallHierarchyProvider";
 import { ClangAstWalkerFactory } from "../backend/ClangAstWalkerFactory";
+import { IDatabase } from "../backend/IDatabase";
 
-let callGraphDatabase: Database;
+let callGraphDatabase: IDatabase;
 let callGraphParser: ClangFilesystemWatcher;
 
 export function activate(context: vscode.ExtensionContext) {
@@ -17,7 +18,7 @@ export function activate(context: vscode.ExtensionContext) {
     );
 
     let config = new Configuration();
-    let database = new Database(config);
+    let database = new SqliteDatabase(config);
     callGraphParser = new ClangFilesystemWatcher(
         config,
         new UserInterface(),
@@ -34,8 +35,7 @@ export function activate(context: vscode.ExtensionContext) {
                     callGraphParser.stopWatching();
                 }
                 console.log("Start the clang call graph parser.");
-                let config = new Configuration();
-                callGraphDatabase.resetDatabase(config);
+                callGraphDatabase.resetDatabase();
                 callGraphParser.startWatching();
             }
         )

@@ -30,6 +30,10 @@ export class MockConfig implements IConfig {
         return this.numOfParserThreads;
     }
 
+    useDatabaseCaching(): boolean {
+        return false;
+    }
+
     runVerbose(): boolean {
         return true;
     }
