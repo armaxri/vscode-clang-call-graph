@@ -6,7 +6,7 @@ export class MockConfig implements IConfig {
     private testDir: string = "";
 
     public compileCommandsJsonPath: string = "compile_commands.json";
-    public callGraphDatabasePath: string = "call_graph.db";
+    public callGraphDatabasePath: string = "clang_call_graph.sqlite3";
     public numOfParserThreads: number = 1;
 
     constructor(testDir: string) {

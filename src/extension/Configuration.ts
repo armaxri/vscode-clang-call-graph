@@ -4,6 +4,7 @@ import { StringReplacer } from "./utils/ConfigStringReplacer";
 import { IConfig } from "../backend/IConfig";
 import { IDatabase } from "../backend/IDatabase";
 import { MockDatabase } from "../test/backendSuite/utils/MockDatabase";
+import { PathUtils } from "../backend/utils/PathUtils";
 
 export class Configuration implements IConfig {
     private database: IDatabase | undefined = undefined;
@@ -17,24 +18,22 @@ export class Configuration implements IConfig {
     }
 
     getCompileCommandsJsonPath(): string {
-        const stringReplacer = new StringReplacer();
         const config = this.getExtensionConfig();
-        const compileCommandsJsonPath = stringReplacer.replaceMatches(
-            assignValue<string>(
-                config.get<string>("compileCommandsJsonDir"),
-                ""
-            )
+        const compileCommandsJsonPath = assignPath(
+            config.get<string>("compileCommandsJsonDir"),
+            "compile_commands.json"
         );
 
         return compileCommandsJsonPath;
     }
 
     getCallGraphDatabasePath(): string {
-        const stringReplacer = new StringReplacer();
         const config = this.getExtensionConfig();
-        const callGraphDatabasePath = stringReplacer.replaceMatches(
-            assignValue<string>(config.get<string>("callGraphDatabasePath"), "")
+        const callGraphDatabasePath = assignPath(
+            config.get<string>("callGraphDatabasePath"),
+            "clang_call_graph.sqlite3"
         );
+
         return callGraphDatabasePath;
     }
 
@@ -56,6 +55,19 @@ export class Configuration implements IConfig {
         );
         return runVerbose;
     }
+}
+
+function assignPath(value: string | undefined, defaultValue: string): string {
+    const stringReplacer = new StringReplacer();
+    const workspaceDir = utils.getCurrentWorkspace();
+    const actualDefaultPath =
+        typeof workspaceDir === "undefined" || workspaceDir === null
+            ? defaultValue
+            : new PathUtils(workspaceDir.name, defaultValue).pathString();
+
+    return typeof value === "undefined"
+        ? actualDefaultPath
+        : stringReplacer.replaceMatches(value);
 }
 
 function assignValue<T>(value: T | undefined, defaultValue: T): T {
