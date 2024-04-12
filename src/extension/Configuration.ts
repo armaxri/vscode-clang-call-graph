@@ -6,6 +6,8 @@ import { IDatabase } from "../backend/IDatabase";
 import { MockDatabase } from "../test/backendSuite/utils/MockDatabase";
 
 export class Configuration implements IConfig {
+    private database: IDatabase | undefined = undefined;
+
     private getExtensionConfig(): vscode.WorkspaceConfiguration {
         const correspondingWorkspace = utils.getCurrentWorkspace();
         return vscode.workspace.getConfiguration(
@@ -15,8 +17,11 @@ export class Configuration implements IConfig {
     }
 
     getDatabase(): IDatabase {
-        // TODO: This is just a temporary solution!
-        return new MockDatabase();
+        if (this.database === undefined) {
+            // TODO: This is just a temporary solution!
+            this.database = new MockDatabase();
+        }
+        return this.database;
     }
 
     getCompileCommandsJsonPath(): string {
