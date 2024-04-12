@@ -16,14 +16,6 @@ export class Configuration implements IConfig {
         );
     }
 
-    getDatabase(): IDatabase {
-        if (this.database === undefined) {
-            // TODO: This is just a temporary solution!
-            this.database = new MockDatabase();
-        }
-        return this.database;
-    }
-
     getCompileCommandsJsonPath(): string {
         const stringReplacer = new StringReplacer();
         const config = this.getExtensionConfig();

@@ -17,10 +17,12 @@ export function activate(context: vscode.ExtensionContext) {
     );
 
     let config = new Configuration();
+    let database = new Database(config);
     callGraphParser = new ClangFilesystemWatcher(
         config,
         new UserInterface(),
-        new ClangAstWalkerFactory()
+        new ClangAstWalkerFactory(),
+        database
     );
 
     context.subscriptions.push(

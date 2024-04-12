@@ -48,11 +48,12 @@ export class ClangFilesystemWatcher {
         config: IConfig,
         userInterface: IUserInterface,
         walkerFactory: IAstWalkerFactory,
+        database: IDatabase,
         workerDelay?: number
     ) {
         this.config = config;
         this.userInterface = userInterface;
-        this.database = config.getDatabase();
+        this.database = database;
         this.walkerFactory = walkerFactory;
 
         if (workerDelay !== undefined) {
@@ -72,7 +73,6 @@ export class ClangFilesystemWatcher {
         // When the watcher is started, the database might have changed.
         // Whe don't want to directly remove old databases to allow different watchers,
         // as well as different workspace configurations.
-        this.database = this.config.getDatabase();
         this.state = FilesystemWatcherState.running;
         this.startWorker();
         this.watchFilesystem();

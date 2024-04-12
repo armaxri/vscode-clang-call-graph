@@ -27,8 +27,4 @@ export class MockConfig implements IConfig {
     getNumOfParserThreads(): number {
         return 1;
     }
-
-    getDatabase(): IDatabase {
-        return new MockDatabase();
-    }
 }
