@@ -6,7 +6,7 @@ import {
     Location,
     VirtualFuncMentioning,
     VirtualFuncCall,
-} from "./IDatabase";
+} from "../database/IDatabase";
 import { IAstWalker } from "./IAstWalker";
 
 function hasCompoundStmtInInner(astElement: clang_ast.AstElement): boolean {

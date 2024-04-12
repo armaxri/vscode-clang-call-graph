@@ -1,4 +1,4 @@
-import { IDatabase } from "./IDatabase";
+import { IDatabase } from "./database/IDatabase";
 
 export interface IConfig {
     getCompileCommandsJsonPath(): string;

@@ -1,4 +1,4 @@
-import { IDatabase } from "./IDatabase";
+import { IDatabase } from "../database/IDatabase";
 import { IAstWalker } from "./IAstWalker";
 
 export interface IAstWalkerFactory {

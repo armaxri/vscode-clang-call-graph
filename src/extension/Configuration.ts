@@ -2,7 +2,7 @@ import * as vscode from "vscode";
 import * as utils from "./utils/vscode_utils";
 import { StringReplacer } from "./utils/ConfigStringReplacer";
 import { IConfig } from "../backend/IConfig";
-import { IDatabase } from "../backend/IDatabase";
+import { IDatabase } from "../backend/database/IDatabase";
 import { MockDatabase } from "../test/backendSuite/utils/MockDatabase";
 import { PathUtils } from "../backend/utils/PathUtils";
 

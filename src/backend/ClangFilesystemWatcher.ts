@@ -1,5 +1,5 @@
-import { IAstWalkerFactory } from "./IAstWalkerFactory";
-import { IDatabase } from "./IDatabase";
+import { IAstWalkerFactory } from "./clangAst/IAstWalkerFactory";
+import { IDatabase } from "./database/IDatabase";
 import { IConfig } from "./IConfig";
 import { delay } from "./utils/utils";
 import { IUserInterface } from "./IUserInterface";

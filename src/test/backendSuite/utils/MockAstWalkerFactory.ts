@@ -1,6 +1,6 @@
-import { IAstWalker } from "../../../backend/IAstWalker";
-import { IAstWalkerFactory } from "../../../backend/IAstWalkerFactory";
-import { IDatabase } from "../../../backend/IDatabase";
+import { IAstWalker } from "../../../backend/clangAst/IAstWalker";
+import { IAstWalkerFactory } from "../../../backend/clangAst/IAstWalkerFactory";
+import { IDatabase } from "../../../backend/database/IDatabase";
 import { MockAstWalker } from "./MockAstWalker";
 
 export type ReceivedRequest = {

@@ -1,14 +1,14 @@
 import * as assert from "assert";
 import * as fs from "fs";
 import { PathUtils } from "../../../backend/utils/PathUtils";
-import * as astJson from "../../../backend/clang_ast_json";
+import * as astJson from "../../../backend/clangAst/clang_ast_json";
 import {
     FuncMentioning,
     FuncCall,
     VirtualFuncMentioning,
     VirtualFuncCall,
-} from "../../../backend/IDatabase";
-import { ClangAstWalker } from "../../../backend/ClangAstWalker";
+} from "../../../backend/database/IDatabase";
+import { ClangAstWalker } from "../../../backend/clangAst/ClangAstWalker";
 import { MockDatabase } from "../utils/MockDatabase";
 import { adjustTsToJsPath } from "../utils/path_helper";
 

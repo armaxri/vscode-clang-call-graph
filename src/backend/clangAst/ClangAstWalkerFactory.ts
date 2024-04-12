@@ -1,9 +1,9 @@
 import { ClangAstWalker } from "./ClangAstWalker";
 import { IAstWalkerFactory } from "./IAstWalkerFactory";
 import * as clang_ast from "./clang_ast_json";
-import { IDatabase } from "./IDatabase";
+import { IDatabase } from "../database/IDatabase";
 import { IAstWalker } from "./IAstWalker";
-import { createClangAstCall } from "./utils/utils";
+import { createClangAstCall } from "../utils/utils";
 import * as child_process from "child_process";
 
 export class ClangAstWalkerFactory implements IAstWalkerFactory {

@@ -1,4 +1,4 @@
-import { IConfig } from "./IConfig";
+import { IConfig } from "../IConfig";
 import * as iDb from "./IDatabase";
 import * as sqlite from "sqlite3";
 

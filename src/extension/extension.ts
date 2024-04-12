@@ -1,11 +1,11 @@
 import * as vscode from "vscode";
 import { Configuration } from "./Configuration";
-import { SqliteDatabase } from "../backend/SqliteDatabase";
+import { SqliteDatabase } from "../backend/database/SqliteDatabase";
 import { UserInterface } from "./UserInterface";
 import { ClangFilesystemWatcher } from "../backend/ClangFilesystemWatcher";
 import { CallHierarchyProvider } from "./CallHierarchyProvider";
-import { ClangAstWalkerFactory } from "../backend/ClangAstWalkerFactory";
-import { IDatabase } from "../backend/IDatabase";
+import { ClangAstWalkerFactory } from "../backend/clangAst/ClangAstWalkerFactory";
+import { IDatabase } from "../backend/database/IDatabase";
 
 let callGraphDatabase: IDatabase;
 let callGraphParser: ClangFilesystemWatcher;
