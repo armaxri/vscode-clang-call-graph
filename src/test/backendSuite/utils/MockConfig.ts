@@ -1,11 +1,13 @@
 import { IConfig } from "../../../backend/IConfig";
-import { IDatabase } from "../../../backend/IDatabase";
 import { PathUtils } from "../../../backend/utils/PathUtils";
-import { MockDatabase } from "./MockDatabase";
 import { adjustTsToJsPath } from "./path_helper";
 
 export class MockConfig implements IConfig {
     private testDir: string = "";
+
+    public compileCommandsJsonPath: string = "compile_commands.json";
+    public callGraphDatabasePath: string = "call_graph.db";
+    public numOfParserThreads: number = 1;
 
     constructor(testDir: string) {
         this.testDir = testDir;
@@ -17,14 +19,18 @@ export class MockConfig implements IConfig {
     }
 
     getCompileCommandsJsonPath(): string {
-        return this.getFilePathInTestDir("compile_commands.json");
+        return this.getFilePathInTestDir(this.compileCommandsJsonPath);
     }
 
     getCallGraphDatabasePath(): string {
-        return this.getFilePathInTestDir("call_graph.db");
+        return this.getFilePathInTestDir(this.callGraphDatabasePath);
     }
 
     getNumOfParserThreads(): number {
-        return 1;
+        return this.numOfParserThreads;
+    }
+
+    runVerbose(): boolean {
+        return true;
     }
 }

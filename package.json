@@ -45,6 +45,11 @@
                         "description": "Number of threads that are used to parse the C/C++ files.",
                         "default": 8,
                         "minimum": 1
+                    },
+                    "clangCallGraph.runVerbose": {
+                        "type": "boolean",
+                        "description": "If true, the parser will output additional information. Only available in early development stages.",
+                        "default": true
                     }
                 }
             }

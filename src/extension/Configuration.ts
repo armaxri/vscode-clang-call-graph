@@ -47,6 +47,15 @@ export class Configuration implements IConfig {
 
         return numOfParserThreads;
     }
+
+    runVerbose(): boolean {
+        const config = this.getExtensionConfig();
+        const runVerbose = assignValue<boolean>(
+            config.get<boolean>("runVerbose"),
+            false
+        );
+        return runVerbose;
+    }
 }
 
 function assignValue<T>(value: T | undefined, defaultValue: T): T {
