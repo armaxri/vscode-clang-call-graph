@@ -1,4 +1,4 @@
-import { testAstWalkerResults } from "../../utils/ast_walker_test";
+import { testAstWalkerResults } from "../ast_walker_test";
 
 suite("Clang AST Walker Test Suite 02", () => {
     test("simple_static_method implementation", () => {

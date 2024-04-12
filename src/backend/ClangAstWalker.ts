@@ -7,6 +7,7 @@ import {
     VirtualFuncMentioning,
     VirtualFuncCall,
 } from "./IDatabase";
+import { IAstWalker } from "./IAstWalker";
 
 function hasCompoundStmtInInner(astElement: clang_ast.AstElement): boolean {
     if (astElement.inner) {
@@ -95,7 +96,8 @@ function isElementVirtualFuncDeclaration(
     );
 }
 
-export class ClangAstWalker {
+export class ClangAstWalker implements IAstWalker {
+    private fileName: string = "";
     // Sadly we need to cache a few data, which are reported once
     // and no longer until a new value is seen.
     private lastSeenFileNameInFuncDecl: string = "";
@@ -116,13 +118,22 @@ export class ClangAstWalker {
     private currentClassStack: Array<ClassDefinition> =
         new Array<ClassDefinition>();
 
-    constructor(baseAstElement: clang_ast.AstElement, database: IDatabase) {
-        this.baseAstElement = baseAstElement;
+    constructor(
+        fileName: string,
+        database: IDatabase,
+        baseAstElement: clang_ast.AstElement
+    ) {
+        this.fileName = fileName;
         this.database = database;
+        this.baseAstElement = baseAstElement;
     }
 
     public walkAst() {
         this.analyzeAstElement(this.baseAstElement);
+    }
+
+    public getFileName(): string {
+        return this.fileName;
     }
 
     private analyzeAstElement(astElement: clang_ast.AstElement) {

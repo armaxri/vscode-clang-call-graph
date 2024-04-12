@@ -1,11 +1,13 @@
 import * as vscode from "vscode";
 import { Configuration } from "./Configuration";
 import { Database } from "./Database";
-import { ClangCallGraphParser } from "./ClangCallGraphParser";
+import { UserInterface } from "./UserInterface";
+import { ClangFilesystemWatcher } from "../backend/ClangFilesystemWatcher";
 import { CallHierarchyProvider } from "./CallHierarchyProvider";
+import { ClangAstWalkerFactory } from "../backend/ClangAstWalkerFactory";
 
 let callGraphDatabase: Database;
-let callGraphParser: ClangCallGraphParser;
+let callGraphParser: ClangFilesystemWatcher;
 
 export function activate(context: vscode.ExtensionContext) {
     // Use the console to output diagnostic information (console.log) and errors (console.error)
@@ -15,21 +17,24 @@ export function activate(context: vscode.ExtensionContext) {
     );
 
     let config = new Configuration();
-    callGraphDatabase = new Database(config);
-    callGraphParser = new ClangCallGraphParser(config, callGraphDatabase);
+    callGraphParser = new ClangFilesystemWatcher(
+        config,
+        new UserInterface(),
+        new ClangAstWalkerFactory()
+    );
 
     context.subscriptions.push(
         vscode.commands.registerCommand(
             "clang-call-graph.startCallGraphParser",
             () => {
-                if (callGraphParser.running) {
+                if (callGraphParser.isRunning()) {
                     console.log("Stop the clang call graph parser.");
-                    callGraphParser.stopParser();
+                    callGraphParser.stopWatching();
                 }
                 console.log("Start the clang call graph parser.");
                 let config = new Configuration();
                 callGraphDatabase.resetDatabase(config);
-                callGraphParser.startParser(config);
+                callGraphParser.startWatching();
             }
         )
     );
@@ -38,9 +43,9 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.registerCommand(
             "clang-call-graph.stopCallGraphParser",
             () => {
-                if (callGraphParser.running) {
+                if (callGraphParser.isRunning()) {
                     console.log("Stop the clang call graph parser.");
-                    callGraphParser.stopParser();
+                    callGraphParser.stopWatching();
                 }
             }
         )
@@ -57,6 +62,6 @@ export function activate(context: vscode.ExtensionContext) {
 // This method is called when your extension is deactivated
 export function deactivate() {
     if (callGraphParser) {
-        callGraphParser.stopParser();
+        callGraphParser.stopWatching();
     }
 }

@@ -1,37 +1,59 @@
 import * as vscode from "vscode";
 import * as utils from "./utils/vscode_utils";
 import { StringReplacer } from "./utils/ConfigStringReplacer";
+import { IConfig } from "../backend/IConfig";
+import { IDatabase } from "../backend/IDatabase";
+import { MockDatabase } from "../test/backendSuite/utils/MockDatabase";
 
-export class Configuration {
-    compileCommandsJsonPath: string = "";
-    callGraphDatabasePath: string = "";
-    numOfParserThreads: number = 8;
+export class Configuration implements IConfig {
+    private database: IDatabase | undefined = undefined;
 
-    constructor() {
-        const stringReplacer = new StringReplacer();
-
-        // Start with a simple single workspace.
+    private getExtensionConfig(): vscode.WorkspaceConfiguration {
         const correspondingWorkspace = utils.getCurrentWorkspace();
-        const config = vscode.workspace.getConfiguration(
+        return vscode.workspace.getConfiguration(
             "clangCallGraph",
             correspondingWorkspace
         );
-        this.compileCommandsJsonPath = stringReplacer.replaceMatches(
+    }
+
+    getDatabase(): IDatabase {
+        if (this.database === undefined) {
+            // TODO: This is just a temporary solution!
+            this.database = new MockDatabase();
+        }
+        return this.database;
+    }
+
+    getCompileCommandsJsonPath(): string {
+        const stringReplacer = new StringReplacer();
+        const config = this.getExtensionConfig();
+        const compileCommandsJsonPath = stringReplacer.replaceMatches(
             assignValue<string>(
                 config.get<string>("compileCommandsJsonDir"),
-                this.compileCommandsJsonPath
+                ""
             )
         );
-        this.callGraphDatabasePath = stringReplacer.replaceMatches(
-            assignValue<string>(
-                config.get<string>("callGraphDatabasePath"),
-                this.callGraphDatabasePath
-            )
+
+        return compileCommandsJsonPath;
+    }
+
+    getCallGraphDatabasePath(): string {
+        const stringReplacer = new StringReplacer();
+        const config = this.getExtensionConfig();
+        const callGraphDatabasePath = stringReplacer.replaceMatches(
+            assignValue<string>(config.get<string>("callGraphDatabasePath"), "")
         );
-        this.numOfParserThreads = assignValue<number>(
+        return callGraphDatabasePath;
+    }
+
+    getNumOfParserThreads(): number {
+        const config = this.getExtensionConfig();
+        const numOfParserThreads = assignValue<number>(
             config.get<number>("numOfParserThreads"),
-            this.numOfParserThreads
+            8
         );
+
+        return numOfParserThreads;
     }
 }
 

@@ -9,26 +9,8 @@ import {
     VirtualFuncCall,
 } from "../../../backend/IDatabase";
 import { ClangAstWalker } from "../../../backend/ClangAstWalker";
-import { MockDatabase } from "./MockDatabase";
-
-function adjustTsToJsPath(path: string): string {
-    const thisFileDirPath = new PathUtils(path);
-    const workspacePath = new PathUtils(
-        thisFileDirPath.pathString(),
-        "../../../../.."
-    ).pathString();
-    const workspaceRelativePath = path.replace(workspacePath, "");
-    const newWorkspaceRelativePath = workspaceRelativePath.replace(
-        "/out/",
-        "/src/"
-    );
-    const newPath = new PathUtils(
-        workspacePath,
-        newWorkspaceRelativePath
-    ).pathString();
-
-    return newPath;
-}
+import { MockDatabase } from "../utils/MockDatabase";
+import { adjustTsToJsPath } from "../utils/path_helper";
 
 function loadAst(dirname: string, filename: string): astJson.AstElement {
     const filePath = new PathUtils(dirname, filename);
@@ -98,7 +80,7 @@ export function testAstWalkerResults(
 ) {
     const clangAst = loadAst(adjustTsToJsPath(callingFileDirName), filename);
     var database = new MockDatabase();
-    var astWalker = new ClangAstWalker(clangAst, database);
+    var astWalker = new ClangAstWalker(filename, database, clangAst);
 
     astWalker.walkAst();
     const parsedImplementations = database.funcImplementations;
