@@ -1,6 +1,6 @@
-import * as iDb from "../../../backend/database/IDatabase";
+import * as iDb from "../../../backend/database/Database";
 
-export class MockDatabase implements iDb.IDatabase {
+export class MockDatabase implements iDb.Database {
     public funcDeclarations: Array<iDb.FuncMentioning> =
         new Array<iDb.FuncMentioning>();
     public funcImplementations: Array<iDb.FuncMentioning> =

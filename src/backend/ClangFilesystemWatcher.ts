@@ -1,5 +1,5 @@
 import { AstWalkerFactory } from "./clangAst/AstWalkerFactory";
-import { IDatabase } from "./database/IDatabase";
+import { Database } from "./database/Database";
 import { Config } from "./Config";
 import { delay } from "./utils/utils";
 import { UserInterface } from "./UserInterface";
@@ -27,7 +27,7 @@ export class ClangFilesystemWatcher {
     private state: FilesystemWatcherState = FilesystemWatcherState.initial;
     private config: Config;
     private userInterface: UserInterface;
-    private database: IDatabase;
+    private database: Database;
     private walkerFactory: AstWalkerFactory;
 
     // This number is used during busy waiting to avoid high CPU usage.
@@ -48,7 +48,7 @@ export class ClangFilesystemWatcher {
         config: Config,
         userInterface: UserInterface,
         walkerFactory: AstWalkerFactory,
-        database: IDatabase,
+        database: Database,
         workerDelay?: number
     ) {
         this.config = config;

@@ -7,7 +7,7 @@ import {
     FuncCall,
     VirtualFuncMentioning,
     VirtualFuncCall,
-} from "../../../backend/database/IDatabase";
+} from "../../../backend/database/Database";
 import { ClangAstWalker } from "../../../backend/clangAst/ClangAstWalker";
 import { MockDatabase } from "../utils/MockDatabase";
 import { adjustTsToJsPath } from "../utils/path_helper";

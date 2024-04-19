@@ -1,12 +1,12 @@
 import * as clang_ast from "./clang_ast_json";
 import {
-    IDatabase,
+    Database,
     FuncMentioning,
     FuncCall,
     Location,
     VirtualFuncMentioning,
     VirtualFuncCall,
-} from "../database/IDatabase";
+} from "../database/Database";
 import { AstWalker } from "./AstWalker";
 
 function hasCompoundStmtInInner(astElement: clang_ast.AstElement): boolean {
@@ -109,7 +109,7 @@ export class ClangAstWalker implements AstWalker {
 
     private callingFuncName: string = "";
     private baseAstElement: clang_ast.AstElement;
-    private database: IDatabase;
+    private database: Database;
     private funcDeclarations: Array<SimpleFuncDeclaration> =
         new Array<SimpleFuncDeclaration>();
     private virtualFuncDeclarations: Array<SimpleVirtualFuncDeclaration> =
@@ -120,7 +120,7 @@ export class ClangAstWalker implements AstWalker {
 
     constructor(
         fileName: string,
-        database: IDatabase,
+        database: Database,
         baseAstElement: clang_ast.AstElement
     ) {
         this.fileName = fileName;

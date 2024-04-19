@@ -1,10 +1,10 @@
 import { Config } from "../Config";
-import * as iDb from "./IDatabase";
+import * as iDb from "./Database";
 import * as sqlite from "sqlite3";
 
 const CURRENT_DATABASE_VERSION = 1;
 
-export class SqliteDatabase implements iDb.IDatabase {
+export class SqliteDatabase implements iDb.Database {
     private config: Config;
     private database!: sqlite.Database;
 

@@ -1,13 +1,13 @@
 import * as vscode from "vscode";
-import { VscodeConfig } from "./Configuration";
+import { VscodeConfig } from "./VscodeConfig";
 import { SqliteDatabase } from "../backend/database/SqliteDatabase";
 import { VscodeUserInterface } from "./VscodeUserInterface";
 import { ClangFilesystemWatcher } from "../backend/ClangFilesystemWatcher";
 import { CallHierarchyProvider } from "./CallHierarchyProvider";
 import { ClangAstWalkerFactory } from "../backend/clangAst/ClangAstWalkerFactory";
-import { IDatabase } from "../backend/database/IDatabase";
+import { Database } from "../backend/database/Database";
 
-let callGraphDatabase: IDatabase;
+let callGraphDatabase: Database;
 let callGraphParser: ClangFilesystemWatcher;
 
 export function activate(context: vscode.ExtensionContext) {

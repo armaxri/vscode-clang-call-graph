@@ -2,11 +2,11 @@ import * as vscode from "vscode";
 import * as utils from "./utils/vscode_utils";
 import { StringReplacer } from "./utils/ConfigStringReplacer";
 import { Config } from "../backend/Config";
-import { IDatabase } from "../backend/database/IDatabase";
+import { Database } from "../backend/database/Database";
 import { PathUtils } from "../backend/utils/PathUtils";
 
 export class VscodeConfig implements Config {
-    private database: IDatabase | undefined = undefined;
+    private database: Database | undefined = undefined;
 
     private getExtensionConfig(): vscode.WorkspaceConfiguration {
         const correspondingWorkspace = utils.getCurrentWorkspace();

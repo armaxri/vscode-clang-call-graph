@@ -27,7 +27,7 @@ export type VirtualFuncCall = {
     callDetails: FuncMentioning;
 };
 
-export interface IDatabase {
+export interface Database {
     registerFuncDeclaration(funcDec: FuncMentioning): void;
     registerFuncImplementation(funcImpl: FuncMentioning): void;
     registerFuncCall(funcCall: FuncCall): void;
