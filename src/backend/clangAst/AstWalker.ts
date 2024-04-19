@@ -1,4 +1,4 @@
-export interface IAstWalker {
+export interface AstWalker {
     walkAst(): void;
 
     getFileName(): string;

@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
-import { Configuration } from "./Configuration";
+import { VscodeConfig } from "./Configuration";
 import { SqliteDatabase } from "../backend/database/SqliteDatabase";
-import { UserInterface } from "./UserInterface";
+import { VscodeUserInterface } from "./VscodeUserInterface";
 import { ClangFilesystemWatcher } from "../backend/ClangFilesystemWatcher";
 import { CallHierarchyProvider } from "./CallHierarchyProvider";
 import { ClangAstWalkerFactory } from "../backend/clangAst/ClangAstWalkerFactory";
@@ -17,11 +17,11 @@ export function activate(context: vscode.ExtensionContext) {
         "Congratulations, your extension 'clang-call-graph' is now active!"
     );
 
-    let config = new Configuration();
+    let config = new VscodeConfig();
     let database = new SqliteDatabase(config);
     callGraphParser = new ClangFilesystemWatcher(
         config,
-        new UserInterface(),
+        new VscodeUserInterface(),
         new ClangAstWalkerFactory(),
         database
     );

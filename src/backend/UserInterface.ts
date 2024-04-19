@@ -1,3 +1,3 @@
-export interface IUserInterface {
+export interface UserInterface {
     displayError(message: string): void;
 }

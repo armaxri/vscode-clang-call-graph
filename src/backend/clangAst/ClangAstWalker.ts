@@ -7,7 +7,7 @@ import {
     VirtualFuncMentioning,
     VirtualFuncCall,
 } from "../database/IDatabase";
-import { IAstWalker } from "./IAstWalker";
+import { AstWalker } from "./AstWalker";
 
 function hasCompoundStmtInInner(astElement: clang_ast.AstElement): boolean {
     if (astElement.inner) {
@@ -96,7 +96,7 @@ function isElementVirtualFuncDeclaration(
     );
 }
 
-export class ClangAstWalker implements IAstWalker {
+export class ClangAstWalker implements AstWalker {
     private fileName: string = "";
     // Sadly we need to cache a few data, which are reported once
     // and no longer until a new value is seen.

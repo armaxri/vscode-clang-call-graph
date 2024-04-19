@@ -1,8 +1,8 @@
-import { IConfig } from "../../../backend/IConfig";
+import { Config } from "../../../backend/Config";
 import { PathUtils } from "../../../backend/utils/PathUtils";
 import { adjustTsToJsPath } from "./path_helper";
 
-export class MockConfig implements IConfig {
+export class MockConfig implements Config {
     private testDir: string = "";
 
     public compileCommandsJsonPath: string = "compile_commands.json";

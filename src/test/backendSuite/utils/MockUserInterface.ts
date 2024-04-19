@@ -1,6 +1,6 @@
-import { IUserInterface } from "../../../backend/IUserInterface";
+import { UserInterface } from "../../../backend/UserInterface";
 
-export class MockUserInterface implements IUserInterface {
+export class MockUserInterface implements UserInterface {
     public loggedErrors: Array<string> = new Array<string>();
 
     displayError(message: string): void {

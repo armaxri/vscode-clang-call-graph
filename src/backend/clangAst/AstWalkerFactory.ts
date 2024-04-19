@@ -1,10 +1,10 @@
 import { IDatabase } from "../database/IDatabase";
-import { IAstWalker } from "./IAstWalker";
+import { AstWalker } from "./AstWalker";
 
-export interface IAstWalkerFactory {
+export interface AstWalkerFactory {
     createAstWalker(
         fileName: string,
         command: string,
         database: IDatabase
-    ): IAstWalker;
+    ): AstWalker;
 }

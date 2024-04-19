@@ -1,8 +1,8 @@
-import { IAstWalkerFactory } from "./clangAst/IAstWalkerFactory";
+import { AstWalkerFactory } from "./clangAst/AstWalkerFactory";
 import { IDatabase } from "./database/IDatabase";
-import { IConfig } from "./IConfig";
+import { Config } from "./Config";
 import { delay } from "./utils/utils";
-import { IUserInterface } from "./IUserInterface";
+import { UserInterface } from "./UserInterface";
 
 export interface ICompileCommand {
     directory: string;
@@ -25,10 +25,10 @@ export enum FilesystemWatcherState {
 
 export class ClangFilesystemWatcher {
     private state: FilesystemWatcherState = FilesystemWatcherState.initial;
-    private config: IConfig;
-    private userInterface: IUserInterface;
+    private config: Config;
+    private userInterface: UserInterface;
     private database: IDatabase;
-    private walkerFactory: IAstWalkerFactory;
+    private walkerFactory: AstWalkerFactory;
 
     // This number is used during busy waiting to avoid high CPU usage.
     // 0.1 seconds should be an appropriate waiting period for users to feel no delay but still have a good performance.
@@ -45,9 +45,9 @@ export class ClangFilesystemWatcher {
     private analyzedFiles: Array<AnalyzedFile> = new Array<AnalyzedFile>();
 
     constructor(
-        config: IConfig,
-        userInterface: IUserInterface,
-        walkerFactory: IAstWalkerFactory,
+        config: Config,
+        userInterface: UserInterface,
+        walkerFactory: AstWalkerFactory,
         database: IDatabase,
         workerDelay?: number
     ) {

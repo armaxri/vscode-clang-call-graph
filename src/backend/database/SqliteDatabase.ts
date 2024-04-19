@@ -1,14 +1,14 @@
-import { IConfig } from "../IConfig";
+import { Config } from "../Config";
 import * as iDb from "./IDatabase";
 import * as sqlite from "sqlite3";
 
 const CURRENT_DATABASE_VERSION = 1;
 
 export class SqliteDatabase implements iDb.IDatabase {
-    private config: IConfig;
+    private config: Config;
     private database!: sqlite.Database;
 
-    constructor(config: IConfig) {
+    constructor(config: Config) {
         this.config = config;
 
         this.initDatabase();

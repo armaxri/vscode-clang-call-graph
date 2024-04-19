@@ -1,12 +1,11 @@
 import * as vscode from "vscode";
 import * as utils from "./utils/vscode_utils";
 import { StringReplacer } from "./utils/ConfigStringReplacer";
-import { IConfig } from "../backend/IConfig";
+import { Config } from "../backend/Config";
 import { IDatabase } from "../backend/database/IDatabase";
-import { MockDatabase } from "../test/backendSuite/utils/MockDatabase";
 import { PathUtils } from "../backend/utils/PathUtils";
 
-export class Configuration implements IConfig {
+export class VscodeConfig implements Config {
     private database: IDatabase | undefined = undefined;
 
     private getExtensionConfig(): vscode.WorkspaceConfiguration {

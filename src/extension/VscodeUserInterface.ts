@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
-import { IUserInterface } from "../backend/IUserInterface";
+import { UserInterface } from "../backend/UserInterface";
 
-export class UserInterface implements IUserInterface {
+export class VscodeUserInterface implements UserInterface {
     displayError(message: string): void {
         vscode.window.showErrorMessage(message);
     }

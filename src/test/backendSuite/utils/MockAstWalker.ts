@@ -1,6 +1,6 @@
-import { IAstWalker } from "../../../backend/clangAst/IAstWalker";
+import { AstWalker } from "../../../backend/clangAst/AstWalker";
 
-export class MockAstWalker implements IAstWalker {
+export class MockAstWalker implements AstWalker {
     public walkCnt: number = 0;
     public fileName: string = "";
 

@@ -1,5 +1,5 @@
-import { IAstWalker } from "../../../backend/clangAst/IAstWalker";
-import { IAstWalkerFactory } from "../../../backend/clangAst/IAstWalkerFactory";
+import { AstWalker } from "../../../backend/clangAst/AstWalker";
+import { AstWalkerFactory } from "../../../backend/clangAst/AstWalkerFactory";
 import { IDatabase } from "../../../backend/database/IDatabase";
 import { MockAstWalker } from "./MockAstWalker";
 
@@ -9,7 +9,7 @@ export type ReceivedRequest = {
     database: IDatabase;
 };
 
-export class MockAstWalkerFactory implements IAstWalkerFactory {
+export class MockAstWalkerFactory implements AstWalkerFactory {
     public receivedRequests: Array<ReceivedRequest> =
         new Array<ReceivedRequest>();
     public generatedAstWalkers: Array<MockAstWalker> =
@@ -21,7 +21,7 @@ export class MockAstWalkerFactory implements IAstWalkerFactory {
         fileName: string,
         command: string,
         database: IDatabase
-    ): IAstWalker {
+    ): AstWalker {
         this.receivedRequests.push({ fileName, command, database });
         const newAstWalker = new MockAstWalker(fileName);
         this.generatedAstWalkers.push(newAstWalker);
