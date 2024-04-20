@@ -57,12 +57,12 @@ export class SqliteDatabase implements iDb.Database {
         if (this.config.useDatabaseCaching()) {
             console.log("Using cached database.");
             this.database = sqlite3Handle.cached.Database(
-                this.config.getCallGraphDatabasePath()
+                this.config.getSqliteDatabasePath()
             );
         } else {
             console.log("Not using cached database.");
             this.database = new sqlite3Handle.Database(
-                this.config.getCallGraphDatabasePath()
+                this.config.getSqliteDatabasePath()
             );
         }
     }

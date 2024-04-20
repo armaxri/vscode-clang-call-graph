@@ -1,33 +1,32 @@
-import { Config } from "../../../backend/Config";
+import { Config, DatabaseType } from "../../../backend/Config";
 import { PathUtils } from "../../../backend/utils/PathUtils";
 import { adjustTsToJsPath } from "./path_helper";
 
-export class MockConfig implements Config {
+export class MockConfig extends Config {
     private testDir: string = "";
 
-    public compileCommandsJsonPath: string = "compile_commands.json";
-    public callGraphDatabasePath: string = "clang_call_graph.sqlite3";
     public numOfParserThreads: number = 1;
 
     constructor(testDir: string) {
-        this.testDir = testDir;
+        super();
+        this.testDir = adjustTsToJsPath(testDir);
     }
 
-    private getFilePathInTestDir(fileName: string): string {
-        const testDirPath = new PathUtils(this.testDir);
-        return adjustTsToJsPath(testDirPath.joinPath(fileName).pathString());
-    }
-
-    getCompileCommandsJsonPath(): string {
-        return this.getFilePathInTestDir(this.compileCommandsJsonPath);
-    }
-
-    getCallGraphDatabasePath(): string {
-        return this.getFilePathInTestDir(this.callGraphDatabasePath);
+    getCompileCommandsJsonDir(): string {
+        return this.testDir;
     }
 
     getNumOfParserThreads(): number {
-        return this.numOfParserThreads;
+        return 1;
+    }
+
+    getSelectedDatabaseType(): DatabaseType {
+        // Test should use lowdb database for simple comparison and the data should not exceed the limit of lowdb.
+        return DatabaseType.lowdb;
+    }
+
+    getCallGraphDatabaseDir(): string {
+        return this.testDir;
     }
 
     useDatabaseCaching(): boolean {

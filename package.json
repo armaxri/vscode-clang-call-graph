@@ -35,16 +35,16 @@
                         "description": "Path to the directory holding the compile_commands.json file, which shall be used to create the call graph.",
                         "default": "${workspaceFolder}"
                     },
-                    "clangCallGraph.callGraphDatabasePath": {
-                        "type": "string",
-                        "description": "Path for the database file (json format), which shall be used to store the parser output and as source for the displayed call graph.",
-                        "default": "${workspaceFolder}/clangCallGraph.json"
-                    },
                     "clangCallGraph.numOfParserThreads": {
                         "type": "number",
                         "description": "Number of threads that are used to parse the C/C++ files.",
                         "default": 8,
                         "minimum": 1
+                    },
+                    "clangCallGraph.callGraphDatabaseDir": {
+                        "type": "string",
+                        "description": "Dir for the database file (sqlite or json format), which shall be used to store the parser output and as source for the displayed call graph.",
+                        "default": "${workspaceFolder}"
                     },
                     "clangCallGraph.runVerbose": {
                         "type": "boolean",

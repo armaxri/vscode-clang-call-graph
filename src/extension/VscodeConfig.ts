@@ -1,11 +1,11 @@
 import * as vscode from "vscode";
 import * as utils from "./utils/vscode_utils";
 import { StringReplacer } from "./utils/ConfigStringReplacer";
-import { Config } from "../backend/Config";
+import { Config, DatabaseType } from "../backend/Config";
 import { Database } from "../backend/database/Database";
 import { PathUtils } from "../backend/utils/PathUtils";
 
-export class VscodeConfig implements Config {
+export class VscodeConfig extends Config {
     private database: Database | undefined = undefined;
 
     private getExtensionConfig(): vscode.WorkspaceConfiguration {
@@ -16,17 +16,46 @@ export class VscodeConfig implements Config {
         );
     }
 
-    getCompileCommandsJsonPath(): string {
+    getCompileCommandsJsonDir(): string {
         const config = this.getExtensionConfig();
-        const compileCommandsJsonPath = assignPath(
+        const compileCommandsJsonDir = assignPath(
             config.get<string>("compileCommandsJsonDir"),
-            "compile_commands.json"
+            ""
         );
 
-        return compileCommandsJsonPath;
+        return compileCommandsJsonDir;
+    }
+
+    getNumOfParserThreads(): number {
+        const config = this.getExtensionConfig();
+        const numOfParserThreads = assignValue<number>(
+            config.get<number>("numOfParserThreads"),
+            super.getNumOfParserThreads()
+        );
+
+        return numOfParserThreads;
+    }
+
+    // TODO: Implement this:
+    // getSelectedDatabaseType(): DatabaseType {}
+
+    getCallGraphDatabaseDir(): string {
+        const config = this.getExtensionConfig();
+        const callGraphDatabaseDir = assignPath(
+            config.get<string>("callGraphDatabaseDir"),
+            ""
+        );
+
+        return callGraphDatabaseDir;
+    }
+
+    getSelectedDatabaseType(): DatabaseType {
+        // TODO: Implement this.
+        return DatabaseType.lowdb;
     }
 
     getCallGraphDatabasePath(): string {
+        // TODO: Remove this method.
         const config = this.getExtensionConfig();
         const callGraphDatabasePath = assignPath(
             config.get<string>("callGraphDatabasePath"),
@@ -34,16 +63,6 @@ export class VscodeConfig implements Config {
         );
 
         return callGraphDatabasePath;
-    }
-
-    getNumOfParserThreads(): number {
-        const config = this.getExtensionConfig();
-        const numOfParserThreads = assignValue<number>(
-            config.get<number>("numOfParserThreads"),
-            8
-        );
-
-        return numOfParserThreads;
     }
 
     useDatabaseCaching(): boolean {
