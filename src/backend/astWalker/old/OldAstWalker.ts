@@ -1,4 +1,5 @@
-import * as clang_ast from "./clang_ast_json";
+/*
+import * as clang_ast from "../clang/clang_ast_json";
 import {
     Database,
     FuncMentioning,
@@ -6,8 +7,11 @@ import {
     Location,
     VirtualFuncMentioning,
     VirtualFuncCall,
-} from "../database/Database";
-import { AstWalker } from "./AstWalker";
+    CppFile,
+    HppFile,
+    CppClass,
+} from "../../database/Database";
+import { AstWalker } from "../AstWalker";
 
 function hasCompoundStmtInInner(astElement: clang_ast.AstElement): boolean {
     if (astElement.inner) {
@@ -96,11 +100,16 @@ function isElementVirtualFuncDeclaration(
     );
 }
 
-export class ClangAstWalker implements AstWalker {
+export class OldAstWalker implements AstWalker {
     private fileName: string = "";
+
+    // At the beginning it will be a derived HppFile.
+    private currentlyAnalyzedFile: CppFile | undefined = undefined;
+    private seenClasses: Array<CppClass> = new Array<CppClass>();
+    private currentClassStack = new Array<CppClass>();
+
     // Sadly we need to cache a few data, which are reported once
     // and no longer until a new value is seen.
-    private lastSeenFileNameInFuncDecl: string = "";
     private lastSeenLocLineNumber: number = -1;
     private lastSeenRangeBeginLine: number = -1;
     private lastSeenRangeEndLine: number = -1;
@@ -115,7 +124,7 @@ export class ClangAstWalker implements AstWalker {
     private virtualFuncDeclarations: Array<SimpleVirtualFuncDeclaration> =
         new Array<SimpleVirtualFuncDeclaration>();
     private knownClasses: Array<ClassDefinition> = new Array<ClassDefinition>();
-    private currentClassStack: Array<ClassDefinition> =
+    private activeClassStack: Array<ClassDefinition> =
         new Array<ClassDefinition>();
 
     constructor(
@@ -130,6 +139,9 @@ export class ClangAstWalker implements AstWalker {
 
     public walkAst() {
         this.analyzeAstElement(this.baseAstElement);
+
+        this.currentlyAnalyzedFile?.justAnalyzed();
+        this.database.writeDatabase();
     }
 
     public getFileName(): string {
@@ -172,7 +184,21 @@ export class ClangAstWalker implements AstWalker {
 
     private handleLocAndRange(astElement: clang_ast.AstElement) {
         if (astElement.loc && astElement.loc.file) {
-            this.lastSeenFileNameInFuncDecl = astElement.loc.file;
+            this.currentlyAnalyzedFile?.justAnalyzed();
+
+            if (astElement.loc.file === this.fileName) {
+                this.currentlyAnalyzedFile = this.database.getOrAddCppFile(
+                    this.fileName
+                );
+            } else {
+                this.currentlyAnalyzedFile = this.database.getOrAddHppFile(
+                    astElement.loc.file
+                );
+
+                (
+                    this.currentlyAnalyzedFile as HppFile
+                ).addReferencedFromCppFile(this.fileName);
+            }
         }
         if (astElement.loc && astElement.loc.line) {
             this.lastSeenLocLineNumber = astElement.loc.line;
@@ -244,7 +270,7 @@ export class ClangAstWalker implements AstWalker {
     private handleClassDecl(astElement: clang_ast.AstElement) {
         const newClass = new ClassDefinition(astElement, this.knownClasses);
         this.knownClasses.push(newClass);
-        this.currentClassStack.push(newClass);
+        this.activeClassStack.push(newClass);
 
         if (astElement.inner) {
             astElement.inner.forEach((newAstElement) =>
@@ -252,7 +278,7 @@ export class ClangAstWalker implements AstWalker {
             );
         }
 
-        this.currentClassStack.pop();
+        this.activeClassStack.pop();
     }
 
     private handleExprStmt(astElement: clang_ast.AstElement) {
@@ -446,3 +472,4 @@ export class ClangAstWalker implements AstWalker {
         };
     }
 }
+*/

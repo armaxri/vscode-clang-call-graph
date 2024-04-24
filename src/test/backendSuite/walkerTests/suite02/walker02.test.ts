@@ -5,6 +5,7 @@ suite("Clang AST Walker Test Suite 02", () => {
         testAstWalkerResults(
             __dirname,
             "simple_static_method.json",
+            "simple_static_method_expected.json" /*
             [
                 {
                     funcName: "add",
@@ -35,7 +36,7 @@ suite("Clang AST Walker Test Suite 02", () => {
             ],
             undefined,
             [],
-            []
+            []*/
         );
     });
 
@@ -43,6 +44,7 @@ suite("Clang AST Walker Test Suite 02", () => {
         testAstWalkerResults(
             __dirname,
             "simple_static_method.json",
+            "simple_static_method_expected.json" /*
             undefined,
             [
                 {
@@ -63,7 +65,7 @@ suite("Clang AST Walker Test Suite 02", () => {
                 },
             ],
             [],
-            []
+            []*/
         );
     });
 });

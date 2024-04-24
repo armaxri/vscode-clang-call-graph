@@ -1,10 +1,10 @@
 import { Config } from "../Config";
-import * as iDb from "./Database";
+import * as db from "./Database";
 import * as sqlite from "sqlite3";
 
 const CURRENT_DATABASE_VERSION = 1;
 
-export class SqliteDatabase implements iDb.Database {
+export class SqliteDatabase implements db.Database {
     private config: Config;
     private database!: sqlite.Database;
 
@@ -13,34 +13,33 @@ export class SqliteDatabase implements iDb.Database {
 
         this.initDatabase();
     }
-
-    registerFuncDeclaration(funcDec: iDb.FuncMentioning): void {
+    hasHppFile(name: string): boolean {
+        throw new Error("Method not implemented.");
+    }
+    getOrAddHppFile(name: string): db.HppFile {
+        throw new Error("Method not implemented.");
+    }
+    addHppFile(name: string): db.HppFile {
+        throw new Error("Method not implemented.");
+    }
+    removeHppFileAndDependingContent(name: string): void {
         throw new Error("Method not implemented.");
     }
 
-    registerFuncImplementation(funcImpl: iDb.FuncMentioning): void {
+    hasCppFile(name: string): boolean {
+        throw new Error("Method not implemented.");
+    }
+    getOrAddCppFile(name: string): db.CppFile {
+        throw new Error("Method not implemented.");
+    }
+    removeCppFileAndDependingContent(name: string): void {
+        throw new Error("Method not implemented.");
+    }
+    writeDatabase(): void {
         throw new Error("Method not implemented.");
     }
 
-    registerFuncCall(funcCall: iDb.FuncCall): void {
-        throw new Error("Method not implemented.");
-    }
-
-    registerVirtualFuncDeclaration(funcDec: iDb.VirtualFuncMentioning): void {
-        throw new Error("Method not implemented.");
-    }
-
-    registerVirtualFuncImplementation(
-        funcImpl: iDb.VirtualFuncMentioning
-    ): void {
-        throw new Error("Method not implemented.");
-    }
-
-    registerVirtualFuncCall(funcCall: iDb.VirtualFuncCall): void {
-        throw new Error("Method not implemented.");
-    }
-
-    public resetDatabase() {
+    resetDatabase() {
         console.log("Resetting database.");
         console.log("Closing database.");
         this.database.close();

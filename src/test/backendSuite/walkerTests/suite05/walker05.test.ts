@@ -5,6 +5,7 @@ suite("Clang AST Walker Test Suite 05", () => {
         testAstWalkerResults(
             __dirname,
             "simple_inherited_virtual_method.json",
+            "simple_inherited_virtual_method_expected.json" /*,
             [
                 {
                     funcName: "main",
@@ -55,7 +56,7 @@ suite("Clang AST Walker Test Suite 05", () => {
                     },
                 },
             ],
-            undefined
+            undefined */
         );
     });
 
@@ -63,6 +64,7 @@ suite("Clang AST Walker Test Suite 05", () => {
         testAstWalkerResults(
             __dirname,
             "simple_inherited_virtual_method.json",
+            "simple_inherited_virtual_method_expected.json" /*,
             undefined,
             undefined,
             undefined,
@@ -101,7 +103,7 @@ suite("Clang AST Walker Test Suite 05", () => {
                         },
                     },
                 },
-            ]
+            ] */
         );
     });
 });

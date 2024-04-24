@@ -1,5 +1,5 @@
-import { AstWalker } from "../../../backend/clangAst/AstWalker";
-import { AstWalkerFactory } from "../../../backend/clangAst/AstWalkerFactory";
+import { AstWalker } from "../../../backend/astWalker/AstWalker";
+import { AstWalkerFactory } from "../../../backend/astWalker/AstWalkerFactory";
 import { Database } from "../../../backend/database/Database";
 import { MockAstWalker } from "./MockAstWalker";
 

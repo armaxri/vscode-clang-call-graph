@@ -1,25 +1,27 @@
 import { ClangFilesystemWatcher } from "../../../backend/ClangFilesystemWatcher";
 import { MockConfig } from "../utils/MockConfig";
-import { MockDatabase } from "../utils/MockDatabase";
 import { MockAstWalkerFactory } from "../utils/MockAstWalkerFactory";
 import { MockUserInterface } from "../utils/MockUserInterface";
+import { LowdbDatabase } from "../../../backend/database/lowdb/LowdbDatabase";
 
 export function createNewFilesystemWatcher(
     callingFileDirName: string
-): [ClangFilesystemWatcher, MockAstWalkerFactory] {
+): [ClangFilesystemWatcher, MockAstWalkerFactory, LowdbDatabase] {
+    const mockConfig = new MockConfig(callingFileDirName);
     const walkerFactory = new MockAstWalkerFactory();
-    const mockDatabase = new MockDatabase();
+    const database = new LowdbDatabase(mockConfig);
 
     return [
         new ClangFilesystemWatcher(
-            new MockConfig(callingFileDirName),
+            mockConfig,
             new MockUserInterface(),
             walkerFactory,
-            mockDatabase,
+            database,
             // We don't need to actually watch the filesystem in tests,
             // so we set the interval to 10 ms.
             10
         ),
         walkerFactory,
+        database,
     ];
 }

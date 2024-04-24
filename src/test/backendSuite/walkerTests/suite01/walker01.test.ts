@@ -5,6 +5,8 @@ suite("Clang AST Walker Test Suite 01", () => {
         testAstWalkerResults(
             __dirname,
             "simple_func_call_in_func_call.json",
+            "simple_func_call_in_func_call_expected.json"
+            /*
             undefined,
             [
                 {
@@ -41,7 +43,7 @@ suite("Clang AST Walker Test Suite 01", () => {
                 },
             ],
             [],
-            []
+            [] */
         );
     });
 
@@ -49,6 +51,7 @@ suite("Clang AST Walker Test Suite 01", () => {
         testAstWalkerResults(
             __dirname,
             "multiline_func_call_in_func_call.json",
+            "multiline_func_call_in_func_call_expected.json" /*,
             undefined,
             [
                 {
@@ -85,7 +88,7 @@ suite("Clang AST Walker Test Suite 01", () => {
                 },
             ],
             [],
-            []
+            [] */
         );
     });
 });

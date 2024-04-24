@@ -4,7 +4,7 @@ import { SqliteDatabase } from "../backend/database/SqliteDatabase";
 import { VscodeUserInterface } from "./VscodeUserInterface";
 import { ClangFilesystemWatcher } from "../backend/ClangFilesystemWatcher";
 import { CallHierarchyProvider } from "./CallHierarchyProvider";
-import { ClangAstWalkerFactory } from "../backend/clangAst/ClangAstWalkerFactory";
+import { ClangAstWalkerFactory } from "../backend/astWalker/clang/ClangAstWalkerFactory";
 import { Database } from "../backend/database/Database";
 
 let callGraphDatabase: Database;

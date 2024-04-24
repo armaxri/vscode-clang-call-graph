@@ -5,6 +5,7 @@ suite("Clang AST Walker Test Suite 00", () => {
         testAstWalkerResults(
             __dirname,
             "main.json",
+            "main_expected.json" /*,
             [
                 {
                     funcName: "divide",
@@ -48,7 +49,7 @@ suite("Clang AST Walker Test Suite 00", () => {
             ],
             undefined,
             [],
-            []
+            []*/
         );
     });
 
@@ -56,6 +57,7 @@ suite("Clang AST Walker Test Suite 00", () => {
         testAstWalkerResults(
             __dirname,
             "simple_c_style_func.json",
+            "simple_c_style_func_expected.json" /*,
             [
                 {
                     funcName: "divide",
@@ -99,7 +101,7 @@ suite("Clang AST Walker Test Suite 00", () => {
             ],
             undefined,
             [],
-            []
+            []*/
         );
     });
 
@@ -107,6 +109,7 @@ suite("Clang AST Walker Test Suite 00", () => {
         testAstWalkerResults(
             __dirname,
             "main.json",
+            "main_expected.json" /*,
             undefined,
             [
                 {
@@ -175,7 +178,7 @@ suite("Clang AST Walker Test Suite 00", () => {
                 },
             ],
             [],
-            []
+            []*/
         );
     });
 
@@ -183,6 +186,7 @@ suite("Clang AST Walker Test Suite 00", () => {
         testAstWalkerResults(
             __dirname,
             "simple_c_style_func.json",
+            "simple_c_style_func_expected.json" /*,
             undefined,
             [
                 {
@@ -203,7 +207,7 @@ suite("Clang AST Walker Test Suite 00", () => {
                 },
             ],
             [],
-            []
+            []*/
         );
     });
 });

@@ -1,9 +1,9 @@
 import { ClangAstWalker } from "./ClangAstWalker";
-import { AstWalkerFactory } from "./AstWalkerFactory";
+import { AstWalkerFactory } from "../AstWalkerFactory";
 import * as clang_ast from "./clang_ast_json";
-import { Database } from "../database/Database";
-import { AstWalker } from "./AstWalker";
-import { createClangAstCall } from "../utils/utils";
+import { Database } from "../../database/Database";
+import { AstWalker } from "../AstWalker";
+import { createClangAstCall } from "../../utils/utils";
 import * as child_process from "child_process";
 
 export class ClangAstWalkerFactory implements AstWalkerFactory {

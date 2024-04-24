@@ -1,4 +1,4 @@
-import { AstWalker } from "../../../backend/clangAst/AstWalker";
+import { AstWalker } from "../../../backend/astWalker/AstWalker";
 
 export class MockAstWalker implements AstWalker {
     public walkCnt: number = 0;

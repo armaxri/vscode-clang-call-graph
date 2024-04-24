@@ -1,4 +1,4 @@
-import { AstWalkerFactory } from "./clangAst/AstWalkerFactory";
+import { AstWalkerFactory } from "./astWalker/AstWalkerFactory";
 import { Database } from "./database/Database";
 import { Config } from "./Config";
 import { delay } from "./utils/utils";

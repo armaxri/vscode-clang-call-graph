@@ -4,11 +4,13 @@ import { delay } from "./../../../../backend/utils/utils";
 import { ClangFilesystemWatcher } from "../../../../backend/ClangFilesystemWatcher";
 import { MockAstWalkerFactory } from "../../utils/MockAstWalkerFactory";
 import { adjustTsToJsPath } from "../../utils/path_helper";
+import { LowdbDatabase } from "../../../../backend/database/lowdb/LowdbDatabase";
 const fs = require("fs");
 
 suite("Clang Filesystem Watcher File Finding Test Suite 01", () => {
     var watcher: ClangFilesystemWatcher;
     var mockWalkerFactory: MockAstWalkerFactory;
+    var database: LowdbDatabase;
     var testDir: string;
 
     suiteSetup(async () => {
@@ -35,7 +37,8 @@ suite("Clang Filesystem Watcher File Finding Test Suite 01", () => {
     });
 
     setup(async () => {
-        [watcher, mockWalkerFactory] = createNewFilesystemWatcher(__dirname);
+        [watcher, mockWalkerFactory, database] =
+            createNewFilesystemWatcher(__dirname);
         testDir = adjustTsToJsPath(__dirname);
     });
 
@@ -66,5 +69,6 @@ suite("Clang Filesystem Watcher File Finding Test Suite 01", () => {
 
     teardown(async () => {
         watcher.stopWatching();
+        database.writeDatabase();
     });
 });
