@@ -20,6 +20,10 @@ export class LowdbVirtualFuncCall implements VirtualFuncCall {
         return this.internal.funcAstName;
     }
 
+    getQualType(): string {
+        return this.internal.qualType;
+    }
+
     getRange(): Range {
         return this.internal.range;
     }

@@ -1,8 +1,10 @@
 import {
     FuncCall,
+    FuncCallCreationArgs,
     FuncImplementation,
     Range,
     VirtualFuncCall,
+    VirtualFuncCallCreationArgs,
 } from "../../cpp_structure";
 import { LowdbFuncCall } from "./LowdbFuncCall";
 import { LowdbVirtualFuncCall } from "./LowdbVirtualFuncCall";
@@ -21,11 +23,30 @@ export class LowdbFuncImplementation implements FuncImplementation {
         );
     }
 
+    addFuncCall(funcCall: FuncCallCreationArgs): void {
+        this.internal.funcCalls.push({
+            funcName: funcCall.func.getFuncName(),
+            funcAstName: funcCall.func.getFuncAstName(),
+            qualType: funcCall.func.getQualType(),
+            range: funcCall.range,
+        });
+    }
+
     getVirtualFuncCalls(): VirtualFuncCall[] {
         return this.internal.virtualFuncCalls.map(
             (internalVirtualFuncCall) =>
                 new LowdbVirtualFuncCall(internalVirtualFuncCall)
         );
+    }
+
+    addVirtualFuncCall(virtualFuncCall: VirtualFuncCallCreationArgs): void {
+        this.internal.virtualFuncCalls.push({
+            funcName: virtualFuncCall.func.getFuncName(),
+            funcAstName: virtualFuncCall.func.getFuncAstName(),
+            baseFuncAstName: virtualFuncCall.func.getBaseFuncAstName(),
+            qualType: virtualFuncCall.func.getQualType(),
+            range: virtualFuncCall.range,
+        });
     }
 
     getFuncName(): string {
@@ -34,6 +55,10 @@ export class LowdbFuncImplementation implements FuncImplementation {
 
     getFuncAstName(): string {
         return this.internal.funcAstName;
+    }
+
+    getQualType(): string {
+        return this.internal.qualType;
     }
 
     getRange(): Range {

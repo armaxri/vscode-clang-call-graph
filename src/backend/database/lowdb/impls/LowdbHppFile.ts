@@ -4,6 +4,8 @@ import {
     FuncDeclaration,
     FuncImplementation,
     VirtualFuncImplementation,
+    FuncCreationArgs,
+    VirtualFuncCreationArgs,
 } from "../../cpp_structure";
 import { LowdbCppClass } from "./LowdbCppClass";
 import { LowdbFuncDeclaration } from "./LowdbFuncDeclaration";
@@ -63,10 +65,56 @@ export class LowdbHppFile implements HppFile {
         );
     }
 
+    getOrAddFuncDecl(args: FuncCreationArgs): FuncDeclaration {
+        var internalFuncDecl = this.internal.funcDecls.find(
+            (internalFuncDecl) =>
+                internalFuncDecl.funcName === args.funcName &&
+                internalFuncDecl.funcAstName === args.funcAstName &&
+                internalFuncDecl.qualType === args.qualType &&
+                internalFuncDecl.range === args.range
+        );
+
+        if (!internalFuncDecl) {
+            internalFuncDecl = {
+                funcName: args.funcName,
+                funcAstName: args.funcAstName,
+                qualType: args.qualType,
+                range: args.range,
+            };
+            this.internal.funcDecls.push(internalFuncDecl);
+        }
+
+        return new LowdbFuncDeclaration(internalFuncDecl);
+    }
+
     getFuncImpls(): FuncImplementation[] {
         return this.internal.funcImpls.map(
             (internalFuncImpl) => new LowdbFuncImplementation(internalFuncImpl)
         );
+    }
+
+    getOrAddFuncImpl(args: FuncCreationArgs): FuncImplementation {
+        var internalFuncImpl = this.internal.funcImpls.find(
+            (internalFuncImpl) =>
+                internalFuncImpl.funcName === args.funcName &&
+                internalFuncImpl.funcAstName === args.funcAstName &&
+                internalFuncImpl.qualType === args.qualType &&
+                internalFuncImpl.range === args.range
+        );
+
+        if (!internalFuncImpl) {
+            internalFuncImpl = {
+                funcName: args.funcName,
+                funcAstName: args.funcAstName,
+                qualType: args.qualType,
+                range: args.range,
+                funcCalls: [],
+                virtualFuncCalls: [],
+            };
+            this.internal.funcImpls.push(internalFuncImpl);
+        }
+
+        return new LowdbFuncImplementation(internalFuncImpl);
     }
 
     getVirtualFuncImpls(): VirtualFuncImplementation[] {
@@ -74,6 +122,35 @@ export class LowdbHppFile implements HppFile {
             (internalVirtualFuncImpl) =>
                 new LowdbVirtualFuncImplementation(internalVirtualFuncImpl)
         );
+    }
+
+    getOrAddVirtualFuncImpl(
+        args: VirtualFuncCreationArgs
+    ): VirtualFuncImplementation {
+        var internalVirtualFuncImpl = this.internal.virtualFuncImpls.find(
+            (internalVirtualFuncImpl) =>
+                internalVirtualFuncImpl.funcName === args.funcName &&
+                internalVirtualFuncImpl.funcAstName === args.funcAstName &&
+                internalVirtualFuncImpl.baseFuncAstName ===
+                    args.baseFuncAstName &&
+                internalVirtualFuncImpl.qualType === args.qualType &&
+                internalVirtualFuncImpl.range === args.range
+        );
+
+        if (!internalVirtualFuncImpl) {
+            internalVirtualFuncImpl = {
+                funcName: args.funcName,
+                funcAstName: args.funcAstName,
+                baseFuncAstName: args.baseFuncAstName,
+                qualType: args.qualType,
+                range: args.range,
+                funcCalls: [],
+                virtualFuncCalls: [],
+            };
+            this.internal.virtualFuncImpls.push(internalVirtualFuncImpl);
+        }
+
+        return new LowdbVirtualFuncImplementation(internalVirtualFuncImpl);
     }
 
     getReferencedFromCppFiles(): string[] {

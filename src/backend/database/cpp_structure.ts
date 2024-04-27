@@ -8,54 +8,95 @@ export type Range = {
     end: Location;
 };
 
+export type FuncCreationArgs = {
+    funcName: string;
+    funcAstName: string;
+    qualType: string;
+    range: Range;
+};
+
+export type VirtualFuncCreationArgs = FuncCreationArgs & {
+    baseFuncAstName: string;
+};
+
+export type FuncCallCreationArgs = {
+    func: FuncDeclaration | FuncImplementation;
+    range: Range;
+};
+
+export type VirtualFuncCallCreationArgs = {
+    func: VirtualFuncDeclaration | VirtualFuncImplementation;
+    range: Range;
+};
+
 export interface FuncBasics {
     getFuncName(): string;
     getFuncAstName(): string;
+    getQualType(): string;
     getRange(): Range;
 }
 
 export interface FuncDeclaration extends FuncBasics {}
 export interface FuncImplementation extends FuncBasics {
     getFuncCalls(): Array<FuncCall>;
+    addFuncCall(funcCall: FuncCallCreationArgs): void;
     getVirtualFuncCalls(): Array<VirtualFuncCall>;
+    addVirtualFuncCall(virtualFuncCall: VirtualFuncCallCreationArgs): void;
 }
 export interface FuncCall extends FuncBasics {}
 
-export interface VirtualFuncDeclaration extends FuncDeclaration {
-    getBaseFuncAstName(): string;
-}
-export interface VirtualFuncImplementation extends FuncImplementation {
-    getBaseFuncAstName(): string;
-}
-export interface VirtualFuncCall extends FuncCall {
+export interface VirtualFuncBasics {
     getBaseFuncAstName(): string;
 }
 
-export interface CppClass {
-    getName(): string;
-    getParentClasses(): Array<CppClass>;
+export interface VirtualFuncDeclaration
+    extends FuncDeclaration,
+        VirtualFuncBasics {}
+export interface VirtualFuncImplementation
+    extends FuncImplementation,
+        VirtualFuncBasics {}
+export interface VirtualFuncCall extends FuncCall, VirtualFuncBasics {}
 
+export interface MainDeclLocation {
     getClasses(): Array<CppClass>;
     getOrAddClass(className: string): CppClass;
 
     getFuncDecls(): Array<FuncDeclaration>;
+    getOrAddFuncDecl(args: FuncCreationArgs): FuncDeclaration;
     getFuncImpls(): Array<FuncImplementation>;
-    getVirtualFuncDecls(): Array<VirtualFuncDeclaration>;
+    getOrAddFuncImpl(args: FuncCreationArgs): FuncImplementation;
     getVirtualFuncImpls(): Array<VirtualFuncImplementation>;
+    getOrAddVirtualFuncImpl(
+        args: VirtualFuncCreationArgs
+    ): VirtualFuncImplementation;
 }
 
-export interface CppFile {
+export interface CppClass extends MainDeclLocation {
+    getName(): string;
+    getParentClasses(): Array<CppClass>;
+    getParentClassNames(): Array<string>;
+    addParentClass(parentClass: CppClass): void;
+
+    // Virtual functions can be implemented in a class or file but only declared
+    // within a class body.
+    getVirtualFuncDecls(): Array<VirtualFuncDeclaration>;
+    getOrAddVirtualFuncDecl(
+        args: VirtualFuncCreationArgs
+    ): VirtualFuncDeclaration;
+
+    findBaseFunction(
+        funcName: string,
+        qualType: string
+    ): VirtualFuncDeclaration | undefined;
+}
+
+export interface CppFile extends MainDeclLocation {
     getName(): string;
 
     getLastAnalyzed(): number;
     justAnalyzed(): void;
-
-    getClasses(): Array<CppClass>;
-    getOrAddClass(className: string): CppClass;
-    getFuncDecls(): Array<FuncDeclaration>;
-    getFuncImpls(): Array<FuncImplementation>;
-    getVirtualFuncImpls(): Array<VirtualFuncImplementation>;
 }
+
 export interface HppFile extends CppFile {
     getReferencedFromCppFiles(): Array<string>;
     addReferencedFromCppFile(fileName: string): void;

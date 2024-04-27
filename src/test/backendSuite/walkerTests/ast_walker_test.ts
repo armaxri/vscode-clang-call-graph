@@ -6,6 +6,7 @@ import { ClangAstWalker } from "../../../backend/astWalker/clang/ClangAstWalker"
 import { MockConfig } from "../utils/MockConfig";
 import { adjustTsToJsPath } from "../utils/path_helper";
 import { LowdbDatabase } from "../../../backend/database/lowdb/LowdbDatabase";
+import { LowdbInternalDatabase } from "../../../backend/database/lowdb/lowdb_internal_structure";
 
 function loadAst(dirname: string, filename: string): astJson.AstElement {
     const filePath = new PathUtils(dirname, filename);
@@ -16,52 +17,47 @@ function loadAst(dirname: string, filename: string): astJson.AstElement {
     return convertedAst;
 }
 
-export function testAstWalkerResults(
+function loadExpectedDatabase(
+    dirname: string,
+    filename: string
+): LowdbInternalDatabase {
+    const filePath = new PathUtils(dirname, filename);
+    const rawFileData = fs.readFileSync(filePath.pathString()).toString();
+    const jsonDatabase = JSON.parse(rawFileData);
+    const convertedDatabase = jsonDatabase as LowdbInternalDatabase;
+
+    return convertedDatabase;
+}
+
+export function createAndRunAstWalker(
     callingFileDirName: string,
-    filename: string,
-    referenceFilename: string
-) {
+    filename: string
+): [LowdbDatabase, MockConfig] {
     const clangAst = loadAst(adjustTsToJsPath(callingFileDirName), filename);
-    var mockConfig = new MockConfig(callingFileDirName);
-    var database = new LowdbDatabase(mockConfig);
-    var astWalker = new ClangAstWalker(filename, database, clangAst);
+    const mockConfig = new MockConfig(callingFileDirName);
+    const database = new LowdbDatabase(mockConfig);
+    const astWalker = new ClangAstWalker(filename, database, clangAst);
 
     astWalker.walkAst();
 
     database.writeDatabase();
 
+    return [database, mockConfig];
+}
+
+export function testAstWalkerResults(
+    callingFileDirName: string,
+    filename: string,
+    referenceFilename: string
+) {
+    const [database, _] = createAndRunAstWalker(callingFileDirName, filename);
     /*
-    if (expectedImplementations) {
-        assert.deepEqual(
-            orderArrayOfFuncMentioningByFuncNameLineAndColumns(
-                parsedImplementations
-            ),
-            orderArrayOfFuncMentioningByFuncNameLineAndColumns(
-                expectedImplementations
-            )
-        );
-    }
-    if (expectedCalls) {
-        assert.deepEqual(
-            orderArrayOfFuncCallByFuncNameLineAndColumn(parsedCalls),
-            orderArrayOfFuncCallByFuncNameLineAndColumn(expectedCalls)
-        );
-    }
-    if (expectedVirtualImplementations) {
-        assert.deepEqual(
-            orderArrayOfVirtualFuncImplByFuncNameLineAndColumns(
-                parsedVirtualImplementations
-            ),
-            orderArrayOfVirtualFuncImplByFuncNameLineAndColumns(
-                expectedVirtualImplementations
-            )
-        );
-    }
-    if (expectedVirtualCalls) {
-        assert.deepEqual(
-            orderArrayOfFuncCallByFuncNameLineAndColumn(parsedVirtualCalls),
-            orderArrayOfFuncCallByFuncNameLineAndColumn(expectedVirtualCalls)
-        );
-    }
+    assert.deepEqual(
+        database["database"].data,
+        loadExpectedDatabase(
+            adjustTsToJsPath(callingFileDirName),
+            referenceFilename
+        )
+    );
     */
 }

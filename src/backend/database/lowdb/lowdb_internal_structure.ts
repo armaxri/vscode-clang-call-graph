@@ -5,6 +5,7 @@ export const CURRENT_DATABASE_VERSION = 1;
 export type LowdbInternalFuncMentioning = {
     funcName: string;
     funcAstName: string;
+    qualType: string;
     range: Range;
 };
 
@@ -12,12 +13,14 @@ export type LowdbInternalVirtualFuncMentioning = {
     funcName: string;
     funcAstName: string;
     baseFuncAstName: string;
+    qualType: string;
     range: Range;
 };
 
 export type LowdbInternalFuncImplementation = {
     funcName: string;
     funcAstName: string;
+    qualType: string;
     range: Range;
     funcCalls: Array<LowdbInternalFuncMentioning>;
     virtualFuncCalls: Array<LowdbInternalVirtualFuncMentioning>;
@@ -27,6 +30,7 @@ export type LowdbInternalVirtualFuncImplementation = {
     funcName: string;
     funcAstName: string;
     baseFuncAstName: string;
+    qualType: string;
     range: Range;
     funcCalls: Array<LowdbInternalFuncMentioning>;
     virtualFuncCalls: Array<LowdbInternalVirtualFuncMentioning>;
@@ -34,7 +38,7 @@ export type LowdbInternalVirtualFuncImplementation = {
 
 export type LowdbInternalCppClass = {
     name: string;
-    parentClasses: Array<LowdbInternalCppClass>;
+    parentClasses: Array<string>;
     classes: Array<LowdbInternalCppClass>;
     funcDecls: Array<LowdbInternalFuncMentioning>;
     funcImpls: Array<LowdbInternalFuncImplementation>;

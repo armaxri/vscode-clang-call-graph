@@ -16,6 +16,10 @@ export class LowdbFuncCall implements FuncCall {
         return this.internal.funcAstName;
     }
 
+    getQualType(): string {
+        return this.internal.qualType;
+    }
+
     getRange(): Range {
         return this.internal.range;
     }

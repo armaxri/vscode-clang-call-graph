@@ -16,6 +16,10 @@ export class LowdbFuncDeclaration implements FuncDeclaration {
         return this.internal.funcAstName;
     }
 
+    getQualType(): string {
+        return this.internal.qualType;
+    }
+
     getRange(): Range {
         return this.internal.range;
     }
