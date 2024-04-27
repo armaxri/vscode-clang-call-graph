@@ -1,4 +1,4 @@
-#include <simple_c_style_func.h>
+#include "simple_c_style_funcs_with_headers.h"
 
 int mult(int val1, int val2)
 {

@@ -1,35 +1,35 @@
 import { testAstWalkerResults } from "../ast_walker_test";
 
-suite("Clang AST Walker Test Suite 06", () => {
-    test("simple_struct_method implementation", () => {
+suite("Clang AST Walker Test Suite: simple class method", () => {
+    test("implementations", () => {
         testAstWalkerResults(
             __dirname,
-            "simple_struct_method.json",
-            "simple_struct_method_expected.json" /*,
+            "simple_method.json",
+            "simple_method_expected.json" /*
             [
                 {
                     funcName: "add",
-                    funcAstName: "__ZN10TestStruct3addEii",
-                    file: "/backendSuite/walkerTests/suite06/simple_struct_method.cpp",
+                    funcAstName: "__ZN9TestClass3addEii",
+                    file: "/backendSuite/walkerTests/suite03/simple_method.cpp",
                     startLoc: {
-                        line: 3,
+                        line: 4,
                         column: 9,
                     },
                     endLoc: {
-                        line: 3,
+                        line: 4,
                         column: 12,
                     },
                 },
                 {
                     funcName: "main",
                     funcAstName: "_main",
-                    file: "/backendSuite/walkerTests/suite06/simple_struct_method.cpp",
+                    file: "/backendSuite/walkerTests/suite03/simple_method.cpp",
                     startLoc: {
-                        line: 9,
+                        line: 10,
                         column: 5,
                     },
                     endLoc: {
-                        line: 9,
+                        line: 10,
                         column: 9,
                     },
                 },
@@ -40,25 +40,25 @@ suite("Clang AST Walker Test Suite 06", () => {
         );
     });
 
-    test("simple_struct_method call", () => {
+    test("calls", () => {
         testAstWalkerResults(
             __dirname,
-            "simple_struct_method.json",
-            "simple_struct_method_expected.json" /*,
+            "simple_method.json",
+            "simple_method_expected.json" /*
             undefined,
             [
                 {
                     callingFuncAstName: "_main",
                     callDetails: {
                         funcName: "add",
-                        funcAstName: "__ZN10TestStruct3addEii",
-                        file: "/backendSuite/walkerTests/suite06/simple_struct_method.cpp",
+                        funcAstName: "__ZN9TestClass3addEii",
+                        file: "/backendSuite/walkerTests/suite03/simple_method.cpp",
                         startLoc: {
-                            line: 12,
+                            line: 13,
                             column: 12,
                         },
                         endLoc: {
-                            line: 12,
+                            line: 13,
                             column: 26,
                         },
                     },

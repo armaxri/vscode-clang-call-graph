@@ -1,7 +1,7 @@
 import { testAstWalkerResults } from "../ast_walker_test";
 
-suite("Clang AST Walker Test Suite 04", () => {
-    test("simple_virtual_method implementation", () => {
+suite("Clang AST Walker Test Suite: simple virtual method", () => {
+    test("implementations", () => {
         testAstWalkerResults(
             __dirname,
             "simple_virtual_method.json",
@@ -44,7 +44,7 @@ suite("Clang AST Walker Test Suite 04", () => {
         );
     });
 
-    test("simple_virtual_method call", () => {
+    test("calls", () => {
         testAstWalkerResults(
             __dirname,
             "simple_virtual_method.json",

@@ -1,7 +1,7 @@
 import { testAstWalkerResults } from "../ast_walker_test";
 
-suite("Clang AST Walker Test Suite 02", () => {
-    test("simple_static_method implementation", () => {
+suite("Clang AST Walker Test Suite: simple static methods in class", () => {
+    test("implementations", () => {
         testAstWalkerResults(
             __dirname,
             "simple_static_method.json",
@@ -40,7 +40,7 @@ suite("Clang AST Walker Test Suite 02", () => {
         );
     });
 
-    test("simple_static_method call", () => {
+    test("calls", () => {
         testAstWalkerResults(
             __dirname,
             "simple_static_method.json",

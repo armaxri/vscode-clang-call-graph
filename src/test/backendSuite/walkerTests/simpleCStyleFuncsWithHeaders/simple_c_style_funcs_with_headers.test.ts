@@ -1,11 +1,13 @@
 import { testAstWalkerResults } from "../ast_walker_test";
 
-suite("Clang AST Walker Test Suite 00", () => {
-    test("main implementation", () => {
-        testAstWalkerResults(
-            __dirname,
-            "main.json",
-            "main_expected.json" /*,
+suite(
+    "Clang AST Walker Test Suite: simple C style functions with headers",
+    () => {
+        test("pure declarations", () => {
+            testAstWalkerResults(
+                __dirname,
+                "simple_c_style_funcs_with_headers.json",
+                "simple_c_style_funcs_with_headers_expected_db.json" /*,
             [
                 {
                     funcName: "divide",
@@ -50,14 +52,14 @@ suite("Clang AST Walker Test Suite 00", () => {
             undefined,
             [],
             []*/
-        );
-    });
+            );
+        });
 
-    test("simple_c_style_func implementation", () => {
-        testAstWalkerResults(
-            __dirname,
-            "simple_c_style_func.json",
-            "simple_c_style_func_expected.json" /*,
+        test("implementations", () => {
+            testAstWalkerResults(
+                __dirname,
+                "simple_c_style_funcs_with_headers.json",
+                "simple_c_style_funcs_with_headers_expected_db.json" /*,
             [
                 {
                     funcName: "divide",
@@ -73,43 +75,43 @@ suite("Clang AST Walker Test Suite 00", () => {
                     },
                 },
                 {
-                    funcName: "mult",
-                    funcAstName: "__Z4multii",
-                    file: "/backendSuite/walkerTests/suite00/simple_c_style_func.cpp",
+                    funcName: "sub",
+                    funcAstName: "__Z3subii",
+                    file: "/backendSuite/walkerTests/suite00/main.cpp",
                     startLoc: {
-                        line: 3,
+                        line: 5,
                         column: 5,
                     },
                     endLoc: {
-                        line: 3,
-                        column: 9,
+                        line: 5,
+                        column: 8,
                     },
                 },
                 {
-                    funcName: "add",
-                    funcAstName: "__ZN3foo3addEii",
-                    file: "/backendSuite/walkerTests/suite00/simple_c_style_func.cpp",
+                    funcName: "main",
+                    funcAstName: "_main",
+                    file: "/backendSuite/walkerTests/suite00/main.cpp",
                     startLoc: {
-                        line: 16,
+                        line: 10,
                         column: 5,
                     },
                     endLoc: {
-                        line: 16,
-                        column: 8,
+                        line: 10,
+                        column: 9,
                     },
                 },
             ],
             undefined,
             [],
             []*/
-        );
-    });
+            );
+        });
 
-    test("main calls", () => {
-        testAstWalkerResults(
-            __dirname,
-            "main.json",
-            "main_expected.json" /*,
+        test("calls", () => {
+            testAstWalkerResults(
+                __dirname,
+                "simple_c_style_funcs_with_headers.json",
+                "simple_c_style_funcs_with_headers_expected_db.json" /*,
             undefined,
             [
                 {
@@ -179,35 +181,7 @@ suite("Clang AST Walker Test Suite 00", () => {
             ],
             [],
             []*/
-        );
-    });
-
-    test("simple_c_style_func calls", () => {
-        testAstWalkerResults(
-            __dirname,
-            "simple_c_style_func.json",
-            "simple_c_style_func_expected.json" /*,
-            undefined,
-            [
-                {
-                    callingFuncAstName: "__Z4multii",
-                    callDetails: {
-                        funcName: "add",
-                        funcAstName: "__ZN3foo3addEii",
-                        file: "/backendSuite/walkerTests/suite00/simple_c_style_func.cpp",
-                        startLoc: {
-                            line: 8,
-                            column: 18,
-                        },
-                        endLoc: {
-                            line: 8,
-                            column: 40,
-                        },
-                    },
-                },
-            ],
-            [],
-            []*/
-        );
-    });
-});
+            );
+        });
+    }
+);
