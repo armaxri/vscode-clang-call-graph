@@ -17,6 +17,23 @@ function loadAst(dirname: string, filename: string): astJson.AstElement {
     return convertedAst;
 }
 
+function getCppNameFromJsonFile(
+    callingFileDirName: string,
+    filename: string
+): string {
+    const testDirPath = adjustTsToJsPath(
+        new PathUtils(__dirname).getParentDir().getParentDir().pathString()
+    );
+    const filePath = new PathUtils(
+        adjustTsToJsPath(callingFileDirName),
+        filename
+    );
+    return filePath
+        .pathString()
+        .replace(testDirPath.toString(), "")
+        .replace(".json", ".cpp");
+}
+
 function loadExpectedDatabase(
     dirname: string,
     filename: string
@@ -35,8 +52,17 @@ export function createAndRunAstWalker(
 ): [LowdbDatabase, MockConfig] {
     const clangAst = loadAst(adjustTsToJsPath(callingFileDirName), filename);
     const mockConfig = new MockConfig(callingFileDirName);
+    try {
+        fs.rmSync(mockConfig.getLowdbDatabasePath());
+    } catch (e) {
+        // Ignore error.
+    }
     const database = new LowdbDatabase(mockConfig);
-    const astWalker = new ClangAstWalker(filename, database, clangAst);
+    const astWalker = new ClangAstWalker(
+        getCppNameFromJsonFile(callingFileDirName, filename),
+        database,
+        clangAst
+    );
 
     astWalker.walkAst();
 
