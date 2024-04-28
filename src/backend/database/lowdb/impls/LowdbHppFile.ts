@@ -6,6 +6,7 @@ import {
     VirtualFuncImplementation,
     FuncCreationArgs,
     VirtualFuncCreationArgs,
+    rangeIsEqual,
 } from "../../cpp_structure";
 import { LowdbCppClass } from "./LowdbCppClass";
 import { LowdbFuncDeclaration } from "./LowdbFuncDeclaration";
@@ -71,7 +72,7 @@ export class LowdbHppFile implements HppFile {
                 internalFuncDecl.funcName === args.funcName &&
                 internalFuncDecl.funcAstName === args.funcAstName &&
                 internalFuncDecl.qualType === args.qualType &&
-                internalFuncDecl.range === args.range
+                rangeIsEqual(internalFuncDecl.range, args.range)
         );
 
         if (!internalFuncDecl) {
@@ -99,7 +100,7 @@ export class LowdbHppFile implements HppFile {
                 internalFuncImpl.funcName === args.funcName &&
                 internalFuncImpl.funcAstName === args.funcAstName &&
                 internalFuncImpl.qualType === args.qualType &&
-                internalFuncImpl.range === args.range
+                rangeIsEqual(internalFuncImpl.range, args.range)
         );
 
         if (!internalFuncImpl) {
@@ -134,7 +135,7 @@ export class LowdbHppFile implements HppFile {
                 internalVirtualFuncImpl.baseFuncAstName ===
                     args.baseFuncAstName &&
                 internalVirtualFuncImpl.qualType === args.qualType &&
-                internalVirtualFuncImpl.range === args.range
+                rangeIsEqual(internalVirtualFuncImpl.range, args.range)
         );
 
         if (!internalVirtualFuncImpl) {
@@ -158,6 +159,8 @@ export class LowdbHppFile implements HppFile {
     }
 
     addReferencedFromCppFile(fileName: string): void {
-        this.internal.referencedFromCppFiles.push(fileName);
+        if (!this.internal.referencedFromCppFiles.includes(fileName)) {
+            this.internal.referencedFromCppFiles.push(fileName);
+        }
     }
 }

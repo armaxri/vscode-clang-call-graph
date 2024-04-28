@@ -8,6 +8,15 @@ export type Range = {
     end: Location;
 };
 
+export function rangeIsEqual(range1: Range, range2: Range): boolean {
+    return (
+        range1.start.line === range2.start.line &&
+        range1.start.column === range2.start.column &&
+        range1.end.line === range2.end.line &&
+        range1.end.column === range2.end.column
+    );
+}
+
 export type FuncCreationArgs = {
     funcName: string;
     funcAstName: string;

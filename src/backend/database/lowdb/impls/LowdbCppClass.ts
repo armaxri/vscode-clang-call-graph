@@ -6,6 +6,7 @@ import {
     VirtualFuncCreationArgs,
     VirtualFuncDeclaration,
     VirtualFuncImplementation,
+    rangeIsEqual,
 } from "../../cpp_structure";
 import { LowdbFuncDeclaration } from "./LowdbFuncDeclaration";
 import { LowdbFuncImplementation } from "./LowdbFuncImplementation";
@@ -82,7 +83,7 @@ export class LowdbCppClass extends AbstractCppClass {
                 internalFuncDecl.funcName === args.funcName &&
                 internalFuncDecl.funcAstName === args.funcAstName &&
                 internalFuncDecl.qualType === args.qualType &&
-                internalFuncDecl.range === args.range
+                rangeIsEqual(internalFuncDecl.range, args.range)
         );
 
         if (!internalFuncDecl) {
@@ -110,7 +111,7 @@ export class LowdbCppClass extends AbstractCppClass {
                 internalFuncImpl.funcName === args.funcName &&
                 internalFuncImpl.funcAstName === args.funcAstName &&
                 internalFuncImpl.qualType === args.qualType &&
-                internalFuncImpl.range === args.range
+                rangeIsEqual(internalFuncImpl.range, args.range)
         );
 
         if (!internalFuncImpl) {
@@ -143,7 +144,7 @@ export class LowdbCppClass extends AbstractCppClass {
                 internalVirtualFuncDecl.funcName === args.funcName &&
                 internalVirtualFuncDecl.funcAstName === args.funcAstName &&
                 internalVirtualFuncDecl.qualType === args.qualType &&
-                internalVirtualFuncDecl.range === args.range &&
+                rangeIsEqual(internalVirtualFuncDecl.range, args.range) &&
                 internalVirtualFuncDecl.baseFuncAstName === args.baseFuncAstName
         );
 
@@ -176,7 +177,7 @@ export class LowdbCppClass extends AbstractCppClass {
                 internalVirtualFuncImpl.funcName === args.funcName &&
                 internalVirtualFuncImpl.funcAstName === args.funcAstName &&
                 internalVirtualFuncImpl.qualType === args.qualType &&
-                internalVirtualFuncImpl.range === args.range &&
+                rangeIsEqual(internalVirtualFuncImpl.range, args.range) &&
                 internalVirtualFuncImpl.baseFuncAstName === args.baseFuncAstName
         );
 
