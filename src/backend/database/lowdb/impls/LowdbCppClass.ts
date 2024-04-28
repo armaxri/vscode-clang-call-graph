@@ -38,7 +38,13 @@ export class LowdbCppClass extends AbstractCppClass {
     }
 
     addParentClass(parentClass: CppClass): void {
-        this.internal.parentClasses.push(parentClass.getName());
+        if (
+            !this.internal.parentClasses.find(
+                (name) => name === parentClass.getName()
+            )
+        ) {
+            this.internal.parentClasses.push(parentClass.getName());
+        }
         // TODO: This is not the best way to handle this.
         // In the future we might need to get the data from the database.
         this.cachedParentClasses.push(parentClass);
