@@ -1277,7 +1277,7 @@
       "kind": "CXXRecordDecl",
       "loc": {
         "offset": 6,
-        "file": "/backendSuite/walkerTests/suite02/simple_static_method.cpp",
+        "file": "/backendSuite/walkerTests/simpleStaticMethod/simple_static_method.cpp",
         "line": 1,
         "col": 7,
         "tokLen": 9

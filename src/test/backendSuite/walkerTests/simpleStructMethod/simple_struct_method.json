@@ -1277,7 +1277,7 @@
       "kind": "CXXRecordDecl",
       "loc": {
         "offset": 7,
-        "file": "/backendSuite/walkerTests/suite06/simple_struct_method.cpp",
+        "file": "/backendSuite/walkerTests/simpleStructMethod/simple_struct_method.cpp",
         "line": 1,
         "col": 8,
         "tokLen": 10
