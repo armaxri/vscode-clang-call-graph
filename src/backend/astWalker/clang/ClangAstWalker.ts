@@ -352,7 +352,7 @@ export class ClangAstWalker implements AstWalker {
             funcName: astElement.name!,
             funcAstName: astElement.mangledName!,
             qualType: astElement.type!.qualType,
-            range: this.getRange(astElement),
+            range: this.getLocBasedRange(astElement),
         };
     }
 
