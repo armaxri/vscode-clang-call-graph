@@ -6,7 +6,11 @@ import { ClangAstWalker } from "../../../backend/astWalker/clang/ClangAstWalker"
 import { MockConfig } from "../utils/MockConfig";
 import { adjustTsToJsPath } from "../utils/path_helper";
 import { LowdbDatabase } from "../../../backend/database/lowdb/LowdbDatabase";
-import { LowdbInternalDatabase } from "../../../backend/database/lowdb/lowdb_internal_structure";
+import {
+    LowdbInternalCppFile,
+    LowdbInternalDatabase,
+    LowdbInternalHppFile,
+} from "../../../backend/database/lowdb/lowdb_internal_structure";
 
 function loadAst(dirname: string, filename: string): astJson.AstElement {
     const filePath = new PathUtils(dirname, filename);
@@ -77,13 +81,48 @@ export function testAstWalkerResults(
     referenceFilename: string
 ) {
     const [database, _] = createAndRunAstWalker(callingFileDirName, filename);
-    /*
-    assert.deepEqual(
-        database["database"].data,
-        loadExpectedDatabase(
-            adjustTsToJsPath(callingFileDirName),
-            referenceFilename
-        )
+    const expectedDatabase = loadExpectedDatabase(
+        adjustTsToJsPath(callingFileDirName),
+        referenceFilename
     );
-    */
+
+    assert.equal(
+        database["database"].data.databaseVersion,
+        expectedDatabase.databaseVersion
+    );
+    checkFileLists(
+        database["database"].data.cppFiles,
+        expectedDatabase.cppFiles
+    );
+    checkFileLists(
+        database["database"].data.hppFiles,
+        expectedDatabase.hppFiles
+    );
+}
+
+function checkFileLists(
+    actualFiles: LowdbInternalCppFile[] | LowdbInternalHppFile[],
+    expectedFiles: LowdbInternalCppFile[] | LowdbInternalHppFile[]
+) {
+    assert.equal(actualFiles.length, expectedFiles.length);
+    for (let i = 0; i < actualFiles.length; i++) {
+        const actualFile = actualFiles[i];
+        const expectedFile = expectedFiles[i];
+        assert.equal(actualFile.name, expectedFile.name);
+        // This may be checked for checks in the last seconds.
+        // assert.equal(actualFile.lastAnalyzed, expectedFile.lastAnalyzed);
+        assert.deepEqual(actualFile.classes, expectedFile.classes);
+        assert.deepEqual(actualFile.funcDecls, expectedFile.funcDecls);
+        assert.deepEqual(actualFile.funcImpls, expectedFile.funcImpls);
+        assert.deepEqual(
+            actualFile.virtualFuncImpls,
+            expectedFile.virtualFuncImpls
+        );
+        if ("referencedFromCppFiles" in actualFile) {
+            assert.deepEqual(
+                (actualFile as LowdbInternalHppFile).referencedFromCppFiles,
+                (expectedFile as LowdbInternalHppFile).referencedFromCppFiles
+            );
+        }
+    }
 }

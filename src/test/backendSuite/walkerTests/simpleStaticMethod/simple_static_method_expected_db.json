@@ -1,0 +1,76 @@
+{
+  "databaseVersion": 1,
+  "cppFiles": [
+    {
+      "name": "/backendSuite/walkerTests/simpleStaticMethod/simple_static_method.cpp",
+      "lastAnalyzed": 1714318232939,
+      "classes": [
+        {
+          "name": "TestClass",
+          "parentClasses": [],
+          "classes": [],
+          "funcDecls": [],
+          "funcImpls": [
+            {
+              "funcName": "add",
+              "funcAstName": "__ZN9TestClass3addEii",
+              "qualType": "int (int, int)",
+              "range": {
+                "start": {
+                  "line": 4,
+                  "column": 16
+                },
+                "end": {
+                  "line": 4,
+                  "column": 19
+                }
+              },
+              "funcCalls": [],
+              "virtualFuncCalls": []
+            }
+          ],
+          "virtualFuncDecls": [],
+          "virtualFuncImpls": []
+        }
+      ],
+      "funcDecls": [],
+      "funcImpls": [
+        {
+          "funcName": "main",
+          "funcAstName": "_main",
+          "qualType": "int (int, char **)",
+          "range": {
+            "start": {
+              "line": 10,
+              "column": 5
+            },
+            "end": {
+              "line": 10,
+              "column": 9
+            }
+          },
+          "funcCalls": [
+            {
+              "funcName": "add",
+              "funcAstName": "__ZN9TestClass3addEii",
+              "qualType": "int (int, int)",
+              "range": {
+                "start": {
+                  "line": 12,
+                  "column": 12
+                },
+                "end": {
+                  "line": 12,
+                  "column": 32
+                }
+              }
+            }
+          ],
+          "virtualFuncCalls": []
+        }
+      ],
+      "virtualFuncImpls": []
+    }
+  ],
+  "hppFiles": []
+}
