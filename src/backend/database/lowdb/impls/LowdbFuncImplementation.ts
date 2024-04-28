@@ -5,6 +5,7 @@ import {
     Range,
     VirtualFuncCall,
     VirtualFuncCallCreationArgs,
+    rangeIsEqual,
 } from "../../cpp_structure";
 import { LowdbFuncCall } from "./LowdbFuncCall";
 import { LowdbVirtualFuncCall } from "./LowdbVirtualFuncCall";
@@ -24,12 +25,23 @@ export class LowdbFuncImplementation implements FuncImplementation {
     }
 
     addFuncCall(funcCall: FuncCallCreationArgs): void {
-        this.internal.funcCalls.push({
-            funcName: funcCall.func.getFuncName(),
-            funcAstName: funcCall.func.getFuncAstName(),
-            qualType: funcCall.func.getQualType(),
-            range: funcCall.range,
-        });
+        const foundFuncCall = this.internal.funcCalls.find(
+            (internalFuncCall) =>
+                internalFuncCall.funcName === funcCall.func.getFuncName() &&
+                internalFuncCall.funcAstName ===
+                    funcCall.func.getFuncAstName() &&
+                internalFuncCall.qualType === funcCall.func.getQualType() &&
+                rangeIsEqual(internalFuncCall.range, funcCall.range)
+        );
+
+        if (!foundFuncCall) {
+            this.internal.funcCalls.push({
+                funcName: funcCall.func.getFuncName(),
+                funcAstName: funcCall.func.getFuncAstName(),
+                qualType: funcCall.func.getQualType(),
+                range: funcCall.range,
+            });
+        }
     }
 
     getVirtualFuncCalls(): VirtualFuncCall[] {
@@ -40,13 +52,28 @@ export class LowdbFuncImplementation implements FuncImplementation {
     }
 
     addVirtualFuncCall(virtualFuncCall: VirtualFuncCallCreationArgs): void {
-        this.internal.virtualFuncCalls.push({
-            funcName: virtualFuncCall.func.getFuncName(),
-            funcAstName: virtualFuncCall.func.getFuncAstName(),
-            baseFuncAstName: virtualFuncCall.func.getBaseFuncAstName(),
-            qualType: virtualFuncCall.func.getQualType(),
-            range: virtualFuncCall.range,
-        });
+        const foundFuncCall = this.internal.virtualFuncCalls.find(
+            (internalFuncCall) =>
+                internalFuncCall.funcName ===
+                    virtualFuncCall.func.getFuncName() &&
+                internalFuncCall.funcAstName ===
+                    virtualFuncCall.func.getFuncAstName() &&
+                internalFuncCall.baseFuncAstName ===
+                    virtualFuncCall.func.getBaseFuncAstName() &&
+                internalFuncCall.qualType ===
+                    virtualFuncCall.func.getQualType() &&
+                rangeIsEqual(internalFuncCall.range, virtualFuncCall.range)
+        );
+
+        if (!foundFuncCall) {
+            this.internal.virtualFuncCalls.push({
+                funcName: virtualFuncCall.func.getFuncName(),
+                funcAstName: virtualFuncCall.func.getFuncAstName(),
+                baseFuncAstName: virtualFuncCall.func.getBaseFuncAstName(),
+                qualType: virtualFuncCall.func.getQualType(),
+                range: virtualFuncCall.range,
+            });
+        }
     }
 
     getFuncName(): string {
