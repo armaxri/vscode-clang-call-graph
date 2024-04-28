@@ -243,9 +243,18 @@ export class ClangAstWalker implements AstWalker {
         this.activeClassStack.push(newClass);
 
         if (astElement.inner) {
-            astElement.inner.forEach((newAstElement) =>
-                this.analyzeAstElement(newAstElement)
-            );
+            astElement.inner.forEach((newAstElement) => {
+                // There are class mirrors in the class directly on the first level.
+                // This phantom element should be filtered out.
+                if (
+                    !(
+                        newAstElement.kind === "CXXRecordDecl" &&
+                        newAstElement.name === newClass.getName()
+                    )
+                ) {
+                    this.analyzeAstElement(newAstElement);
+                }
+            });
         }
 
         this.activeClassStack.pop();
