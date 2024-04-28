@@ -41,7 +41,15 @@ export abstract class AbstractCppClass implements CppClass {
             }
         }
 
-        const foundFunc = this.getVirtualFuncDecls().find(
+        var foundFunc = this.getVirtualFuncDecls().find(
+            (func) =>
+                func.getFuncName() === funcName &&
+                func.getQualType() === qualType
+        );
+        if (foundFunc) {
+            return foundFunc;
+        }
+        foundFunc = this.getVirtualFuncImpls().find(
             (func) =>
                 func.getFuncName() === funcName &&
                 func.getQualType() === qualType
