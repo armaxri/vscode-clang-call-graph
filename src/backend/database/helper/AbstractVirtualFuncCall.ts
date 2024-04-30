@@ -1,4 +1,4 @@
-import { Range, VirtualFuncCall } from "../cpp_structure";
+import { Range, VirtualFuncCall, rangeIsEqual } from "../cpp_structure";
 
 export abstract class AbstractVirtualFuncCall implements VirtualFuncCall {
     abstract getFuncName(): string;
@@ -8,6 +8,12 @@ export abstract class AbstractVirtualFuncCall implements VirtualFuncCall {
     abstract getBaseFuncAstName(): string;
 
     equals(other: VirtualFuncCall): boolean {
-        throw new Error("Method not implemented.");
+        return (
+            this.getFuncName() === other.getFuncName() &&
+            this.getFuncAstName() === other.getFuncAstName() &&
+            this.getQualType() === other.getQualType() &&
+            rangeIsEqual(this.getRange(), other.getRange()) &&
+            this.getBaseFuncAstName() === other.getBaseFuncAstName()
+        );
     }
 }

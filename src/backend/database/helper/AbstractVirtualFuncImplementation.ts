@@ -23,6 +23,21 @@ export abstract class AbstractVirtualFuncImplementation
     ): void;
 
     equals(other: VirtualFuncImplementation): boolean {
-        throw new Error("Method not implemented.");
+        return (
+            this.getFuncName() === other.getFuncName() &&
+            this.getFuncAstName() === other.getFuncAstName() &&
+            this.getQualType() === other.getQualType() &&
+            rangeIsEqual(this.getRange(), other.getRange()) &&
+            this.getBaseFuncAstName() === other.getBaseFuncAstName() &&
+            this.getFuncCalls().length === other.getFuncCalls().length &&
+            this.getFuncCalls().every((funcCall, index) =>
+                funcCall.equals(other.getFuncCalls()[index])
+            ) &&
+            this.getVirtualFuncCalls().length ===
+                other.getVirtualFuncCalls().length &&
+            this.getVirtualFuncCalls().every((virtualFuncCall, index) =>
+                virtualFuncCall.equals(other.getVirtualFuncCalls()[index])
+            )
+        );
     }
 }

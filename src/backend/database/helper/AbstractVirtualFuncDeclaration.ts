@@ -1,4 +1,4 @@
-import { Range, VirtualFuncDeclaration } from "../cpp_structure";
+import { Range, VirtualFuncDeclaration, rangeIsEqual } from "../cpp_structure";
 
 export abstract class AbstractVirtualFuncDeclaration
     implements VirtualFuncDeclaration
@@ -10,6 +10,12 @@ export abstract class AbstractVirtualFuncDeclaration
     abstract getRange(): Range;
 
     equals(other: VirtualFuncDeclaration): boolean {
-        throw new Error("Method not implemented.");
+        return (
+            this.getFuncName() === other.getFuncName() &&
+            this.getFuncAstName() === other.getFuncAstName() &&
+            this.getQualType() === other.getQualType() &&
+            rangeIsEqual(this.getRange(), other.getRange()) &&
+            this.getBaseFuncAstName() === other.getBaseFuncAstName()
+        );
     }
 }

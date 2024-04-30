@@ -7,6 +7,11 @@ export abstract class AbstractFuncCall implements FuncCall {
     abstract getRange(): Range;
 
     equals(other: FuncCall): boolean {
-        throw new Error("Method not implemented.");
+        return (
+            this.getFuncName() === other.getFuncName() &&
+            this.getFuncAstName() === other.getFuncAstName() &&
+            this.getQualType() === other.getQualType() &&
+            rangeIsEqual(this.getRange(), other.getRange())
+        );
     }
 }

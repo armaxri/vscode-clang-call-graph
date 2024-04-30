@@ -58,6 +58,62 @@ export abstract class AbstractCppClass implements CppClass {
     }
 
     equals(other: CppClass): boolean {
-        throw new Error("Method not implemented.");
+        return (
+            this.getName() === other.getName() &&
+            this.getParentClassNames().every((name) =>
+                other.getParentClassNames().includes(name)
+            ) &&
+            other
+                .getParentClassNames()
+                .every((name) => this.getParentClassNames().includes(name)) &&
+            this.getFuncDecls().every((funcDecl) =>
+                other
+                    .getFuncDecls()
+                    .some((otherFuncDecl) => funcDecl.equals(otherFuncDecl))
+            ) &&
+            other
+                .getFuncDecls()
+                .every((otherFuncDecl) =>
+                    this.getFuncDecls().some((funcDecl) =>
+                        otherFuncDecl.equals(funcDecl)
+                    )
+                ) &&
+            this.getFuncImpls().every((funcImpl) =>
+                other
+                    .getFuncImpls()
+                    .some((otherFuncImpl) => funcImpl.equals(otherFuncImpl))
+            ) &&
+            other
+                .getFuncImpls()
+                .every((otherFuncImpl) =>
+                    this.getFuncImpls().some((funcImpl) =>
+                        otherFuncImpl.equals(funcImpl)
+                    )
+                ) &&
+            this.getVirtualFuncDecls().every((funcDecl) =>
+                other
+                    .getVirtualFuncDecls()
+                    .some((otherFuncDecl) => funcDecl.equals(otherFuncDecl))
+            ) &&
+            other
+                .getVirtualFuncDecls()
+                .every((otherFuncDecl) =>
+                    this.getVirtualFuncDecls().some((funcDecl) =>
+                        otherFuncDecl.equals(funcDecl)
+                    )
+                ) &&
+            this.getVirtualFuncImpls().every((funcImpl) =>
+                other
+                    .getVirtualFuncImpls()
+                    .some((otherFuncImpl) => funcImpl.equals(otherFuncImpl))
+            ) &&
+            other
+                .getVirtualFuncImpls()
+                .every((otherFuncImpl) =>
+                    this.getVirtualFuncImpls().some((funcImpl) =>
+                        otherFuncImpl.equals(funcImpl)
+                    )
+                )
+        );
     }
 }

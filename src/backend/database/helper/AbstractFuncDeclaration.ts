@@ -1,4 +1,4 @@
-import { FuncDeclaration, Range } from "../cpp_structure";
+import { FuncDeclaration, Range, rangeIsEqual } from "../cpp_structure";
 
 export abstract class AbstractFuncDeclaration implements FuncDeclaration {
     abstract getFuncName(): string;
@@ -7,6 +7,11 @@ export abstract class AbstractFuncDeclaration implements FuncDeclaration {
     abstract getRange(): Range;
 
     equals(other: FuncDeclaration): boolean {
-        throw new Error("Method not implemented.");
+        return (
+            this.getFuncName() === other.getFuncName() &&
+            this.getFuncAstName() === other.getFuncAstName() &&
+            this.getQualType() === other.getQualType() &&
+            rangeIsEqual(this.getRange(), other.getRange())
+        );
     }
 }
