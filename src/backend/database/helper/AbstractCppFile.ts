@@ -23,7 +23,13 @@ export abstract class AbstractCppFile implements CppFile {
         args: VirtualFuncCreationArgs
     ): VirtualFuncImplementation;
 
-    equals(other: CppFile): boolean {
+    equals(otherInput: any): boolean {
+        const other = otherInput as CppFile;
+
+        if (!other) {
+            return false;
+        }
+
         return (
             this.getName() === other.getName() &&
             // Sadly we can't compare the analyzed time.

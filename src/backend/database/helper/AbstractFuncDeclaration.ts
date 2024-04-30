@@ -6,7 +6,13 @@ export abstract class AbstractFuncDeclaration implements FuncDeclaration {
     abstract getQualType(): string;
     abstract getRange(): Range;
 
-    equals(other: FuncDeclaration): boolean {
+    equals(otherInput: any): boolean {
+        const other = otherInput as FuncDeclaration;
+
+        if (!other) {
+            return false;
+        }
+
         return (
             this.getFuncName() === other.getFuncName() &&
             this.getFuncAstName() === other.getFuncAstName() &&

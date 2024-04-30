@@ -7,7 +7,13 @@ export abstract class AbstractVirtualFuncCall implements VirtualFuncCall {
     abstract getRange(): Range;
     abstract getBaseFuncAstName(): string;
 
-    equals(other: VirtualFuncCall): boolean {
+    equals(otherInput: any): boolean {
+        const other = otherInput as VirtualFuncCall;
+
+        if (!other) {
+            return false;
+        }
+
         return (
             this.getFuncName() === other.getFuncName() &&
             this.getFuncAstName() === other.getFuncAstName() &&

@@ -21,7 +21,13 @@ export abstract class AbstractFuncImplementation implements FuncImplementation {
         virtualFuncCall: VirtualFuncCallCreationArgs
     ): void;
 
-    equals(other: FuncImplementation): boolean {
+    equals(otherInput: any): boolean {
+        const other = otherInput as FuncImplementation;
+
+        if (!other) {
+            return false;
+        }
+
         return (
             this.getFuncName() === other.getFuncName() &&
             this.getFuncAstName() === other.getFuncAstName() &&

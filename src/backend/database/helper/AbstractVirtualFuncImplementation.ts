@@ -23,7 +23,13 @@ export abstract class AbstractVirtualFuncImplementation
         virtualFuncCall: VirtualFuncCallCreationArgs
     ): void;
 
-    equals(other: VirtualFuncImplementation): boolean {
+    equals(otherInput: any): boolean {
+        const other = otherInput as VirtualFuncImplementation;
+
+        if (!other) {
+            return false;
+        }
+
         return (
             this.getFuncName() === other.getFuncName() &&
             this.getFuncAstName() === other.getFuncAstName() &&

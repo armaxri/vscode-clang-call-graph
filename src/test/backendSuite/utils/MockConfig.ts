@@ -1,28 +1,33 @@
 import { Config, DatabaseType } from "../../../backend/Config";
-import { PathUtils } from "../../../backend/utils/PathUtils";
 import { adjustTsToJsPath } from "./path_helper";
 
 export class MockConfig extends Config {
     private testDir: string = "";
 
-    public numOfParserThreads: number = 1;
+    constructor(
+        testDir: string,
+        databaseType: DatabaseType = DatabaseType.lowdb,
+        lowdbDatabaseName?: string,
+        compileCommandsJsonName?: string
+    ) {
+        super(databaseType, true);
 
-    constructor(testDir: string) {
-        super();
         this.testDir = adjustTsToJsPath(testDir);
+        this.databaseType = databaseType;
+        this.lowdbDatabaseName =
+            lowdbDatabaseName ?? super.getLowdbDatabaseName();
+        this.compileCommandsJsonName =
+            compileCommandsJsonName ?? super.getCompileCommandsJsonName();
+
+        this.numOfParserThreads = 1;
     }
 
     getCompileCommandsJsonDir(): string {
         return this.testDir;
     }
 
-    getNumOfParserThreads(): number {
-        return 1;
-    }
-
     getSelectedDatabaseType(): DatabaseType {
-        // Test should use lowdb database for simple comparison and the data should not exceed the limit of lowdb.
-        return DatabaseType.lowdb;
+        return this.databaseType;
     }
 
     getCallGraphDatabaseDir(): string {

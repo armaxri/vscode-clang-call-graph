@@ -6,7 +6,13 @@ export abstract class AbstractFuncCall implements FuncCall {
     abstract getQualType(): string;
     abstract getRange(): Range;
 
-    equals(other: FuncCall): boolean {
+    equals(otherInput: any): boolean {
+        const other = otherInput as FuncCall;
+
+        if (!other) {
+            return false;
+        }
+
         return (
             this.getFuncName() === other.getFuncName() &&
             this.getFuncAstName() === other.getFuncAstName() &&

@@ -9,7 +9,13 @@ export abstract class AbstractVirtualFuncDeclaration
     abstract getQualType(): string;
     abstract getRange(): Range;
 
-    equals(other: VirtualFuncDeclaration): boolean {
+    equals(otherInput: any): boolean {
+        const other = otherInput as VirtualFuncDeclaration;
+
+        if (!other) {
+            return false;
+        }
+
         return (
             this.getFuncName() === other.getFuncName() &&
             this.getFuncAstName() === other.getFuncAstName() &&

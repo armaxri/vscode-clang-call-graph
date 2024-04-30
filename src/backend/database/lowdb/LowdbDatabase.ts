@@ -9,16 +9,22 @@ import {
 } from "./lowdb_internal_structure";
 import { LowdbCppFile } from "./impls/LowdbCppFile";
 import { LowdbHppFile } from "./impls/LowdbHppFile";
+import { AbstractDatabase } from "../helper/AbstractDatabase";
 
-export class LowdbDatabase implements db.Database {
-    private config: Config;
+export class LowdbDatabase extends AbstractDatabase {
     private adapter!: JSONFileSync<LowdbInternalDatabase>;
     private database!: LowSync<LowdbInternalDatabase>;
 
     constructor(config: Config) {
-        this.config = config;
+        super(config);
 
         this.initDatabase();
+    }
+
+    getCppFiles(): db.CppFile[] {
+        return this.database.data.cppFiles.map((cppFile) => {
+            return new LowdbCppFile(cppFile);
+        });
     }
 
     hasCppFile(name: string): boolean {
@@ -53,6 +59,12 @@ export class LowdbDatabase implements db.Database {
         this.database.data.cppFiles = this.database.data.cppFiles.filter(
             (cppFile) => cppFile.name !== name
         );
+    }
+
+    getHppFiles(): db.CppFile[] {
+        return this.database.data.hppFiles.map((hppFile) => {
+            return new LowdbHppFile(hppFile);
+        });
     }
 
     hasHppFile(name: string): boolean {

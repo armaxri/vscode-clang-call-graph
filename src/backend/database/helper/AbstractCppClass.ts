@@ -57,7 +57,13 @@ export abstract class AbstractCppClass implements CppClass {
         return foundFunc;
     }
 
-    equals(other: CppClass): boolean {
+    equals(otherInput: any): boolean {
+        const other = otherInput as CppClass;
+
+        if (!other) {
+            return false;
+        }
+
         return (
             this.getName() === other.getName() &&
             this.getParentClassNames().every((name) =>

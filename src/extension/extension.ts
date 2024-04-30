@@ -1,11 +1,11 @@
 import * as vscode from "vscode";
 import { VscodeConfig } from "./VscodeConfig";
-import { SqliteDatabase } from "../backend/database/SqliteDatabase";
 import { VscodeUserInterface } from "./VscodeUserInterface";
 import { ClangFilesystemWatcher } from "../backend/ClangFilesystemWatcher";
 import { CallHierarchyProvider } from "./CallHierarchyProvider";
 import { ClangAstWalkerFactory } from "../backend/astWalker/clang/ClangAstWalkerFactory";
 import { Database } from "../backend/database/Database";
+import { LowdbDatabase } from "../backend/database/lowdb/LowdbDatabase";
 
 let callGraphDatabase: Database;
 let callGraphParser: ClangFilesystemWatcher;
@@ -18,7 +18,7 @@ export function activate(context: vscode.ExtensionContext) {
     );
 
     let config = new VscodeConfig();
-    let database = new SqliteDatabase(config);
+    let database = new LowdbDatabase(config);
     callGraphParser = new ClangFilesystemWatcher(
         config,
         new VscodeUserInterface(),

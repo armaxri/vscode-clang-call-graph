@@ -25,7 +25,13 @@ export abstract class AbstractHppFile implements HppFile {
         args: VirtualFuncCreationArgs
     ): VirtualFuncImplementation;
 
-    equals(other: HppFile): boolean {
+    equals(otherInput: any): boolean {
+        const other = otherInput as HppFile;
+
+        if (!other) {
+            return false;
+        }
+
         return (
             this.getName() === other.getName() &&
             // Sadly we can't compare the analyzed time.
