@@ -5,6 +5,7 @@ import {
     Range,
     VirtualFuncCall,
     VirtualFuncCallCreationArgs,
+    rangeIsEqual,
 } from "../cpp_structure";
 
 export abstract class AbstractFuncImplementation implements FuncImplementation {
@@ -26,15 +27,32 @@ export abstract class AbstractFuncImplementation implements FuncImplementation {
             this.getFuncAstName() === other.getFuncAstName() &&
             this.getQualType() === other.getQualType() &&
             rangeIsEqual(this.getRange(), other.getRange()) &&
-            this.getFuncCalls().length === other.getFuncCalls().length &&
-            this.getFuncCalls().every((funcCall, index) =>
-                funcCall.equals(other.getFuncCalls()[index])
+            this.getFuncCalls().every((funcCall) =>
+                other
+                    .getFuncCalls()
+                    .some((otherFuncCall) => funcCall.equals(otherFuncCall))
             ) &&
-            this.getVirtualFuncCalls().length ===
-                other.getVirtualFuncCalls().length &&
-            this.getVirtualFuncCalls().every((virtualFuncCall, index) =>
-                virtualFuncCall.equals(other.getVirtualFuncCalls()[index])
-            )
+            other
+                .getFuncCalls()
+                .every((otherFuncCall) =>
+                    this.getFuncCalls().some((funcCall) =>
+                        funcCall.equals(otherFuncCall)
+                    )
+                ) &&
+            this.getVirtualFuncCalls().every((virtualFuncCall) =>
+                other
+                    .getVirtualFuncCalls()
+                    .some((otherVirtualFuncCall) =>
+                        virtualFuncCall.equals(otherVirtualFuncCall)
+                    )
+            ) &&
+            other
+                .getVirtualFuncCalls()
+                .every((otherVirtualFuncCall) =>
+                    this.getVirtualFuncCalls().some((virtualFuncCall) =>
+                        virtualFuncCall.equals(otherVirtualFuncCall)
+                    )
+                )
         );
     }
 }

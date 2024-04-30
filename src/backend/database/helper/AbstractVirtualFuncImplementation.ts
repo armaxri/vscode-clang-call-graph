@@ -5,6 +5,7 @@ import {
     VirtualFuncCall,
     VirtualFuncCallCreationArgs,
     VirtualFuncImplementation,
+    rangeIsEqual,
 } from "../cpp_structure";
 
 export abstract class AbstractVirtualFuncImplementation
@@ -29,14 +30,17 @@ export abstract class AbstractVirtualFuncImplementation
             this.getQualType() === other.getQualType() &&
             rangeIsEqual(this.getRange(), other.getRange()) &&
             this.getBaseFuncAstName() === other.getBaseFuncAstName() &&
-            this.getFuncCalls().length === other.getFuncCalls().length &&
-            this.getFuncCalls().every((funcCall, index) =>
-                funcCall.equals(other.getFuncCalls()[index])
+            this.getFuncCalls().every((funcCall) =>
+                other
+                    .getFuncCalls()
+                    .some((otherFuncCall) => funcCall.equals(otherFuncCall))
             ) &&
-            this.getVirtualFuncCalls().length ===
-                other.getVirtualFuncCalls().length &&
-            this.getVirtualFuncCalls().every((virtualFuncCall, index) =>
-                virtualFuncCall.equals(other.getVirtualFuncCalls()[index])
+            this.getVirtualFuncCalls().every((virtualFuncCall) =>
+                other
+                    .getVirtualFuncCalls()
+                    .some((otherVirtualFuncCall) =>
+                        virtualFuncCall.equals(otherVirtualFuncCall)
+                    )
             )
         );
     }

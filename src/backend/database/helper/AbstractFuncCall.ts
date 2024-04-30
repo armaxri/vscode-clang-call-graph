@@ -1,4 +1,4 @@
-import { FuncCall, Range } from "../cpp_structure";
+import { FuncCall, Range, rangeIsEqual } from "../cpp_structure";
 
 export abstract class AbstractFuncCall implements FuncCall {
     abstract getFuncName(): string;
