@@ -139,7 +139,8 @@ export function testAstWalkerAgainstSpecificDatabase(
         referenceFilename
     );
 
-    assert.equal(database.equals(expectedDatabase), true);
+    // TODO: This is somehow not satisfying. Is there a real equal?
+    assert.ok(database.equals(expectedDatabase));
 }
 
 function checkFileLists(
