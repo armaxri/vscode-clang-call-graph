@@ -56,4 +56,8 @@ export abstract class AbstractCppClass implements CppClass {
         );
         return foundFunc;
     }
+
+    equals(other: CppClass): boolean {
+        throw new Error("Method not implemented.");
+    }
 }

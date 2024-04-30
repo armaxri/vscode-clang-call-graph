@@ -4,19 +4,19 @@ import {
     Range,
     VirtualFuncCall,
     VirtualFuncCallCreationArgs,
-    VirtualFuncImplementation,
     rangeIsEqual,
 } from "../../cpp_structure";
 import { LowdbFuncCall } from "./LowdbFuncCall";
 import { LowdbVirtualFuncCall } from "./LowdbVirtualFuncCall";
 import { LowdbInternalVirtualFuncImplementation } from "../lowdb_internal_structure";
+import { AbstractVirtualFuncImplementation } from "../../helper/AbstractVirtualFuncImplementation";
 
-export class LowdbVirtualFuncImplementation
-    implements VirtualFuncImplementation
-{
+export class LowdbVirtualFuncImplementation extends AbstractVirtualFuncImplementation {
     internal: LowdbInternalVirtualFuncImplementation;
 
     constructor(internal: LowdbInternalVirtualFuncImplementation) {
+        super();
+
         this.internal = internal;
     }
 

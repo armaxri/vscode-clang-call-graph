@@ -1,6 +1,5 @@
 import {
     CppClass,
-    CppFile,
     FuncCreationArgs,
     FuncDeclaration,
     FuncImplementation,
@@ -13,11 +12,14 @@ import { LowdbFuncDeclaration } from "./LowdbFuncDeclaration";
 import { LowdbFuncImplementation } from "./LowdbFuncImplementation";
 import { LowdbVirtualFuncImplementation } from "./LowdbVirtualFuncImplementation";
 import { LowdbInternalCppFile } from "../lowdb_internal_structure";
+import { AbstractCppFile } from "../../helper/AbstractCppFile";
 
-export class LowdbCppFile implements CppFile {
+export class LowdbCppFile extends AbstractCppFile {
     internal: LowdbInternalCppFile;
 
     constructor(internal: LowdbInternalCppFile) {
+        super();
+
         this.internal = internal;
     }
 

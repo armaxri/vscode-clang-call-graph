@@ -1,7 +1,6 @@
 import {
     FuncCall,
     FuncCallCreationArgs,
-    FuncImplementation,
     Range,
     VirtualFuncCall,
     VirtualFuncCallCreationArgs,
@@ -10,11 +9,14 @@ import {
 import { LowdbFuncCall } from "./LowdbFuncCall";
 import { LowdbVirtualFuncCall } from "./LowdbVirtualFuncCall";
 import { LowdbInternalFuncImplementation } from "../lowdb_internal_structure";
+import { AbstractFuncImplementation } from "../../helper/AbstractFuncImplementation";
 
-export class LowdbFuncImplementation implements FuncImplementation {
+export class LowdbFuncImplementation extends AbstractFuncImplementation {
     internal: LowdbInternalFuncImplementation;
 
     constructor(internal: LowdbInternalFuncImplementation) {
+        super();
+
         this.internal = internal;
     }
 
