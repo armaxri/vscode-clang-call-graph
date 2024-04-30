@@ -45,14 +45,20 @@ export interface FuncBasics {
     getRange(): Range;
 }
 
-export interface FuncDeclaration extends FuncBasics {}
+export interface FuncDeclaration extends FuncBasics {
+    equals(other: FuncDeclaration): boolean;
+}
 export interface FuncImplementation extends FuncBasics {
     getFuncCalls(): Array<FuncCall>;
     addFuncCall(funcCall: FuncCallCreationArgs): void;
     getVirtualFuncCalls(): Array<VirtualFuncCall>;
     addVirtualFuncCall(virtualFuncCall: VirtualFuncCallCreationArgs): void;
+
+    equals(other: FuncImplementation): boolean;
 }
-export interface FuncCall extends FuncBasics {}
+export interface FuncCall extends FuncBasics {
+    equals(other: FuncCall): boolean;
+}
 
 export interface VirtualFuncBasics {
     getBaseFuncAstName(): string;
@@ -60,11 +66,17 @@ export interface VirtualFuncBasics {
 
 export interface VirtualFuncDeclaration
     extends FuncDeclaration,
-        VirtualFuncBasics {}
+        VirtualFuncBasics {
+    equals(other: VirtualFuncDeclaration): boolean;
+}
 export interface VirtualFuncImplementation
     extends FuncImplementation,
-        VirtualFuncBasics {}
-export interface VirtualFuncCall extends FuncCall, VirtualFuncBasics {}
+        VirtualFuncBasics {
+    equals(other: VirtualFuncImplementation): boolean;
+}
+export interface VirtualFuncCall extends FuncCall, VirtualFuncBasics {
+    equals(other: VirtualFuncCall): boolean;
+}
 
 export interface MainDeclLocation {
     getClasses(): Array<CppClass>;
@@ -97,6 +109,8 @@ export interface CppClass extends MainDeclLocation {
         funcName: string,
         qualType: string
     ): VirtualFuncDeclaration | undefined;
+
+    equals(other: CppClass): boolean;
 }
 
 export interface CppFile extends MainDeclLocation {
@@ -104,9 +118,13 @@ export interface CppFile extends MainDeclLocation {
 
     getLastAnalyzed(): number;
     justAnalyzed(): void;
+
+    equals(other: CppFile): boolean;
 }
 
 export interface HppFile extends CppFile {
     getReferencedFromCppFiles(): Array<string>;
     addReferencedFromCppFile(fileName: string): void;
+
+    equals(other: HppFile): boolean;
 }

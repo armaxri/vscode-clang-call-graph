@@ -1,10 +1,13 @@
-import { Range, VirtualFuncDeclaration } from "../../cpp_structure";
+import { Range } from "../../cpp_structure";
+import { AbstractVirtualFuncDeclaration } from "../../helper/AbstractVirtualFuncDeclaration";
 import { LowdbInternalVirtualFuncMentioning } from "../lowdb_internal_structure";
 
-export class LowdbVirtualFuncDeclaration implements VirtualFuncDeclaration {
+export class LowdbVirtualFuncDeclaration extends AbstractVirtualFuncDeclaration {
     internal: LowdbInternalVirtualFuncMentioning;
 
     constructor(internal: LowdbInternalVirtualFuncMentioning) {
+        super();
+
         this.internal = internal;
     }
 

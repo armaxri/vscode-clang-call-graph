@@ -1,10 +1,13 @@
-import { FuncCall, Range } from "../../cpp_structure";
+import { Range } from "../../cpp_structure";
+import { AbstractFuncCall } from "../../helper/AbstractFuncCall";
 import { LowdbInternalFuncMentioning } from "../lowdb_internal_structure";
 
-export class LowdbFuncCall implements FuncCall {
+export class LowdbFuncCall extends AbstractFuncCall {
     internal: LowdbInternalFuncMentioning;
 
     constructor(internal: LowdbInternalFuncMentioning) {
+        super();
+
         this.internal = internal;
     }
 

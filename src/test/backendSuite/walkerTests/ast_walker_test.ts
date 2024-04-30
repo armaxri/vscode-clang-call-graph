@@ -11,6 +11,8 @@ import {
     LowdbInternalDatabase,
     LowdbInternalHppFile,
 } from "../../../backend/database/lowdb/lowdb_internal_structure";
+import { DatabaseType } from "../../../backend/Config";
+import { Database } from "../../../backend/database/Database";
 
 function loadAst(dirname: string, filename: string): astJson.AstElement {
     const filePath = new PathUtils(dirname, filename);
@@ -50,18 +52,33 @@ function loadExpectedDatabase(
     return convertedDatabase;
 }
 
-export function createAndRunAstWalker(
-    callingFileDirName: string,
+function loadExpectedLowdbDatabase(
+    dirname: string,
     filename: string
-): [LowdbDatabase, MockConfig] {
+): LowdbDatabase {
+    const database = new LowdbDatabase(new MockConfig(dirname));
+    const expectedDatabase = loadExpectedDatabase(dirname, filename);
+    database["database"].data = expectedDatabase;
+    return database;
+}
+
+function createAndRunAstWalker(
+    callingFileDirName: string,
+    filename: string,
+    mockConfig: MockConfig
+): Database {
     const clangAst = loadAst(adjustTsToJsPath(callingFileDirName), filename);
-    const mockConfig = new MockConfig(callingFileDirName);
     try {
         fs.rmSync(mockConfig.getLowdbDatabasePath());
     } catch (e) {
         // Ignore error.
     }
-    const database = new LowdbDatabase(mockConfig);
+    var database: Database;
+    if (mockConfig.getSelectedDatabaseType() === DatabaseType.lowdb) {
+        database = new LowdbDatabase(mockConfig);
+    } else {
+        throw new Error("Database type not supported");
+    }
     const astWalker = new ClangAstWalker(
         getCppNameFromJsonFile(callingFileDirName, filename),
         database,
@@ -72,7 +89,7 @@ export function createAndRunAstWalker(
 
     database.writeDatabase();
 
-    return [database, mockConfig];
+    return database;
 }
 
 export function testAstWalkerResults(
@@ -80,7 +97,12 @@ export function testAstWalkerResults(
     filename: string,
     referenceFilename: string
 ) {
-    const [database, _] = createAndRunAstWalker(callingFileDirName, filename);
+    const mockConfig = new MockConfig(callingFileDirName);
+    const database = createAndRunAstWalker(
+        callingFileDirName,
+        filename,
+        mockConfig
+    ) as LowdbDatabase;
     const expectedDatabase = loadExpectedDatabase(
         adjustTsToJsPath(callingFileDirName),
         referenceFilename
@@ -98,6 +120,26 @@ export function testAstWalkerResults(
         database["database"].data.hppFiles,
         expectedDatabase.hppFiles
     );
+}
+
+export function testAstWalkerAgainstSpecificDatabase(
+    callingFileDirName: string,
+    filename: string,
+    referenceFilename: string,
+    databaseType: DatabaseType
+) {
+    const mockConfig = new MockConfig(callingFileDirName, databaseType);
+    const database = createAndRunAstWalker(
+        callingFileDirName,
+        filename,
+        mockConfig
+    );
+    const expectedDatabase = loadExpectedLowdbDatabase(
+        adjustTsToJsPath(callingFileDirName),
+        referenceFilename
+    );
+
+    assert.equal(database.equals(expectedDatabase), true);
 }
 
 function checkFileLists(

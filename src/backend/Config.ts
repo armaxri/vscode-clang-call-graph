@@ -6,10 +6,26 @@ export enum DatabaseType {
 }
 
 export abstract class Config {
+    protected compileCommandsJsonName: string = "compile_commands.json";
+    protected numOfParserThreads: number = 8;
+    protected databaseType: DatabaseType;
+    protected sqliteDatabaseName = "clang_call_graph.sqlite3";
+    protected lowdbDatabaseName = "clang_call_graph.json";
+    protected enableDatabaseCaching = true;
+    protected verbose;
+
+    constructor(
+        databasetype: DatabaseType = DatabaseType.lowdb,
+        verbose = false
+    ) {
+        this.databaseType = databasetype;
+        this.verbose = verbose;
+    }
+
     abstract getCompileCommandsJsonDir(): string;
 
     getCompileCommandsJsonName(): string {
-        return "compile_commands.json";
+        return this.compileCommandsJsonName;
     }
 
     getCompileCommandsJsonPath(): string {
@@ -20,18 +36,17 @@ export abstract class Config {
     }
 
     getNumOfParserThreads(): number {
-        return 8;
+        return this.numOfParserThreads;
     }
 
     getSelectedDatabaseType(): DatabaseType {
-        // TODO: Change the default to sqlite before releasing the extension.
-        return DatabaseType.lowdb;
+        return this.databaseType;
     }
 
     abstract getCallGraphDatabaseDir(): string;
 
     getSqliteDatabaseName(): string {
-        return "clang_call_graph.sqlite3";
+        return this.sqliteDatabaseName;
     }
 
     getSqliteDatabasePath(): string {
@@ -42,7 +57,7 @@ export abstract class Config {
     }
 
     getLowdbDatabaseName(): string {
-        return "clang_call_graph.json";
+        return this.lowdbDatabaseName;
     }
 
     getLowdbDatabasePath(): string {
@@ -53,12 +68,11 @@ export abstract class Config {
     }
 
     useDatabaseCaching(): boolean {
-        return true;
+        return this.enableDatabaseCaching;
     }
 
     // For development purposes.
     runVerbose(): boolean {
-        // TODO: Change this to false before releasing the extension.
-        return true;
+        return this.verbose;
     }
 }
