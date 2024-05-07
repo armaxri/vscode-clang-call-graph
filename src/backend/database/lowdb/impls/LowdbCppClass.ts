@@ -50,7 +50,7 @@ export class LowdbCppClass extends AbstractCppClass {
         this.cachedParentClasses.push(parentClass);
     }
 
-    getClasses(): Array<CppClass> {
+    getClasses(): CppClass[] {
         return this.internal.classes.map(
             (internalClass) => new LowdbCppClass(internalClass)
         );

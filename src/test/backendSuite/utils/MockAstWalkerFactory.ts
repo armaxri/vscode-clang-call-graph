@@ -10,10 +10,8 @@ export type ReceivedRequest = {
 };
 
 export class MockAstWalkerFactory implements AstWalkerFactory {
-    public receivedRequests: Array<ReceivedRequest> =
-        new Array<ReceivedRequest>();
-    public generatedAstWalkers: Array<MockAstWalker> =
-        new Array<MockAstWalker>();
+    public receivedRequests: ReceivedRequest[] = [];
+    public generatedAstWalkers: MockAstWalker[] = [];
 
     constructor() {}
 

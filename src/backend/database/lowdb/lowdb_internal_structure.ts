@@ -22,8 +22,8 @@ export type LowdbInternalFuncImplementation = {
     funcAstName: string;
     qualType: string;
     range: Range;
-    funcCalls: Array<LowdbInternalFuncMentioning>;
-    virtualFuncCalls: Array<LowdbInternalVirtualFuncMentioning>;
+    funcCalls: LowdbInternalFuncMentioning[];
+    virtualFuncCalls: LowdbInternalVirtualFuncMentioning[];
 };
 
 export type LowdbInternalVirtualFuncImplementation = {
@@ -32,43 +32,43 @@ export type LowdbInternalVirtualFuncImplementation = {
     baseFuncAstName: string;
     qualType: string;
     range: Range;
-    funcCalls: Array<LowdbInternalFuncMentioning>;
-    virtualFuncCalls: Array<LowdbInternalVirtualFuncMentioning>;
+    funcCalls: LowdbInternalFuncMentioning[];
+    virtualFuncCalls: LowdbInternalVirtualFuncMentioning[];
 };
 
 export type LowdbInternalCppClass = {
     name: string;
-    parentClasses: Array<string>;
-    classes: Array<LowdbInternalCppClass>;
-    funcDecls: Array<LowdbInternalFuncMentioning>;
-    funcImpls: Array<LowdbInternalFuncImplementation>;
-    virtualFuncDecls: Array<LowdbInternalVirtualFuncMentioning>;
-    virtualFuncImpls: Array<LowdbInternalVirtualFuncImplementation>;
+    parentClasses: string[];
+    classes: LowdbInternalCppClass[];
+    funcDecls: LowdbInternalFuncMentioning[];
+    funcImpls: LowdbInternalFuncImplementation[];
+    virtualFuncDecls: LowdbInternalVirtualFuncMentioning[];
+    virtualFuncImpls: LowdbInternalVirtualFuncImplementation[];
 };
 
 export type LowdbInternalCppFile = {
     name: string;
     lastAnalyzed: number;
-    classes: Array<LowdbInternalCppClass>;
-    funcDecls: Array<LowdbInternalFuncMentioning>;
-    funcImpls: Array<LowdbInternalFuncImplementation>;
-    virtualFuncImpls: Array<LowdbInternalVirtualFuncImplementation>;
+    classes: LowdbInternalCppClass[];
+    funcDecls: LowdbInternalFuncMentioning[];
+    funcImpls: LowdbInternalFuncImplementation[];
+    virtualFuncImpls: LowdbInternalVirtualFuncImplementation[];
 };
 
 export type LowdbInternalHppFile = {
     name: string;
     lastAnalyzed: number;
-    classes: Array<LowdbInternalCppClass>;
-    funcDecls: Array<LowdbInternalFuncMentioning>;
-    funcImpls: Array<LowdbInternalFuncImplementation>;
-    virtualFuncImpls: Array<LowdbInternalVirtualFuncImplementation>;
-    referencedFromCppFiles: Array<string>;
+    classes: LowdbInternalCppClass[];
+    funcDecls: LowdbInternalFuncMentioning[];
+    funcImpls: LowdbInternalFuncImplementation[];
+    virtualFuncImpls: LowdbInternalVirtualFuncImplementation[];
+    referencedFromCppFiles: string[];
 };
 
 export type LowdbInternalDatabase = {
     databaseVersion: number;
-    cppFiles: Array<LowdbInternalCppFile>;
-    hppFiles: Array<LowdbInternalHppFile>;
+    cppFiles: LowdbInternalCppFile[];
+    hppFiles: LowdbInternalHppFile[];
 };
 
 export function createEmptyLowdbInternalDatabase(): LowdbInternalDatabase {

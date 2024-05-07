@@ -10,22 +10,22 @@ import {
 
 export abstract class AbstractCppClass implements CppClass {
     abstract getName(): string;
-    abstract getParentClasses(): Array<CppClass>;
-    abstract getParentClassNames(): Array<string>;
+    abstract getParentClasses(): CppClass[];
+    abstract getParentClassNames(): string[];
     abstract addParentClass(parentClass: CppClass): void;
 
-    abstract getClasses(): Array<CppClass>;
+    abstract getClasses(): CppClass[];
     abstract getOrAddClass(className: string): CppClass;
 
-    abstract getFuncDecls(): Array<FuncDeclaration>;
+    abstract getFuncDecls(): FuncDeclaration[];
     abstract getOrAddFuncDecl(args: FuncCreationArgs): FuncDeclaration;
-    abstract getFuncImpls(): Array<FuncImplementation>;
+    abstract getFuncImpls(): FuncImplementation[];
     abstract getOrAddFuncImpl(args: FuncCreationArgs): FuncImplementation;
-    abstract getVirtualFuncDecls(): Array<VirtualFuncDeclaration>;
+    abstract getVirtualFuncDecls(): VirtualFuncDeclaration[];
     abstract getOrAddVirtualFuncDecl(
         args: VirtualFuncCreationArgs
     ): VirtualFuncDeclaration;
-    abstract getVirtualFuncImpls(): Array<VirtualFuncImplementation>;
+    abstract getVirtualFuncImpls(): VirtualFuncImplementation[];
     abstract getOrAddVirtualFuncImpl(
         args: VirtualFuncCreationArgs
     ): VirtualFuncImplementation;

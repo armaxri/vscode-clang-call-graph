@@ -51,9 +51,9 @@ export interface FuncBasics extends Equal {
 
 export interface FuncDeclaration extends FuncBasics {}
 export interface FuncImplementation extends FuncBasics {
-    getFuncCalls(): Array<FuncCall>;
+    getFuncCalls(): FuncCall[];
     addFuncCall(funcCall: FuncCallCreationArgs): void;
-    getVirtualFuncCalls(): Array<VirtualFuncCall>;
+    getVirtualFuncCalls(): VirtualFuncCall[];
     addVirtualFuncCall(virtualFuncCall: VirtualFuncCallCreationArgs): void;
 }
 export interface FuncCall extends FuncBasics {}
@@ -71,14 +71,14 @@ export interface VirtualFuncImplementation
 export interface VirtualFuncCall extends FuncCall, VirtualFuncBasics {}
 
 export interface MainDeclLocation extends Equal {
-    getClasses(): Array<CppClass>;
+    getClasses(): CppClass[];
     getOrAddClass(className: string): CppClass;
 
-    getFuncDecls(): Array<FuncDeclaration>;
+    getFuncDecls(): FuncDeclaration[];
     getOrAddFuncDecl(args: FuncCreationArgs): FuncDeclaration;
-    getFuncImpls(): Array<FuncImplementation>;
+    getFuncImpls(): FuncImplementation[];
     getOrAddFuncImpl(args: FuncCreationArgs): FuncImplementation;
-    getVirtualFuncImpls(): Array<VirtualFuncImplementation>;
+    getVirtualFuncImpls(): VirtualFuncImplementation[];
     getOrAddVirtualFuncImpl(
         args: VirtualFuncCreationArgs
     ): VirtualFuncImplementation;
@@ -86,13 +86,13 @@ export interface MainDeclLocation extends Equal {
 
 export interface CppClass extends MainDeclLocation {
     getName(): string;
-    getParentClasses(): Array<CppClass>;
-    getParentClassNames(): Array<string>;
+    getParentClasses(): CppClass[];
+    getParentClassNames(): string[];
     addParentClass(parentClass: CppClass): void;
 
     // Virtual functions can be implemented in a class or file but only declared
     // within a class body.
-    getVirtualFuncDecls(): Array<VirtualFuncDeclaration>;
+    getVirtualFuncDecls(): VirtualFuncDeclaration[];
     getOrAddVirtualFuncDecl(
         args: VirtualFuncCreationArgs
     ): VirtualFuncDeclaration;
@@ -111,6 +111,6 @@ export interface CppFile extends MainDeclLocation {
 }
 
 export interface HppFile extends CppFile {
-    getReferencedFromCppFiles(): Array<string>;
+    getReferencedFromCppFiles(): string[];
     addReferencedFromCppFile(fileName: string): void;
 }

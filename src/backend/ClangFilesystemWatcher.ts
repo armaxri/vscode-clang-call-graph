@@ -39,10 +39,10 @@ export class ClangFilesystemWatcher {
     // The C and C++ files are analyzed in parallel by a group of workers.
     // This array stores the promises of the workers, so that the main thread can await them on shutdown.
     // The file changes are observed by the starting thread of the startWatching method.
-    private workerAwaits: Array<Promise<void>> = new Array<Promise<void>>();
-    private workerTasks: Array<ICompileCommand> = new Array<ICompileCommand>();
+    private workerAwaits: Promise<void>[] = [];
+    private workerTasks: ICompileCommand[] = [];
 
-    private analyzedFiles: Array<AnalyzedFile> = new Array<AnalyzedFile>();
+    private analyzedFiles: AnalyzedFile[] = [];
 
     constructor(
         config: Config,

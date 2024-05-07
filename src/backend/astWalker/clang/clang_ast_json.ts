@@ -47,8 +47,8 @@ export interface AstElement {
     virtual?: boolean;
     storageClass?: string;
     referencedMemberDecl?: string;
-    inner?: Array<AstElement>;
-    bases?: Array<BasesElement>;
+    inner?: AstElement[];
+    bases?: BasesElement[];
 }
 
 /*

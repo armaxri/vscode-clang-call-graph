@@ -39,8 +39,8 @@ function getEscapedChar(
     }
 }
 
-export function splitArguments(inputString: string): Array<string> {
-    const args = new Array<string>();
+export function splitArguments(inputString: string): string[] {
+    const args = [];
     var currentArg = "";
     // Store if a string was started and if yes with the kind of character.
     var stringStart = "";
@@ -96,11 +96,11 @@ export function splitArguments(inputString: string): Array<string> {
     return args;
 }
 
-export function createClangAstCall(command: string): Array<string> {
+export function createClangAstCall(command: string): string[] {
     // Reverse the order to use pop and start at the far left of the command.
     let splitCommand = splitArguments(command).reverse();
 
-    let adjustedCommand = new Array<string>();
+    let adjustedCommand = [];
 
     // Used to workaround typescript check.
     let skipNext = false;
