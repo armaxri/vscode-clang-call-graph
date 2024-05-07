@@ -7,6 +7,7 @@ import {
     VirtualFuncCallCreationArgs,
     rangeIsEqual,
 } from "../cpp_structure";
+import { elementEquals } from "./equality_helper";
 
 export abstract class AbstractFuncImplementation implements FuncImplementation {
     abstract getFuncName(): string;
@@ -33,32 +34,14 @@ export abstract class AbstractFuncImplementation implements FuncImplementation {
             this.getFuncAstName() === other.getFuncAstName() &&
             this.getQualType() === other.getQualType() &&
             rangeIsEqual(this.getRange(), other.getRange()) &&
-            this.getFuncCalls().every((funcCall) =>
-                other
-                    .getFuncCalls()
-                    .some((otherFuncCall) => funcCall.equals(otherFuncCall))
+            elementEquals<FuncCall>(
+                this.getFuncCalls(),
+                other.getFuncCalls()
             ) &&
-            other
-                .getFuncCalls()
-                .every((otherFuncCall) =>
-                    this.getFuncCalls().some((funcCall) =>
-                        funcCall.equals(otherFuncCall)
-                    )
-                ) &&
-            this.getVirtualFuncCalls().every((virtualFuncCall) =>
-                other
-                    .getVirtualFuncCalls()
-                    .some((otherVirtualFuncCall) =>
-                        virtualFuncCall.equals(otherVirtualFuncCall)
-                    )
-            ) &&
-            other
-                .getVirtualFuncCalls()
-                .every((otherVirtualFuncCall) =>
-                    this.getVirtualFuncCalls().some((virtualFuncCall) =>
-                        virtualFuncCall.equals(otherVirtualFuncCall)
-                    )
-                )
+            elementEquals<VirtualFuncCall>(
+                this.getVirtualFuncCalls(),
+                other.getVirtualFuncCalls()
+            )
         );
     }
 }

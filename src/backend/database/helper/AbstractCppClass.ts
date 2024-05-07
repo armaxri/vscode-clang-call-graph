@@ -7,6 +7,7 @@ import {
     VirtualFuncDeclaration,
     VirtualFuncImplementation,
 } from "../cpp_structure";
+import { elementEquals } from "./equality_helper";
 
 export abstract class AbstractCppClass implements CppClass {
     abstract getName(): string;
@@ -57,6 +58,19 @@ export abstract class AbstractCppClass implements CppClass {
         return foundFunc;
     }
 
+    private parentClassNamesEquals(otherList: string[]): boolean {
+        const thisList = this.getParentClassNames();
+
+        if (thisList.length !== otherList.length) {
+            return false;
+        }
+
+        return (
+            thisList.every((fileName) => otherList.includes(fileName)) &&
+            otherList.every((fileName) => thisList.includes(fileName))
+        );
+    }
+
     equals(otherInput: any): boolean {
         const other = otherInput as CppClass;
 
@@ -66,60 +80,23 @@ export abstract class AbstractCppClass implements CppClass {
 
         return (
             this.getName() === other.getName() &&
-            this.getParentClassNames().every((name) =>
-                other.getParentClassNames().includes(name)
+            this.parentClassNamesEquals(other.getParentClassNames()) &&
+            elementEquals<FuncDeclaration>(
+                this.getFuncDecls(),
+                other.getFuncDecls()
             ) &&
-            other
-                .getParentClassNames()
-                .every((name) => this.getParentClassNames().includes(name)) &&
-            this.getFuncDecls().every((funcDecl) =>
-                other
-                    .getFuncDecls()
-                    .some((otherFuncDecl) => funcDecl.equals(otherFuncDecl))
+            elementEquals<FuncImplementation>(
+                this.getFuncImpls(),
+                other.getFuncImpls()
             ) &&
-            other
-                .getFuncDecls()
-                .every((otherFuncDecl) =>
-                    this.getFuncDecls().some((funcDecl) =>
-                        otherFuncDecl.equals(funcDecl)
-                    )
-                ) &&
-            this.getFuncImpls().every((funcImpl) =>
-                other
-                    .getFuncImpls()
-                    .some((otherFuncImpl) => funcImpl.equals(otherFuncImpl))
+            elementEquals<VirtualFuncDeclaration>(
+                this.getVirtualFuncDecls(),
+                other.getVirtualFuncDecls()
             ) &&
-            other
-                .getFuncImpls()
-                .every((otherFuncImpl) =>
-                    this.getFuncImpls().some((funcImpl) =>
-                        otherFuncImpl.equals(funcImpl)
-                    )
-                ) &&
-            this.getVirtualFuncDecls().every((funcDecl) =>
-                other
-                    .getVirtualFuncDecls()
-                    .some((otherFuncDecl) => funcDecl.equals(otherFuncDecl))
-            ) &&
-            other
-                .getVirtualFuncDecls()
-                .every((otherFuncDecl) =>
-                    this.getVirtualFuncDecls().some((funcDecl) =>
-                        otherFuncDecl.equals(funcDecl)
-                    )
-                ) &&
-            this.getVirtualFuncImpls().every((funcImpl) =>
-                other
-                    .getVirtualFuncImpls()
-                    .some((otherFuncImpl) => funcImpl.equals(otherFuncImpl))
-            ) &&
-            other
-                .getVirtualFuncImpls()
-                .every((otherFuncImpl) =>
-                    this.getVirtualFuncImpls().some((funcImpl) =>
-                        otherFuncImpl.equals(funcImpl)
-                    )
-                )
+            elementEquals<VirtualFuncImplementation>(
+                this.getVirtualFuncImpls(),
+                other.getVirtualFuncImpls()
+            )
         );
     }
 }

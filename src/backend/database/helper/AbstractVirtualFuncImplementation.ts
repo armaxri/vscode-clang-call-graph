@@ -7,6 +7,7 @@ import {
     VirtualFuncImplementation,
     rangeIsEqual,
 } from "../cpp_structure";
+import { elementEquals } from "./equality_helper";
 
 export abstract class AbstractVirtualFuncImplementation
     implements VirtualFuncImplementation
@@ -36,17 +37,13 @@ export abstract class AbstractVirtualFuncImplementation
             this.getQualType() === other.getQualType() &&
             rangeIsEqual(this.getRange(), other.getRange()) &&
             this.getBaseFuncAstName() === other.getBaseFuncAstName() &&
-            this.getFuncCalls().every((funcCall) =>
-                other
-                    .getFuncCalls()
-                    .some((otherFuncCall) => funcCall.equals(otherFuncCall))
+            elementEquals<FuncCall>(
+                this.getFuncCalls(),
+                other.getFuncCalls()
             ) &&
-            this.getVirtualFuncCalls().every((virtualFuncCall) =>
-                other
-                    .getVirtualFuncCalls()
-                    .some((otherVirtualFuncCall) =>
-                        virtualFuncCall.equals(otherVirtualFuncCall)
-                    )
+            elementEquals<VirtualFuncCall>(
+                this.getVirtualFuncCalls(),
+                other.getVirtualFuncCalls()
             )
         );
     }
