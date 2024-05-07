@@ -4,7 +4,7 @@ import { prepareDatabaseEqualityTests } from "../database_equlaity_tests";
 
 suite("Database HppFile equality tests", () => {
     [DatabaseType.lowdb].forEach(async (testData) => {
-        test(`Test equality for simple class on ${testData}`, async () => {
+        test(`Test equality for simple C++ header file on ${testData}`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
                     __dirname,
@@ -29,7 +29,7 @@ suite("Database HppFile equality tests", () => {
     });
 
     [DatabaseType.lowdb].forEach(async (testData) => {
-        test(`Test no equality for simple class on ${testData} based on empty database`, async () => {
+        test(`Test no equality for simple C++ header file on ${testData} based on empty database`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
                     __dirname,
@@ -44,7 +44,7 @@ suite("Database HppFile equality tests", () => {
     });
 
     [DatabaseType.lowdb].forEach(async (testData) => {
-        test(`Test no equality for simple class on ${testData} based wrong file name`, async () => {
+        test(`Test no equality for simple C++ header file on ${testData} based wrong file name`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
                     __dirname,
