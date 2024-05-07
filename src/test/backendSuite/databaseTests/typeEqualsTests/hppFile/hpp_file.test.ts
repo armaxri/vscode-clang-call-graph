@@ -1,6 +1,6 @@
 import * as assert from "assert";
 import { DatabaseType } from "../../../../../backend/Config";
-import { prepareDatabaseEqualityTests } from "../database_equlaity_tests";
+import { prepareDatabaseEqualityTests } from "../database_equality_tests";
 
 suite("Database HppFile equality tests", () => {
     [DatabaseType.lowdb].forEach(async (testData) => {
