@@ -15,21 +15,23 @@ export abstract class AbstractCppClass implements CppClass {
     abstract getParentClassNames(): string[];
     abstract addParentClass(parentClass: CppClass): void;
 
-    abstract getClasses(): CppClass[];
-    abstract getOrAddClass(className: string): CppClass;
+    abstract getClasses(): Promise<CppClass[]>;
+    abstract getOrAddClass(className: string): Promise<CppClass>;
 
-    abstract getFuncDecls(): FuncDeclaration[];
-    abstract getOrAddFuncDecl(args: FuncCreationArgs): FuncDeclaration;
-    abstract getFuncImpls(): FuncImplementation[];
-    abstract getOrAddFuncImpl(args: FuncCreationArgs): FuncImplementation;
+    abstract getFuncDecls(): Promise<FuncDeclaration[]>;
+    abstract getOrAddFuncDecl(args: FuncCreationArgs): Promise<FuncDeclaration>;
+    abstract getFuncImpls(): Promise<FuncImplementation[]>;
+    abstract getOrAddFuncImpl(
+        args: FuncCreationArgs
+    ): Promise<FuncImplementation>;
     abstract getVirtualFuncDecls(): VirtualFuncDeclaration[];
     abstract getOrAddVirtualFuncDecl(
         args: VirtualFuncCreationArgs
     ): VirtualFuncDeclaration;
-    abstract getVirtualFuncImpls(): VirtualFuncImplementation[];
+    abstract getVirtualFuncImpls(): Promise<VirtualFuncImplementation[]>;
     abstract getOrAddVirtualFuncImpl(
         args: VirtualFuncCreationArgs
-    ): VirtualFuncImplementation;
+    ): Promise<VirtualFuncImplementation>;
 
     async findBaseFunction(
         funcName: string,
@@ -53,7 +55,7 @@ export abstract class AbstractCppClass implements CppClass {
         if (foundFunc) {
             return foundFunc;
         }
-        foundFunc = this.getVirtualFuncImpls().find(
+        foundFunc = (await this.getVirtualFuncImpls()).find(
             (func) =>
                 func.getFuncName() === funcName &&
                 func.getQualType() === qualType
@@ -85,20 +87,20 @@ export abstract class AbstractCppClass implements CppClass {
             this.getName() === other.getName() &&
             this.parentClassNamesEquals(other.getParentClassNames()) &&
             (await elementEquals<FuncDeclaration>(
-                this.getFuncDecls(),
-                other.getFuncDecls()
+                await this.getFuncDecls(),
+                await other.getFuncDecls()
             )) &&
             (await elementEquals<FuncImplementation>(
-                this.getFuncImpls(),
-                other.getFuncImpls()
+                await this.getFuncImpls(),
+                await other.getFuncImpls()
             )) &&
             (await elementEquals<VirtualFuncDeclaration>(
                 this.getVirtualFuncDecls(),
                 other.getVirtualFuncDecls()
             )) &&
             (await elementEquals<VirtualFuncImplementation>(
-                this.getVirtualFuncImpls(),
-                other.getVirtualFuncImpls()
+                await this.getVirtualFuncImpls(),
+                await other.getVirtualFuncImpls()
             ))
         );
     }

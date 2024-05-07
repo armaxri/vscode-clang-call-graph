@@ -51,10 +51,12 @@ export interface FuncBasics extends Equal {
 
 export interface FuncDeclaration extends FuncBasics {}
 export interface FuncImplementation extends FuncBasics {
-    getFuncCalls(): FuncCall[];
-    addFuncCall(funcCall: FuncCallCreationArgs): void;
-    getVirtualFuncCalls(): VirtualFuncCall[];
-    addVirtualFuncCall(virtualFuncCall: VirtualFuncCallCreationArgs): void;
+    getFuncCalls(): Promise<FuncCall[]>;
+    addFuncCall(funcCall: FuncCallCreationArgs): Promise<void>;
+    getVirtualFuncCalls(): Promise<VirtualFuncCall[]>;
+    addVirtualFuncCall(
+        virtualFuncCall: VirtualFuncCallCreationArgs
+    ): Promise<void>;
 }
 export interface FuncCall extends FuncBasics {}
 
@@ -71,17 +73,17 @@ export interface VirtualFuncImplementation
 export interface VirtualFuncCall extends FuncCall, VirtualFuncBasics {}
 
 export interface MainDeclLocation extends Equal {
-    getClasses(): CppClass[];
-    getOrAddClass(className: string): CppClass;
+    getClasses(): Promise<CppClass[]>;
+    getOrAddClass(className: string): Promise<CppClass>;
 
-    getFuncDecls(): FuncDeclaration[];
-    getOrAddFuncDecl(args: FuncCreationArgs): FuncDeclaration;
-    getFuncImpls(): FuncImplementation[];
-    getOrAddFuncImpl(args: FuncCreationArgs): FuncImplementation;
-    getVirtualFuncImpls(): VirtualFuncImplementation[];
+    getFuncDecls(): Promise<FuncDeclaration[]>;
+    getOrAddFuncDecl(args: FuncCreationArgs): Promise<FuncDeclaration>;
+    getFuncImpls(): Promise<FuncImplementation[]>;
+    getOrAddFuncImpl(args: FuncCreationArgs): Promise<FuncImplementation>;
+    getVirtualFuncImpls(): Promise<VirtualFuncImplementation[]>;
     getOrAddVirtualFuncImpl(
         args: VirtualFuncCreationArgs
-    ): VirtualFuncImplementation;
+    ): Promise<VirtualFuncImplementation>;
 }
 
 export interface CppClass extends MainDeclLocation {

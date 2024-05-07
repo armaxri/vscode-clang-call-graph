@@ -1,4 +1,4 @@
-import * as clang_ast from "./clang_ast_json";
+import * as clangAst from "./clang_ast_json";
 import {
     hasCompoundStmtInInner,
     isElementVirtualFuncDeclaration,
@@ -21,7 +21,7 @@ type SimpleVirtualFuncDeclaration = {
 export class ClangAstWalker implements AstWalker {
     private fileName: string = "";
     private database: db.Database;
-    private baseAstElement: clang_ast.AstElement;
+    private baseAstElement: clangAst.AstElement;
 
     // At the beginning it will be a derived HppFile.
     private currentlyAnalyzedFile: db.CppFile | undefined = undefined;
@@ -44,7 +44,7 @@ export class ClangAstWalker implements AstWalker {
     constructor(
         fileName: string,
         database: db.Database,
-        baseAstElement: clang_ast.AstElement
+        baseAstElement: clangAst.AstElement
     ) {
         this.fileName = fileName;
         this.database = database;
@@ -63,7 +63,7 @@ export class ClangAstWalker implements AstWalker {
     }
 
     private async analyzeAstElement(
-        astElement: clang_ast.AstElement
+        astElement: clangAst.AstElement
     ): Promise<void> {
         // The file name and the source line are only mentioned in the first
         // seen element of the file.
@@ -98,7 +98,7 @@ export class ClangAstWalker implements AstWalker {
         }
     }
 
-    private handleLocAndRange(astElement: clang_ast.AstElement) {
+    private handleLocAndRange(astElement: clangAst.AstElement) {
         if (astElement.loc && astElement.loc.file) {
             this.currentlyAnalyzedFile?.justAnalyzed();
 
@@ -130,13 +130,13 @@ export class ClangAstWalker implements AstWalker {
         }
     }
 
-    private updateLastCallExprLocation(astElement: clang_ast.AstElement) {
+    private updateLastCallExprLocation(astElement: clangAst.AstElement) {
         this.lastCallExprBeginLocation = this.getRangeStartLocation(astElement);
         this.lastCallExprEndLocation = this.getRangeEndLocation(astElement);
     }
 
     private getRangeStartLocation(
-        astElement: clang_ast.AstElement
+        astElement: clangAst.AstElement
     ): db.Location {
         return {
             line:
@@ -154,7 +154,7 @@ export class ClangAstWalker implements AstWalker {
         };
     }
 
-    private getRangeEndLocation(astElement: clang_ast.AstElement): db.Location {
+    private getRangeEndLocation(astElement: clangAst.AstElement): db.Location {
         return {
             line:
                 astElement.range &&
@@ -178,7 +178,7 @@ export class ClangAstWalker implements AstWalker {
         };
     }
 
-    private getRange(astElement: clang_ast.AstElement): db.Range {
+    private getRange(astElement: clangAst.AstElement): db.Range {
         return {
             start: this.getRangeStartLocation(astElement),
             end: this.getRangeEndLocation(astElement),
@@ -186,7 +186,7 @@ export class ClangAstWalker implements AstWalker {
     }
 
     private getLocBasedRangeStartLocation(
-        astElement: clang_ast.AstElement
+        astElement: clangAst.AstElement
     ): db.Location {
         return {
             line: this.lastSeenLocLineNumber,
@@ -199,7 +199,7 @@ export class ClangAstWalker implements AstWalker {
     }
 
     private getLocBasedRangeEndLocation(
-        astElement: clang_ast.AstElement,
+        astElement: clangAst.AstElement,
         startLocation: db.Location
     ): db.Location {
         return {
@@ -214,7 +214,7 @@ export class ClangAstWalker implements AstWalker {
         };
     }
 
-    private getLocBasedRange(astElement: clang_ast.AstElement): db.Range {
+    private getLocBasedRange(astElement: clangAst.AstElement): db.Range {
         const startLocation = this.getLocBasedRangeStartLocation(astElement);
         return {
             start: startLocation,
@@ -223,12 +223,14 @@ export class ClangAstWalker implements AstWalker {
     }
 
     private async handleClassDecl(
-        astElement: clang_ast.AstElement
+        astElement: clangAst.AstElement
     ): Promise<void> {
         const newClass =
             this.activeClassStack.length === 0
-                ? this.currentlyAnalyzedFile!.getOrAddClass(astElement.name!)
-                : this.activeClassStack[
+                ? await this.currentlyAnalyzedFile!.getOrAddClass(
+                      astElement.name!
+                  )
+                : await this.activeClassStack[
                       this.activeClassStack.length - 1
                   ].getOrAddClass(astElement.name!);
 
@@ -265,7 +267,7 @@ export class ClangAstWalker implements AstWalker {
     }
 
     private async handleFunctionDecl(
-        astElement: clang_ast.AstElement
+        astElement: clangAst.AstElement
     ): Promise<void> {
         // Function declaration in function declaration is no C++ thing.
         // But still we do this since maybe we one day walk some nice
@@ -275,7 +277,7 @@ export class ClangAstWalker implements AstWalker {
         if (isElementVirtualFuncDeclaration(astElement)) {
             await this.handleVirtualFuncDecl(astElement);
         } else {
-            this.handleFuncDecl(astElement);
+            await this.handleFuncDecl(astElement);
         }
 
         if (astElement.inner) {
@@ -287,7 +289,7 @@ export class ClangAstWalker implements AstWalker {
         this.callingFunc = currentCallingFuncName;
     }
 
-    private handleExprStmt(astElement: clang_ast.AstElement) {
+    private handleExprStmt(astElement: clangAst.AstElement) {
         const calledFuncId: string | undefined = astElement.referencedDecl
             ? astElement.kind === "DeclRefExpr"
                 ? astElement.referencedDecl.id
@@ -317,7 +319,7 @@ export class ClangAstWalker implements AstWalker {
     }
 
     private async handleVirtualFuncDecl(
-        astElement: clang_ast.AstElement
+        astElement: clangAst.AstElement
     ): Promise<void> {
         const currentClass =
             this.activeClassStack[this.activeClassStack.length - 1];
@@ -329,8 +331,8 @@ export class ClangAstWalker implements AstWalker {
 
         const id = Number(astElement.id);
         const virtualFuncMentioning = hasCompoundStmtInInner(astElement)
-            ? currentClass.getOrAddVirtualFuncImpl(creationArgs)
-            : currentClass.getOrAddVirtualFuncDecl(creationArgs);
+            ? await currentClass.getOrAddVirtualFuncImpl(creationArgs)
+            : await currentClass.getOrAddVirtualFuncDecl(creationArgs);
 
         this.virtualFuncDeclarations.push({
             id,
@@ -343,7 +345,9 @@ export class ClangAstWalker implements AstWalker {
         }
     }
 
-    private handleFuncDecl(astElement: clang_ast.AstElement) {
+    private async handleFuncDecl(
+        astElement: clangAst.AstElement
+    ): Promise<void> {
         const creationArgs = this.createFuncMentioningArgs(astElement);
 
         const id = Number(astElement.id);
@@ -353,8 +357,8 @@ export class ClangAstWalker implements AstWalker {
                 : (this.currentlyAnalyzedFile as db.CppFile);
 
         const funcMentioning = hasCompoundStmtInInner(astElement)
-            ? declLocation.getOrAddFuncImpl(creationArgs)
-            : declLocation.getOrAddFuncDecl(creationArgs);
+            ? await declLocation.getOrAddFuncImpl(creationArgs)
+            : await declLocation.getOrAddFuncDecl(creationArgs);
         this.funcDeclarations.push({ id, mentioningData: funcMentioning });
 
         if (hasCompoundStmtInInner(astElement)) {
@@ -363,7 +367,7 @@ export class ClangAstWalker implements AstWalker {
     }
 
     private createFuncMentioningArgs(
-        astElement: clang_ast.AstElement
+        astElement: clangAst.AstElement
     ): cpp.FuncCreationArgs {
         return {
             funcName: astElement.name!,
@@ -374,7 +378,7 @@ export class ClangAstWalker implements AstWalker {
     }
 
     private async createVirtualFuncMentioningArgs(
-        astElement: clang_ast.AstElement,
+        astElement: clangAst.AstElement,
         currentClass: cpp.CppClass
     ): Promise<cpp.VirtualFuncCreationArgs> {
         const base = this.createFuncMentioningArgs(astElement);

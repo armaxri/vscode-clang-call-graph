@@ -15,12 +15,12 @@ export abstract class AbstractFuncImplementation implements FuncImplementation {
     abstract getQualType(): string;
     abstract getRange(): Range;
 
-    abstract getFuncCalls(): FuncCall[];
-    abstract addFuncCall(funcCall: FuncCallCreationArgs): void;
-    abstract getVirtualFuncCalls(): VirtualFuncCall[];
+    abstract getFuncCalls(): Promise<FuncCall[]>;
+    abstract addFuncCall(funcCall: FuncCallCreationArgs): Promise<void>;
+    abstract getVirtualFuncCalls(): Promise<VirtualFuncCall[]>;
     abstract addVirtualFuncCall(
         virtualFuncCall: VirtualFuncCallCreationArgs
-    ): void;
+    ): Promise<void>;
 
     async equals(otherInput: any): Promise<boolean> {
         const other = otherInput as FuncImplementation;
@@ -35,12 +35,12 @@ export abstract class AbstractFuncImplementation implements FuncImplementation {
             this.getQualType() === other.getQualType() &&
             rangeIsEqual(this.getRange(), other.getRange()) &&
             (await elementEquals<FuncCall>(
-                this.getFuncCalls(),
-                other.getFuncCalls()
+                await this.getFuncCalls(),
+                await other.getFuncCalls()
             )) &&
             (await elementEquals<VirtualFuncCall>(
-                this.getVirtualFuncCalls(),
-                other.getVirtualFuncCalls()
+                await this.getVirtualFuncCalls(),
+                await other.getVirtualFuncCalls()
             ))
         );
     }

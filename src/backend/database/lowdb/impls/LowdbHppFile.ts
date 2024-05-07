@@ -35,13 +35,13 @@ export class LowdbHppFile extends AbstractHppFile {
         this.internal.lastAnalyzed = Date.now();
     }
 
-    getClasses(): CppClass[] {
+    async getClasses(): Promise<CppClass[]> {
         return this.internal.classes.map(
             (internalClass) => new LowdbCppClass(internalClass)
         );
     }
 
-    getOrAddClass(className: string): CppClass {
+    async getOrAddClass(className: string): Promise<CppClass> {
         var cppClass = this.internal.classes.find(
             (internalClass) => internalClass.name === className
         );
@@ -62,13 +62,13 @@ export class LowdbHppFile extends AbstractHppFile {
         return new LowdbCppClass(cppClass);
     }
 
-    getFuncDecls(): FuncDeclaration[] {
+    async getFuncDecls(): Promise<FuncDeclaration[]> {
         return this.internal.funcDecls.map(
             (internalFuncDecl) => new LowdbFuncDeclaration(internalFuncDecl)
         );
     }
 
-    getOrAddFuncDecl(args: FuncCreationArgs): FuncDeclaration {
+    async getOrAddFuncDecl(args: FuncCreationArgs): Promise<FuncDeclaration> {
         var internalFuncDecl = this.internal.funcDecls.find(
             (internalFuncDecl) =>
                 internalFuncDecl.funcName === args.funcName &&
@@ -90,13 +90,15 @@ export class LowdbHppFile extends AbstractHppFile {
         return new LowdbFuncDeclaration(internalFuncDecl);
     }
 
-    getFuncImpls(): FuncImplementation[] {
+    async getFuncImpls(): Promise<FuncImplementation[]> {
         return this.internal.funcImpls.map(
             (internalFuncImpl) => new LowdbFuncImplementation(internalFuncImpl)
         );
     }
 
-    getOrAddFuncImpl(args: FuncCreationArgs): FuncImplementation {
+    async getOrAddFuncImpl(
+        args: FuncCreationArgs
+    ): Promise<FuncImplementation> {
         var internalFuncImpl = this.internal.funcImpls.find(
             (internalFuncImpl) =>
                 internalFuncImpl.funcName === args.funcName &&
@@ -120,16 +122,16 @@ export class LowdbHppFile extends AbstractHppFile {
         return new LowdbFuncImplementation(internalFuncImpl);
     }
 
-    getVirtualFuncImpls(): VirtualFuncImplementation[] {
+    async getVirtualFuncImpls(): Promise<VirtualFuncImplementation[]> {
         return this.internal.virtualFuncImpls.map(
             (internalVirtualFuncImpl) =>
                 new LowdbVirtualFuncImplementation(internalVirtualFuncImpl)
         );
     }
 
-    getOrAddVirtualFuncImpl(
+    async getOrAddVirtualFuncImpl(
         args: VirtualFuncCreationArgs
-    ): VirtualFuncImplementation {
+    ): Promise<VirtualFuncImplementation> {
         var internalVirtualFuncImpl = this.internal.virtualFuncImpls.find(
             (internalVirtualFuncImpl) =>
                 internalVirtualFuncImpl.funcName === args.funcName &&

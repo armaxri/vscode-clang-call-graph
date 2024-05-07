@@ -20,13 +20,13 @@ export class LowdbFuncImplementation extends AbstractFuncImplementation {
         this.internal = internal;
     }
 
-    getFuncCalls(): FuncCall[] {
+    async getFuncCalls(): Promise<FuncCall[]> {
         return this.internal.funcCalls.map(
             (internalFuncCall) => new LowdbFuncCall(internalFuncCall)
         );
     }
 
-    addFuncCall(funcCall: FuncCallCreationArgs): void {
+    async addFuncCall(funcCall: FuncCallCreationArgs): Promise<void> {
         const foundFuncCall = this.internal.funcCalls.find(
             (internalFuncCall) =>
                 internalFuncCall.funcName === funcCall.func.getFuncName() &&
@@ -46,14 +46,16 @@ export class LowdbFuncImplementation extends AbstractFuncImplementation {
         }
     }
 
-    getVirtualFuncCalls(): VirtualFuncCall[] {
+    async getVirtualFuncCalls(): Promise<VirtualFuncCall[]> {
         return this.internal.virtualFuncCalls.map(
             (internalVirtualFuncCall) =>
                 new LowdbVirtualFuncCall(internalVirtualFuncCall)
         );
     }
 
-    addVirtualFuncCall(virtualFuncCall: VirtualFuncCallCreationArgs): void {
+    async addVirtualFuncCall(
+        virtualFuncCall: VirtualFuncCallCreationArgs
+    ): Promise<void> {
         const foundFuncCall = this.internal.virtualFuncCalls.find(
             (internalFuncCall) =>
                 internalFuncCall.funcName ===
