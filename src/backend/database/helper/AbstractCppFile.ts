@@ -7,6 +7,7 @@ import {
     VirtualFuncCreationArgs,
     VirtualFuncImplementation,
 } from "../cpp_structure";
+import { elementEquals } from "./equality_helper";
 
 export abstract class AbstractCppFile implements CppFile {
     abstract getName(): string;
@@ -33,55 +34,20 @@ export abstract class AbstractCppFile implements CppFile {
         return (
             this.getName() === other.getName() &&
             // Sadly we can't compare the analyzed time.
-            // this.getLastAnalyzed() === other.getLastAnalyzed() &&
-            this.getClasses().every((cppClass) =>
-                other
-                    .getClasses()
-                    .some((otherCppClass) => cppClass.equals(otherCppClass))
+            // this.getLastAnalyzed() === other.getLastAnalyzed()
+            elementEquals<CppClass>(this.getClasses(), other.getClasses()) &&
+            elementEquals<FuncDeclaration>(
+                this.getFuncDecls(),
+                other.getFuncDecls()
             ) &&
-            other
-                .getClasses()
-                .every((otherCppClass) =>
-                    this.getClasses().some((cppClass) =>
-                        otherCppClass.equals(cppClass)
-                    )
-                ) &&
-            this.getFuncDecls().every((funcDecl) =>
-                other
-                    .getFuncDecls()
-                    .some((otherFuncDecl) => funcDecl.equals(otherFuncDecl))
+            elementEquals<FuncImplementation>(
+                this.getFuncImpls(),
+                other.getFuncImpls()
             ) &&
-            other
-                .getFuncDecls()
-                .every((otherFuncDecl) =>
-                    this.getFuncDecls().some((funcDecl) =>
-                        otherFuncDecl.equals(funcDecl)
-                    )
-                ) &&
-            this.getFuncImpls().every((funcImpl) =>
-                other
-                    .getFuncImpls()
-                    .some((otherFuncImpl) => funcImpl.equals(otherFuncImpl))
-            ) &&
-            other
-                .getFuncImpls()
-                .every((otherFuncImpl) =>
-                    this.getFuncImpls().some((funcImpl) =>
-                        otherFuncImpl.equals(funcImpl)
-                    )
-                ) &&
-            this.getVirtualFuncImpls().every((funcImpl) =>
-                other
-                    .getVirtualFuncImpls()
-                    .some((otherFuncImpl) => funcImpl.equals(otherFuncImpl))
-            ) &&
-            other
-                .getVirtualFuncImpls()
-                .every((otherFuncImpl) =>
-                    this.getVirtualFuncImpls().some((funcImpl) =>
-                        otherFuncImpl.equals(funcImpl)
-                    )
-                )
+            elementEquals<VirtualFuncImplementation>(
+                this.getVirtualFuncImpls(),
+                other.getVirtualFuncImpls()
+            )
         );
     }
 }

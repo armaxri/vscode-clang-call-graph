@@ -1,19 +1,17 @@
 export * from "./cpp_structure";
-import { CppFile, HppFile } from "./cpp_structure";
+import { CppFile, Equal, HppFile } from "./cpp_structure";
 
-export interface Database {
+export interface Database extends Equal {
     getCppFiles(): CppFile[];
     hasCppFile(name: string): boolean;
     getOrAddCppFile(name: string): CppFile;
     removeCppFileAndDependingContent(name: string): void;
 
-    getHppFiles(): CppFile[];
+    getHppFiles(): HppFile[];
     hasHppFile(name: string): boolean;
     getOrAddHppFile(name: string): HppFile;
     removeHppFileAndDependingContent(name: string): void;
 
     writeDatabase(): void;
     resetDatabase(): void;
-
-    equals(other: any): boolean;
 }

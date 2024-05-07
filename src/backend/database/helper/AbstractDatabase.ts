@@ -1,5 +1,6 @@
 import { Config } from "../../Config";
 import { CppFile, Database, HppFile } from "../Database";
+import { elementEquals } from "./equality_helper";
 
 export abstract class AbstractDatabase implements Database {
     protected config: Config;
@@ -13,7 +14,7 @@ export abstract class AbstractDatabase implements Database {
     abstract getOrAddCppFile(name: string): CppFile;
     abstract removeCppFileAndDependingContent(name: string): void;
 
-    abstract getHppFiles(): CppFile[];
+    abstract getHppFiles(): HppFile[];
     abstract hasHppFile(name: string): boolean;
     abstract getOrAddHppFile(name: string): HppFile;
     abstract removeHppFileAndDependingContent(name: string): void;
@@ -29,30 +30,8 @@ export abstract class AbstractDatabase implements Database {
         }
 
         return (
-            this.getCppFiles().every((cppFile) =>
-                other
-                    .getCppFiles()
-                    .some((otherCppFile) => cppFile.equals(otherCppFile))
-            ) &&
-                other
-                    .getCppFiles()
-                    .every((otherCppFile) =>
-                        this.getCppFiles().some((cppFile) =>
-                            cppFile.equals(otherCppFile)
-                        )
-                    ),
-            this.getHppFiles().every((hppFile) =>
-                other
-                    .getHppFiles()
-                    .some((otherHppFile) => hppFile.equals(otherHppFile))
-            ) &&
-                other
-                    .getHppFiles()
-                    .every((otherHppFile) =>
-                        this.getHppFiles().some((hppFile) =>
-                            hppFile.equals(otherHppFile)
-                        )
-                    )
+            elementEquals<CppFile>(this.getCppFiles(), other.getCppFiles()) &&
+            elementEquals<HppFile>(this.getHppFiles(), other.getHppFiles())
         );
     }
 }

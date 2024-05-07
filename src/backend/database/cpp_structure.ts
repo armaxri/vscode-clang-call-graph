@@ -38,27 +38,25 @@ export type VirtualFuncCallCreationArgs = {
     range: Range;
 };
 
-export interface FuncBasics {
+export interface Equal {
+    equals(other: any): boolean;
+}
+
+export interface FuncBasics extends Equal {
     getFuncName(): string;
     getFuncAstName(): string;
     getQualType(): string;
     getRange(): Range;
 }
 
-export interface FuncDeclaration extends FuncBasics {
-    equals(other: FuncDeclaration): boolean;
-}
+export interface FuncDeclaration extends FuncBasics {}
 export interface FuncImplementation extends FuncBasics {
     getFuncCalls(): Array<FuncCall>;
     addFuncCall(funcCall: FuncCallCreationArgs): void;
     getVirtualFuncCalls(): Array<VirtualFuncCall>;
     addVirtualFuncCall(virtualFuncCall: VirtualFuncCallCreationArgs): void;
-
-    equals(other: FuncImplementation): boolean;
 }
-export interface FuncCall extends FuncBasics {
-    equals(other: FuncCall): boolean;
-}
+export interface FuncCall extends FuncBasics {}
 
 export interface VirtualFuncBasics {
     getBaseFuncAstName(): string;
@@ -66,19 +64,13 @@ export interface VirtualFuncBasics {
 
 export interface VirtualFuncDeclaration
     extends FuncDeclaration,
-        VirtualFuncBasics {
-    equals(other: VirtualFuncDeclaration): boolean;
-}
+        VirtualFuncBasics {}
 export interface VirtualFuncImplementation
     extends FuncImplementation,
-        VirtualFuncBasics {
-    equals(other: VirtualFuncImplementation): boolean;
-}
-export interface VirtualFuncCall extends FuncCall, VirtualFuncBasics {
-    equals(other: VirtualFuncCall): boolean;
-}
+        VirtualFuncBasics {}
+export interface VirtualFuncCall extends FuncCall, VirtualFuncBasics {}
 
-export interface MainDeclLocation {
+export interface MainDeclLocation extends Equal {
     getClasses(): Array<CppClass>;
     getOrAddClass(className: string): CppClass;
 
@@ -109,8 +101,6 @@ export interface CppClass extends MainDeclLocation {
         funcName: string,
         qualType: string
     ): VirtualFuncDeclaration | undefined;
-
-    equals(other: CppClass): boolean;
 }
 
 export interface CppFile extends MainDeclLocation {
@@ -118,13 +108,9 @@ export interface CppFile extends MainDeclLocation {
 
     getLastAnalyzed(): number;
     justAnalyzed(): void;
-
-    equals(other: CppFile): boolean;
 }
 
 export interface HppFile extends CppFile {
     getReferencedFromCppFiles(): Array<string>;
     addReferencedFromCppFile(fileName: string): void;
-
-    equals(other: HppFile): boolean;
 }

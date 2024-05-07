@@ -61,7 +61,7 @@ export class LowdbDatabase extends AbstractDatabase {
         );
     }
 
-    getHppFiles(): db.CppFile[] {
+    getHppFiles(): db.HppFile[] {
         return this.database.data.hppFiles.map((hppFile) => {
             return new LowdbHppFile(hppFile);
         });

@@ -5,6 +5,17 @@ export enum DatabaseType {
     lowdb,
 }
 
+export function convertStrToDatabaseType(str: string): DatabaseType {
+    switch (str) {
+        case "sqlite":
+            return DatabaseType.sqlite;
+        case "lowdb":
+            return DatabaseType.lowdb;
+        default:
+            throw new Error("Unknown database type");
+    }
+}
+
 export abstract class Config {
     protected compileCommandsJsonName: string = "compile_commands.json";
     protected numOfParserThreads: number = 8;
@@ -65,6 +76,17 @@ export abstract class Config {
             this.getCallGraphDatabaseDir(),
             this.getLowdbDatabaseName()
         ).pathString();
+    }
+
+    getSelectedDatabasePath(): string {
+        switch (this.getSelectedDatabaseType()) {
+            case DatabaseType.sqlite:
+                return this.getSqliteDatabasePath();
+            case DatabaseType.lowdb:
+                return this.getLowdbDatabasePath();
+            default:
+                throw new Error("Unknown database type");
+        }
     }
 
     useDatabaseCaching(): boolean {

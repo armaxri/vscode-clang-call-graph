@@ -7,6 +7,7 @@ import {
     VirtualFuncCreationArgs,
     VirtualFuncImplementation,
 } from "../cpp_structure";
+import { elementEquals } from "./equality_helper";
 
 export abstract class AbstractHppFile implements HppFile {
     abstract getReferencedFromCppFiles(): string[];
@@ -25,6 +26,19 @@ export abstract class AbstractHppFile implements HppFile {
         args: VirtualFuncCreationArgs
     ): VirtualFuncImplementation;
 
+    private referencedFromCppFilesEquals(otherList: string[]): boolean {
+        const thisList = this.getReferencedFromCppFiles();
+
+        if (thisList.length !== otherList.length) {
+            return false;
+        }
+
+        return (
+            thisList.every((fileName) => otherList.includes(fileName)) &&
+            otherList.every((fileName) => thisList.includes(fileName))
+        );
+    }
+
     equals(otherInput: any): boolean {
         const other = otherInput as HppFile;
 
@@ -36,64 +50,22 @@ export abstract class AbstractHppFile implements HppFile {
             this.getName() === other.getName() &&
             // Sadly we can't compare the analyzed time.
             // this.getLastAnalyzed() === other.getLastAnalyzed() &&
-            this.getReferencedFromCppFiles().every((fileName) =>
-                other.getReferencedFromCppFiles().includes(fileName)
+            this.referencedFromCppFilesEquals(
+                other.getReferencedFromCppFiles()
             ) &&
-            other
-                .getReferencedFromCppFiles()
-                .every((fileName) =>
-                    this.getReferencedFromCppFiles().includes(fileName)
-                ) &&
-            this.getClasses().every((cppClass) =>
-                other
-                    .getClasses()
-                    .some((otherCppClass) => cppClass.equals(otherCppClass))
+            elementEquals<CppClass>(this.getClasses(), other.getClasses()) &&
+            elementEquals<FuncDeclaration>(
+                this.getFuncDecls(),
+                other.getFuncDecls()
             ) &&
-            other
-                .getClasses()
-                .every((otherCppClass) =>
-                    this.getClasses().some((cppClass) =>
-                        otherCppClass.equals(cppClass)
-                    )
-                ) &&
-            this.getFuncDecls().every((funcDecl) =>
-                other
-                    .getFuncDecls()
-                    .some((otherFuncDecl) => funcDecl.equals(otherFuncDecl))
+            elementEquals<FuncImplementation>(
+                this.getFuncImpls(),
+                other.getFuncImpls()
             ) &&
-            other
-                .getFuncDecls()
-                .every((otherFuncDecl) =>
-                    this.getFuncDecls().some((funcDecl) =>
-                        otherFuncDecl.equals(funcDecl)
-                    )
-                ) &&
-            this.getFuncImpls().every((funcImpl) =>
-                other
-                    .getFuncImpls()
-                    .some((otherFuncImpl) => funcImpl.equals(otherFuncImpl))
-            ) &&
-            other
-                .getFuncImpls()
-                .every((otherFuncImpl) =>
-                    this.getFuncImpls().some((funcImpl) =>
-                        otherFuncImpl.equals(funcImpl)
-                    )
-                ) &&
-            this.getVirtualFuncImpls().every((virtualFuncImpl) =>
-                other
-                    .getVirtualFuncImpls()
-                    .some((otherVirtualFuncImpl) =>
-                        virtualFuncImpl.equals(otherVirtualFuncImpl)
-                    )
-            ) &&
-            other
-                .getVirtualFuncImpls()
-                .every((otherVirtualFuncImpl) =>
-                    this.getVirtualFuncImpls().some((virtualFuncImpl) =>
-                        otherVirtualFuncImpl.equals(virtualFuncImpl)
-                    )
-                )
+            elementEquals<VirtualFuncImplementation>(
+                this.getVirtualFuncImpls(),
+                other.getVirtualFuncImpls()
+            )
         );
     }
 }
