@@ -22,7 +22,7 @@ export abstract class AbstractDatabase implements Database {
     abstract writeDatabase(): void;
     abstract resetDatabase(): void;
 
-    equals(otherInput: any): boolean {
+    async equals(otherInput: any): Promise<boolean> {
         const other = otherInput as Database;
 
         if (!other) {
@@ -30,8 +30,14 @@ export abstract class AbstractDatabase implements Database {
         }
 
         return (
-            elementEquals<CppFile>(this.getCppFiles(), other.getCppFiles()) &&
-            elementEquals<HppFile>(this.getHppFiles(), other.getHppFiles())
+            (await elementEquals<CppFile>(
+                this.getCppFiles(),
+                other.getCppFiles()
+            )) &&
+            (await elementEquals<HppFile>(
+                this.getHppFiles(),
+                other.getHppFiles()
+            ))
         );
     }
 }

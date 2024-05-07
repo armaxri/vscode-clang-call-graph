@@ -71,7 +71,7 @@ export abstract class AbstractCppClass implements CppClass {
         );
     }
 
-    equals(otherInput: any): boolean {
+    async equals(otherInput: any): Promise<boolean> {
         const other = otherInput as CppClass;
 
         if (!other) {
@@ -81,22 +81,22 @@ export abstract class AbstractCppClass implements CppClass {
         return (
             this.getName() === other.getName() &&
             this.parentClassNamesEquals(other.getParentClassNames()) &&
-            elementEquals<FuncDeclaration>(
+            (await elementEquals<FuncDeclaration>(
                 this.getFuncDecls(),
                 other.getFuncDecls()
-            ) &&
-            elementEquals<FuncImplementation>(
+            )) &&
+            (await elementEquals<FuncImplementation>(
                 this.getFuncImpls(),
                 other.getFuncImpls()
-            ) &&
-            elementEquals<VirtualFuncDeclaration>(
+            )) &&
+            (await elementEquals<VirtualFuncDeclaration>(
                 this.getVirtualFuncDecls(),
                 other.getVirtualFuncDecls()
-            ) &&
-            elementEquals<VirtualFuncImplementation>(
+            )) &&
+            (await elementEquals<VirtualFuncImplementation>(
                 this.getVirtualFuncImpls(),
                 other.getVirtualFuncImpls()
-            )
+            ))
         );
     }
 }

@@ -6,7 +6,7 @@ export abstract class AbstractFuncDeclaration implements FuncDeclaration {
     abstract getQualType(): string;
     abstract getRange(): Range;
 
-    equals(otherInput: any): boolean {
+    async equals(otherInput: any): Promise<boolean> {
         const other = otherInput as FuncDeclaration;
 
         if (!other) {

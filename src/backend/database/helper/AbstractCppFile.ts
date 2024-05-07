@@ -24,7 +24,7 @@ export abstract class AbstractCppFile implements CppFile {
         args: VirtualFuncCreationArgs
     ): VirtualFuncImplementation;
 
-    equals(otherInput: any): boolean {
+    async equals(otherInput: any): Promise<boolean> {
         const other = otherInput as CppFile;
 
         if (!other) {
@@ -35,19 +35,22 @@ export abstract class AbstractCppFile implements CppFile {
             this.getName() === other.getName() &&
             // Sadly we can't compare the analyzed time.
             // this.getLastAnalyzed() === other.getLastAnalyzed()
-            elementEquals<CppClass>(this.getClasses(), other.getClasses()) &&
-            elementEquals<FuncDeclaration>(
+            (await elementEquals<CppClass>(
+                this.getClasses(),
+                other.getClasses()
+            )) &&
+            (await elementEquals<FuncDeclaration>(
                 this.getFuncDecls(),
                 other.getFuncDecls()
-            ) &&
-            elementEquals<FuncImplementation>(
+            )) &&
+            (await elementEquals<FuncImplementation>(
                 this.getFuncImpls(),
                 other.getFuncImpls()
-            ) &&
-            elementEquals<VirtualFuncImplementation>(
+            )) &&
+            (await elementEquals<VirtualFuncImplementation>(
                 this.getVirtualFuncImpls(),
                 other.getVirtualFuncImpls()
-            )
+            ))
         );
     }
 }

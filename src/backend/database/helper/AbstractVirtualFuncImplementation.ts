@@ -24,7 +24,7 @@ export abstract class AbstractVirtualFuncImplementation
         virtualFuncCall: VirtualFuncCallCreationArgs
     ): void;
 
-    equals(otherInput: any): boolean {
+    async equals(otherInput: any): Promise<boolean> {
         const other = otherInput as VirtualFuncImplementation;
 
         if (!other) {
@@ -37,14 +37,14 @@ export abstract class AbstractVirtualFuncImplementation
             this.getQualType() === other.getQualType() &&
             rangeIsEqual(this.getRange(), other.getRange()) &&
             this.getBaseFuncAstName() === other.getBaseFuncAstName() &&
-            elementEquals<FuncCall>(
+            (await elementEquals<FuncCall>(
                 this.getFuncCalls(),
                 other.getFuncCalls()
-            ) &&
-            elementEquals<VirtualFuncCall>(
+            )) &&
+            (await elementEquals<VirtualFuncCall>(
                 this.getVirtualFuncCalls(),
                 other.getVirtualFuncCalls()
-            )
+            ))
         );
     }
 }

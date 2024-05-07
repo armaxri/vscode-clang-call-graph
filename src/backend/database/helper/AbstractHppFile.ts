@@ -39,7 +39,7 @@ export abstract class AbstractHppFile implements HppFile {
         );
     }
 
-    equals(otherInput: any): boolean {
+    async equals(otherInput: any): Promise<boolean> {
         const other = otherInput as HppFile;
 
         if (!other) {
@@ -53,19 +53,22 @@ export abstract class AbstractHppFile implements HppFile {
             this.referencedFromCppFilesEquals(
                 other.getReferencedFromCppFiles()
             ) &&
-            elementEquals<CppClass>(this.getClasses(), other.getClasses()) &&
-            elementEquals<FuncDeclaration>(
+            (await elementEquals<CppClass>(
+                this.getClasses(),
+                other.getClasses()
+            )) &&
+            (await elementEquals<FuncDeclaration>(
                 this.getFuncDecls(),
                 other.getFuncDecls()
-            ) &&
-            elementEquals<FuncImplementation>(
+            )) &&
+            (await elementEquals<FuncImplementation>(
                 this.getFuncImpls(),
                 other.getFuncImpls()
-            ) &&
-            elementEquals<VirtualFuncImplementation>(
+            )) &&
+            (await elementEquals<VirtualFuncImplementation>(
                 this.getVirtualFuncImpls(),
                 other.getVirtualFuncImpls()
-            )
+            ))
         );
     }
 }

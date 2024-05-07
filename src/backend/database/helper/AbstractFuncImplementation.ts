@@ -22,7 +22,7 @@ export abstract class AbstractFuncImplementation implements FuncImplementation {
         virtualFuncCall: VirtualFuncCallCreationArgs
     ): void;
 
-    equals(otherInput: any): boolean {
+    async equals(otherInput: any): Promise<boolean> {
         const other = otherInput as FuncImplementation;
 
         if (!other) {
@@ -34,14 +34,14 @@ export abstract class AbstractFuncImplementation implements FuncImplementation {
             this.getFuncAstName() === other.getFuncAstName() &&
             this.getQualType() === other.getQualType() &&
             rangeIsEqual(this.getRange(), other.getRange()) &&
-            elementEquals<FuncCall>(
+            (await elementEquals<FuncCall>(
                 this.getFuncCalls(),
                 other.getFuncCalls()
-            ) &&
-            elementEquals<VirtualFuncCall>(
+            )) &&
+            (await elementEquals<VirtualFuncCall>(
                 this.getVirtualFuncCalls(),
                 other.getVirtualFuncCalls()
-            )
+            ))
         );
     }
 }

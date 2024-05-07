@@ -134,7 +134,7 @@ export class LowdbDatabase extends AbstractDatabase {
         );
     }
 
-    equals(otherInput: any): boolean {
-        return super.equals(otherInput);
+    async equals(otherInput: any): Promise<boolean> {
+        return await super.equals(otherInput);
     }
 }

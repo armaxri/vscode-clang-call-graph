@@ -39,7 +39,7 @@ export type VirtualFuncCallCreationArgs = {
 };
 
 export interface Equal {
-    equals(other: any): boolean;
+    equals(other: any): Promise<boolean>;
 }
 
 export interface FuncBasics extends Equal {

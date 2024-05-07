@@ -1,27 +1,27 @@
 import { Equal } from "../cpp_structure";
 
-export function elementEquals<E extends Equal>(
+export async function elementEquals<E extends Equal>(
     mainData: E[],
     otherData: E[]
-): boolean {
+): Promise<boolean> {
     if (mainData.length !== otherData.length) {
         return false;
     }
 
     var allMatched = true;
-    mainData.forEach((element: E) => {
+    for (const element of mainData) {
         var foundMatch = false;
-        otherData.forEach((otherElement: E) => {
-            if (element.equals(otherElement)) {
+        for (const otherElement of otherData) {
+            if (await element.equals(otherElement)) {
                 foundMatch = true;
             }
-        });
+        }
 
         if (!foundMatch) {
             console.log(`Didn't find match for ${element}`);
             allMatched = false;
         }
-    });
+    }
 
     return allMatched;
 }
