@@ -31,12 +31,15 @@ export abstract class AbstractCppClass implements CppClass {
         args: VirtualFuncCreationArgs
     ): VirtualFuncImplementation;
 
-    findBaseFunction(
+    async findBaseFunction(
         funcName: string,
         qualType: string
-    ): VirtualFuncDeclaration | undefined {
+    ): Promise<VirtualFuncDeclaration | undefined> {
         for (const parentClass of this.getParentClasses()) {
-            const foundFunc = parentClass.findBaseFunction(funcName, qualType);
+            const foundFunc = await parentClass.findBaseFunction(
+                funcName,
+                qualType
+            );
             if (foundFunc) {
                 return foundFunc;
             }

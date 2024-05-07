@@ -7,16 +7,16 @@ import {
 suite(
     "Clang AST Walker Test Suite: multiline function call in function call",
     () => {
-        test("full test", () => {
-            testAstWalkerResults(
+        test("full test", async () => {
+            await testAstWalkerResults(
                 __dirname,
                 "multiline_func_call_in_func_call.json",
                 "multiline_func_call_in_func_call_expected_db.json"
             );
         });
 
-        test("test against lowdb", () => {
-            testAstWalkerAgainstSpecificDatabase(
+        test("test against lowdb", async () => {
+            await testAstWalkerAgainstSpecificDatabase(
                 __dirname,
                 "multiline_func_call_in_func_call.json",
                 "multiline_func_call_in_func_call_expected_db.json",

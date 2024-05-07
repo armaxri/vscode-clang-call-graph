@@ -100,7 +100,7 @@ export interface CppClass extends MainDeclLocation {
     findBaseFunction(
         funcName: string,
         qualType: string
-    ): VirtualFuncDeclaration | undefined;
+    ): Promise<VirtualFuncDeclaration | undefined>;
 }
 
 export interface CppFile extends MainDeclLocation {

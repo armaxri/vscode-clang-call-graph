@@ -5,16 +5,16 @@ import {
 } from "../ast_walker_test";
 
 suite("Clang AST Walker Test Suite: simple C style functions", () => {
-    test("full test", () => {
-        testAstWalkerResults(
+    test("full test", async () => {
+        await testAstWalkerResults(
             __dirname,
             "simple_c_style_funcs.json",
             "simple_c_style_funcs_expected_db.json"
         );
     });
 
-    test("test against lowdb", () => {
-        testAstWalkerAgainstSpecificDatabase(
+    test("test against lowdb", async () => {
+        await testAstWalkerAgainstSpecificDatabase(
             __dirname,
             "simple_c_style_funcs.json",
             "simple_c_style_funcs_expected_db.json",

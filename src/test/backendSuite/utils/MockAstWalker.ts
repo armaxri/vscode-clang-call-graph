@@ -8,7 +8,7 @@ export class MockAstWalker implements AstWalker {
         this.fileName = fileName;
     }
 
-    walkAst(): void {
+    async walkAst(): Promise<void> {
         this.walkCnt++;
         return;
     }

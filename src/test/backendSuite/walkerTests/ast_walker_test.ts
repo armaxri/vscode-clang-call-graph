@@ -62,11 +62,11 @@ function loadExpectedLowdbDatabase(
     return database;
 }
 
-function createAndRunAstWalker(
+async function createAndRunAstWalker(
     callingFileDirName: string,
     filename: string,
     mockConfig: MockConfig
-): Database {
+): Promise<Database> {
     const clangAst = loadAst(adjustTsToJsPath(callingFileDirName), filename);
     try {
         fs.rmSync(mockConfig.getLowdbDatabasePath());
@@ -85,24 +85,24 @@ function createAndRunAstWalker(
         clangAst
     );
 
-    astWalker.walkAst();
+    await astWalker.walkAst();
 
     database.writeDatabase();
 
     return database;
 }
 
-export function testAstWalkerResults(
+export async function testAstWalkerResults(
     callingFileDirName: string,
     filename: string,
     referenceFilename: string
-) {
+): Promise<void> {
     const mockConfig = new MockConfig(callingFileDirName);
-    const database = createAndRunAstWalker(
+    const database = (await createAndRunAstWalker(
         callingFileDirName,
         filename,
         mockConfig
-    ) as LowdbDatabase;
+    )) as LowdbDatabase;
     const expectedDatabase = loadExpectedDatabase(
         adjustTsToJsPath(callingFileDirName),
         referenceFilename
@@ -122,12 +122,12 @@ export function testAstWalkerResults(
     );
 }
 
-export function testAstWalkerAgainstSpecificDatabase(
+export async function testAstWalkerAgainstSpecificDatabase(
     callingFileDirName: string,
     filename: string,
     referenceFilename: string,
     databaseType: DatabaseType
-) {
+): Promise<void> {
     const mockConfig = new MockConfig(callingFileDirName, databaseType);
     const database = createAndRunAstWalker(
         callingFileDirName,
@@ -140,7 +140,7 @@ export function testAstWalkerAgainstSpecificDatabase(
     );
 
     // TODO: This is somehow not satisfying. Is there a real equal?
-    assert.ok(database.equals(expectedDatabase));
+    assert.ok((await database).equals(expectedDatabase));
 }
 
 function checkFileLists(
