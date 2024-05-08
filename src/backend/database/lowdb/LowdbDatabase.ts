@@ -1,6 +1,5 @@
 import { LowSync } from "@identityinvest/lowdb";
 import { JSONFileSync } from "@identityinvest/lowdb/node";
-// import { JSONFileSyncPreset } from "lowdb/lib/presets/node";
 import { Config } from "../../Config";
 import * as db from "../Database";
 import {

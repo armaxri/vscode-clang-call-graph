@@ -1,5 +1,6 @@
 import { DatabaseType } from "../../../../backend/Config";
 import { Database } from "../../../../backend/database/Database";
+import { createDatabase } from "../../../../backend/database/helper/database_factory";
 import { LowdbDatabase } from "../../../../backend/database/lowdb/LowdbDatabase";
 import { MockConfig } from "../../utils/MockConfig";
 import { removeOldDatabase } from "../../utils/database_helper";
@@ -29,7 +30,7 @@ export async function prepareDatabaseEqualityTests(
     );
 
     const mockConfig = new MockConfig(callingFileDirName, databaseType);
-    const database = new LowdbDatabase(mockConfig);
+    const database = createDatabase(mockConfig);
 
     return [database, referenceDatabase];
 }

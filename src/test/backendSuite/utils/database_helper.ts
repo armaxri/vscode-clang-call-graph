@@ -4,19 +4,8 @@ import {
     DatabaseType,
     convertStrToDatabaseType,
 } from "../../../backend/Config";
-import { Database } from "../../../backend/database/Database";
-import { LowdbDatabase } from "../../../backend/database/lowdb/LowdbDatabase";
 import { MockConfig } from "./MockConfig";
 import { adjustTsToJsPath } from "./path_helper";
-
-export async function createDatabase(config: Config): Promise<Database> {
-    switch (config.getSelectedDatabaseType()) {
-        case DatabaseType.lowdb:
-            return new LowdbDatabase(config);
-        default:
-            throw new Error("Unknown database type");
-    }
-}
 
 export async function removeOldDatabase(
     dirname: string,

@@ -5,12 +5,12 @@ import { ClangFilesystemWatcher } from "../backend/ClangFilesystemWatcher";
 import { CallHierarchyProvider } from "./CallHierarchyProvider";
 import { ClangAstWalkerFactory } from "../backend/astWalker/clang/ClangAstWalkerFactory";
 import { Database } from "../backend/database/Database";
-import { LowdbDatabase } from "../backend/database/lowdb/LowdbDatabase";
+import { createDatabase } from "../backend/database/helper/database_factory";
 
 let callGraphDatabase: Database;
 let callGraphParser: ClangFilesystemWatcher;
 
-export function activate(context: vscode.ExtensionContext) {
+export async function activate(context: vscode.ExtensionContext) {
     // Use the console to output diagnostic information (console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated
     console.log(
@@ -18,7 +18,7 @@ export function activate(context: vscode.ExtensionContext) {
     );
 
     let config = new VscodeConfig();
-    let database = new LowdbDatabase(config);
+    let database = await createDatabase(config);
     callGraphParser = new ClangFilesystemWatcher(
         config,
         new VscodeUserInterface(),

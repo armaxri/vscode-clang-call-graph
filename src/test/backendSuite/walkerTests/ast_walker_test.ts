@@ -74,6 +74,7 @@ async function createAndRunAstWalker(
         // Ignore error.
     }
     var database: Database;
+    // TODO: Replace this with the factory function.
     if (mockConfig.getSelectedDatabaseType() === DatabaseType.lowdb) {
         database = new LowdbDatabase(mockConfig);
     } else {
