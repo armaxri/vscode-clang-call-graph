@@ -14,7 +14,9 @@ suite("Database reset database tests", () => {
                     "simple_func_decl_expected_db.json",
                     testData
                 );
-            const cppFile = database.getOrAddCppFile("simple_func_decl.json");
+            const cppFile = await database.getOrAddCppFile(
+                "simple_func_decl.json"
+            );
             cppFile.getOrAddFuncDecl({
                 funcName: "add",
                 funcAstName: "__ZN3foo3addEii",
@@ -25,12 +27,12 @@ suite("Database reset database tests", () => {
                 },
             });
 
-            database.writeDatabase();
+            await database.writeDatabase();
 
             assert.ok(await database.equals(referenceDatabase));
 
-            database.resetDatabase();
-            database.writeDatabase();
+            await database.resetDatabase();
+            await database.writeDatabase();
 
             const emptyDatabase = await loadReferenceDb(
                 __dirname,

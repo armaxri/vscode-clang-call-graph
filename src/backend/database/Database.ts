@@ -2,16 +2,16 @@ export * from "./cpp_structure";
 import { CppFile, Equal, HppFile } from "./cpp_structure";
 
 export interface Database extends Equal {
-    getCppFiles(): CppFile[];
-    hasCppFile(name: string): boolean;
-    getOrAddCppFile(name: string): CppFile;
-    removeCppFileAndDependingContent(name: string): void;
+    getCppFiles(): Promise<CppFile[]>;
+    hasCppFile(name: string): Promise<boolean>;
+    getOrAddCppFile(name: string): Promise<CppFile>;
+    removeCppFileAndDependingContent(name: string): Promise<void>;
 
-    getHppFiles(): HppFile[];
-    hasHppFile(name: string): boolean;
-    getOrAddHppFile(name: string): HppFile;
-    removeHppFileAndDependingContent(name: string): void;
+    getHppFiles(): Promise<HppFile[]>;
+    hasHppFile(name: string): Promise<boolean>;
+    getOrAddHppFile(name: string): Promise<HppFile>;
+    removeHppFileAndDependingContent(name: string): Promise<void>;
 
-    writeDatabase(): void;
-    resetDatabase(): void;
+    writeDatabase(): Promise<void>;
+    resetDatabase(): Promise<void>;
 }

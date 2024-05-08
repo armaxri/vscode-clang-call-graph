@@ -11,7 +11,9 @@ suite("Database CppClass equality tests", () => {
                     "simple_func_decl_expected_db.json",
                     testData
                 );
-            const cppFile = database.getOrAddCppFile("simple_func_decl.json");
+            const cppFile = await database.getOrAddCppFile(
+                "simple_func_decl.json"
+            );
             const cppClass = await cppFile.getOrAddClass("FooClass");
             cppClass.getOrAddFuncDecl({
                 funcName: "add",
@@ -23,7 +25,7 @@ suite("Database CppClass equality tests", () => {
                 },
             });
 
-            database.writeDatabase();
+            await database.writeDatabase();
 
             assert.ok(await database.equals(referenceDatabase));
         });
@@ -37,10 +39,12 @@ suite("Database CppClass equality tests", () => {
                     "simple_func_decl_expected_db.json",
                     testData
                 );
-            const cppFile = database.getOrAddCppFile("simple_func_decl.json");
+            const cppFile = await database.getOrAddCppFile(
+                "simple_func_decl.json"
+            );
             cppFile.getOrAddClass("FooClass");
 
-            database.writeDatabase();
+            await database.writeDatabase();
 
             assert.ok(!(await database.equals(referenceDatabase)));
         });
@@ -54,7 +58,9 @@ suite("Database CppClass equality tests", () => {
                     "simple_func_decl_expected_db.json",
                     testData
                 );
-            const cppFile = database.getOrAddCppFile("simple_func_decl.json");
+            const cppFile = await database.getOrAddCppFile(
+                "simple_func_decl.json"
+            );
             const cppClass = await cppFile.getOrAddClass("NotFooClass");
             cppClass.getOrAddFuncDecl({
                 funcName: "add",
@@ -66,7 +72,7 @@ suite("Database CppClass equality tests", () => {
                 },
             });
 
-            database.writeDatabase();
+            await database.writeDatabase();
 
             assert.ok(!(await database.equals(referenceDatabase)));
         });
@@ -80,7 +86,9 @@ suite("Database CppClass equality tests", () => {
                     "simple_func_decl_expected_db.json",
                     testData
                 );
-            const cppFile = database.getOrAddCppFile("simple_func_decl.json");
+            const cppFile = await database.getOrAddCppFile(
+                "simple_func_decl.json"
+            );
             const cppClass = await cppFile.getOrAddClass("FooClass");
             cppClass.getOrAddFuncDecl({
                 funcName: "multiply",
@@ -92,7 +100,7 @@ suite("Database CppClass equality tests", () => {
                 },
             });
 
-            database.writeDatabase();
+            await database.writeDatabase();
 
             assert.ok(!(await database.equals(referenceDatabase)));
         });
@@ -106,7 +114,9 @@ suite("Database CppClass equality tests", () => {
                     "simple_func_decl_expected_db.json",
                     testData
                 );
-            const cppFile = database.getOrAddCppFile("simple_func_decl.json");
+            const cppFile = await database.getOrAddCppFile(
+                "simple_func_decl.json"
+            );
             const cppClass = await cppFile.getOrAddClass("FooClass");
             cppClass.getOrAddFuncDecl({
                 funcName: "add",
@@ -118,7 +128,7 @@ suite("Database CppClass equality tests", () => {
                 },
             });
 
-            database.writeDatabase();
+            await database.writeDatabase();
 
             assert.ok(!(await database.equals(referenceDatabase)));
         });

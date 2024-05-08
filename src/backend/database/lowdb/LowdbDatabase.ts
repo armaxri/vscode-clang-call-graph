@@ -21,13 +21,13 @@ export class LowdbDatabase extends AbstractDatabase {
         this.initDatabase();
     }
 
-    getCppFiles(): db.CppFile[] {
+    async getCppFiles(): Promise<db.CppFile[]> {
         return this.database.data.cppFiles.map((cppFile) => {
             return new LowdbCppFile(cppFile);
         });
     }
 
-    hasCppFile(name: string): boolean {
+    async hasCppFile(name: string): Promise<boolean> {
         return (
             this.database.data.cppFiles.find(
                 (cppFile) => cppFile.name === name
@@ -35,7 +35,7 @@ export class LowdbDatabase extends AbstractDatabase {
         );
     }
 
-    getOrAddCppFile(name: string): db.CppFile {
+    async getOrAddCppFile(name: string): Promise<db.CppFile> {
         var file = this.database.data.cppFiles.find(
             (cppFile) => cppFile.name === name
         );
@@ -55,19 +55,19 @@ export class LowdbDatabase extends AbstractDatabase {
         return new LowdbCppFile(file);
     }
 
-    removeCppFileAndDependingContent(name: string): void {
+    async removeCppFileAndDependingContent(name: string): Promise<void> {
         this.database.data.cppFiles = this.database.data.cppFiles.filter(
             (cppFile) => cppFile.name !== name
         );
     }
 
-    getHppFiles(): db.HppFile[] {
+    async getHppFiles(): Promise<db.HppFile[]> {
         return this.database.data.hppFiles.map((hppFile) => {
             return new LowdbHppFile(hppFile);
         });
     }
 
-    hasHppFile(name: string): boolean {
+    async hasHppFile(name: string): Promise<boolean> {
         return (
             this.database.data.hppFiles.find(
                 (hppFile) => hppFile.name === name
@@ -75,7 +75,7 @@ export class LowdbDatabase extends AbstractDatabase {
         );
     }
 
-    getOrAddHppFile(name: string): db.HppFile {
+    async getOrAddHppFile(name: string): Promise<db.HppFile> {
         var file = this.database.data.hppFiles.find(
             (hppFile) => hppFile.name === name
         );
@@ -96,17 +96,17 @@ export class LowdbDatabase extends AbstractDatabase {
         return new LowdbHppFile(file);
     }
 
-    removeHppFileAndDependingContent(name: string): void {
+    async removeHppFileAndDependingContent(name: string): Promise<void> {
         this.database.data.hppFiles = this.database.data.hppFiles.filter(
             (hppFile) => hppFile.name !== name
         );
     }
 
-    writeDatabase(): void {
+    async writeDatabase(): Promise<void> {
         this.database.write();
     }
 
-    resetDatabase() {
+    async resetDatabase(): Promise<void> {
         console.log("Resetting database.");
 
         this.database.data = createEmptyLowdbInternalDatabase();

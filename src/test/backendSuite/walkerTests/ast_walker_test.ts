@@ -87,7 +87,7 @@ async function createAndRunAstWalker(
 
     await astWalker.walkAst();
 
-    database.writeDatabase();
+    await database.writeDatabase();
 
     return database;
 }

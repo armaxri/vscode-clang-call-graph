@@ -69,6 +69,6 @@ suite("Clang Filesystem Watcher File Finding Test Suite 01", () => {
 
     teardown(async () => {
         watcher.stopWatching();
-        database.writeDatabase();
+        await database.writeDatabase();
     });
 });

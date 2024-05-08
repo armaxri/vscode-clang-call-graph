@@ -11,7 +11,7 @@ import { elementEquals } from "./equality_helper";
 
 export abstract class AbstractCppClass implements CppClass {
     abstract getName(): string;
-    abstract getParentClasses(): CppClass[];
+    abstract getParentClasses(): Promise<CppClass[]>;
     abstract getParentClassNames(): string[];
     abstract addParentClass(parentClass: CppClass): void;
 
@@ -24,10 +24,10 @@ export abstract class AbstractCppClass implements CppClass {
     abstract getOrAddFuncImpl(
         args: FuncCreationArgs
     ): Promise<FuncImplementation>;
-    abstract getVirtualFuncDecls(): VirtualFuncDeclaration[];
+    abstract getVirtualFuncDecls(): Promise<VirtualFuncDeclaration[]>;
     abstract getOrAddVirtualFuncDecl(
         args: VirtualFuncCreationArgs
-    ): VirtualFuncDeclaration;
+    ): Promise<VirtualFuncDeclaration>;
     abstract getVirtualFuncImpls(): Promise<VirtualFuncImplementation[]>;
     abstract getOrAddVirtualFuncImpl(
         args: VirtualFuncCreationArgs
@@ -37,7 +37,7 @@ export abstract class AbstractCppClass implements CppClass {
         funcName: string,
         qualType: string
     ): Promise<VirtualFuncDeclaration | undefined> {
-        for (const parentClass of this.getParentClasses()) {
+        for (const parentClass of await this.getParentClasses()) {
             const foundFunc = await parentClass.findBaseFunction(
                 funcName,
                 qualType
@@ -47,7 +47,7 @@ export abstract class AbstractCppClass implements CppClass {
             }
         }
 
-        var foundFunc = this.getVirtualFuncDecls().find(
+        var foundFunc = (await this.getVirtualFuncDecls()).find(
             (func) =>
                 func.getFuncName() === funcName &&
                 func.getQualType() === qualType
@@ -95,8 +95,8 @@ export abstract class AbstractCppClass implements CppClass {
                 await other.getFuncImpls()
             )) &&
             (await elementEquals<VirtualFuncDeclaration>(
-                this.getVirtualFuncDecls(),
-                other.getVirtualFuncDecls()
+                await this.getVirtualFuncDecls(),
+                await other.getVirtualFuncDecls()
             )) &&
             (await elementEquals<VirtualFuncImplementation>(
                 await this.getVirtualFuncImpls(),

@@ -9,18 +9,18 @@ export abstract class AbstractDatabase implements Database {
         this.config = config;
     }
 
-    abstract getCppFiles(): CppFile[];
-    abstract hasCppFile(name: string): boolean;
-    abstract getOrAddCppFile(name: string): CppFile;
-    abstract removeCppFileAndDependingContent(name: string): void;
+    abstract getCppFiles(): Promise<CppFile[]>;
+    abstract hasCppFile(name: string): Promise<boolean>;
+    abstract getOrAddCppFile(name: string): Promise<CppFile>;
+    abstract removeCppFileAndDependingContent(name: string): Promise<void>;
 
-    abstract getHppFiles(): HppFile[];
-    abstract hasHppFile(name: string): boolean;
-    abstract getOrAddHppFile(name: string): HppFile;
-    abstract removeHppFileAndDependingContent(name: string): void;
+    abstract getHppFiles(): Promise<HppFile[]>;
+    abstract hasHppFile(name: string): Promise<boolean>;
+    abstract getOrAddHppFile(name: string): Promise<HppFile>;
+    abstract removeHppFileAndDependingContent(name: string): Promise<void>;
 
-    abstract writeDatabase(): void;
-    abstract resetDatabase(): void;
+    abstract writeDatabase(): Promise<void>;
+    abstract resetDatabase(): Promise<void>;
 
     async equals(otherInput: any): Promise<boolean> {
         const other = otherInput as Database;
@@ -31,12 +31,12 @@ export abstract class AbstractDatabase implements Database {
 
         return (
             (await elementEquals<CppFile>(
-                this.getCppFiles(),
-                other.getCppFiles()
+                await this.getCppFiles(),
+                await other.getCppFiles()
             )) &&
             (await elementEquals<HppFile>(
-                this.getHppFiles(),
-                other.getHppFiles()
+                await this.getHppFiles(),
+                await other.getHppFiles()
             ))
         );
     }

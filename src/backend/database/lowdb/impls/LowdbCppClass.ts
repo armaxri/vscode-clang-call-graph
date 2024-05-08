@@ -29,7 +29,7 @@ export class LowdbCppClass extends AbstractCppClass {
         return this.internal.name;
     }
 
-    getParentClasses(): CppClass[] {
+    async getParentClasses(): Promise<CppClass[]> {
         return this.cachedParentClasses;
     }
 
@@ -137,16 +137,16 @@ export class LowdbCppClass extends AbstractCppClass {
         return new LowdbFuncImplementation(internalFuncImpl);
     }
 
-    getVirtualFuncDecls(): VirtualFuncDeclaration[] {
+    async getVirtualFuncDecls(): Promise<VirtualFuncDeclaration[]> {
         return this.internal.virtualFuncDecls.map(
             (internalVirtualFuncDecl) =>
                 new LowdbVirtualFuncDeclaration(internalVirtualFuncDecl)
         );
     }
 
-    getOrAddVirtualFuncDecl(
+    async getOrAddVirtualFuncDecl(
         args: VirtualFuncCreationArgs
-    ): VirtualFuncDeclaration {
+    ): Promise<VirtualFuncDeclaration> {
         var internalVirtualFuncDecl = this.internal.virtualFuncDecls.find(
             (internalVirtualFuncDecl) =>
                 internalVirtualFuncDecl.funcName === args.funcName &&

@@ -55,7 +55,7 @@ export class ClangAstWalker implements AstWalker {
         await this.analyzeAstElement(this.baseAstElement);
 
         this.currentlyAnalyzedFile?.justAnalyzed();
-        this.database.writeDatabase();
+        await this.database.writeDatabase();
     }
 
     getFileName(): string {
@@ -68,7 +68,7 @@ export class ClangAstWalker implements AstWalker {
         // The file name and the source line are only mentioned in the first
         // seen element of the file.
         // Therefore we need to cache the value.
-        this.handleLocAndRange(astElement);
+        await this.handleLocAndRange(astElement);
 
         if (astElement.kind === "CXXRecordDecl") {
             await this.handleClassDecl(astElement);
@@ -98,18 +98,18 @@ export class ClangAstWalker implements AstWalker {
         }
     }
 
-    private handleLocAndRange(astElement: clangAst.AstElement) {
+    private async handleLocAndRange(
+        astElement: clangAst.AstElement
+    ): Promise<void> {
         if (astElement.loc && astElement.loc.file) {
             this.currentlyAnalyzedFile?.justAnalyzed();
 
             if (astElement.loc.file === this.fileName) {
-                this.currentlyAnalyzedFile = this.database.getOrAddCppFile(
-                    this.fileName
-                );
+                this.currentlyAnalyzedFile =
+                    await this.database.getOrAddCppFile(this.fileName);
             } else {
-                this.currentlyAnalyzedFile = this.database.getOrAddHppFile(
-                    astElement.loc.file
-                );
+                this.currentlyAnalyzedFile =
+                    await this.database.getOrAddHppFile(astElement.loc.file);
 
                 (
                     this.currentlyAnalyzedFile as db.HppFile

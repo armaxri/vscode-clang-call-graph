@@ -88,16 +88,16 @@ export interface MainDeclLocation extends Equal {
 
 export interface CppClass extends MainDeclLocation {
     getName(): string;
-    getParentClasses(): CppClass[];
+    getParentClasses(): Promise<CppClass[]>;
     getParentClassNames(): string[];
     addParentClass(parentClass: CppClass): void;
 
     // Virtual functions can be implemented in a class or file but only declared
     // within a class body.
-    getVirtualFuncDecls(): VirtualFuncDeclaration[];
+    getVirtualFuncDecls(): Promise<VirtualFuncDeclaration[]>;
     getOrAddVirtualFuncDecl(
         args: VirtualFuncCreationArgs
-    ): VirtualFuncDeclaration;
+    ): Promise<VirtualFuncDeclaration>;
 
     findBaseFunction(
         funcName: string,

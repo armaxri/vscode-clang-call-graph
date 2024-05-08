@@ -24,7 +24,7 @@ export abstract class AbstractCppFile implements CppFile {
     abstract getVirtualFuncImpls(): Promise<VirtualFuncImplementation[]>;
     abstract getOrAddVirtualFuncImpl(
         args: VirtualFuncCreationArgs
-    ): VirtualFuncImplementation;
+    ): Promise<VirtualFuncImplementation>;
 
     async equals(otherInput: any): Promise<boolean> {
         const other = otherInput as CppFile;
