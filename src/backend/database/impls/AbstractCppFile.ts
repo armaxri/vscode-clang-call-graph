@@ -1,17 +1,15 @@
 import {
     CppClass,
+    CppFile,
     FuncCreationArgs,
     FuncDeclaration,
     FuncImplementation,
-    HppFile,
     VirtualFuncCreationArgs,
     VirtualFuncImplementation,
 } from "../cpp_structure";
-import { elementEquals } from "./equality_helper";
+import { elementEquals } from "../helper/equality_helper";
 
-export abstract class AbstractHppFile implements HppFile {
-    abstract getReferencedFromCppFiles(): string[];
-    abstract addReferencedFromCppFile(fileName: string): void;
+export abstract class AbstractCppFile implements CppFile {
     abstract getName(): string;
     abstract getLastAnalyzed(): number;
     abstract justAnalyzed(): void;
@@ -28,21 +26,8 @@ export abstract class AbstractHppFile implements HppFile {
         args: VirtualFuncCreationArgs
     ): Promise<VirtualFuncImplementation>;
 
-    private referencedFromCppFilesEquals(otherList: string[]): boolean {
-        const thisList = this.getReferencedFromCppFiles();
-
-        if (thisList.length !== otherList.length) {
-            return false;
-        }
-
-        return (
-            thisList.every((fileName) => otherList.includes(fileName)) &&
-            otherList.every((fileName) => thisList.includes(fileName))
-        );
-    }
-
     async equals(otherInput: any): Promise<boolean> {
-        const other = otherInput as HppFile;
+        const other = otherInput as CppFile;
 
         if (!other) {
             return false;
@@ -51,10 +36,7 @@ export abstract class AbstractHppFile implements HppFile {
         return (
             this.getName() === other.getName() &&
             // Sadly we can't compare the analyzed time.
-            // this.getLastAnalyzed() === other.getLastAnalyzed() &&
-            this.referencedFromCppFilesEquals(
-                other.getReferencedFromCppFiles()
-            ) &&
+            // this.getLastAnalyzed() === other.getLastAnalyzed()
             (await elementEquals<CppClass>(
                 await this.getClasses(),
                 await other.getClasses()

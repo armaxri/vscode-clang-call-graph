@@ -7,7 +7,7 @@ import {
     VirtualFuncImplementation,
     rangeIsEqual,
 } from "../cpp_structure";
-import { elementEquals } from "./equality_helper";
+import { elementEquals } from "../helper/equality_helper";
 
 export abstract class AbstractVirtualFuncImplementation
     implements VirtualFuncImplementation

@@ -9,7 +9,7 @@ import {
 import { LowdbFuncCall } from "./LowdbFuncCall";
 import { LowdbVirtualFuncCall } from "./LowdbVirtualFuncCall";
 import { LowdbInternalFuncImplementation } from "../lowdb_internal_structure";
-import { AbstractFuncImplementation } from "../../helper/AbstractFuncImplementation";
+import { AbstractFuncImplementation } from "../../impls/AbstractFuncImplementation";
 
 export class LowdbFuncImplementation extends AbstractFuncImplementation {
     internal: LowdbInternalFuncImplementation;

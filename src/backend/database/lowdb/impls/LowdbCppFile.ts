@@ -12,7 +12,7 @@ import { LowdbFuncDeclaration } from "./LowdbFuncDeclaration";
 import { LowdbFuncImplementation } from "./LowdbFuncImplementation";
 import { LowdbVirtualFuncImplementation } from "./LowdbVirtualFuncImplementation";
 import { LowdbInternalCppFile } from "../lowdb_internal_structure";
-import { AbstractCppFile } from "../../helper/AbstractCppFile";
+import { AbstractCppFile } from "../../impls/AbstractCppFile";
 
 export class LowdbCppFile extends AbstractCppFile {
     internal: LowdbInternalCppFile;

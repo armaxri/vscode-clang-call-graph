@@ -12,7 +12,7 @@ import { LowdbFuncDeclaration } from "./LowdbFuncDeclaration";
 import { LowdbFuncImplementation } from "./LowdbFuncImplementation";
 import { LowdbVirtualFuncImplementation } from "./LowdbVirtualFuncImplementation";
 import { LowdbInternalHppFile } from "../lowdb_internal_structure";
-import { AbstractHppFile } from "../../helper/AbstractHppFile";
+import { AbstractHppFile } from "../../impls/AbstractHppFile";
 
 export class LowdbHppFile extends AbstractHppFile {
     internal: LowdbInternalHppFile;

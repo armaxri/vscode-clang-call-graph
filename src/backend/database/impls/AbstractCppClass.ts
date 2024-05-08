@@ -7,7 +7,7 @@ import {
     VirtualFuncDeclaration,
     VirtualFuncImplementation,
 } from "../cpp_structure";
-import { elementEquals } from "./equality_helper";
+import { elementEquals } from "../helper/equality_helper";
 
 export abstract class AbstractCppClass implements CppClass {
     abstract getName(): string;

@@ -9,7 +9,7 @@ import {
 } from "./lowdb_internal_structure";
 import { LowdbCppFile } from "./impls/LowdbCppFile";
 import { LowdbHppFile } from "./impls/LowdbHppFile";
-import { AbstractDatabase } from "../helper/AbstractDatabase";
+import { AbstractDatabase } from "../impls/AbstractDatabase";
 
 export class LowdbDatabase extends AbstractDatabase {
     private adapter!: JSONFileSync<LowdbInternalDatabase>;

@@ -1,5 +1,5 @@
 import { Range } from "../../cpp_structure";
-import { AbstractFuncCall } from "../../helper/AbstractFuncCall";
+import { AbstractFuncCall } from "../../impls/AbstractFuncCall";
 import { LowdbInternalFuncMentioning } from "../lowdb_internal_structure";
 
 export class LowdbFuncCall extends AbstractFuncCall {

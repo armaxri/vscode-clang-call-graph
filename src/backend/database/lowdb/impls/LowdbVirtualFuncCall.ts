@@ -1,5 +1,5 @@
 import { Range } from "../../cpp_structure";
-import { AbstractVirtualFuncCall } from "../../helper/AbstractVirtualFuncCall";
+import { AbstractVirtualFuncCall } from "../../impls/AbstractVirtualFuncCall";
 import { LowdbInternalVirtualFuncMentioning } from "../lowdb_internal_structure";
 
 export class LowdbVirtualFuncCall extends AbstractVirtualFuncCall {

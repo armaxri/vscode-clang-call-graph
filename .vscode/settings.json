@@ -10,18 +10,17 @@
     // Turn off tsc task auto detection since we have the necessary tasks as npm scripts
     "typescript.tsc.autoDetect": "off",
     "[typescript]": {
-                "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "cSpell.diagnosticLevel": "Hint",
-    "cSpell.enableFiletypes": [
-        "*"
-    ],
+    "cSpell.enableFiletypes": ["*"],
     "mochaExplorer.ui": "tdd",
     "mochaExplorer.files": "./out/test/backendSuite/**/*.test.js",
     "mochaExplorer.require": "source-map-support/register",
-    "mochaExplorer.watch": ["./out/test/backendSuite/**/*.test.js", "./out/backend/**/*.js"],
+    "mochaExplorer.watch": [
+        "./out/test/backendSuite/**/*.test.js",
+        "./out/backend/**/*.js"
+    ],
     "cmake.configureOnOpen": false,
-    "cSpell.words": [
-        "Impls"
-    ]
+    "cSpell.words": ["Impls"]
 }

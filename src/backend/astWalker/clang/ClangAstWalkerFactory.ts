@@ -1,10 +1,10 @@
 import { ClangAstWalker } from "./ClangAstWalker";
 import { AstWalkerFactory } from "../AstWalkerFactory";
-import * as clang_ast from "./clang_ast_json";
+import * as clangAst from "./clang_ast_json";
 import { Database } from "../../database/Database";
 import { AstWalker } from "../AstWalker";
 import { createClangAstCall } from "../../utils/utils";
-import * as child_process from "child_process";
+import * as childProcess from "child_process";
 
 export class ClangAstWalkerFactory implements AstWalkerFactory {
     createAstWalker(
@@ -16,10 +16,10 @@ export class ClangAstWalkerFactory implements AstWalkerFactory {
     }
 }
 
-function fileReaderFunc(command: string): clang_ast.AstElement {
+function fileReaderFunc(command: string): clangAst.AstElement {
     const newCommand = createClangAstCall(command);
-    const astJson = child_process.execSync(newCommand.join(" ")).toString();
-    const ast = JSON.parse(astJson) as clang_ast.AstElement;
+    const astJson = childProcess.execSync(newCommand.join(" ")).toString();
+    const ast = JSON.parse(astJson) as clangAst.AstElement;
 
     return ast;
 }

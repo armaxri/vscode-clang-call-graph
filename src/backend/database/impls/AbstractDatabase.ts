@@ -1,6 +1,6 @@
 import { Config } from "../../Config";
 import { CppFile, Database, HppFile } from "../Database";
-import { elementEquals } from "./equality_helper";
+import { elementEquals } from "../helper/equality_helper";
 
 export abstract class AbstractDatabase implements Database {
     protected config: Config;

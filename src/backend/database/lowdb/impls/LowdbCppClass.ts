@@ -13,7 +13,7 @@ import { LowdbFuncImplementation } from "./LowdbFuncImplementation";
 import { LowdbVirtualFuncDeclaration } from "./LowdbVirtualFuncDeclaration";
 import { LowdbVirtualFuncImplementation } from "./LowdbVirtualFuncImplementation";
 import { LowdbInternalCppClass } from "../lowdb_internal_structure";
-import { AbstractCppClass } from "../../helper/AbstractCppClass";
+import { AbstractCppClass } from "../../impls/AbstractCppClass";
 
 export class LowdbCppClass extends AbstractCppClass {
     internal: LowdbInternalCppClass;

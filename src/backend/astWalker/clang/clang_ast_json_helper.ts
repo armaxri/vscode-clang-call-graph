@@ -1,7 +1,7 @@
-import * as clang_ast from "./clang_ast_json";
+import * as clangAst from "./clang_ast_json";
 
 export function hasCompoundStmtInInner(
-    astElement: clang_ast.AstElement
+    astElement: clangAst.AstElement
 ): boolean {
     if (astElement.inner) {
         const matches = astElement.inner.filter(
@@ -14,7 +14,7 @@ export function hasCompoundStmtInInner(
 }
 
 export function isElementVirtualFuncDeclaration(
-    element: clang_ast.AstElement
+    element: clangAst.AstElement
 ): boolean {
     const hasOtherAttribute: boolean = element.inner
         ? element.inner.some(
