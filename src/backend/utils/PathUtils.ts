@@ -63,4 +63,20 @@ export class PathUtils {
 
         return relativePath.replace("\\", "/");
     }
+
+    public remove() {
+        if (!this.doesExist()) {
+            return;
+        }
+
+        fs.rmSync(this.internalPathStr);
+    }
+
+    public tryToRemove() {
+        try {
+            this.remove();
+        } catch (e) {
+            // Ignore error.
+        }
+    }
 }

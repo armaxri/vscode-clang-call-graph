@@ -68,11 +68,8 @@ async function createAndRunAstWalker(
     mockConfig: MockConfig
 ): Promise<Database> {
     const clangAst = loadAst(adjustTsToJsPath(callingFileDirName), filename);
-    try {
-        fs.rmSync(mockConfig.getLowdbDatabasePath());
-    } catch (e) {
-        // Ignore error.
-    }
+    new PathUtils(mockConfig.getLowdbDatabasePath()).tryToRemove();
+
     var database: Database;
     // TODO: Replace this with the factory function.
     if (mockConfig.getSelectedDatabaseType() === DatabaseType.lowdb) {
