@@ -39,11 +39,11 @@ export abstract class Config {
         return this.compileCommandsJsonName;
     }
 
-    getCompileCommandsJsonPath(): string {
+    getCompileCommandsJsonPath(): PathUtils {
         return new PathUtils(
             this.getCompileCommandsJsonDir(),
             this.getCompileCommandsJsonName()
-        ).pathString();
+        );
     }
 
     getNumOfParserThreads(): number {
@@ -60,25 +60,25 @@ export abstract class Config {
         return this.sqliteDatabaseName;
     }
 
-    getSqliteDatabasePath(): string {
+    getSqliteDatabasePath(): PathUtils {
         return new PathUtils(
             this.getCallGraphDatabaseDir(),
             this.getSqliteDatabaseName()
-        ).pathString();
+        );
     }
 
     getLowdbDatabaseName(): string {
         return this.lowdbDatabaseName;
     }
 
-    getLowdbDatabasePath(): string {
+    getLowdbDatabasePath(): PathUtils {
         return new PathUtils(
             this.getCallGraphDatabaseDir(),
             this.getLowdbDatabaseName()
-        ).pathString();
+        );
     }
 
-    getSelectedDatabasePath(): string {
+    getSelectedDatabasePath(): PathUtils {
         switch (this.getSelectedDatabaseType()) {
             case DatabaseType.sqlite:
                 return this.getSqliteDatabasePath();

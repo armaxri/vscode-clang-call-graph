@@ -18,7 +18,7 @@ export class InternalSqliteDatabase {
 
         // TODO: Check the caching part.
         this.db = new databaseLoader.Database(
-            this.config.getSqliteDatabasePath()
+            this.config.getSqliteDatabasePath().pathString()
         );
     }
 

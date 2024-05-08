@@ -19,7 +19,7 @@ export async function removeOldDatabase(
 export async function removeOldDatabaseFromConfig(
     config: Config
 ): Promise<void> {
-    const dbPath = config.getSelectedDatabasePath();
+    const dbPath = config.getSelectedDatabasePath().pathString();
     if (fs.existsSync(dbPath)) {
         fs.rmSync(dbPath, { recursive: true });
     }
@@ -32,7 +32,7 @@ export async function removeOldDatabases(dirname: string): Promise<void> {
             adjustedDirname,
             convertStrToDatabaseType(dbType)
         );
-        const dbPath = config.getSelectedDatabasePath();
+        const dbPath = config.getSelectedDatabasePath().pathString();
         if (fs.existsSync(dbPath)) {
             fs.rmSync(dbPath, { recursive: true });
         }

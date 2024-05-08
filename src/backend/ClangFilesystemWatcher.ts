@@ -141,7 +141,7 @@ export class ClangFilesystemWatcher {
             this.config.getCompileCommandsJsonPath();
 
         try {
-            const compileCommandsJson = require(compileCommandsJsonPath);
+            const compileCommandsJson = require(compileCommandsJsonPath.pathString());
 
             for (const compileCommand of compileCommandsJson) {
                 this.workerTasks.push({

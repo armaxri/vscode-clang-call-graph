@@ -118,7 +118,9 @@ export class LowdbDatabase extends AbstractDatabase {
     private initDatabase() {
         console.log("Initializing database.");
         const databasePath = this.config.getLowdbDatabasePath();
-        this.adapter = new JSONFileSync<LowdbInternalDatabase>(databasePath);
+        this.adapter = new JSONFileSync<LowdbInternalDatabase>(
+            databasePath.pathString()
+        );
         this.database = new LowSync<LowdbInternalDatabase>(
             this.adapter,
             createEmptyLowdbInternalDatabase()
