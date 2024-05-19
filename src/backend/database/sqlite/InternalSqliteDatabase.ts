@@ -1,9 +1,10 @@
-import * as sqlite3 from "sqlite3";
+import Database from "better-sqlite3";
 import { Config } from "../../Config";
+import { SqliteCppFile } from "./impls/SqliteCppFile";
 
 export class InternalSqliteDatabase {
     private config: Config;
-    public db!: sqlite3.Database;
+    public db!: Database.Database;
 
     constructor(config: Config) {
         this.config = config;
@@ -12,18 +13,25 @@ export class InternalSqliteDatabase {
     }
 
     loadDatabase() {
-        const databaseLoader = this.config.runVerbose()
-            ? sqlite3.verbose()
-            : sqlite3;
+        const databaseExists = this.config.getSqliteDatabasePath().doesExist();
 
-        // TODO: Check the caching part.
-        this.db = new databaseLoader.Database(
-            this.config.getSqliteDatabasePath().pathString()
+        this.db = new Database(
+            this.config.getSqliteDatabasePath().pathString(),
+            { verbose: this.config.runVerbose() ? console.log : undefined }
         );
+
+        if (!databaseExists) {
+            this.initDatabase();
+        }
+    }
+
+    private initDatabase() {
+        SqliteCppFile.createTableCall(this);
     }
 
     resetDatabase() {
         this.db.close();
+        this.config.getSqliteDatabasePath().tryToRemove();
         this.loadDatabase();
     }
 }

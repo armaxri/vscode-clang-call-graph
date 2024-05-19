@@ -6,8 +6,34 @@ import {
 } from "../../typeEqualsTests/database_equality_tests";
 
 suite("Database reset database tests", () => {
-    [DatabaseType.lowdb].forEach(async (testData) => {
+    [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
         test(`Test reset database on ${testData}`, async () => {
+            const [database, referenceDatabase] =
+                await prepareDatabaseEqualityTests(
+                    __dirname,
+                    "simple_file_expected_db.json",
+                    testData
+                );
+            await database.getOrAddCppFile("simple_func_decl.json");
+
+            await database.writeDatabase();
+
+            assert.ok(await database.equals(referenceDatabase));
+
+            await database.resetDatabase();
+            await database.writeDatabase();
+
+            const emptyDatabase = await loadReferenceDb(
+                __dirname,
+                "empty_expected_db.json"
+            );
+
+            assert.ok(await database.equals(emptyDatabase));
+        });
+    });
+
+    [DatabaseType.lowdb].forEach(async (testData) => {
+        test(`Test reset database on ${testData} with function declaration`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
                     __dirname,
