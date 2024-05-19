@@ -4,7 +4,7 @@ import { prepareDatabaseEqualityTests } from "../database_equality_tests";
 
 suite("Database CppFile equality tests", () => {
     [DatabaseType.lowdb].forEach(async (testData) => {
-        test(`Test equality for simple C++ file on ${testData}`, async () => {
+        test(`Test equality for simple C++ file on ${DatabaseType[testData]}`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
                     __dirname,
@@ -31,7 +31,7 @@ suite("Database CppFile equality tests", () => {
     });
 
     [DatabaseType.lowdb].forEach(async (testData) => {
-        test(`Test no equality for simple C++ file on ${testData} based on empty database`, async () => {
+        test(`Test no equality for simple C++ file on ${DatabaseType[testData]} based on empty database`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
                     __dirname,
@@ -46,7 +46,7 @@ suite("Database CppFile equality tests", () => {
     });
 
     [DatabaseType.lowdb].forEach(async (testData) => {
-        test(`Test no equality for simple C++ file on ${testData} based wrong file name`, async () => {
+        test(`Test no equality for simple C++ file on ${DatabaseType[testData]} based wrong file name`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
                     __dirname,
@@ -73,7 +73,7 @@ suite("Database CppFile equality tests", () => {
     });
 
     [DatabaseType.lowdb].forEach(async (testData) => {
-        test(`Test no equality for simple C++ file on ${testData} based wrong function name`, async () => {
+        test(`Test no equality for simple C++ file on ${DatabaseType[testData]} based wrong function name`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
                     __dirname,
@@ -100,7 +100,7 @@ suite("Database CppFile equality tests", () => {
     });
 
     [DatabaseType.lowdb].forEach(async (testData) => {
-        test(`Test no equality for simple C++ file on ${testData} based wrong function location`, async () => {
+        test(`Test no equality for simple C++ file on ${DatabaseType[testData]} based wrong function location`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
                     __dirname,

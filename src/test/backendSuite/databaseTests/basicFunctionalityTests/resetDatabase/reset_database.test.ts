@@ -7,7 +7,7 @@ import {
 
 suite("Database reset database tests", () => {
     [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-        test(`Test reset database on ${testData}`, async () => {
+        test(`Test reset database on ${DatabaseType[testData]}`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
                     __dirname,
@@ -33,7 +33,7 @@ suite("Database reset database tests", () => {
     });
 
     [DatabaseType.lowdb].forEach(async (testData) => {
-        test(`Test reset database on ${testData} with function declaration`, async () => {
+        test(`Test reset database on ${DatabaseType[testData]} with function declaration`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
                     __dirname,
