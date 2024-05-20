@@ -34,10 +34,10 @@ export class SqliteCppFile extends AbstractCppFile {
         `);
     }
 
-    static async createCppFile(
+    static createCppFile(
         internalDb: InternalSqliteDatabase,
         fileName: string
-    ): Promise<SqliteCppFile> {
+    ): SqliteCppFile {
         const fileId = Number(
             internalDb.db
                 .prepare("INSERT INTO cpp_files (file_name) VALUES (@fileName)")
