@@ -28,7 +28,7 @@ export class SqliteCppFile extends AbstractCppFile {
 
     static createTableCall(internalDb: InternalSqliteDatabase): void {
         internalDb.db.exec(`
-            CREATE TABLE cpp_file (
+            CREATE TABLE cpp_files (
                 file_name TEXT UNIQUE NOT NULL
             )
         `);
@@ -40,7 +40,7 @@ export class SqliteCppFile extends AbstractCppFile {
     ): Promise<SqliteCppFile> {
         const fileId = Number(
             internalDb.db
-                .prepare("INSERT INTO cpp_file (file_name) VALUES (@fileName)")
+                .prepare("INSERT INTO cpp_files (file_name) VALUES (@fileName)")
                 .run({ fileName: fileName }).lastInsertRowid
         );
 
@@ -52,7 +52,7 @@ export class SqliteCppFile extends AbstractCppFile {
         fileName: string
     ): SqliteCppFile | null {
         const row = internalDb.db
-            .prepare("SELECT rowid AS id FROM cpp_file WHERE file_name=(?)")
+            .prepare("SELECT rowid AS id FROM cpp_files WHERE file_name=(?)")
             .get(fileName);
 
         if (row !== undefined) {
@@ -66,7 +66,7 @@ export class SqliteCppFile extends AbstractCppFile {
         const cppFiles: SqliteCppFile[] = [];
 
         internalDb.db
-            .prepare("SELECT * FROM cpp_file")
+            .prepare("SELECT * FROM cpp_files")
             .all()
             .forEach((row) => {
                 cppFiles.push(
