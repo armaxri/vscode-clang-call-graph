@@ -2,6 +2,7 @@ import Database from "better-sqlite3";
 import { Config } from "../../Config";
 import { SqliteCppFile } from "./impls/SqliteCppFile";
 import { SqliteFuncDeclaration } from "./impls/SqliteFuncDeclaration";
+import { SqliteFuncImplementation } from "./impls/SqliteFuncImplementation";
 
 export class InternalSqliteDatabase {
     private config: Config;
@@ -29,6 +30,7 @@ export class InternalSqliteDatabase {
     private initDatabase() {
         SqliteCppFile.createTableCalls(this);
         SqliteFuncDeclaration.createTableCalls(this);
+        SqliteFuncImplementation.createTableCalls(this);
     }
 
     resetDatabase() {

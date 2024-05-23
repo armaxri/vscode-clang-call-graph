@@ -9,6 +9,7 @@ import {
 import { AbstractCppFile } from "../../impls/AbstractCppFile";
 import { InternalSqliteDatabase } from "../InternalSqliteDatabase";
 import { SqliteFuncDeclaration } from "./SqliteFuncDeclaration";
+import { SqliteFuncImplementation } from "./SqliteFuncImplementation";
 
 export class SqliteCppFile extends AbstractCppFile {
     private internal: InternalSqliteDatabase;
@@ -127,12 +128,27 @@ export class SqliteCppFile extends AbstractCppFile {
     }
 
     async getFuncImpls(): Promise<FuncImplementation[]> {
-        // TODO: implement
-        return [];
+        return SqliteFuncImplementation.getFuncImpls(this.internal, this.id);
     }
 
-    getOrAddFuncImpl(args: FuncCreationArgs): Promise<FuncImplementation> {
-        throw new Error("Method not implemented.");
+    async getOrAddFuncImpl(
+        args: FuncCreationArgs
+    ): Promise<FuncImplementation> {
+        const funcImpl = SqliteFuncImplementation.getFuncImpl(
+            this.internal,
+            args.funcName,
+            this.id
+        );
+
+        if (funcImpl) {
+            return funcImpl;
+        }
+
+        return SqliteFuncImplementation.createFuncImpl(
+            this.internal,
+            args,
+            this.id
+        );
     }
 
     async getVirtualFuncImpls(): Promise<VirtualFuncImplementation[]> {
