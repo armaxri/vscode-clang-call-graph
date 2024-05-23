@@ -3,7 +3,7 @@ import { DatabaseType } from "../../../../../backend/Config";
 import { prepareDatabaseEqualityTests } from "../database_equality_tests";
 
 suite("Database CppFile equality tests", () => {
-    [DatabaseType.lowdb].forEach(async (testData) => {
+    [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
         test(`Test equality for simple C++ file on ${DatabaseType[testData]}`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
@@ -14,7 +14,7 @@ suite("Database CppFile equality tests", () => {
             const cppFile = await database.getOrAddCppFile(
                 "simple_func_decl.json"
             );
-            cppFile.getOrAddFuncDecl({
+            await cppFile.getOrAddFuncDecl({
                 funcName: "add",
                 funcAstName: "__ZN3foo3addEii",
                 qualType: "int (int, int)",
@@ -30,7 +30,7 @@ suite("Database CppFile equality tests", () => {
         });
     });
 
-    [DatabaseType.lowdb].forEach(async (testData) => {
+    [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
         test(`Test no equality for simple C++ file on ${DatabaseType[testData]} based on empty database`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
@@ -45,7 +45,7 @@ suite("Database CppFile equality tests", () => {
         });
     });
 
-    [DatabaseType.lowdb].forEach(async (testData) => {
+    [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
         test(`Test no equality for simple C++ file on ${DatabaseType[testData]} based wrong file name`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
@@ -56,7 +56,7 @@ suite("Database CppFile equality tests", () => {
             const cppFile = await database.getOrAddCppFile(
                 "stupid_simple_func_decl.json"
             );
-            cppFile.getOrAddFuncDecl({
+            await cppFile.getOrAddFuncDecl({
                 funcName: "add",
                 funcAstName: "__ZN3foo3addEii",
                 qualType: "int (int, int)",
@@ -72,7 +72,7 @@ suite("Database CppFile equality tests", () => {
         });
     });
 
-    [DatabaseType.lowdb].forEach(async (testData) => {
+    [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
         test(`Test no equality for simple C++ file on ${DatabaseType[testData]} based wrong function name`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
@@ -83,7 +83,7 @@ suite("Database CppFile equality tests", () => {
             const cppFile = await database.getOrAddCppFile(
                 "simple_func_decl.json"
             );
-            cppFile.getOrAddFuncDecl({
+            await cppFile.getOrAddFuncDecl({
                 funcName: "multiply",
                 funcAstName: "__ZN3foo3addEii",
                 qualType: "int (int, int)",
@@ -99,7 +99,7 @@ suite("Database CppFile equality tests", () => {
         });
     });
 
-    [DatabaseType.lowdb].forEach(async (testData) => {
+    [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
         test(`Test no equality for simple C++ file on ${DatabaseType[testData]} based wrong function location`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
@@ -110,7 +110,7 @@ suite("Database CppFile equality tests", () => {
             const cppFile = await database.getOrAddCppFile(
                 "simple_func_decl.json"
             );
-            cppFile.getOrAddFuncDecl({
+            await cppFile.getOrAddFuncDecl({
                 funcName: "add",
                 funcAstName: "__ZN3foo3addEii",
                 qualType: "int (int, int)",

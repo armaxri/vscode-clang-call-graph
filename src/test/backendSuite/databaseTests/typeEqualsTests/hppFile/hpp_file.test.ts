@@ -14,7 +14,7 @@ suite("Database HppFile equality tests", () => {
             const hppFile = await database.getOrAddHppFile(
                 "simple_func_decl.json"
             );
-            hppFile.getOrAddFuncDecl({
+            await hppFile.getOrAddFuncDecl({
                 funcName: "add",
                 funcAstName: "__ZN3foo3addEii",
                 qualType: "int (int, int)",
@@ -56,7 +56,7 @@ suite("Database HppFile equality tests", () => {
             const hppFile = await database.getOrAddHppFile(
                 "stupid_simple_func_decl.json"
             );
-            hppFile.getOrAddFuncDecl({
+            await hppFile.getOrAddFuncDecl({
                 funcName: "add",
                 funcAstName: "__ZN3foo3addEii",
                 qualType: "int (int, int)",

@@ -8,6 +8,7 @@ import {
 } from "../../cpp_structure";
 import { AbstractCppFile } from "../../impls/AbstractCppFile";
 import { InternalSqliteDatabase } from "../InternalSqliteDatabase";
+import { SqliteFuncDeclaration } from "./SqliteFuncDeclaration";
 
 export class SqliteCppFile extends AbstractCppFile {
     private internal: InternalSqliteDatabase;
@@ -26,9 +27,10 @@ export class SqliteCppFile extends AbstractCppFile {
         this.fileName = fileName;
     }
 
-    static createTableCall(internalDb: InternalSqliteDatabase): void {
+    static createTableCalls(internalDb: InternalSqliteDatabase): void {
         internalDb.db.exec(`
             CREATE TABLE cpp_files (
+                id        INTEGER PRIMARY KEY AUTOINCREMENT,
                 file_name TEXT UNIQUE NOT NULL
             )
         `);
@@ -52,7 +54,7 @@ export class SqliteCppFile extends AbstractCppFile {
         fileName: string
     ): SqliteCppFile | null {
         const row = internalDb.db
-            .prepare("SELECT rowid AS id FROM cpp_files WHERE file_name=(?)")
+            .prepare("SELECT id FROM cpp_files WHERE file_name=(?)")
             .get(fileName);
 
         if (row !== undefined) {
@@ -103,12 +105,25 @@ export class SqliteCppFile extends AbstractCppFile {
     }
 
     async getFuncDecls(): Promise<FuncDeclaration[]> {
-        // TODO: implement
-        return [];
+        return SqliteFuncDeclaration.getFuncDecls(this.internal, this.id);
     }
 
-    getOrAddFuncDecl(args: FuncCreationArgs): Promise<FuncDeclaration> {
-        throw new Error("Method not implemented.");
+    async getOrAddFuncDecl(args: FuncCreationArgs): Promise<FuncDeclaration> {
+        const funcDecl = SqliteFuncDeclaration.getFuncDecl(
+            this.internal,
+            args.funcName,
+            this.id
+        );
+
+        if (funcDecl) {
+            return funcDecl;
+        }
+
+        return SqliteFuncDeclaration.createFuncDecl(
+            this.internal,
+            args,
+            this.id
+        );
     }
 
     async getFuncImpls(): Promise<FuncImplementation[]> {

@@ -15,7 +15,7 @@ suite("Database CppClass equality tests", () => {
                 "simple_func_decl.json"
             );
             const cppClass = await cppFile.getOrAddClass("FooClass");
-            cppClass.getOrAddFuncDecl({
+            await cppClass.getOrAddFuncDecl({
                 funcName: "add",
                 funcAstName: "__ZN3foo3addEii",
                 qualType: "int (int, int)",
@@ -62,7 +62,7 @@ suite("Database CppClass equality tests", () => {
                 "simple_func_decl.json"
             );
             const cppClass = await cppFile.getOrAddClass("NotFooClass");
-            cppClass.getOrAddFuncDecl({
+            await cppClass.getOrAddFuncDecl({
                 funcName: "add",
                 funcAstName: "__ZN3foo3addEii",
                 qualType: "int (int, int)",
@@ -90,7 +90,7 @@ suite("Database CppClass equality tests", () => {
                 "simple_func_decl.json"
             );
             const cppClass = await cppFile.getOrAddClass("FooClass");
-            cppClass.getOrAddFuncDecl({
+            await cppClass.getOrAddFuncDecl({
                 funcName: "multiply",
                 funcAstName: "__ZN3foo3addEii",
                 qualType: "int (int, int)",
@@ -118,7 +118,7 @@ suite("Database CppClass equality tests", () => {
                 "simple_func_decl.json"
             );
             const cppClass = await cppFile.getOrAddClass("FooClass");
-            cppClass.getOrAddFuncDecl({
+            await cppClass.getOrAddFuncDecl({
                 funcName: "add",
                 funcAstName: "__ZN3foo3addEii",
                 qualType: "int (int, int)",

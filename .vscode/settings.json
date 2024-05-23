@@ -22,5 +22,5 @@
         "./out/backend/**/*.js"
     ],
     "cmake.configureOnOpen": false,
-    "cSpell.words": ["Impls"]
+    "cSpell.words": ["Impls", "rowid"]
 }

@@ -32,7 +32,7 @@ suite("Database reset database tests", () => {
         });
     });
 
-    [DatabaseType.lowdb].forEach(async (testData) => {
+    [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
         test(`Test reset database on ${DatabaseType[testData]} with function declaration`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
@@ -43,7 +43,7 @@ suite("Database reset database tests", () => {
             const cppFile = await database.getOrAddCppFile(
                 "simple_func_decl.json"
             );
-            cppFile.getOrAddFuncDecl({
+            await cppFile.getOrAddFuncDecl({
                 funcName: "add",
                 funcAstName: "__ZN3foo3addEii",
                 qualType: "int (int, int)",
