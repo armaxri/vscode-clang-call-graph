@@ -3,6 +3,7 @@ import { CppFile, HppFile } from "../cpp_structure";
 import { AbstractDatabase } from "../impls/AbstractDatabase";
 import { InternalSqliteDatabase } from "./InternalSqliteDatabase";
 import { SqliteCppFile } from "./impls/SqliteCppFile";
+import { SqliteHppFile } from "./impls/SqliteHppFile";
 
 export class SqliteDatabase extends AbstractDatabase {
     private internal: InternalSqliteDatabase;
@@ -36,16 +37,21 @@ export class SqliteDatabase extends AbstractDatabase {
     }
 
     async getHppFiles(): Promise<HppFile[]> {
-        // TODO: implement
-        return [];
+        return SqliteHppFile.getHppFiles(this.internal);
     }
 
-    hasHppFile(name: string): Promise<boolean> {
-        throw new Error("Method not implemented.");
+    async hasHppFile(name: string): Promise<boolean> {
+        return SqliteHppFile.getHppFile(this.internal, name) !== null;
     }
 
-    getOrAddHppFile(name: string): Promise<HppFile> {
-        throw new Error("Method not implemented.");
+    async getOrAddHppFile(name: string): Promise<HppFile> {
+        const hppFile = SqliteHppFile.getHppFile(this.internal, name);
+
+        if (hppFile) {
+            return hppFile;
+        }
+
+        return SqliteHppFile.createHppFile(this.internal, name);
     }
 
     removeHppFileAndDependingContent(name: string): Promise<void> {

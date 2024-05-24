@@ -6,12 +6,12 @@ import {
     VirtualFuncImplementation,
     VirtualFuncCreationArgs,
 } from "../../cpp_structure";
-import { AbstractCppFile } from "../../impls/AbstractCppFile";
+import { AbstractHppFile } from "../../impls/AbstractHppFile";
 import { InternalSqliteDatabase } from "../InternalSqliteDatabase";
 import { SqliteFuncDeclaration } from "./SqliteFuncDeclaration";
 import { SqliteFuncImplementation } from "./SqliteFuncImplementation";
 
-export class SqliteCppFile extends AbstractCppFile {
+export class SqliteHppFile extends AbstractHppFile {
     private internal: InternalSqliteDatabase;
     private id: number;
     private fileName: string;
@@ -30,50 +30,50 @@ export class SqliteCppFile extends AbstractCppFile {
 
     static createTableCalls(internalDb: InternalSqliteDatabase): void {
         internalDb.db.exec(`
-            CREATE TABLE cpp_files (
+            CREATE TABLE hpp_files (
                 id        INTEGER PRIMARY KEY AUTOINCREMENT,
                 file_name TEXT UNIQUE NOT NULL
             )
         `);
     }
 
-    static createCppFile(
+    static createHppFile(
         internalDb: InternalSqliteDatabase,
         fileName: string
-    ): SqliteCppFile {
+    ): SqliteHppFile {
         const fileId = Number(
             internalDb.db
-                .prepare("INSERT INTO cpp_files (file_name) VALUES (@fileName)")
+                .prepare("INSERT INTO hpp_files (file_name) VALUES (@fileName)")
                 .run({ fileName: fileName }).lastInsertRowid
         );
 
-        return new SqliteCppFile(internalDb, fileId, fileName);
+        return new SqliteHppFile(internalDb, fileId, fileName);
     }
 
-    static getCppFile(
+    static getHppFile(
         internalDb: InternalSqliteDatabase,
         fileName: string
-    ): SqliteCppFile | null {
+    ): SqliteHppFile | null {
         const row = internalDb.db
-            .prepare("SELECT id FROM cpp_files WHERE file_name=(?)")
+            .prepare("SELECT id FROM hpp_files WHERE file_name=(?)")
             .get(fileName);
 
         if (row !== undefined) {
-            return new SqliteCppFile(internalDb, (row as any).id, fileName);
+            return new SqliteHppFile(internalDb, (row as any).id, fileName);
         }
 
         return null;
     }
 
-    static getCppFiles(internalDb: InternalSqliteDatabase): SqliteCppFile[] {
-        const cppFiles: SqliteCppFile[] = [];
+    static getHppFiles(internalDb: InternalSqliteDatabase): SqliteHppFile[] {
+        const hppFiles: SqliteHppFile[] = [];
 
         internalDb.db
-            .prepare("SELECT * FROM cpp_files")
+            .prepare("SELECT * FROM hpp_files")
             .all()
             .forEach((row) => {
-                cppFiles.push(
-                    new SqliteCppFile(
+                hppFiles.push(
+                    new SqliteHppFile(
                         internalDb,
                         (row as any).id,
                         (row as any).file_name
@@ -81,7 +81,7 @@ export class SqliteCppFile extends AbstractCppFile {
                 );
             });
 
-        return cppFiles;
+        return hppFiles;
     }
 
     getName(): string {
@@ -96,6 +96,15 @@ export class SqliteCppFile extends AbstractCppFile {
         throw new Error("Method not implemented.");
     }
 
+    getReferencedFromCppFiles(): string[] {
+        // TODO: implement
+        return [];
+    }
+
+    addReferencedFromCppFile(fileName: string): void {
+        throw new Error("Method not implemented.");
+    }
+
     async getClasses(): Promise<CppClass[]> {
         // TODO: implement
         return [];
@@ -107,7 +116,7 @@ export class SqliteCppFile extends AbstractCppFile {
 
     async getFuncDecls(): Promise<FuncDeclaration[]> {
         return SqliteFuncDeclaration.getFuncDecls(this.internal, {
-            cppFileId: this.id,
+            hppFileId: this.id,
         });
     }
 
@@ -115,7 +124,7 @@ export class SqliteCppFile extends AbstractCppFile {
         const funcDecl = SqliteFuncDeclaration.getFuncDecl(
             this.internal,
             args.funcName,
-            { cppFileId: this.id }
+            { hppFileId: this.id }
         );
 
         if (funcDecl) {
@@ -123,13 +132,13 @@ export class SqliteCppFile extends AbstractCppFile {
         }
 
         return SqliteFuncDeclaration.createFuncDecl(this.internal, args, {
-            cppFileId: this.id,
+            hppFileId: this.id,
         });
     }
 
     async getFuncImpls(): Promise<FuncImplementation[]> {
         return SqliteFuncImplementation.getFuncImpls(this.internal, {
-            cppFileId: this.id,
+            hppFileId: this.id,
         });
     }
 
@@ -139,7 +148,7 @@ export class SqliteCppFile extends AbstractCppFile {
         const funcImpl = SqliteFuncImplementation.getFuncImpl(
             this.internal,
             args.funcName,
-            { cppFileId: this.id }
+            { hppFileId: this.id }
         );
 
         if (funcImpl) {
@@ -147,7 +156,7 @@ export class SqliteCppFile extends AbstractCppFile {
         }
 
         return SqliteFuncImplementation.createFuncImpl(this.internal, args, {
-            cppFileId: this.id,
+            hppFileId: this.id,
         });
     }
 

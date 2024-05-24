@@ -48,8 +48,10 @@ export class SqliteFuncImplementation extends AbstractFuncImplementation {
                 range_end_column   INTEGER,
 
                 cpp_file_id        INTEGER NULL,
+                hpp_file_id        INTEGER NULL,
 
-                FOREIGN KEY (cpp_file_id) REFERENCES cpp_files(id)
+                FOREIGN KEY (cpp_file_id) REFERENCES cpp_files(id),
+                FOREIGN KEY (hpp_file_id) REFERENCES hpp_files(id)
             )
         `);
     }
@@ -57,12 +59,15 @@ export class SqliteFuncImplementation extends AbstractFuncImplementation {
     static createFuncImpl(
         internalDb: InternalSqliteDatabase,
         args: FuncCreationArgs,
-        cppFileId: number = -1
+        parent: {
+            cppFileId?: number;
+            hppFileId?: number;
+        }
     ): SqliteFuncImplementation {
         const funcId = Number(
             internalDb.db
                 .prepare(
-                    "INSERT INTO func_implementations (func_name, func_ast_name, qual_type, range_start_line, range_start_column, range_end_line, range_end_column, cpp_file_id) VALUES (@funcName, @funcAstName, @qualType, @rangeStartLine, @rangeStartColumn, @rangeEndLine, @rangeEndColumn, @cppFileId)"
+                    "INSERT INTO func_implementations (func_name, func_ast_name, qual_type, range_start_line, range_start_column, range_end_line, range_end_column, cpp_file_id, hpp_file_id) VALUES (@funcName, @funcAstName, @qualType, @rangeStartLine, @rangeStartColumn, @rangeEndLine, @rangeEndColumn, @cppFileId, @hppFileId)"
                 )
                 .run({
                     funcName: args.funcName,
@@ -72,7 +77,8 @@ export class SqliteFuncImplementation extends AbstractFuncImplementation {
                     rangeStartColumn: args.range.start.column,
                     rangeEndLine: args.range.end.line,
                     rangeEndColumn: args.range.end.column,
-                    cppFileId: cppFileId,
+                    cppFileId: parent.cppFileId,
+                    hppFileId: parent.hppFileId,
                 }).lastInsertRowid
         );
 
@@ -89,13 +95,16 @@ export class SqliteFuncImplementation extends AbstractFuncImplementation {
     static getFuncImpl(
         internalDb: InternalSqliteDatabase,
         funcName: string,
-        cppFileId: number = -1
+        parent: {
+            cppFileId?: number;
+            hppFileId?: number;
+        }
     ): SqliteFuncImplementation | null {
         const row = internalDb.db
             .prepare(
-                "SELECT * FROM func_implementations WHERE func_name=(?) AND cpp_file_id=(?)"
+                "SELECT * FROM func_implementations WHERE func_name=(?) AND cpp_file_id=(?) AND hpp_file_id=(?)"
             )
-            .get(funcName, cppFileId);
+            .get(funcName, parent.cppFileId, parent.hppFileId);
 
         if (row !== undefined) {
             const implementation = new SqliteFuncImplementation(
@@ -126,13 +135,18 @@ export class SqliteFuncImplementation extends AbstractFuncImplementation {
 
     static getFuncImpls(
         internalDb: InternalSqliteDatabase,
-        cppFileId: number = -1
+        parent: {
+            cppFileId?: number;
+            hppFileId?: number;
+        }
     ): SqliteFuncImplementation[] {
         const funcImpls: SqliteFuncImplementation[] = [];
 
         internalDb.db
-            .prepare("SELECT * FROM func_implementations WHERE cpp_file_id=(?)")
-            .all(cppFileId)
+            .prepare(
+                "SELECT * FROM func_implementations WHERE cpp_file_id=(?) OR hpp_file_id=(?)"
+            )
+            .all(parent.cppFileId, parent.hppFileId)
             .forEach((row) => {
                 const funcImpl = new SqliteFuncImplementation(
                     internalDb,
