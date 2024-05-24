@@ -3,7 +3,7 @@ import { DatabaseType } from "../../../../../backend/Config";
 import { prepareDatabaseEqualityTests } from "../database_equality_tests";
 
 suite("Database HppFile equality tests", () => {
-    [DatabaseType.lowdb].forEach(async (testData) => {
+    [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
         test(`Test equality for simple C++ header file on ${DatabaseType[testData]} with one function declaration`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
@@ -30,7 +30,7 @@ suite("Database HppFile equality tests", () => {
         });
     });
 
-    [DatabaseType.lowdb].forEach(async (testData) => {
+    [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
         test(`Test equality for simple C++ header file on ${DatabaseType[testData]} with one function implementation`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
@@ -57,7 +57,7 @@ suite("Database HppFile equality tests", () => {
         });
     });
 
-    [DatabaseType.lowdb].forEach(async (testData) => {
+    [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
         test(`Test equality for simple C++ header file on ${DatabaseType[testData]} with multiple function declarations`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
@@ -111,7 +111,7 @@ suite("Database HppFile equality tests", () => {
         });
     });
 
-    [DatabaseType.lowdb].forEach(async (testData) => {
+    [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
         test(`Test equality for simple C++ header file on ${DatabaseType[testData]} with multiple function implementations`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
@@ -165,7 +165,7 @@ suite("Database HppFile equality tests", () => {
         });
     });
 
-    [DatabaseType.lowdb].forEach(async (testData) => {
+    [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
         test(`Test not equality for simple C++ header file on ${DatabaseType[testData]} with multiple function declarations (missing declaration)`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
@@ -210,7 +210,7 @@ suite("Database HppFile equality tests", () => {
         });
     });
 
-    [DatabaseType.lowdb].forEach(async (testData) => {
+    [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
         test(`Test not equality for simple C++ header file on ${DatabaseType[testData]} with multiple function implementations (missing implementation)`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
@@ -255,7 +255,7 @@ suite("Database HppFile equality tests", () => {
         });
     });
 
-    [DatabaseType.lowdb].forEach(async (testData) => {
+    [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
         test(`Test equality for simple C++ header file on ${DatabaseType[testData]} based on empty database`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
@@ -271,7 +271,7 @@ suite("Database HppFile equality tests", () => {
         });
     });
 
-    [DatabaseType.lowdb].forEach(async (testData) => {
+    [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
         test(`Test no equality for simple C++ header file on ${DatabaseType[testData]} based on empty database`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
@@ -286,7 +286,7 @@ suite("Database HppFile equality tests", () => {
         });
     });
 
-    [DatabaseType.lowdb].forEach(async (testData) => {
+    [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
         test(`Test no equality for simple C++ header file on ${DatabaseType[testData]} based wrong file name with one function declaration`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
@@ -313,7 +313,7 @@ suite("Database HppFile equality tests", () => {
         });
     });
 
-    [DatabaseType.lowdb].forEach(async (testData) => {
+    [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
         test(`Test no equality for simple C++ header file on ${DatabaseType[testData]} based wrong file name with one function impl`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
@@ -340,7 +340,7 @@ suite("Database HppFile equality tests", () => {
         });
     });
 
-    [DatabaseType.lowdb].forEach(async (testData) => {
+    [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
         test(`Test no equality for simple C++ header file on ${DatabaseType[testData]} based wrong function name with one function declaration`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
@@ -367,7 +367,7 @@ suite("Database HppFile equality tests", () => {
         });
     });
 
-    [DatabaseType.lowdb].forEach(async (testData) => {
+    [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
         test(`Test no equality for simple C++ header file on ${DatabaseType[testData]} based wrong function name with one function implementation`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
@@ -394,7 +394,7 @@ suite("Database HppFile equality tests", () => {
         });
     });
 
-    [DatabaseType.lowdb].forEach(async (testData) => {
+    [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
         test(`Test no equality for simple C++ header file on ${DatabaseType[testData]} based wrong function location with one function declaration`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
@@ -421,7 +421,7 @@ suite("Database HppFile equality tests", () => {
         });
     });
 
-    [DatabaseType.lowdb].forEach(async (testData) => {
+    [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
         test(`Test no equality for simple C++ header file on ${DatabaseType[testData]} based wrong function location with one function implementation`, async () => {
             const [database, referenceDatabase] =
                 await prepareDatabaseEqualityTests(
