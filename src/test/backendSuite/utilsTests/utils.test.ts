@@ -1,5 +1,5 @@
 import * as assert from "assert";
-import * as utils from "../../backend/utils/utils";
+import * as utils from "../../../backend/utils/utils";
 
 suite("ClangCallGraph utils Test Suite", () => {
     test("splitArguments: test simple args split", () => {

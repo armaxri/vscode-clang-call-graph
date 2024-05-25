@@ -2,8 +2,8 @@ import * as assert from "assert";
 import { createNewFilesystemWatcher } from "../filesystem_watcher_test";
 import { delay } from "./../../../../backend/utils/utils";
 import { ClangFilesystemWatcher } from "../../../../backend/ClangFilesystemWatcher";
-import { MockAstWalkerFactory } from "../../utils/MockAstWalkerFactory";
-import { adjustTsToJsPath } from "../../utils/path_helper";
+import { MockAstWalkerFactory } from "../../helper/MockAstWalkerFactory";
+import { adjustTsToJsPath } from "../../helper/path_helper";
 import { LowdbDatabase } from "../../../../backend/database/lowdb/LowdbDatabase";
 const fs = require("fs");
 
