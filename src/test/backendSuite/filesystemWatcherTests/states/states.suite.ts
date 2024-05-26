@@ -1,9 +1,12 @@
-import * as assert from "assert";
+import assert from "assert";
+import { addSuitesInSubDirsSuites } from "../../helper/mocha_test_helper";
 import { createNewFilesystemWatcher } from "../filesystem_watcher_test";
-import { delay } from "./../../../../backend/utils/utils";
+import { delay } from "../../../../backend/utils/utils";
 import { FilesystemWatcherState } from "../../../../backend/ClangFilesystemWatcher";
 
-suite("Clang Filesystem Watcher States Test Suite 00", () => {
+suite("State Handling", () => {
+    addSuitesInSubDirsSuites(__dirname);
+
     test("don't start without request", async () => {
         const [watcher, _] = createNewFilesystemWatcher(__dirname);
         assert.strictEqual(watcher.isRunning(), false);

@@ -1,10 +1,13 @@
 import { DatabaseType } from "../../../../backend/Config";
+import { addSuitesInSubDirsSuites } from "../../helper/mocha_test_helper";
 import {
     testAstWalkerAgainstSpecificDatabase,
     testAstWalkerResults,
 } from "../ast_walker_test";
 
-suite("Clang AST Walker Test Suite: simple static methods in class", () => {
+suite("simple static methods in class", () => {
+    addSuitesInSubDirsSuites(__dirname);
+
     test("full test", async () => {
         await testAstWalkerResults(
             __dirname,

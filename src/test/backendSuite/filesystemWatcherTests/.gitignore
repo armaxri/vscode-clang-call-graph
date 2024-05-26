@@ -1,4 +1,4 @@
 # Needs to be generated automatically by the test to match the checkout directory of the repository.
 compile_commands.json
 # This file is intended and should not be generated.
-!suite00/compile_commands.json
+!states/compile_commands.json

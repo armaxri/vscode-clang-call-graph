@@ -1,7 +1,7 @@
 import * as assert from "assert";
 import * as utils from "../../../backend/utils/utils";
 
-suite("ClangCallGraph utils Test Suite", () => {
+suite("Utils Test Suite", () => {
     test("splitArguments: test simple args split", () => {
         const result = utils.splitArguments("hallo welt!");
         const expected = ["hallo", "welt!"];
