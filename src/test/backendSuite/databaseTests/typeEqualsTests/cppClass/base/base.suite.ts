@@ -12,7 +12,7 @@ suite("Base", () => {
                 const [database, referenceDatabase] =
                     await prepareDatabaseEqualityTests(
                         __dirname,
-                        "../simple_func_decl_expected_db.json",
+                        "simple_func_decl_expected_db.json",
                         testData
                     );
                 const cppFile = await database.getOrAddCppFile(
@@ -33,7 +33,7 @@ suite("Base", () => {
                 const [database, referenceDatabase] =
                     await prepareDatabaseEqualityTests(
                         __dirname,
-                        "../simple_func_decl_expected_db.json",
+                        "simple_func_decl_expected_db.json",
                         testData
                     );
                 const cppFile = await database.getOrAddCppFile(
