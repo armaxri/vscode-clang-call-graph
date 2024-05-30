@@ -4,6 +4,7 @@ import { SqliteCppFile } from "./impls/SqliteCppFile";
 import { SqliteFuncDeclaration } from "./impls/SqliteFuncDeclaration";
 import { SqliteFuncImplementation } from "./impls/SqliteFuncImplementation";
 import { SqliteHppFile } from "./impls/SqliteHppFile";
+import { SqliteCppClass } from "./impls/SqliteCppClass";
 
 export class InternalSqliteDatabase {
     private config: Config;
@@ -31,6 +32,7 @@ export class InternalSqliteDatabase {
     private initDatabase() {
         SqliteCppFile.createTableCalls(this);
         SqliteHppFile.createTableCalls(this);
+        SqliteCppClass.createTableCalls(this);
         SqliteFuncDeclaration.createTableCalls(this);
         SqliteFuncImplementation.createTableCalls(this);
     }
