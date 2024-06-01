@@ -152,13 +152,13 @@ suite("Func Impl", () => {
                 const [database, referenceDatabase] =
                     await prepareDatabaseEqualityTests(
                         __dirname,
-                        "simple_func_decl_expected_db.json",
+                        "simple_func_impl_expected_db.json",
                         testData
                     );
                 const hppFile = await database.getOrAddHppFile(
-                    "simple_func_decl.json"
+                    "simple_func_impl.json"
                 );
-                await hppFile.getOrAddFuncDecl({
+                await hppFile.getOrAddFuncImpl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",

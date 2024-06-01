@@ -31,7 +31,11 @@ export abstract class AbstractHppFile implements HppFile {
     private referencedFromCppFilesEquals(otherList: string[]): boolean {
         const thisList = this.getReferencedFromCppFiles();
 
-        if (thisList.length !== otherList.length) {
+        if (!otherList && !thisList) {
+            return true;
+        }
+
+        if (!otherList || !thisList || thisList.length !== otherList.length) {
             return false;
         }
 

@@ -159,6 +159,9 @@ export class LowdbHppFile extends AbstractHppFile {
     }
 
     getReferencedFromCppFiles(): string[] {
+        if (!this.internal.referencedFromCppFiles) {
+            return [];
+        }
         return this.internal.referencedFromCppFiles;
     }
 

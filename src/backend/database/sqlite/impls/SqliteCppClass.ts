@@ -146,11 +146,22 @@ export class SqliteCppClass extends AbstractCppClass {
         throw new Error("Method not implemented.");
     }
     async getClasses(): Promise<CppClass[]> {
-        // TODO: implement
-        return [];
+        return SqliteCppClass.getCppClasses(this.internal, {
+            cppClassId: this.id,
+        });
     }
-    getOrAddClass(className: string): Promise<CppClass> {
-        throw new Error("Method not implemented.");
+    async getOrAddClass(className: string): Promise<CppClass> {
+        const cppClass = SqliteCppClass.getCppClass(this.internal, className, {
+            cppClassId: this.id,
+        });
+
+        if (cppClass) {
+            return cppClass;
+        }
+
+        return SqliteCppClass.createCppClass(this.internal, className, {
+            cppClassId: this.id,
+        });
     }
     async getFuncDecls(): Promise<FuncDeclaration[]> {
         return SqliteFuncDeclaration.getFuncDecls(this.internal, {

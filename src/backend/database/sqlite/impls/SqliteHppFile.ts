@@ -8,6 +8,7 @@ import {
 } from "../../cpp_structure";
 import { AbstractHppFile } from "../../impls/AbstractHppFile";
 import { InternalSqliteDatabase } from "../InternalSqliteDatabase";
+import { SqliteCppClass } from "./SqliteCppClass";
 import { SqliteFuncDeclaration } from "./SqliteFuncDeclaration";
 import { SqliteFuncImplementation } from "./SqliteFuncImplementation";
 
@@ -106,12 +107,23 @@ export class SqliteHppFile extends AbstractHppFile {
     }
 
     async getClasses(): Promise<CppClass[]> {
-        // TODO: implement
-        return [];
+        return SqliteCppClass.getCppClasses(this.internal, {
+            hppFileId: this.id,
+        });
     }
 
-    getOrAddClass(className: string): Promise<CppClass> {
-        throw new Error("Method not implemented.");
+    async getOrAddClass(className: string): Promise<CppClass> {
+        const cppClass = SqliteCppClass.getCppClass(this.internal, className, {
+            hppFileId: this.id,
+        });
+
+        if (cppClass) {
+            return cppClass;
+        }
+
+        return SqliteCppClass.createCppClass(this.internal, className, {
+            hppFileId: this.id,
+        });
     }
 
     async getFuncDecls(): Promise<FuncDeclaration[]> {

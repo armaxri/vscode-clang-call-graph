@@ -86,6 +86,10 @@ export abstract class AbstractCppClass implements CppClass {
         return (
             this.getName() === other.getName() &&
             this.parentClassNamesEquals(other.getParentClassNames()) &&
+            (await elementEquals<CppClass>(
+                await this.getClasses(),
+                await other.getClasses()
+            )) &&
             (await elementEquals<FuncDeclaration>(
                 await this.getFuncDecls(),
                 await other.getFuncDecls()
