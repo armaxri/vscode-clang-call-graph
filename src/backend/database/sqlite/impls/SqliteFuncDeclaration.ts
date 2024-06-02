@@ -13,19 +13,16 @@ export class SqliteFuncDeclaration extends AbstractFuncDeclaration {
     constructor(
         internal: InternalSqliteDatabase,
         id: number,
-        funcName: string,
-        funcAstName: string,
-        qualType: string,
-        range: Range
+        args: FuncCreationArgs
     ) {
         super();
 
         this.internal = internal;
         this.id = id;
-        this.funcName = funcName;
-        this.funcAstName = funcAstName;
-        this.qualType = qualType;
-        this.range = range;
+        this.funcName = args.funcName;
+        this.funcAstName = args.funcAstName;
+        this.qualType = args.qualType;
+        this.range = args.range;
     }
 
     static createTableCalls(internalDb: InternalSqliteDatabase): void {
@@ -79,14 +76,7 @@ export class SqliteFuncDeclaration extends AbstractFuncDeclaration {
                 }).lastInsertRowid
         );
 
-        return new SqliteFuncDeclaration(
-            internalDb,
-            funcId,
-            args.funcName,
-            args.funcAstName,
-            args.qualType,
-            args.range
-        );
+        return new SqliteFuncDeclaration(internalDb, funcId, args);
     }
 
     static getFuncDecl(
@@ -110,13 +100,11 @@ export class SqliteFuncDeclaration extends AbstractFuncDeclaration {
             );
 
         if (row !== undefined) {
-            return new SqliteFuncDeclaration(
-                internalDb,
-                (row as any).id,
-                (row as any).func_name,
-                (row as any).func_ast_name,
-                (row as any).qual_type,
-                {
+            return new SqliteFuncDeclaration(internalDb, (row as any).id, {
+                funcName: (row as any).func_name,
+                funcAstName: (row as any).func_ast_name,
+                qualType: (row as any).qual_type,
+                range: {
                     start: {
                         line: (row as any).range_start_line,
                         column: (row as any).range_start_column,
@@ -125,8 +113,8 @@ export class SqliteFuncDeclaration extends AbstractFuncDeclaration {
                         line: (row as any).range_end_line,
                         column: (row as any).range_end_column,
                     },
-                }
-            );
+                },
+            });
         }
 
         return null;
@@ -149,13 +137,11 @@ export class SqliteFuncDeclaration extends AbstractFuncDeclaration {
             .all(parent.cppFileId, parent.hppFileId, parent.cppClassId)
             .forEach((row) => {
                 funcDecls.push(
-                    new SqliteFuncDeclaration(
-                        internalDb,
-                        (row as any).id,
-                        (row as any).func_name,
-                        (row as any).func_ast_name,
-                        (row as any).qual_type,
-                        {
+                    new SqliteFuncDeclaration(internalDb, (row as any).id, {
+                        funcName: (row as any).func_name,
+                        funcAstName: (row as any).func_ast_name,
+                        qualType: (row as any).qual_type,
+                        range: {
                             start: {
                                 line: (row as any).range_start_line,
                                 column: (row as any).range_start_column,
@@ -164,8 +150,8 @@ export class SqliteFuncDeclaration extends AbstractFuncDeclaration {
                                 line: (row as any).range_end_line,
                                 column: (row as any).range_end_column,
                             },
-                        }
-                    )
+                        },
+                    })
                 );
             });
 

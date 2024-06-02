@@ -11,6 +11,7 @@ import { AbstractCppClass } from "../../impls/AbstractCppClass";
 import { InternalSqliteDatabase } from "../InternalSqliteDatabase";
 import { SqliteFuncDeclaration } from "./SqliteFuncDeclaration";
 import { SqliteFuncImplementation } from "./SqliteFuncImplementation";
+import { SqliteVirtualFuncDeclaration } from "./SqliteVirtualFuncDeclaration";
 
 export class SqliteCppClass extends AbstractCppClass {
     private internal: InternalSqliteDatabase;
@@ -134,6 +135,7 @@ export class SqliteCppClass extends AbstractCppClass {
     getName(): string {
         return this.className;
     }
+
     async getParentClasses(): Promise<CppClass[]> {
         // TODO: implement
         return [];
@@ -145,11 +147,13 @@ export class SqliteCppClass extends AbstractCppClass {
     addParentClass(parentClass: CppClass): void {
         throw new Error("Method not implemented.");
     }
+
     async getClasses(): Promise<CppClass[]> {
         return SqliteCppClass.getCppClasses(this.internal, {
             cppClassId: this.id,
         });
     }
+
     async getOrAddClass(className: string): Promise<CppClass> {
         const cppClass = SqliteCppClass.getCppClass(this.internal, className, {
             cppClassId: this.id,
@@ -163,11 +167,13 @@ export class SqliteCppClass extends AbstractCppClass {
             cppClassId: this.id,
         });
     }
+
     async getFuncDecls(): Promise<FuncDeclaration[]> {
         return SqliteFuncDeclaration.getFuncDecls(this.internal, {
             cppClassId: this.id,
         });
     }
+
     async getOrAddFuncDecl(args: FuncCreationArgs): Promise<FuncDeclaration> {
         const funcDecl = SqliteFuncDeclaration.getFuncDecl(
             this.internal,
@@ -183,11 +189,13 @@ export class SqliteCppClass extends AbstractCppClass {
             cppClassId: this.id,
         });
     }
+
     async getFuncImpls(): Promise<FuncImplementation[]> {
         return SqliteFuncImplementation.getFuncImpls(this.internal, {
             cppClassId: this.id,
         });
     }
+
     async getOrAddFuncImpl(
         args: FuncCreationArgs
     ): Promise<FuncImplementation> {
@@ -205,15 +213,34 @@ export class SqliteCppClass extends AbstractCppClass {
             cppClassId: this.id,
         });
     }
+
     async getVirtualFuncDecls(): Promise<VirtualFuncDeclaration[]> {
-        // TODO: implement
-        return [];
+        return SqliteVirtualFuncDeclaration.getVirtualFuncDecls(
+            this.internal,
+            this.id
+        );
     }
-    getOrAddVirtualFuncDecl(
+
+    async getOrAddVirtualFuncDecl(
         args: VirtualFuncCreationArgs
     ): Promise<VirtualFuncDeclaration> {
-        throw new Error("Method not implemented.");
+        const virtualFuncDecl = SqliteVirtualFuncDeclaration.getVirtualFuncDecl(
+            this.internal,
+            args,
+            this.id
+        );
+
+        if (virtualFuncDecl) {
+            return virtualFuncDecl;
+        }
+
+        return SqliteVirtualFuncDeclaration.createVirtualFuncDecl(
+            this.internal,
+            args,
+            this.id
+        );
     }
+
     async getVirtualFuncImpls(): Promise<VirtualFuncImplementation[]> {
         // TODO: implement
         return [];

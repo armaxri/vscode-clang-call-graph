@@ -1,4 +1,3 @@
-import { cp } from "fs";
 import {
     FuncCall,
     FuncCallCreationArgs,
@@ -21,19 +20,16 @@ export class SqliteFuncImplementation extends AbstractFuncImplementation {
     constructor(
         internal: InternalSqliteDatabase,
         id: number,
-        funcName: string,
-        funcAstName: string,
-        qualType: string,
-        range: Range
+        args: FuncCreationArgs
     ) {
         super();
 
         this.internal = internal;
         this.id = id;
-        this.funcName = funcName;
-        this.funcAstName = funcAstName;
-        this.qualType = qualType;
-        this.range = range;
+        this.funcName = args.funcName;
+        this.funcAstName = args.funcAstName;
+        this.qualType = args.qualType;
+        this.range = args.range;
     }
 
     static createTableCalls(internalDb: InternalSqliteDatabase): void {
@@ -87,14 +83,7 @@ export class SqliteFuncImplementation extends AbstractFuncImplementation {
                 }).lastInsertRowid
         );
 
-        return new SqliteFuncImplementation(
-            internalDb,
-            funcId,
-            args.funcName,
-            args.funcAstName,
-            args.qualType,
-            args.range
-        );
+        return new SqliteFuncImplementation(internalDb, funcId, args);
     }
 
     static getFuncImpl(
@@ -121,17 +110,19 @@ export class SqliteFuncImplementation extends AbstractFuncImplementation {
             const implementation = new SqliteFuncImplementation(
                 internalDb,
                 (row as any).id,
-                funcName,
-                (row as any).funcAstName,
-                (row as any).qualType,
                 {
-                    start: {
-                        line: (row as any).range_start_line,
-                        column: (row as any).range_start_column,
-                    },
-                    end: {
-                        line: (row as any).range_end_line,
-                        column: (row as any).range_end_column,
+                    funcName: (row as any).func_name,
+                    funcAstName: (row as any).func_ast_name,
+                    qualType: (row as any).qual_type,
+                    range: {
+                        start: {
+                            line: (row as any).range_start_line,
+                            column: (row as any).range_start_column,
+                        },
+                        end: {
+                            line: (row as any).range_end_line,
+                            column: (row as any).range_end_column,
+                        },
                     },
                 }
             );
@@ -163,17 +154,19 @@ export class SqliteFuncImplementation extends AbstractFuncImplementation {
                 const funcImpl = new SqliteFuncImplementation(
                     internalDb,
                     (row as any).id,
-                    (row as any).func_name,
-                    (row as any).func_ast_name,
-                    (row as any).qual_type,
                     {
-                        start: {
-                            line: (row as any).range_start_line,
-                            column: (row as any).range_start_column,
-                        },
-                        end: {
-                            line: (row as any).range_end_line,
-                            column: (row as any).range_end_column,
+                        funcName: (row as any).func_name,
+                        funcAstName: (row as any).func_ast_name,
+                        qualType: (row as any).qual_type,
+                        range: {
+                            start: {
+                                line: (row as any).range_start_line,
+                                column: (row as any).range_start_column,
+                            },
+                            end: {
+                                line: (row as any).range_end_line,
+                                column: (row as any).range_end_column,
+                            },
                         },
                     }
                 );
