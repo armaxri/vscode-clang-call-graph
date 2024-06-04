@@ -1,0 +1,87 @@
+{
+  "databaseVersion": 1,
+  "cppFiles": [
+    {
+      "name": "multiple_simple_virtual_func_impl.json",
+      "lastAnalyzed": 1714317242704,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [
+        {
+          "funcName": "add",
+          "funcAstName": "__ZN3foo3addEii",
+          "qualType": "int (int, int)",
+          "range": {
+            "start": {
+              "line": 11,
+              "column": 5
+            },
+            "end": {
+              "line": 11,
+              "column": 8
+            }
+          },
+          "baseFuncAstName": "__ZN3foo3addEii",
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "sub",
+          "funcAstName": "__ZN3foo3subEii",
+          "qualType": "int (int, int)",
+          "range": {
+            "start": {
+              "line": 12,
+              "column": 5
+            },
+            "end": {
+              "line": 12,
+              "column": 8
+            }
+          },
+          "baseFuncAstName": "__ZN3foo3subEii",
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "multiply",
+          "funcAstName": "__ZN3foo8multiplyEii",
+          "qualType": "int (int, int)",
+          "range": {
+            "start": {
+              "line": 13,
+              "column": 5
+            },
+            "end": {
+              "line": 13,
+              "column": 13
+            }
+          },
+          "baseFuncAstName": "__ZN3foo8multiplyEii",
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "divide",
+          "funcAstName": "__ZN3foo6divideEii",
+          "qualType": "int (int, int)",
+          "range": {
+            "start": {
+              "line": 14,
+              "column": 5
+            },
+            "end": {
+              "line": 14,
+              "column": 11
+            }
+          },
+          "baseFuncAstName": "__ZN3foo6divideEii",
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        }
+      ]
+    }
+  ],
+  "hppFiles": []
+}

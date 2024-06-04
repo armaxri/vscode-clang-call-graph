@@ -11,6 +11,7 @@ import { InternalSqliteDatabase } from "../InternalSqliteDatabase";
 import { SqliteCppClass } from "./SqliteCppClass";
 import { SqliteFuncDeclaration } from "./SqliteFuncDeclaration";
 import { SqliteFuncImplementation } from "./SqliteFuncImplementation";
+import { SqliteVirtualFuncImplementation } from "./SqliteVirtualFuncImplementation";
 
 export class SqliteCppFile extends AbstractCppFile {
     private internal: InternalSqliteDatabase;
@@ -164,13 +165,32 @@ export class SqliteCppFile extends AbstractCppFile {
     }
 
     async getVirtualFuncImpls(): Promise<VirtualFuncImplementation[]> {
-        // TODO: implement
-        return [];
+        return SqliteVirtualFuncImplementation.getVirtualFuncImpls(
+            this.internal,
+            {
+                cppFileId: this.id,
+            }
+        );
     }
 
-    getOrAddVirtualFuncImpl(
+    async getOrAddVirtualFuncImpl(
         args: VirtualFuncCreationArgs
     ): Promise<VirtualFuncImplementation> {
-        throw new Error("Method not implemented.");
+        const virtualFuncImpl =
+            SqliteVirtualFuncImplementation.getVirtualFuncImpl(
+                this.internal,
+                args,
+                { cppFileId: this.id }
+            );
+
+        if (virtualFuncImpl) {
+            return virtualFuncImpl;
+        }
+
+        return SqliteVirtualFuncImplementation.createVirtualFuncImpl(
+            this.internal,
+            args,
+            { cppFileId: this.id }
+        );
     }
 }

@@ -12,6 +12,7 @@ import { InternalSqliteDatabase } from "../InternalSqliteDatabase";
 import { SqliteFuncDeclaration } from "./SqliteFuncDeclaration";
 import { SqliteFuncImplementation } from "./SqliteFuncImplementation";
 import { SqliteVirtualFuncDeclaration } from "./SqliteVirtualFuncDeclaration";
+import { SqliteVirtualFuncImplementation } from "./SqliteVirtualFuncImplementation";
 
 export class SqliteCppClass extends AbstractCppClass {
     private internal: InternalSqliteDatabase;
@@ -59,7 +60,8 @@ export class SqliteCppClass extends AbstractCppClass {
         const classId = Number(
             internalDb.db
                 .prepare(
-                    "INSERT INTO cpp_classes (class_name, cpp_file_id, hpp_file_id, cpp_class_id) VALUES (@className, @cppFileId, @hppFileId, @cppClassId)"
+                    `INSERT INTO cpp_classes (class_name, cpp_file_id, hpp_file_id, cpp_class_id)
+                     VALUES (@className, @cppFileId, @hppFileId, @cppClassId)`
                 )
                 .run({
                     className,
@@ -83,7 +85,8 @@ export class SqliteCppClass extends AbstractCppClass {
     ): SqliteCppClass | null {
         const row = internalDb.db
             .prepare(
-                "SELECT id FROM cpp_classes WHERE class_name=(?) AND cpp_file_id=(?) AND hpp_file_id=(?) AND cpp_class_id=(?)"
+                `SELECT id FROM cpp_classes
+                 WHERE class_name=(?) AND cpp_file_id=(?) AND hpp_file_id=(?) AND cpp_class_id=(?)`
             )
             .get(
                 className,
@@ -242,12 +245,32 @@ export class SqliteCppClass extends AbstractCppClass {
     }
 
     async getVirtualFuncImpls(): Promise<VirtualFuncImplementation[]> {
-        // TODO: implement
-        return [];
+        return SqliteVirtualFuncImplementation.getVirtualFuncImpls(
+            this.internal,
+            {
+                cppClassId: this.id,
+            }
+        );
     }
-    getOrAddVirtualFuncImpl(
+
+    async getOrAddVirtualFuncImpl(
         args: VirtualFuncCreationArgs
     ): Promise<VirtualFuncImplementation> {
-        throw new Error("Method not implemented.");
+        const virtualFuncImpl =
+            SqliteVirtualFuncImplementation.getVirtualFuncImpl(
+                this.internal,
+                args,
+                { cppClassId: this.id }
+            );
+
+        if (virtualFuncImpl) {
+            return virtualFuncImpl;
+        }
+
+        return SqliteVirtualFuncImplementation.createVirtualFuncImpl(
+            this.internal,
+            args,
+            { cppClassId: this.id }
+        );
     }
 }

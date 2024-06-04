@@ -1,11 +1,19 @@
-import { FuncCreationArgs, Range } from "../../cpp_structure";
-import { AbstractFuncDeclaration } from "../../impls/AbstractFuncDeclaration";
+import {
+    Range,
+    FuncCall,
+    FuncCallCreationArgs,
+    VirtualFuncCall,
+    VirtualFuncCallCreationArgs,
+    VirtualFuncCreationArgs,
+} from "../../cpp_structure";
+import { AbstractVirtualFuncImplementation } from "../../impls/AbstractVirtualFuncImplementation";
 import { InternalSqliteDatabase } from "../InternalSqliteDatabase";
 
-export class SqliteFuncDeclaration extends AbstractFuncDeclaration {
+export class SqliteVirtualFuncImplementation extends AbstractVirtualFuncImplementation {
     private internal: InternalSqliteDatabase;
     private id: number;
     private funcName: string;
+    private baseFuncAstName: string;
     private funcAstName: string;
     private qualType: string;
     private range: Range;
@@ -13,12 +21,13 @@ export class SqliteFuncDeclaration extends AbstractFuncDeclaration {
     constructor(
         internal: InternalSqliteDatabase,
         id: number,
-        args: FuncCreationArgs
+        args: VirtualFuncCreationArgs
     ) {
         super();
 
         this.internal = internal;
         this.id = id;
+        this.baseFuncAstName = args.baseFuncAstName;
         this.funcName = args.funcName;
         this.funcAstName = args.funcAstName;
         this.qualType = args.qualType;
@@ -27,8 +36,9 @@ export class SqliteFuncDeclaration extends AbstractFuncDeclaration {
 
     static createTableCalls(internalDb: InternalSqliteDatabase): void {
         internalDb.db.exec(`
-            CREATE TABLE func_declarations (
+            CREATE TABLE virtual_func_implementations (
                 id                 INTEGER PRIMARY KEY AUTOINCREMENT,
+                base_func_ast_name TEXT NOT NULL,
                 func_name          TEXT NOT NULL,
                 func_ast_name      TEXT NOT NULL,
                 qual_type          TEXT NOT NULL,
@@ -48,25 +58,28 @@ export class SqliteFuncDeclaration extends AbstractFuncDeclaration {
         `);
     }
 
-    static createFuncDecl(
+    static createVirtualFuncImpl(
         internalDb: InternalSqliteDatabase,
-        args: FuncCreationArgs,
+        args: VirtualFuncCreationArgs,
         parent: {
             cppFileId?: number;
             hppFileId?: number;
             cppClassId?: number;
         }
-    ): SqliteFuncDeclaration {
+    ): SqliteVirtualFuncImplementation {
         const funcId = Number(
             internalDb.db
                 .prepare(
                     `
-                    INSERT INTO func_declarations (func_name, func_ast_name, qual_type, range_start_line, range_start_column, range_end_line,
-                        range_end_column, cpp_file_id, hpp_file_id, cpp_class_id)
-                    VALUES (@funcName, @funcAstName, @qualType, @rangeStartLine, @rangeStartColumn, @rangeEndLine, @rangeEndColumn, @cppFileId,
-                        @hppFileId, @cppClassId)`
+            INSERT INTO virtual_func_implementations (base_func_ast_name,
+                func_name, func_ast_name, qual_type, range_start_line, range_start_column,
+                range_end_line, range_end_column, cpp_file_id, hpp_file_id, cpp_class_id)
+            VALUES(@baseFuncAstName, @funcName, @funcAstName, @qualType, @rangeStartLine, @rangeStartColumn, @rangeEndLine,
+                @rangeEndColumn, @cppFileId, @hppFileId, @cppClassId)
+            `
                 )
                 .run({
+                    baseFuncAstName: args.baseFuncAstName,
                     funcName: args.funcName,
                     funcAstName: args.funcAstName,
                     qualType: args.qualType,
@@ -80,31 +93,45 @@ export class SqliteFuncDeclaration extends AbstractFuncDeclaration {
                 }).lastInsertRowid
         );
 
-        return new SqliteFuncDeclaration(internalDb, funcId, args);
+        return new SqliteVirtualFuncImplementation(internalDb, funcId, args);
     }
 
-    static getFuncDecl(
+    static getVirtualFuncImpl(
         internalDb: InternalSqliteDatabase,
-        funcName: string,
+        virtualFuncCall: VirtualFuncCreationArgs,
         parent: {
             cppFileId?: number;
             hppFileId?: number;
             cppClassId?: number;
         }
-    ): SqliteFuncDeclaration | null {
+    ): SqliteVirtualFuncImplementation | null {
         const row = internalDb.db
             .prepare(
-                "SELECT * FROM func_declarations WHERE func_name=(?) AND (cpp_file_id=(?) OR hpp_file_id=(?) OR cpp_class_id=(?))"
+                `
+            SELECT * FROM virtual_func_implementations
+            WHERE func_name = @funcName AND base_func_ast_name = @baseFuncAstName AND qual_type = @qualType AND func_ast_name = @funcAstName
+                AND (cpp_file_id = @cppFileId OR hpp_file_id = @hppFileId OR cpp_class_id = @cppClassId)
+            `
             )
-            .get(
-                funcName,
-                parent.cppFileId,
-                parent.hppFileId,
-                parent.cppClassId
-            );
+            .get({
+                funcName: virtualFuncCall.funcName,
+                baseFuncAstName: virtualFuncCall.baseFuncAstName,
+                qualType: virtualFuncCall.qualType,
+                funcAstName: virtualFuncCall.funcAstName,
+                cppFileId: parent.cppFileId,
+                hppFileId: parent.hppFileId,
+                cppClassId: parent.cppClassId,
+            });
 
-        if (row !== undefined) {
-            return new SqliteFuncDeclaration(internalDb, (row as any).id, {
+        if (!row) {
+            return null;
+        }
+
+        return new SqliteVirtualFuncImplementation(
+            internalDb,
+            (row as any).id,
+            {
+                baseFuncAstName: (row as any).base_func_ast_name,
                 funcName: (row as any).func_name,
                 funcAstName: (row as any).func_ast_name,
                 qualType: (row as any).qual_type,
@@ -118,30 +145,42 @@ export class SqliteFuncDeclaration extends AbstractFuncDeclaration {
                         column: (row as any).range_end_column,
                     },
                 },
-            });
-        }
-
-        return null;
+            }
+        );
+        // TODO: Add function calls to implementation.
     }
 
-    static getFuncDecls(
+    static getVirtualFuncImpls(
         internalDb: InternalSqliteDatabase,
         parent: {
             cppFileId?: number;
             hppFileId?: number;
             cppClassId?: number;
         }
-    ): SqliteFuncDeclaration[] {
-        const funcDecls: SqliteFuncDeclaration[] = [];
+    ): SqliteVirtualFuncImplementation[] {
+        const virtualFuncImpls: SqliteVirtualFuncImplementation[] = [];
 
-        internalDb.db
+        const rows = internalDb.db
             .prepare(
-                "SELECT * FROM func_declarations WHERE cpp_file_id=(?) OR hpp_file_id=(?) OR cpp_class_id=(?)"
+                `
+            SELECT * FROM virtual_func_implementations
+            WHERE cpp_file_id = @cppFileId OR hpp_file_id = @hppFileId OR cpp_class_id = @cppClassId
+            `
             )
-            .all(parent.cppFileId, parent.hppFileId, parent.cppClassId)
-            .forEach((row) => {
-                funcDecls.push(
-                    new SqliteFuncDeclaration(internalDb, (row as any).id, {
+            .all({
+                cppFileId: parent.cppFileId,
+                hppFileId: parent.hppFileId,
+                cppClassId: parent.cppClassId,
+            });
+
+        for (const row of rows) {
+            virtualFuncImpls.push(
+                // TODO: Add function calls to implementation.
+                new SqliteVirtualFuncImplementation(
+                    internalDb,
+                    (row as any).id,
+                    {
+                        baseFuncAstName: (row as any).base_func_ast_name,
                         funcName: (row as any).func_name,
                         funcAstName: (row as any).func_ast_name,
                         qualType: (row as any).qual_type,
@@ -155,11 +194,12 @@ export class SqliteFuncDeclaration extends AbstractFuncDeclaration {
                                 column: (row as any).range_end_column,
                             },
                         },
-                    })
-                );
-            });
+                    }
+                )
+            );
+        }
 
-        return funcDecls;
+        return virtualFuncImpls;
     }
 
     getFuncName(): string {
@@ -176,5 +216,29 @@ export class SqliteFuncDeclaration extends AbstractFuncDeclaration {
 
     getRange(): Range {
         return this.range;
+    }
+
+    getBaseFuncAstName(): string {
+        return this.baseFuncAstName;
+    }
+
+    async getFuncCalls(): Promise<FuncCall[]> {
+        // TODO: Implement
+        return [];
+    }
+
+    addFuncCall(funcCall: FuncCallCreationArgs): Promise<void> {
+        throw new Error("Method not implemented.");
+    }
+
+    async getVirtualFuncCalls(): Promise<VirtualFuncCall[]> {
+        // TODO: Implement
+        return [];
+    }
+
+    addVirtualFuncCall(
+        virtualFuncCall: VirtualFuncCallCreationArgs
+    ): Promise<void> {
+        throw new Error("Method not implemented.");
     }
 }

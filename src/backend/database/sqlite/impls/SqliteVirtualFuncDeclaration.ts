@@ -59,7 +59,11 @@ export class SqliteVirtualFuncDeclaration extends AbstractVirtualFuncDeclaration
         const fileId = Number(
             internalDb.db
                 .prepare(
-                    "INSERT INTO virtual_func_declarations (base_func_ast_name, func_name,func_ast_name, qual_type, range_start_line, range_start_column, range_end_line, range_end_column, cpp_class_id) VALUES (@baseFuncAstName, @funcName, @funcAstName, @qualType, @rangeStartLine, @rangeStartColumn, @rangeEndLine, @rangeEndColumn, @cppClassId)"
+                    `
+                    INSERT INTO virtual_func_declarations (base_func_ast_name, func_name,func_ast_name, qual_type,
+                        range_start_line, range_start_column, range_end_line, range_end_column, cpp_class_id)
+                    VALUES (@baseFuncAstName, @funcName, @funcAstName, @qualType, @rangeStartLine, @rangeStartColumn,
+                        @rangeEndLine, @rangeEndColumn, @cppClassId)`
                 )
                 .run({
                     baseFuncAstName: args.baseFuncAstName,
@@ -84,7 +88,10 @@ export class SqliteVirtualFuncDeclaration extends AbstractVirtualFuncDeclaration
     ): SqliteVirtualFuncDeclaration | null {
         const row = internalDb.db
             .prepare(
-                "SELECT id, base_func_ast_name, func_name, func_ast_name, range_start_line, range_start_column, range_end_line, range_end_column FROM virtual_func_declarations WHERE base_func_ast_name=(?) AND func_name=(?) AND qual_type=(?) AND cpp_class_id=(?)"
+                `
+                SELECT id, base_func_ast_name, func_name, func_ast_name, range_start_line, range_start_column,
+                    range_end_line, range_end_column FROM virtual_func_declarations
+                WHERE base_func_ast_name=(?) AND func_name=(?) AND qual_type=(?) AND cpp_class_id=(?)`
             )
             .get(
                 args.baseFuncAstName,

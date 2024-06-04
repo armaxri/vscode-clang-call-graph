@@ -67,7 +67,11 @@ export class SqliteFuncImplementation extends AbstractFuncImplementation {
         const funcId = Number(
             internalDb.db
                 .prepare(
-                    "INSERT INTO func_implementations (func_name, func_ast_name, qual_type, range_start_line, range_start_column, range_end_line, range_end_column, cpp_file_id, hpp_file_id, cpp_class_id) VALUES (@funcName, @funcAstName, @qualType, @rangeStartLine, @rangeStartColumn, @rangeEndLine, @rangeEndColumn, @cppFileId, @hppFileId, @cppClassId)"
+                    `
+                    INSERT INTO func_implementations (func_name, func_ast_name, qual_type, range_start_line, range_start_column,
+                        range_end_line, range_end_column, cpp_file_id, hpp_file_id, cpp_class_id)
+                    VALUES (@funcName, @funcAstName, @qualType, @rangeStartLine, @rangeStartColumn, @rangeEndLine, @rangeEndColumn,
+                        @cppFileId, @hppFileId, @cppClassId)`
                 )
                 .run({
                     funcName: args.funcName,
