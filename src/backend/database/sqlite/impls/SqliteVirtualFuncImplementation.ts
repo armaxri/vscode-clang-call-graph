@@ -6,8 +6,10 @@ import {
     VirtualFuncCallCreationArgs,
     VirtualFuncCreationArgs,
 } from "../../cpp_structure";
+import { funcCallArgs2FuncArgs } from "../../helper/func_creation_args_converter";
 import { AbstractVirtualFuncImplementation } from "../../impls/AbstractVirtualFuncImplementation";
 import { InternalSqliteDatabase } from "../InternalSqliteDatabase";
+import { SqliteFuncCall } from "./SqliteFuncCall";
 
 export class SqliteVirtualFuncImplementation extends AbstractVirtualFuncImplementation {
     private internal: InternalSqliteDatabase;
@@ -175,7 +177,6 @@ export class SqliteVirtualFuncImplementation extends AbstractVirtualFuncImplemen
 
         for (const row of rows) {
             virtualFuncImpls.push(
-                // TODO: Add function calls to implementation.
                 new SqliteVirtualFuncImplementation(
                     internalDb,
                     (row as any).id,
@@ -223,12 +224,21 @@ export class SqliteVirtualFuncImplementation extends AbstractVirtualFuncImplemen
     }
 
     async getFuncCalls(): Promise<FuncCall[]> {
-        // TODO: Implement
-        return [];
+        return SqliteFuncCall.getFuncCalls(this.internal, {
+            virtualFuncImplId: this.id,
+        });
     }
 
-    addFuncCall(funcCall: FuncCallCreationArgs): Promise<void> {
-        throw new Error("Method not implemented.");
+    async addFuncCall(funcCall: FuncCallCreationArgs): Promise<void> {
+        SqliteFuncCall.createFuncCall(
+            this.internal,
+            funcCallArgs2FuncArgs(funcCall),
+            {
+                virtualFuncImplId: this.id,
+            }
+        );
+
+        return;
     }
 
     async getVirtualFuncCalls(): Promise<VirtualFuncCall[]> {
