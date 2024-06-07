@@ -8,6 +8,7 @@ import { SqliteCppClass } from "./impls/SqliteCppClass";
 import { SqliteVirtualFuncDeclaration } from "./impls/SqliteVirtualFuncDeclaration";
 import { SqliteVirtualFuncImplementation } from "./impls/SqliteVirtualFuncImplementation";
 import { SqliteFuncCall } from "./impls/SqliteFuncCall";
+import { SqliteVirtualFuncCall } from "./impls/SqliteVirtualFuncCall";
 
 export class InternalSqliteDatabase {
     private config: Config;
@@ -41,6 +42,7 @@ export class InternalSqliteDatabase {
         SqliteVirtualFuncDeclaration.createTableCalls(this);
         SqliteVirtualFuncImplementation.createTableCalls(this);
         SqliteFuncCall.createTableCalls(this);
+        SqliteVirtualFuncCall.createTableCalls(this);
     }
 
     resetDatabase() {
