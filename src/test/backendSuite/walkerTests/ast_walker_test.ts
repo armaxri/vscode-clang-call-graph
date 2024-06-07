@@ -3,8 +3,8 @@ import * as fs from "fs";
 import { PathUtils } from "../../../backend/utils/PathUtils";
 import * as astJson from "../../../backend/astWalker/clang/clang_ast_json";
 import { ClangAstWalker } from "../../../backend/astWalker/clang/ClangAstWalker";
-import { MockConfig } from "../utils/MockConfig";
-import { adjustTsToJsPath } from "../utils/path_helper";
+import { MockConfig } from "../helper/MockConfig";
+import { adjustTsToJsPath } from "../helper/path_helper";
 import { LowdbDatabase } from "../../../backend/database/lowdb/LowdbDatabase";
 import {
     LowdbInternalCppFile,

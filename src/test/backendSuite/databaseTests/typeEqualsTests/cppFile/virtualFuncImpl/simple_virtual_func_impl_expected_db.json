@@ -1,0 +1,33 @@
+{
+  "databaseVersion": 1,
+  "cppFiles": [
+    {
+      "name": "simple_virtual_func_impl.json",
+      "lastAnalyzed": 1714317242704,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [
+        {
+          "funcName": "add",
+          "funcAstName": "__ZN3foo3addEii",
+          "qualType": "int (int, int)",
+          "range": {
+            "start": {
+              "line": 11,
+              "column": 5
+            },
+            "end": {
+              "line": 11,
+              "column": 8
+            }
+          },
+          "baseFuncAstName": "__ZN3foo3addEii",
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        }
+      ]
+    }
+  ],
+  "hppFiles": []
+}

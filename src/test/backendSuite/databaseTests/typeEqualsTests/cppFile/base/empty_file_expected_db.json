@@ -1,0 +1,14 @@
+{
+  "databaseVersion": 1,
+  "cppFiles": [
+    {
+      "name": "empty.json",
+      "lastAnalyzed": 1714317242704,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": []
+    }
+  ],
+  "hppFiles": []
+}

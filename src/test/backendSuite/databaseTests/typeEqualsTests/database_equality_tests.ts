@@ -2,8 +2,8 @@ import { DatabaseType } from "../../../../backend/Config";
 import { Database } from "../../../../backend/database/Database";
 import { createDatabase } from "../../../../backend/database/helper/database_factory";
 import { LowdbDatabase } from "../../../../backend/database/lowdb/LowdbDatabase";
-import { MockConfig } from "../../utils/MockConfig";
-import { removeOldDatabase } from "../../utils/database_helper";
+import { MockConfig } from "../../helper/MockConfig";
+import { removeOldDatabase } from "../../helper/database_helper";
 
 export async function loadReferenceDb(
     callingFileDirName: string,

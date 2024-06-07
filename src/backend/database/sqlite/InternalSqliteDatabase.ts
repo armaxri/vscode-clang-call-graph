@@ -1,9 +1,18 @@
-import * as sqlite3 from "sqlite3";
+import Database from "better-sqlite3";
 import { Config } from "../../Config";
+import { SqliteCppFile } from "./impls/SqliteCppFile";
+import { SqliteFuncDeclaration } from "./impls/SqliteFuncDeclaration";
+import { SqliteFuncImplementation } from "./impls/SqliteFuncImplementation";
+import { SqliteHppFile } from "./impls/SqliteHppFile";
+import { SqliteCppClass } from "./impls/SqliteCppClass";
+import { SqliteVirtualFuncDeclaration } from "./impls/SqliteVirtualFuncDeclaration";
+import { SqliteVirtualFuncImplementation } from "./impls/SqliteVirtualFuncImplementation";
+import { SqliteFuncCall } from "./impls/SqliteFuncCall";
+import { SqliteVirtualFuncCall } from "./impls/SqliteVirtualFuncCall";
 
 export class InternalSqliteDatabase {
     private config: Config;
-    public db!: sqlite3.Database;
+    public db!: Database.Database;
 
     constructor(config: Config) {
         this.config = config;
@@ -12,18 +21,33 @@ export class InternalSqliteDatabase {
     }
 
     loadDatabase() {
-        const databaseLoader = this.config.runVerbose()
-            ? sqlite3.verbose()
-            : sqlite3;
+        const databaseExists = this.config.getSqliteDatabasePath().doesExist();
 
-        // TODO: Check the caching part.
-        this.db = new databaseLoader.Database(
-            this.config.getSqliteDatabasePath().pathString()
+        this.db = new Database(
+            this.config.getSqliteDatabasePath().pathString(),
+            { verbose: this.config.runVerbose() ? console.log : undefined }
         );
+
+        if (!databaseExists) {
+            this.initDatabase();
+        }
+    }
+
+    private initDatabase() {
+        SqliteCppFile.createTableCalls(this);
+        SqliteHppFile.createTableCalls(this);
+        SqliteCppClass.createTableCalls(this);
+        SqliteFuncDeclaration.createTableCalls(this);
+        SqliteFuncImplementation.createTableCalls(this);
+        SqliteVirtualFuncDeclaration.createTableCalls(this);
+        SqliteVirtualFuncImplementation.createTableCalls(this);
+        SqliteFuncCall.createTableCalls(this);
+        SqliteVirtualFuncCall.createTableCalls(this);
     }
 
     resetDatabase() {
         this.db.close();
+        this.config.getSqliteDatabasePath().tryToRemove();
         this.loadDatabase();
     }
 }

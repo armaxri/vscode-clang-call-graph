@@ -1,0 +1,35 @@
+{
+  "databaseVersion": 1,
+  "cppFiles": [
+    {
+      "name": "simple_cpp_class.json",
+      "lastAnalyzed": 1714317242704,
+      "classes": [
+        {
+          "name": "BarClass",
+          "parentClasses": [],
+          "classes": [
+            {
+              "name": "FooClass",
+              "parentClasses": [],
+              "classes": [],
+              "funcDecls": [],
+              "funcImpls": [],
+              "virtualFuncDecls": [],
+              "virtualFuncImpls": []
+            }
+          ],
+          "funcDecls": [],
+          "funcImpls": [],
+          "virtualFuncDecls": [],
+          "virtualFuncImpls": []
+        }
+      ],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncDecls": [],
+      "virtualFuncImpls": []
+    }
+  ],
+  "hppFiles": []
+}

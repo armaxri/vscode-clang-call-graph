@@ -1,7 +1,7 @@
 import { ClangFilesystemWatcher } from "../../../backend/ClangFilesystemWatcher";
-import { MockConfig } from "../utils/MockConfig";
-import { MockAstWalkerFactory } from "../utils/MockAstWalkerFactory";
-import { MockUserInterface } from "../utils/MockUserInterface";
+import { MockConfig } from "../helper/MockConfig";
+import { MockAstWalkerFactory } from "../helper/MockAstWalkerFactory";
+import { MockUserInterface } from "../helper/MockUserInterface";
 import { LowdbDatabase } from "../../../backend/database/lowdb/LowdbDatabase";
 
 export function createNewFilesystemWatcher(
