@@ -10,16 +10,16 @@ suite("Virtual Func Decl", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "simple_virtual_func_decl_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "simple_virtual_func_decl.json"
                 );
-                const cppClass = await cppFile.getOrAddClass("FooClass");
-                await cppClass.getOrAddVirtualFuncDecl({
+                const cppClass = cppFile.getOrAddClass("FooClass");
+                cppClass.getOrAddVirtualFuncDecl({
                     baseFuncAstName: "__ZN3foo3addEii",
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
@@ -30,9 +30,9 @@ suite("Virtual Func Decl", () => {
                     },
                 });
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(await database.equals(referenceDatabase));
+                assert.ok(database.equals(referenceDatabase));
             });
         });
     });
@@ -41,16 +41,16 @@ suite("Virtual Func Decl", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "multiple_simple_virtual_func_decl_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "multiple_simple_virtual_func_decl.json"
                 );
-                const cppClass = await cppFile.getOrAddClass("FooClass");
-                await cppClass.getOrAddVirtualFuncDecl({
+                const cppClass = cppFile.getOrAddClass("FooClass");
+                cppClass.getOrAddVirtualFuncDecl({
                     baseFuncAstName: "__ZN3foo3addEii",
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
@@ -60,7 +60,7 @@ suite("Virtual Func Decl", () => {
                         end: { line: 11, column: 8 },
                     },
                 });
-                await cppClass.getOrAddVirtualFuncDecl({
+                cppClass.getOrAddVirtualFuncDecl({
                     baseFuncAstName: "__ZN3foo3subEii",
                     funcName: "sub",
                     funcAstName: "__ZN3foo3subEii",
@@ -70,7 +70,7 @@ suite("Virtual Func Decl", () => {
                         end: { line: 12, column: 8 },
                     },
                 });
-                await cppClass.getOrAddVirtualFuncDecl({
+                cppClass.getOrAddVirtualFuncDecl({
                     baseFuncAstName: "__ZN3foo8multiplyEii",
                     funcName: "multiply",
                     funcAstName: "__ZN3foo8multiplyEii",
@@ -80,7 +80,7 @@ suite("Virtual Func Decl", () => {
                         end: { line: 13, column: 13 },
                     },
                 });
-                await cppClass.getOrAddVirtualFuncDecl({
+                cppClass.getOrAddVirtualFuncDecl({
                     baseFuncAstName: "__ZN3foo6divideEii",
                     funcName: "divide",
                     funcAstName: "__ZN3foo6divideEii",
@@ -91,9 +91,9 @@ suite("Virtual Func Decl", () => {
                     },
                 });
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(await database.equals(referenceDatabase));
+                assert.ok(database.equals(referenceDatabase));
             });
         });
     });
@@ -102,16 +102,16 @@ suite("Virtual Func Decl", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "multiple_simple_virtual_func_decl_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "multiple_simple_virtual_func_decl.json"
                 );
-                const cppClass = await cppFile.getOrAddClass("FooClass");
-                await cppClass.getOrAddVirtualFuncDecl({
+                const cppClass = cppFile.getOrAddClass("FooClass");
+                cppClass.getOrAddVirtualFuncDecl({
                     baseFuncAstName: "__ZN3foo3addEii",
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
@@ -121,7 +121,7 @@ suite("Virtual Func Decl", () => {
                         end: { line: 11, column: 8 },
                     },
                 });
-                await cppClass.getOrAddVirtualFuncDecl({
+                cppClass.getOrAddVirtualFuncDecl({
                     baseFuncAstName: "__ZN3foo3addEii",
                     funcName: "multiply",
                     funcAstName: "__ZN3foo8multiplyEii",
@@ -131,7 +131,7 @@ suite("Virtual Func Decl", () => {
                         end: { line: 13, column: 13 },
                     },
                 });
-                await cppClass.getOrAddVirtualFuncDecl({
+                cppClass.getOrAddVirtualFuncDecl({
                     baseFuncAstName: "__ZN3foo3addEii",
                     funcName: "divide",
                     funcAstName: "__ZN3foo6divideEii",
@@ -142,9 +142,9 @@ suite("Virtual Func Decl", () => {
                     },
                 });
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(!(await database.equals(referenceDatabase)));
+                assert.ok(!database.equals(referenceDatabase));
             });
         });
     });
@@ -153,16 +153,16 @@ suite("Virtual Func Decl", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "simple_virtual_func_decl_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "simple_virtual_func_decl.json"
                 );
-                const cppClass = await cppFile.getOrAddClass("FooClass");
-                await cppClass.getOrAddVirtualFuncDecl({
+                const cppClass = cppFile.getOrAddClass("FooClass");
+                cppClass.getOrAddVirtualFuncDecl({
                     baseFuncAstName: "__ZN3foo3addEii",
                     funcName: "multiply",
                     funcAstName: "__ZN3foo3addEii",
@@ -173,9 +173,9 @@ suite("Virtual Func Decl", () => {
                     },
                 });
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(!(await database.equals(referenceDatabase)));
+                assert.ok(!database.equals(referenceDatabase));
             });
         });
     });
@@ -184,16 +184,16 @@ suite("Virtual Func Decl", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "simple_virtual_func_decl_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "simple_virtual_func_decl.json"
                 );
-                const cppClass = await cppFile.getOrAddClass("FooClass");
-                await cppClass.getOrAddVirtualFuncDecl({
+                const cppClass = cppFile.getOrAddClass("FooClass");
+                cppClass.getOrAddVirtualFuncDecl({
                     baseFuncAstName: "__ZN3foo3addEii",
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
@@ -204,9 +204,9 @@ suite("Virtual Func Decl", () => {
                     },
                 });
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(!(await database.equals(referenceDatabase)));
+                assert.ok(!database.equals(referenceDatabase));
             });
         });
     });

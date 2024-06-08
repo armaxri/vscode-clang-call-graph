@@ -10,20 +10,20 @@ suite("Cpp Class", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "simple_cpp_class_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "simple_cpp_class.json"
                 );
-                const cppClass = await cppFile.getOrAddClass("BarClass");
-                await cppClass.getOrAddClass("FooClass");
+                const cppClass = cppFile.getOrAddClass("BarClass");
+                cppClass.getOrAddClass("FooClass");
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(await database.equals(referenceDatabase));
+                assert.ok(database.equals(referenceDatabase));
             });
         });
     });
@@ -32,23 +32,23 @@ suite("Cpp Class", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "multiple_simple_cpp_class_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "simple_cpp_class.json"
                 );
-                const cppClass = await cppFile.getOrAddClass("BarClass");
-                await cppClass.getOrAddClass("FooClassA");
-                await cppClass.getOrAddClass("FooClassB");
-                await cppClass.getOrAddClass("FooClassC");
-                await cppClass.getOrAddClass("FooClassD");
+                const cppClass = cppFile.getOrAddClass("BarClass");
+                cppClass.getOrAddClass("FooClassA");
+                cppClass.getOrAddClass("FooClassB");
+                cppClass.getOrAddClass("FooClassC");
+                cppClass.getOrAddClass("FooClassD");
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(await database.equals(referenceDatabase));
+                assert.ok(database.equals(referenceDatabase));
             });
         });
     });
@@ -57,22 +57,22 @@ suite("Cpp Class", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "multiple_simple_cpp_class_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "simple_cpp_class.json"
                 );
-                const cppClass = await cppFile.getOrAddClass("BarClass");
-                await cppClass.getOrAddClass("FooClassA");
-                await cppClass.getOrAddClass("FooClassB");
-                await cppClass.getOrAddClass("FooClassD");
+                const cppClass = cppFile.getOrAddClass("BarClass");
+                cppClass.getOrAddClass("FooClassA");
+                cppClass.getOrAddClass("FooClassB");
+                cppClass.getOrAddClass("FooClassD");
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(!(await database.equals(referenceDatabase)));
+                assert.ok(!database.equals(referenceDatabase));
             });
         });
     });
@@ -81,23 +81,23 @@ suite("Cpp Class", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "multiple_simple_cpp_class_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "simple_cpp_class.json"
                 );
-                const cppClass = await cppFile.getOrAddClass("BarClass");
-                await cppClass.getOrAddClass("FooClassX");
-                await cppClass.getOrAddClass("FooClassB");
-                await cppClass.getOrAddClass("FooClassC");
-                await cppClass.getOrAddClass("FooClassD");
+                const cppClass = cppFile.getOrAddClass("BarClass");
+                cppClass.getOrAddClass("FooClassX");
+                cppClass.getOrAddClass("FooClassB");
+                cppClass.getOrAddClass("FooClassC");
+                cppClass.getOrAddClass("FooClassD");
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(!(await database.equals(referenceDatabase)));
+                assert.ok(!database.equals(referenceDatabase));
             });
         });
     });
@@ -106,20 +106,20 @@ suite("Cpp Class", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "simple_cpp_class_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "simple_cpp_class.json"
                 );
-                const cppClass = await cppFile.getOrAddClass("BarClass");
-                await cppClass.getOrAddClass("BarClass");
+                const cppClass = cppFile.getOrAddClass("BarClass");
+                cppClass.getOrAddClass("BarClass");
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(!(await database.equals(referenceDatabase)));
+                assert.ok(!database.equals(referenceDatabase));
             });
         });
     });
@@ -128,19 +128,19 @@ suite("Cpp Class", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "simple_cpp_class_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "simple_cpp_class.json"
                 );
-                await cppFile.getOrAddClass("BarClass");
+                cppFile.getOrAddClass("BarClass");
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(!(await database.equals(referenceDatabase)));
+                assert.ok(!database.equals(referenceDatabase));
             });
         });
     });

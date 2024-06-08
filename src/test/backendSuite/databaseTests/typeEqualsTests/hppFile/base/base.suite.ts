@@ -10,16 +10,16 @@ suite("Base", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "empty_file_expected_db.json",
                         testData
                     );
-                const hppFile = await database.getOrAddHppFile("empty.json");
+                const hppFile = database.getOrAddHppFile("empty.json");
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(await database.equals(referenceDatabase));
+                assert.ok(database.equals(referenceDatabase));
             });
         });
     });
@@ -28,15 +28,15 @@ suite("Base", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "simple_func_decl_expected_db.json",
                         testData
                     );
-                const hppFile = await database.getOrAddHppFile(
+                const hppFile = database.getOrAddHppFile(
                     "stupid_simple_func_decl.json"
                 );
-                await hppFile.getOrAddFuncDecl({
+                hppFile.getOrAddFuncDecl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -46,9 +46,9 @@ suite("Base", () => {
                     },
                 });
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(!(await database.equals(referenceDatabase)));
+                assert.ok(!database.equals(referenceDatabase));
             });
         });
     });

@@ -107,13 +107,13 @@ export class SqliteHppFile extends AbstractHppFile {
         throw new Error("Method not implemented.");
     }
 
-    async getClasses(): Promise<CppClass[]> {
+    getClasses(): CppClass[] {
         return SqliteCppClass.getCppClasses(this.internal, {
             hppFileId: this.id,
         });
     }
 
-    async getOrAddClass(className: string): Promise<CppClass> {
+    getOrAddClass(className: string): CppClass {
         const cppClass = SqliteCppClass.getCppClass(this.internal, className, {
             hppFileId: this.id,
         });
@@ -127,13 +127,13 @@ export class SqliteHppFile extends AbstractHppFile {
         });
     }
 
-    async getFuncDecls(): Promise<FuncDeclaration[]> {
+    getFuncDecls(): FuncDeclaration[] {
         return SqliteFuncDeclaration.getFuncDecls(this.internal, {
             hppFileId: this.id,
         });
     }
 
-    async getOrAddFuncDecl(args: FuncCreationArgs): Promise<FuncDeclaration> {
+    getOrAddFuncDecl(args: FuncCreationArgs): FuncDeclaration {
         const funcDecl = SqliteFuncDeclaration.getFuncDecl(
             this.internal,
             args.funcName,
@@ -149,15 +149,13 @@ export class SqliteHppFile extends AbstractHppFile {
         });
     }
 
-    async getFuncImpls(): Promise<FuncImplementation[]> {
+    getFuncImpls(): FuncImplementation[] {
         return SqliteFuncImplementation.getFuncImpls(this.internal, {
             hppFileId: this.id,
         });
     }
 
-    async getOrAddFuncImpl(
-        args: FuncCreationArgs
-    ): Promise<FuncImplementation> {
+    getOrAddFuncImpl(args: FuncCreationArgs): FuncImplementation {
         const funcImpl = SqliteFuncImplementation.getFuncImpl(
             this.internal,
             args.funcName,
@@ -173,7 +171,7 @@ export class SqliteHppFile extends AbstractHppFile {
         });
     }
 
-    async getVirtualFuncImpls(): Promise<VirtualFuncImplementation[]> {
+    getVirtualFuncImpls(): VirtualFuncImplementation[] {
         return SqliteVirtualFuncImplementation.getVirtualFuncImpls(
             this.internal,
             {
@@ -182,9 +180,9 @@ export class SqliteHppFile extends AbstractHppFile {
         );
     }
 
-    async getOrAddVirtualFuncImpl(
+    getOrAddVirtualFuncImpl(
         args: VirtualFuncCreationArgs
-    ): Promise<VirtualFuncImplementation> {
+    ): VirtualFuncImplementation {
         const virtualFuncImpl =
             SqliteVirtualFuncImplementation.getVirtualFuncImpl(
                 this.internal,
