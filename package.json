@@ -1,85 +1,88 @@
 {
-    "name": "clang-call-graph",
-    "displayName": "Clang Call Graph",
-    "description": "Generate call graphs for C and C++ using LLVM/Clang.",
-    "version": "0.0.1",
-    "engines": {
-        "vscode": "^1.88.0"
-    },
-    "categories": [
-        "Other"
+  "name": "clang-call-graph",
+  "displayName": "Clang Call Graph",
+  "description": "Generate call graphs for C and C++ using LLVM/Clang.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.88.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:cpp"
+  ],
+  "main": "./out/extension/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "clang-call-graph.startCallGraphParser",
+        "title": "Start (or restart) the Clang call graph parser",
+        "category": "ClangCallGraph"
+      },
+      {
+        "command": "clang-call-graph.stopCallGraphParser",
+        "title": "Stop the Clang call graph parser",
+        "category": "ClangCallGraph"
+      }
     ],
-    "activationEvents": [
-        "onLanguage:cpp"
-    ],
-    "main": "./out/extension/extension.js",
-    "contributes": {
-        "commands": [
-            {
-                "command": "clang-call-graph.startCallGraphParser",
-                "title": "Start (or restart) the Clang call graph parser",
-                "category": "ClangCallGraph"
-            },
-            {
-                "command": "clang-call-graph.stopCallGraphParser",
-                "title": "Stop the Clang call graph parser",
-                "category": "ClangCallGraph"
-            }
-        ],
-        "configuration": [
-            {
-                "title": "ClangCallGraph",
-                "properties": {
-                    "clangCallGraph.compileCommandsJsonDir": {
-                        "type": "string",
-                        "description": "Path to the directory holding the compile_commands.json file, which shall be used to create the call graph.",
-                        "default": "${workspaceFolder}"
-                    },
-                    "clangCallGraph.numOfParserThreads": {
-                        "type": "number",
-                        "description": "Number of threads that are used to parse the C/C++ files.",
-                        "default": 8,
-                        "minimum": 1
-                    },
-                    "clangCallGraph.callGraphDatabaseDir": {
-                        "type": "string",
-                        "description": "Dir for the database file (sqlite or json format), which shall be used to store the parser output and as source for the displayed call graph.",
-                        "default": "${workspaceFolder}"
-                    },
-                    "clangCallGraph.runVerbose": {
-                        "type": "boolean",
-                        "description": "If true, the parser will output additional information. Only available in early development stages.",
-                        "default": true
-                    }
-                }
-            }
-        ]
-    },
-    "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "pretest": "npm run compile && npm run lint",
-        "lint": "eslint src --ext ts",
-        "test": "vscode-test",
-        "test:backend": "mocha --ui tdd './out/test/backendSuite/**/*.test.js'"
-    },
-    "dependencies": {
-        "@identityinvest/lowdb": "^7.0.1",
-        "better-sqlite3": "^10.0.0"
-    },
-    "devDependencies": {
-        "@types/better-sqlite3": "^7.6.10",
-        "@types/mocha": "^10.0.6",
-        "@types/node": "18.x",
-        "@types/vscode": "^1.88.0",
-        "@typescript-eslint/eslint-plugin": "^7.4.0",
-        "@typescript-eslint/parser": "^7.4.0",
-        "@vscode/test-cli": "^0.0.8",
-        "@vscode/test-electron": "^2.3.9",
-        "eslint": "^8.57.0",
-        "mocha": "^10.1.0",
-        "source-map-support": "^0.5.21",
-        "typescript": "^5.3.3"
-    }
+    "configuration": [
+      {
+        "title": "ClangCallGraph",
+        "properties": {
+          "clangCallGraph.compileCommandsJsonDir": {
+            "type": "string",
+            "description": "Path to the directory holding the compile_commands.json file, which shall be used to create the call graph.",
+            "default": "${workspaceFolder}"
+          },
+          "clangCallGraph.numOfParserThreads": {
+            "type": "number",
+            "description": "Number of threads that are used to parse the C/C++ files.",
+            "default": 8,
+            "minimum": 1
+          },
+          "clangCallGraph.callGraphDatabaseDir": {
+            "type": "string",
+            "description": "Dir for the database file (sqlite or json format), which shall be used to store the parser output and as source for the displayed call graph.",
+            "default": "${workspaceFolder}"
+          },
+          "clangCallGraph.runVerbose": {
+            "type": "boolean",
+            "description": "If true, the parser will output additional information. Only available in early development stages.",
+            "default": true
+          }
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test",
+    "test:backend": "mocha --ui tdd --colors --exit --require ts-node/register './out/test/backendSuite/**/*.test.js'",
+    "test:backend:coverage": "nyc npm run test:backend"
+  },
+  "dependencies": {
+    "@identityinvest/lowdb": "^7.0.1",
+    "better-sqlite3": "^10.0.0",
+    "nyc": "^15.1.0",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.10",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.88.0",
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "@typescript-eslint/parser": "^7.4.0",
+    "@vscode/test-cli": "^0.0.8",
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.57.0",
+    "mocha": "^10.1.0",
+    "source-map-support": "^0.5.21",
+    "typescript": "^5.3.3"
+  }
 }
