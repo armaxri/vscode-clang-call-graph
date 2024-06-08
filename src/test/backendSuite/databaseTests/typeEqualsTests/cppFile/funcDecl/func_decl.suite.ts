@@ -10,15 +10,15 @@ suite("Func Decl", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "simple_func_decl_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "simple_func_decl.json"
                 );
-                await cppFile.getOrAddFuncDecl({
+                cppFile.getOrAddFuncDecl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -28,9 +28,9 @@ suite("Func Decl", () => {
                     },
                 });
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(await database.equals(referenceDatabase));
+                assert.ok(database.equals(referenceDatabase));
             });
         });
     });
@@ -39,15 +39,15 @@ suite("Func Decl", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "multiple_simple_func_decl_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "multiple_simple_func_decl.json"
                 );
-                await cppFile.getOrAddFuncDecl({
+                cppFile.getOrAddFuncDecl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -56,7 +56,7 @@ suite("Func Decl", () => {
                         end: { line: 11, column: 8 },
                     },
                 });
-                await cppFile.getOrAddFuncDecl({
+                cppFile.getOrAddFuncDecl({
                     funcName: "sub",
                     funcAstName: "__ZN3foo3subEii",
                     qualType: "int (int, int)",
@@ -65,7 +65,7 @@ suite("Func Decl", () => {
                         end: { line: 12, column: 8 },
                     },
                 });
-                await cppFile.getOrAddFuncDecl({
+                cppFile.getOrAddFuncDecl({
                     funcName: "multiply",
                     funcAstName: "__ZN3foo8multiplyEii",
                     qualType: "int (int, int)",
@@ -74,7 +74,7 @@ suite("Func Decl", () => {
                         end: { line: 13, column: 13 },
                     },
                 });
-                await cppFile.getOrAddFuncDecl({
+                cppFile.getOrAddFuncDecl({
                     funcName: "divide",
                     funcAstName: "__ZN3foo6divideEii",
                     qualType: "int (int, int)",
@@ -84,9 +84,9 @@ suite("Func Decl", () => {
                     },
                 });
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(await database.equals(referenceDatabase));
+                assert.ok(database.equals(referenceDatabase));
             });
         });
     });
@@ -95,15 +95,15 @@ suite("Func Decl", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "multiple_simple_func_decl_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "multiple_simple_func_decl.json"
                 );
-                await cppFile.getOrAddFuncDecl({
+                cppFile.getOrAddFuncDecl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -112,7 +112,7 @@ suite("Func Decl", () => {
                         end: { line: 11, column: 8 },
                     },
                 });
-                await cppFile.getOrAddFuncDecl({
+                cppFile.getOrAddFuncDecl({
                     funcName: "multiply",
                     funcAstName: "__ZN3foo8multiplyEii",
                     qualType: "int (int, int)",
@@ -121,7 +121,7 @@ suite("Func Decl", () => {
                         end: { line: 13, column: 13 },
                     },
                 });
-                await cppFile.getOrAddFuncDecl({
+                cppFile.getOrAddFuncDecl({
                     funcName: "divide",
                     funcAstName: "__ZN3foo6divideEii",
                     qualType: "int (int, int)",
@@ -131,9 +131,9 @@ suite("Func Decl", () => {
                     },
                 });
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(!(await database.equals(referenceDatabase)));
+                assert.ok(!database.equals(referenceDatabase));
             });
         });
     });
@@ -142,15 +142,15 @@ suite("Func Decl", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "simple_func_decl_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "simple_func_decl.json"
                 );
-                await cppFile.getOrAddFuncDecl({
+                cppFile.getOrAddFuncDecl({
                     funcName: "multiply",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -160,9 +160,9 @@ suite("Func Decl", () => {
                     },
                 });
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(!(await database.equals(referenceDatabase)));
+                assert.ok(!database.equals(referenceDatabase));
             });
         });
     });
@@ -171,15 +171,15 @@ suite("Func Decl", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "simple_func_decl_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "simple_func_decl.json"
                 );
-                await cppFile.getOrAddFuncDecl({
+                cppFile.getOrAddFuncDecl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -189,9 +189,9 @@ suite("Func Decl", () => {
                     },
                 });
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(!(await database.equals(referenceDatabase)));
+                assert.ok(!database.equals(referenceDatabase));
             });
         });
     });

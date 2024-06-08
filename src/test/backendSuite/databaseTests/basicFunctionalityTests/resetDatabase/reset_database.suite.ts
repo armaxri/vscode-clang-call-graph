@@ -13,26 +13,26 @@ suite("Reset Database", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "simple_file_expected_db.json",
                         testData
                     );
-                await database.getOrAddCppFile("simple_func_decl.json");
+                database.getOrAddCppFile("simple_func_decl.json");
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(await database.equals(referenceDatabase));
+                assert.ok(database.equals(referenceDatabase));
 
-                await database.resetDatabase();
-                await database.writeDatabase();
+                database.resetDatabase();
+                database.writeDatabase();
 
-                const emptyDatabase = await loadReferenceDb(
+                const emptyDatabase = loadReferenceDb(
                     __dirname,
                     "empty_expected_db.json"
                 );
 
-                assert.ok(await database.equals(emptyDatabase));
+                assert.ok(database.equals(emptyDatabase));
             });
         });
     });
@@ -41,15 +41,15 @@ suite("Reset Database", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "simple_func_decl_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "simple_func_decl.json"
                 );
-                await cppFile.getOrAddFuncDecl({
+                cppFile.getOrAddFuncDecl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -59,19 +59,19 @@ suite("Reset Database", () => {
                     },
                 });
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(await database.equals(referenceDatabase));
+                assert.ok(database.equals(referenceDatabase));
 
-                await database.resetDatabase();
-                await database.writeDatabase();
+                database.resetDatabase();
+                database.writeDatabase();
 
-                const emptyDatabase = await loadReferenceDb(
+                const emptyDatabase = loadReferenceDb(
                     __dirname,
                     "empty_expected_db.json"
                 );
 
-                assert.ok(await database.equals(emptyDatabase));
+                assert.ok(database.equals(emptyDatabase));
             });
         });
     });

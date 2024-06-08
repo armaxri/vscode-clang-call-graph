@@ -10,15 +10,15 @@ suite("Func Impl", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "simple_func_impl_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "simple_func_impl.json"
                 );
-                await cppFile.getOrAddFuncImpl({
+                cppFile.getOrAddFuncImpl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -28,9 +28,9 @@ suite("Func Impl", () => {
                     },
                 });
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(await database.equals(referenceDatabase));
+                assert.ok(database.equals(referenceDatabase));
             });
         });
     });
@@ -39,15 +39,15 @@ suite("Func Impl", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "multiple_simple_func_impl_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "multiple_simple_func_impl.json"
                 );
-                await cppFile.getOrAddFuncImpl({
+                cppFile.getOrAddFuncImpl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -56,7 +56,7 @@ suite("Func Impl", () => {
                         end: { line: 11, column: 8 },
                     },
                 });
-                await cppFile.getOrAddFuncImpl({
+                cppFile.getOrAddFuncImpl({
                     funcName: "sub",
                     funcAstName: "__ZN3foo3subEii",
                     qualType: "int (int, int)",
@@ -65,7 +65,7 @@ suite("Func Impl", () => {
                         end: { line: 12, column: 8 },
                     },
                 });
-                await cppFile.getOrAddFuncImpl({
+                cppFile.getOrAddFuncImpl({
                     funcName: "multiply",
                     funcAstName: "__ZN3foo8multiplyEii",
                     qualType: "int (int, int)",
@@ -74,7 +74,7 @@ suite("Func Impl", () => {
                         end: { line: 13, column: 13 },
                     },
                 });
-                await cppFile.getOrAddFuncImpl({
+                cppFile.getOrAddFuncImpl({
                     funcName: "divide",
                     funcAstName: "__ZN3foo6divideEii",
                     qualType: "int (int, int)",
@@ -84,9 +84,9 @@ suite("Func Impl", () => {
                     },
                 });
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(await database.equals(referenceDatabase));
+                assert.ok(database.equals(referenceDatabase));
             });
         });
     });
@@ -98,15 +98,15 @@ suite("Func Impl", () => {
                 async (testData) => {
                     test(`${DatabaseType[testData]}`, async () => {
                         const [database, referenceDatabase] =
-                            await prepareDatabaseEqualityTests(
+                            prepareDatabaseEqualityTests(
                                 __dirname,
                                 "multiple_simple_func_impl_expected_db.json",
                                 testData
                             );
-                        const cppFile = await database.getOrAddCppFile(
+                        const cppFile = database.getOrAddCppFile(
                             "multiple_simple_func_impl.json"
                         );
-                        await cppFile.getOrAddFuncImpl({
+                        cppFile.getOrAddFuncImpl({
                             funcName: "add",
                             funcAstName: "__ZN3foo3addEii",
                             qualType: "int (int, int)",
@@ -115,7 +115,7 @@ suite("Func Impl", () => {
                                 end: { line: 11, column: 8 },
                             },
                         });
-                        await cppFile.getOrAddFuncImpl({
+                        cppFile.getOrAddFuncImpl({
                             funcName: "multiply",
                             funcAstName: "__ZN3foo8multiplyEii",
                             qualType: "int (int, int)",
@@ -124,7 +124,7 @@ suite("Func Impl", () => {
                                 end: { line: 13, column: 13 },
                             },
                         });
-                        await cppFile.getOrAddFuncImpl({
+                        cppFile.getOrAddFuncImpl({
                             funcName: "divide",
                             funcAstName: "__ZN3foo6divideEii",
                             qualType: "int (int, int)",
@@ -134,9 +134,9 @@ suite("Func Impl", () => {
                             },
                         });
 
-                        await database.writeDatabase();
+                        database.writeDatabase();
 
-                        assert.ok(!(await database.equals(referenceDatabase)));
+                        assert.ok(!database.equals(referenceDatabase));
                     });
                 }
             );
@@ -147,15 +147,15 @@ suite("Func Impl", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "simple_func_impl_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "simple_func_impl.json"
                 );
-                await cppFile.getOrAddFuncImpl({
+                cppFile.getOrAddFuncImpl({
                     funcName: "multiply",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -165,9 +165,9 @@ suite("Func Impl", () => {
                     },
                 });
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(!(await database.equals(referenceDatabase)));
+                assert.ok(!database.equals(referenceDatabase));
             });
         });
     });
@@ -176,15 +176,15 @@ suite("Func Impl", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "simple_func_impl_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "simple_func_impl.json"
                 );
-                await cppFile.getOrAddFuncImpl({
+                cppFile.getOrAddFuncImpl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -194,9 +194,9 @@ suite("Func Impl", () => {
                     },
                 });
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(!(await database.equals(referenceDatabase)));
+                assert.ok(!database.equals(referenceDatabase));
             });
         });
     });

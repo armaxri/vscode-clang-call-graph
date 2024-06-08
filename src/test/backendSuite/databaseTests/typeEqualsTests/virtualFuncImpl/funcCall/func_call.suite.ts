@@ -10,16 +10,16 @@ suite("Func Call", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "simple_func_call_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "simple_func_call.json"
                 );
-                const callerClass = await cppFile.getOrAddClass("BarClass");
-                const callerFunc = await callerClass.getOrAddVirtualFuncImpl({
+                const callerClass = cppFile.getOrAddClass("BarClass");
+                const callerFunc = callerClass.getOrAddVirtualFuncImpl({
                     funcName: "foo",
                     funcAstName: "_foo",
                     qualType: "int (int, char **)",
@@ -29,7 +29,7 @@ suite("Func Call", () => {
                     },
                     baseFuncAstName: "",
                 });
-                const addFuncDecl = await cppFile.getOrAddFuncDecl({
+                const addFuncDecl = cppFile.getOrAddFuncDecl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -39,7 +39,7 @@ suite("Func Call", () => {
                     },
                 });
 
-                await callerFunc.addFuncCall({
+                callerFunc.addFuncCall({
                     func: addFuncDecl,
                     range: {
                         start: { line: 20, column: 6 },
@@ -47,9 +47,9 @@ suite("Func Call", () => {
                     },
                 });
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(await database.equals(referenceDatabase));
+                assert.ok(database.equals(referenceDatabase));
             });
         });
     });
@@ -58,16 +58,16 @@ suite("Func Call", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "multiple_simple_func_call_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "multiple_simple_func_call.json"
                 );
-                const callerClass = await cppFile.getOrAddClass("BarClass");
-                const callerFunc = await callerClass.getOrAddVirtualFuncImpl({
+                const callerClass = cppFile.getOrAddClass("BarClass");
+                const callerFunc = callerClass.getOrAddVirtualFuncImpl({
                     funcName: "foo",
                     funcAstName: "_foo",
                     qualType: "int (int, char **)",
@@ -77,7 +77,7 @@ suite("Func Call", () => {
                     },
                     baseFuncAstName: "",
                 });
-                const addFuncDecl = await cppFile.getOrAddFuncDecl({
+                const addFuncDecl = cppFile.getOrAddFuncDecl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -86,7 +86,7 @@ suite("Func Call", () => {
                         end: { line: 11, column: 8 },
                     },
                 });
-                const subFuncDecl = await cppFile.getOrAddFuncDecl({
+                const subFuncDecl = cppFile.getOrAddFuncDecl({
                     funcName: "sub",
                     funcAstName: "__ZN3foo3subEii",
                     qualType: "int (int, int)",
@@ -95,7 +95,7 @@ suite("Func Call", () => {
                         end: { line: 12, column: 8 },
                     },
                 });
-                const multiplyFuncDecl = await cppFile.getOrAddFuncDecl({
+                const multiplyFuncDecl = cppFile.getOrAddFuncDecl({
                     funcName: "multiply",
                     funcAstName: "__ZN3foo8multiplyEii",
                     qualType: "int (int, int)",
@@ -104,7 +104,7 @@ suite("Func Call", () => {
                         end: { line: 13, column: 13 },
                     },
                 });
-                const divideFuncDecl = await cppFile.getOrAddFuncDecl({
+                const divideFuncDecl = cppFile.getOrAddFuncDecl({
                     funcName: "divide",
                     funcAstName: "__ZN3foo6divideEii",
                     qualType: "int (int, int)",
@@ -114,28 +114,28 @@ suite("Func Call", () => {
                     },
                 });
 
-                await callerFunc.addFuncCall({
+                callerFunc.addFuncCall({
                     func: addFuncDecl,
                     range: {
                         start: { line: 11, column: 5 },
                         end: { line: 11, column: 8 },
                     },
                 });
-                await callerFunc.addFuncCall({
+                callerFunc.addFuncCall({
                     func: subFuncDecl,
                     range: {
                         start: { line: 12, column: 5 },
                         end: { line: 12, column: 8 },
                     },
                 });
-                await callerFunc.addFuncCall({
+                callerFunc.addFuncCall({
                     func: multiplyFuncDecl,
                     range: {
                         start: { line: 13, column: 5 },
                         end: { line: 13, column: 13 },
                     },
                 });
-                await callerFunc.addFuncCall({
+                callerFunc.addFuncCall({
                     func: divideFuncDecl,
                     range: {
                         start: { line: 14, column: 5 },
@@ -143,9 +143,9 @@ suite("Func Call", () => {
                     },
                 });
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(await database.equals(referenceDatabase));
+                assert.ok(database.equals(referenceDatabase));
             });
         });
     });
@@ -154,16 +154,16 @@ suite("Func Call", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "multiple_simple_func_call_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "multiple_simple_func_call.json"
                 );
-                const callerClass = await cppFile.getOrAddClass("BarClass");
-                const callerFunc = await callerClass.getOrAddVirtualFuncImpl({
+                const callerClass = cppFile.getOrAddClass("BarClass");
+                const callerFunc = callerClass.getOrAddVirtualFuncImpl({
                     funcName: "foo",
                     funcAstName: "_foo",
                     qualType: "int (int, char **)",
@@ -173,7 +173,7 @@ suite("Func Call", () => {
                     },
                     baseFuncAstName: "",
                 });
-                const addFuncDecl = await cppFile.getOrAddFuncDecl({
+                const addFuncDecl = cppFile.getOrAddFuncDecl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -182,7 +182,7 @@ suite("Func Call", () => {
                         end: { line: 11, column: 8 },
                     },
                 });
-                const subFuncDecl = await cppFile.getOrAddFuncDecl({
+                const subFuncDecl = cppFile.getOrAddFuncDecl({
                     funcName: "sub",
                     funcAstName: "__ZN3foo3subEii",
                     qualType: "int (int, int)",
@@ -191,7 +191,7 @@ suite("Func Call", () => {
                         end: { line: 12, column: 8 },
                     },
                 });
-                const multiplyFuncDecl = await cppFile.getOrAddFuncDecl({
+                const multiplyFuncDecl = cppFile.getOrAddFuncDecl({
                     funcName: "multiply",
                     funcAstName: "__ZN3foo8multiplyEii",
                     qualType: "int (int, int)",
@@ -200,7 +200,7 @@ suite("Func Call", () => {
                         end: { line: 13, column: 13 },
                     },
                 });
-                const divideFuncDecl = await cppFile.getOrAddFuncDecl({
+                const divideFuncDecl = cppFile.getOrAddFuncDecl({
                     funcName: "divide",
                     funcAstName: "__ZN3foo6divideEii",
                     qualType: "int (int, int)",
@@ -210,21 +210,21 @@ suite("Func Call", () => {
                     },
                 });
 
-                await callerFunc.addFuncCall({
+                callerFunc.addFuncCall({
                     func: addFuncDecl,
                     range: {
                         start: { line: 20, column: 6 },
                         end: { line: 20, column: 10 },
                     },
                 });
-                await callerFunc.addFuncCall({
+                callerFunc.addFuncCall({
                     func: subFuncDecl,
                     range: {
                         start: { line: 13, column: 5 },
                         end: { line: 13, column: 13 },
                     },
                 });
-                await callerFunc.addFuncCall({
+                callerFunc.addFuncCall({
                     func: divideFuncDecl,
                     range: {
                         start: { line: 14, column: 5 },
@@ -232,9 +232,9 @@ suite("Func Call", () => {
                     },
                 });
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(!(await database.equals(referenceDatabase)));
+                assert.ok(!database.equals(referenceDatabase));
             });
         });
     });
@@ -243,16 +243,16 @@ suite("Func Call", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "simple_func_call_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "simple_func_call.json"
                 );
-                const callerClass = await cppFile.getOrAddClass("BarClass");
-                const callerFunc = await callerClass.getOrAddVirtualFuncImpl({
+                const callerClass = cppFile.getOrAddClass("BarClass");
+                const callerFunc = callerClass.getOrAddVirtualFuncImpl({
                     funcName: "foo",
                     funcAstName: "_foo",
                     qualType: "int (int, char **)",
@@ -262,7 +262,7 @@ suite("Func Call", () => {
                     },
                     baseFuncAstName: "",
                 });
-                const addFuncDecl = await cppFile.getOrAddFuncDecl({
+                const addFuncDecl = cppFile.getOrAddFuncDecl({
                     funcName: "multiply",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -272,7 +272,7 @@ suite("Func Call", () => {
                     },
                 });
 
-                await callerFunc.addFuncCall({
+                callerFunc.addFuncCall({
                     func: addFuncDecl,
                     range: {
                         start: { line: 20, column: 6 },
@@ -280,9 +280,9 @@ suite("Func Call", () => {
                     },
                 });
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(!(await database.equals(referenceDatabase)));
+                assert.ok(!database.equals(referenceDatabase));
             });
         });
     });
@@ -291,16 +291,16 @@ suite("Func Call", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "simple_func_call_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "simple_func_call.json"
                 );
-                const callerClass = await cppFile.getOrAddClass("BarClass");
-                const callerFunc = await callerClass.getOrAddVirtualFuncImpl({
+                const callerClass = cppFile.getOrAddClass("BarClass");
+                const callerFunc = callerClass.getOrAddVirtualFuncImpl({
                     funcName: "foo",
                     funcAstName: "_foo",
                     qualType: "int (int, char **)",
@@ -310,7 +310,7 @@ suite("Func Call", () => {
                     },
                     baseFuncAstName: "",
                 });
-                const addFuncDecl = await cppFile.getOrAddFuncDecl({
+                const addFuncDecl = cppFile.getOrAddFuncDecl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -320,7 +320,7 @@ suite("Func Call", () => {
                     },
                 });
 
-                await callerFunc.addFuncCall({
+                callerFunc.addFuncCall({
                     func: addFuncDecl,
                     range: {
                         start: { line: 20, column: 6 },
@@ -328,9 +328,9 @@ suite("Func Call", () => {
                     },
                 });
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(!(await database.equals(referenceDatabase)));
+                assert.ok(!database.equals(referenceDatabase));
             });
         });
     });

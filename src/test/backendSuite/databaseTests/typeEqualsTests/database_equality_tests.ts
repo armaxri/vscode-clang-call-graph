@@ -5,10 +5,10 @@ import { LowdbDatabase } from "../../../../backend/database/lowdb/LowdbDatabase"
 import { MockConfig } from "../../helper/MockConfig";
 import { removeOldDatabase } from "../../helper/database_helper";
 
-export async function loadReferenceDb(
+export function loadReferenceDb(
     callingFileDirName: string,
     referenceDatabaseFilename: string
-): Promise<Database> {
+): Database {
     const referenceDbMockConfig = new MockConfig(
         callingFileDirName,
         DatabaseType.lowdb,
@@ -17,14 +17,14 @@ export async function loadReferenceDb(
     return new LowdbDatabase(referenceDbMockConfig);
 }
 
-export async function prepareDatabaseEqualityTests(
+export function prepareDatabaseEqualityTests(
     callingFileDirName: string,
     referenceDatabaseFilename: string,
     databaseType: DatabaseType = DatabaseType.lowdb
-): Promise<[Database, Database]> {
-    await removeOldDatabase(callingFileDirName, databaseType);
+): [Database, Database] {
+    removeOldDatabase(callingFileDirName, databaseType);
 
-    const referenceDatabase = await loadReferenceDb(
+    const referenceDatabase = loadReferenceDb(
         callingFileDirName,
         referenceDatabaseFilename
     );

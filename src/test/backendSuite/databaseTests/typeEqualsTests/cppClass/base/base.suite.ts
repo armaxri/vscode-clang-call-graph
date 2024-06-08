@@ -10,19 +10,19 @@ suite("Base", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "simple_func_decl_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "simple_func_decl.json"
                 );
                 cppFile.getOrAddClass("FooClass");
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(!(await database.equals(referenceDatabase)));
+                assert.ok(!database.equals(referenceDatabase));
             });
         });
     });
@@ -31,16 +31,16 @@ suite("Base", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
-                    await prepareDatabaseEqualityTests(
+                    prepareDatabaseEqualityTests(
                         __dirname,
                         "simple_func_decl_expected_db.json",
                         testData
                     );
-                const cppFile = await database.getOrAddCppFile(
+                const cppFile = database.getOrAddCppFile(
                     "simple_func_decl.json"
                 );
-                const cppClass = await cppFile.getOrAddClass("NotFooClass");
-                await cppClass.getOrAddFuncDecl({
+                const cppClass = cppFile.getOrAddClass("NotFooClass");
+                cppClass.getOrAddFuncDecl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -50,9 +50,9 @@ suite("Base", () => {
                     },
                 });
 
-                await database.writeDatabase();
+                database.writeDatabase();
 
-                assert.ok(!(await database.equals(referenceDatabase)));
+                assert.ok(!database.equals(referenceDatabase));
             });
         });
     });
