@@ -31,8 +31,8 @@ export class ClangAstWalker implements AstWalker {
     private lastSeenLocLineNumber: number = -1;
     private lastSeenRangeBeginLine: number = -1;
     private lastSeenRangeEndLine: number = -1;
-    private lastCallExprBeginLocation: db.Location = { line: -1, column: -1 };
-    private lastCallExprEndLocation: db.Location = { line: -1, column: -1 };
+    private lastCallExprBeginLocation: cpp.Location = { line: -1, column: -1 };
+    private lastCallExprEndLocation: cpp.Location = { line: -1, column: -1 };
 
     private callingFunc: cpp.FuncImplementation | undefined;
     private knownClasses: cpp.CppClass[] = [];
@@ -137,7 +137,7 @@ export class ClangAstWalker implements AstWalker {
 
     private getRangeStartLocation(
         astElement: clangAst.AstElement
-    ): db.Location {
+    ): cpp.Location {
         return {
             line:
                 astElement.range &&
@@ -154,7 +154,7 @@ export class ClangAstWalker implements AstWalker {
         };
     }
 
-    private getRangeEndLocation(astElement: clangAst.AstElement): db.Location {
+    private getRangeEndLocation(astElement: clangAst.AstElement): cpp.Location {
         return {
             line:
                 astElement.range &&
@@ -178,7 +178,7 @@ export class ClangAstWalker implements AstWalker {
         };
     }
 
-    private getRange(astElement: clangAst.AstElement): db.Range {
+    private getRange(astElement: clangAst.AstElement): cpp.Range {
         return {
             start: this.getRangeStartLocation(astElement),
             end: this.getRangeEndLocation(astElement),
@@ -187,7 +187,7 @@ export class ClangAstWalker implements AstWalker {
 
     private getLocBasedRangeStartLocation(
         astElement: clangAst.AstElement
-    ): db.Location {
+    ): cpp.Location {
         return {
             line: this.lastSeenLocLineNumber,
             column: astElement.loc
@@ -200,8 +200,8 @@ export class ClangAstWalker implements AstWalker {
 
     private getLocBasedRangeEndLocation(
         astElement: clangAst.AstElement,
-        startLocation: db.Location
-    ): db.Location {
+        startLocation: cpp.Location
+    ): cpp.Location {
         return {
             line: this.lastSeenLocLineNumber,
             column:
@@ -214,7 +214,7 @@ export class ClangAstWalker implements AstWalker {
         };
     }
 
-    private getLocBasedRange(astElement: clangAst.AstElement): db.Range {
+    private getLocBasedRange(astElement: clangAst.AstElement): cpp.Range {
         const startLocation = this.getLocBasedRangeStartLocation(astElement);
         return {
             start: startLocation,
