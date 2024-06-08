@@ -1,0 +1,75 @@
+{
+  "databaseVersion": 1,
+  "cppFiles": [
+    {
+      "name": "simple_func_call.json",
+      "lastAnalyzed": 1717807170023,
+      "classes": [
+        {
+          "name": "BarClass",
+          "parentClasses": [],
+          "classes": [],
+          "funcDecls": [],
+          "funcImpls": [],
+          "virtualFuncDecls": [],
+          "virtualFuncImpls": [
+            {
+              "funcName": "foo",
+              "funcAstName": "_foo",
+              "qualType": "int (int, char **)",
+              "range": {
+                "start": {
+                  "line": 5,
+                  "column": 4
+                },
+                "end": {
+                  "line": 5,
+                  "column": 9
+                }
+              },
+              "baseFuncAstName": "",
+              "funcCalls": [
+                {
+                  "funcName": "add",
+                  "funcAstName": "__ZN3foo3addEii",
+                  "qualType": "int (int, int)",
+                  "range": {
+                    "start": {
+                      "line": 20,
+                      "column": 6
+                    },
+                    "end": {
+                      "line": 20,
+                      "column": 10
+                    }
+                  }
+                }
+              ],
+              "virtualFuncCalls": []
+            }
+          ]
+        }
+      ],
+      "funcDecls": [
+        {
+          "funcName": "add",
+          "funcAstName": "__ZN3foo3addEii",
+          "qualType": "int (int, int)",
+          "range": {
+            "start": {
+              "line": 11,
+              "column": 5
+            },
+            "end": {
+              "line": 11,
+              "column": 8
+            }
+          }
+        }
+      ],
+      "funcImpls": [],
+      "virtualFuncImpls": []
+    }
+  ],
+  "hppFiles": []
+}
