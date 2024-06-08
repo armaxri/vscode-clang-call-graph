@@ -1,5 +1,6 @@
-export * from "./cpp_structure";
 import { CppFile, Equal, HppFile } from "./cpp_structure";
+
+export { CppFile, Equal, HppFile };
 
 export interface Database extends Equal {
     getCppFiles(): Promise<CppFile[]>;
