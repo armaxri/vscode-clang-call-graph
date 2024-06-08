@@ -9,7 +9,7 @@ export abstract class AbstractVirtualFuncDeclaration
     abstract getQualType(): string;
     abstract getRange(): Range;
 
-    async equals(otherInput: any): Promise<boolean> {
+    equals(otherInput: any): boolean {
         const other = otherInput as VirtualFuncDeclaration;
 
         if (!other) {

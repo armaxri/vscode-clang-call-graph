@@ -13,20 +13,18 @@ export abstract class AbstractCppFile implements CppFile {
     abstract getName(): string;
     abstract getLastAnalyzed(): number;
     abstract justAnalyzed(): void;
-    abstract getClasses(): Promise<CppClass[]>;
-    abstract getOrAddClass(className: string): Promise<CppClass>;
-    abstract getFuncDecls(): Promise<FuncDeclaration[]>;
-    abstract getOrAddFuncDecl(args: FuncCreationArgs): Promise<FuncDeclaration>;
-    abstract getFuncImpls(): Promise<FuncImplementation[]>;
-    abstract getOrAddFuncImpl(
-        args: FuncCreationArgs
-    ): Promise<FuncImplementation>;
-    abstract getVirtualFuncImpls(): Promise<VirtualFuncImplementation[]>;
+    abstract getClasses(): CppClass[];
+    abstract getOrAddClass(className: string): CppClass;
+    abstract getFuncDecls(): FuncDeclaration[];
+    abstract getOrAddFuncDecl(args: FuncCreationArgs): FuncDeclaration;
+    abstract getFuncImpls(): FuncImplementation[];
+    abstract getOrAddFuncImpl(args: FuncCreationArgs): FuncImplementation;
+    abstract getVirtualFuncImpls(): VirtualFuncImplementation[];
     abstract getOrAddVirtualFuncImpl(
         args: VirtualFuncCreationArgs
-    ): Promise<VirtualFuncImplementation>;
+    ): VirtualFuncImplementation;
 
-    async equals(otherInput: any): Promise<boolean> {
+    equals(otherInput: any): boolean {
         const other = otherInput as CppFile;
 
         if (!other) {
@@ -37,22 +35,19 @@ export abstract class AbstractCppFile implements CppFile {
             this.getName() === other.getName() &&
             // Sadly we can't compare the analyzed time.
             // this.getLastAnalyzed() === other.getLastAnalyzed()
-            (await elementEquals<CppClass>(
-                await this.getClasses(),
-                await other.getClasses()
-            )) &&
-            (await elementEquals<FuncDeclaration>(
-                await this.getFuncDecls(),
-                await other.getFuncDecls()
-            )) &&
-            (await elementEquals<FuncImplementation>(
-                await this.getFuncImpls(),
-                await other.getFuncImpls()
-            )) &&
-            (await elementEquals<VirtualFuncImplementation>(
-                await this.getVirtualFuncImpls(),
-                await other.getVirtualFuncImpls()
-            ))
+            elementEquals<CppClass>(this.getClasses(), other.getClasses()) &&
+            elementEquals<FuncDeclaration>(
+                this.getFuncDecls(),
+                other.getFuncDecls()
+            ) &&
+            elementEquals<FuncImplementation>(
+                this.getFuncImpls(),
+                other.getFuncImpls()
+            ) &&
+            elementEquals<VirtualFuncImplementation>(
+                this.getVirtualFuncImpls(),
+                other.getVirtualFuncImpls()
+            )
         );
     }
 }

@@ -14,15 +14,15 @@ export class SqliteDatabase extends AbstractDatabase {
         this.internal = new InternalSqliteDatabase(config);
     }
 
-    async getCppFiles(): Promise<CppFile[]> {
+    getCppFiles(): CppFile[] {
         return SqliteCppFile.getCppFiles(this.internal);
     }
 
-    async hasCppFile(name: string): Promise<boolean> {
+    hasCppFile(name: string): boolean {
         return SqliteCppFile.getCppFile(this.internal, name) !== null;
     }
 
-    async getOrAddCppFile(name: string): Promise<CppFile> {
+    getOrAddCppFile(name: string): CppFile {
         const cppFile = SqliteCppFile.getCppFile(this.internal, name);
 
         if (cppFile) {
@@ -32,19 +32,19 @@ export class SqliteDatabase extends AbstractDatabase {
         return SqliteCppFile.createCppFile(this.internal, name);
     }
 
-    removeCppFileAndDependingContent(name: string): Promise<void> {
+    removeCppFileAndDependingContent(name: string): void {
         throw new Error("Method not implemented.");
     }
 
-    async getHppFiles(): Promise<HppFile[]> {
+    getHppFiles(): HppFile[] {
         return SqliteHppFile.getHppFiles(this.internal);
     }
 
-    async hasHppFile(name: string): Promise<boolean> {
+    hasHppFile(name: string): boolean {
         return SqliteHppFile.getHppFile(this.internal, name) !== null;
     }
 
-    async getOrAddHppFile(name: string): Promise<HppFile> {
+    getOrAddHppFile(name: string): HppFile {
         const hppFile = SqliteHppFile.getHppFile(this.internal, name);
 
         if (hppFile) {
@@ -54,15 +54,15 @@ export class SqliteDatabase extends AbstractDatabase {
         return SqliteHppFile.createHppFile(this.internal, name);
     }
 
-    removeHppFileAndDependingContent(name: string): Promise<void> {
+    removeHppFileAndDependingContent(name: string): void {
         throw new Error("Method not implemented.");
     }
 
-    async writeDatabase(): Promise<void> {
+    writeDatabase(): void {
         // Nothing to do.
     }
 
-    async resetDatabase(): Promise<void> {
+    resetDatabase(): void {
         this.internal.resetDatabase();
     }
 }

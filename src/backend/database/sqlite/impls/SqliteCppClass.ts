@@ -139,7 +139,7 @@ export class SqliteCppClass extends AbstractCppClass {
         return this.className;
     }
 
-    async getParentClasses(): Promise<CppClass[]> {
+    getParentClasses(): CppClass[] {
         // TODO: implement
         return [];
     }
@@ -151,13 +151,13 @@ export class SqliteCppClass extends AbstractCppClass {
         throw new Error("Method not implemented.");
     }
 
-    async getClasses(): Promise<CppClass[]> {
+    getClasses(): CppClass[] {
         return SqliteCppClass.getCppClasses(this.internal, {
             cppClassId: this.id,
         });
     }
 
-    async getOrAddClass(className: string): Promise<CppClass> {
+    getOrAddClass(className: string): CppClass {
         const cppClass = SqliteCppClass.getCppClass(this.internal, className, {
             cppClassId: this.id,
         });
@@ -171,13 +171,13 @@ export class SqliteCppClass extends AbstractCppClass {
         });
     }
 
-    async getFuncDecls(): Promise<FuncDeclaration[]> {
+    getFuncDecls(): FuncDeclaration[] {
         return SqliteFuncDeclaration.getFuncDecls(this.internal, {
             cppClassId: this.id,
         });
     }
 
-    async getOrAddFuncDecl(args: FuncCreationArgs): Promise<FuncDeclaration> {
+    getOrAddFuncDecl(args: FuncCreationArgs): FuncDeclaration {
         const funcDecl = SqliteFuncDeclaration.getFuncDecl(
             this.internal,
             args.funcName,
@@ -193,15 +193,13 @@ export class SqliteCppClass extends AbstractCppClass {
         });
     }
 
-    async getFuncImpls(): Promise<FuncImplementation[]> {
+    getFuncImpls(): FuncImplementation[] {
         return SqliteFuncImplementation.getFuncImpls(this.internal, {
             cppClassId: this.id,
         });
     }
 
-    async getOrAddFuncImpl(
-        args: FuncCreationArgs
-    ): Promise<FuncImplementation> {
+    getOrAddFuncImpl(args: FuncCreationArgs): FuncImplementation {
         const funcImpl = SqliteFuncImplementation.getFuncImpl(
             this.internal,
             args.funcName,
@@ -217,16 +215,16 @@ export class SqliteCppClass extends AbstractCppClass {
         });
     }
 
-    async getVirtualFuncDecls(): Promise<VirtualFuncDeclaration[]> {
+    getVirtualFuncDecls(): VirtualFuncDeclaration[] {
         return SqliteVirtualFuncDeclaration.getVirtualFuncDecls(
             this.internal,
             this.id
         );
     }
 
-    async getOrAddVirtualFuncDecl(
+    getOrAddVirtualFuncDecl(
         args: VirtualFuncCreationArgs
-    ): Promise<VirtualFuncDeclaration> {
+    ): VirtualFuncDeclaration {
         const virtualFuncDecl = SqliteVirtualFuncDeclaration.getVirtualFuncDecl(
             this.internal,
             args,
@@ -244,7 +242,7 @@ export class SqliteCppClass extends AbstractCppClass {
         );
     }
 
-    async getVirtualFuncImpls(): Promise<VirtualFuncImplementation[]> {
+    getVirtualFuncImpls(): VirtualFuncImplementation[] {
         return SqliteVirtualFuncImplementation.getVirtualFuncImpls(
             this.internal,
             {
@@ -253,9 +251,9 @@ export class SqliteCppClass extends AbstractCppClass {
         );
     }
 
-    async getOrAddVirtualFuncImpl(
+    getOrAddVirtualFuncImpl(
         args: VirtualFuncCreationArgs
-    ): Promise<VirtualFuncImplementation> {
+    ): VirtualFuncImplementation {
         const virtualFuncImpl =
             SqliteVirtualFuncImplementation.getVirtualFuncImpl(
                 this.internal,

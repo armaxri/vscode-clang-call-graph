@@ -1,9 +1,9 @@
 import { Equal } from "../cpp_structure";
 
-export async function elementEquals<E extends Equal>(
+export function elementEquals<E extends Equal>(
     mainData: E[],
     otherData: E[]
-): Promise<boolean> {
+): boolean {
     if (mainData.length !== otherData.length) {
         return false;
     }
@@ -12,7 +12,7 @@ export async function elementEquals<E extends Equal>(
     for (const element of mainData) {
         var foundMatch = false;
         for (const otherElement of otherData) {
-            if (await element.equals(otherElement)) {
+            if (element.equals(otherElement)) {
                 foundMatch = true;
             }
         }

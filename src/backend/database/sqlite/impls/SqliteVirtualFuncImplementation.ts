@@ -226,13 +226,13 @@ export class SqliteVirtualFuncImplementation extends AbstractVirtualFuncImplemen
         return this.baseFuncAstName;
     }
 
-    async getFuncCalls(): Promise<FuncCall[]> {
+    getFuncCalls(): FuncCall[] {
         return SqliteFuncCall.getFuncCalls(this.internal, {
             virtualFuncImplId: this.id,
         });
     }
 
-    async addFuncCall(funcCall: FuncCallCreationArgs): Promise<void> {
+    addFuncCall(funcCall: FuncCallCreationArgs): void {
         SqliteFuncCall.createFuncCall(
             this.internal,
             funcCallArgs2FuncArgs(funcCall),
@@ -244,15 +244,13 @@ export class SqliteVirtualFuncImplementation extends AbstractVirtualFuncImplemen
         return;
     }
 
-    async getVirtualFuncCalls(): Promise<VirtualFuncCall[]> {
+    getVirtualFuncCalls(): VirtualFuncCall[] {
         return SqliteVirtualFuncCall.getVirtualFuncCalls(this.internal, {
             virtualFuncImplId: this.id,
         });
     }
 
-    async addVirtualFuncCall(
-        virtualFuncCall: VirtualFuncCallCreationArgs
-    ): Promise<void> {
+    addVirtualFuncCall(virtualFuncCall: VirtualFuncCallCreationArgs): void {
         SqliteVirtualFuncCall.createVirtualFuncCall(
             this.internal,
             virtualFuncCallArgs2VirtualFuncArgs(virtualFuncCall),

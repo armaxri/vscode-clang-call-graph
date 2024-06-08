@@ -6,7 +6,7 @@ export abstract class AbstractFuncCall implements FuncCall {
     abstract getQualType(): string;
     abstract getRange(): Range;
 
-    async equals(otherInput: any): Promise<boolean> {
+    equals(otherInput: any): boolean {
         const other = otherInput as FuncCall;
 
         if (!other) {

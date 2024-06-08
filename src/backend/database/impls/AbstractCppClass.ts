@@ -11,43 +11,38 @@ import { elementEquals } from "../helper/equality_helper";
 
 export abstract class AbstractCppClass implements CppClass {
     abstract getName(): string;
-    abstract getParentClasses(): Promise<CppClass[]>;
+    abstract getParentClasses(): CppClass[];
     abstract getParentClassNames(): string[];
     abstract addParentClass(parentClass: CppClass): void;
 
-    abstract getClasses(): Promise<CppClass[]>;
-    abstract getOrAddClass(className: string): Promise<CppClass>;
+    abstract getClasses(): CppClass[];
+    abstract getOrAddClass(className: string): CppClass;
 
-    abstract getFuncDecls(): Promise<FuncDeclaration[]>;
-    abstract getOrAddFuncDecl(args: FuncCreationArgs): Promise<FuncDeclaration>;
-    abstract getFuncImpls(): Promise<FuncImplementation[]>;
-    abstract getOrAddFuncImpl(
-        args: FuncCreationArgs
-    ): Promise<FuncImplementation>;
-    abstract getVirtualFuncDecls(): Promise<VirtualFuncDeclaration[]>;
+    abstract getFuncDecls(): FuncDeclaration[];
+    abstract getOrAddFuncDecl(args: FuncCreationArgs): FuncDeclaration;
+    abstract getFuncImpls(): FuncImplementation[];
+    abstract getOrAddFuncImpl(args: FuncCreationArgs): FuncImplementation;
+    abstract getVirtualFuncDecls(): VirtualFuncDeclaration[];
     abstract getOrAddVirtualFuncDecl(
         args: VirtualFuncCreationArgs
-    ): Promise<VirtualFuncDeclaration>;
-    abstract getVirtualFuncImpls(): Promise<VirtualFuncImplementation[]>;
+    ): VirtualFuncDeclaration;
+    abstract getVirtualFuncImpls(): VirtualFuncImplementation[];
     abstract getOrAddVirtualFuncImpl(
         args: VirtualFuncCreationArgs
-    ): Promise<VirtualFuncImplementation>;
+    ): VirtualFuncImplementation;
 
-    async findBaseFunction(
+    findBaseFunction(
         funcName: string,
         qualType: string
-    ): Promise<VirtualFuncDeclaration | undefined> {
-        for (const parentClass of await this.getParentClasses()) {
-            const foundFunc = await parentClass.findBaseFunction(
-                funcName,
-                qualType
-            );
+    ): VirtualFuncDeclaration | undefined {
+        for (const parentClass of this.getParentClasses()) {
+            const foundFunc = parentClass.findBaseFunction(funcName, qualType);
             if (foundFunc) {
                 return foundFunc;
             }
         }
 
-        var foundFunc = (await this.getVirtualFuncDecls()).find(
+        var foundFunc = this.getVirtualFuncDecls().find(
             (func) =>
                 func.getFuncName() === funcName &&
                 func.getQualType() === qualType
@@ -55,7 +50,7 @@ export abstract class AbstractCppClass implements CppClass {
         if (foundFunc) {
             return foundFunc;
         }
-        foundFunc = (await this.getVirtualFuncImpls()).find(
+        foundFunc = this.getVirtualFuncImpls().find(
             (func) =>
                 func.getFuncName() === funcName &&
                 func.getQualType() === qualType
@@ -76,7 +71,7 @@ export abstract class AbstractCppClass implements CppClass {
         );
     }
 
-    async equals(otherInput: any): Promise<boolean> {
+    equals(otherInput: any): boolean {
         const other = otherInput as CppClass;
 
         if (!other) {
@@ -86,26 +81,23 @@ export abstract class AbstractCppClass implements CppClass {
         return (
             this.getName() === other.getName() &&
             this.parentClassNamesEquals(other.getParentClassNames()) &&
-            (await elementEquals<CppClass>(
-                await this.getClasses(),
-                await other.getClasses()
-            )) &&
-            (await elementEquals<FuncDeclaration>(
-                await this.getFuncDecls(),
-                await other.getFuncDecls()
-            )) &&
-            (await elementEquals<FuncImplementation>(
-                await this.getFuncImpls(),
-                await other.getFuncImpls()
-            )) &&
-            (await elementEquals<VirtualFuncDeclaration>(
-                await this.getVirtualFuncDecls(),
-                await other.getVirtualFuncDecls()
-            )) &&
-            (await elementEquals<VirtualFuncImplementation>(
-                await this.getVirtualFuncImpls(),
-                await other.getVirtualFuncImpls()
-            ))
+            elementEquals<CppClass>(this.getClasses(), other.getClasses()) &&
+            elementEquals<FuncDeclaration>(
+                this.getFuncDecls(),
+                other.getFuncDecls()
+            ) &&
+            elementEquals<FuncImplementation>(
+                this.getFuncImpls(),
+                other.getFuncImpls()
+            ) &&
+            elementEquals<VirtualFuncDeclaration>(
+                this.getVirtualFuncDecls(),
+                other.getVirtualFuncDecls()
+            ) &&
+            elementEquals<VirtualFuncImplementation>(
+                this.getVirtualFuncImpls(),
+                other.getVirtualFuncImpls()
+            )
         );
     }
 }
