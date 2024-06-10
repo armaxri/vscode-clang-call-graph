@@ -2,9 +2,9 @@ export function delay(ms: number) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function getEscapedChar(
+export function getEscapedChar(
     currentChar: string,
-    currentStrType: string = ""
+    currentStrType: string
 ): string {
     switch (currentChar) {
         case "\\":

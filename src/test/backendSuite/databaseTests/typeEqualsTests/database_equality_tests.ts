@@ -20,7 +20,7 @@ export function loadReferenceDb(
 export function prepareDatabaseEqualityTests(
     callingFileDirName: string,
     referenceDatabaseFilename: string,
-    databaseType: DatabaseType = DatabaseType.lowdb
+    databaseType: DatabaseType
 ): [Database, Database] {
     removeOldDatabase(callingFileDirName, databaseType);
 

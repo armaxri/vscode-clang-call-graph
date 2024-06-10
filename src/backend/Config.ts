@@ -22,7 +22,6 @@ export abstract class Config {
     protected databaseType: DatabaseType;
     protected sqliteDatabaseName = "clang_call_graph.sqlite3";
     protected lowdbDatabaseName = "clang_call_graph.json";
-    protected enableDatabaseCaching = true;
     protected verbose;
 
     constructor(
@@ -87,10 +86,6 @@ export abstract class Config {
             default:
                 throw new Error("Unknown database type");
         }
-    }
-
-    useDatabaseCaching(): boolean {
-        return this.enableDatabaseCaching;
     }
 
     // For development purposes.

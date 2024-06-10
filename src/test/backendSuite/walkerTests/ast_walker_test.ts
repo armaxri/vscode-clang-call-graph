@@ -13,6 +13,7 @@ import {
 } from "../../../backend/database/lowdb/lowdb_internal_structure";
 import { DatabaseType } from "../../../backend/Config";
 import { Database } from "../../../backend/database/Database";
+import { createDatabase } from "../../../backend/database/helper/database_factory";
 
 function loadAst(dirname: string, filename: string): astJson.AstElement {
     const filePath = new PathUtils(dirname, filename);
@@ -67,25 +68,18 @@ async function createAndRunAstWalker(
     filename: string,
     mockConfig: MockConfig
 ): Promise<Database> {
-    const clangAst = loadAst(adjustTsToJsPath(callingFileDirName), filename);
     new PathUtils(mockConfig.getLowdbDatabasePath().pathString()).tryToRemove();
 
-    var database: Database;
-    // TODO: Replace this with the factory function.
-    if (mockConfig.getSelectedDatabaseType() === DatabaseType.lowdb) {
-        database = new LowdbDatabase(mockConfig);
-    } else {
-        throw new Error("Database type not supported");
-    }
+    var database = createDatabase(mockConfig);
     const astWalker = new ClangAstWalker(
         getCppNameFromJsonFile(callingFileDirName, filename),
         database,
-        clangAst
+        loadAst(adjustTsToJsPath(callingFileDirName), filename)
     );
 
     await astWalker.walkAst();
 
-    await database.writeDatabase();
+    database.writeDatabase();
 
     return database;
 }

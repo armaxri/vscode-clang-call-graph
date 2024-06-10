@@ -2,6 +2,33 @@ import * as assert from "assert";
 import * as utils from "../../../backend/utils/utils";
 
 suite("Utils Test Suite", () => {
+    test("getEscapedChar", () => {
+        assert.strictEqual(utils.getEscapedChar("\\", '"'), "\\");
+        assert.strictEqual(utils.getEscapedChar("\\", "'"), "\\");
+        assert.strictEqual(utils.getEscapedChar("0", '"'), "\0");
+        assert.strictEqual(utils.getEscapedChar("0", "'"), "\0");
+        assert.strictEqual(utils.getEscapedChar("a", '"'), "a");
+        assert.strictEqual(utils.getEscapedChar("a", "'"), "a");
+        assert.strictEqual(utils.getEscapedChar("b", '"'), "\b");
+        assert.strictEqual(utils.getEscapedChar("b", "'"), "\b");
+        assert.strictEqual(utils.getEscapedChar("t", '"'), "\t");
+        assert.strictEqual(utils.getEscapedChar("t", "'"), "\t");
+        assert.strictEqual(utils.getEscapedChar("n", '"'), "\n");
+        assert.strictEqual(utils.getEscapedChar("n", "'"), "\n");
+        assert.strictEqual(utils.getEscapedChar("v", '"'), "\v");
+        assert.strictEqual(utils.getEscapedChar("v", "'"), "\v");
+        assert.strictEqual(utils.getEscapedChar("f", '"'), "\f");
+        assert.strictEqual(utils.getEscapedChar("f", "'"), "\f");
+        assert.strictEqual(utils.getEscapedChar("r", '"'), "\r");
+        assert.strictEqual(utils.getEscapedChar("r", "'"), "\r");
+        assert.strictEqual(utils.getEscapedChar("'", "'"), "'");
+        assert.strictEqual(utils.getEscapedChar("'", '"'), "\\'");
+        assert.strictEqual(utils.getEscapedChar('"', '"'), '"');
+        assert.strictEqual(utils.getEscapedChar('"', "'"), '\\"');
+        assert.strictEqual(utils.getEscapedChar("x", '"'), "\\x");
+        assert.strictEqual(utils.getEscapedChar("x", "'"), "\\x");
+    });
+
     test("splitArguments: test simple args split", () => {
         const result = utils.splitArguments("hallo welt!");
         const expected = ["hallo", "welt!"];
@@ -56,6 +83,13 @@ suite("Utils Test Suite", () => {
         const result = utils.splitArguments('-p="hello b\\"ar baz" -f');
         const expected = ['-p=hello b"ar baz', "-f"];
         assert.deepStrictEqual(result, expected);
+    });
+
+    test("splitArguments", () => {
+        assert.deepStrictEqual(utils.splitArguments("\\"), ["\\"]);
+        assert.deepStrictEqual(utils.splitArguments("'\""), ['"']);
+        assert.deepStrictEqual(utils.splitArguments("\"'"), ["'"]);
+        assert.deepStrictEqual(utils.splitArguments(""), []);
     });
 
     test("createClangAstCall: simple test", () => {

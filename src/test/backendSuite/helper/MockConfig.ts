@@ -34,10 +34,6 @@ export class MockConfig extends Config {
         return this.testDir;
     }
 
-    useDatabaseCaching(): boolean {
-        return false;
-    }
-
     runVerbose(): boolean {
         return true;
     }
