@@ -109,6 +109,7 @@ export function createClangAstCall(command: string): string[] {
         if (skipNext) {
             skipNext = false;
         } else {
+            // istanbul ignore else
             if (typeof currentElement === "string") {
                 if (currentElement === "-o") {
                     // Pop the target file name.
