@@ -4,7 +4,7 @@
   "description": "Generate call graphs for C and C++ using LLVM/Clang.",
   "version": "0.0.1",
   "engines": {
-    "vscode": "^1.88.0"
+    "vscode": "^1.90.0"
   },
   "categories": [
     "Other"
@@ -67,15 +67,15 @@
   },
   "dependencies": {
     "@identityinvest/lowdb": "^7.0.1",
-    "better-sqlite3": "^10.0.0",
-    "nyc": "^15.1.0",
+    "better-sqlite3": "^11.0.0",
+    "nyc": "^17.0.0",
     "ts-node": "^10.9.2"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.10",
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
-    "@types/vscode": "^1.88.0",
+    "@types/vscode": "^1.90.0",
     "@typescript-eslint/eslint-plugin": "^7.4.0",
     "@typescript-eslint/parser": "^7.4.0",
     "@vscode/test-cli": "^0.0.8",
