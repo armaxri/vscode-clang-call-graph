@@ -108,6 +108,7 @@ suite("Path Utils Test Suite", () => {
         await delay(20);
         const timestamp2 = Date.now();
         assert.equal(modificationTime1 < timestamp2, true);
+        await delay(20);
 
         fs.writeFileSync(path.pathString(), testContent);
 
