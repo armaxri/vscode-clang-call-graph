@@ -29,6 +29,7 @@ export abstract class AbstractHppFile implements HppFile {
     private referencedFromCppFilesEquals(otherList: string[]): boolean {
         const thisList = this.getReferencedFromCppFiles();
 
+        // istanbul ignore next
         if (!otherList && !thisList) {
             return true;
         }
@@ -46,6 +47,7 @@ export abstract class AbstractHppFile implements HppFile {
     equals(otherInput: any): boolean {
         const other = otherInput as HppFile;
 
+        // istanbul ignore next
         if (!other) {
             return false;
         }

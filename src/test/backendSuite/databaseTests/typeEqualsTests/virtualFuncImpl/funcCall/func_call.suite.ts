@@ -54,6 +54,62 @@ suite("Func Call", () => {
         });
     });
 
+    suite("Simple equality with double added one call", () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
+            test(`${DatabaseType[testData]}`, async () => {
+                const [database, referenceDatabase] =
+                    prepareDatabaseEqualityTests(
+                        __dirname,
+                        "simple_func_call_expected_db.json",
+                        testData
+                    );
+                const cppFile = database.getOrAddCppFile(
+                    "simple_func_call.json"
+                );
+                const callerClass = cppFile.getOrAddClass("BarClass");
+                const callerFunc = callerClass.getOrAddVirtualFuncImpl({
+                    funcName: "foo",
+                    funcAstName: "_foo",
+                    qualType: "int (int, char **)",
+                    range: {
+                        start: { line: 5, column: 4 },
+                        end: { line: 5, column: 9 },
+                    },
+                    baseFuncAstName: "",
+                });
+                const addFuncDecl = cppFile.getOrAddFuncDecl({
+                    funcName: "add",
+                    funcAstName: "__ZN3foo3addEii",
+                    qualType: "int (int, int)",
+                    range: {
+                        start: { line: 11, column: 5 },
+                        end: { line: 11, column: 8 },
+                    },
+                });
+
+                callerFunc.addFuncCall({
+                    func: addFuncDecl,
+                    range: {
+                        start: { line: 20, column: 6 },
+                        end: { line: 20, column: 10 },
+                    },
+                });
+
+                callerFunc.addFuncCall({
+                    func: addFuncDecl,
+                    range: {
+                        start: { line: 20, column: 6 },
+                        end: { line: 20, column: 10 },
+                    },
+                });
+
+                database.writeDatabase();
+
+                assert.ok(database.equals(referenceDatabase));
+            });
+        });
+    });
+
     suite("Equality with multiple calls", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
             test(`${DatabaseType[testData]}`, async () => {

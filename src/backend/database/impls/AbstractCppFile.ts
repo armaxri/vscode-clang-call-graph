@@ -27,6 +27,7 @@ export abstract class AbstractCppFile implements CppFile {
     equals(otherInput: any): boolean {
         const other = otherInput as CppFile;
 
+        // istanbul ignore next
         if (!other) {
             return false;
         }

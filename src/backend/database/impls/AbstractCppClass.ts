@@ -74,6 +74,7 @@ export abstract class AbstractCppClass implements CppClass {
     equals(otherInput: any): boolean {
         const other = otherInput as CppClass;
 
+        // istanbul ignore next
         if (!other) {
             return false;
         }

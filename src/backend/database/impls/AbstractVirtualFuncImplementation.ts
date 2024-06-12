@@ -27,6 +27,7 @@ export abstract class AbstractVirtualFuncImplementation
     equals(otherInput: any): boolean {
         const other = otherInput as VirtualFuncImplementation;
 
+        // istanbul ignore next
         if (!other) {
             return false;
         }

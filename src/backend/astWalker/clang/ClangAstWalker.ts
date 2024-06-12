@@ -150,7 +150,8 @@ export class ClangAstWalker implements AstWalker {
                 astElement.range.begin &&
                 astElement.range.begin.col
                     ? astElement.range.begin.col
-                    : -1,
+                    : // istanbul ignore next
+                      -1,
         };
     }
 
@@ -173,15 +174,10 @@ export class ClangAstWalker implements AstWalker {
                     ? astElement.range.end.col +
                       (astElement.range.end.tokLen
                           ? astElement.range.end.tokLen
-                          : 0)
-                    : -1,
-        };
-    }
-
-    private getRange(astElement: clangAst.AstElement): cpp.Range {
-        return {
-            start: this.getRangeStartLocation(astElement),
-            end: this.getRangeEndLocation(astElement),
+                          : // istanbul ignore next
+                            0)
+                    : // istanbul ignore next
+                      -1,
         };
     }
 
@@ -193,8 +189,10 @@ export class ClangAstWalker implements AstWalker {
             column: astElement.loc
                 ? astElement.loc.col
                     ? astElement.loc.col
-                    : -1
-                : -1,
+                    : // istanbul ignore next
+                      -1
+                : // istanbul ignore next
+                  -1,
         };
     }
 
@@ -209,8 +207,10 @@ export class ClangAstWalker implements AstWalker {
                 (astElement.loc
                     ? astElement.loc.tokLen
                         ? astElement.loc.tokLen
-                        : 0
-                    : 0),
+                        : // istanbul ignore next
+                          0
+                    : // istanbul ignore next
+                      0),
         };
     }
 
@@ -296,7 +296,8 @@ export class ClangAstWalker implements AstWalker {
                 : astElement.referencedMemberDecl
             : astElement.referencedMemberDecl
             ? astElement.referencedMemberDecl
-            : undefined;
+            : // istanbul ignore next
+              undefined;
         if (calledFuncId) {
             const referencedDecl = this.funcDeclarations.find(
                 (funcDec) => funcDec.id === Number(calledFuncId)

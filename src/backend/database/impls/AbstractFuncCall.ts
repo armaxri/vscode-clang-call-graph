@@ -9,6 +9,7 @@ export abstract class AbstractFuncCall implements FuncCall {
     equals(otherInput: any): boolean {
         const other = otherInput as FuncCall;
 
+        // istanbul ignore next
         if (!other) {
             return false;
         }

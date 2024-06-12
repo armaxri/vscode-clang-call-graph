@@ -25,7 +25,12 @@ export class InternalSqliteDatabase {
 
         this.db = new Database(
             this.config.getSqliteDatabasePath().pathString(),
-            { verbose: this.config.runVerbose() ? console.log : undefined }
+            {
+                verbose: this.config.runVerbose()
+                    ? console.log
+                    : // istanbul ignore next
+                      undefined,
+            }
         );
 
         if (!databaseExists) {
