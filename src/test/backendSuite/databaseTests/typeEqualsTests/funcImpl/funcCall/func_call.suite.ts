@@ -18,7 +18,7 @@ suite("Func Call", () => {
                 const cppFile = database.getOrAddCppFile(
                     "simple_func_call.json"
                 );
-                const funcImpl = cppFile.getOrAddFuncImpl({
+                const funcImpl = cppFile.addFuncImpl({
                     funcName: "main",
                     funcAstName: "_main",
                     qualType: "int (int, char **)",
@@ -27,67 +27,13 @@ suite("Func Call", () => {
                         end: { line: 5, column: 9 },
                     },
                 });
-                const addFuncDecl = cppFile.getOrAddFuncDecl({
+                const addFuncDecl = cppFile.addFuncDecl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
                     range: {
                         start: { line: 11, column: 5 },
                         end: { line: 11, column: 8 },
-                    },
-                });
-
-                funcImpl.addFuncCall({
-                    func: addFuncDecl,
-                    range: {
-                        start: { line: 20, column: 6 },
-                        end: { line: 20, column: 10 },
-                    },
-                });
-
-                database.writeDatabase();
-
-                assert.ok(database.equals(referenceDatabase));
-            });
-        });
-    });
-
-    suite("Simple equality with double added one call", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
-                const [database, referenceDatabase] =
-                    prepareDatabaseEqualityTests(
-                        __dirname,
-                        "simple_func_call_expected_db.json",
-                        testData
-                    );
-                const cppFile = database.getOrAddCppFile(
-                    "simple_func_call.json"
-                );
-                const funcImpl = cppFile.getOrAddFuncImpl({
-                    funcName: "main",
-                    funcAstName: "_main",
-                    qualType: "int (int, char **)",
-                    range: {
-                        start: { line: 5, column: 4 },
-                        end: { line: 5, column: 9 },
-                    },
-                });
-                const addFuncDecl = cppFile.getOrAddFuncDecl({
-                    funcName: "add",
-                    funcAstName: "__ZN3foo3addEii",
-                    qualType: "int (int, int)",
-                    range: {
-                        start: { line: 11, column: 5 },
-                        end: { line: 11, column: 8 },
-                    },
-                });
-
-                funcImpl.addFuncCall({
-                    func: addFuncDecl,
-                    range: {
-                        start: { line: 20, column: 6 },
-                        end: { line: 20, column: 10 },
                     },
                 });
 
@@ -118,7 +64,7 @@ suite("Func Call", () => {
                 const cppFile = database.getOrAddCppFile(
                     "multiple_simple_func_call.json"
                 );
-                const funcImpl = cppFile.getOrAddFuncImpl({
+                const funcImpl = cppFile.addFuncImpl({
                     funcName: "main",
                     funcAstName: "_main",
                     qualType: "int (int, char **)",
@@ -127,7 +73,7 @@ suite("Func Call", () => {
                         end: { line: 5, column: 9 },
                     },
                 });
-                const addFuncDecl = cppFile.getOrAddFuncDecl({
+                const addFuncDecl = cppFile.addFuncDecl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -136,7 +82,7 @@ suite("Func Call", () => {
                         end: { line: 11, column: 8 },
                     },
                 });
-                const subFuncDecl = cppFile.getOrAddFuncDecl({
+                const subFuncDecl = cppFile.addFuncDecl({
                     funcName: "sub",
                     funcAstName: "__ZN3foo3subEii",
                     qualType: "int (int, int)",
@@ -145,7 +91,7 @@ suite("Func Call", () => {
                         end: { line: 12, column: 8 },
                     },
                 });
-                const multiplyFuncDecl = cppFile.getOrAddFuncDecl({
+                const multiplyFuncDecl = cppFile.addFuncDecl({
                     funcName: "multiply",
                     funcAstName: "__ZN3foo8multiplyEii",
                     qualType: "int (int, int)",
@@ -154,7 +100,7 @@ suite("Func Call", () => {
                         end: { line: 13, column: 13 },
                     },
                 });
-                const divideFuncDecl = cppFile.getOrAddFuncDecl({
+                const divideFuncDecl = cppFile.addFuncDecl({
                     funcName: "divide",
                     funcAstName: "__ZN3foo6divideEii",
                     qualType: "int (int, int)",
@@ -212,7 +158,7 @@ suite("Func Call", () => {
                 const cppFile = database.getOrAddCppFile(
                     "multiple_simple_func_call.json"
                 );
-                const funcImpl = cppFile.getOrAddFuncImpl({
+                const funcImpl = cppFile.addFuncImpl({
                     funcName: "main",
                     funcAstName: "_main",
                     qualType: "int (int, char **)",
@@ -221,7 +167,7 @@ suite("Func Call", () => {
                         end: { line: 5, column: 9 },
                     },
                 });
-                const addFuncDecl = cppFile.getOrAddFuncDecl({
+                const addFuncDecl = cppFile.addFuncDecl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -230,7 +176,7 @@ suite("Func Call", () => {
                         end: { line: 11, column: 8 },
                     },
                 });
-                const subFuncDecl = cppFile.getOrAddFuncDecl({
+                const subFuncDecl = cppFile.addFuncDecl({
                     funcName: "sub",
                     funcAstName: "__ZN3foo3subEii",
                     qualType: "int (int, int)",
@@ -239,7 +185,7 @@ suite("Func Call", () => {
                         end: { line: 12, column: 8 },
                     },
                 });
-                const multiplyFuncDecl = cppFile.getOrAddFuncDecl({
+                const multiplyFuncDecl = cppFile.addFuncDecl({
                     funcName: "multiply",
                     funcAstName: "__ZN3foo8multiplyEii",
                     qualType: "int (int, int)",
@@ -248,7 +194,7 @@ suite("Func Call", () => {
                         end: { line: 13, column: 13 },
                     },
                 });
-                const divideFuncDecl = cppFile.getOrAddFuncDecl({
+                const divideFuncDecl = cppFile.addFuncDecl({
                     funcName: "divide",
                     funcAstName: "__ZN3foo6divideEii",
                     qualType: "int (int, int)",
@@ -299,7 +245,7 @@ suite("Func Call", () => {
                 const cppFile = database.getOrAddCppFile(
                     "simple_func_call.json"
                 );
-                const funcImpl = cppFile.getOrAddFuncImpl({
+                const funcImpl = cppFile.addFuncImpl({
                     funcName: "main",
                     funcAstName: "_main",
                     qualType: "int (int, char **)",
@@ -308,7 +254,7 @@ suite("Func Call", () => {
                         end: { line: 5, column: 9 },
                     },
                 });
-                const addFuncDecl = cppFile.getOrAddFuncDecl({
+                const addFuncDecl = cppFile.addFuncDecl({
                     funcName: "multiply",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -345,7 +291,7 @@ suite("Func Call", () => {
                 const cppFile = database.getOrAddCppFile(
                     "simple_func_call.json"
                 );
-                const funcImpl = cppFile.getOrAddFuncImpl({
+                const funcImpl = cppFile.addFuncImpl({
                     funcName: "main",
                     funcAstName: "_main",
                     qualType: "int (int, char **)",
@@ -354,7 +300,7 @@ suite("Func Call", () => {
                         end: { line: 5, column: 9 },
                     },
                 });
-                const addFuncDecl = cppFile.getOrAddFuncDecl({
+                const addFuncDecl = cppFile.addFuncDecl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",

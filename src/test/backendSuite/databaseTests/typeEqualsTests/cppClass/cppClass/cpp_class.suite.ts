@@ -18,8 +18,8 @@ suite("Cpp Class", () => {
                 const cppFile = database.getOrAddCppFile(
                     "simple_cpp_class.json"
                 );
-                const cppClass = cppFile.getOrAddClass("BarClass");
-                cppClass.getOrAddClass("FooClass");
+                const cppClass = cppFile.addClass("BarClass");
+                cppClass.addClass("FooClass");
 
                 database.writeDatabase();
 
@@ -40,11 +40,11 @@ suite("Cpp Class", () => {
                 const cppFile = database.getOrAddCppFile(
                     "simple_cpp_class.json"
                 );
-                const cppClass = cppFile.getOrAddClass("BarClass");
-                cppClass.getOrAddClass("FooClassA");
-                cppClass.getOrAddClass("FooClassB");
-                cppClass.getOrAddClass("FooClassC");
-                cppClass.getOrAddClass("FooClassD");
+                const cppClass = cppFile.addClass("BarClass");
+                cppClass.addClass("FooClassA");
+                cppClass.addClass("FooClassB");
+                cppClass.addClass("FooClassC");
+                cppClass.addClass("FooClassD");
 
                 database.writeDatabase();
 
@@ -65,10 +65,10 @@ suite("Cpp Class", () => {
                 const cppFile = database.getOrAddCppFile(
                     "simple_cpp_class.json"
                 );
-                const cppClass = cppFile.getOrAddClass("BarClass");
-                cppClass.getOrAddClass("FooClassA");
-                cppClass.getOrAddClass("FooClassB");
-                cppClass.getOrAddClass("FooClassD");
+                const cppClass = cppFile.addClass("BarClass");
+                cppClass.addClass("FooClassA");
+                cppClass.addClass("FooClassB");
+                cppClass.addClass("FooClassD");
 
                 database.writeDatabase();
 
@@ -89,11 +89,11 @@ suite("Cpp Class", () => {
                 const cppFile = database.getOrAddCppFile(
                     "simple_cpp_class.json"
                 );
-                const cppClass = cppFile.getOrAddClass("BarClass");
-                cppClass.getOrAddClass("FooClassX");
-                cppClass.getOrAddClass("FooClassB");
-                cppClass.getOrAddClass("FooClassC");
-                cppClass.getOrAddClass("FooClassD");
+                const cppClass = cppFile.addClass("BarClass");
+                cppClass.addClass("FooClassX");
+                cppClass.addClass("FooClassB");
+                cppClass.addClass("FooClassC");
+                cppClass.addClass("FooClassD");
 
                 database.writeDatabase();
 
@@ -114,8 +114,8 @@ suite("Cpp Class", () => {
                 const cppFile = database.getOrAddCppFile(
                     "simple_cpp_class.json"
                 );
-                const cppClass = cppFile.getOrAddClass("BarClass");
-                cppClass.getOrAddClass("BarClass");
+                const cppClass = cppFile.addClass("BarClass");
+                cppClass.addClass("BarClass");
 
                 database.writeDatabase();
 
@@ -136,7 +136,7 @@ suite("Cpp Class", () => {
                 const cppFile = database.getOrAddCppFile(
                     "simple_cpp_class.json"
                 );
-                cppFile.getOrAddClass("BarClass");
+                cppFile.addClass("BarClass");
 
                 database.writeDatabase();
 

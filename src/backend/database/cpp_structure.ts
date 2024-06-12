@@ -72,14 +72,14 @@ export interface VirtualFuncCall extends FuncCall, VirtualFuncBasics {}
 
 export interface MainDeclLocation extends Equal {
     getClasses(): CppClass[];
-    getOrAddClass(className: string): CppClass;
+    addClass(className: string): CppClass;
 
     getFuncDecls(): FuncDeclaration[];
-    getOrAddFuncDecl(args: FuncCreationArgs): FuncDeclaration;
+    addFuncDecl(args: FuncCreationArgs): FuncDeclaration;
     getFuncImpls(): FuncImplementation[];
-    getOrAddFuncImpl(args: FuncCreationArgs): FuncImplementation;
+    addFuncImpl(args: FuncCreationArgs): FuncImplementation;
     getVirtualFuncImpls(): VirtualFuncImplementation[];
-    getOrAddVirtualFuncImpl(
+    addVirtualFuncImpl(
         args: VirtualFuncCreationArgs
     ): VirtualFuncImplementation;
 }
@@ -93,9 +93,7 @@ export interface CppClass extends MainDeclLocation {
     // Virtual functions can be implemented in a class or file but only declared
     // within a class body.
     getVirtualFuncDecls(): VirtualFuncDeclaration[];
-    getOrAddVirtualFuncDecl(
-        args: VirtualFuncCreationArgs
-    ): VirtualFuncDeclaration;
+    addVirtualFuncDecl(args: VirtualFuncCreationArgs): VirtualFuncDeclaration;
 
     findBaseFunction(
         funcName: string,

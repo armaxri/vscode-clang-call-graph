@@ -18,7 +18,7 @@ suite("Func Decl", () => {
                 const hppFile = database.getOrAddHppFile(
                     "simple_func_decl.json"
                 );
-                hppFile.getOrAddFuncDecl({
+                hppFile.addFuncDecl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -47,7 +47,7 @@ suite("Func Decl", () => {
                 const hppFile = database.getOrAddHppFile(
                     "multiple_simple_func_decl.json"
                 );
-                hppFile.getOrAddFuncDecl({
+                hppFile.addFuncDecl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -56,7 +56,7 @@ suite("Func Decl", () => {
                         end: { line: 11, column: 8 },
                     },
                 });
-                hppFile.getOrAddFuncDecl({
+                hppFile.addFuncDecl({
                     funcName: "sub",
                     funcAstName: "__ZN3foo3subEii",
                     qualType: "int (int, int)",
@@ -65,7 +65,7 @@ suite("Func Decl", () => {
                         end: { line: 12, column: 8 },
                     },
                 });
-                hppFile.getOrAddFuncDecl({
+                hppFile.addFuncDecl({
                     funcName: "multiply",
                     funcAstName: "__ZN3foo8multiplyEii",
                     qualType: "int (int, int)",
@@ -74,7 +74,7 @@ suite("Func Decl", () => {
                         end: { line: 13, column: 13 },
                     },
                 });
-                hppFile.getOrAddFuncDecl({
+                hppFile.addFuncDecl({
                     funcName: "divide",
                     funcAstName: "__ZN3foo6divideEii",
                     qualType: "int (int, int)",
@@ -103,7 +103,7 @@ suite("Func Decl", () => {
                 const hppFile = database.getOrAddHppFile(
                     "multiple_simple_func_decl.json"
                 );
-                hppFile.getOrAddFuncDecl({
+                hppFile.addFuncDecl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -112,7 +112,7 @@ suite("Func Decl", () => {
                         end: { line: 11, column: 8 },
                     },
                 });
-                hppFile.getOrAddFuncDecl({
+                hppFile.addFuncDecl({
                     funcName: "multiply",
                     funcAstName: "__ZN3foo8multiplyEii",
                     qualType: "int (int, int)",
@@ -121,7 +121,7 @@ suite("Func Decl", () => {
                         end: { line: 13, column: 13 },
                     },
                 });
-                hppFile.getOrAddFuncDecl({
+                hppFile.addFuncDecl({
                     funcName: "divide",
                     funcAstName: "__ZN3foo6divideEii",
                     qualType: "int (int, int)",
@@ -150,7 +150,7 @@ suite("Func Decl", () => {
                 const hppFile = database.getOrAddHppFile(
                     "simple_func_decl.json"
                 );
-                hppFile.getOrAddFuncDecl({
+                hppFile.addFuncDecl({
                     funcName: "multiply",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -179,7 +179,7 @@ suite("Func Decl", () => {
                 const hppFile = database.getOrAddHppFile(
                     "simple_func_decl.json"
                 );
-                hppFile.getOrAddFuncDecl({
+                hppFile.addFuncDecl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",

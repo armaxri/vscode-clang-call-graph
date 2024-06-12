@@ -18,7 +18,7 @@ suite("Cpp Class", () => {
                 const hppFile = database.getOrAddHppFile(
                     "simple_cpp_class.json"
                 );
-                hppFile.getOrAddClass("FooClass");
+                hppFile.addClass("FooClass");
 
                 database.writeDatabase();
 
@@ -39,10 +39,10 @@ suite("Cpp Class", () => {
                 const hppFile = database.getOrAddHppFile(
                     "simple_cpp_class.json"
                 );
-                hppFile.getOrAddClass("FooClassA");
-                hppFile.getOrAddClass("FooClassB");
-                hppFile.getOrAddClass("FooClassC");
-                hppFile.getOrAddClass("FooClassD");
+                hppFile.addClass("FooClassA");
+                hppFile.addClass("FooClassB");
+                hppFile.addClass("FooClassC");
+                hppFile.addClass("FooClassD");
 
                 database.writeDatabase();
 
@@ -63,9 +63,9 @@ suite("Cpp Class", () => {
                 const hppFile = database.getOrAddHppFile(
                     "simple_cpp_class.json"
                 );
-                hppFile.getOrAddClass("FooClassA");
-                hppFile.getOrAddClass("FooClassB");
-                hppFile.getOrAddClass("FooClassD");
+                hppFile.addClass("FooClassA");
+                hppFile.addClass("FooClassB");
+                hppFile.addClass("FooClassD");
 
                 database.writeDatabase();
 
@@ -86,10 +86,10 @@ suite("Cpp Class", () => {
                 const hppFile = database.getOrAddHppFile(
                     "simple_cpp_class.json"
                 );
-                hppFile.getOrAddClass("FooClassX");
-                hppFile.getOrAddClass("FooClassB");
-                hppFile.getOrAddClass("FooClassC");
-                hppFile.getOrAddClass("FooClassD");
+                hppFile.addClass("FooClassX");
+                hppFile.addClass("FooClassB");
+                hppFile.addClass("FooClassC");
+                hppFile.addClass("FooClassD");
 
                 database.writeDatabase();
 
@@ -110,7 +110,7 @@ suite("Cpp Class", () => {
                 const hppFile = database.getOrAddHppFile(
                     "simple_cpp_class.json"
                 );
-                hppFile.getOrAddClass("BarClass");
+                hppFile.addClass("BarClass");
 
                 database.writeDatabase();
 
@@ -131,7 +131,7 @@ suite("Cpp Class", () => {
                 const cppFile = database.getOrAddCppFile(
                     "simple_cpp_class.json"
                 );
-                cppFile.getOrAddClass("BarClass");
+                cppFile.addClass("BarClass");
 
                 database.writeDatabase();
 

@@ -18,7 +18,7 @@ suite("Virtual Func Impl", () => {
                 const hppFile = database.getOrAddHppFile(
                     "simple_virtual_func_impl.json"
                 );
-                hppFile.getOrAddVirtualFuncImpl({
+                hppFile.addVirtualFuncImpl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -48,7 +48,7 @@ suite("Virtual Func Impl", () => {
                 const hppFile = database.getOrAddHppFile(
                     "multiple_simple_virtual_func_impl.json"
                 );
-                hppFile.getOrAddVirtualFuncImpl({
+                hppFile.addVirtualFuncImpl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -58,7 +58,7 @@ suite("Virtual Func Impl", () => {
                     },
                     baseFuncAstName: "__ZN3foo3addEii",
                 });
-                hppFile.getOrAddVirtualFuncImpl({
+                hppFile.addVirtualFuncImpl({
                     funcName: "sub",
                     funcAstName: "__ZN3foo3subEii",
                     qualType: "int (int, int)",
@@ -68,7 +68,7 @@ suite("Virtual Func Impl", () => {
                     },
                     baseFuncAstName: "__ZN3foo3subEii",
                 });
-                hppFile.getOrAddVirtualFuncImpl({
+                hppFile.addVirtualFuncImpl({
                     funcName: "multiply",
                     funcAstName: "__ZN3foo8multiplyEii",
                     qualType: "int (int, int)",
@@ -78,7 +78,7 @@ suite("Virtual Func Impl", () => {
                     },
                     baseFuncAstName: "__ZN3foo8multiplyEii",
                 });
-                hppFile.getOrAddVirtualFuncImpl({
+                hppFile.addVirtualFuncImpl({
                     funcName: "divide",
                     funcAstName: "__ZN3foo6divideEii",
                     qualType: "int (int, int)",
@@ -111,8 +111,8 @@ suite("Virtual Func Impl", () => {
                         const hppFile = database.getOrAddHppFile(
                             "multiple_simple_virtual_func_impl.json"
                         );
-                        const cppClass = hppFile.getOrAddClass("FooClass");
-                        hppFile.getOrAddVirtualFuncImpl({
+                        const cppClass = hppFile.addClass("FooClass");
+                        hppFile.addVirtualFuncImpl({
                             funcName: "add",
                             funcAstName: "__ZN3foo3addEii",
                             qualType: "int (int, int)",
@@ -122,7 +122,7 @@ suite("Virtual Func Impl", () => {
                             },
                             baseFuncAstName: "__ZN3foo3addEii",
                         });
-                        hppFile.getOrAddVirtualFuncImpl({
+                        hppFile.addVirtualFuncImpl({
                             funcName: "multiply",
                             funcAstName: "__ZN3foo8multiplyEii",
                             qualType: "int (int, int)",
@@ -132,7 +132,7 @@ suite("Virtual Func Impl", () => {
                             },
                             baseFuncAstName: "__ZN3foo8multiplyEii",
                         });
-                        hppFile.getOrAddVirtualFuncImpl({
+                        hppFile.addVirtualFuncImpl({
                             funcName: "divide",
                             funcAstName: "__ZN3foo6divideEii",
                             qualType: "int (int, int)",
@@ -164,7 +164,7 @@ suite("Virtual Func Impl", () => {
                 const hppFile = database.getOrAddHppFile(
                     "simple_virtual_func_impl.json"
                 );
-                hppFile.getOrAddVirtualFuncImpl({
+                hppFile.addVirtualFuncImpl({
                     funcName: "multiply",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -194,7 +194,7 @@ suite("Virtual Func Impl", () => {
                 const hppFile = database.getOrAddHppFile(
                     "simple_virtual_func_impl.json"
                 );
-                hppFile.getOrAddVirtualFuncImpl({
+                hppFile.addVirtualFuncImpl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -224,7 +224,7 @@ suite("Virtual Func Impl", () => {
                 const hppFile = database.getOrAddHppFile(
                     "simple_virtual_func_impl.json"
                 );
-                hppFile.getOrAddVirtualFuncImpl({
+                hppFile.addVirtualFuncImpl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",

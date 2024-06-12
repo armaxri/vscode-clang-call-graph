@@ -227,12 +227,10 @@ export class ClangAstWalker implements AstWalker {
     ): Promise<void> {
         const newClass =
             this.activeClassStack.length === 0
-                ? await this.currentlyAnalyzedFile!.getOrAddClass(
-                      astElement.name!
-                  )
+                ? await this.currentlyAnalyzedFile!.addClass(astElement.name!)
                 : await this.activeClassStack[
                       this.activeClassStack.length - 1
-                  ].getOrAddClass(astElement.name!);
+                  ].addClass(astElement.name!);
 
         if (astElement.bases) {
             astElement.bases.forEach((base) => {
@@ -332,8 +330,8 @@ export class ClangAstWalker implements AstWalker {
 
         const id = Number(astElement.id);
         const virtualFuncMentioning = hasCompoundStmtInInner(astElement)
-            ? await currentClass.getOrAddVirtualFuncImpl(creationArgs)
-            : await currentClass.getOrAddVirtualFuncDecl(creationArgs);
+            ? await currentClass.addVirtualFuncImpl(creationArgs)
+            : await currentClass.addVirtualFuncDecl(creationArgs);
 
         this.virtualFuncDeclarations.push({
             id,
@@ -358,8 +356,8 @@ export class ClangAstWalker implements AstWalker {
                 : (this.currentlyAnalyzedFile as db.CppFile);
 
         const funcMentioning = hasCompoundStmtInInner(astElement)
-            ? await declLocation.getOrAddFuncImpl(creationArgs)
-            : await declLocation.getOrAddFuncDecl(creationArgs);
+            ? await declLocation.addFuncImpl(creationArgs)
+            : await declLocation.addFuncDecl(creationArgs);
         this.funcDeclarations.push({ id, mentioningData: funcMentioning });
 
         if (hasCompoundStmtInInner(astElement)) {

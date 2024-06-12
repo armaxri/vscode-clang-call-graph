@@ -36,7 +36,7 @@ suite("Base", () => {
                 const hppFile = database.getOrAddHppFile(
                     "stupid_simple_func_decl.json"
                 );
-                hppFile.getOrAddFuncDecl({
+                hppFile.addFuncDecl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",

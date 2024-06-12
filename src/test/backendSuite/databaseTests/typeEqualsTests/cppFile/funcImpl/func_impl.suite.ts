@@ -18,7 +18,7 @@ suite("Func Impl", () => {
                 const cppFile = database.getOrAddCppFile(
                     "simple_func_impl.json"
                 );
-                cppFile.getOrAddFuncImpl({
+                cppFile.addFuncImpl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -47,7 +47,7 @@ suite("Func Impl", () => {
                 const cppFile = database.getOrAddCppFile(
                     "multiple_simple_func_impl.json"
                 );
-                cppFile.getOrAddFuncImpl({
+                cppFile.addFuncImpl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -56,7 +56,7 @@ suite("Func Impl", () => {
                         end: { line: 11, column: 8 },
                     },
                 });
-                cppFile.getOrAddFuncImpl({
+                cppFile.addFuncImpl({
                     funcName: "sub",
                     funcAstName: "__ZN3foo3subEii",
                     qualType: "int (int, int)",
@@ -65,7 +65,7 @@ suite("Func Impl", () => {
                         end: { line: 12, column: 8 },
                     },
                 });
-                cppFile.getOrAddFuncImpl({
+                cppFile.addFuncImpl({
                     funcName: "multiply",
                     funcAstName: "__ZN3foo8multiplyEii",
                     qualType: "int (int, int)",
@@ -74,7 +74,7 @@ suite("Func Impl", () => {
                         end: { line: 13, column: 13 },
                     },
                 });
-                cppFile.getOrAddFuncImpl({
+                cppFile.addFuncImpl({
                     funcName: "divide",
                     funcAstName: "__ZN3foo6divideEii",
                     qualType: "int (int, int)",
@@ -106,7 +106,7 @@ suite("Func Impl", () => {
                         const cppFile = database.getOrAddCppFile(
                             "multiple_simple_func_impl.json"
                         );
-                        cppFile.getOrAddFuncImpl({
+                        cppFile.addFuncImpl({
                             funcName: "add",
                             funcAstName: "__ZN3foo3addEii",
                             qualType: "int (int, int)",
@@ -115,7 +115,7 @@ suite("Func Impl", () => {
                                 end: { line: 11, column: 8 },
                             },
                         });
-                        cppFile.getOrAddFuncImpl({
+                        cppFile.addFuncImpl({
                             funcName: "multiply",
                             funcAstName: "__ZN3foo8multiplyEii",
                             qualType: "int (int, int)",
@@ -124,7 +124,7 @@ suite("Func Impl", () => {
                                 end: { line: 13, column: 13 },
                             },
                         });
-                        cppFile.getOrAddFuncImpl({
+                        cppFile.addFuncImpl({
                             funcName: "divide",
                             funcAstName: "__ZN3foo6divideEii",
                             qualType: "int (int, int)",
@@ -155,7 +155,7 @@ suite("Func Impl", () => {
                 const cppFile = database.getOrAddCppFile(
                     "simple_func_impl.json"
                 );
-                cppFile.getOrAddFuncImpl({
+                cppFile.addFuncImpl({
                     funcName: "multiply",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -184,7 +184,7 @@ suite("Func Impl", () => {
                 const cppFile = database.getOrAddCppFile(
                     "simple_func_impl.json"
                 );
-                cppFile.getOrAddFuncImpl({
+                cppFile.addFuncImpl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
