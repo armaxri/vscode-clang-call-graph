@@ -6,22 +6,22 @@ import { delay } from "../../../backend/utils/utils";
 suite("Path Utils Test Suite", () => {
     test("is directory", () => {
         const path = new PathUtils(__dirname);
-        assert.equal(path.isDirectory(), true);
+        assert.ok(path.isDirectory());
     });
 
     test("is not directory", () => {
         const path = new PathUtils(__filename);
-        assert.equal(path.isDirectory(), false);
+        assert.ok(!path.isDirectory());
     });
 
     test("has parent dir", () => {
         const path = new PathUtils(__filename);
-        assert.equal(path.hasParentDir(), true);
+        assert.ok(path.hasParentDir());
     });
 
     test("has no parent dir", () => {
         const path = new PathUtils("/");
-        assert.equal(path.hasParentDir(), false);
+        assert.ok(!path.hasParentDir());
     });
 
     test("get dir of file", () => {
@@ -52,7 +52,7 @@ suite("Path Utils Test Suite", () => {
 
     test("remove but file doesn't exists", () => {
         const path = new PathUtils(__dirname, "not_existing_file");
-        assert.equal(path.remove(), false);
+        assert.ok(!path.remove());
     });
 
     test("try to remove not existing file without error", () => {
@@ -63,65 +63,65 @@ suite("Path Utils Test Suite", () => {
     test("create and remove test file", () => {
         const path = new PathUtils(__dirname, "test_file");
         path.tryToRemove();
-        assert.equal(path.doesExist(), false);
+        assert.ok(!path.doesExist());
 
         path.createFile();
-        assert.equal(path.doesExist(), true);
+        assert.ok(path.doesExist());
         path.tryToRemove();
-        assert.equal(path.doesExist(), false);
+        assert.ok(!path.doesExist());
     });
 
     test("create already existing file", () => {
         const path = new PathUtils(__dirname, "test_file");
         const testContent = "test file content";
         path.tryToRemove();
-        assert.equal(path.doesExist(), false);
+        assert.ok(!path.doesExist());
 
         path.createFile();
-        assert.equal(path.doesExist(), true);
+        assert.ok(path.doesExist());
         fs.writeFileSync(path.pathString(), testContent);
 
         assert.equal(fs.readFileSync(path.pathString(), "utf8"), testContent);
         path.createFile();
-        assert.equal(path.doesExist(), true);
+        assert.ok(path.doesExist());
         assert.equal(fs.readFileSync(path.pathString(), "utf8"), testContent);
 
         path.tryToRemove();
-        assert.equal(path.doesExist(), false);
+        assert.ok(!path.doesExist());
     });
 
     test("check modification time", async () => {
         const path = new PathUtils(__dirname, "test_file");
         const testContent = "test file content";
         path.tryToRemove();
-        assert.equal(path.doesExist(), false);
+        assert.ok(!path.doesExist());
 
         const timestamp1 = Date.now();
         await delay(20);
 
         path.createFile();
-        assert.equal(path.doesExist(), true);
+        assert.ok(path.doesExist());
         await delay(20);
         const modificationTime1 = path.getModificationTime().getTime();
-        assert.equal(modificationTime1 > timestamp1, true);
+        assert.ok(modificationTime1 > timestamp1);
 
         await delay(20);
         const timestamp2 = Date.now();
-        assert.equal(modificationTime1 < timestamp2, true);
+        assert.ok(modificationTime1 < timestamp2);
         await delay(20);
 
         fs.writeFileSync(path.pathString(), testContent);
 
         await delay(20);
         const modificationTime2 = path.getModificationTime().getTime();
-        assert.equal(modificationTime2 > timestamp2, true);
+        assert.ok(modificationTime2 > timestamp2);
 
         await delay(20);
         const timestamp3 = Date.now();
-        assert.equal(modificationTime2 < timestamp3, true);
+        assert.ok(modificationTime2 < timestamp3);
 
         path.tryToRemove();
-        assert.equal(path.doesExist(), false);
+        assert.ok(!path.doesExist());
     });
 
     // Date.now()

@@ -17,7 +17,13 @@ import { SqliteVirtualFuncImplementation } from "./SqliteVirtualFuncImplementati
 export class SqliteCppClass extends AbstractCppClass {
     private internal: InternalSqliteDatabase;
     private id: number;
+
     private className: string;
+    private cppClasses: CppClass[];
+    private funcDecls: FuncDeclaration[];
+    private funcImpls: FuncImplementation[];
+    private virtualFuncDecls: VirtualFuncDeclaration[];
+    private virtualFuncImpls: VirtualFuncImplementation[];
 
     constructor(
         internal: InternalSqliteDatabase,
@@ -28,7 +34,27 @@ export class SqliteCppClass extends AbstractCppClass {
 
         this.internal = internal;
         this.id = id;
+
         this.className = className;
+
+        this.cppClasses = SqliteCppClass.getCppClasses(this.internal, {
+            cppClassId: this.id,
+        });
+        this.funcDecls = SqliteFuncDeclaration.getFuncDecls(this.internal, {
+            cppClassId: this.id,
+        });
+        this.funcImpls = SqliteFuncImplementation.getFuncImpls(this.internal, {
+            cppClassId: this.id,
+        });
+        this.virtualFuncDecls =
+            SqliteVirtualFuncDeclaration.getVirtualFuncDecls(
+                this.internal,
+                this.id
+            );
+        this.virtualFuncImpls =
+            SqliteVirtualFuncImplementation.getVirtualFuncImpls(this.internal, {
+                cppClassId: this.id,
+            });
     }
 
     static createTableCalls(internalDb: InternalSqliteDatabase): void {
@@ -72,38 +98,6 @@ export class SqliteCppClass extends AbstractCppClass {
         );
 
         return new SqliteCppClass(internalDb, classId, className);
-    }
-
-    static getCppClass(
-        internalDb: InternalSqliteDatabase,
-        className: string,
-        parent: {
-            cppFileId?: number;
-            hppFileId?: number;
-            cppClassId?: number;
-        }
-    ): SqliteCppClass | null {
-        const row = internalDb.db
-            .prepare(
-                `SELECT id FROM cpp_classes
-                 WHERE class_name=(?) AND cpp_file_id=(?) AND hpp_file_id=(?) AND cpp_class_id=(?)`
-            )
-            .get(
-                className,
-                parent.cppFileId,
-                parent.hppFileId,
-                parent.cppClassId
-            );
-
-        if (!row) {
-            return null;
-        }
-
-        return new SqliteCppClass(
-            internalDb,
-            (row as any).id.id,
-            (row as any).class_name
-        );
     }
 
     static getCppClasses(
@@ -152,72 +146,89 @@ export class SqliteCppClass extends AbstractCppClass {
     }
 
     getClasses(): CppClass[] {
-        return SqliteCppClass.getCppClasses(this.internal, {
-            cppClassId: this.id,
-        });
+        return this.cppClasses;
     }
 
     addClass(className: string): CppClass {
-        return SqliteCppClass.createCppClass(this.internal, className, {
-            cppClassId: this.id,
-        });
-    }
-
-    getFuncDecls(): FuncDeclaration[] {
-        return SqliteFuncDeclaration.getFuncDecls(this.internal, {
-            cppClassId: this.id,
-        });
-    }
-
-    addFuncDecl(args: FuncCreationArgs): FuncDeclaration {
-        return SqliteFuncDeclaration.createFuncDecl(this.internal, args, {
-            cppClassId: this.id,
-        });
-    }
-
-    getFuncImpls(): FuncImplementation[] {
-        return SqliteFuncImplementation.getFuncImpls(this.internal, {
-            cppClassId: this.id,
-        });
-    }
-
-    addFuncImpl(args: FuncCreationArgs): FuncImplementation {
-        return SqliteFuncImplementation.createFuncImpl(this.internal, args, {
-            cppClassId: this.id,
-        });
-    }
-
-    getVirtualFuncDecls(): VirtualFuncDeclaration[] {
-        return SqliteVirtualFuncDeclaration.getVirtualFuncDecls(
+        const cppClass = SqliteCppClass.createCppClass(
             this.internal,
-            this.id
-        );
-    }
-
-    addVirtualFuncDecl(args: VirtualFuncCreationArgs): VirtualFuncDeclaration {
-        return SqliteVirtualFuncDeclaration.createVirtualFuncDecl(
-            this.internal,
-            args,
-            this.id
-        );
-    }
-
-    getVirtualFuncImpls(): VirtualFuncImplementation[] {
-        return SqliteVirtualFuncImplementation.getVirtualFuncImpls(
-            this.internal,
+            className,
             {
                 cppClassId: this.id,
             }
         );
+        this.cppClasses.push(cppClass);
+
+        return cppClass;
+    }
+
+    getFuncDecls(): FuncDeclaration[] {
+        return this.funcDecls;
+    }
+
+    addFuncDecl(args: FuncCreationArgs): FuncDeclaration {
+        const funcDecl = SqliteFuncDeclaration.createFuncDecl(
+            this.internal,
+            args,
+            {
+                cppClassId: this.id,
+            }
+        );
+        this.funcDecls.push(funcDecl);
+
+        return funcDecl;
+    }
+
+    getFuncImpls(): FuncImplementation[] {
+        return this.funcImpls;
+    }
+
+    addFuncImpl(args: FuncCreationArgs): FuncImplementation {
+        const funcImpl = SqliteFuncImplementation.createFuncImpl(
+            this.internal,
+            args,
+            {
+                cppClassId: this.id,
+            }
+        );
+        this.funcImpls.push(funcImpl);
+
+        return funcImpl;
+    }
+
+    getVirtualFuncDecls(): VirtualFuncDeclaration[] {
+        return this.virtualFuncDecls;
+    }
+
+    addVirtualFuncDecl(args: VirtualFuncCreationArgs): VirtualFuncDeclaration {
+        const virtualFuncDecl =
+            SqliteVirtualFuncDeclaration.createVirtualFuncDecl(
+                this.internal,
+                args,
+                this.id
+            );
+        this.virtualFuncDecls.push(virtualFuncDecl);
+
+        return virtualFuncDecl;
+    }
+
+    getVirtualFuncImpls(): VirtualFuncImplementation[] {
+        return this.virtualFuncImpls;
     }
 
     addVirtualFuncImpl(
         args: VirtualFuncCreationArgs
     ): VirtualFuncImplementation {
-        return SqliteVirtualFuncImplementation.createVirtualFuncImpl(
-            this.internal,
-            args,
-            { cppClassId: this.id }
-        );
+        const virtualFuncImpl =
+            SqliteVirtualFuncImplementation.createVirtualFuncImpl(
+                this.internal,
+                args,
+                {
+                    cppClassId: this.id,
+                }
+            );
+        this.virtualFuncImpls.push(virtualFuncImpl);
+
+        return virtualFuncImpl;
     }
 }

@@ -1,14 +1,11 @@
 import { AbstractVirtualFuncDeclaration } from "../../impls/AbstractVirtualFuncDeclaration";
 import { InternalSqliteDatabase } from "../InternalSqliteDatabase";
-import {
-    FuncCreationArgs,
-    Range,
-    VirtualFuncCreationArgs,
-} from "../../cpp_structure";
+import { Range, VirtualFuncCreationArgs } from "../../cpp_structure";
 
 export class SqliteVirtualFuncDeclaration extends AbstractVirtualFuncDeclaration {
     private internal: InternalSqliteDatabase;
     private id: number;
+
     private funcName: string;
     private baseFuncAstName: string;
     private funcAstName: string;
@@ -24,6 +21,7 @@ export class SqliteVirtualFuncDeclaration extends AbstractVirtualFuncDeclaration
 
         this.internal = internal;
         this.id = id;
+
         this.baseFuncAstName = args.baseFuncAstName;
         this.funcName = args.funcName;
         this.funcAstName = args.funcAstName;
@@ -79,51 +77,6 @@ export class SqliteVirtualFuncDeclaration extends AbstractVirtualFuncDeclaration
         );
 
         return new SqliteVirtualFuncDeclaration(internalDb, fileId, args);
-    }
-
-    static getVirtualFuncDecl(
-        internalDb: InternalSqliteDatabase,
-        args: VirtualFuncCreationArgs,
-        cppClassId: number
-    ): SqliteVirtualFuncDeclaration | null {
-        const row = internalDb.db
-            .prepare(
-                `
-                SELECT id, base_func_ast_name, func_name, func_ast_name, range_start_line, range_start_column,
-                    range_end_line, range_end_column FROM virtual_func_declarations
-                WHERE base_func_ast_name=(?) AND func_name=(?) AND qual_type=(?) AND cpp_class_id=(?)`
-            )
-            .get(
-                args.baseFuncAstName,
-                args.funcName,
-                args.qualType,
-                cppClassId
-            );
-
-        if (row !== undefined) {
-            return new SqliteVirtualFuncDeclaration(
-                internalDb,
-                (row as any).id,
-                {
-                    baseFuncAstName: (row as any).base_func_ast_name,
-                    funcName: (row as any).func_name,
-                    funcAstName: (row as any).func_ast_name,
-                    qualType: (row as any).qual_type,
-                    range: {
-                        start: {
-                            line: (row as any).range_start_line,
-                            column: (row as any).range_start_column,
-                        },
-                        end: {
-                            line: (row as any).range_end_line,
-                            column: (row as any).range_end_column,
-                        },
-                    },
-                }
-            );
-        }
-
-        return null;
     }
 
     static getVirtualFuncDecls(

@@ -6,7 +6,6 @@ import {
     VirtualFuncCreationArgs,
     VirtualFuncDeclaration,
     VirtualFuncImplementation,
-    rangeIsEqual,
 } from "../../cpp_structure";
 import { LowdbFuncDeclaration } from "./LowdbFuncDeclaration";
 import { LowdbFuncImplementation } from "./LowdbFuncImplementation";

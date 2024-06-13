@@ -18,11 +18,14 @@ import { SqliteVirtualFuncCall } from "./SqliteVirtualFuncCall";
 export class SqliteVirtualFuncImplementation extends AbstractVirtualFuncImplementation {
     private internal: InternalSqliteDatabase;
     private id: number;
+
     private funcName: string;
     private baseFuncAstName: string;
     private funcAstName: string;
     private qualType: string;
     private range: Range;
+    private funcCalls: FuncCall[];
+    private virtualFuncCalls: VirtualFuncCall[];
 
     constructor(
         internal: InternalSqliteDatabase,
@@ -33,11 +36,22 @@ export class SqliteVirtualFuncImplementation extends AbstractVirtualFuncImplemen
 
         this.internal = internal;
         this.id = id;
+
         this.baseFuncAstName = args.baseFuncAstName;
         this.funcName = args.funcName;
         this.funcAstName = args.funcAstName;
         this.qualType = args.qualType;
         this.range = args.range;
+
+        this.funcCalls = SqliteFuncCall.getFuncCalls(this.internal, {
+            virtualFuncImplId: this.id,
+        });
+        this.virtualFuncCalls = SqliteVirtualFuncCall.getVirtualFuncCalls(
+            this.internal,
+            {
+                virtualFuncImplId: this.id,
+            }
+        );
     }
 
     static createTableCalls(internalDb: InternalSqliteDatabase): void {
@@ -100,59 +114,6 @@ export class SqliteVirtualFuncImplementation extends AbstractVirtualFuncImplemen
         );
 
         return new SqliteVirtualFuncImplementation(internalDb, funcId, args);
-    }
-
-    static getVirtualFuncImpl(
-        internalDb: InternalSqliteDatabase,
-        virtualFuncCall: VirtualFuncCreationArgs,
-        parent: {
-            cppFileId?: number;
-            hppFileId?: number;
-            cppClassId?: number;
-        }
-    ): SqliteVirtualFuncImplementation | null {
-        const row = internalDb.db
-            .prepare(
-                `
-            SELECT * FROM virtual_func_implementations
-            WHERE func_name = @funcName AND base_func_ast_name = @baseFuncAstName AND qual_type = @qualType AND func_ast_name = @funcAstName
-                AND (cpp_file_id = @cppFileId OR hpp_file_id = @hppFileId OR cpp_class_id = @cppClassId)
-            `
-            )
-            .get({
-                funcName: virtualFuncCall.funcName,
-                baseFuncAstName: virtualFuncCall.baseFuncAstName,
-                qualType: virtualFuncCall.qualType,
-                funcAstName: virtualFuncCall.funcAstName,
-                cppFileId: parent.cppFileId,
-                hppFileId: parent.hppFileId,
-                cppClassId: parent.cppClassId,
-            });
-
-        if (!row) {
-            return null;
-        }
-
-        return new SqliteVirtualFuncImplementation(
-            internalDb,
-            (row as any).id,
-            {
-                baseFuncAstName: (row as any).base_func_ast_name,
-                funcName: (row as any).func_name,
-                funcAstName: (row as any).func_ast_name,
-                qualType: (row as any).qual_type,
-                range: {
-                    start: {
-                        line: (row as any).range_start_line,
-                        column: (row as any).range_start_column,
-                    },
-                    end: {
-                        line: (row as any).range_end_line,
-                        column: (row as any).range_end_column,
-                    },
-                },
-            }
-        );
     }
 
     static getVirtualFuncImpls(
@@ -227,38 +188,34 @@ export class SqliteVirtualFuncImplementation extends AbstractVirtualFuncImplemen
     }
 
     getFuncCalls(): FuncCall[] {
-        return SqliteFuncCall.getFuncCalls(this.internal, {
-            virtualFuncImplId: this.id,
-        });
+        return this.funcCalls;
     }
 
     addFuncCall(funcCall: FuncCallCreationArgs): void {
-        SqliteFuncCall.createFuncCall(
-            this.internal,
-            funcCallArgs2FuncArgs(funcCall),
-            {
-                virtualFuncImplId: this.id,
-            }
+        this.funcCalls.push(
+            SqliteFuncCall.createFuncCall(
+                this.internal,
+                funcCallArgs2FuncArgs(funcCall),
+                {
+                    virtualFuncImplId: this.id,
+                }
+            )
         );
-
-        return;
     }
 
     getVirtualFuncCalls(): VirtualFuncCall[] {
-        return SqliteVirtualFuncCall.getVirtualFuncCalls(this.internal, {
-            virtualFuncImplId: this.id,
-        });
+        return this.virtualFuncCalls;
     }
 
     addVirtualFuncCall(virtualFuncCall: VirtualFuncCallCreationArgs): void {
-        SqliteVirtualFuncCall.createVirtualFuncCall(
-            this.internal,
-            virtualFuncCallArgs2VirtualFuncArgs(virtualFuncCall),
-            {
-                virtualFuncImplId: this.id,
-            }
+        this.virtualFuncCalls.push(
+            SqliteVirtualFuncCall.createVirtualFuncCall(
+                this.internal,
+                virtualFuncCallArgs2VirtualFuncArgs(virtualFuncCall),
+                {
+                    virtualFuncImplId: this.id,
+                }
+            )
         );
-
-        return;
     }
 }

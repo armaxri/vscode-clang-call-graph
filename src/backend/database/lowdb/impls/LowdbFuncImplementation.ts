@@ -4,7 +4,6 @@ import {
     Range,
     VirtualFuncCall,
     VirtualFuncCallCreationArgs,
-    rangeIsEqual,
 } from "../../cpp_structure";
 import { LowdbFuncCall } from "./LowdbFuncCall";
 import { LowdbVirtualFuncCall } from "./LowdbVirtualFuncCall";

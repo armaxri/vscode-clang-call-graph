@@ -5,6 +5,7 @@ import { InternalSqliteDatabase } from "../InternalSqliteDatabase";
 export class SqliteFuncDeclaration extends AbstractFuncDeclaration {
     private internal: InternalSqliteDatabase;
     private id: number;
+
     private funcName: string;
     private funcAstName: string;
     private qualType: string;
@@ -81,47 +82,6 @@ export class SqliteFuncDeclaration extends AbstractFuncDeclaration {
         );
 
         return new SqliteFuncDeclaration(internalDb, funcId, args);
-    }
-
-    static getFuncDecl(
-        internalDb: InternalSqliteDatabase,
-        funcName: string,
-        parent: {
-            cppFileId?: number;
-            hppFileId?: number;
-            cppClassId?: number;
-        }
-    ): SqliteFuncDeclaration | null {
-        const row = internalDb.db
-            .prepare(
-                "SELECT * FROM func_declarations WHERE func_name=(?) AND (cpp_file_id=(?) OR hpp_file_id=(?) OR cpp_class_id=(?))"
-            )
-            .get(
-                funcName,
-                parent.cppFileId,
-                parent.hppFileId,
-                parent.cppClassId
-            );
-
-        if (row !== undefined) {
-            return new SqliteFuncDeclaration(internalDb, (row as any).id, {
-                funcName: (row as any).func_name,
-                funcAstName: (row as any).func_ast_name,
-                qualType: (row as any).qual_type,
-                range: {
-                    start: {
-                        line: (row as any).range_start_line,
-                        column: (row as any).range_start_column,
-                    },
-                    end: {
-                        line: (row as any).range_end_line,
-                        column: (row as any).range_end_column,
-                    },
-                },
-            });
-        }
-
-        return null;
     }
 
     static getFuncDecls(
