@@ -10,15 +10,24 @@ import { LowdbCppClass } from "./LowdbCppClass";
 import { LowdbFuncDeclaration } from "./LowdbFuncDeclaration";
 import { LowdbFuncImplementation } from "./LowdbFuncImplementation";
 import { LowdbVirtualFuncImplementation } from "./LowdbVirtualFuncImplementation";
-import { LowdbInternalHppFile } from "../lowdb_internal_structure";
+import {
+    LowdbInternalDatabase,
+    LowdbInternalHppFile,
+} from "../lowdb_internal_structure";
 import { AbstractHppFile } from "../../impls/AbstractHppFile";
+import { LowSync } from "@identityinvest/lowdb";
 
 export class LowdbHppFile extends AbstractHppFile {
-    internal: LowdbInternalHppFile;
+    private database: LowSync<LowdbInternalDatabase>;
+    private internal: LowdbInternalHppFile;
 
-    constructor(internal: LowdbInternalHppFile) {
+    constructor(
+        database: LowSync<LowdbInternalDatabase>,
+        internal: LowdbInternalHppFile
+    ) {
         super();
 
+        this.database = database;
         this.internal = internal;
     }
 
@@ -36,7 +45,7 @@ export class LowdbHppFile extends AbstractHppFile {
 
     getClasses(): CppClass[] {
         return this.internal.classes.map(
-            (internalClass) => new LowdbCppClass(internalClass)
+            (internalClass) => new LowdbCppClass(this.database, internalClass)
         );
     }
 
@@ -52,7 +61,7 @@ export class LowdbHppFile extends AbstractHppFile {
         };
         this.internal.classes.push(cppClass);
 
-        return new LowdbCppClass(cppClass);
+        return new LowdbCppClass(this.database, cppClass);
     }
 
     getFuncDecls(): FuncDeclaration[] {

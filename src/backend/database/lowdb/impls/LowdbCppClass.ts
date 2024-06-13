@@ -11,17 +11,52 @@ import { LowdbFuncDeclaration } from "./LowdbFuncDeclaration";
 import { LowdbFuncImplementation } from "./LowdbFuncImplementation";
 import { LowdbVirtualFuncDeclaration } from "./LowdbVirtualFuncDeclaration";
 import { LowdbVirtualFuncImplementation } from "./LowdbVirtualFuncImplementation";
-import { LowdbInternalCppClass } from "../lowdb_internal_structure";
+import {
+    LowdbInternalCppClass,
+    LowdbInternalDatabase,
+} from "../lowdb_internal_structure";
 import { AbstractCppClass } from "../../impls/AbstractCppClass";
+import { LowSync } from "@identityinvest/lowdb";
 
 export class LowdbCppClass extends AbstractCppClass {
-    internal: LowdbInternalCppClass;
-    cachedParentClasses: CppClass[] = [];
+    private database: LowSync<LowdbInternalDatabase>;
+    private internal: LowdbInternalCppClass;
+    private parentClasses: LowdbCppClass[] = [];
 
-    constructor(internal: LowdbInternalCppClass) {
+    constructor(
+        database: LowSync<LowdbInternalDatabase>,
+        internal: LowdbInternalCppClass
+    ) {
         super();
 
+        this.database = database;
         this.internal = internal;
+
+        this.loadParentClasses();
+    }
+
+    private loadParentClasses(): void {
+        this.internal.parentClasses.map((parentClassName) => {
+            var parentClass = this.database.data.hppFiles
+                .map((hppFile) => hppFile.classes)
+                .flat()
+                .find((cppClass) => cppClass.name === parentClassName);
+
+            if (!parentClass) {
+                parentClass = this.database.data.cppFiles
+                    .map((cppFile) => cppFile.classes)
+                    .flat()
+                    .find((cppClass) => cppClass.name === parentClassName);
+            }
+
+            if (!parentClass) {
+                throw new Error(`Parent class ${parentClassName} not found`);
+            }
+
+            this.parentClasses.push(
+                new LowdbCppClass(this.database, parentClass)
+            );
+        });
     }
 
     getName(): string {
@@ -29,7 +64,7 @@ export class LowdbCppClass extends AbstractCppClass {
     }
 
     getParentClasses(): CppClass[] {
-        return this.cachedParentClasses;
+        return this.parentClasses;
     }
 
     getParentClassNames(): string[] {
@@ -37,21 +72,13 @@ export class LowdbCppClass extends AbstractCppClass {
     }
 
     addParentClass(parentClass: CppClass): void {
-        if (
-            !this.internal.parentClasses.find(
-                (name) => name === parentClass.getName()
-            )
-        ) {
-            this.internal.parentClasses.push(parentClass.getName());
-        }
-        // TODO: This is not the best way to handle this.
-        // In the future we might need to get the data from the database.
-        this.cachedParentClasses.push(parentClass);
+        this.internal.parentClasses.push(parentClass.getName());
+        this.parentClasses.push(parentClass as LowdbCppClass);
     }
 
     getClasses(): CppClass[] {
         return this.internal.classes.map(
-            (internalClass) => new LowdbCppClass(internalClass)
+            (internalClass) => new LowdbCppClass(this.database, internalClass)
         );
     }
 
@@ -67,7 +94,7 @@ export class LowdbCppClass extends AbstractCppClass {
         };
         this.internal.classes.push(internalClass);
 
-        return new LowdbCppClass(internalClass);
+        return new LowdbCppClass(this.database, internalClass);
     }
 
     getFuncDecls(): FuncDeclaration[] {

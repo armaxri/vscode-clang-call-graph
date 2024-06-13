@@ -24,6 +24,7 @@ export class SqliteCppClass extends AbstractCppClass {
     private funcImpls: FuncImplementation[];
     private virtualFuncDecls: VirtualFuncDeclaration[];
     private virtualFuncImpls: VirtualFuncImplementation[];
+    private parentClasses: CppClass[];
 
     constructor(
         internal: InternalSqliteDatabase,
@@ -55,6 +56,7 @@ export class SqliteCppClass extends AbstractCppClass {
             SqliteVirtualFuncImplementation.getVirtualFuncImpls(this.internal, {
                 cppClassId: this.id,
             });
+        this.parentClasses = this.getParentClassesInternal();
     }
 
     static createTableCalls(internalDb: InternalSqliteDatabase): void {
@@ -70,6 +72,17 @@ export class SqliteCppClass extends AbstractCppClass {
                 FOREIGN KEY (cpp_file_id) REFERENCES cpp_files(id),
                 FOREIGN KEY (hpp_file_id) REFERENCES hpp_files(id),
                 FOREIGN KEY (cpp_class_id) REFERENCES cpp_classes(id)
+            )
+        `);
+
+        internalDb.db.exec(`
+            CREATE TABLE cpp_classes_2_cpp_classes (
+                parent_class_id INTEGER,
+                child_class_id  INTEGER,
+
+                PRIMARY KEY (parent_class_id, child_class_id),
+                FOREIGN KEY (parent_class_id) REFERENCES cpp_classes(id),
+                FOREIGN KEY (child_class_id) REFERENCES cpp_classes(id)
             )
         `);
     }
@@ -129,20 +142,72 @@ export class SqliteCppClass extends AbstractCppClass {
         return cppClasses;
     }
 
+    private getClassFromId(id: number): SqliteCppClass {
+        const row = this.internal.db
+            .prepare("SELECT * FROM cpp_classes WHERE id=(?)")
+            .get(id);
+
+        return new SqliteCppClass(
+            this.internal,
+            (row as any).id,
+            (row as any).class_name
+        );
+    }
+
+    private getParentClassesInternal(): SqliteCppClass[] {
+        const parentClasses: SqliteCppClass[] = [];
+
+        const rows = this.internal.db
+            .prepare(
+                `
+                SELECT * FROM cpp_classes_2_cpp_classes
+                WHERE child_class_id=(?)
+            `
+            )
+            .all(this.id);
+
+        rows.forEach((row) => {
+            parentClasses.push(
+                this.getClassFromId((row as any).parent_class_id)
+            );
+        });
+
+        return parentClasses;
+    }
+
+    private createParentChildClassLink(
+        parentClassId: number,
+        childClassId: number
+    ): void {
+        this.internal.db
+            .prepare(
+                `INSERT INTO cpp_classes_2_cpp_classes (parent_class_id, child_class_id)
+             VALUES (@parentClassId, @childClassId)`
+            )
+            .run({
+                parentClassId,
+                childClassId,
+            });
+    }
+
     getName(): string {
         return this.className;
     }
 
     getParentClasses(): CppClass[] {
-        // TODO: implement
-        return [];
+        return this.parentClasses;
     }
+
     getParentClassNames(): string[] {
-        // TODO: implement
-        return [];
+        return this.parentClasses.map((parentClass) => parentClass.getName());
     }
+
     addParentClass(parentClass: CppClass): void {
-        throw new Error("Method not implemented.");
+        this.createParentChildClassLink(
+            (parentClass as SqliteCppClass).id,
+            this.id
+        );
+        this.parentClasses.push(parentClass);
     }
 
     getClasses(): CppClass[] {
