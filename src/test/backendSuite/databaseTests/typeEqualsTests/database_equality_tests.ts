@@ -17,20 +17,34 @@ export function loadReferenceDb(
     return new LowdbDatabase(referenceDbMockConfig);
 }
 
+export function openDatabase(
+    callingFileDirName: string,
+    databaseType: DatabaseType
+): Database {
+    const mockConfig = new MockConfig(callingFileDirName, databaseType);
+    return createDatabase(mockConfig);
+}
+
+export function openNewDatabase(
+    callingFileDirName: string,
+    databaseType: DatabaseType
+): Database {
+    removeOldDatabase(callingFileDirName, databaseType);
+
+    return openDatabase(callingFileDirName, databaseType);
+}
+
 export function prepareDatabaseEqualityTests(
     callingFileDirName: string,
     referenceDatabaseFilename: string,
     databaseType: DatabaseType
 ): [Database, Database] {
-    removeOldDatabase(callingFileDirName, databaseType);
-
     const referenceDatabase = loadReferenceDb(
         callingFileDirName,
         referenceDatabaseFilename
     );
 
-    const mockConfig = new MockConfig(callingFileDirName, databaseType);
-    const database = createDatabase(mockConfig);
+    const database = openNewDatabase(callingFileDirName, databaseType);
 
     return [database, referenceDatabase];
 }

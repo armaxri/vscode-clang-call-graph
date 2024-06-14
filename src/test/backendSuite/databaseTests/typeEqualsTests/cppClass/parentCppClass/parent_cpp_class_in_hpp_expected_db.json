@@ -1,0 +1,46 @@
+{
+  "databaseVersion": 1,
+  "cppFiles": [
+    {
+      "name": "ChildClass.cpp",
+      "lastAnalyzed": 1718380798538,
+      "classes": [
+        {
+          "name": "ChildClass",
+          "parentClasses": [
+            "ParentClass"
+          ],
+          "classes": [],
+          "funcDecls": [],
+          "funcImpls": [],
+          "virtualFuncDecls": [],
+          "virtualFuncImpls": []
+        }
+      ],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": []
+    }
+  ],
+  "hppFiles": [
+    {
+      "name": "ParentClass.h",
+      "lastAnalyzed": 1718380798538,
+      "classes": [
+        {
+          "name": "ParentClass",
+          "parentClasses": [],
+          "classes": [],
+          "funcDecls": [],
+          "funcImpls": [],
+          "virtualFuncDecls": [],
+          "virtualFuncImpls": []
+        }
+      ],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromCppFiles": []
+    }
+  ]
+}

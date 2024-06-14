@@ -1,0 +1,62 @@
+import assert from "assert";
+import { DatabaseType } from "../../../../../../backend/Config";
+import { addSuitesInSubDirsSuites } from "../../../../helper/mocha_test_helper";
+import { prepareDatabaseEqualityTests } from "../../database_equality_tests";
+
+suite("Referenced from Cpp Files", () => {
+    addSuitesInSubDirsSuites(__dirname);
+
+    suite("Equality with simple parent class", () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
+            test(`${DatabaseType[testData]}`, async () => {
+                const [database, referenceDatabase] =
+                    prepareDatabaseEqualityTests(
+                        __dirname,
+                        "simple_referenced_from_cpp_file_expected_db.json",
+                        testData
+                    );
+                const cppFile = database.getOrAddCppFile("base.cpp");
+                const hppFile = database.getOrAddHppFile("base.hpp");
+
+                hppFile.addReferencedFromCppFile(cppFile.getName());
+
+                database.writeDatabase();
+
+                assert.strictEqual(
+                    hppFile.getReferencedFromCppFiles().length,
+                    1
+                );
+                assert.strictEqual(
+                    hppFile.getReferencedFromCppFiles()[0],
+                    cppFile.getName()
+                );
+
+                assert.ok(database.equals(referenceDatabase));
+            });
+        });
+    });
+
+    suite("No equality with simple parent class (missing connection)", () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
+            test(`${DatabaseType[testData]}`, async () => {
+                const [database, referenceDatabase] =
+                    prepareDatabaseEqualityTests(
+                        __dirname,
+                        "simple_referenced_from_cpp_file_expected_db.json",
+                        testData
+                    );
+                database.getOrAddCppFile("base.cpp");
+                const hppFile = database.getOrAddHppFile("base.hpp");
+
+                database.writeDatabase();
+
+                assert.strictEqual(
+                    hppFile.getReferencedFromCppFiles().length,
+                    0
+                );
+
+                assert.ok(!database.equals(referenceDatabase));
+            });
+        });
+    });
+});

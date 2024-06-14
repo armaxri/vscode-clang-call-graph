@@ -49,6 +49,7 @@ export class LowdbCppClass extends AbstractCppClass {
                     .find((cppClass) => cppClass.name === parentClassName);
             }
 
+            // istanbul ignore if
             if (!parentClass) {
                 throw new Error(`Parent class ${parentClassName} not found`);
             }
