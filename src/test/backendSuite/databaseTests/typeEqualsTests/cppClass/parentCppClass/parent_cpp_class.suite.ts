@@ -84,4 +84,27 @@ suite("Parent Cpp Class", () => {
             });
         });
     });
+
+    suite("Get parent classes", () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
+            test(`${DatabaseType[testData]}`, async () => {
+                const database = prepareDatabaseEqualityTests(
+                    __dirname,
+                    "simple_parent_cpp_class_expected_db.json",
+                    testData
+                )[0];
+                const cppFile = database.getOrAddCppFile(
+                    "simple_parent_cpp_class.json"
+                );
+                const parentClass = cppFile.addClass("ParentClass");
+                const childClass = cppFile.addClass("ChildClass");
+                childClass.addParentClass(parentClass);
+
+                const parentClasses = childClass.getParentClasses();
+
+                assert.strictEqual(parentClasses.length, 1);
+                assert.ok(parentClasses[0].equals(parentClass));
+            });
+        });
+    });
 });
