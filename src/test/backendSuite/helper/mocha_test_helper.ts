@@ -14,6 +14,8 @@ export function addSuitesInSubDirsSuites(directory: string) {
                     require(innerFilePath);
                 }
             });
+        } else if (file.endsWith(".suite.js")) {
+            require(filePath);
         }
     });
 }

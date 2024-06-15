@@ -37,7 +37,7 @@ suite("Path Utils Test Suite", () => {
     test("join path", () => {
         const path = new PathUtils(__dirname);
         assert.equal(
-            path.joinPath("path_utils.test.js").pathString(),
+            path.joinPath("path_utils.suite.js").pathString(),
             __filename
         );
     });
@@ -46,7 +46,7 @@ suite("Path Utils Test Suite", () => {
         const path = new PathUtils(__filename);
         assert.equal(
             path.getRelativePathString(new PathUtils(__dirname)),
-            "path_utils.test.js"
+            "path_utils.suite.js"
         );
     });
 
