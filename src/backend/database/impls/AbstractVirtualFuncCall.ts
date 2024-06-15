@@ -10,6 +10,7 @@ export abstract class AbstractVirtualFuncCall implements VirtualFuncCall {
     equals(otherInput: any): boolean {
         const other = otherInput as VirtualFuncCall;
 
+        // istanbul ignore next
         if (!other) {
             return false;
         }

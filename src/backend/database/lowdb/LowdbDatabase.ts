@@ -22,7 +22,7 @@ export class LowdbDatabase extends AbstractDatabase {
 
     getCppFiles(): db.CppFile[] {
         return this.database.data.cppFiles.map((cppFile) => {
-            return new LowdbCppFile(cppFile);
+            return new LowdbCppFile(this.database, cppFile);
         });
     }
 
@@ -51,7 +51,7 @@ export class LowdbDatabase extends AbstractDatabase {
             this.database.data.cppFiles.push(file);
         }
 
-        return new LowdbCppFile(file);
+        return new LowdbCppFile(this.database, file);
     }
 
     removeCppFileAndDependingContent(name: string): void {
@@ -62,7 +62,7 @@ export class LowdbDatabase extends AbstractDatabase {
 
     getHppFiles(): db.HppFile[] {
         return this.database.data.hppFiles.map((hppFile) => {
-            return new LowdbHppFile(hppFile);
+            return new LowdbHppFile(this.database, hppFile);
         });
     }
 
@@ -92,7 +92,7 @@ export class LowdbDatabase extends AbstractDatabase {
             this.database.data.hppFiles.push(file);
         }
 
-        return new LowdbHppFile(file);
+        return new LowdbHppFile(this.database, file);
     }
 
     removeHppFileAndDependingContent(name: string): void {

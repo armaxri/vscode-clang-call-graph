@@ -1,30 +1,26 @@
 import * as fs from "fs";
-import {
-    Config,
-    DatabaseType,
-    convertStrToDatabaseType,
-} from "../../../backend/Config";
+import { Config, DatabaseType } from "../../../backend/Config";
 import { MockConfig } from "./MockConfig";
 import { adjustTsToJsPath } from "./path_helper";
 
-export async function removeOldDatabase(
+export function removeOldDatabase(
     dirname: string,
     databaseType: DatabaseType
-): Promise<void> {
+): void {
     const adjustedDirname = adjustTsToJsPath(dirname);
     const config = new MockConfig(adjustedDirname, databaseType);
-    await removeOldDatabaseFromConfig(config);
+    removeOldDatabaseFromConfig(config);
 }
 
-export async function removeOldDatabaseFromConfig(
-    config: Config
-): Promise<void> {
+function removeOldDatabaseFromConfig(config: Config): void {
     const dbPath = config.getSelectedDatabasePath().pathString();
+    // istanbul ignore else
     if (fs.existsSync(dbPath)) {
         fs.rmSync(dbPath, { recursive: true });
     }
 }
 
+/*
 export async function removeOldDatabases(dirname: string): Promise<void> {
     const adjustedDirname = adjustTsToJsPath(dirname);
     for (const dbType in DatabaseType) {
@@ -38,3 +34,4 @@ export async function removeOldDatabases(dirname: string): Promise<void> {
         }
     }
 }
+*/

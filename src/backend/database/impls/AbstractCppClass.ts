@@ -16,18 +16,18 @@ export abstract class AbstractCppClass implements CppClass {
     abstract addParentClass(parentClass: CppClass): void;
 
     abstract getClasses(): CppClass[];
-    abstract getOrAddClass(className: string): CppClass;
+    abstract addClass(className: string): CppClass;
 
     abstract getFuncDecls(): FuncDeclaration[];
-    abstract getOrAddFuncDecl(args: FuncCreationArgs): FuncDeclaration;
+    abstract addFuncDecl(args: FuncCreationArgs): FuncDeclaration;
     abstract getFuncImpls(): FuncImplementation[];
-    abstract getOrAddFuncImpl(args: FuncCreationArgs): FuncImplementation;
+    abstract addFuncImpl(args: FuncCreationArgs): FuncImplementation;
     abstract getVirtualFuncDecls(): VirtualFuncDeclaration[];
-    abstract getOrAddVirtualFuncDecl(
+    abstract addVirtualFuncDecl(
         args: VirtualFuncCreationArgs
     ): VirtualFuncDeclaration;
     abstract getVirtualFuncImpls(): VirtualFuncImplementation[];
-    abstract getOrAddVirtualFuncImpl(
+    abstract addVirtualFuncImpl(
         args: VirtualFuncCreationArgs
     ): VirtualFuncImplementation;
 
@@ -74,6 +74,7 @@ export abstract class AbstractCppClass implements CppClass {
     equals(otherInput: any): boolean {
         const other = otherInput as CppClass;
 
+        // istanbul ignore next
         if (!other) {
             return false;
         }

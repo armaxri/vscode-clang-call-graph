@@ -64,12 +64,13 @@ export class PathUtils {
         return relativePath.replace("\\", "/");
     }
 
-    public remove() {
+    public remove(): boolean {
         if (!this.doesExist()) {
-            return;
+            return false;
         }
 
         fs.rmSync(this.internalPathStr);
+        return true;
     }
 
     public tryToRemove() {

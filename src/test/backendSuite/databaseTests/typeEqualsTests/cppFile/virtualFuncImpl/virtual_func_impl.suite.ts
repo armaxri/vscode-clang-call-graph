@@ -1,7 +1,10 @@
 import assert from "assert";
 import { DatabaseType } from "../../../../../../backend/Config";
 import { addSuitesInSubDirsSuites } from "../../../../helper/mocha_test_helper";
-import { prepareDatabaseEqualityTests } from "../../database_equality_tests";
+import {
+    getEmptyReferenceDatabase,
+    prepareDatabaseEqualityTests,
+} from "../../database_equality_tests";
 
 suite("Virtual Func Impl", () => {
     addSuitesInSubDirsSuites(__dirname);
@@ -18,7 +21,7 @@ suite("Virtual Func Impl", () => {
                 const cppFile = database.getOrAddCppFile(
                     "simple_virtual_func_impl.json"
                 );
-                cppFile.getOrAddVirtualFuncImpl({
+                cppFile.addVirtualFuncImpl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -48,7 +51,7 @@ suite("Virtual Func Impl", () => {
                 const cppFile = database.getOrAddCppFile(
                     "multiple_simple_virtual_func_impl.json"
                 );
-                cppFile.getOrAddVirtualFuncImpl({
+                cppFile.addVirtualFuncImpl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -58,7 +61,7 @@ suite("Virtual Func Impl", () => {
                     },
                     baseFuncAstName: "__ZN3foo3addEii",
                 });
-                cppFile.getOrAddVirtualFuncImpl({
+                cppFile.addVirtualFuncImpl({
                     funcName: "sub",
                     funcAstName: "__ZN3foo3subEii",
                     qualType: "int (int, int)",
@@ -68,7 +71,7 @@ suite("Virtual Func Impl", () => {
                     },
                     baseFuncAstName: "__ZN3foo3subEii",
                 });
-                cppFile.getOrAddVirtualFuncImpl({
+                cppFile.addVirtualFuncImpl({
                     funcName: "multiply",
                     funcAstName: "__ZN3foo8multiplyEii",
                     qualType: "int (int, int)",
@@ -78,7 +81,7 @@ suite("Virtual Func Impl", () => {
                     },
                     baseFuncAstName: "__ZN3foo8multiplyEii",
                 });
-                cppFile.getOrAddVirtualFuncImpl({
+                cppFile.addVirtualFuncImpl({
                     funcName: "divide",
                     funcAstName: "__ZN3foo6divideEii",
                     qualType: "int (int, int)",
@@ -111,8 +114,8 @@ suite("Virtual Func Impl", () => {
                         const cppFile = database.getOrAddCppFile(
                             "multiple_simple_virtual_func_impl.json"
                         );
-                        const cppClass = cppFile.getOrAddClass("FooClass");
-                        cppFile.getOrAddVirtualFuncImpl({
+                        const cppClass = cppFile.addClass("FooClass");
+                        cppFile.addVirtualFuncImpl({
                             funcName: "add",
                             funcAstName: "__ZN3foo3addEii",
                             qualType: "int (int, int)",
@@ -122,7 +125,7 @@ suite("Virtual Func Impl", () => {
                             },
                             baseFuncAstName: "__ZN3foo3addEii",
                         });
-                        cppFile.getOrAddVirtualFuncImpl({
+                        cppFile.addVirtualFuncImpl({
                             funcName: "multiply",
                             funcAstName: "__ZN3foo8multiplyEii",
                             qualType: "int (int, int)",
@@ -132,7 +135,7 @@ suite("Virtual Func Impl", () => {
                             },
                             baseFuncAstName: "__ZN3foo8multiplyEii",
                         });
-                        cppFile.getOrAddVirtualFuncImpl({
+                        cppFile.addVirtualFuncImpl({
                             funcName: "divide",
                             funcAstName: "__ZN3foo6divideEii",
                             qualType: "int (int, int)",
@@ -164,7 +167,7 @@ suite("Virtual Func Impl", () => {
                 const cppFile = database.getOrAddCppFile(
                     "simple_virtual_func_impl.json"
                 );
-                cppFile.getOrAddVirtualFuncImpl({
+                cppFile.addVirtualFuncImpl({
                     funcName: "multiply",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -194,7 +197,7 @@ suite("Virtual Func Impl", () => {
                 const cppFile = database.getOrAddCppFile(
                     "simple_virtual_func_impl.json"
                 );
-                cppFile.getOrAddVirtualFuncImpl({
+                cppFile.addVirtualFuncImpl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -224,7 +227,7 @@ suite("Virtual Func Impl", () => {
                 const cppFile = database.getOrAddCppFile(
                     "simple_virtual_func_impl.json"
                 );
-                cppFile.getOrAddVirtualFuncImpl({
+                cppFile.addVirtualFuncImpl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -238,6 +241,40 @@ suite("Virtual Func Impl", () => {
                 database.writeDatabase();
 
                 assert.ok(!database.equals(referenceDatabase));
+            });
+        });
+    });
+
+    suite("Removed all database conten", () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
+            test(`${DatabaseType[testData]}`, async () => {
+                const [database, referenceDatabase] =
+                    prepareDatabaseEqualityTests(
+                        __dirname,
+                        "simple_virtual_func_impl_expected_db.json",
+                        testData
+                    );
+                const cppFile = database.getOrAddCppFile(
+                    "simple_virtual_func_impl.json"
+                );
+                cppFile.addVirtualFuncImpl({
+                    funcName: "add",
+                    funcAstName: "__ZN3foo3addEii",
+                    qualType: "int (int, int)",
+                    range: {
+                        start: { line: 11, column: 5 },
+                        end: { line: 11, column: 8 },
+                    },
+                    baseFuncAstName: "__ZN3foo3addEii",
+                });
+
+                database.writeDatabase();
+
+                assert.ok(database.equals(referenceDatabase));
+
+                database.removeCppFileAndDependingContent(cppFile.getName());
+                database.writeDatabase();
+                assert.ok(database.equals(getEmptyReferenceDatabase()));
             });
         });
     });

@@ -9,6 +9,7 @@ export function createDatabase(config: Config): Database {
             return new LowdbDatabase(config);
         case DatabaseType.sqlite:
             return new SqliteDatabase(config);
+        // istanbul ignore next
         default:
             throw new Error(
                 "Database type not supported: " +

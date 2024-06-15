@@ -12,6 +12,7 @@ export abstract class AbstractVirtualFuncDeclaration
     equals(otherInput: any): boolean {
         const other = otherInput as VirtualFuncDeclaration;
 
+        // istanbul ignore next
         if (!other) {
             return false;
         }

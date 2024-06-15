@@ -1,0 +1,30 @@
+{
+  "databaseVersion": 1,
+  "cppFiles": [
+    {
+      "name": "TestFile.cpp",
+      "lastAnalyzed": 1714317242704,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": []
+    },
+    {
+      "name": "FooFile.cpp",
+      "lastAnalyzed": 1714317242704,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": []
+    },
+    {
+      "name": "BarFile.cpp",
+      "lastAnalyzed": 1714317242704,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": []
+    }
+  ],
+  "hppFiles": []
+}

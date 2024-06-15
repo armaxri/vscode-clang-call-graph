@@ -16,19 +16,20 @@ export abstract class AbstractHppFile implements HppFile {
     abstract getLastAnalyzed(): number;
     abstract justAnalyzed(): void;
     abstract getClasses(): CppClass[];
-    abstract getOrAddClass(className: string): CppClass;
+    abstract addClass(className: string): CppClass;
     abstract getFuncDecls(): FuncDeclaration[];
-    abstract getOrAddFuncDecl(args: FuncCreationArgs): FuncDeclaration;
+    abstract addFuncDecl(args: FuncCreationArgs): FuncDeclaration;
     abstract getFuncImpls(): FuncImplementation[];
-    abstract getOrAddFuncImpl(args: FuncCreationArgs): FuncImplementation;
+    abstract addFuncImpl(args: FuncCreationArgs): FuncImplementation;
     abstract getVirtualFuncImpls(): VirtualFuncImplementation[];
-    abstract getOrAddVirtualFuncImpl(
+    abstract addVirtualFuncImpl(
         args: VirtualFuncCreationArgs
     ): VirtualFuncImplementation;
 
     private referencedFromCppFilesEquals(otherList: string[]): boolean {
         const thisList = this.getReferencedFromCppFiles();
 
+        // istanbul ignore next
         if (!otherList && !thisList) {
             return true;
         }
@@ -46,6 +47,7 @@ export abstract class AbstractHppFile implements HppFile {
     equals(otherInput: any): boolean {
         const other = otherInput as HppFile;
 
+        // istanbul ignore next
         if (!other) {
             return false;
         }

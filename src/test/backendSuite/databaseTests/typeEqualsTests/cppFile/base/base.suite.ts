@@ -2,6 +2,7 @@ import assert from "assert";
 import { DatabaseType } from "../../../../../../backend/Config";
 import { addSuitesInSubDirsSuites } from "../../../../helper/mocha_test_helper";
 import { prepareDatabaseEqualityTests } from "../../database_equality_tests";
+import { delay } from "../../../../../../backend/utils/utils";
 
 suite("Base", () => {
     addSuitesInSubDirsSuites(__dirname);
@@ -53,7 +54,7 @@ suite("Base", () => {
                 const cppFile = database.getOrAddCppFile(
                     "stupid_simple_func_decl.json"
                 );
-                cppFile.getOrAddFuncDecl({
+                cppFile.addFuncDecl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -66,6 +67,44 @@ suite("Base", () => {
                 database.writeDatabase();
 
                 assert.ok(!database.equals(referenceDatabase));
+            });
+        });
+    });
+
+    suite("Just analyzed", () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
+            test(`${DatabaseType[testData]}`, async () => {
+                const [database, referenceDatabase] =
+                    prepareDatabaseEqualityTests(
+                        __dirname,
+                        "empty_file_expected_db.json",
+                        testData
+                    );
+
+                const timestamp1 = Date.now();
+                await delay(20);
+
+                const cppFile = database.getOrAddCppFile("empty.json");
+                await delay(20);
+                const timestamp2 = Date.now();
+                await delay(20);
+
+                assert.ok(cppFile.getLastAnalyzed() > timestamp1);
+                assert.ok(cppFile.getLastAnalyzed() < timestamp2);
+
+                await delay(20);
+                cppFile.justAnalyzed();
+
+                database.writeDatabase();
+
+                await delay(20);
+                const timestamp3 = Date.now();
+                await delay(20);
+
+                assert.ok(database.equals(referenceDatabase));
+
+                assert.ok(cppFile.getLastAnalyzed() > timestamp2);
+                assert.ok(cppFile.getLastAnalyzed() < timestamp3);
             });
         });
     });

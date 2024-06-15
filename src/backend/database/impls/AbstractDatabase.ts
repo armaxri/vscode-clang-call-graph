@@ -25,6 +25,7 @@ export abstract class AbstractDatabase implements Database {
     equals(otherInput: any): boolean {
         const other = otherInput as Database;
 
+        // istanbul ignore next
         if (!other) {
             return false;
         }

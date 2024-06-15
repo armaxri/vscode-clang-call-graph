@@ -5,6 +5,7 @@ import { InternalSqliteDatabase } from "../InternalSqliteDatabase";
 export class SqliteVirtualFuncCall extends AbstractVirtualFuncCall {
     private internal: InternalSqliteDatabase;
     private id: number;
+
     private funcName: string;
     private funcAstName: string;
     private qualType: string;
@@ -20,6 +21,7 @@ export class SqliteVirtualFuncCall extends AbstractVirtualFuncCall {
 
         this.internal = internal;
         this.id = id;
+
         this.funcName = args.funcName;
         this.funcAstName = args.funcAstName;
         this.qualType = args.qualType;
@@ -103,66 +105,6 @@ export class SqliteVirtualFuncCall extends AbstractVirtualFuncCall {
         return new SqliteVirtualFuncCall(internalDb, funcId, args);
     }
 
-    static getVirtualFuncCall(
-        internalDb: InternalSqliteDatabase,
-        funcCall: VirtualFuncCreationArgs,
-        parent: {
-            funcImplId?: number;
-            virtualFuncImplId?: number;
-        }
-    ): SqliteVirtualFuncCall | null {
-        const row = internalDb.db
-            .prepare(
-                `
-            SELECT * FROM virtual_func_calls
-            WHERE
-                func_name = @funcName AND
-                func_ast_name = @funcAstName AND
-                qual_type = @qualType AND
-                range_start_line = @rangeStartLine AND
-                range_start_column = @rangeStartColumn AND
-                range_end_line = @rangeEndLine AND
-                range_end_column = @rangeEndColumn AND
-                base_func_ast_name = @baseFuncAstName AND
-                (func_impl_id = @funcImplId OR
-                virtual_func_impl_id = @virtualFuncImplId)
-        `
-            )
-            .get({
-                funcName: funcCall.funcName,
-                funcAstName: funcCall.funcAstName,
-                qualType: funcCall.qualType,
-                rangeStartLine: funcCall.range.start.line,
-                rangeStartColumn: funcCall.range.start.column,
-                rangeEndLine: funcCall.range.end.line,
-                rangeEndColumn: funcCall.range.end.column,
-                baseFuncAstName: funcCall.baseFuncAstName,
-                funcImplId: parent.funcImplId,
-                virtualFuncImplId: parent.virtualFuncImplId,
-            });
-
-        if (!row) {
-            return null;
-        }
-
-        return new SqliteVirtualFuncCall(internalDb, (row as any).id, {
-            funcName: (row as any).func_name,
-            baseFuncAstName: (row as any).base_func_ast_name,
-            funcAstName: (row as any).func_ast_name,
-            qualType: (row as any).qual_type,
-            range: {
-                start: {
-                    line: (row as any).range_start_line,
-                    column: (row as any).range_start_column,
-                },
-                end: {
-                    line: (row as any).range_end_line,
-                    column: (row as any).range_end_column,
-                },
-            },
-        });
-    }
-
     static getVirtualFuncCalls(
         internalDb: InternalSqliteDatabase,
         parent: {
@@ -202,6 +144,17 @@ export class SqliteVirtualFuncCall extends AbstractVirtualFuncCall {
                 },
             });
         });
+    }
+
+    removeAndChildren(): void {
+        this.internal.db
+            .prepare(
+                `
+            DELETE FROM virtual_func_calls
+            WHERE id = @id
+        `
+            )
+            .run({ id: this.id });
     }
 
     getFuncName(): string {

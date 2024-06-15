@@ -6,23 +6,58 @@ import {
     VirtualFuncCreationArgs,
     VirtualFuncDeclaration,
     VirtualFuncImplementation,
-    rangeIsEqual,
 } from "../../cpp_structure";
 import { LowdbFuncDeclaration } from "./LowdbFuncDeclaration";
 import { LowdbFuncImplementation } from "./LowdbFuncImplementation";
 import { LowdbVirtualFuncDeclaration } from "./LowdbVirtualFuncDeclaration";
 import { LowdbVirtualFuncImplementation } from "./LowdbVirtualFuncImplementation";
-import { LowdbInternalCppClass } from "../lowdb_internal_structure";
+import {
+    LowdbInternalCppClass,
+    LowdbInternalDatabase,
+} from "../lowdb_internal_structure";
 import { AbstractCppClass } from "../../impls/AbstractCppClass";
+import { LowSync } from "@identityinvest/lowdb";
 
 export class LowdbCppClass extends AbstractCppClass {
-    internal: LowdbInternalCppClass;
-    cachedParentClasses: CppClass[] = [];
+    private database: LowSync<LowdbInternalDatabase>;
+    private internal: LowdbInternalCppClass;
+    private parentClasses: LowdbCppClass[] = [];
 
-    constructor(internal: LowdbInternalCppClass) {
+    constructor(
+        database: LowSync<LowdbInternalDatabase>,
+        internal: LowdbInternalCppClass
+    ) {
         super();
 
+        this.database = database;
         this.internal = internal;
+
+        this.loadParentClasses();
+    }
+
+    private loadParentClasses(): void {
+        this.internal.parentClasses.map((parentClassName) => {
+            var parentClass = this.database.data.hppFiles
+                .map((hppFile) => hppFile.classes)
+                .flat()
+                .find((cppClass) => cppClass.name === parentClassName);
+
+            if (!parentClass) {
+                parentClass = this.database.data.cppFiles
+                    .map((cppFile) => cppFile.classes)
+                    .flat()
+                    .find((cppClass) => cppClass.name === parentClassName);
+            }
+
+            // istanbul ignore if
+            if (!parentClass) {
+                throw new Error(`Parent class ${parentClassName} not found`);
+            }
+
+            this.parentClasses.push(
+                new LowdbCppClass(this.database, parentClass)
+            );
+        });
     }
 
     getName(): string {
@@ -30,7 +65,7 @@ export class LowdbCppClass extends AbstractCppClass {
     }
 
     getParentClasses(): CppClass[] {
-        return this.cachedParentClasses;
+        return this.parentClasses;
     }
 
     getParentClassNames(): string[] {
@@ -38,43 +73,29 @@ export class LowdbCppClass extends AbstractCppClass {
     }
 
     addParentClass(parentClass: CppClass): void {
-        if (
-            !this.internal.parentClasses.find(
-                (name) => name === parentClass.getName()
-            )
-        ) {
-            this.internal.parentClasses.push(parentClass.getName());
-        }
-        // TODO: This is not the best way to handle this.
-        // In the future we might need to get the data from the database.
-        this.cachedParentClasses.push(parentClass);
+        this.internal.parentClasses.push(parentClass.getName());
+        this.parentClasses.push(parentClass as LowdbCppClass);
     }
 
     getClasses(): CppClass[] {
         return this.internal.classes.map(
-            (internalClass) => new LowdbCppClass(internalClass)
+            (internalClass) => new LowdbCppClass(this.database, internalClass)
         );
     }
 
-    getOrAddClass(className: string): CppClass {
-        var internalClass = this.internal.classes.find(
-            (internalClass) => internalClass.name === className
-        );
+    addClass(className: string): CppClass {
+        const internalClass = {
+            name: className,
+            parentClasses: [],
+            classes: [],
+            funcDecls: [],
+            funcImpls: [],
+            virtualFuncDecls: [],
+            virtualFuncImpls: [],
+        };
+        this.internal.classes.push(internalClass);
 
-        if (!internalClass) {
-            internalClass = {
-                name: className,
-                parentClasses: [],
-                classes: [],
-                funcDecls: [],
-                funcImpls: [],
-                virtualFuncDecls: [],
-                virtualFuncImpls: [],
-            };
-            this.internal.classes.push(internalClass);
-        }
-
-        return new LowdbCppClass(internalClass);
+        return new LowdbCppClass(this.database, internalClass);
     }
 
     getFuncDecls(): FuncDeclaration[] {
@@ -83,24 +104,14 @@ export class LowdbCppClass extends AbstractCppClass {
         );
     }
 
-    getOrAddFuncDecl(args: FuncCreationArgs): FuncDeclaration {
-        var internalFuncDecl = this.internal.funcDecls.find(
-            (internalFuncDecl) =>
-                internalFuncDecl.funcName === args.funcName &&
-                internalFuncDecl.funcAstName === args.funcAstName &&
-                internalFuncDecl.qualType === args.qualType &&
-                rangeIsEqual(internalFuncDecl.range, args.range)
-        );
-
-        if (!internalFuncDecl) {
-            internalFuncDecl = {
-                funcName: args.funcName,
-                funcAstName: args.funcAstName,
-                qualType: args.qualType,
-                range: args.range,
-            };
-            this.internal.funcDecls.push(internalFuncDecl);
-        }
+    addFuncDecl(args: FuncCreationArgs): FuncDeclaration {
+        const internalFuncDecl = {
+            funcName: args.funcName,
+            funcAstName: args.funcAstName,
+            qualType: args.qualType,
+            range: args.range,
+        };
+        this.internal.funcDecls.push(internalFuncDecl);
 
         return new LowdbFuncDeclaration(internalFuncDecl);
     }
@@ -111,26 +122,16 @@ export class LowdbCppClass extends AbstractCppClass {
         );
     }
 
-    getOrAddFuncImpl(args: FuncCreationArgs): FuncImplementation {
-        var internalFuncImpl = this.internal.funcImpls.find(
-            (internalFuncImpl) =>
-                internalFuncImpl.funcName === args.funcName &&
-                internalFuncImpl.funcAstName === args.funcAstName &&
-                internalFuncImpl.qualType === args.qualType &&
-                rangeIsEqual(internalFuncImpl.range, args.range)
-        );
-
-        if (!internalFuncImpl) {
-            internalFuncImpl = {
-                funcName: args.funcName,
-                funcAstName: args.funcAstName,
-                qualType: args.qualType,
-                range: args.range,
-                funcCalls: [],
-                virtualFuncCalls: [],
-            };
-            this.internal.funcImpls.push(internalFuncImpl);
-        }
+    addFuncImpl(args: FuncCreationArgs): FuncImplementation {
+        const internalFuncImpl = {
+            funcName: args.funcName,
+            funcAstName: args.funcAstName,
+            qualType: args.qualType,
+            range: args.range,
+            funcCalls: [],
+            virtualFuncCalls: [],
+        };
+        this.internal.funcImpls.push(internalFuncImpl);
 
         return new LowdbFuncImplementation(internalFuncImpl);
     }
@@ -142,28 +143,15 @@ export class LowdbCppClass extends AbstractCppClass {
         );
     }
 
-    getOrAddVirtualFuncDecl(
-        args: VirtualFuncCreationArgs
-    ): VirtualFuncDeclaration {
-        var internalVirtualFuncDecl = this.internal.virtualFuncDecls.find(
-            (internalVirtualFuncDecl) =>
-                internalVirtualFuncDecl.funcName === args.funcName &&
-                internalVirtualFuncDecl.funcAstName === args.funcAstName &&
-                internalVirtualFuncDecl.qualType === args.qualType &&
-                rangeIsEqual(internalVirtualFuncDecl.range, args.range) &&
-                internalVirtualFuncDecl.baseFuncAstName === args.baseFuncAstName
-        );
-
-        if (!internalVirtualFuncDecl) {
-            internalVirtualFuncDecl = {
-                funcName: args.funcName,
-                funcAstName: args.funcAstName,
-                qualType: args.qualType,
-                range: args.range,
-                baseFuncAstName: args.baseFuncAstName,
-            };
-            this.internal.virtualFuncDecls.push(internalVirtualFuncDecl);
-        }
+    addVirtualFuncDecl(args: VirtualFuncCreationArgs): VirtualFuncDeclaration {
+        const internalVirtualFuncDecl = {
+            funcName: args.funcName,
+            funcAstName: args.funcAstName,
+            qualType: args.qualType,
+            range: args.range,
+            baseFuncAstName: args.baseFuncAstName,
+        };
+        this.internal.virtualFuncDecls.push(internalVirtualFuncDecl);
 
         return new LowdbVirtualFuncDeclaration(internalVirtualFuncDecl);
     }
@@ -175,30 +163,19 @@ export class LowdbCppClass extends AbstractCppClass {
         );
     }
 
-    getOrAddVirtualFuncImpl(
+    addVirtualFuncImpl(
         args: VirtualFuncCreationArgs
     ): VirtualFuncImplementation {
-        var internalVirtualFuncImpl = this.internal.virtualFuncImpls.find(
-            (internalVirtualFuncImpl) =>
-                internalVirtualFuncImpl.funcName === args.funcName &&
-                internalVirtualFuncImpl.funcAstName === args.funcAstName &&
-                internalVirtualFuncImpl.qualType === args.qualType &&
-                rangeIsEqual(internalVirtualFuncImpl.range, args.range) &&
-                internalVirtualFuncImpl.baseFuncAstName === args.baseFuncAstName
-        );
-
-        if (!internalVirtualFuncImpl) {
-            internalVirtualFuncImpl = {
-                funcName: args.funcName,
-                funcAstName: args.funcAstName,
-                qualType: args.qualType,
-                range: args.range,
-                baseFuncAstName: args.baseFuncAstName,
-                funcCalls: [],
-                virtualFuncCalls: [],
-            };
-            this.internal.virtualFuncImpls.push(internalVirtualFuncImpl);
-        }
+        const internalVirtualFuncImpl = {
+            funcName: args.funcName,
+            funcAstName: args.funcAstName,
+            qualType: args.qualType,
+            range: args.range,
+            baseFuncAstName: args.baseFuncAstName,
+            funcCalls: [],
+            virtualFuncCalls: [],
+        };
+        this.internal.virtualFuncImpls.push(internalVirtualFuncImpl);
 
         return new LowdbVirtualFuncImplementation(internalVirtualFuncImpl);
     }

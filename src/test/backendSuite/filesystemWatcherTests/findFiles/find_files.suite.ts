@@ -42,7 +42,7 @@ suite("Find Files", () => {
         testDir = adjustTsToJsPath(__dirname);
 
         watcher.startWatching();
-        await delay(200);
+        await delay(50);
         assert.strictEqual(mockWalkerFactory.generatedAstWalkers.length, 2);
 
         if (
@@ -65,6 +65,6 @@ suite("Find Files", () => {
         }
 
         watcher.stopWatching();
-        await database.writeDatabase();
+        database.writeDatabase();
     });
 });

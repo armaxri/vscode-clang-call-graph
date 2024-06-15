@@ -1,0 +1,65 @@
+{
+  "databaseVersion": 1,
+  "cppFiles": [
+    {
+      "name": "multiple_simple_parent_cpp_class.json",
+      "lastAnalyzed": 1718318678987,
+      "classes": [
+        {
+          "name": "ParentClass1",
+          "parentClasses": [],
+          "classes": [],
+          "funcDecls": [],
+          "funcImpls": [],
+          "virtualFuncDecls": [],
+          "virtualFuncImpls": []
+        },
+        {
+          "name": "ParentClass2",
+          "parentClasses": [],
+          "classes": [],
+          "funcDecls": [],
+          "funcImpls": [],
+          "virtualFuncDecls": [],
+          "virtualFuncImpls": []
+        },
+        {
+          "name": "ParentClass3",
+          "parentClasses": [],
+          "classes": [],
+          "funcDecls": [],
+          "funcImpls": [],
+          "virtualFuncDecls": [],
+          "virtualFuncImpls": []
+        },
+        {
+          "name": "ParentClass4",
+          "parentClasses": [],
+          "classes": [],
+          "funcDecls": [],
+          "funcImpls": [],
+          "virtualFuncDecls": [],
+          "virtualFuncImpls": []
+        },
+        {
+          "name": "ChildClass",
+          "parentClasses": [
+            "ParentClass1",
+            "ParentClass2",
+            "ParentClass3",
+            "ParentClass4"
+          ],
+          "classes": [],
+          "funcDecls": [],
+          "funcImpls": [],
+          "virtualFuncDecls": [],
+          "virtualFuncImpls": []
+        }
+      ],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": []
+    }
+  ],
+  "hppFiles": []
+}

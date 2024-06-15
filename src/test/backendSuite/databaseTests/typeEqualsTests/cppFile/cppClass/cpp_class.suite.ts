@@ -1,7 +1,10 @@
 import assert from "assert";
 import { DatabaseType } from "../../../../../../backend/Config";
 import { addSuitesInSubDirsSuites } from "../../../../helper/mocha_test_helper";
-import { prepareDatabaseEqualityTests } from "../../database_equality_tests";
+import {
+    getEmptyReferenceDatabase,
+    prepareDatabaseEqualityTests,
+} from "../../database_equality_tests";
 
 suite("Cpp Class", () => {
     addSuitesInSubDirsSuites(__dirname);
@@ -18,7 +21,7 @@ suite("Cpp Class", () => {
                 const cppFile = database.getOrAddCppFile(
                     "simple_cpp_class.json"
                 );
-                cppFile.getOrAddClass("FooClass");
+                cppFile.addClass("FooClass");
 
                 database.writeDatabase();
 
@@ -39,10 +42,10 @@ suite("Cpp Class", () => {
                 const cppFile = database.getOrAddCppFile(
                     "simple_cpp_class.json"
                 );
-                cppFile.getOrAddClass("FooClassA");
-                cppFile.getOrAddClass("FooClassB");
-                cppFile.getOrAddClass("FooClassC");
-                cppFile.getOrAddClass("FooClassD");
+                cppFile.addClass("FooClassA");
+                cppFile.addClass("FooClassB");
+                cppFile.addClass("FooClassC");
+                cppFile.addClass("FooClassD");
 
                 database.writeDatabase();
 
@@ -63,9 +66,9 @@ suite("Cpp Class", () => {
                 const cppFile = database.getOrAddCppFile(
                     "simple_cpp_class.json"
                 );
-                cppFile.getOrAddClass("FooClassA");
-                cppFile.getOrAddClass("FooClassB");
-                cppFile.getOrAddClass("FooClassD");
+                cppFile.addClass("FooClassA");
+                cppFile.addClass("FooClassB");
+                cppFile.addClass("FooClassD");
 
                 database.writeDatabase();
 
@@ -86,10 +89,10 @@ suite("Cpp Class", () => {
                 const cppFile = database.getOrAddCppFile(
                     "simple_cpp_class.json"
                 );
-                cppFile.getOrAddClass("FooClassX");
-                cppFile.getOrAddClass("FooClassB");
-                cppFile.getOrAddClass("FooClassC");
-                cppFile.getOrAddClass("FooClassD");
+                cppFile.addClass("FooClassX");
+                cppFile.addClass("FooClassB");
+                cppFile.addClass("FooClassC");
+                cppFile.addClass("FooClassD");
 
                 database.writeDatabase();
 
@@ -110,7 +113,7 @@ suite("Cpp Class", () => {
                 const cppFile = database.getOrAddCppFile(
                     "simple_cpp_class.json"
                 );
-                cppFile.getOrAddClass("BarClass");
+                cppFile.addClass("BarClass");
 
                 database.writeDatabase();
 
@@ -131,11 +134,36 @@ suite("Cpp Class", () => {
                 const hppFile = database.getOrAddHppFile(
                     "simple_cpp_class.json"
                 );
-                hppFile.getOrAddClass("BarClass");
+                hppFile.addClass("BarClass");
 
                 database.writeDatabase();
 
                 assert.ok(!database.equals(referenceDatabase));
+            });
+        });
+    });
+
+    suite("Removed all database content", () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
+            test(`${DatabaseType[testData]}`, async () => {
+                const [database, referenceDatabase] =
+                    prepareDatabaseEqualityTests(
+                        __dirname,
+                        "simple_cpp_class_expected_db.json",
+                        testData
+                    );
+                const cppFile = database.getOrAddCppFile(
+                    "simple_cpp_class.json"
+                );
+                cppFile.addClass("FooClass");
+
+                database.writeDatabase();
+
+                assert.ok(database.equals(referenceDatabase));
+
+                database.removeCppFileAndDependingContent(cppFile.getName());
+                database.writeDatabase();
+                assert.ok(database.equals(getEmptyReferenceDatabase()));
             });
         });
     });

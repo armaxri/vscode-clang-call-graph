@@ -2,9 +2,9 @@ export function delay(ms: number) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function getEscapedChar(
+export function getEscapedChar(
     currentChar: string,
-    currentStrType: string = ""
+    currentStrType: string
 ): string {
     switch (currentChar) {
         case "\\":
@@ -109,6 +109,7 @@ export function createClangAstCall(command: string): string[] {
         if (skipNext) {
             skipNext = false;
         } else {
+            // istanbul ignore else
             if (typeof currentElement === "string") {
                 if (currentElement === "-o") {
                     // Pop the target file name.

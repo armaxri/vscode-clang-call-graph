@@ -1,0 +1,35 @@
+{
+  "databaseVersion": 1,
+  "cppFiles": [
+    {
+      "name": "simple_parent_cpp_class.json",
+      "lastAnalyzed": 1718308993222,
+      "classes": [
+        {
+          "name": "ParentClass",
+          "parentClasses": [],
+          "classes": [],
+          "funcDecls": [],
+          "funcImpls": [],
+          "virtualFuncDecls": [],
+          "virtualFuncImpls": []
+        },
+        {
+          "name": "ChildClass",
+          "parentClasses": [
+            "ParentClass"
+          ],
+          "classes": [],
+          "funcDecls": [],
+          "funcImpls": [],
+          "virtualFuncDecls": [],
+          "virtualFuncImpls": []
+        }
+      ],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": []
+    }
+  ],
+  "hppFiles": []
+}

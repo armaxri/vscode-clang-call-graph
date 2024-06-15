@@ -10,35 +10,23 @@ export class MockConfig extends Config {
         lowdbDatabaseName?: string,
         compileCommandsJsonName?: string
     ) {
-        super(databaseType, true);
+        super();
 
         this.testDir = adjustTsToJsPath(testDir);
+        this.numOfParserThreads = 1;
         this.databaseType = databaseType;
         this.lowdbDatabaseName =
             lowdbDatabaseName ?? super.getLowdbDatabaseName();
         this.compileCommandsJsonName =
             compileCommandsJsonName ?? super.getCompileCommandsJsonName();
-
-        this.numOfParserThreads = 1;
+        this.verbose = true;
     }
 
     getCompileCommandsJsonDir(): string {
         return this.testDir;
     }
 
-    getSelectedDatabaseType(): DatabaseType {
-        return this.databaseType;
-    }
-
     getCallGraphDatabaseDir(): string {
         return this.testDir;
-    }
-
-    useDatabaseCaching(): boolean {
-        return false;
-    }
-
-    runVerbose(): boolean {
-        return true;
     }
 }

@@ -49,7 +49,7 @@ suite("Reset Database", () => {
                 const cppFile = database.getOrAddCppFile(
                     "simple_func_decl.json"
                 );
-                cppFile.getOrAddFuncDecl({
+                cppFile.addFuncDecl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",

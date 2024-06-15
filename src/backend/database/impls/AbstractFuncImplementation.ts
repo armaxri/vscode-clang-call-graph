@@ -25,6 +25,7 @@ export abstract class AbstractFuncImplementation implements FuncImplementation {
     equals(otherInput: any): boolean {
         const other = otherInput as FuncImplementation;
 
+        // istanbul ignore next
         if (!other) {
             return false;
         }

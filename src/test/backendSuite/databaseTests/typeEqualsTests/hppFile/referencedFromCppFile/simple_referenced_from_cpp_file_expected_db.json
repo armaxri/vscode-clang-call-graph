@@ -1,0 +1,26 @@
+{
+  "databaseVersion": 1,
+  "cppFiles": [
+    {
+      "name": "base.cpp",
+      "lastAnalyzed": 1718379292081,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": []
+    }
+  ],
+  "hppFiles": [
+    {
+      "name": "base.hpp",
+      "lastAnalyzed": 1718379292081,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromCppFiles": [
+        "base.cpp"
+      ]
+    }
+  ]
+}

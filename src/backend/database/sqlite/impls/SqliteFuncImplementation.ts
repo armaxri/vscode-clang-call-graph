@@ -18,10 +18,13 @@ import { SqliteVirtualFuncCall } from "./SqliteVirtualFuncCall";
 export class SqliteFuncImplementation extends AbstractFuncImplementation {
     private internal: InternalSqliteDatabase;
     private id: number;
+
     private funcName: string;
     private funcAstName: string;
     private qualType: string;
     private range: Range;
+    private funcCalls: FuncCall[];
+    private virtualFuncCalls: VirtualFuncCall[];
 
     constructor(
         internal: InternalSqliteDatabase,
@@ -32,10 +35,21 @@ export class SqliteFuncImplementation extends AbstractFuncImplementation {
 
         this.internal = internal;
         this.id = id;
+
         this.funcName = args.funcName;
         this.funcAstName = args.funcAstName;
         this.qualType = args.qualType;
         this.range = args.range;
+
+        this.funcCalls = SqliteFuncCall.getFuncCalls(this.internal, {
+            funcImplId: this.id,
+        });
+        this.virtualFuncCalls = SqliteVirtualFuncCall.getVirtualFuncCalls(
+            this.internal,
+            {
+                funcImplId: this.id,
+            }
+        );
     }
 
     static createTableCalls(internalDb: InternalSqliteDatabase): void {
@@ -96,53 +110,6 @@ export class SqliteFuncImplementation extends AbstractFuncImplementation {
         return new SqliteFuncImplementation(internalDb, funcId, args);
     }
 
-    static getFuncImpl(
-        internalDb: InternalSqliteDatabase,
-        funcName: string,
-        parent: {
-            cppFileId?: number;
-            hppFileId?: number;
-            cppClassId?: number;
-        }
-    ): SqliteFuncImplementation | null {
-        const row = internalDb.db
-            .prepare(
-                "SELECT * FROM func_implementations WHERE func_name=(?) AND (cpp_file_id=(?) OR hpp_file_id=(?) OR cpp_class_id=(?))"
-            )
-            .get(
-                funcName,
-                parent.cppFileId,
-                parent.hppFileId,
-                parent.cppClassId
-            );
-
-        if (row !== undefined) {
-            const implementation = new SqliteFuncImplementation(
-                internalDb,
-                (row as any).id,
-                {
-                    funcName: (row as any).func_name,
-                    funcAstName: (row as any).func_ast_name,
-                    qualType: (row as any).qual_type,
-                    range: {
-                        start: {
-                            line: (row as any).range_start_line,
-                            column: (row as any).range_start_column,
-                        },
-                        end: {
-                            line: (row as any).range_end_line,
-                            column: (row as any).range_end_column,
-                        },
-                    },
-                }
-            );
-
-            return implementation;
-        }
-
-        return null;
-    }
-
     static getFuncImpls(
         internalDb: InternalSqliteDatabase,
         parent: {
@@ -187,6 +154,20 @@ export class SqliteFuncImplementation extends AbstractFuncImplementation {
         return funcImpls;
     }
 
+    removeAndChildren(): void {
+        this.funcCalls.forEach((funcCall) => {
+            (funcCall as SqliteFuncCall).removeAndChildren();
+        });
+
+        this.virtualFuncCalls.forEach((virtualFuncCall) => {
+            (virtualFuncCall as SqliteVirtualFuncCall).removeAndChildren();
+        });
+
+        this.internal.db
+            .prepare("DELETE FROM func_implementations WHERE id=(?)")
+            .run(this.id);
+    }
+
     getFuncName(): string {
         return this.funcName;
     }
@@ -204,38 +185,34 @@ export class SqliteFuncImplementation extends AbstractFuncImplementation {
     }
 
     getFuncCalls(): FuncCall[] {
-        return SqliteFuncCall.getFuncCalls(this.internal, {
-            funcImplId: this.id,
-        });
+        return this.funcCalls;
     }
 
     addFuncCall(funcCall: FuncCallCreationArgs): void {
-        SqliteFuncCall.createFuncCall(
-            this.internal,
-            funcCallArgs2FuncArgs(funcCall),
-            {
-                funcImplId: this.id,
-            }
+        this.funcCalls.push(
+            SqliteFuncCall.createFuncCall(
+                this.internal,
+                funcCallArgs2FuncArgs(funcCall),
+                {
+                    funcImplId: this.id,
+                }
+            )
         );
-
-        return;
     }
 
     getVirtualFuncCalls(): VirtualFuncCall[] {
-        return SqliteVirtualFuncCall.getVirtualFuncCalls(this.internal, {
-            funcImplId: this.id,
-        });
+        return this.virtualFuncCalls;
     }
 
     addVirtualFuncCall(virtualFuncCall: VirtualFuncCallCreationArgs): void {
-        SqliteVirtualFuncCall.createVirtualFuncCall(
-            this.internal,
-            virtualFuncCallArgs2VirtualFuncArgs(virtualFuncCall),
-            {
-                funcImplId: this.id,
-            }
+        this.virtualFuncCalls.push(
+            SqliteVirtualFuncCall.createVirtualFuncCall(
+                this.internal,
+                virtualFuncCallArgs2VirtualFuncArgs(virtualFuncCall),
+                {
+                    funcImplId: this.id,
+                }
+            )
         );
-
-        return;
     }
 }
