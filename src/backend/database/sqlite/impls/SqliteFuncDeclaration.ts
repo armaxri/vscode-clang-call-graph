@@ -122,6 +122,12 @@ export class SqliteFuncDeclaration extends AbstractFuncDeclaration {
         return funcDecls;
     }
 
+    removeAndChildren(): void {
+        this.internal.db
+            .prepare("DELETE FROM func_declarations WHERE id=(?)")
+            .run(this.id);
+    }
+
     getFuncName(): string {
         return this.funcName;
     }

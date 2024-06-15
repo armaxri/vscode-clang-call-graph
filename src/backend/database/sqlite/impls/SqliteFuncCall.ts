@@ -138,6 +138,12 @@ export class SqliteFuncCall extends AbstractFuncCall {
             );
     }
 
+    removeAndChildren(): void {
+        this.internal.db
+            .prepare("DELETE FROM func_calls WHERE id=(?)")
+            .run(this.id);
+    }
+
     getFuncName(): string {
         return this.funcName;
     }

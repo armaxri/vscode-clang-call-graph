@@ -33,7 +33,11 @@ export class SqliteDatabase extends AbstractDatabase {
     }
 
     removeCppFileAndDependingContent(name: string): void {
-        throw new Error("Method not implemented.");
+        const cppFile = SqliteCppFile.getCppFile(this.internal, name);
+
+        if (cppFile) {
+            cppFile.removeAndChildren();
+        }
     }
 
     getHppFiles(): HppFile[] {
@@ -55,7 +59,11 @@ export class SqliteDatabase extends AbstractDatabase {
     }
 
     removeHppFileAndDependingContent(name: string): void {
-        throw new Error("Method not implemented.");
+        const hppFile = SqliteHppFile.getHppFile(this.internal, name);
+
+        if (hppFile) {
+            hppFile.removeAndChildren();
+        }
     }
 
     writeDatabase(): void {

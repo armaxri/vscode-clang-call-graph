@@ -146,6 +146,17 @@ export class SqliteVirtualFuncCall extends AbstractVirtualFuncCall {
         });
     }
 
+    removeAndChildren(): void {
+        this.internal.db
+            .prepare(
+                `
+            DELETE FROM virtual_func_calls
+            WHERE id = @id
+        `
+            )
+            .run({ id: this.id });
+    }
+
     getFuncName(): string {
         return this.funcName;
     }

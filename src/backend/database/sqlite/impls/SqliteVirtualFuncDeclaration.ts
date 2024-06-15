@@ -118,6 +118,12 @@ export class SqliteVirtualFuncDeclaration extends AbstractVirtualFuncDeclaration
         return virtualFuncDecls;
     }
 
+    removeAndChildren(): void {
+        this.internal.db
+            .prepare("DELETE FROM virtual_func_declarations WHERE id=(?)")
+            .run(this.id);
+    }
+
     getBaseFuncAstName(): string {
         return this.baseFuncAstName;
     }

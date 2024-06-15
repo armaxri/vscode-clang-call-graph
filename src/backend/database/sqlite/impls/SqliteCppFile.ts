@@ -120,6 +120,27 @@ export class SqliteCppFile extends AbstractCppFile {
         return cppFiles;
     }
 
+    removeAndChildren(): void {
+        this.cppClasses.forEach((cppClass) => {
+            (cppClass as SqliteCppClass).removeAndChildren();
+        });
+        this.funcDecls.forEach((funcDecl) => {
+            (funcDecl as SqliteFuncDeclaration).removeAndChildren();
+        });
+        this.funcImpls.forEach((funcImpl) => {
+            (funcImpl as SqliteFuncImplementation).removeAndChildren();
+        });
+        this.virtualFuncImpls.forEach((virtualFuncImpl) => {
+            (
+                virtualFuncImpl as SqliteVirtualFuncImplementation
+            ).removeAndChildren();
+        });
+
+        this.internal.db
+            .prepare("DELETE FROM cpp_files WHERE id=(?)")
+            .run(this.id);
+    }
+
     getName(): string {
         return this.fileName;
     }

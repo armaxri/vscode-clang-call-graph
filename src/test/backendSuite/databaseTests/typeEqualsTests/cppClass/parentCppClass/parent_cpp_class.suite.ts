@@ -2,6 +2,7 @@ import assert from "assert";
 import { DatabaseType } from "../../../../../../backend/Config";
 import { addSuitesInSubDirsSuites } from "../../../../helper/mocha_test_helper";
 import {
+    getEmptyReferenceDatabase,
     openDatabase,
     prepareDatabaseEqualityTests,
 } from "../../database_equality_tests";
@@ -225,4 +226,35 @@ suite("Parent Cpp Class", () => {
             });
         });
     });
+
+    /*
+    TODO:
+    suite("Removed all database content", () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
+            test(`${DatabaseType[testData]}`, async () => {
+                const [database, referenceDatabase] =
+                    prepareDatabaseEqualityTests(
+                        __dirname,
+                        "simple_parent_cpp_class_expected_db.json",
+                        testData
+                    );
+                const cppFile = database.getOrAddCppFile(
+                    "simple_parent_cpp_class.json"
+                );
+                const parentClass = cppFile.addClass("ParentClass");
+                const childClass = cppFile.addClass("ChildClass");
+
+                childClass.addParentClass(parentClass);
+
+                database.writeDatabase();
+
+                assert.ok(database.equals(referenceDatabase));
+
+                database.removeCppFileAndDependingContent(cppFile.getName());
+                database.writeDatabase();
+                assert.ok(database.equals(getEmptyReferenceDatabase()));
+            });
+        });
+    });
+    */
 });

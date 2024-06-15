@@ -8,6 +8,10 @@ export function elementEquals<E extends Equal>(
         return false;
     }
 
+    if (mainData.length === 0 && otherData.length === 0) {
+        return true;
+    }
+
     var allMatched = true;
     for (const element of mainData) {
         var foundMatch = false;

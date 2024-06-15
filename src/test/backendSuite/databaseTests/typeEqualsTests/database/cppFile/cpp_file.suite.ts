@@ -1,7 +1,10 @@
 import assert from "assert";
 import { DatabaseType } from "../../../../../../backend/Config";
 import { addSuitesInSubDirsSuites } from "../../../../helper/mocha_test_helper";
-import { prepareDatabaseEqualityTests } from "../../database_equality_tests";
+import {
+    getEmptyReferenceDatabase,
+    prepareDatabaseEqualityTests,
+} from "../../database_equality_tests";
 
 suite("Cpp File", () => {
     addSuitesInSubDirsSuites(__dirname);

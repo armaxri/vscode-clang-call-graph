@@ -29,46 +29,47 @@
               }
             }
           ],
-          "virtualFuncImpls": []
-        }
-      ],
-      "funcDecls": [],
-      "funcImpls": [
-        {
-          "funcName": "main",
-          "funcAstName": "_main",
-          "qualType": "int (int, char **)",
-          "range": {
-            "start": {
-              "line": 5,
-              "column": 4
-            },
-            "end": {
-              "line": 5,
-              "column": 9
-            }
-          },
-          "funcCalls": [],
-          "virtualFuncCalls": [
+          "virtualFuncImpls": [
             {
-              "baseFuncAstName": "__ZN3foo3addEii",
-              "funcName": "add",
-              "funcAstName": "__ZN3foo3addEii",
-              "qualType": "int (int, int)",
+              "funcName": "base",
+              "funcAstName": "__ZN3foo6baseEii",
+              "qualType": "int (int, char **)",
               "range": {
                 "start": {
-                  "line": 20,
-                  "column": 6
+                  "line": 5,
+                  "column": 4
                 },
                 "end": {
-                  "line": 20,
-                  "column": 10
+                  "line": 5,
+                  "column": 9
                 }
-              }
+              },
+              "funcCalls": [],
+              "virtualFuncCalls": [
+                {
+                  "baseFuncAstName": "__ZN3foo3addEii",
+                  "funcName": "add",
+                  "funcAstName": "__ZN3foo3addEii",
+                  "qualType": "int (int, int)",
+                  "range": {
+                    "start": {
+                      "line": 20,
+                      "column": 6
+                    },
+                    "end": {
+                      "line": 20,
+                      "column": 10
+                    }
+                  }
+                }
+              ],
+              "baseFuncAstName": "__ZN3foo6baseEii"
             }
           ]
         }
       ],
+      "funcDecls": [],
+      "funcImpls": [],
       "virtualFuncImpls": []
     }
   ],

@@ -167,6 +167,25 @@ export class SqliteVirtualFuncImplementation extends AbstractVirtualFuncImplemen
         return virtualFuncImpls;
     }
 
+    removeAndChildren(): void {
+        this.funcCalls.forEach((funcCall) => {
+            (funcCall as SqliteFuncCall).removeAndChildren();
+        });
+
+        this.virtualFuncCalls.forEach((virtualFuncCall) => {
+            (virtualFuncCall as SqliteVirtualFuncCall).removeAndChildren();
+        });
+
+        this.internal.db
+            .prepare(
+                `
+            DELETE FROM virtual_func_implementations
+            WHERE id = @id
+        `
+            )
+            .run({ id: this.id });
+    }
+
     getFuncName(): string {
         return this.funcName;
     }

@@ -1,7 +1,10 @@
 import assert from "assert";
 import { DatabaseType } from "../../../../../../backend/Config";
 import { addSuitesInSubDirsSuites } from "../../../../helper/mocha_test_helper";
-import { prepareDatabaseEqualityTests } from "../../database_equality_tests";
+import {
+    getEmptyReferenceDatabase,
+    prepareDatabaseEqualityTests,
+} from "../../database_equality_tests";
 
 suite("Func Decl", () => {
     addSuitesInSubDirsSuites(__dirname);
@@ -192,6 +195,39 @@ suite("Func Decl", () => {
                 database.writeDatabase();
 
                 assert.ok(!database.equals(referenceDatabase));
+            });
+        });
+    });
+
+    suite("Removed all database content", () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
+            test(`${DatabaseType[testData]}`, async () => {
+                const [database, referenceDatabase] =
+                    prepareDatabaseEqualityTests(
+                        __dirname,
+                        "simple_func_decl_expected_db.json",
+                        testData
+                    );
+                const hppFile = database.getOrAddHppFile(
+                    "simple_func_decl.json"
+                );
+                hppFile.addFuncDecl({
+                    funcName: "add",
+                    funcAstName: "__ZN3foo3addEii",
+                    qualType: "int (int, int)",
+                    range: {
+                        start: { line: 11, column: 5 },
+                        end: { line: 11, column: 8 },
+                    },
+                });
+
+                database.writeDatabase();
+
+                assert.ok(database.equals(referenceDatabase));
+
+                database.removeHppFileAndDependingContent(hppFile.getName());
+                database.writeDatabase();
+                assert.ok(database.equals(getEmptyReferenceDatabase()));
             });
         });
     });

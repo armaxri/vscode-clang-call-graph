@@ -48,3 +48,7 @@ export function prepareDatabaseEqualityTests(
 
     return [database, referenceDatabase];
 }
+
+export function getEmptyReferenceDatabase(): Database {
+    return loadReferenceDb(__dirname, "empty_expected_db.json");
+}
