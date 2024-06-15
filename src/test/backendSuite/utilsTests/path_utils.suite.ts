@@ -123,6 +123,4 @@ suite("Path Utils Test Suite", () => {
         path.tryToRemove();
         assert.ok(!path.doesExist());
     });
-
-    // Date.now()
 });
