@@ -1,13 +1,16 @@
 import {
     CppClass,
+    FuncBasics,
     FuncCreationArgs,
     FuncDeclaration,
     FuncImplementation,
     HppFile,
+    Location,
     VirtualFuncCreationArgs,
     VirtualFuncImplementation,
 } from "../cpp_structure";
 import { elementEquals } from "../helper/equality_helper";
+import { getMatchingFuncs } from "../helper/location_helper";
 
 export abstract class AbstractHppFile implements HppFile {
     abstract getReferencedFromCppFiles(): string[];
@@ -73,5 +76,9 @@ export abstract class AbstractHppFile implements HppFile {
                 other.getVirtualFuncImpls()
             )
         );
+    }
+
+    getMatchingFuncs(location: Location): FuncBasics[] {
+        return getMatchingFuncs(location, this);
     }
 }

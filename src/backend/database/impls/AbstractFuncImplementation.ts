@@ -1,13 +1,19 @@
 import {
+    FuncBasics,
     FuncCall,
     FuncCallCreationArgs,
     FuncImplementation,
+    Location,
     Range,
     VirtualFuncCall,
     VirtualFuncCallCreationArgs,
     rangeIsEqual,
 } from "../cpp_structure";
 import { elementEquals } from "../helper/equality_helper";
+import {
+    getMatchingFuncsInImpls,
+    isLocationWithinRange,
+} from "../helper/location_helper";
 
 export abstract class AbstractFuncImplementation implements FuncImplementation {
     abstract getFuncName(): string;
@@ -16,11 +22,11 @@ export abstract class AbstractFuncImplementation implements FuncImplementation {
     abstract getRange(): Range;
 
     abstract getFuncCalls(): FuncCall[];
-    abstract addFuncCall(funcCall: FuncCallCreationArgs): void;
+    abstract addFuncCall(funcCall: FuncCallCreationArgs): FuncCall;
     abstract getVirtualFuncCalls(): VirtualFuncCall[];
     abstract addVirtualFuncCall(
         virtualFuncCall: VirtualFuncCallCreationArgs
-    ): void;
+    ): VirtualFuncCall;
 
     equals(otherInput: any): boolean {
         const other = otherInput as FuncImplementation;
@@ -44,5 +50,13 @@ export abstract class AbstractFuncImplementation implements FuncImplementation {
                 other.getVirtualFuncCalls()
             )
         );
+    }
+
+    matchesLocation(location: Location): boolean {
+        return isLocationWithinRange(location, this.getRange());
+    }
+
+    getMatchingFuncs(location: Location): FuncBasics[] {
+        return getMatchingFuncsInImpls(location, this);
     }
 }
