@@ -1,16 +1,15 @@
 import assert from "assert";
-import { addSuitesInSubDirsSuites } from "../../../helper/mocha_test_helper";
-import { createCleanLowdbDatabase } from "../../../helper/database_helper";
+import { addSuitesInSubDirsSuites } from "../../../../helper/mocha_test_helper";
+import { createCleanLowdbDatabase } from "../../../../helper/database_helper";
 
-suite("Virtual Func Decl", () => {
+suite("Func Decl", () => {
     addSuitesInSubDirsSuites(__dirname);
 
     test("match location", () => {
         const database = createCleanLowdbDatabase(__dirname);
         const file = database.getOrAddCppFile("file.cpp");
-        const cppClass = file.addClass("Foo");
 
-        const func = cppClass.addVirtualFuncDecl({
+        const func = file.addFuncDecl({
             funcName: "func",
             funcAstName: "func",
             qualType: "int",
@@ -18,7 +17,6 @@ suite("Virtual Func Decl", () => {
                 start: { line: 2, column: 2 },
                 end: { line: 2, column: 10 },
             },
-            baseFuncAstName: "func",
         });
         database.writeDatabase();
 
@@ -30,9 +28,8 @@ suite("Virtual Func Decl", () => {
     test("no match location", () => {
         const database = createCleanLowdbDatabase(__dirname);
         const file = database.getOrAddCppFile("file.cpp");
-        const cppClass = file.addClass("Foo");
 
-        const func = cppClass.addVirtualFuncDecl({
+        const func = file.addFuncDecl({
             funcName: "func",
             funcAstName: "func",
             qualType: "int",
@@ -40,7 +37,6 @@ suite("Virtual Func Decl", () => {
                 start: { line: 2, column: 2 },
                 end: { line: 2, column: 10 },
             },
-            baseFuncAstName: "func",
         });
         database.writeDatabase();
 

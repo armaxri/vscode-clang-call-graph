@@ -1,18 +1,34 @@
 import assert from "assert";
-import { addSuitesInSubDirsSuites } from "../../../helper/mocha_test_helper";
-import { createCleanLowdbDatabase } from "../../../helper/database_helper";
+import { addSuitesInSubDirsSuites } from "../../../../helper/mocha_test_helper";
+import { createCleanLowdbDatabase } from "../../../../helper/database_helper";
 
-suite("Func Decl", () => {
+suite("Func Call", () => {
     addSuitesInSubDirsSuites(__dirname);
 
     test("match location", () => {
         const database = createCleanLowdbDatabase(__dirname);
         const file = database.getOrAddCppFile("file.cpp");
 
-        const func = file.addFuncDecl({
+        const func2call = file.addFuncDecl({
+            funcName: "func2call",
+            qualType: "int",
+            range: {
+                start: { line: 1, column: 2 },
+                end: { line: 1, column: 10 },
+            },
+            funcAstName: "func2call",
+        });
+        const funcImpl = file.addFuncImpl({
             funcName: "func",
             funcAstName: "func",
             qualType: "int",
+            range: {
+                start: { line: 3, column: 2 },
+                end: { line: 3, column: 10 },
+            },
+        });
+        const func = funcImpl.addFuncCall({
+            func: func2call,
             range: {
                 start: { line: 2, column: 2 },
                 end: { line: 2, column: 10 },
@@ -29,10 +45,26 @@ suite("Func Decl", () => {
         const database = createCleanLowdbDatabase(__dirname);
         const file = database.getOrAddCppFile("file.cpp");
 
-        const func = file.addFuncDecl({
+        const func2call = file.addFuncDecl({
+            funcName: "func2call",
+            qualType: "int",
+            range: {
+                start: { line: 1, column: 2 },
+                end: { line: 1, column: 10 },
+            },
+            funcAstName: "func2call",
+        });
+        const funcImpl = file.addFuncImpl({
             funcName: "func",
             funcAstName: "func",
             qualType: "int",
+            range: {
+                start: { line: 3, column: 2 },
+                end: { line: 3, column: 10 },
+            },
+        });
+        const func = funcImpl.addFuncCall({
+            func: func2call,
             range: {
                 start: { line: 2, column: 2 },
                 end: { line: 2, column: 10 },

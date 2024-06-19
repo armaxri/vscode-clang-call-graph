@@ -1,8 +1,8 @@
 import assert from "assert";
-import { addSuitesInSubDirsSuites } from "../../../helper/mocha_test_helper";
-import { createCleanLowdbDatabase } from "../../../helper/database_helper";
+import { addSuitesInSubDirsSuites } from "../../../../helper/mocha_test_helper";
+import { createCleanLowdbDatabase } from "../../../../helper/database_helper";
 
-suite("Virtual Func Call", () => {
+suite("Virtual Func Decl", () => {
     addSuitesInSubDirsSuites(__dirname);
 
     test("match location", () => {
@@ -10,31 +10,15 @@ suite("Virtual Func Call", () => {
         const file = database.getOrAddCppFile("file.cpp");
         const cppClass = file.addClass("Foo");
 
-        const func2call = cppClass.addVirtualFuncDecl({
-            funcName: "func2call",
-            funcAstName: "func2call",
-            qualType: "int",
-            range: {
-                start: { line: 1, column: 2 },
-                end: { line: 1, column: 10 },
-            },
-            baseFuncAstName: "func2call",
-        });
-        const funcImpl = file.addFuncImpl({
+        const func = cppClass.addVirtualFuncDecl({
             funcName: "func",
             funcAstName: "func",
             qualType: "int",
             range: {
-                start: { line: 3, column: 2 },
-                end: { line: 3, column: 10 },
-            },
-        });
-        const func = funcImpl.addVirtualFuncCall({
-            func: func2call,
-            range: {
                 start: { line: 2, column: 2 },
                 end: { line: 2, column: 10 },
             },
+            baseFuncAstName: "func",
         });
         database.writeDatabase();
 
@@ -48,31 +32,15 @@ suite("Virtual Func Call", () => {
         const file = database.getOrAddCppFile("file.cpp");
         const cppClass = file.addClass("Foo");
 
-        const func2call = cppClass.addVirtualFuncDecl({
-            funcName: "func2call",
-            funcAstName: "func2call",
-            qualType: "int",
-            range: {
-                start: { line: 1, column: 2 },
-                end: { line: 1, column: 10 },
-            },
-            baseFuncAstName: "func2call",
-        });
-        const funcImpl = file.addFuncImpl({
+        const func = cppClass.addVirtualFuncDecl({
             funcName: "func",
             funcAstName: "func",
             qualType: "int",
             range: {
-                start: { line: 3, column: 2 },
-                end: { line: 3, column: 10 },
-            },
-        });
-        const func = funcImpl.addVirtualFuncCall({
-            func: func2call,
-            range: {
                 start: { line: 2, column: 2 },
                 end: { line: 2, column: 10 },
             },
+            baseFuncAstName: "func",
         });
         database.writeDatabase();
 

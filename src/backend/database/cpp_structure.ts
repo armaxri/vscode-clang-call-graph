@@ -42,19 +42,22 @@ export interface Equal {
     equals(other: any): boolean;
 }
 
+export interface Ranged extends Equal {
+    getRange(): Range;
+}
+
 export interface LocationMatch {
     matchesLocation(location: Location): boolean;
 }
 
 export interface MatchingFuncs {
-    getMatchingFuncs(location: Location): FuncBasics[];
+    getMatchingFuncs(location: Location): Ranged[];
 }
 
-export interface FuncBasics extends Equal, LocationMatch {
+export interface FuncBasics extends Equal, LocationMatch, Ranged {
     getFuncName(): string;
     getFuncAstName(): string;
     getQualType(): string;
-    getRange(): Range;
 }
 
 export interface FuncDeclaration extends FuncBasics {}

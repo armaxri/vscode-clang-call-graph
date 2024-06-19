@@ -4,25 +4,34 @@ import {
     Location,
     MainDeclLocation,
     Range,
+    Ranged,
 } from "../cpp_structure";
+
+export function isLocationSameOrAfter(
+    startLoc: Location,
+    endLoc: Location
+): boolean {
+    return (
+        startLoc.line < endLoc.line ||
+        (startLoc.line === endLoc.line && startLoc.column <= endLoc.column)
+    );
+}
 
 export function isLocationWithinRange(
     location: Location,
     range: Range
 ): boolean {
     return (
-        location.line >= range.start.line &&
-        location.line <= range.end.line &&
-        location.column >= range.start.column &&
-        location.column <= range.end.column
+        isLocationSameOrAfter(range.start, location) &&
+        isLocationSameOrAfter(location, range.end)
     );
 }
 
 export function getMatchingFuncs(
     location: Location,
     main: MainDeclLocation
-): FuncBasics[] {
-    const matchingFuncs: FuncBasics[] = [];
+): Ranged[] {
+    const matchingFuncs: Ranged[] = [];
     for (const cppClass of main.getClasses()) {
         matchingFuncs.push(...cppClass.getMatchingFuncs(location));
     }
@@ -43,8 +52,8 @@ export function getMatchingFuncs(
 export function getMatchingFuncsInImpls(
     location: Location,
     impl: FuncImplementation
-): FuncBasics[] {
-    const matchingFuncs: FuncBasics[] = [];
+): Ranged[] {
+    const matchingFuncs: Ranged[] = [];
     if (impl.matchesLocation(location)) {
         matchingFuncs.push(impl);
     }
@@ -59,4 +68,27 @@ export function getMatchingFuncsInImpls(
         }
     }
     return matchingFuncs;
+}
+
+export function isRangeInsideRange(
+    outerRange: Range,
+    innerRange: Range
+): boolean {
+    return (
+        isLocationSameOrAfter(outerRange.start, innerRange.start) &&
+        isLocationSameOrAfter(innerRange.end, outerRange.end)
+    );
+}
+
+export function getBestMatch(funcs: Ranged[]): Ranged {
+    let bestMatch: Ranged | undefined;
+    for (const func of funcs) {
+        if (
+            !bestMatch ||
+            isRangeInsideRange(bestMatch.getRange(), func.getRange())
+        ) {
+            bestMatch = func;
+        }
+    }
+    return bestMatch!;
 }

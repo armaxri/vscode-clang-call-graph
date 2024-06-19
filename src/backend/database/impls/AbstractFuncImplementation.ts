@@ -5,6 +5,7 @@ import {
     FuncImplementation,
     Location,
     Range,
+    Ranged,
     VirtualFuncCall,
     VirtualFuncCallCreationArgs,
     rangeIsEqual,
@@ -56,7 +57,7 @@ export abstract class AbstractFuncImplementation implements FuncImplementation {
         return isLocationWithinRange(location, this.getRange());
     }
 
-    getMatchingFuncs(location: Location): FuncBasics[] {
+    getMatchingFuncs(location: Location): Ranged[] {
         return getMatchingFuncsInImpls(location, this);
     }
 }

@@ -1,93 +1,64 @@
 import assert from "assert";
-import { addSuitesInSubDirsSuites } from "../../../helper/mocha_test_helper";
-import { createCleanLowdbDatabase } from "../../../helper/database_helper";
+import { addSuitesInSubDirsSuites } from "../../../../helper/mocha_test_helper";
+import { createCleanLowdbDatabase } from "../../../../helper/database_helper";
 
-suite("Hpp File", () => {
+suite("Virtual Func Impl", () => {
     addSuitesInSubDirsSuites(__dirname);
 
-    test("getMatchingFuncs call", () => {
+    test("match location", () => {
         const database = createCleanLowdbDatabase(__dirname);
-        const file = database.getOrAddHppFile("file.h");
+        const file = database.getOrAddCppFile("file.cpp");
         const cppClass = file.addClass("Foo");
 
-        const func2call = cppClass.addVirtualFuncDecl({
-            funcName: "func2call",
-            funcAstName: "func2call",
-            qualType: "int",
-            range: {
-                start: { line: 1, column: 2 },
-                end: { line: 1, column: 10 },
-            },
-            baseFuncAstName: "func2call",
-        });
-        const funcImpl = cppClass.addVirtualFuncImpl({
+        const func = cppClass.addVirtualFuncImpl({
             funcName: "func",
             funcAstName: "func",
             qualType: "int",
             range: {
-                start: { line: 3, column: 2 },
-                end: { line: 3, column: 10 },
-            },
-            baseFuncAstName: "func",
-        });
-        const func = funcImpl.addVirtualFuncCall({
-            func: func2call,
-            range: {
                 start: { line: 2, column: 2 },
                 end: { line: 2, column: 10 },
             },
+            baseFuncAstName: "func",
         });
         database.writeDatabase();
 
-        const matches = file.getMatchingFuncs({ line: 2, column: 5 });
-
-        assert.strictEqual(matches.length, 1);
-        assert.ok(matches[0].equals(func));
+        assert.ok(func.matchesLocation({ line: 2, column: 2 }));
+        assert.ok(func.matchesLocation({ line: 2, column: 5 }));
+        assert.ok(func.matchesLocation({ line: 2, column: 10 }));
     });
 
-    test("getMatchingFuncs virtual func decl", () => {
+    test("no match location", () => {
         const database = createCleanLowdbDatabase(__dirname);
-        const file = database.getOrAddHppFile("file.h");
+        const file = database.getOrAddCppFile("file.cpp");
         const cppClass = file.addClass("Foo");
 
-        const func2call = cppClass.addVirtualFuncDecl({
-            funcName: "func2call",
-            funcAstName: "func2call",
-            qualType: "int",
-            range: {
-                start: { line: 1, column: 2 },
-                end: { line: 1, column: 10 },
-            },
-            baseFuncAstName: "func2call",
-        });
-        const funcImpl = cppClass.addVirtualFuncImpl({
+        const func = cppClass.addVirtualFuncImpl({
             funcName: "func",
             funcAstName: "func",
             qualType: "int",
             range: {
-                start: { line: 3, column: 2 },
-                end: { line: 3, column: 10 },
-            },
-            baseFuncAstName: "func",
-        });
-        const func = funcImpl.addVirtualFuncCall({
-            func: func2call,
-            range: {
                 start: { line: 2, column: 2 },
                 end: { line: 2, column: 10 },
             },
+            baseFuncAstName: "func",
         });
         database.writeDatabase();
 
-        const matches = file.getMatchingFuncs({ line: 1, column: 5 });
+        assert.ok(!func.matchesLocation({ line: 1, column: 2 }));
+        assert.ok(!func.matchesLocation({ line: 1, column: 5 }));
+        assert.ok(!func.matchesLocation({ line: 1, column: 10 }));
 
-        assert.strictEqual(matches.length, 1);
-        assert.ok(matches[0].equals(func2call));
+        assert.ok(!func.matchesLocation({ line: 2, column: 1 }));
+        assert.ok(!func.matchesLocation({ line: 2, column: 11 }));
+
+        assert.ok(!func.matchesLocation({ line: 3, column: 2 }));
+        assert.ok(!func.matchesLocation({ line: 3, column: 5 }));
+        assert.ok(!func.matchesLocation({ line: 3, column: 10 }));
     });
 
-    test("getMatchingFuncs virtual func impl", () => {
+    test("getMatchingFuncs self", () => {
         const database = createCleanLowdbDatabase(__dirname);
-        const file = database.getOrAddHppFile("file.h");
+        const file = database.getOrAddCppFile("file.cpp");
         const cppClass = file.addClass("Foo");
 
         const func2call = cppClass.addVirtualFuncDecl({
@@ -119,18 +90,18 @@ suite("Hpp File", () => {
         });
         database.writeDatabase();
 
-        const matches = file.getMatchingFuncs({ line: 3, column: 5 });
+        const matches = funcImpl.getMatchingFuncs({ line: 3, column: 5 });
 
         assert.strictEqual(matches.length, 1);
         assert.ok(matches[0].equals(funcImpl));
     });
 
-    test("getMatchingFuncs no matches", () => {
+    test("getMatchingFuncs call", () => {
         const database = createCleanLowdbDatabase(__dirname);
-        const file = database.getOrAddHppFile("file.h");
+        const file = database.getOrAddCppFile("file.cpp");
         const cppClass = file.addClass("Foo");
 
-        const func2call = file.addFuncDecl({
+        const func2call = cppClass.addVirtualFuncDecl({
             funcName: "func2call",
             funcAstName: "func2call",
             qualType: "int",
@@ -138,6 +109,7 @@ suite("Hpp File", () => {
                 start: { line: 1, column: 2 },
                 end: { line: 1, column: 10 },
             },
+            baseFuncAstName: "func2call",
         });
         const funcImpl = cppClass.addVirtualFuncImpl({
             funcName: "func",
@@ -149,7 +121,47 @@ suite("Hpp File", () => {
             },
             baseFuncAstName: "func",
         });
-        const func = funcImpl.addFuncCall({
+        const func = funcImpl.addVirtualFuncCall({
+            func: func2call,
+            range: {
+                start: { line: 2, column: 2 },
+                end: { line: 2, column: 10 },
+            },
+        });
+        database.writeDatabase();
+
+        const matches = funcImpl.getMatchingFuncs({ line: 2, column: 5 });
+
+        assert.strictEqual(matches.length, 1);
+        assert.ok(matches[0].equals(func));
+    });
+
+    test("getMatchingFuncs no matches", () => {
+        const database = createCleanLowdbDatabase(__dirname);
+        const file = database.getOrAddCppFile("file.cpp");
+        const cppClass = file.addClass("Foo");
+
+        const func2call = cppClass.addVirtualFuncDecl({
+            funcName: "func2call",
+            funcAstName: "func2call",
+            qualType: "int",
+            range: {
+                start: { line: 1, column: 2 },
+                end: { line: 1, column: 10 },
+            },
+            baseFuncAstName: "func2call",
+        });
+        const funcImpl = cppClass.addVirtualFuncImpl({
+            funcName: "func",
+            funcAstName: "func",
+            qualType: "int",
+            range: {
+                start: { line: 3, column: 2 },
+                end: { line: 3, column: 10 },
+            },
+            baseFuncAstName: "func",
+        });
+        const func = funcImpl.addVirtualFuncCall({
             func: func2call,
             range: {
                 start: { line: 2, column: 2 },
@@ -159,15 +171,15 @@ suite("Hpp File", () => {
         database.writeDatabase();
 
         assert.strictEqual(
-            file.getMatchingFuncs({ line: 1, column: 5 }).length,
+            funcImpl.getMatchingFuncs({ line: 1, column: 5 }).length,
             0
         );
         assert.strictEqual(
-            file.getMatchingFuncs({ line: 2, column: 11 }).length,
+            funcImpl.getMatchingFuncs({ line: 2, column: 11 }).length,
             0
         );
         assert.strictEqual(
-            file.getMatchingFuncs({ line: 3, column: 1 }).length,
+            funcImpl.getMatchingFuncs({ line: 3, column: 1 }).length,
             0
         );
     });

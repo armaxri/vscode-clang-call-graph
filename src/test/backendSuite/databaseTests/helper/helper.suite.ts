@@ -1,5 +1,5 @@
 import { addSuitesInSubDirsSuites } from "../../helper/mocha_test_helper";
 
-suite("Location Selection", () => {
+suite("Database Helper", () => {
     addSuitesInSubDirsSuites(__dirname);
 });

@@ -1,8 +1,8 @@
 import assert from "assert";
-import { addSuitesInSubDirsSuites } from "../../../helper/mocha_test_helper";
-import { createCleanLowdbDatabase } from "../../../helper/database_helper";
+import { addSuitesInSubDirsSuites } from "../../../../helper/mocha_test_helper";
+import { createCleanLowdbDatabase } from "../../../../helper/database_helper";
 
-suite("Cpp File", () => {
+suite("Cpp Class", () => {
     addSuitesInSubDirsSuites(__dirname);
 
     test("getMatchingFuncs call", () => {
@@ -39,7 +39,7 @@ suite("Cpp File", () => {
         });
         database.writeDatabase();
 
-        const matches = file.getMatchingFuncs({ line: 2, column: 5 });
+        const matches = cppClass.getMatchingFuncs({ line: 2, column: 5 });
 
         assert.strictEqual(matches.length, 1);
         assert.ok(matches[0].equals(func));
@@ -79,7 +79,7 @@ suite("Cpp File", () => {
         });
         database.writeDatabase();
 
-        const matches = file.getMatchingFuncs({ line: 1, column: 5 });
+        const matches = cppClass.getMatchingFuncs({ line: 1, column: 5 });
 
         assert.strictEqual(matches.length, 1);
         assert.ok(matches[0].equals(func2call));
@@ -119,7 +119,7 @@ suite("Cpp File", () => {
         });
         database.writeDatabase();
 
-        const matches = file.getMatchingFuncs({ line: 3, column: 5 });
+        const matches = cppClass.getMatchingFuncs({ line: 3, column: 5 });
 
         assert.strictEqual(matches.length, 1);
         assert.ok(matches[0].equals(funcImpl));
@@ -159,27 +159,47 @@ suite("Cpp File", () => {
         database.writeDatabase();
 
         assert.strictEqual(
-            file.getMatchingFuncs({ line: 1, column: 5 }).length,
+            cppClass.getMatchingFuncs({ line: 1, column: 5 }).length,
             0
         );
         assert.strictEqual(
-            file.getMatchingFuncs({ line: 2, column: 11 }).length,
+            cppClass.getMatchingFuncs({ line: 2, column: 11 }).length,
             0
         );
         assert.strictEqual(
-            file.getMatchingFuncs({ line: 3, column: 1 }).length,
+            cppClass.getMatchingFuncs({ line: 3, column: 1 }).length,
             0
         );
     });
 
-    test("getMatchingFuncs func impl", () => {
+    test("getMatchingFuncs call inner class", () => {
         const database = createCleanLowdbDatabase(__dirname);
         const file = database.getOrAddCppFile("file.cpp");
+        const outerCppClass = file.addClass("Bar");
+        const cppClass = outerCppClass.addClass("Foo");
 
-        const func = file.addFuncImpl({
+        const func2call = cppClass.addVirtualFuncDecl({
+            funcName: "func2call",
+            funcAstName: "func2call",
+            qualType: "int",
+            range: {
+                start: { line: 1, column: 2 },
+                end: { line: 1, column: 10 },
+            },
+            baseFuncAstName: "func2call",
+        });
+        const funcImpl = cppClass.addVirtualFuncImpl({
             funcName: "func",
             funcAstName: "func",
             qualType: "int",
+            range: {
+                start: { line: 3, column: 2 },
+                end: { line: 3, column: 10 },
+            },
+            baseFuncAstName: "func",
+        });
+        const func = funcImpl.addVirtualFuncCall({
+            func: func2call,
             range: {
                 start: { line: 2, column: 2 },
                 end: { line: 2, column: 10 },
@@ -187,9 +207,91 @@ suite("Cpp File", () => {
         });
         database.writeDatabase();
 
-        const matches = file.getMatchingFuncs({ line: 3, column: 5 });
+        const matches = outerCppClass.getMatchingFuncs({ line: 2, column: 5 });
 
         assert.strictEqual(matches.length, 1);
         assert.ok(matches[0].equals(func));
+    });
+
+    test("getMatchingFuncs virtual func decl inner class", () => {
+        const database = createCleanLowdbDatabase(__dirname);
+        const file = database.getOrAddCppFile("file.cpp");
+        const outerCppClass = file.addClass("Bar");
+        const cppClass = outerCppClass.addClass("Foo");
+
+        const func2call = cppClass.addVirtualFuncDecl({
+            funcName: "func2call",
+            funcAstName: "func2call",
+            qualType: "int",
+            range: {
+                start: { line: 1, column: 2 },
+                end: { line: 1, column: 10 },
+            },
+            baseFuncAstName: "func2call",
+        });
+        const funcImpl = cppClass.addVirtualFuncImpl({
+            funcName: "func",
+            funcAstName: "func",
+            qualType: "int",
+            range: {
+                start: { line: 3, column: 2 },
+                end: { line: 3, column: 10 },
+            },
+            baseFuncAstName: "func",
+        });
+        const func = funcImpl.addVirtualFuncCall({
+            func: func2call,
+            range: {
+                start: { line: 2, column: 2 },
+                end: { line: 2, column: 10 },
+            },
+        });
+        database.writeDatabase();
+
+        const matches = outerCppClass.getMatchingFuncs({ line: 1, column: 5 });
+
+        assert.strictEqual(matches.length, 1);
+        assert.ok(matches[0].equals(func2call));
+    });
+
+    test("getMatchingFuncs virtual func impl inner class", () => {
+        const database = createCleanLowdbDatabase(__dirname);
+        const file = database.getOrAddCppFile("file.cpp");
+        const outerCppClass = file.addClass("Bar");
+        const cppClass = outerCppClass.addClass("Foo");
+
+        const func2call = cppClass.addVirtualFuncDecl({
+            funcName: "func2call",
+            funcAstName: "func2call",
+            qualType: "int",
+            range: {
+                start: { line: 1, column: 2 },
+                end: { line: 1, column: 10 },
+            },
+            baseFuncAstName: "func2call",
+        });
+        const funcImpl = cppClass.addVirtualFuncImpl({
+            funcName: "func",
+            funcAstName: "func",
+            qualType: "int",
+            range: {
+                start: { line: 3, column: 2 },
+                end: { line: 3, column: 10 },
+            },
+            baseFuncAstName: "func",
+        });
+        const func = funcImpl.addVirtualFuncCall({
+            func: func2call,
+            range: {
+                start: { line: 2, column: 2 },
+                end: { line: 2, column: 10 },
+            },
+        });
+        database.writeDatabase();
+
+        const matches = outerCppClass.getMatchingFuncs({ line: 3, column: 5 });
+
+        assert.strictEqual(matches.length, 1);
+        assert.ok(matches[0].equals(funcImpl));
     });
 });
