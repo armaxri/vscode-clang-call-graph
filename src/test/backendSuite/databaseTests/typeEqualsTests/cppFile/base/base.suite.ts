@@ -82,24 +82,24 @@ suite("Base", () => {
                     );
 
                 const timestamp1 = Date.now();
-                await delay(20);
+                await delay(1);
 
                 const cppFile = database.getOrAddCppFile("empty.json");
-                await delay(20);
+                await delay(1);
                 const timestamp2 = Date.now();
-                await delay(20);
+                await delay(1);
 
                 assert.ok(cppFile.getLastAnalyzed() > timestamp1);
                 assert.ok(cppFile.getLastAnalyzed() < timestamp2);
 
-                await delay(20);
+                await delay(1);
                 cppFile.justAnalyzed();
 
                 database.writeDatabase();
 
-                await delay(20);
+                await delay(1);
                 const timestamp3 = Date.now();
-                await delay(20);
+                await delay(1);
 
                 assert.ok(database.equals(referenceDatabase));
 
