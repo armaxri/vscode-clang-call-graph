@@ -42,19 +42,32 @@ export interface Equal {
     equals(other: any): boolean;
 }
 
-export interface FuncBasics extends Equal {
-    getFuncName(): string;
-    getFuncAstName(): string;
-    getQualType(): string;
+export interface Ranged extends Equal {
     getRange(): Range;
 }
 
+export interface LocationMatch {
+    matchesLocation(location: Location): boolean;
+}
+
+export interface MatchingFuncs {
+    getMatchingFuncs(location: Location): Ranged[];
+}
+
+export interface FuncBasics extends Equal, LocationMatch, Ranged {
+    getFuncName(): string;
+    getFuncAstName(): string;
+    getQualType(): string;
+}
+
 export interface FuncDeclaration extends FuncBasics {}
-export interface FuncImplementation extends FuncBasics {
+export interface FuncImplementation extends FuncBasics, MatchingFuncs {
     getFuncCalls(): FuncCall[];
-    addFuncCall(funcCall: FuncCallCreationArgs): void;
+    addFuncCall(funcCall: FuncCallCreationArgs): FuncCall;
     getVirtualFuncCalls(): VirtualFuncCall[];
-    addVirtualFuncCall(virtualFuncCall: VirtualFuncCallCreationArgs): void;
+    addVirtualFuncCall(
+        virtualFuncCall: VirtualFuncCallCreationArgs
+    ): VirtualFuncCall;
 }
 export interface FuncCall extends FuncBasics {}
 
@@ -70,7 +83,7 @@ export interface VirtualFuncImplementation
         VirtualFuncBasics {}
 export interface VirtualFuncCall extends FuncCall, VirtualFuncBasics {}
 
-export interface MainDeclLocation extends Equal {
+export interface MainDeclLocation extends Equal, MatchingFuncs {
     getClasses(): CppClass[];
     addClass(className: string): CppClass;
 

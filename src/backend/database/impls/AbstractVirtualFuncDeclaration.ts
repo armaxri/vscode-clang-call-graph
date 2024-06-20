@@ -1,4 +1,10 @@
-import { Range, VirtualFuncDeclaration, rangeIsEqual } from "../cpp_structure";
+import {
+    Location,
+    Range,
+    VirtualFuncDeclaration,
+    rangeIsEqual,
+} from "../cpp_structure";
+import { isLocationWithinRange } from "../helper/location_helper";
 
 export abstract class AbstractVirtualFuncDeclaration
     implements VirtualFuncDeclaration
@@ -24,5 +30,9 @@ export abstract class AbstractVirtualFuncDeclaration
             rangeIsEqual(this.getRange(), other.getRange()) &&
             this.getBaseFuncAstName() === other.getBaseFuncAstName()
         );
+    }
+
+    matchesLocation(location: Location): boolean {
+        return isLocationWithinRange(location, this.getRange());
     }
 }

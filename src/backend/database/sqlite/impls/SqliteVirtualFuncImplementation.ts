@@ -210,31 +210,33 @@ export class SqliteVirtualFuncImplementation extends AbstractVirtualFuncImplemen
         return this.funcCalls;
     }
 
-    addFuncCall(funcCall: FuncCallCreationArgs): void {
-        this.funcCalls.push(
-            SqliteFuncCall.createFuncCall(
-                this.internal,
-                funcCallArgs2FuncArgs(funcCall),
-                {
-                    virtualFuncImplId: this.id,
-                }
-            )
+    addFuncCall(funcCall: FuncCallCreationArgs): FuncCall {
+        const newCall = SqliteFuncCall.createFuncCall(
+            this.internal,
+            funcCallArgs2FuncArgs(funcCall),
+            {
+                virtualFuncImplId: this.id,
+            }
         );
+        this.funcCalls.push(newCall);
+        return newCall;
     }
 
     getVirtualFuncCalls(): VirtualFuncCall[] {
         return this.virtualFuncCalls;
     }
 
-    addVirtualFuncCall(virtualFuncCall: VirtualFuncCallCreationArgs): void {
-        this.virtualFuncCalls.push(
-            SqliteVirtualFuncCall.createVirtualFuncCall(
-                this.internal,
-                virtualFuncCallArgs2VirtualFuncArgs(virtualFuncCall),
-                {
-                    virtualFuncImplId: this.id,
-                }
-            )
+    addVirtualFuncCall(
+        virtualFuncCall: VirtualFuncCallCreationArgs
+    ): VirtualFuncCall {
+        const newCall = SqliteVirtualFuncCall.createVirtualFuncCall(
+            this.internal,
+            virtualFuncCallArgs2VirtualFuncArgs(virtualFuncCall),
+            {
+                virtualFuncImplId: this.id,
+            }
         );
+        this.virtualFuncCalls.push(newCall);
+        return newCall;
     }
 }

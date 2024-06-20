@@ -7,7 +7,11 @@ import {
 } from "../../cpp_structure";
 import { LowdbFuncCall } from "./LowdbFuncCall";
 import { LowdbVirtualFuncCall } from "./LowdbVirtualFuncCall";
-import { LowdbInternalVirtualFuncImplementation } from "../lowdb_internal_structure";
+import {
+    LowdbInternalFuncMentioning,
+    LowdbInternalVirtualFuncImplementation,
+    LowdbInternalVirtualFuncMentioning,
+} from "../lowdb_internal_structure";
 import { AbstractVirtualFuncImplementation } from "../../impls/AbstractVirtualFuncImplementation";
 
 export class LowdbVirtualFuncImplementation extends AbstractVirtualFuncImplementation {
@@ -29,13 +33,15 @@ export class LowdbVirtualFuncImplementation extends AbstractVirtualFuncImplement
         );
     }
 
-    addFuncCall(funcCall: FuncCallCreationArgs): void {
-        this.internal.funcCalls.push({
+    addFuncCall(funcCall: FuncCallCreationArgs): FuncCall {
+        const newCall: LowdbInternalFuncMentioning = {
             funcName: funcCall.func.getFuncName(),
             funcAstName: funcCall.func.getFuncAstName(),
             qualType: funcCall.func.getQualType(),
             range: funcCall.range,
-        });
+        };
+        this.internal.funcCalls.push(newCall);
+        return new LowdbFuncCall(newCall);
     }
 
     getVirtualFuncCalls(): VirtualFuncCall[] {
@@ -45,14 +51,18 @@ export class LowdbVirtualFuncImplementation extends AbstractVirtualFuncImplement
         );
     }
 
-    addVirtualFuncCall(virtualFuncCall: VirtualFuncCallCreationArgs): void {
-        this.internal.virtualFuncCalls.push({
+    addVirtualFuncCall(
+        virtualFuncCall: VirtualFuncCallCreationArgs
+    ): VirtualFuncCall {
+        const newCall: LowdbInternalVirtualFuncMentioning = {
             funcName: virtualFuncCall.func.getFuncName(),
             funcAstName: virtualFuncCall.func.getFuncAstName(),
             baseFuncAstName: virtualFuncCall.func.getBaseFuncAstName(),
             qualType: virtualFuncCall.func.getQualType(),
             range: virtualFuncCall.range,
-        });
+        };
+        this.internal.virtualFuncCalls.push(newCall);
+        return new LowdbVirtualFuncCall(newCall);
     }
 
     getFuncName(): string {

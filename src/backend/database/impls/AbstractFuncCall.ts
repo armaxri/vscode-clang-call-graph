@@ -1,4 +1,5 @@
-import { FuncCall, Range, rangeIsEqual } from "../cpp_structure";
+import { FuncCall, Location, Range, rangeIsEqual } from "../cpp_structure";
+import { isLocationWithinRange } from "../helper/location_helper";
 
 export abstract class AbstractFuncCall implements FuncCall {
     abstract getFuncName(): string;
@@ -20,5 +21,9 @@ export abstract class AbstractFuncCall implements FuncCall {
             this.getQualType() === other.getQualType() &&
             rangeIsEqual(this.getRange(), other.getRange())
         );
+    }
+
+    matchesLocation(location: Location): boolean {
+        return isLocationWithinRange(location, this.getRange());
     }
 }

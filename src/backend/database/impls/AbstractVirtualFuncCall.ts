@@ -1,4 +1,10 @@
-import { Range, VirtualFuncCall, rangeIsEqual } from "../cpp_structure";
+import {
+    Location,
+    Range,
+    VirtualFuncCall,
+    rangeIsEqual,
+} from "../cpp_structure";
+import { isLocationWithinRange } from "../helper/location_helper";
 
 export abstract class AbstractVirtualFuncCall implements VirtualFuncCall {
     abstract getFuncName(): string;
@@ -22,5 +28,9 @@ export abstract class AbstractVirtualFuncCall implements VirtualFuncCall {
             rangeIsEqual(this.getRange(), other.getRange()) &&
             this.getBaseFuncAstName() === other.getBaseFuncAstName()
         );
+    }
+
+    matchesLocation(location: Location): boolean {
+        return isLocationWithinRange(location, this.getRange());
     }
 }

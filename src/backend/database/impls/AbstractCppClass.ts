@@ -1,13 +1,17 @@
 import {
     CppClass,
+    FuncBasics,
     FuncCreationArgs,
     FuncDeclaration,
     FuncImplementation,
+    Location,
+    Ranged,
     VirtualFuncCreationArgs,
     VirtualFuncDeclaration,
     VirtualFuncImplementation,
 } from "../cpp_structure";
 import { elementEquals } from "../helper/equality_helper";
+import { getMatchingFuncs } from "../helper/location_helper";
 
 export abstract class AbstractCppClass implements CppClass {
     abstract getName(): string;
@@ -100,5 +104,17 @@ export abstract class AbstractCppClass implements CppClass {
                 other.getVirtualFuncImpls()
             )
         );
+    }
+
+    getMatchingFuncs(location: Location): Ranged[] {
+        const matchingFunc = getMatchingFuncs(location, this);
+
+        for (const virtualFuncDecl of this.getVirtualFuncDecls()) {
+            if (virtualFuncDecl.matchesLocation(location)) {
+                matchingFunc.push(virtualFuncDecl);
+            }
+        }
+
+        return matchingFunc;
     }
 }

@@ -2,6 +2,8 @@ import * as fs from "fs";
 import { Config, DatabaseType } from "../../../backend/Config";
 import { MockConfig } from "./MockConfig";
 import { adjustTsToJsPath } from "./path_helper";
+import { Database } from "../../../backend/database/Database";
+import { LowdbDatabase } from "../../../backend/database/lowdb/LowdbDatabase";
 
 export function removeOldDatabase(
     dirname: string,
@@ -20,18 +22,9 @@ function removeOldDatabaseFromConfig(config: Config): void {
     }
 }
 
-/*
-export async function removeOldDatabases(dirname: string): Promise<void> {
+export function createCleanLowdbDatabase(dirname: string): Database {
     const adjustedDirname = adjustTsToJsPath(dirname);
-    for (const dbType in DatabaseType) {
-        const config = new MockConfig(
-            adjustedDirname,
-            convertStrToDatabaseType(dbType)
-        );
-        const dbPath = config.getSelectedDatabasePath().pathString();
-        if (fs.existsSync(dbPath)) {
-            fs.rmSync(dbPath, { recursive: true });
-        }
-    }
+    const config = new MockConfig(adjustedDirname, DatabaseType.lowdb);
+    removeOldDatabaseFromConfig(config);
+    return new LowdbDatabase(config);
 }
-*/

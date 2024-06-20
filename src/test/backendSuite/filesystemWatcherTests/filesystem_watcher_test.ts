@@ -18,8 +18,8 @@ export function createNewFilesystemWatcher(
             walkerFactory,
             database,
             // We don't need to actually watch the filesystem in tests,
-            // so we set the interval to 5 ms.
-            5
+            // so we set the interval to 1 ms.
+            1
         ),
         walkerFactory,
         database,

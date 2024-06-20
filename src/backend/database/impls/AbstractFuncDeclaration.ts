@@ -1,4 +1,10 @@
-import { FuncDeclaration, Range, rangeIsEqual } from "../cpp_structure";
+import {
+    FuncDeclaration,
+    Location,
+    Range,
+    rangeIsEqual,
+} from "../cpp_structure";
+import { isLocationWithinRange } from "../helper/location_helper";
 
 export abstract class AbstractFuncDeclaration implements FuncDeclaration {
     abstract getFuncName(): string;
@@ -20,5 +26,9 @@ export abstract class AbstractFuncDeclaration implements FuncDeclaration {
             this.getQualType() === other.getQualType() &&
             rangeIsEqual(this.getRange(), other.getRange())
         );
+    }
+
+    matchesLocation(location: Location): boolean {
+        return isLocationWithinRange(location, this.getRange());
     }
 }
