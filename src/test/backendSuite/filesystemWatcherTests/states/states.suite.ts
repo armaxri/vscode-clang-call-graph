@@ -10,16 +10,16 @@ suite("State Handling", () => {
     test("don't start without request", async () => {
         const [watcher, _] = createNewFilesystemWatcher(__dirname);
         assert.strictEqual(watcher.isRunning(), false);
-        await delay(20);
+        await delay(5);
         assert.strictEqual(watcher.isRunning(), false);
     });
 
     test("correct state handling", async () => {
         const [watcher, _] = createNewFilesystemWatcher(__dirname);
-        await delay(20);
+        await delay(5);
         assert.strictEqual(watcher["state"], FilesystemWatcherState.initial);
 
-        await delay(20);
+        await delay(5);
         assert.strictEqual(watcher["state"], FilesystemWatcherState.initial);
 
         await watcher.startWatching();
@@ -27,7 +27,7 @@ suite("State Handling", () => {
         assert.strictEqual(watcher["state"], FilesystemWatcherState.running);
         assert.strictEqual(watcher.isRunning(), true);
 
-        await delay(20);
+        await delay(5);
         assert.strictEqual(watcher["state"], FilesystemWatcherState.running);
         assert.strictEqual(watcher.isRunning(), true);
 
@@ -35,7 +35,7 @@ suite("State Handling", () => {
         assert.strictEqual(watcher["state"], FilesystemWatcherState.stopping);
         assert.strictEqual(watcher.isRunning(), true);
 
-        await delay(20);
+        await delay(5);
         assert.strictEqual(watcher["state"], FilesystemWatcherState.stopped);
         assert.strictEqual(watcher.isRunning(), false);
     });
