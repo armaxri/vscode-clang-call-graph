@@ -51,32 +51,30 @@ export class ClangAstWalker implements AstWalker {
         this.baseAstElement = baseAstElement;
     }
 
-    async walkAst(): Promise<void> {
-        await this.analyzeAstElement(this.baseAstElement);
+    walkAst() {
+        this.analyzeAstElement(this.baseAstElement);
 
         this.currentlyAnalyzedFile?.justAnalyzed();
-        await this.database.writeDatabase();
+        this.database.writeDatabase();
     }
 
     getFileName(): string {
         return this.fileName;
     }
 
-    private async analyzeAstElement(
-        astElement: clangAst.AstElement
-    ): Promise<void> {
+    private analyzeAstElement(astElement: clangAst.AstElement) {
         // The file name and the source line are only mentioned in the first
         // seen element of the file.
         // Therefore we need to cache the value.
-        await this.handleLocAndRange(astElement);
+        this.handleLocAndRange(astElement);
 
         if (astElement.kind === "CXXRecordDecl") {
-            await this.handleClassDecl(astElement);
+            this.handleClassDecl(astElement);
         } else if (
             astElement.kind === "FunctionDecl" ||
             astElement.kind === "CXXMethodDecl"
         ) {
-            await this.handleFunctionDecl(astElement);
+            this.handleFunctionDecl(astElement);
         } else {
             if (
                 astElement.kind === "CallExpr" ||
@@ -92,24 +90,24 @@ export class ClangAstWalker implements AstWalker {
 
             if (astElement.inner) {
                 for (const newAstElement of astElement.inner) {
-                    await this.analyzeAstElement(newAstElement);
+                    this.analyzeAstElement(newAstElement);
                 }
             }
         }
     }
 
-    private async handleLocAndRange(
-        astElement: clangAst.AstElement
-    ): Promise<void> {
+    private handleLocAndRange(astElement: clangAst.AstElement) {
         if (astElement.loc && astElement.loc.file) {
             this.currentlyAnalyzedFile?.justAnalyzed();
 
             if (astElement.loc.file === this.fileName) {
-                this.currentlyAnalyzedFile =
-                    await this.database.getOrAddCppFile(this.fileName);
+                this.currentlyAnalyzedFile = this.database.getOrAddCppFile(
+                    this.fileName
+                );
             } else {
-                this.currentlyAnalyzedFile =
-                    await this.database.getOrAddHppFile(astElement.loc.file);
+                this.currentlyAnalyzedFile = this.database.getOrAddHppFile(
+                    astElement.loc.file
+                );
 
                 (
                     this.currentlyAnalyzedFile as db.HppFile
@@ -222,13 +220,11 @@ export class ClangAstWalker implements AstWalker {
         };
     }
 
-    private async handleClassDecl(
-        astElement: clangAst.AstElement
-    ): Promise<void> {
+    private handleClassDecl(astElement: clangAst.AstElement) {
         const newClass =
             this.activeClassStack.length === 0
-                ? await this.currentlyAnalyzedFile!.addClass(astElement.name!)
-                : await this.activeClassStack[
+                ? this.currentlyAnalyzedFile!.addClass(astElement.name!)
+                : this.activeClassStack[
                       this.activeClassStack.length - 1
                   ].addClass(astElement.name!);
 
@@ -256,7 +252,7 @@ export class ClangAstWalker implements AstWalker {
                         newAstElement.name === newClass.getName()
                     )
                 ) {
-                    await this.analyzeAstElement(newAstElement);
+                    this.analyzeAstElement(newAstElement);
                 }
             }
         }
@@ -264,23 +260,21 @@ export class ClangAstWalker implements AstWalker {
         this.activeClassStack.pop();
     }
 
-    private async handleFunctionDecl(
-        astElement: clangAst.AstElement
-    ): Promise<void> {
+    private handleFunctionDecl(astElement: clangAst.AstElement) {
         // Function declaration in function declaration is no C++ thing.
         // But still we do this since maybe we one day walk some nice
         // language like python or C++ gets extended.
         const currentCallingFuncName = this.callingFunc;
 
         if (isElementVirtualFuncDeclaration(astElement)) {
-            await this.handleVirtualFuncDecl(astElement);
+            this.handleVirtualFuncDecl(astElement);
         } else {
-            await this.handleFuncDecl(astElement);
+            this.handleFuncDecl(astElement);
         }
 
         if (astElement.inner) {
             for (const newAstElement of astElement.inner) {
-                await this.analyzeAstElement(newAstElement);
+                this.analyzeAstElement(newAstElement);
             }
         }
 
@@ -317,21 +311,19 @@ export class ClangAstWalker implements AstWalker {
         }
     }
 
-    private async handleVirtualFuncDecl(
-        astElement: clangAst.AstElement
-    ): Promise<void> {
+    private handleVirtualFuncDecl(astElement: clangAst.AstElement) {
         const currentClass =
             this.activeClassStack[this.activeClassStack.length - 1];
 
-        const creationArgs = await this.createVirtualFuncMentioningArgs(
+        const creationArgs = this.createVirtualFuncMentioningArgs(
             astElement,
             currentClass
         );
 
         const id = Number(astElement.id);
         const virtualFuncMentioning = hasCompoundStmtInInner(astElement)
-            ? await currentClass.addVirtualFuncImpl(creationArgs)
-            : await currentClass.addVirtualFuncDecl(creationArgs);
+            ? currentClass.addVirtualFuncImpl(creationArgs)
+            : currentClass.addVirtualFuncDecl(creationArgs);
 
         this.virtualFuncDeclarations.push({
             id,
@@ -344,9 +336,7 @@ export class ClangAstWalker implements AstWalker {
         }
     }
 
-    private async handleFuncDecl(
-        astElement: clangAst.AstElement
-    ): Promise<void> {
+    private handleFuncDecl(astElement: clangAst.AstElement): void {
         const creationArgs = this.createFuncMentioningArgs(astElement);
 
         const id = Number(astElement.id);
@@ -356,8 +346,8 @@ export class ClangAstWalker implements AstWalker {
                 : (this.currentlyAnalyzedFile as db.CppFile);
 
         const funcMentioning = hasCompoundStmtInInner(astElement)
-            ? await declLocation.addFuncImpl(creationArgs)
-            : await declLocation.addFuncDecl(creationArgs);
+            ? declLocation.addFuncImpl(creationArgs)
+            : declLocation.addFuncDecl(creationArgs);
         this.funcDeclarations.push({ id, mentioningData: funcMentioning });
 
         if (hasCompoundStmtInInner(astElement)) {
@@ -376,12 +366,12 @@ export class ClangAstWalker implements AstWalker {
         };
     }
 
-    private async createVirtualFuncMentioningArgs(
+    private createVirtualFuncMentioningArgs(
         astElement: clangAst.AstElement,
         currentClass: cpp.CppClass
-    ): Promise<cpp.VirtualFuncCreationArgs> {
+    ): cpp.VirtualFuncCreationArgs {
         const base = this.createFuncMentioningArgs(astElement);
-        const baseFuncAstName = await currentClass.findBaseFunction(
+        const baseFuncAstName = currentClass.findBaseFunction(
             base.funcName,
             base.qualType
         );

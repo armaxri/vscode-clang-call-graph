@@ -11,8 +11,8 @@ suite("Parent Cpp Class", () => {
     addSuitesInSubDirsSuites(__dirname);
 
     suite("Equality with simple parent class", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -35,8 +35,8 @@ suite("Parent Cpp Class", () => {
     });
 
     suite("Equality with multiple simple parent class", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -67,40 +67,38 @@ suite("Parent Cpp Class", () => {
     suite(
         "No equality with multiple simple parent class (missing parent)",
         () => {
-            [DatabaseType.lowdb, DatabaseType.sqlite].forEach(
-                async (testData) => {
-                    test(`${DatabaseType[testData]}`, async () => {
-                        const [database, referenceDatabase] =
-                            prepareDatabaseEqualityTests(
-                                __dirname,
-                                "multiple_simple_parent_cpp_class_expected_db.json",
-                                testData
-                            );
-                        const cppFile = database.getOrAddCppFile(
-                            "multiple_simple_parent_cpp_class.json"
+            [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+                test(`${DatabaseType[testData]}`, () => {
+                    const [database, referenceDatabase] =
+                        prepareDatabaseEqualityTests(
+                            __dirname,
+                            "multiple_simple_parent_cpp_class_expected_db.json",
+                            testData
                         );
-                        const parentClass1 = cppFile.addClass("ParentClass1");
-                        const parentClass2 = cppFile.addClass("ParentClass2");
-                        cppFile.addClass("ParentClass3");
-                        const parentClass4 = cppFile.addClass("ParentClass4");
-                        const childClass = cppFile.addClass("ChildClass");
+                    const cppFile = database.getOrAddCppFile(
+                        "multiple_simple_parent_cpp_class.json"
+                    );
+                    const parentClass1 = cppFile.addClass("ParentClass1");
+                    const parentClass2 = cppFile.addClass("ParentClass2");
+                    cppFile.addClass("ParentClass3");
+                    const parentClass4 = cppFile.addClass("ParentClass4");
+                    const childClass = cppFile.addClass("ChildClass");
 
-                        childClass.addParentClass(parentClass1);
-                        childClass.addParentClass(parentClass2);
-                        childClass.addParentClass(parentClass4);
+                    childClass.addParentClass(parentClass1);
+                    childClass.addParentClass(parentClass2);
+                    childClass.addParentClass(parentClass4);
 
-                        database.writeDatabase();
+                    database.writeDatabase();
 
-                        assert.ok(!database.equals(referenceDatabase));
-                    });
-                }
-            );
+                    assert.ok(!database.equals(referenceDatabase));
+                });
+            });
         }
     );
 
     suite("Equality with multiple chained parent class", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -126,37 +124,35 @@ suite("Parent Cpp Class", () => {
     suite(
         "No equality with multiple chained parent class (missing middle class)",
         () => {
-            [DatabaseType.lowdb, DatabaseType.sqlite].forEach(
-                async (testData) => {
-                    test(`${DatabaseType[testData]}`, async () => {
-                        const [database, referenceDatabase] =
-                            prepareDatabaseEqualityTests(
-                                __dirname,
-                                "parent_cpp_class_chain_expected_db.json",
-                                testData
-                            );
-                        const cppFile = database.getOrAddCppFile(
-                            "parent_cpp_class_chain.json"
+            [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+                test(`${DatabaseType[testData]}`, () => {
+                    const [database, referenceDatabase] =
+                        prepareDatabaseEqualityTests(
+                            __dirname,
+                            "parent_cpp_class_chain_expected_db.json",
+                            testData
                         );
-                        const grandParentClass =
-                            cppFile.addClass("GrandParentClass");
-                        const parentClass = cppFile.addClass("ParentClass");
-                        parentClass.addParentClass(grandParentClass);
-                        const childClass = cppFile.addClass("ChildClass");
-                        childClass.addParentClass(grandParentClass);
+                    const cppFile = database.getOrAddCppFile(
+                        "parent_cpp_class_chain.json"
+                    );
+                    const grandParentClass =
+                        cppFile.addClass("GrandParentClass");
+                    const parentClass = cppFile.addClass("ParentClass");
+                    parentClass.addParentClass(grandParentClass);
+                    const childClass = cppFile.addClass("ChildClass");
+                    childClass.addParentClass(grandParentClass);
 
-                        database.writeDatabase();
+                    database.writeDatabase();
 
-                        assert.ok(!database.equals(referenceDatabase));
-                    });
-                }
-            );
+                    assert.ok(!database.equals(referenceDatabase));
+                });
+            });
         }
     );
 
     suite("Get parent classes", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const database = prepareDatabaseEqualityTests(
                     __dirname,
                     "simple_parent_cpp_class_expected_db.json",
@@ -178,8 +174,8 @@ suite("Parent Cpp Class", () => {
     });
 
     suite("Reopen database before comparison", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -205,8 +201,8 @@ suite("Parent Cpp Class", () => {
     });
 
     suite("Equality with simple parent class in different files", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -230,8 +226,8 @@ suite("Parent Cpp Class", () => {
     /*
     TODO:
     suite("Removed all database content", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach( (testData) => {
+            test(`${DatabaseType[testData]}`,  () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,

@@ -8,8 +8,8 @@ suite("Base", () => {
     addSuitesInSubDirsSuites(__dirname);
 
     suite("Empty database", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -26,8 +26,8 @@ suite("Base", () => {
     });
 
     suite("Not equal empty vs filled database", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -43,8 +43,8 @@ suite("Base", () => {
     });
 
     suite("Wrong file name", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -72,7 +72,7 @@ suite("Base", () => {
     });
 
     suite("Just analyzed", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
