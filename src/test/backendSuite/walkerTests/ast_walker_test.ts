@@ -65,19 +65,21 @@ function loadExpectedLowdbDatabase(
 
 function createAndRunAstWalker(
     callingFileDirName: string,
-    filename: string,
+    filenames: string[],
     mockConfig: MockConfig
 ): Database {
     new PathUtils(mockConfig.getLowdbDatabasePath().pathString()).tryToRemove();
 
     var database = createDatabase(mockConfig);
-    const astWalker = new ClangAstWalker(
-        getCppNameFromJsonFile(callingFileDirName, filename),
-        database,
-        loadAst(adjustTsToJsPath(callingFileDirName), filename)
-    );
+    for (const filename of filenames) {
+        const astWalker = new ClangAstWalker(
+            getCppNameFromJsonFile(callingFileDirName, filename),
+            database,
+            loadAst(adjustTsToJsPath(callingFileDirName), filename)
+        );
 
-    astWalker.walkAst();
+        astWalker.walkAst();
+    }
 
     database.writeDatabase();
 
@@ -86,13 +88,13 @@ function createAndRunAstWalker(
 
 export function testAstWalkerResults(
     callingFileDirName: string,
-    filename: string,
+    filenames: string[],
     referenceFilename: string
 ) {
     const mockConfig = new MockConfig(callingFileDirName);
     const database = createAndRunAstWalker(
         callingFileDirName,
-        filename,
+        filenames,
         mockConfig
     ) as LowdbDatabase;
     const expectedDatabase = loadExpectedDatabase(
@@ -116,14 +118,14 @@ export function testAstWalkerResults(
 
 export function testAstWalkerAgainstSpecificDatabase(
     callingFileDirName: string,
-    filename: string,
+    filenames: string[],
     referenceFilename: string,
     databaseType: DatabaseType
 ) {
     const mockConfig = new MockConfig(callingFileDirName, databaseType);
     const database = createAndRunAstWalker(
         callingFileDirName,
-        filename,
+        filenames,
         mockConfig
     );
     const expectedDatabase = loadExpectedLowdbDatabase(

@@ -11,7 +11,7 @@ suite("simple method in struct", () => {
     test("full test", () => {
         testAstWalkerResults(
             __dirname,
-            "simple_struct_method.json",
+            ["simple_struct_method.json"],
             "simple_struct_method_expected_db.json"
         );
     });
@@ -19,7 +19,7 @@ suite("simple method in struct", () => {
     test("test against lowdb", () => {
         testAstWalkerAgainstSpecificDatabase(
             __dirname,
-            "simple_struct_method.json",
+            ["simple_struct_method.json"],
             "simple_struct_method_expected_db.json",
             DatabaseType.lowdb
         );

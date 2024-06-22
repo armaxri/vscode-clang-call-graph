@@ -11,7 +11,7 @@ suite("multiline function call in function call", () => {
     test("full test", () => {
         testAstWalkerResults(
             __dirname,
-            "multiline_func_call_in_func_call.json",
+            ["multiline_func_call_in_func_call.json"],
             "multiline_func_call_in_func_call_expected_db.json"
         );
     });
@@ -19,7 +19,7 @@ suite("multiline function call in function call", () => {
     test("test against lowdb", () => {
         testAstWalkerAgainstSpecificDatabase(
             __dirname,
-            "multiline_func_call_in_func_call.json",
+            ["multiline_func_call_in_func_call.json"],
             "multiline_func_call_in_func_call_expected_db.json",
             DatabaseType.lowdb
         );

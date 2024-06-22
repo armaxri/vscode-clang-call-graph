@@ -11,7 +11,7 @@ suite("simple class method", () => {
     test("full test", () => {
         testAstWalkerResults(
             __dirname,
-            "simple_method.json",
+            ["simple_method.json"],
             "simple_method_expected_db.json"
         );
     });
@@ -19,7 +19,7 @@ suite("simple class method", () => {
     test("test against lowdb", () => {
         testAstWalkerAgainstSpecificDatabase(
             __dirname,
-            "simple_method.json",
+            ["simple_method.json"],
             "simple_method_expected_db.json",
             DatabaseType.lowdb
         );

@@ -11,7 +11,7 @@ suite("simple virtual method", () => {
     test("full test", () => {
         testAstWalkerResults(
             __dirname,
-            "simple_virtual_method.json",
+            ["simple_virtual_method.json"],
             "simple_virtual_method_expected_db.json"
         );
     });
@@ -19,7 +19,7 @@ suite("simple virtual method", () => {
     test("test against lowdb", () => {
         testAstWalkerAgainstSpecificDatabase(
             __dirname,
-            "simple_virtual_method.json",
+            ["simple_virtual_method.json"],
             "simple_virtual_method_expected_db.json",
             DatabaseType.lowdb
         );

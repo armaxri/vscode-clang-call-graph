@@ -11,7 +11,7 @@ suite("simple C style functions with headers", () => {
     test("full test", () => {
         testAstWalkerResults(
             __dirname,
-            "simple_c_style_funcs_with_headers.json",
+            ["simple_c_style_funcs_with_headers.json"],
             "simple_c_style_funcs_with_headers_expected_db.json"
         );
     });
@@ -19,7 +19,7 @@ suite("simple C style functions with headers", () => {
     test("test against lowdb", () => {
         testAstWalkerAgainstSpecificDatabase(
             __dirname,
-            "simple_c_style_funcs_with_headers.json",
+            ["simple_c_style_funcs_with_headers.json"],
             "simple_c_style_funcs_with_headers_expected_db.json",
             DatabaseType.lowdb
         );
