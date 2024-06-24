@@ -2,6 +2,7 @@ import {
     Location,
     Range,
     VirtualFuncCall,
+    VirtualFuncCallCreationArgs,
     rangeIsEqual,
 } from "../cpp_structure";
 import { isLocationWithinRange } from "../helper/location_helper";
@@ -27,6 +28,23 @@ export abstract class AbstractVirtualFuncCall implements VirtualFuncCall {
             this.getQualType() === other.getQualType() &&
             rangeIsEqual(this.getRange(), other.getRange()) &&
             this.getBaseFuncAstName() === other.getBaseFuncAstName()
+        );
+    }
+
+    baseEquals(otherInput: any): boolean {
+        const other = otherInput as VirtualFuncCallCreationArgs;
+
+        // istanbul ignore next
+        if (!other) {
+            return false;
+        }
+
+        return (
+            this.getFuncName() === other.func.getFuncName() &&
+            this.getFuncAstName() === other.func.getFuncAstName() &&
+            this.getQualType() === other.func.getQualType() &&
+            rangeIsEqual(this.getRange(), other.range) &&
+            this.getBaseFuncAstName() === other.func.getBaseFuncAstName()
         );
     }
 

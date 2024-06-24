@@ -232,12 +232,13 @@ export class SqliteCppClass extends AbstractCppClass {
         return this.parentClasses.map((parentClass) => parentClass.getName());
     }
 
-    addParentClass(parentClass: CppClass): void {
+    addParentClass(parentClass: CppClass): CppClass {
         this.createParentChildClassLink(
             (parentClass as SqliteCppClass).id,
             this.id
         );
         this.parentClasses.push(parentClass);
+        return parentClass;
     }
 
     getClasses(): CppClass[] {

@@ -1,6 +1,7 @@
 import {
     Location,
     Range,
+    VirtualFuncCreationArgs,
     VirtualFuncDeclaration,
     rangeIsEqual,
 } from "../cpp_structure";
@@ -29,6 +30,23 @@ export abstract class AbstractVirtualFuncDeclaration
             this.getQualType() === other.getQualType() &&
             rangeIsEqual(this.getRange(), other.getRange()) &&
             this.getBaseFuncAstName() === other.getBaseFuncAstName()
+        );
+    }
+
+    baseEquals(otherInput: any): boolean {
+        const other = otherInput as VirtualFuncCreationArgs;
+
+        // istanbul ignore next
+        if (!other) {
+            return false;
+        }
+
+        return (
+            this.getFuncName() === other.funcName &&
+            this.getFuncAstName() === other.funcAstName &&
+            this.getQualType() === other.qualType &&
+            rangeIsEqual(this.getRange(), other.range) &&
+            this.getBaseFuncAstName() === other.baseFuncAstName
         );
     }
 

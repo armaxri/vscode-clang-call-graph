@@ -58,14 +58,23 @@ export interface FuncBasics extends Equal, LocationMatch, Ranged {
     getFuncName(): string;
     getFuncAstName(): string;
     getQualType(): string;
+
+    /// Used to compare creation arguments to the actual object.
+    /// Not a true and deep equals, only on the basics.
+    baseEquals(otherInput: any): boolean;
 }
 
 export interface FuncDeclaration extends FuncBasics {}
 export interface FuncImplementation extends FuncBasics, MatchingFuncs {
     getFuncCalls(): FuncCall[];
     addFuncCall(funcCall: FuncCallCreationArgs): FuncCall;
+    getOrAddFuncCall(funcCall: FuncCallCreationArgs): FuncCall;
+
     getVirtualFuncCalls(): VirtualFuncCall[];
     addVirtualFuncCall(
+        virtualFuncCall: VirtualFuncCallCreationArgs
+    ): VirtualFuncCall;
+    getOrAddVirtualFuncCall(
         virtualFuncCall: VirtualFuncCallCreationArgs
     ): VirtualFuncCall;
 }
@@ -86,27 +95,40 @@ export interface VirtualFuncCall extends FuncCall, VirtualFuncBasics {}
 export interface MainDeclLocation extends Equal, MatchingFuncs {
     getClasses(): CppClass[];
     addClass(className: string): CppClass;
+    getOrAddClass(className: string): CppClass;
 
     getFuncDecls(): FuncDeclaration[];
     addFuncDecl(args: FuncCreationArgs): FuncDeclaration;
+    getOrAddFuncDecl(args: FuncCreationArgs): FuncDeclaration;
+
     getFuncImpls(): FuncImplementation[];
     addFuncImpl(args: FuncCreationArgs): FuncImplementation;
+    getOrAddFuncImpl(args: FuncCreationArgs): FuncImplementation;
+
     getVirtualFuncImpls(): VirtualFuncImplementation[];
     addVirtualFuncImpl(
+        args: VirtualFuncCreationArgs
+    ): VirtualFuncImplementation;
+    getOrAddVirtualFuncImpl(
         args: VirtualFuncCreationArgs
     ): VirtualFuncImplementation;
 }
 
 export interface CppClass extends MainDeclLocation {
     getName(): string;
+
     getParentClasses(): CppClass[];
     getParentClassNames(): string[];
-    addParentClass(parentClass: CppClass): void;
+    addParentClass(parentClass: CppClass): CppClass;
+    getOrAddParentClass(parentClass: CppClass): CppClass;
 
     // Virtual functions can be implemented in a class or file but only declared
     // within a class body.
     getVirtualFuncDecls(): VirtualFuncDeclaration[];
     addVirtualFuncDecl(args: VirtualFuncCreationArgs): VirtualFuncDeclaration;
+    getOrAddVirtualFuncDecl(
+        args: VirtualFuncCreationArgs
+    ): VirtualFuncDeclaration;
 
     findBaseFunction(
         funcName: string,

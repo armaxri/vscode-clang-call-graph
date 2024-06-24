@@ -72,9 +72,10 @@ export class LowdbCppClass extends AbstractCppClass {
         return this.internal.parentClasses;
     }
 
-    addParentClass(parentClass: CppClass): void {
+    addParentClass(parentClass: CppClass): CppClass {
         this.internal.parentClasses.push(parentClass.getName());
         this.parentClasses.push(parentClass as LowdbCppClass);
+        return parentClass;
     }
 
     getClasses(): CppClass[] {

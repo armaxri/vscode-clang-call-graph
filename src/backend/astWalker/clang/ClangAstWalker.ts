@@ -223,10 +223,10 @@ export class ClangAstWalker implements AstWalker {
     private handleClassDecl(astElement: clangAst.AstElement) {
         const newClass =
             this.activeClassStack.length === 0
-                ? this.currentlyAnalyzedFile!.addClass(astElement.name!)
+                ? this.currentlyAnalyzedFile!.getOrAddClass(astElement.name!)
                 : this.activeClassStack[
                       this.activeClassStack.length - 1
-                  ].addClass(astElement.name!);
+                  ].getOrAddClass(astElement.name!);
 
         if (astElement.bases) {
             astElement.bases.forEach((base) => {
@@ -234,7 +234,7 @@ export class ClangAstWalker implements AstWalker {
                     (knownClass) => knownClass.getName() === base.type.qualType
                 );
                 if (foundClass) {
-                    newClass.addParentClass(foundClass);
+                    newClass.getOrAddParentClass(foundClass);
                 }
             });
         }
@@ -296,7 +296,7 @@ export class ClangAstWalker implements AstWalker {
             );
             if (referencedDecl) {
                 const funcCall = this.createFuncCallArgs(referencedDecl);
-                this.callingFunc?.addFuncCall(funcCall);
+                this.callingFunc?.getOrAddFuncCall(funcCall);
             } else {
                 const referencedVirtualDecl = this.virtualFuncDeclarations.find(
                     (funcDec) => funcDec.id === Number(calledFuncId)
@@ -305,7 +305,7 @@ export class ClangAstWalker implements AstWalker {
                     const funcCall = this.createVirtualFuncCallArgs(
                         referencedVirtualDecl
                     );
-                    this.callingFunc?.addVirtualFuncCall(funcCall);
+                    this.callingFunc?.getOrAddVirtualFuncCall(funcCall);
                 }
             }
         }
@@ -322,8 +322,8 @@ export class ClangAstWalker implements AstWalker {
 
         const id = Number(astElement.id);
         const virtualFuncMentioning = hasCompoundStmtInInner(astElement)
-            ? currentClass.addVirtualFuncImpl(creationArgs)
-            : currentClass.addVirtualFuncDecl(creationArgs);
+            ? currentClass.getOrAddVirtualFuncImpl(creationArgs)
+            : currentClass.getOrAddVirtualFuncDecl(creationArgs);
 
         this.virtualFuncDeclarations.push({
             id,
@@ -346,8 +346,8 @@ export class ClangAstWalker implements AstWalker {
                 : (this.currentlyAnalyzedFile as db.CppFile);
 
         const funcMentioning = hasCompoundStmtInInner(astElement)
-            ? declLocation.addFuncImpl(creationArgs)
-            : declLocation.addFuncDecl(creationArgs);
+            ? declLocation.getOrAddFuncImpl(creationArgs)
+            : declLocation.getOrAddFuncDecl(creationArgs);
         this.funcDeclarations.push({ id, mentioningData: funcMentioning });
 
         if (hasCompoundStmtInInner(astElement)) {
@@ -392,8 +392,20 @@ export class ClangAstWalker implements AstWalker {
         return {
             func: referencedDecl.mentioningData,
             range: {
-                start: this.lastCallExprBeginLocation,
-                end: this.lastCallExprEndLocation,
+                start: {
+                    line:
+                        this.lastCallExprBeginLocation.line !== -1
+                            ? this.lastCallExprBeginLocation.line
+                            : this.lastSeenLocLineNumber,
+                    column: this.lastCallExprBeginLocation.column,
+                },
+                end: {
+                    line:
+                        this.lastCallExprEndLocation.line !== -1
+                            ? this.lastCallExprEndLocation.line
+                            : this.lastSeenLocLineNumber,
+                    column: this.lastCallExprEndLocation.column,
+                },
             },
         };
     }
