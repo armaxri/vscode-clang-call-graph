@@ -16,19 +16,63 @@ import { getMatchingFuncs } from "../helper/location_helper";
 export abstract class AbstractHppFile implements HppFile {
     abstract getReferencedFromCppFiles(): string[];
     abstract addReferencedFromCppFile(fileName: string): void;
+
     abstract getName(): string;
+
     abstract getLastAnalyzed(): number;
     abstract justAnalyzed(): void;
+
     abstract getClasses(): CppClass[];
     abstract addClass(className: string): CppClass;
+    getOrAddClass(className: string): CppClass {
+        const foundClass = this.getClasses().find(
+            (classObj) => classObj.getName() === className
+        );
+        if (foundClass) {
+            return foundClass;
+        }
+        return this.addClass(className);
+    }
+
     abstract getFuncDecls(): FuncDeclaration[];
     abstract addFuncDecl(args: FuncCreationArgs): FuncDeclaration;
+    getOrAddFuncDecl(args: FuncCreationArgs): FuncDeclaration {
+        const foundFunc = this.getFuncDecls().find((func) =>
+            func.baseEquals(args)
+        );
+        if (foundFunc) {
+            return foundFunc;
+        }
+        return this.addFuncDecl(args);
+    }
+
     abstract getFuncImpls(): FuncImplementation[];
     abstract addFuncImpl(args: FuncCreationArgs): FuncImplementation;
+    getOrAddFuncImpl(args: FuncCreationArgs): FuncImplementation {
+        const foundFunc = this.getFuncImpls().find((func) =>
+            func.baseEquals(args)
+        );
+        if (foundFunc) {
+            return foundFunc;
+        }
+        return this.addFuncImpl(args);
+    }
+
     abstract getVirtualFuncImpls(): VirtualFuncImplementation[];
     abstract addVirtualFuncImpl(
         args: VirtualFuncCreationArgs
     ): VirtualFuncImplementation;
+    getOrAddVirtualFuncImpl(
+        args: VirtualFuncCreationArgs
+    ): VirtualFuncImplementation {
+        const foundFunc = this.getVirtualFuncImpls().find((func) =>
+            func.baseEquals(args)
+        );
+        if (foundFunc) {
+            return foundFunc;
+        }
+        return this.addVirtualFuncImpl(args);
+    }
 
     private referencedFromCppFilesEquals(otherList: string[]): boolean {
         const thisList = this.getReferencedFromCppFiles();

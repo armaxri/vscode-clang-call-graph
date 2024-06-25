@@ -10,8 +10,8 @@ suite("Cpp Class", () => {
     addSuitesInSubDirsSuites(__dirname);
 
     suite("Simple equality with one class", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -31,9 +31,32 @@ suite("Cpp Class", () => {
         });
     });
 
+    suite("Simple get or add with one class", () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
+                const [database, referenceDatabase] =
+                    prepareDatabaseEqualityTests(
+                        __dirname,
+                        "simple_cpp_class_expected_db.json",
+                        testData
+                    );
+                const cppFile = database.getOrAddCppFile(
+                    "simple_cpp_class.json"
+                );
+                const cppClass = cppFile.addClass("BarClass");
+                cppClass.getOrAddClass("FooClass");
+                cppClass.getOrAddClass("FooClass");
+
+                database.writeDatabase();
+
+                assert.ok(database.equals(referenceDatabase));
+            });
+        });
+    });
+
     suite("Equality with multiple classes", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -57,8 +80,8 @@ suite("Cpp Class", () => {
     });
 
     suite("No equality with multiple classes (missing class)", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -81,8 +104,8 @@ suite("Cpp Class", () => {
     });
 
     suite("No equality with multiple classes (wrong class name)", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -106,8 +129,8 @@ suite("Cpp Class", () => {
     });
 
     suite("No equality with wrong class name", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -128,8 +151,8 @@ suite("Cpp Class", () => {
     });
 
     suite("No equality with added to wrong cpp file instead", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -148,33 +171,31 @@ suite("Cpp Class", () => {
         });
 
         suite("Removed all database content", () => {
-            [DatabaseType.lowdb, DatabaseType.sqlite].forEach(
-                async (testData) => {
-                    test(`${DatabaseType[testData]}`, async () => {
-                        const [database, referenceDatabase] =
-                            prepareDatabaseEqualityTests(
-                                __dirname,
-                                "simple_cpp_class_expected_db.json",
-                                testData
-                            );
-                        const cppFile = database.getOrAddCppFile(
-                            "simple_cpp_class.json"
+            [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+                test(`${DatabaseType[testData]}`, () => {
+                    const [database, referenceDatabase] =
+                        prepareDatabaseEqualityTests(
+                            __dirname,
+                            "simple_cpp_class_expected_db.json",
+                            testData
                         );
-                        const cppClass = cppFile.addClass("BarClass");
-                        cppClass.addClass("FooClass");
+                    const cppFile = database.getOrAddCppFile(
+                        "simple_cpp_class.json"
+                    );
+                    const cppClass = cppFile.addClass("BarClass");
+                    cppClass.addClass("FooClass");
 
-                        database.writeDatabase();
+                    database.writeDatabase();
 
-                        assert.ok(database.equals(referenceDatabase));
+                    assert.ok(database.equals(referenceDatabase));
 
-                        database.removeCppFileAndDependingContent(
-                            cppFile.getName()
-                        );
-                        database.writeDatabase();
-                        assert.ok(database.equals(getEmptyReferenceDatabase()));
-                    });
-                }
-            );
+                    database.removeCppFileAndDependingContent(
+                        cppFile.getName()
+                    );
+                    database.writeDatabase();
+                    assert.ok(database.equals(getEmptyReferenceDatabase()));
+                });
+            });
         });
     });
 });

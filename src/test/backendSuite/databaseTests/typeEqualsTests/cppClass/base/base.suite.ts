@@ -7,8 +7,8 @@ suite("Base", () => {
     addSuitesInSubDirsSuites(__dirname);
 
     suite("No equality based on empty class", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -28,8 +28,8 @@ suite("Base", () => {
     });
 
     suite("Wrong class name", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,

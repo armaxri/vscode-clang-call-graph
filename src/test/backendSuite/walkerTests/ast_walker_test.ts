@@ -63,38 +63,40 @@ function loadExpectedLowdbDatabase(
     return database;
 }
 
-async function createAndRunAstWalker(
+function createAndRunAstWalker(
     callingFileDirName: string,
-    filename: string,
+    filenames: string[],
     mockConfig: MockConfig
-): Promise<Database> {
+): Database {
     new PathUtils(mockConfig.getLowdbDatabasePath().pathString()).tryToRemove();
 
     var database = createDatabase(mockConfig);
-    const astWalker = new ClangAstWalker(
-        getCppNameFromJsonFile(callingFileDirName, filename),
-        database,
-        loadAst(adjustTsToJsPath(callingFileDirName), filename)
-    );
+    for (const filename of filenames) {
+        const astWalker = new ClangAstWalker(
+            getCppNameFromJsonFile(callingFileDirName, filename),
+            database,
+            loadAst(adjustTsToJsPath(callingFileDirName), filename)
+        );
 
-    await astWalker.walkAst();
+        astWalker.walkAst();
+    }
 
     database.writeDatabase();
 
     return database;
 }
 
-export async function testAstWalkerResults(
+export function testAstWalkerResults(
     callingFileDirName: string,
-    filename: string,
+    filenames: string[],
     referenceFilename: string
-): Promise<void> {
+) {
     const mockConfig = new MockConfig(callingFileDirName);
-    const database = (await createAndRunAstWalker(
+    const database = createAndRunAstWalker(
         callingFileDirName,
-        filename,
+        filenames,
         mockConfig
-    )) as LowdbDatabase;
+    ) as LowdbDatabase;
     const expectedDatabase = loadExpectedDatabase(
         adjustTsToJsPath(callingFileDirName),
         referenceFilename
@@ -114,16 +116,16 @@ export async function testAstWalkerResults(
     );
 }
 
-export async function testAstWalkerAgainstSpecificDatabase(
+export function testAstWalkerAgainstSpecificDatabase(
     callingFileDirName: string,
-    filename: string,
+    filenames: string[],
     referenceFilename: string,
     databaseType: DatabaseType
-): Promise<void> {
+) {
     const mockConfig = new MockConfig(callingFileDirName, databaseType);
     const database = createAndRunAstWalker(
         callingFileDirName,
-        filename,
+        filenames,
         mockConfig
     );
     const expectedDatabase = loadExpectedLowdbDatabase(
@@ -132,7 +134,7 @@ export async function testAstWalkerAgainstSpecificDatabase(
     );
 
     // TODO: This is somehow not satisfying. Is there a real equal?
-    assert.ok((await database).equals(expectedDatabase));
+    assert.ok(database.equals(expectedDatabase));
 }
 
 function checkFileLists(

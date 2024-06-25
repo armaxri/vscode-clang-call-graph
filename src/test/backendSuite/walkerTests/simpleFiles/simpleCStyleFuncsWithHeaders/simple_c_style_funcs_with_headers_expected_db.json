@@ -1,0 +1,126 @@
+{
+  "databaseVersion": 1,
+  "cppFiles": [
+    {
+      "name": "/backendSuite/walkerTests/simpleFiles/simpleCStyleFuncsWithHeaders/simple_c_style_funcs_with_headers.cpp",
+      "lastAnalyzed": 1714318232922,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [
+        {
+          "funcName": "mult",
+          "funcAstName": "__Z4multii",
+          "qualType": "int (int, int)",
+          "range": {
+            "start": {
+              "line": 3,
+              "column": 5
+            },
+            "end": {
+              "line": 3,
+              "column": 9
+            }
+          },
+          "funcCalls": [
+            {
+              "funcName": "add",
+              "funcAstName": "__ZN3foo3addEii",
+              "qualType": "int (int, int)",
+              "range": {
+                "start": {
+                  "line": 8,
+                  "column": 18
+                },
+                "end": {
+                  "line": 8,
+                  "column": 40
+                }
+              }
+            }
+          ],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "add",
+          "funcAstName": "__ZN3foo3addEii",
+          "qualType": "int (int, int)",
+          "range": {
+            "start": {
+              "line": 16,
+              "column": 5
+            },
+            "end": {
+              "line": 16,
+              "column": 8
+            }
+          },
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        }
+      ],
+      "virtualFuncImpls": []
+    }
+  ],
+  "hppFiles": [
+    {
+      "name": "/backendSuite/walkerTests/simpleFiles/simpleCStyleFuncsWithHeaders/simple_c_style_funcs_with_headers.h",
+      "lastAnalyzed": 1714318232921,
+      "classes": [],
+      "funcDecls": [
+        {
+          "funcName": "mult",
+          "funcAstName": "__Z4multii",
+          "qualType": "int (int, int)",
+          "range": {
+            "start": {
+              "line": 3,
+              "column": 5
+            },
+            "end": {
+              "line": 3,
+              "column": 9
+            }
+          }
+        },
+        {
+          "funcName": "add",
+          "funcAstName": "__ZN3foo3addEii",
+          "qualType": "int (int, int)",
+          "range": {
+            "start": {
+              "line": 13,
+              "column": 5
+            },
+            "end": {
+              "line": 13,
+              "column": 8
+            }
+          }
+        }
+      ],
+      "funcImpls": [
+        {
+          "funcName": "divide",
+          "funcAstName": "__Z6divideii",
+          "qualType": "int (int, int)",
+          "range": {
+            "start": {
+              "line": 5,
+              "column": 5
+            },
+            "end": {
+              "line": 5,
+              "column": 11
+            }
+          },
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        }
+      ],
+      "virtualFuncImpls": [],
+      "referencedFromCppFiles": [
+        "/backendSuite/walkerTests/simpleFiles/simpleCStyleFuncsWithHeaders/simple_c_style_funcs_with_headers.cpp"
+      ]
+    }
+  ]
+}

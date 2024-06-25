@@ -7,8 +7,8 @@ suite("Referenced from Cpp Files", () => {
     addSuitesInSubDirsSuites(__dirname);
 
     suite("Equality with simple parent class", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -36,9 +36,42 @@ suite("Referenced from Cpp Files", () => {
         });
     });
 
+    /*
+    suite("Get or add with simple parent class", () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
+                const [database, referenceDatabase] =
+                    prepareDatabaseEqualityTests(
+                        __dirname,
+                        "simple_referenced_from_cpp_file_expected_db.json",
+                        testData
+                    );
+                const cppFile = database.getOrAddCppFile("base.cpp");
+                const hppFile = database.getOrAddHppFile("base.hpp");
+
+                hppFile.addReferencedFromCppFile(cppFile.getName());
+                hppFile.addReferencedFromCppFile(cppFile.getName());
+
+                database.writeDatabase();
+
+                assert.strictEqual(
+                    hppFile.getReferencedFromCppFiles().length,
+                    1
+                );
+                assert.strictEqual(
+                    hppFile.getReferencedFromCppFiles()[0],
+                    cppFile.getName()
+                );
+
+                assert.ok(database.equals(referenceDatabase));
+            });
+        });
+    });
+    */
+
     suite("No equality with simple parent class (missing connection)", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,

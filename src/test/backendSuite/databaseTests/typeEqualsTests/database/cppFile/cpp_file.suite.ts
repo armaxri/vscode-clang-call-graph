@@ -10,8 +10,8 @@ suite("Cpp File", () => {
     addSuitesInSubDirsSuites(__dirname);
 
     suite("Simple equality with one file", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -28,8 +28,8 @@ suite("Cpp File", () => {
     });
 
     suite("Simple equality with one double added file", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -48,8 +48,8 @@ suite("Cpp File", () => {
     });
 
     suite("Equality with multiple files", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -68,8 +68,8 @@ suite("Cpp File", () => {
     });
 
     suite("No equality with multiple files (missing file)", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -87,8 +87,8 @@ suite("Cpp File", () => {
     });
 
     suite("No equality one additional file", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -106,8 +106,8 @@ suite("Cpp File", () => {
     });
 
     suite("No equality with multiple files (wrong file name)", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -126,8 +126,8 @@ suite("Cpp File", () => {
     });
 
     suite("No equality with one file (wrong file name)", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -144,8 +144,8 @@ suite("Cpp File", () => {
     });
 
     suite("No equality added header instead", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -162,8 +162,8 @@ suite("Cpp File", () => {
     });
 
     suite("Check has cpp file after add", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -183,8 +183,8 @@ suite("Cpp File", () => {
     });
 
     suite("Add and remove second file", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,

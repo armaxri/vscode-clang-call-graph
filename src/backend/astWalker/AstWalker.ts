@@ -1,5 +1,5 @@
 export interface AstWalker {
-    walkAst(): Promise<void>;
+    walkAst(): void;
 
     getFileName(): string;
 }

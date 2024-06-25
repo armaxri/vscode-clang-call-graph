@@ -8,8 +8,8 @@ suite("Base", () => {
     addSuitesInSubDirsSuites(__dirname);
 
     suite("Empty database", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -26,8 +26,8 @@ suite("Base", () => {
     });
 
     suite("Wrong file name", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -55,7 +55,7 @@ suite("Base", () => {
     });
 
     suite("Just analyzed", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
             test(`${DatabaseType[testData]}`, async () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
@@ -65,24 +65,24 @@ suite("Base", () => {
                     );
 
                 const timestamp1 = Date.now();
-                await delay(1);
+                await delay(2);
 
                 const hppFile = database.getOrAddHppFile("empty.json");
-                await delay(1);
+                await delay(2);
                 const timestamp2 = Date.now();
-                await delay(1);
+                await delay(2);
 
                 assert.ok(hppFile.getLastAnalyzed() > timestamp1);
                 assert.ok(hppFile.getLastAnalyzed() < timestamp2);
 
-                await delay(1);
+                await delay(2);
                 hppFile.justAnalyzed();
 
                 database.writeDatabase();
 
-                await delay(1);
+                await delay(2);
                 const timestamp3 = Date.now();
-                await delay(1);
+                await delay(2);
 
                 assert.ok(database.equals(referenceDatabase));
 

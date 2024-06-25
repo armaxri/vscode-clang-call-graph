@@ -10,8 +10,8 @@ suite("Virtual Func Decl", () => {
     addSuitesInSubDirsSuites(__dirname);
 
     suite("Simple equality with one function", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -40,9 +40,50 @@ suite("Virtual Func Decl", () => {
         });
     });
 
+    suite("Simple get or add with one function", () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
+                const [database, referenceDatabase] =
+                    prepareDatabaseEqualityTests(
+                        __dirname,
+                        "simple_virtual_func_decl_expected_db.json",
+                        testData
+                    );
+                const cppFile = database.getOrAddCppFile(
+                    "simple_virtual_func_decl.json"
+                );
+                const cppClass = cppFile.addClass("FooClass");
+                cppClass.getOrAddVirtualFuncDecl({
+                    baseFuncAstName: "__ZN3foo3addEii",
+                    funcName: "add",
+                    funcAstName: "__ZN3foo3addEii",
+                    qualType: "int (int, int)",
+                    range: {
+                        start: { line: 11, column: 5 },
+                        end: { line: 11, column: 8 },
+                    },
+                });
+                cppClass.getOrAddVirtualFuncDecl({
+                    baseFuncAstName: "__ZN3foo3addEii",
+                    funcName: "add",
+                    funcAstName: "__ZN3foo3addEii",
+                    qualType: "int (int, int)",
+                    range: {
+                        start: { line: 11, column: 5 },
+                        end: { line: 11, column: 8 },
+                    },
+                });
+
+                database.writeDatabase();
+
+                assert.ok(database.equals(referenceDatabase));
+            });
+        });
+    });
+
     suite("Equality with multiple functions", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -102,8 +143,8 @@ suite("Virtual Func Decl", () => {
     });
 
     suite("No equality with multiple functions (missing declaration)", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -153,8 +194,8 @@ suite("Virtual Func Decl", () => {
     });
 
     suite("Wrong function name", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -184,8 +225,8 @@ suite("Virtual Func Decl", () => {
     });
 
     suite("Wrong function location", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -215,8 +256,8 @@ suite("Virtual Func Decl", () => {
     });
 
     suite("Removed all database content", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,

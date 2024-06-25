@@ -7,8 +7,8 @@ suite("Find Base function", () => {
     addSuitesInSubDirsSuites(__dirname);
 
     suite("Find parent class func declaration", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const database = openNewDatabase(__dirname, testData);
 
                 const cppFile = database.getOrAddCppFile(
@@ -39,8 +39,8 @@ suite("Find Base function", () => {
     });
 
     suite("Find parent class func implementation", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach(async (testData) => {
-            test(`${DatabaseType[testData]}`, async () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const database = openNewDatabase(__dirname, testData);
 
                 const cppFile = database.getOrAddCppFile(

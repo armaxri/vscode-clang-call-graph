@@ -1,4 +1,5 @@
 import {
+    FuncCreationArgs,
     FuncDeclaration,
     Location,
     Range,
@@ -25,6 +26,22 @@ export abstract class AbstractFuncDeclaration implements FuncDeclaration {
             this.getFuncAstName() === other.getFuncAstName() &&
             this.getQualType() === other.getQualType() &&
             rangeIsEqual(this.getRange(), other.getRange())
+        );
+    }
+
+    baseEquals(otherInput: any): boolean {
+        const other = otherInput as FuncCreationArgs;
+
+        // istanbul ignore next
+        if (!other) {
+            return false;
+        }
+
+        return (
+            this.getFuncName() === other.funcName &&
+            this.getFuncAstName() === other.funcAstName &&
+            this.getQualType() === other.qualType &&
+            rangeIsEqual(this.getRange(), other.range)
         );
     }
 
