@@ -52,10 +52,26 @@ export class ClangAstWalker implements AstWalker {
     }
 
     walkAst() {
-        this.analyzeAstElement(this.baseAstElement);
+        try {
+            if (this.baseAstElement.kind !== "TranslationUnitDecl") {
+                console.error(
+                    `Expected TranslationUnitDecl, got "${
+                        this.baseAstElement.kind
+                    }" as first element in file "${this.getFileName()}".`
+                );
+                // TODO: Report to user an internal error.
+                return;
+            }
+            this.analyzeAstElement(this.baseAstElement);
 
-        this.currentlyAnalyzedFile?.justAnalyzed();
-        this.database.writeDatabase();
+            this.currentlyAnalyzedFile?.justAnalyzed();
+            this.database.writeDatabase();
+        } catch (error) {
+            console.error(
+                `Internal error during analysis of file "${this.getFileName()}": ${error}`
+            );
+            // TODO: Report to user an internal error.
+        }
     }
 
     getFileName(): string {
