@@ -30,6 +30,28 @@ suite("Cpp Class", () => {
         });
     });
 
+    suite("Simple get or add with one class", () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
+                const [database, referenceDatabase] =
+                    prepareDatabaseEqualityTests(
+                        __dirname,
+                        "simple_cpp_class_expected_db.json",
+                        testData
+                    );
+                const cppFile = database.getOrAddCppFile(
+                    "simple_cpp_class.json"
+                );
+                cppFile.getOrAddClass("FooClass");
+                cppFile.getOrAddClass("FooClass");
+
+                database.writeDatabase();
+
+                assert.ok(database.equals(referenceDatabase));
+            });
+        });
+    });
+
     suite("Equality with multiple classes", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
             test(`${DatabaseType[testData]}`, () => {

@@ -39,6 +39,46 @@ suite("Virtual Func Impl", () => {
         });
     });
 
+    suite("Simple get or add with one function", () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
+                const [database, referenceDatabase] =
+                    prepareDatabaseEqualityTests(
+                        __dirname,
+                        "simple_virtual_func_impl_expected_db.json",
+                        testData
+                    );
+                const cppFile = database.getOrAddCppFile(
+                    "simple_virtual_func_impl.json"
+                );
+                cppFile.getOrAddVirtualFuncImpl({
+                    funcName: "add",
+                    funcAstName: "__ZN3foo3addEii",
+                    qualType: "int (int, int)",
+                    range: {
+                        start: { line: 11, column: 5 },
+                        end: { line: 11, column: 8 },
+                    },
+                    baseFuncAstName: "__ZN3foo3addEii",
+                });
+                cppFile.getOrAddVirtualFuncImpl({
+                    funcName: "add",
+                    funcAstName: "__ZN3foo3addEii",
+                    qualType: "int (int, int)",
+                    range: {
+                        start: { line: 11, column: 5 },
+                        end: { line: 11, column: 8 },
+                    },
+                    baseFuncAstName: "__ZN3foo3addEii",
+                });
+
+                database.writeDatabase();
+
+                assert.ok(database.equals(referenceDatabase));
+            });
+        });
+    });
+
     suite("Equality with multiple functions", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
             test(`${DatabaseType[testData]}`, () => {
