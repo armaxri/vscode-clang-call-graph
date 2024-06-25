@@ -18,12 +18,12 @@ export class SqliteDatabase extends AbstractDatabase {
         return SqliteCppFile.getCppFiles(this.internal);
     }
 
-    hasCppFile(name: string): boolean {
-        return SqliteCppFile.getCppFile(this.internal, name) !== null;
+    getCppFile(name: string): CppFile | null {
+        return SqliteCppFile.getCppFile(this.internal, name);
     }
 
     getOrAddCppFile(name: string): CppFile {
-        const cppFile = SqliteCppFile.getCppFile(this.internal, name);
+        const cppFile = this.getCppFile(name);
 
         if (cppFile) {
             return cppFile;
@@ -44,12 +44,12 @@ export class SqliteDatabase extends AbstractDatabase {
         return SqliteHppFile.getHppFiles(this.internal);
     }
 
-    hasHppFile(name: string): boolean {
-        return SqliteHppFile.getHppFile(this.internal, name) !== null;
+    getHppFile(name: string): HppFile | null {
+        return SqliteHppFile.getHppFile(this.internal, name);
     }
 
     getOrAddHppFile(name: string): HppFile {
-        const hppFile = SqliteHppFile.getHppFile(this.internal, name);
+        const hppFile = this.getHppFile(name);
 
         if (hppFile) {
             return hppFile;

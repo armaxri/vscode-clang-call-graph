@@ -26,12 +26,16 @@ export class LowdbDatabase extends AbstractDatabase {
         });
     }
 
-    hasCppFile(name: string): boolean {
-        return (
-            this.database.data.cppFiles.find(
-                (cppFile) => cppFile.name === name
-            ) !== undefined
+    getCppFile(name: string): db.CppFile | null {
+        var file = this.database.data.cppFiles.find(
+            (cppFile) => cppFile.name === name
         );
+
+        if (!file) {
+            return null;
+        }
+
+        return new LowdbCppFile(this.database, file);
     }
 
     getOrAddCppFile(name: string): db.CppFile {
@@ -66,12 +70,16 @@ export class LowdbDatabase extends AbstractDatabase {
         });
     }
 
-    hasHppFile(name: string): boolean {
-        return (
-            this.database.data.hppFiles.find(
-                (hppFile) => hppFile.name === name
-            ) !== undefined
+    getHppFile(name: string): db.HppFile | null {
+        var file = this.database.data.hppFiles.find(
+            (hppFile) => hppFile.name === name
         );
+
+        if (!file) {
+            return null;
+        }
+
+        return new LowdbHppFile(this.database, file);
     }
 
     getOrAddHppFile(name: string): db.HppFile {

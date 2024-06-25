@@ -10,12 +10,18 @@ export abstract class AbstractDatabase implements Database {
     }
 
     abstract getCppFiles(): CppFile[];
-    abstract hasCppFile(name: string): boolean;
+    hasCppFile(name: string): boolean {
+        return this.getCppFile(name) !== null;
+    }
+    abstract getCppFile(name: string): CppFile | null;
     abstract getOrAddCppFile(name: string): CppFile;
     abstract removeCppFileAndDependingContent(name: string): void;
 
     abstract getHppFiles(): HppFile[];
-    abstract hasHppFile(name: string): boolean;
+    hasHppFile(name: string): boolean {
+        return this.getHppFile(name) !== null;
+    }
+    abstract getHppFile(name: string): HppFile | null;
     abstract getOrAddHppFile(name: string): HppFile;
     abstract removeHppFileAndDependingContent(name: string): void;
 
