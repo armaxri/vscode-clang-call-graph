@@ -6,7 +6,6 @@ import {
     FuncImplementation,
     HppFile,
     Location,
-    Ranged,
     VirtualFuncCreationArgs,
     VirtualFuncImplementation,
 } from "../cpp_structure";
@@ -123,7 +122,7 @@ export abstract class AbstractHppFile implements HppFile {
         );
     }
 
-    getMatchingFuncs(location: Location): Ranged[] {
+    getMatchingFuncs(location: Location): FuncBasics[] {
         return getMatchingFuncs(location, this);
     }
 }

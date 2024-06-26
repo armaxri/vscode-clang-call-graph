@@ -1,9 +1,9 @@
 import {
+    FuncBasics,
     FuncCall,
     FuncCallCreationArgs,
     Location,
     Range,
-    Ranged,
     VirtualFuncCall,
     VirtualFuncCallCreationArgs,
     VirtualFuncCreationArgs,
@@ -103,7 +103,7 @@ export abstract class AbstractVirtualFuncImplementation
         return isLocationWithinRange(location, this.getRange());
     }
 
-    getMatchingFuncs(location: Location): Ranged[] {
+    getMatchingFuncs(location: Location): FuncBasics[] {
         return getMatchingFuncsInImpls(location, this);
     }
 }

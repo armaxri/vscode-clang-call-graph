@@ -42,30 +42,23 @@ export interface Equal {
     equals(other: any): boolean;
 }
 
-export interface Ranged extends Equal {
-    getRange(): Range;
-}
-
-export interface LocationMatch {
-    matchesLocation(location: Location): boolean;
-}
-
 export interface MatchingFuncs {
-    getMatchingFuncs(location: Location): Ranged[];
+    getMatchingFuncs(location: Location): FuncBasics[];
 }
 
-export interface FuncBasics extends Equal, LocationMatch, Ranged {
+export interface FuncBasics extends Equal {
     getFuncName(): string;
     getFuncAstName(): string;
     getQualType(): string;
+    getRange(): Range;
 
+    matchesLocation(location: Location): boolean;
     /// Used to compare creation arguments to the actual object.
     /// Not a true and deep equals, only on the basics.
     baseEquals(otherInput: any): boolean;
 }
 
-export interface FuncDeclaration extends FuncBasics {}
-export interface FuncImplementation extends FuncBasics, MatchingFuncs {
+export interface FuncImplBasics extends FuncBasics, MatchingFuncs {
     getFuncCalls(): FuncCall[];
     addFuncCall(funcCall: FuncCallCreationArgs): FuncCall;
     getOrAddFuncCall(funcCall: FuncCallCreationArgs): FuncCall;
@@ -78,6 +71,9 @@ export interface FuncImplementation extends FuncBasics, MatchingFuncs {
         virtualFuncCall: VirtualFuncCallCreationArgs
     ): VirtualFuncCall;
 }
+
+export interface FuncDeclaration extends FuncBasics {}
+export interface FuncImplementation extends FuncImplBasics {}
 export interface FuncCall extends FuncBasics {}
 
 export interface VirtualFuncBasics {
@@ -136,14 +132,16 @@ export interface CppClass extends MainDeclLocation {
     ): VirtualFuncDeclaration | undefined;
 }
 
-export interface CppFile extends MainDeclLocation {
+export interface File extends MainDeclLocation {
     getName(): string;
 
     getLastAnalyzed(): number;
     justAnalyzed(): void;
 }
 
-export interface HppFile extends CppFile {
+export interface CppFile extends File {}
+
+export interface HppFile extends File {
     getReferencedFromCppFiles(): string[];
     addReferencedFromCppFile(fileName: string): void;
 }

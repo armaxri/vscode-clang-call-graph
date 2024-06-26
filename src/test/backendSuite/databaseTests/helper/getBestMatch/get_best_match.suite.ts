@@ -1,20 +1,41 @@
 import * as assert from "assert";
 import { getBestMatch } from "../../../../../backend/database/helper/location_helper";
 import {
+    FuncBasics,
+    Location,
     Range,
-    Ranged,
     rangeIsEqual,
 } from "../../../../../backend/database/cpp_structure";
 
-class MockLocation implements Ranged {
+class MockLocation implements FuncBasics {
     private range: Range;
 
     constructor(range: Range) {
         this.range = range;
     }
 
+    getFuncName(): string {
+        return "";
+    }
+
+    getFuncAstName(): string {
+        return "";
+    }
+
+    getQualType(): string {
+        return "";
+    }
+
     getRange(): Range {
         return this.range;
+    }
+
+    matchesLocation(location: Location): boolean {
+        throw new Error("Method not implemented.");
+    }
+
+    baseEquals(otherInput: any): boolean {
+        throw new Error("Method not implemented.");
     }
 
     equals(otherInput: any): boolean {
