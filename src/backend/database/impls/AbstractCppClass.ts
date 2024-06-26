@@ -5,7 +5,6 @@ import {
     FuncDeclaration,
     FuncImplementation,
     Location,
-    Ranged,
     VirtualFuncCreationArgs,
     VirtualFuncDeclaration,
     VirtualFuncImplementation,
@@ -169,7 +168,7 @@ export abstract class AbstractCppClass implements CppClass {
         );
     }
 
-    getMatchingFuncs(location: Location): Ranged[] {
+    getMatchingFuncs(location: Location): FuncBasics[] {
         const matchingFunc = getMatchingFuncs(location, this);
 
         for (const virtualFuncDecl of this.getVirtualFuncDecls()) {
