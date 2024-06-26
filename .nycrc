@@ -12,8 +12,7 @@
         "coverage/**",
         "node_modules/**",
         "**/*.d.ts",
-        "**/*.test.ts",
-        "**/*.suite.ts",
+        "src/test/**",
         "src/extension/**"
     ],
     "sourceMap": true,
