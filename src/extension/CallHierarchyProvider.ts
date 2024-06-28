@@ -1,6 +1,15 @@
 import * as vscode from "vscode";
+import { BaseRequestHandler } from "../backend/functionSearch/BaseRequestHandler";
+import { CallHierarchyItem } from "./CallHierarchyItem";
+import { VscodeCancellationToken } from "./VscodeCancellationToken";
 
 export class CallHierarchyProvider implements vscode.CallHierarchyProvider {
+    private requestHandler: BaseRequestHandler;
+
+    constructor(requestHandler: BaseRequestHandler) {
+        this.requestHandler = requestHandler;
+    }
+
     prepareCallHierarchy(
         document: vscode.TextDocument,
         position: vscode.Position,
@@ -8,7 +17,22 @@ export class CallHierarchyProvider implements vscode.CallHierarchyProvider {
     ): vscode.ProviderResult<
         vscode.CallHierarchyItem | vscode.CallHierarchyItem[]
     > {
-        throw new Error("Method not implemented.");
+        const callHierarchyItems: CallHierarchyItem[] = [];
+
+        const treeItem = this.requestHandler.getTreeItem(
+            document.fileName,
+            {
+                line: position.line,
+                column: position.character,
+            },
+            new VscodeCancellationToken(token)
+        );
+
+        if (treeItem) {
+            callHierarchyItems.push(new CallHierarchyItem(treeItem));
+        }
+
+        return callHierarchyItems;
     }
 
     provideCallHierarchyIncomingCalls(
