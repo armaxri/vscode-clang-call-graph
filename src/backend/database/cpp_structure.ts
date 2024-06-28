@@ -46,6 +46,12 @@ export interface MatchingFuncs {
     getMatchingFuncs(location: Location): FuncBasics[];
 }
 
+export enum FuncType {
+    declaration = "declaration",
+    implementation = "implementation",
+    call = "call",
+}
+
 export interface FuncBasics extends Equal {
     getFuncName(): string;
     getFuncAstName(): string;
@@ -56,6 +62,15 @@ export interface FuncBasics extends Equal {
     /// Used to compare creation arguments to the actual object.
     /// Not a true and deep equals, only on the basics.
     baseEquals(otherInput: any): boolean;
+
+    // These are very sad workarounds since TypeScript doesn't
+    // support interfaces during runtime. So a comparison like
+    // instance of is not working and we need another workaround
+    // to get the actual type information.
+    // TODO: Evaluate if the databases itself can be refactored
+    // using these flags with simplification.
+    getFuncType(): FuncType;
+    isVirtual(): boolean;
 }
 
 export interface FuncImplBasics extends FuncBasics, MatchingFuncs {

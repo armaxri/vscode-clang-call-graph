@@ -1,4 +1,5 @@
 import {
+    FuncType,
     Location,
     Range,
     VirtualFuncCreationArgs,
@@ -52,5 +53,13 @@ export abstract class AbstractVirtualFuncDeclaration
 
     matchesLocation(location: Location): boolean {
         return isLocationWithinRange(location, this.getRange());
+    }
+
+    getFuncType(): FuncType {
+        return FuncType.declaration;
+    }
+
+    isVirtual(): boolean {
+        return true;
     }
 }

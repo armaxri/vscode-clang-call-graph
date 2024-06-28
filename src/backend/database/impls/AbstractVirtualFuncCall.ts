@@ -1,4 +1,5 @@
 import {
+    FuncType,
     Location,
     Range,
     VirtualFuncCall,
@@ -50,5 +51,13 @@ export abstract class AbstractVirtualFuncCall implements VirtualFuncCall {
 
     matchesLocation(location: Location): boolean {
         return isLocationWithinRange(location, this.getRange());
+    }
+
+    getFuncType(): FuncType {
+        return FuncType.call;
+    }
+
+    isVirtual(): boolean {
+        return true;
     }
 }
