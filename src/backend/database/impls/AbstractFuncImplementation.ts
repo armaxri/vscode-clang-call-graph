@@ -4,6 +4,7 @@ import {
     FuncCallCreationArgs,
     FuncCreationArgs,
     FuncImplementation,
+    FuncType,
     Location,
     Range,
     VirtualFuncCall,
@@ -100,5 +101,13 @@ export abstract class AbstractFuncImplementation implements FuncImplementation {
 
     getMatchingFuncs(location: Location): FuncBasics[] {
         return getMatchingFuncsInImpls(location, this);
+    }
+
+    getFuncType(): FuncType {
+        return FuncType.implementation;
+    }
+
+    isVirtual(): boolean {
+        return false;
     }
 }

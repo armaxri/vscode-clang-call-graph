@@ -1,6 +1,7 @@
 import {
     FuncCall,
     FuncCallCreationArgs,
+    FuncType,
     Location,
     Range,
     rangeIsEqual,
@@ -47,5 +48,13 @@ export abstract class AbstractFuncCall implements FuncCall {
 
     matchesLocation(location: Location): boolean {
         return isLocationWithinRange(location, this.getRange());
+    }
+
+    getFuncType(): FuncType {
+        return FuncType.call;
+    }
+
+    isVirtual(): boolean {
+        return false;
     }
 }

@@ -2,6 +2,7 @@ import * as assert from "assert";
 import { getBestMatch } from "../../../../../backend/database/helper/location_helper";
 import {
     FuncBasics,
+    FuncType,
     Location,
     Range,
     rangeIsEqual,
@@ -47,6 +48,14 @@ class MockLocation implements FuncBasics {
         }
 
         return rangeIsEqual(this.getRange(), other.getRange());
+    }
+
+    getFuncType(): FuncType {
+        return FuncType.declaration;
+    }
+
+    isVirtual(): boolean {
+        return false;
     }
 }
 
