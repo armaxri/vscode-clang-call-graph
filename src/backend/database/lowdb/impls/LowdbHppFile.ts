@@ -44,9 +44,11 @@ export class LowdbHppFile extends AbstractHppFile {
     }
 
     getClasses(): CppClass[] {
-        return this.internal.classes.map(
-            (internalClass) => new LowdbCppClass(this.database, internalClass)
-        );
+        return this.internal.classes.map((internalClass) => {
+            const newClass = new LowdbCppClass(this.database, internalClass);
+            newClass.setFile(this);
+            return newClass;
+        });
     }
 
     addClass(className: string): CppClass {
@@ -61,13 +63,17 @@ export class LowdbHppFile extends AbstractHppFile {
         };
         this.internal.classes.push(cppClass);
 
-        return new LowdbCppClass(this.database, cppClass);
+        const newClass = new LowdbCppClass(this.database, cppClass);
+        newClass.setFile(this);
+        return newClass;
     }
 
     getFuncDecls(): FuncDeclaration[] {
-        return this.internal.funcDecls.map(
-            (internalFuncDecl) => new LowdbFuncDeclaration(internalFuncDecl)
-        );
+        return this.internal.funcDecls.map((internalFuncDecl) => {
+            const newDecl = new LowdbFuncDeclaration(internalFuncDecl);
+            newDecl.setFile(this);
+            return newDecl;
+        });
     }
 
     addFuncDecl(args: FuncCreationArgs): FuncDeclaration {
@@ -79,13 +85,17 @@ export class LowdbHppFile extends AbstractHppFile {
         };
         this.internal.funcDecls.push(internalFuncDecl);
 
-        return new LowdbFuncDeclaration(internalFuncDecl);
+        const newDecl = new LowdbFuncDeclaration(internalFuncDecl);
+        newDecl.setFile(this);
+        return newDecl;
     }
 
     getFuncImpls(): FuncImplementation[] {
-        return this.internal.funcImpls.map(
-            (internalFuncImpl) => new LowdbFuncImplementation(internalFuncImpl)
-        );
+        return this.internal.funcImpls.map((internalFuncImpl) => {
+            const newImpl = new LowdbFuncImplementation(internalFuncImpl);
+            newImpl.setFile(this);
+            return newImpl;
+        });
     }
 
     addFuncImpl(args: FuncCreationArgs): FuncImplementation {
@@ -99,14 +109,19 @@ export class LowdbHppFile extends AbstractHppFile {
         };
         this.internal.funcImpls.push(internalFuncImpl);
 
-        return new LowdbFuncImplementation(internalFuncImpl);
+        const newImpl = new LowdbFuncImplementation(internalFuncImpl);
+        newImpl.setFile(this);
+        return newImpl;
     }
 
     getVirtualFuncImpls(): VirtualFuncImplementation[] {
-        return this.internal.virtualFuncImpls.map(
-            (internalVirtualFuncImpl) =>
-                new LowdbVirtualFuncImplementation(internalVirtualFuncImpl)
-        );
+        return this.internal.virtualFuncImpls.map((internalVirtualFuncImpl) => {
+            const newFuncImpl = new LowdbVirtualFuncImplementation(
+                internalVirtualFuncImpl
+            );
+            newFuncImpl.setFile(this);
+            return newFuncImpl;
+        });
     }
 
     addVirtualFuncImpl(
@@ -123,7 +138,11 @@ export class LowdbHppFile extends AbstractHppFile {
         };
         this.internal.virtualFuncImpls.push(internalVirtualFuncImpl);
 
-        return new LowdbVirtualFuncImplementation(internalVirtualFuncImpl);
+        const newFuncImpl = new LowdbVirtualFuncImplementation(
+            internalVirtualFuncImpl
+        );
+        newFuncImpl.setFile(this);
+        return newFuncImpl;
     }
 
     getReferencedFromCppFiles(): string[] {

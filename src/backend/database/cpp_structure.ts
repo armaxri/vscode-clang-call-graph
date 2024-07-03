@@ -42,6 +42,12 @@ export interface Equal {
     equals(other: any): boolean;
 }
 
+export interface InFile {
+    // Helper that is used during later analysis of the database content.
+    // The optional null is required for the object creation.
+    getFile(): File | null;
+}
+
 export interface MatchingFuncs {
     getMatchingFuncs(location: Location): FuncBasics[];
 }
@@ -52,7 +58,7 @@ export enum FuncType {
     call = "call",
 }
 
-export interface FuncBasics extends Equal {
+export interface FuncBasics extends Equal, InFile {
     getFuncName(): string;
     getFuncAstName(): string;
     getQualType(): string;
@@ -125,7 +131,7 @@ export interface MainDeclLocation extends Equal, MatchingFuncs {
     ): VirtualFuncImplementation;
 }
 
-export interface CppClass extends MainDeclLocation {
+export interface CppClass extends MainDeclLocation, InFile {
     getName(): string;
 
     getParentClasses(): CppClass[];

@@ -1,4 +1,5 @@
 import {
+    File,
     FuncBasics,
     FuncCall,
     FuncCallCreationArgs,
@@ -22,6 +23,8 @@ export abstract class AbstractFuncImplementation implements FuncImplementation {
     abstract getFuncAstName(): string;
     abstract getQualType(): string;
     abstract getRange(): Range;
+
+    abstract getFile(): File | null;
 
     abstract getFuncCalls(): FuncCall[];
     abstract addFuncCall(funcCall: FuncCallCreationArgs): FuncCall;

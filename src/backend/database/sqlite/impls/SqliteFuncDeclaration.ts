@@ -1,6 +1,9 @@
-import { FuncCreationArgs, Range } from "../../cpp_structure";
+import { File, FuncCreationArgs, Range } from "../../cpp_structure";
 import { AbstractFuncDeclaration } from "../../impls/AbstractFuncDeclaration";
 import { InternalSqliteDatabase } from "../InternalSqliteDatabase";
+import { SqliteCppClass } from "./SqliteCppClass";
+import { SqliteCppFile } from "./SqliteCppFile";
+import { SqliteHppFile } from "./SqliteHppFile";
 
 export class SqliteFuncDeclaration extends AbstractFuncDeclaration {
     private internal: InternalSqliteDatabase;
@@ -120,6 +123,51 @@ export class SqliteFuncDeclaration extends AbstractFuncDeclaration {
             });
 
         return funcDecls;
+    }
+
+    private getCppHppFileAndCppClassIds(): [
+        number | null,
+        number | null,
+        number | null
+    ] {
+        const row = this.internal.db
+            .prepare(
+                "SELECT cpp_file_id, hpp_file_id, cpp_class_id FROM func_declarations WHERE id=(?)"
+            )
+            .get(this.id);
+
+        return [
+            (row as any).cpp_file_id,
+            (row as any).hpp_file_id,
+            (row as any).cpp_class_id,
+        ];
+    }
+
+    getFile(): File | null {
+        const [cppFileId, hppFileId, cppClassId] =
+            this.getCppHppFileAndCppClassIds();
+
+        if (cppFileId !== null) {
+            return SqliteCppFile.getCppFileById(this.internal, cppFileId);
+        }
+
+        if (hppFileId !== null) {
+            return SqliteHppFile.getHppFileById(this.internal, hppFileId);
+        }
+
+        if (cppClassId !== null) {
+            const cppClass = SqliteCppClass.getCppClassById(
+                this.internal,
+                cppClassId
+            );
+
+            if (cppClass !== null) {
+                return cppClass.getFile();
+            }
+        }
+
+        // istanbul ignore next
+        return null;
     }
 
     removeAndChildren(): void {

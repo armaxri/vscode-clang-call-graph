@@ -1,4 +1,5 @@
 import {
+    File,
     FuncCall,
     FuncCallCreationArgs,
     FuncType,
@@ -13,6 +14,8 @@ export abstract class AbstractFuncCall implements FuncCall {
     abstract getFuncAstName(): string;
     abstract getQualType(): string;
     abstract getRange(): Range;
+
+    abstract getFile(): File | null;
 
     equals(otherInput: any): boolean {
         const other = otherInput as FuncCall;

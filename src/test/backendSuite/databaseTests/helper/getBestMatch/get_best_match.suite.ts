@@ -1,6 +1,7 @@
 import * as assert from "assert";
 import { getBestMatch } from "../../../../../backend/database/helper/location_helper";
 import {
+    File,
     FuncBasics,
     FuncType,
     Location,
@@ -13,6 +14,10 @@ class MockLocation implements FuncBasics {
 
     constructor(range: Range) {
         this.range = range;
+    }
+
+    getFile(): File | null {
+        throw new Error("Method not implemented.");
     }
 
     getFuncName(): string {

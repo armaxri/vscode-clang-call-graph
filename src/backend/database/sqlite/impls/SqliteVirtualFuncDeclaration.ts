@@ -1,6 +1,7 @@
 import { AbstractVirtualFuncDeclaration } from "../../impls/AbstractVirtualFuncDeclaration";
 import { InternalSqliteDatabase } from "../InternalSqliteDatabase";
-import { Range, VirtualFuncCreationArgs } from "../../cpp_structure";
+import { File, Range, VirtualFuncCreationArgs } from "../../cpp_structure";
+import { SqliteCppClass } from "./SqliteCppClass";
 
 export class SqliteVirtualFuncDeclaration extends AbstractVirtualFuncDeclaration {
     private internal: InternalSqliteDatabase;
@@ -116,6 +117,32 @@ export class SqliteVirtualFuncDeclaration extends AbstractVirtualFuncDeclaration
             });
 
         return virtualFuncDecls;
+    }
+
+    private getCppClassId(): number {
+        const row = this.internal.db
+            .prepare(
+                "SELECT cpp_class_id FROM virtual_func_declarations WHERE id=(?)"
+            )
+            .get(this.id);
+
+        return (row as any).cpp_class_id;
+    }
+
+    getFile(): File | null {
+        const cppClassId = this.getCppClassId();
+
+        const cppClass = SqliteCppClass.getCppClassById(
+            this.internal,
+            cppClassId
+        );
+
+        if (cppClass !== null) {
+            return cppClass.getFile();
+        }
+
+        // istanbul ignore next
+        return null;
     }
 
     removeAndChildren(): void {
