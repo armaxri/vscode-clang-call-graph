@@ -97,17 +97,15 @@ export interface FuncDeclaration extends FuncBasics {}
 export interface FuncImplementation extends FuncImplBasics {}
 export interface FuncCall extends FuncBasics {}
 
-export interface VirtualFuncBasics {
+export interface VirtualFuncBasics extends FuncBasics {
     getBaseFuncAstName(): string;
 }
 
-export interface VirtualFuncDeclaration
-    extends FuncDeclaration,
-        VirtualFuncBasics {}
+export interface VirtualFuncDeclaration extends VirtualFuncBasics {}
 export interface VirtualFuncImplementation
-    extends FuncImplementation,
+    extends FuncImplBasics,
         VirtualFuncBasics {}
-export interface VirtualFuncCall extends FuncCall, VirtualFuncBasics {}
+export interface VirtualFuncCall extends VirtualFuncBasics {}
 
 export interface MainDeclLocation extends Equal, MatchingFuncs {
     getClasses(): CppClass[];
