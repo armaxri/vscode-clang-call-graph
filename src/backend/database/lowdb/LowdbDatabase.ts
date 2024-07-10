@@ -9,6 +9,7 @@ import {
 import { LowdbCppFile } from "./impls/LowdbCppFile";
 import { LowdbHppFile } from "./impls/LowdbHppFile";
 import { AbstractDatabase } from "../impls/AbstractDatabase";
+import { FuncBasics } from "../cpp_structure";
 
 export class LowdbDatabase extends AbstractDatabase {
     private adapter!: JSONFileSync<LowdbInternalDatabase>;
@@ -107,6 +108,24 @@ export class LowdbDatabase extends AbstractDatabase {
         this.database.data.hppFiles = this.database.data.hppFiles.filter(
             (hppFile) => hppFile.name !== name
         );
+    }
+
+    getMatchingFuncImpls(func: FuncBasics): FuncBasics[] {
+        const matchingFuncs: FuncBasics[] = [];
+
+        this.getCppFiles().forEach((cppFile) => {
+            matchingFuncs.push(
+                ...(cppFile as LowdbCppFile).getMatchingFuncImpls(func)
+            );
+        });
+
+        this.getHppFiles().forEach((hppFile) => {
+            matchingFuncs.push(
+                ...(hppFile as LowdbHppFile).getMatchingFuncImpls(func)
+            );
+        });
+
+        return matchingFuncs;
     }
 
     writeDatabase(): void {

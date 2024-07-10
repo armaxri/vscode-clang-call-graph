@@ -1,5 +1,6 @@
 import {
     File,
+    FuncBasics,
     FuncCall,
     FuncCallCreationArgs,
     FuncCreationArgs,
@@ -181,6 +182,44 @@ export class SqliteFuncImplementation extends AbstractFuncImplementation {
                 );
 
                 // TODO: Add function calls to implementation.
+
+                funcImpls.push(funcImpl);
+            });
+
+        return funcImpls;
+    }
+
+    static getMatchingFuncImpls(
+        internalDb: InternalSqliteDatabase,
+        func: FuncBasics
+    ): SqliteFuncImplementation[] {
+        const funcImpls: SqliteFuncImplementation[] = [];
+
+        internalDb.db
+            .prepare(
+                "SELECT * FROM func_implementations WHERE func_name=(?) AND func_ast_name=(?) AND qual_type=(?)"
+            )
+            .all(func.getFuncName(), func.getFuncAstName(), func.getQualType())
+            .forEach((row) => {
+                const funcImpl = new SqliteFuncImplementation(
+                    internalDb,
+                    (row as any).id,
+                    {
+                        funcName: (row as any).func_name,
+                        funcAstName: (row as any).func_ast_name,
+                        qualType: (row as any).qual_type,
+                        range: {
+                            start: {
+                                line: (row as any).range_start_line,
+                                column: (row as any).range_start_column,
+                            },
+                            end: {
+                                line: (row as any).range_end_line,
+                                column: (row as any).range_end_column,
+                            },
+                        },
+                    }
+                );
 
                 funcImpls.push(funcImpl);
             });

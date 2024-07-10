@@ -1,6 +1,7 @@
 import {
     CppClass,
     File,
+    FuncBasics,
     FuncCreationArgs,
     FuncDeclaration,
     FuncImplementation,
@@ -231,5 +232,25 @@ export class LowdbCppClass extends AbstractCppClass {
             newFuncImpl.setFile(this.file);
         }
         return newFuncImpl;
+    }
+
+    getMatchingFuncImpls(func: FuncBasics): FuncBasics[] {
+        const matchingFuncs: FuncBasics[] = [];
+
+        this.internal.funcImpls.forEach((internalFuncImpl) => {
+            if (
+                internalFuncImpl.funcName === func.getFuncName() &&
+                internalFuncImpl.funcAstName === func.getFuncAstName() &&
+                internalFuncImpl.qualType === func.getQualType()
+            ) {
+                const newImpl = new LowdbFuncImplementation(internalFuncImpl);
+                if (this.file) {
+                    newImpl.setFile(this.file);
+                }
+                matchingFuncs.push(newImpl);
+            }
+        });
+
+        return matchingFuncs;
     }
 }

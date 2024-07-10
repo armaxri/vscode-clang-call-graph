@@ -1,5 +1,6 @@
 import { Config } from "../../Config";
 import { CppFile, Database, HppFile } from "../Database";
+import { FuncBasics } from "../cpp_structure";
 import { elementEquals } from "../helper/equality_helper";
 
 export abstract class AbstractDatabase implements Database {
@@ -24,6 +25,8 @@ export abstract class AbstractDatabase implements Database {
     abstract getHppFile(name: string): HppFile | null;
     abstract getOrAddHppFile(name: string): HppFile;
     abstract removeHppFileAndDependingContent(name: string): void;
+
+    abstract getMatchingFuncImpls(func: FuncBasics): FuncBasics[];
 
     abstract writeDatabase(): void;
     abstract resetDatabase(): void;
