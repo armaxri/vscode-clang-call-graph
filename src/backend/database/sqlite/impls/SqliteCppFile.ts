@@ -80,6 +80,29 @@ export class SqliteCppFile extends AbstractCppFile {
         return new SqliteCppFile(internalDb, fileId, fileName, creationTime);
     }
 
+    static getCppFileById(
+        internalDb: InternalSqliteDatabase,
+        id: number
+    ): SqliteCppFile | null {
+        const row = internalDb.db
+            .prepare(
+                "SELECT file_name, last_analyzed FROM cpp_files WHERE id=(?)"
+            )
+            .get(id);
+
+        if (row !== undefined) {
+            return new SqliteCppFile(
+                internalDb,
+                id,
+                (row as any).file_name,
+                (row as any).last_analyzed
+            );
+        }
+
+        // istanbul ignore next
+        return null;
+    }
+
     static getCppFile(
         internalDb: InternalSqliteDatabase,
         fileName: string

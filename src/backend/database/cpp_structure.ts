@@ -42,30 +42,44 @@ export interface Equal {
     equals(other: any): boolean;
 }
 
-export interface Ranged extends Equal {
-    getRange(): Range;
-}
-
-export interface LocationMatch {
-    matchesLocation(location: Location): boolean;
+export interface InFile {
+    // Helper that is used during later analysis of the database content.
+    // The optional null is required for the object creation.
+    getFile(): File | null;
 }
 
 export interface MatchingFuncs {
-    getMatchingFuncs(location: Location): Ranged[];
+    getMatchingFuncs(location: Location): FuncBasics[];
 }
 
-export interface FuncBasics extends Equal, LocationMatch, Ranged {
+export enum FuncType {
+    declaration = "declaration",
+    implementation = "implementation",
+    call = "call",
+}
+
+export interface FuncBasics extends Equal, InFile {
     getFuncName(): string;
     getFuncAstName(): string;
     getQualType(): string;
+    getRange(): Range;
 
+    matchesLocation(location: Location): boolean;
     /// Used to compare creation arguments to the actual object.
     /// Not a true and deep equals, only on the basics.
     baseEquals(otherInput: any): boolean;
+
+    // These are very sad workarounds since TypeScript doesn't
+    // support interfaces during runtime. So a comparison like
+    // instance of is not working and we need another workaround
+    // to get the actual type information.
+    // TODO: Evaluate if the databases itself can be refactored
+    // using these flags with simplification.
+    getFuncType(): FuncType;
+    isVirtual(): boolean;
 }
 
-export interface FuncDeclaration extends FuncBasics {}
-export interface FuncImplementation extends FuncBasics, MatchingFuncs {
+export interface FuncImplBasics extends FuncBasics, MatchingFuncs {
     getFuncCalls(): FuncCall[];
     addFuncCall(funcCall: FuncCallCreationArgs): FuncCall;
     getOrAddFuncCall(funcCall: FuncCallCreationArgs): FuncCall;
@@ -78,19 +92,20 @@ export interface FuncImplementation extends FuncBasics, MatchingFuncs {
         virtualFuncCall: VirtualFuncCallCreationArgs
     ): VirtualFuncCall;
 }
+
+export interface FuncDeclaration extends FuncBasics {}
+export interface FuncImplementation extends FuncImplBasics {}
 export interface FuncCall extends FuncBasics {}
 
-export interface VirtualFuncBasics {
+export interface VirtualFuncBasics extends FuncBasics {
     getBaseFuncAstName(): string;
 }
 
-export interface VirtualFuncDeclaration
-    extends FuncDeclaration,
-        VirtualFuncBasics {}
+export interface VirtualFuncDeclaration extends VirtualFuncBasics {}
 export interface VirtualFuncImplementation
-    extends FuncImplementation,
+    extends FuncImplBasics,
         VirtualFuncBasics {}
-export interface VirtualFuncCall extends FuncCall, VirtualFuncBasics {}
+export interface VirtualFuncCall extends VirtualFuncBasics {}
 
 export interface MainDeclLocation extends Equal, MatchingFuncs {
     getClasses(): CppClass[];
@@ -114,7 +129,7 @@ export interface MainDeclLocation extends Equal, MatchingFuncs {
     ): VirtualFuncImplementation;
 }
 
-export interface CppClass extends MainDeclLocation {
+export interface CppClass extends MainDeclLocation, InFile {
     getName(): string;
 
     getParentClasses(): CppClass[];
@@ -136,14 +151,16 @@ export interface CppClass extends MainDeclLocation {
     ): VirtualFuncDeclaration | undefined;
 }
 
-export interface CppFile extends MainDeclLocation {
+export interface File extends MainDeclLocation {
     getName(): string;
 
     getLastAnalyzed(): number;
     justAnalyzed(): void;
 }
 
-export interface HppFile extends CppFile {
+export interface CppFile extends File {}
+
+export interface HppFile extends File {
     getReferencedFromCppFiles(): string[];
     addReferencedFromCppFile(fileName: string): void;
 }

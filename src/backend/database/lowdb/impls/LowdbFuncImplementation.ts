@@ -1,4 +1,5 @@
 import {
+    File,
     FuncCall,
     FuncCallCreationArgs,
     Range,
@@ -16,6 +17,7 @@ import { AbstractFuncImplementation } from "../../impls/AbstractFuncImplementati
 
 export class LowdbFuncImplementation extends AbstractFuncImplementation {
     internal: LowdbInternalFuncImplementation;
+    private file: File | null = null;
 
     constructor(internal: LowdbInternalFuncImplementation) {
         super();
@@ -23,10 +25,22 @@ export class LowdbFuncImplementation extends AbstractFuncImplementation {
         this.internal = internal;
     }
 
+    setFile(file: File): void {
+        this.file = file;
+    }
+
+    getFile(): File | null {
+        return this.file;
+    }
+
     getFuncCalls(): FuncCall[] {
-        return this.internal.funcCalls.map(
-            (internalFuncCall) => new LowdbFuncCall(internalFuncCall)
-        );
+        return this.internal.funcCalls.map((internalFuncCall) => {
+            const newCall = new LowdbFuncCall(internalFuncCall);
+            if (this.file) {
+                newCall.setFile(this.file as File);
+            }
+            return newCall;
+        });
     }
 
     addFuncCall(funcCall: FuncCallCreationArgs): FuncCall {
@@ -37,14 +51,21 @@ export class LowdbFuncImplementation extends AbstractFuncImplementation {
             range: funcCall.range,
         };
         this.internal.funcCalls.push(newCall);
-        return new LowdbFuncCall(newCall);
+        const newReturn = new LowdbFuncCall(newCall);
+        if (this.file) {
+            newReturn.setFile(this.file as File);
+        }
+        return newReturn;
     }
 
     getVirtualFuncCalls(): VirtualFuncCall[] {
-        return this.internal.virtualFuncCalls.map(
-            (internalVirtualFuncCall) =>
-                new LowdbVirtualFuncCall(internalVirtualFuncCall)
-        );
+        return this.internal.virtualFuncCalls.map((internalVirtualFuncCall) => {
+            const newCall = new LowdbVirtualFuncCall(internalVirtualFuncCall);
+            if (this.file) {
+                newCall.setFile(this.file as File);
+            }
+            return newCall;
+        });
     }
 
     addVirtualFuncCall(
@@ -58,7 +79,11 @@ export class LowdbFuncImplementation extends AbstractFuncImplementation {
             range: virtualFuncCall.range,
         };
         this.internal.virtualFuncCalls.push(newCall);
-        return new LowdbVirtualFuncCall(newCall);
+        const newReturn = new LowdbVirtualFuncCall(newCall);
+        if (this.file) {
+            newReturn.setFile(this.file as File);
+        }
+        return newReturn;
     }
 
     getFuncName(): string {

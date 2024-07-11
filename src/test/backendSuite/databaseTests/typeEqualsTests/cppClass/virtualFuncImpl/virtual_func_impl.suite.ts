@@ -5,6 +5,7 @@ import {
     getEmptyReferenceDatabase,
     prepareDatabaseEqualityTests,
 } from "../../database_equality_tests";
+import { FuncType } from "../../../../../../backend/database/cpp_structure";
 
 suite("Virtual Func Impl", () => {
     addSuitesInSubDirsSuites(__dirname);
@@ -22,7 +23,7 @@ suite("Virtual Func Impl", () => {
                     "simple_virtual_func_impl.json"
                 );
                 const cppClass = cppFile.addClass("FooClass");
-                cppClass.addVirtualFuncImpl({
+                const funcImpl = cppClass.addVirtualFuncImpl({
                     funcName: "add",
                     funcAstName: "__ZN3foo3addEii",
                     qualType: "int (int, int)",
@@ -36,6 +37,9 @@ suite("Virtual Func Impl", () => {
                 database.writeDatabase();
 
                 assert.ok(database.equals(referenceDatabase));
+
+                assert.ok(funcImpl.isVirtual());
+                assert.equal(funcImpl.getFuncType(), FuncType.implementation);
             });
         });
     });

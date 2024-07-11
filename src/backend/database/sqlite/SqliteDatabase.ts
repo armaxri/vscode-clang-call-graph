@@ -1,9 +1,16 @@
 import { Config } from "../../Config";
-import { CppFile, HppFile } from "../cpp_structure";
+import {
+    CppFile,
+    FuncBasics,
+    HppFile,
+    VirtualFuncBasics,
+} from "../cpp_structure";
 import { AbstractDatabase } from "../impls/AbstractDatabase";
 import { InternalSqliteDatabase } from "./InternalSqliteDatabase";
 import { SqliteCppFile } from "./impls/SqliteCppFile";
+import { SqliteFuncImplementation } from "./impls/SqliteFuncImplementation";
 import { SqliteHppFile } from "./impls/SqliteHppFile";
+import { SqliteVirtualFuncImplementation } from "./impls/SqliteVirtualFuncImplementation";
 
 export class SqliteDatabase extends AbstractDatabase {
     private internal: InternalSqliteDatabase;
@@ -18,12 +25,12 @@ export class SqliteDatabase extends AbstractDatabase {
         return SqliteCppFile.getCppFiles(this.internal);
     }
 
-    hasCppFile(name: string): boolean {
-        return SqliteCppFile.getCppFile(this.internal, name) !== null;
+    getCppFile(name: string): CppFile | null {
+        return SqliteCppFile.getCppFile(this.internal, name);
     }
 
     getOrAddCppFile(name: string): CppFile {
-        const cppFile = SqliteCppFile.getCppFile(this.internal, name);
+        const cppFile = this.getCppFile(name);
 
         if (cppFile) {
             return cppFile;
@@ -44,12 +51,12 @@ export class SqliteDatabase extends AbstractDatabase {
         return SqliteHppFile.getHppFiles(this.internal);
     }
 
-    hasHppFile(name: string): boolean {
-        return SqliteHppFile.getHppFile(this.internal, name) !== null;
+    getHppFile(name: string): HppFile | null {
+        return SqliteHppFile.getHppFile(this.internal, name);
     }
 
     getOrAddHppFile(name: string): HppFile {
-        const hppFile = SqliteHppFile.getHppFile(this.internal, name);
+        const hppFile = this.getHppFile(name);
 
         if (hppFile) {
             return hppFile;
@@ -64,6 +71,20 @@ export class SqliteDatabase extends AbstractDatabase {
         if (hppFile) {
             hppFile.removeAndChildren();
         }
+    }
+
+    getMatchingFuncImpls(func: FuncBasics): FuncBasics[] {
+        return SqliteFuncImplementation.getMatchingFuncImpls(
+            this.internal,
+            func
+        );
+    }
+
+    getMatchingVirtualFuncImpls(func: VirtualFuncBasics): VirtualFuncBasics[] {
+        return SqliteVirtualFuncImplementation.getMatchingVirtualFuncImpls(
+            this.internal,
+            func
+        );
     }
 
     writeDatabase(): void {

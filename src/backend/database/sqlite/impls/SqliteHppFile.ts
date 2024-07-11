@@ -93,6 +93,29 @@ export class SqliteHppFile extends AbstractHppFile {
         return new SqliteHppFile(internalDb, fileId, fileName, creationTime);
     }
 
+    static getHppFileById(
+        internalDb: InternalSqliteDatabase,
+        id: number
+    ): SqliteHppFile | null {
+        const row = internalDb.db
+            .prepare(
+                "SELECT file_name, last_analyzed FROM hpp_files WHERE id=(?)"
+            )
+            .get(id);
+
+        if (row !== undefined) {
+            return new SqliteHppFile(
+                internalDb,
+                id,
+                (row as any).file_name,
+                (row as any).last_analyzed
+            );
+        }
+
+        // istanbul ignore next
+        return null;
+    }
+
     static getHppFile(
         internalDb: InternalSqliteDatabase,
         fileName: string

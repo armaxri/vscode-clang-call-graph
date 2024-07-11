@@ -1,11 +1,11 @@
 import {
     CppClass,
+    File,
     FuncBasics,
     FuncCreationArgs,
     FuncDeclaration,
     FuncImplementation,
     Location,
-    Ranged,
     VirtualFuncCreationArgs,
     VirtualFuncDeclaration,
     VirtualFuncImplementation,
@@ -15,6 +15,8 @@ import { getMatchingFuncs } from "../helper/location_helper";
 
 export abstract class AbstractCppClass implements CppClass {
     abstract getName(): string;
+
+    abstract getFile(): File | null;
 
     abstract getParentClasses(): CppClass[];
     abstract getParentClassNames(): string[];
@@ -169,7 +171,7 @@ export abstract class AbstractCppClass implements CppClass {
         );
     }
 
-    getMatchingFuncs(location: Location): Ranged[] {
+    getMatchingFuncs(location: Location): FuncBasics[] {
         const matchingFunc = getMatchingFuncs(location, this);
 
         for (const virtualFuncDecl of this.getVirtualFuncDecls()) {

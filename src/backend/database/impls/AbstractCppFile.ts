@@ -6,7 +6,6 @@ import {
     FuncDeclaration,
     FuncImplementation,
     Location,
-    Ranged,
     VirtualFuncCreationArgs,
     VirtualFuncImplementation,
 } from "../cpp_structure";
@@ -99,7 +98,7 @@ export abstract class AbstractCppFile implements CppFile {
         );
     }
 
-    getMatchingFuncs(location: Location): Ranged[] {
+    getMatchingFuncs(location: Location): FuncBasics[] {
         return getMatchingFuncs(location, this);
     }
 }

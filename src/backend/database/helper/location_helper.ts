@@ -4,7 +4,6 @@ import {
     Location,
     MainDeclLocation,
     Range,
-    Ranged,
 } from "../cpp_structure";
 
 export function isLocationSameOrAfter(
@@ -30,8 +29,8 @@ export function isLocationWithinRange(
 export function getMatchingFuncs(
     location: Location,
     main: MainDeclLocation
-): Ranged[] {
-    const matchingFuncs: Ranged[] = [];
+): FuncBasics[] {
+    const matchingFuncs: FuncBasics[] = [];
     for (const cppClass of main.getClasses()) {
         matchingFuncs.push(...cppClass.getMatchingFuncs(location));
     }
@@ -52,8 +51,8 @@ export function getMatchingFuncs(
 export function getMatchingFuncsInImpls(
     location: Location,
     impl: FuncImplementation
-): Ranged[] {
-    const matchingFuncs: Ranged[] = [];
+): FuncBasics[] {
+    const matchingFuncs: FuncBasics[] = [];
     if (impl.matchesLocation(location)) {
         matchingFuncs.push(impl);
     }
@@ -80,8 +79,8 @@ export function isRangeInsideRange(
     );
 }
 
-export function getBestMatch(funcs: Ranged[]): Ranged {
-    let bestMatch: Ranged | undefined;
+export function getBestMatch(funcs: FuncBasics[]): FuncBasics {
+    let bestMatch: FuncBasics | undefined;
     for (const func of funcs) {
         if (
             !bestMatch ||
