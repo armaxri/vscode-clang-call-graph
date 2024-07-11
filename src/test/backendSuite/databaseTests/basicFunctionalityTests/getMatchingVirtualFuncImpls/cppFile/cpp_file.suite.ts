@@ -5,10 +5,10 @@ import { openNewDatabase } from "../../../typeEqualsTests/database_equality_test
 import { AbstractDatabase } from "../../../../../../backend/database/impls/AbstractDatabase";
 import { FuncSearchObject } from "../../../../../../backend/database/FuncSearchObject";
 
-suite("Hpp File", () => {
+suite("Cpp File", () => {
     addSuitesInSubDirsSuites(__dirname);
 
-    suite("Simple with one hpp file", () => {
+    suite("Simple with one cpp file", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
             test(`${DatabaseType[testData]}`, () => {
                 const database = openNewDatabase(
@@ -16,28 +16,29 @@ suite("Hpp File", () => {
                     testData
                 ) as AbstractDatabase;
 
-                const file = database.getOrAddHppFile("file.h");
+                const file = database.getOrAddCppFile("file.cpp");
 
-                const func = file.addFuncImpl({
+                const func = file.addVirtualFuncImpl({
                     funcName: "func",
-                    funcAstName: "func",
+                    funcAstName: "funcBase",
                     qualType: "int",
                     range: {
                         start: { line: 2, column: 2 },
                         end: { line: 2, column: 10 },
                     },
+                    baseFuncAstName: "funcBase",
                 });
 
                 database.writeDatabase();
 
                 const funcSearchObject = new FuncSearchObject({
                     funcName: "func",
-                    funcAstName: "func",
+                    baseFuncAstName: "funcBase",
                     qualType: "int",
                 });
 
                 const foundMatches =
-                    database.getMatchingFuncImpls(funcSearchObject);
+                    database.getMatchingVirtualFuncImpls(funcSearchObject);
 
                 assert.equal(foundMatches.length, 1);
                 assert.ok(foundMatches[0].equals(func));
@@ -45,7 +46,7 @@ suite("Hpp File", () => {
         });
     });
 
-    suite("Simple with one hpp file and one class", () => {
+    suite("Simple with one cpp file and one class", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
             test(`${DatabaseType[testData]}`, () => {
                 const database = openNewDatabase(
@@ -53,29 +54,30 @@ suite("Hpp File", () => {
                     testData
                 ) as AbstractDatabase;
 
-                const file = database.getOrAddHppFile("file.h");
+                const file = database.getOrAddCppFile("file.cpp");
                 const classInst = file.addClass("class");
 
-                const func = classInst.addFuncImpl({
+                const func = classInst.addVirtualFuncImpl({
                     funcName: "func",
-                    funcAstName: "func",
+                    funcAstName: "funcBase",
                     qualType: "int",
                     range: {
                         start: { line: 2, column: 2 },
                         end: { line: 2, column: 10 },
                     },
+                    baseFuncAstName: "funcBase",
                 });
 
                 database.writeDatabase();
 
                 const funcSearchObject = new FuncSearchObject({
                     funcName: "func",
-                    funcAstName: "func",
+                    baseFuncAstName: "funcBase",
                     qualType: "int",
                 });
 
                 const foundMatches =
-                    database.getMatchingFuncImpls(funcSearchObject);
+                    database.getMatchingVirtualFuncImpls(funcSearchObject);
 
                 assert.equal(foundMatches.length, 1);
                 assert.ok(foundMatches[0].equals(func));
@@ -83,7 +85,7 @@ suite("Hpp File", () => {
         });
     });
 
-    suite("Simple with one hpp file with one class within one class", () => {
+    suite("Simple with one cpp file and with class inside a class", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
             test(`${DatabaseType[testData]}`, () => {
                 const database = openNewDatabase(
@@ -91,30 +93,31 @@ suite("Hpp File", () => {
                     testData
                 ) as AbstractDatabase;
 
-                const file = database.getOrAddHppFile("file.h");
+                const file = database.getOrAddCppFile("file.cpp");
                 const parentClassInst = file.addClass("parentClass");
                 const classInst = parentClassInst.addClass("class");
 
-                const func = classInst.addFuncImpl({
+                const func = classInst.addVirtualFuncImpl({
                     funcName: "func",
-                    funcAstName: "func",
+                    funcAstName: "funcBase",
                     qualType: "int",
                     range: {
                         start: { line: 2, column: 2 },
                         end: { line: 2, column: 10 },
                     },
+                    baseFuncAstName: "funcBase",
                 });
 
                 database.writeDatabase();
 
                 const funcSearchObject = new FuncSearchObject({
                     funcName: "func",
-                    funcAstName: "func",
+                    baseFuncAstName: "funcBase",
                     qualType: "int",
                 });
 
                 const foundMatches =
-                    database.getMatchingFuncImpls(funcSearchObject);
+                    database.getMatchingVirtualFuncImpls(funcSearchObject);
 
                 assert.equal(foundMatches.length, 1);
                 assert.ok(foundMatches[0].equals(func));

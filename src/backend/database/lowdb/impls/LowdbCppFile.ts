@@ -4,6 +4,7 @@ import {
     FuncCreationArgs,
     FuncDeclaration,
     FuncImplementation,
+    VirtualFuncBasics,
     VirtualFuncCreationArgs,
     VirtualFuncImplementation,
 } from "../../cpp_structure";
@@ -162,6 +163,35 @@ export class LowdbCppFile extends AbstractCppFile {
                 internalFuncImpl.qualType === func.getQualType()
             ) {
                 const newImpl = new LowdbFuncImplementation(internalFuncImpl);
+                newImpl.setFile(this);
+                matchingFuncs.push(newImpl);
+            }
+        });
+
+        return matchingFuncs;
+    }
+
+    getMatchingVirtualFuncImpls(func: VirtualFuncBasics): VirtualFuncBasics[] {
+        const matchingFuncs: VirtualFuncBasics[] = [];
+
+        this.getClasses().forEach((innerClass) => {
+            matchingFuncs.push(
+                ...(innerClass as LowdbCppClass).getMatchingVirtualFuncImpls(
+                    func
+                )
+            );
+        });
+
+        this.internal.virtualFuncImpls.forEach((internalFuncImpl) => {
+            if (
+                internalFuncImpl.funcName === func.getFuncName() &&
+                internalFuncImpl.baseFuncAstName ===
+                    func.getBaseFuncAstName() &&
+                internalFuncImpl.qualType === func.getQualType()
+            ) {
+                const newImpl = new LowdbVirtualFuncImplementation(
+                    internalFuncImpl
+                );
                 newImpl.setFile(this);
                 matchingFuncs.push(newImpl);
             }

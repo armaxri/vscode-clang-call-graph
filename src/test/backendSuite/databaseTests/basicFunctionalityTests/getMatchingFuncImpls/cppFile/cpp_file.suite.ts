@@ -82,4 +82,43 @@ suite("Cpp File", () => {
             });
         });
     });
+
+    suite("Simple with one cpp file with one class within one class", () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
+                const database = openNewDatabase(
+                    __dirname,
+                    testData
+                ) as AbstractDatabase;
+
+                const file = database.getOrAddCppFile("file.cpp");
+                const parentClassInst = file.addClass("parentClass");
+                const classInst = parentClassInst.addClass("class");
+
+                const func = classInst.addFuncImpl({
+                    funcName: "func",
+                    funcAstName: "func",
+                    qualType: "int",
+                    range: {
+                        start: { line: 2, column: 2 },
+                        end: { line: 2, column: 10 },
+                    },
+                });
+
+                database.writeDatabase();
+
+                const funcSearchObject = new FuncSearchObject({
+                    funcName: "func",
+                    funcAstName: "func",
+                    qualType: "int",
+                });
+
+                const foundMatches =
+                    database.getMatchingFuncImpls(funcSearchObject);
+
+                assert.equal(foundMatches.length, 1);
+                assert.ok(foundMatches[0].equals(func));
+            });
+        });
+    });
 });

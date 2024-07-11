@@ -9,7 +9,7 @@ import {
 import { LowdbCppFile } from "./impls/LowdbCppFile";
 import { LowdbHppFile } from "./impls/LowdbHppFile";
 import { AbstractDatabase } from "../impls/AbstractDatabase";
-import { FuncBasics } from "../cpp_structure";
+import { FuncBasics, VirtualFuncBasics } from "../cpp_structure";
 
 export class LowdbDatabase extends AbstractDatabase {
     private adapter!: JSONFileSync<LowdbInternalDatabase>;
@@ -122,6 +122,24 @@ export class LowdbDatabase extends AbstractDatabase {
         this.getHppFiles().forEach((hppFile) => {
             matchingFuncs.push(
                 ...(hppFile as LowdbHppFile).getMatchingFuncImpls(func)
+            );
+        });
+
+        return matchingFuncs;
+    }
+
+    getMatchingVirtualFuncImpls(func: VirtualFuncBasics): VirtualFuncBasics[] {
+        const matchingFuncs: VirtualFuncBasics[] = [];
+
+        this.getCppFiles().forEach((cppFile) => {
+            matchingFuncs.push(
+                ...(cppFile as LowdbCppFile).getMatchingVirtualFuncImpls(func)
+            );
+        });
+
+        this.getHppFiles().forEach((hppFile) => {
+            matchingFuncs.push(
+                ...(hppFile as LowdbHppFile).getMatchingVirtualFuncImpls(func)
             );
         });
 

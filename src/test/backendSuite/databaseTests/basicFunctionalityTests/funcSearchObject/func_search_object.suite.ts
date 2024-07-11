@@ -91,6 +91,7 @@ suite("Func Search Object", () => {
         const funcSearchObject = new FuncSearchObject({
             funcName: "func",
             funcAstName: "astFunc",
+            baseFuncAstName: "baseAstFunc",
             qualType: "int",
             range: range,
             file: file,
@@ -100,6 +101,7 @@ suite("Func Search Object", () => {
 
         assert.equal(funcSearchObject.getFuncName(), "func");
         assert.equal(funcSearchObject.getFuncAstName(), "astFunc");
+        assert.equal(funcSearchObject.getBaseFuncAstName(), "baseAstFunc");
         assert.equal(funcSearchObject.getQualType(), "int");
         assert.equal(funcSearchObject.getRange().start.line, range.start.line);
         assert.equal(
@@ -123,6 +125,7 @@ suite("Func Search Object", () => {
 
         assert.equal(funcSearchObject.getFuncName(), "");
         assert.equal(funcSearchObject.getFuncAstName(), "");
+        assert.equal(funcSearchObject.getBaseFuncAstName(), "");
         assert.equal(funcSearchObject.getQualType(), "");
         assert.equal(funcSearchObject.getRange().start.line, range.start.line);
         assert.equal(

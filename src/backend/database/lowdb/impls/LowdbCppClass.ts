@@ -5,6 +5,7 @@ import {
     FuncCreationArgs,
     FuncDeclaration,
     FuncImplementation,
+    VirtualFuncBasics,
     VirtualFuncCreationArgs,
     VirtualFuncDeclaration,
     VirtualFuncImplementation,
@@ -237,6 +238,12 @@ export class LowdbCppClass extends AbstractCppClass {
     getMatchingFuncImpls(func: FuncBasics): FuncBasics[] {
         const matchingFuncs: FuncBasics[] = [];
 
+        this.getClasses().forEach((cppClass) => {
+            matchingFuncs.push(
+                ...(cppClass as LowdbCppClass).getMatchingFuncImpls(func)
+            );
+        });
+
         this.internal.funcImpls.forEach((internalFuncImpl) => {
             if (
                 internalFuncImpl.funcName === func.getFuncName() &&
@@ -244,6 +251,35 @@ export class LowdbCppClass extends AbstractCppClass {
                 internalFuncImpl.qualType === func.getQualType()
             ) {
                 const newImpl = new LowdbFuncImplementation(internalFuncImpl);
+                if (this.file) {
+                    newImpl.setFile(this.file);
+                }
+                matchingFuncs.push(newImpl);
+            }
+        });
+
+        return matchingFuncs;
+    }
+
+    getMatchingVirtualFuncImpls(func: VirtualFuncBasics): VirtualFuncBasics[] {
+        const matchingFuncs: VirtualFuncBasics[] = [];
+
+        this.getClasses().forEach((cppClass) => {
+            matchingFuncs.push(
+                ...(cppClass as LowdbCppClass).getMatchingVirtualFuncImpls(func)
+            );
+        });
+
+        this.internal.virtualFuncImpls.forEach((internalFuncImpl) => {
+            if (
+                internalFuncImpl.funcName === func.getFuncName() &&
+                internalFuncImpl.baseFuncAstName ===
+                    func.getBaseFuncAstName() &&
+                internalFuncImpl.qualType === func.getQualType()
+            ) {
+                const newImpl = new LowdbVirtualFuncImplementation(
+                    internalFuncImpl
+                );
                 if (this.file) {
                     newImpl.setFile(this.file);
                 }

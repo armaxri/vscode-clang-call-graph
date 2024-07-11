@@ -1,8 +1,16 @@
-import { File, FuncBasics, FuncType, Location, Range } from "./cpp_structure";
+import {
+    File,
+    FuncBasics,
+    FuncType,
+    Location,
+    Range,
+    VirtualFuncBasics,
+} from "./cpp_structure";
 
 export type FuncSearchObjectArgs = {
     funcName?: string;
     funcAstName?: string;
+    baseFuncAstName?: string;
     qualType?: string;
     range?: Range;
     file?: File;
@@ -10,9 +18,10 @@ export type FuncSearchObjectArgs = {
     isVirtual?: boolean;
 };
 
-export class FuncSearchObject implements FuncBasics {
+export class FuncSearchObject implements FuncBasics, VirtualFuncBasics {
     private funcName: string;
     private funcAstName: string;
+    private baseFuncAstName: string;
     private qualType: string;
     private range: Range;
     private file: File | null;
@@ -22,6 +31,7 @@ export class FuncSearchObject implements FuncBasics {
     constructor(funcArgs: FuncSearchObjectArgs) {
         this.funcName = funcArgs.funcName || "";
         this.funcAstName = funcArgs.funcAstName || "";
+        this.baseFuncAstName = funcArgs.baseFuncAstName || "";
         this.qualType = funcArgs.qualType || "";
         this.range = funcArgs.range || {
             start: { line: 0, column: 0 },
@@ -38,6 +48,10 @@ export class FuncSearchObject implements FuncBasics {
 
     getFuncAstName(): string {
         return this.funcAstName;
+    }
+
+    getBaseFuncAstName(): string {
+        return this.baseFuncAstName;
     }
 
     getQualType(): string {
