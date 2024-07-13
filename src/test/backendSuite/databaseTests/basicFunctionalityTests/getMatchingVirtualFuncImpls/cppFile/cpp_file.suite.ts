@@ -124,4 +124,43 @@ suite("Cpp File", () => {
             });
         });
     });
+
+    suite(
+        "Simple with one cpp file no match cause of non virtual function",
+        () => {
+            [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+                test(`${DatabaseType[testData]}`, () => {
+                    const database = openNewDatabase(
+                        __dirname,
+                        testData
+                    ) as AbstractDatabase;
+
+                    const file = database.getOrAddCppFile("file.cpp");
+
+                    const func = file.addFuncImpl({
+                        funcName: "func",
+                        funcAstName: "funcBase",
+                        qualType: "int",
+                        range: {
+                            start: { line: 2, column: 2 },
+                            end: { line: 2, column: 10 },
+                        },
+                    });
+
+                    database.writeDatabase();
+
+                    const funcSearchObject = new FuncSearchObject({
+                        funcName: "func",
+                        baseFuncAstName: "funcBase",
+                        qualType: "int",
+                    });
+
+                    const foundMatches =
+                        database.getMatchingVirtualFuncImpls(funcSearchObject);
+
+                    assert.equal(foundMatches.length, 0);
+                });
+            });
+        }
+    );
 });

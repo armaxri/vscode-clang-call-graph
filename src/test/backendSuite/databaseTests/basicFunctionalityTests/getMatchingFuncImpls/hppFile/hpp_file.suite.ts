@@ -121,4 +121,44 @@ suite("Hpp File", () => {
             });
         });
     });
+
+    suite(
+        "Simple with one hpp file and not match cause of virtual function",
+        () => {
+            [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+                test(`${DatabaseType[testData]}`, () => {
+                    const database = openNewDatabase(
+                        __dirname,
+                        testData
+                    ) as AbstractDatabase;
+
+                    const file = database.getOrAddHppFile("file.h");
+
+                    const func = file.addVirtualFuncImpl({
+                        funcName: "func",
+                        funcAstName: "func",
+                        baseFuncAstName: "func",
+                        qualType: "int",
+                        range: {
+                            start: { line: 2, column: 2 },
+                            end: { line: 2, column: 10 },
+                        },
+                    });
+
+                    database.writeDatabase();
+
+                    const funcSearchObject = new FuncSearchObject({
+                        funcName: "func",
+                        funcAstName: "func",
+                        qualType: "int",
+                    });
+
+                    const foundMatches =
+                        database.getMatchingFuncImpls(funcSearchObject);
+
+                    assert.equal(foundMatches.length, 0);
+                });
+            });
+        }
+    );
 });
