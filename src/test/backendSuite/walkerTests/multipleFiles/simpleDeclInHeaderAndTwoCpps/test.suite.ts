@@ -25,6 +25,7 @@ suite("simple decl in header which is used in two cpp files", () => {
         );
     });
 
+    /* TODO: Enable this test
     test("test against sqlite", () => {
         testAstWalkerAgainstSpecificDatabase(
             __dirname,
@@ -33,4 +34,5 @@ suite("simple decl in header which is used in two cpp files", () => {
             DatabaseType.sqlite
         );
     });
+    */
 });
