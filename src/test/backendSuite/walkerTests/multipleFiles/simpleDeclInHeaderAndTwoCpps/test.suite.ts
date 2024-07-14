@@ -24,4 +24,13 @@ suite("simple decl in header which is used in two cpp files", () => {
             DatabaseType.lowdb
         );
     });
+
+    test("test against sqlite", () => {
+        testAstWalkerAgainstSpecificDatabase(
+            __dirname,
+            ["impl.json", "main.json"],
+            "expected_db.json",
+            DatabaseType.sqlite
+        );
+    });
 });
