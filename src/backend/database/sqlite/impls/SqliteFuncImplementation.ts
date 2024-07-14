@@ -181,8 +181,6 @@ export class SqliteFuncImplementation extends AbstractFuncImplementation {
                     }
                 );
 
-                // TODO: Add function calls to implementation.
-
                 funcImpls.push(funcImpl);
             });
 
