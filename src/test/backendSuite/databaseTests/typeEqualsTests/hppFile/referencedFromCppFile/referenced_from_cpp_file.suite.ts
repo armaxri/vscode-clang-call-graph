@@ -18,16 +18,13 @@ suite("Referenced from Cpp Files", () => {
                 const cppFile = database.getOrAddCppFile("base.cpp");
                 const hppFile = database.getOrAddHppFile("base.hpp");
 
-                hppFile.addReferencedFromCppFile(cppFile.getName());
+                hppFile.addReferencedFromFile(cppFile.getName());
 
                 database.writeDatabase();
 
+                assert.strictEqual(hppFile.getReferencedFromFiles().length, 1);
                 assert.strictEqual(
-                    hppFile.getReferencedFromCppFiles().length,
-                    1
-                );
-                assert.strictEqual(
-                    hppFile.getReferencedFromCppFiles()[0],
+                    hppFile.getReferencedFromFiles()[0],
                     cppFile.getName()
                 );
 
@@ -49,17 +46,17 @@ suite("Referenced from Cpp Files", () => {
                 const cppFile = database.getOrAddCppFile("base.cpp");
                 const hppFile = database.getOrAddHppFile("base.hpp");
 
-                hppFile.addReferencedFromCppFile(cppFile.getName());
-                hppFile.addReferencedFromCppFile(cppFile.getName());
+                hppFile.addReferencedFromFile(cppFile.getName());
+                hppFile.addReferencedFromFile(cppFile.getName());
 
                 database.writeDatabase();
 
                 assert.strictEqual(
-                    hppFile.getReferencedFromCppFiles().length,
+                    hppFile.getReferencedFromFiles().length,
                     1
                 );
                 assert.strictEqual(
-                    hppFile.getReferencedFromCppFiles()[0],
+                    hppFile.getReferencedFromFiles()[0],
                     cppFile.getName()
                 );
 
@@ -83,10 +80,7 @@ suite("Referenced from Cpp Files", () => {
 
                 database.writeDatabase();
 
-                assert.strictEqual(
-                    hppFile.getReferencedFromCppFiles().length,
-                    0
-                );
+                assert.strictEqual(hppFile.getReferencedFromFiles().length, 0);
 
                 assert.ok(!database.equals(referenceDatabase));
             });

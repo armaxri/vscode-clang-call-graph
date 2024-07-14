@@ -40,7 +40,7 @@
       "funcDecls": [],
       "funcImpls": [],
       "virtualFuncImpls": [],
-      "referencedFromCppFiles": []
+      "referencedFromFiles": []
     }
   ]
 }

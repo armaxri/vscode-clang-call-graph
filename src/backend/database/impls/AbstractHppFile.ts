@@ -13,8 +13,8 @@ import { elementEquals } from "../helper/equality_helper";
 import { getMatchingFuncs } from "../helper/location_helper";
 
 export abstract class AbstractHppFile implements HppFile {
-    abstract getReferencedFromCppFiles(): string[];
-    abstract addReferencedFromCppFile(fileName: string): void;
+    abstract getReferencedFromFiles(): string[];
+    abstract addReferencedFromFile(fileName: string): void;
 
     abstract getName(): string;
 
@@ -73,8 +73,8 @@ export abstract class AbstractHppFile implements HppFile {
         return this.addVirtualFuncImpl(args);
     }
 
-    private referencedFromCppFilesEquals(otherList: string[]): boolean {
-        const thisList = this.getReferencedFromCppFiles();
+    private referencedFromFilesEquals(otherList: string[]): boolean {
+        const thisList = this.getReferencedFromFiles();
 
         // istanbul ignore next
         if (!otherList && !thisList) {
@@ -103,9 +103,7 @@ export abstract class AbstractHppFile implements HppFile {
             this.getName() === other.getName() &&
             // Sadly we can't compare the analyzed time.
             // this.getLastAnalyzed() === other.getLastAnalyzed() &&
-            this.referencedFromCppFilesEquals(
-                other.getReferencedFromCppFiles()
-            ) &&
+            this.referencedFromFilesEquals(other.getReferencedFromFiles()) &&
             elementEquals<CppClass>(this.getClasses(), other.getClasses()) &&
             elementEquals<FuncDeclaration>(
                 this.getFuncDecls(),

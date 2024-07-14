@@ -118,7 +118,7 @@
         }
       ],
       "virtualFuncImpls": [],
-      "referencedFromCppFiles": [
+      "referencedFromFiles": [
         "/backendSuite/walkerTests/simpleFiles/simpleCStyleFuncsWithHeaders/simple_c_style_funcs_with_headers.cpp"
       ]
     }

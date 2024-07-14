@@ -18,7 +18,7 @@
       "funcDecls": [],
       "funcImpls": [],
       "virtualFuncImpls": [],
-      "referencedFromCppFiles": [
+      "referencedFromFiles": [
         "base.cpp"
       ]
     }

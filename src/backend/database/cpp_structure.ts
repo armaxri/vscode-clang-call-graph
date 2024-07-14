@@ -161,6 +161,6 @@ export interface File extends MainDeclLocation {
 export interface CppFile extends File {}
 
 export interface HppFile extends File {
-    getReferencedFromCppFiles(): string[];
-    addReferencedFromCppFile(fileName: string): void;
+    getReferencedFromFiles(): string[];
+    addReferencedFromFile(fileName: string): void;
 }

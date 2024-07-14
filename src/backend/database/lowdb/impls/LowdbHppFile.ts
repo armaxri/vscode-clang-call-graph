@@ -147,16 +147,16 @@ export class LowdbHppFile extends AbstractHppFile {
         return newFuncImpl;
     }
 
-    getReferencedFromCppFiles(): string[] {
-        if (!this.internal.referencedFromCppFiles) {
+    getReferencedFromFiles(): string[] {
+        if (!this.internal.referencedFromFiles) {
             return [];
         }
-        return this.internal.referencedFromCppFiles;
+        return this.internal.referencedFromFiles;
     }
 
-    addReferencedFromCppFile(fileName: string): void {
-        if (!this.internal.referencedFromCppFiles.includes(fileName)) {
-            this.internal.referencedFromCppFiles.push(fileName);
+    addReferencedFromFile(fileName: string): void {
+        if (!this.internal.referencedFromFiles.includes(fileName)) {
+            this.internal.referencedFromFiles.push(fileName);
         }
     }
 

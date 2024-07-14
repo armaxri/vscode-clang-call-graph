@@ -97,6 +97,8 @@ export function testAstWalkerResults(
         filenames,
         mockConfig
     ) as LowdbDatabase;
+    database.writeDatabase();
+
     const expectedDatabase = loadExpectedDatabase(
         adjustTsToJsPath(callingFileDirName),
         referenceFilename
@@ -128,6 +130,8 @@ export function testAstWalkerAgainstSpecificDatabase(
         filenames,
         mockConfig
     );
+    database.writeDatabase();
+
     const expectedDatabase = loadExpectedLowdbDatabase(
         adjustTsToJsPath(callingFileDirName),
         referenceFilename
@@ -155,10 +159,10 @@ function checkFileLists(
             actualFile.virtualFuncImpls,
             expectedFile.virtualFuncImpls
         );
-        if ("referencedFromCppFiles" in actualFile) {
+        if ("referencedFromFiles" in actualFile) {
             assert.deepEqual(
-                (actualFile as LowdbInternalHppFile).referencedFromCppFiles,
-                (expectedFile as LowdbInternalHppFile).referencedFromCppFiles
+                (actualFile as LowdbInternalHppFile).referencedFromFiles,
+                (expectedFile as LowdbInternalHppFile).referencedFromFiles
             );
         }
     }
