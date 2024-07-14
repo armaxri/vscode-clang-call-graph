@@ -97,6 +97,8 @@ export function testAstWalkerResults(
         filenames,
         mockConfig
     ) as LowdbDatabase;
+    database.writeDatabase();
+
     const expectedDatabase = loadExpectedDatabase(
         adjustTsToJsPath(callingFileDirName),
         referenceFilename
@@ -128,6 +130,8 @@ export function testAstWalkerAgainstSpecificDatabase(
         filenames,
         mockConfig
     );
+    database.writeDatabase();
+
     const expectedDatabase = loadExpectedLowdbDatabase(
         adjustTsToJsPath(callingFileDirName),
         referenceFilename
