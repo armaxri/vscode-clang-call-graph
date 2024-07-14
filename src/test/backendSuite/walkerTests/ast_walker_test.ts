@@ -155,10 +155,10 @@ function checkFileLists(
             actualFile.virtualFuncImpls,
             expectedFile.virtualFuncImpls
         );
-        if ("referencedFromCppFiles" in actualFile) {
+        if ("referencedFromFiles" in actualFile) {
             assert.deepEqual(
-                (actualFile as LowdbInternalHppFile).referencedFromCppFiles,
-                (expectedFile as LowdbInternalHppFile).referencedFromCppFiles
+                (actualFile as LowdbInternalHppFile).referencedFromFiles,
+                (expectedFile as LowdbInternalHppFile).referencedFromFiles
             );
         }
     }

@@ -23,7 +23,7 @@ export class SqliteHppFile extends AbstractHppFile {
     private funcDecls: FuncDeclaration[];
     private funcImpls: FuncImplementation[];
     private virtualFuncImpls: VirtualFuncImplementation[];
-    private referencedFromCppFiles: string[];
+    private referencedFromFiles: string[];
 
     constructor(
         internal: InternalSqliteDatabase,
@@ -52,7 +52,7 @@ export class SqliteHppFile extends AbstractHppFile {
             SqliteVirtualFuncImplementation.getVirtualFuncImpls(this.internal, {
                 hppFileId: this.id,
             });
-        this.referencedFromCppFiles = this.getReferencedFromFilesInternal();
+        this.referencedFromFiles = this.getReferencedFromFilesInternal();
     }
 
     static createTableCalls(internalDb: InternalSqliteDatabase): void {
@@ -220,12 +220,12 @@ export class SqliteHppFile extends AbstractHppFile {
     }
 
     getReferencedFromFiles(): string[] {
-        return this.referencedFromCppFiles;
+        return this.referencedFromFiles;
     }
 
     addReferencedFromFile(fileName: string): void {
         this.addReferencedFromFileInternal(fileName);
-        this.referencedFromCppFiles.push(fileName);
+        this.referencedFromFiles.push(fileName);
     }
 
     getClasses(): CppClass[] {

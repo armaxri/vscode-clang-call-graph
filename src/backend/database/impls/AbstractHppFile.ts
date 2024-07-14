@@ -73,7 +73,7 @@ export abstract class AbstractHppFile implements HppFile {
         return this.addVirtualFuncImpl(args);
     }
 
-    private referencedFromCppFilesEquals(otherList: string[]): boolean {
+    private referencedFromFilesEquals(otherList: string[]): boolean {
         const thisList = this.getReferencedFromFiles();
 
         // istanbul ignore next
@@ -103,7 +103,7 @@ export abstract class AbstractHppFile implements HppFile {
             this.getName() === other.getName() &&
             // Sadly we can't compare the analyzed time.
             // this.getLastAnalyzed() === other.getLastAnalyzed() &&
-            this.referencedFromCppFilesEquals(other.getReferencedFromFiles()) &&
+            this.referencedFromFilesEquals(other.getReferencedFromFiles()) &&
             elementEquals<CppClass>(this.getClasses(), other.getClasses()) &&
             elementEquals<FuncDeclaration>(
                 this.getFuncDecls(),
