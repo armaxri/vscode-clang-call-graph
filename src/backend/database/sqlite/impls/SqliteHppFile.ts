@@ -52,7 +52,7 @@ export class SqliteHppFile extends AbstractHppFile {
             SqliteVirtualFuncImplementation.getVirtualFuncImpls(this.internal, {
                 hppFileId: this.id,
             });
-        this.referencedFromCppFiles = this.getReferencedFromCppFilesInternal();
+        this.referencedFromCppFiles = this.getReferencedFromFilesInternal();
     }
 
     static createTableCalls(internalDb: InternalSqliteDatabase): void {
@@ -156,7 +156,7 @@ export class SqliteHppFile extends AbstractHppFile {
         return hppFiles;
     }
 
-    private getReferencedFromCppFilesInternal(): string[] {
+    private getReferencedFromFilesInternal(): string[] {
         const cppFiles: string[] = [];
 
         this.internal.db
@@ -171,7 +171,7 @@ export class SqliteHppFile extends AbstractHppFile {
         return cppFiles;
     }
 
-    private addReferencedFromCppFileInternal(fileName: string): void {
+    private addReferencedFromFileInternal(fileName: string): void {
         this.internal.db
             .prepare(
                 "INSERT INTO cpp_files_2_hpp_files (cpp_file_id, hpp_file_id) VALUES ((SELECT id FROM cpp_files WHERE file_name=(?)), (?))"
@@ -219,12 +219,12 @@ export class SqliteHppFile extends AbstractHppFile {
             .run(this.lastAnalyzed, this.id);
     }
 
-    getReferencedFromCppFiles(): string[] {
+    getReferencedFromFiles(): string[] {
         return this.referencedFromCppFiles;
     }
 
-    addReferencedFromCppFile(fileName: string): void {
-        this.addReferencedFromCppFileInternal(fileName);
+    addReferencedFromFile(fileName: string): void {
+        this.addReferencedFromFileInternal(fileName);
         this.referencedFromCppFiles.push(fileName);
     }
 

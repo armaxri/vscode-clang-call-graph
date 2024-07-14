@@ -111,7 +111,7 @@ export class ClangAstWalker implements AstWalker {
 
                 (
                     this.currentlyAnalyzedFile as db.HppFile
-                ).addReferencedFromCppFile(this.fileName);
+                ).addReferencedFromFile(this.fileName);
             }
         }
         if (astElement.loc && astElement.loc.line) {
