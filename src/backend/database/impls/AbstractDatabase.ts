@@ -31,17 +31,31 @@ export abstract class AbstractDatabase implements Database {
         func: VirtualFuncBasics
     ): VirtualFuncBasics[];
 
+    private searchAlternativeDecl(func: FuncBasics): FuncBasics {
+        throw new Error("Method not implemented.");
+    }
+
+    private searchAlternativeVirtualDecl(func: FuncBasics): FuncBasics {
+        throw new Error("Method not implemented.");
+    }
+
     getFuncImplsOrOneDecl(func: FuncBasics): FuncBasics[] {
         const funcs: FuncBasics[] = [];
 
         if (!func.isVirtual()) {
             funcs.push(...this.getMatchingFuncImpls(func));
-            // TODO: Search for declaration if no implementation was found.
+
+            if (funcs.length === 0) {
+                funcs.push(this.searchAlternativeDecl(func));
+            }
         } else {
             funcs.push(
                 ...this.getMatchingVirtualFuncImpls(func as VirtualFuncBasics)
             );
-            // TODO: Search for declaration if no implementation was found.
+
+            if (funcs.length === 0) {
+                funcs.push(this.searchAlternativeVirtualDecl(func));
+            }
         }
 
         return funcs;
