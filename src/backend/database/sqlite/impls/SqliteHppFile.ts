@@ -285,14 +285,11 @@ export class SqliteHppFile extends AbstractHppFile {
     addReferencedFromFile(fileName: string): void {
         if (!this.referencedFromFiles.includes(fileName)) {
             switch (getFileType(fileName)) {
-                case FileType.header:
-                    this.addReferencedFromHppFileInternal(fileName);
-                    break;
                 case FileType.source:
                     this.addReferencedFromCppFileInternal(fileName);
                     break;
-                default:
-                    // TODO: May add some logging for invalid file type here.
+                case FileType.header:
+                    this.addReferencedFromHppFileInternal(fileName);
                     break;
             }
             this.referencedFromFiles.push(fileName);

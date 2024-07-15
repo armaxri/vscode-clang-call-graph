@@ -36,12 +36,24 @@ export abstract class AbstractDatabase implements Database {
 
         if (!func.isVirtual()) {
             funcs.push(...this.getMatchingFuncImpls(func));
-            // TODO: Search for declaration if no implementation was found.
+
+            if (funcs.length === 0) {
+                const decl = func.getFile()?.findFuncDecl(func);
+                if (decl) {
+                    funcs.push(decl);
+                }
+            }
         } else {
             funcs.push(
                 ...this.getMatchingVirtualFuncImpls(func as VirtualFuncBasics)
             );
-            // TODO: Search for declaration if no implementation was found.
+
+            if (funcs.length === 0) {
+                const decl = func.getFile()?.findVirtualFuncDecl(func);
+                if (decl) {
+                    funcs.push(decl);
+                }
+            }
         }
 
         return funcs;

@@ -127,6 +127,9 @@ export interface MainDeclLocation extends Equal, MatchingFuncs {
     getOrAddVirtualFuncImpl(
         args: VirtualFuncCreationArgs
     ): VirtualFuncImplementation;
+
+    findFuncDecl(func: FuncBasics): FuncBasics | null;
+    findVirtualFuncDecl(func: FuncBasics): FuncBasics | null;
 }
 
 export interface CppClass extends MainDeclLocation, InFile {
