@@ -288,11 +288,6 @@ export class SqliteHppFile extends AbstractHppFile {
                 case FileType.source:
                     this.addReferencedFromCppFileInternal(fileName);
                     break;
-                default:
-                    // It's not like I've seen some generated files with random
-                    // names included as data source. Just report it but accept it.
-                    // TODO: Use interface to log here.
-                    console.log(`Unknown file type: ${fileName}`);
                 case FileType.header:
                     this.addReferencedFromHppFileInternal(fileName);
                     break;
