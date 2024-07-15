@@ -6,6 +6,7 @@ import {
     FuncImplementation,
     VirtualFuncImplementation,
     VirtualFuncCreationArgs,
+    File,
 } from "../../cpp_structure";
 import { AbstractHppFile } from "../../impls/AbstractHppFile";
 import { InternalSqliteDatabase } from "../InternalSqliteDatabase";
@@ -243,6 +244,26 @@ export class SqliteHppFile extends AbstractHppFile {
 
     getName(): string {
         return this.fileName;
+    }
+
+    getIncludes(): File[] {
+        const includes: File[] = [];
+
+        this.internal.db
+            .prepare(
+                "SELECT file_name FROM hpp_files INNER JOIN hpp_files_2_hpp_files ON hpp_files.id=hpp_files_2_hpp_files.current_hpp_file_id WHERE hpp_file_id=(?)"
+            )
+            .all(this.id)
+            .forEach((row) => {
+                includes.push(
+                    SqliteHppFile.getHppFile(
+                        this.internal,
+                        (row as any).file_name
+                    ) as File
+                );
+            });
+
+        return includes;
     }
 
     getLastAnalyzed(): number {

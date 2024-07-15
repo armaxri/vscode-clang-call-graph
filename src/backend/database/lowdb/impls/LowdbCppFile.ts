@@ -1,5 +1,6 @@
 import {
     CppClass,
+    File,
     FuncBasics,
     FuncCreationArgs,
     FuncDeclaration,
@@ -18,6 +19,7 @@ import {
 } from "../lowdb_internal_structure";
 import { AbstractCppFile } from "../../impls/AbstractCppFile";
 import { LowSync } from "@identityinvest/lowdb";
+import { LowdbHppFile } from "./LowdbHppFile";
 
 export class LowdbCppFile extends AbstractCppFile {
     private database: LowSync<LowdbInternalDatabase>;
@@ -35,6 +37,20 @@ export class LowdbCppFile extends AbstractCppFile {
 
     getName(): string {
         return this.internal.name;
+    }
+
+    getIncludes(): File[] {
+        const files: File[] = [];
+
+        this.database.data.hppFiles.forEach((headerFile) => {
+            headerFile.referencedFromFiles.forEach((referencedFromFile) => {
+                if (referencedFromFile === this.internal.name) {
+                    files.push(new LowdbHppFile(this.database, headerFile));
+                }
+            });
+        });
+
+        return files;
     }
 
     getLastAnalyzed(): number {

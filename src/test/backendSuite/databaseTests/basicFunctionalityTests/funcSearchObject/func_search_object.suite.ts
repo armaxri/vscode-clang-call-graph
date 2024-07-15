@@ -24,6 +24,9 @@ class MockFile implements File {
     getName(): string {
         return this.fileName;
     }
+    getIncludes(): File[] {
+        throw new Error("Method not implemented.");
+    }
     getLastAnalyzed(): number {
         throw new Error("Method not implemented.");
     }

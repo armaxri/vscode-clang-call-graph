@@ -1,6 +1,7 @@
 import {
     CppClass,
     CppFile,
+    File,
     FuncBasics,
     FuncCreationArgs,
     FuncDeclaration,
@@ -14,6 +15,8 @@ import { getMatchingFuncs } from "../helper/location_helper";
 
 export abstract class AbstractCppFile implements CppFile {
     abstract getName(): string;
+
+    abstract getIncludes(): File[];
 
     abstract getLastAnalyzed(): number;
     abstract justAnalyzed(): void;

@@ -154,6 +154,8 @@ export interface CppClass extends MainDeclLocation, InFile {
 export interface File extends MainDeclLocation {
     getName(): string;
 
+    getIncludes(): File[];
+
     getLastAnalyzed(): number;
     justAnalyzed(): void;
 }
