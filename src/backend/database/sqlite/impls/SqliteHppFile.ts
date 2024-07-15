@@ -1,3 +1,4 @@
+import { FileType, getFileType } from "../../../utils/cpp_file_ending_helper";
 import {
     CppClass,
     FuncDeclaration,
@@ -5,6 +6,7 @@ import {
     FuncImplementation,
     VirtualFuncImplementation,
     VirtualFuncCreationArgs,
+    File,
 } from "../../cpp_structure";
 import { AbstractHppFile } from "../../impls/AbstractHppFile";
 import { InternalSqliteDatabase } from "../InternalSqliteDatabase";
@@ -23,7 +25,7 @@ export class SqliteHppFile extends AbstractHppFile {
     private funcDecls: FuncDeclaration[];
     private funcImpls: FuncImplementation[];
     private virtualFuncImpls: VirtualFuncImplementation[];
-    private referencedFromCppFiles: string[];
+    private referencedFromFiles: string[];
 
     constructor(
         internal: InternalSqliteDatabase,
@@ -52,7 +54,10 @@ export class SqliteHppFile extends AbstractHppFile {
             SqliteVirtualFuncImplementation.getVirtualFuncImpls(this.internal, {
                 hppFileId: this.id,
             });
-        this.referencedFromCppFiles = this.getReferencedFromCppFilesInternal();
+        this.referencedFromFiles = this.getReferencedFromCppFilesInternal();
+        this.referencedFromFiles.push(
+            ...this.getReferencedFromHppFilesInternal()
+        );
     }
 
     static createTableCalls(internalDb: InternalSqliteDatabase): void {
@@ -71,6 +76,17 @@ export class SqliteHppFile extends AbstractHppFile {
 
                 PRIMARY KEY (cpp_file_id, hpp_file_id),
                 FOREIGN KEY (cpp_file_id) REFERENCES cpp_files (id),
+                FOREIGN KEY (hpp_file_id) REFERENCES hpp_files (id)
+            )
+        `);
+
+        internalDb.db.exec(`
+            CREATE TABLE hpp_files_2_hpp_files (
+                current_hpp_file_id INTEGER,
+                hpp_file_id         INTEGER,
+
+                PRIMARY KEY (current_hpp_file_id, hpp_file_id),
+                FOREIGN KEY (current_hpp_file_id) REFERENCES hpp_files (id),
                 FOREIGN KEY (hpp_file_id) REFERENCES hpp_files (id)
             )
         `);
@@ -171,10 +187,33 @@ export class SqliteHppFile extends AbstractHppFile {
         return cppFiles;
     }
 
+    private getReferencedFromHppFilesInternal(): string[] {
+        const hppFiles: string[] = [];
+
+        this.internal.db
+            .prepare(
+                "SELECT file_name FROM hpp_files_2_hpp_files INNER JOIN hpp_files ON hpp_files.id=hpp_files_2_hpp_files.hpp_file_id WHERE current_hpp_file_id=(?)"
+            )
+            .all(this.id)
+            .forEach((row) => {
+                hppFiles.push((row as any).file_name);
+            });
+
+        return hppFiles;
+    }
+
     private addReferencedFromCppFileInternal(fileName: string): void {
         this.internal.db
             .prepare(
                 "INSERT INTO cpp_files_2_hpp_files (cpp_file_id, hpp_file_id) VALUES ((SELECT id FROM cpp_files WHERE file_name=(?)), (?))"
+            )
+            .run(fileName, this.id);
+    }
+
+    private addReferencedFromHppFileInternal(fileName: string): void {
+        this.internal.db
+            .prepare(
+                "INSERT INTO hpp_files_2_hpp_files (hpp_file_id, current_hpp_file_id) VALUES ((SELECT id FROM hpp_files WHERE file_name=(?)), (?))"
             )
             .run(fileName, this.id);
     }
@@ -207,6 +246,26 @@ export class SqliteHppFile extends AbstractHppFile {
         return this.fileName;
     }
 
+    getIncludes(): File[] {
+        const includes: File[] = [];
+
+        this.internal.db
+            .prepare(
+                "SELECT file_name FROM hpp_files INNER JOIN hpp_files_2_hpp_files ON hpp_files.id=hpp_files_2_hpp_files.current_hpp_file_id WHERE hpp_file_id=(?)"
+            )
+            .all(this.id)
+            .forEach((row) => {
+                includes.push(
+                    SqliteHppFile.getHppFile(
+                        this.internal,
+                        (row as any).file_name
+                    ) as File
+                );
+            });
+
+        return includes;
+    }
+
     getLastAnalyzed(): number {
         return this.lastAnalyzed;
     }
@@ -219,13 +278,25 @@ export class SqliteHppFile extends AbstractHppFile {
             .run(this.lastAnalyzed, this.id);
     }
 
-    getReferencedFromCppFiles(): string[] {
-        return this.referencedFromCppFiles;
+    getReferencedFromFiles(): string[] {
+        return this.referencedFromFiles;
     }
 
-    addReferencedFromCppFile(fileName: string): void {
-        this.addReferencedFromCppFileInternal(fileName);
-        this.referencedFromCppFiles.push(fileName);
+    addReferencedFromFile(fileName: string): void {
+        if (!this.referencedFromFiles.includes(fileName)) {
+            switch (getFileType(fileName)) {
+                case FileType.header:
+                    this.addReferencedFromHppFileInternal(fileName);
+                    break;
+                case FileType.source:
+                    this.addReferencedFromCppFileInternal(fileName);
+                    break;
+                default:
+                    // TODO: May add some logging for invalid file type here.
+                    break;
+            }
+            this.referencedFromFiles.push(fileName);
+        }
     }
 
     getClasses(): CppClass[] {

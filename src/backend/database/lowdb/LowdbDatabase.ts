@@ -96,7 +96,7 @@ export class LowdbDatabase extends AbstractDatabase {
                 funcDecls: [],
                 funcImpls: [],
                 virtualFuncImpls: [],
-                referencedFromCppFiles: [],
+                referencedFromFiles: [],
             };
             this.database.data.hppFiles.push(file);
         }

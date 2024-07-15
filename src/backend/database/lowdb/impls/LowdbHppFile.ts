@@ -7,6 +7,7 @@ import {
     VirtualFuncCreationArgs,
     FuncBasics,
     VirtualFuncBasics,
+    File,
 } from "../../cpp_structure";
 import { LowdbCppClass } from "./LowdbCppClass";
 import { LowdbFuncDeclaration } from "./LowdbFuncDeclaration";
@@ -35,6 +36,20 @@ export class LowdbHppFile extends AbstractHppFile {
 
     getName(): string {
         return this.internal.name;
+    }
+
+    getIncludes(): File[] {
+        const files: File[] = [];
+
+        this.database.data.hppFiles.forEach((headerFile) => {
+            headerFile.referencedFromFiles.forEach((referencedFromFile) => {
+                if (referencedFromFile === this.internal.name) {
+                    files.push(new LowdbHppFile(this.database, headerFile));
+                }
+            });
+        });
+
+        return files;
     }
 
     getLastAnalyzed(): number {
@@ -147,16 +162,16 @@ export class LowdbHppFile extends AbstractHppFile {
         return newFuncImpl;
     }
 
-    getReferencedFromCppFiles(): string[] {
-        if (!this.internal.referencedFromCppFiles) {
+    getReferencedFromFiles(): string[] {
+        if (!this.internal.referencedFromFiles) {
             return [];
         }
-        return this.internal.referencedFromCppFiles;
+        return this.internal.referencedFromFiles;
     }
 
-    addReferencedFromCppFile(fileName: string): void {
-        if (!this.internal.referencedFromCppFiles.includes(fileName)) {
-            this.internal.referencedFromCppFiles.push(fileName);
+    addReferencedFromFile(fileName: string): void {
+        if (!this.internal.referencedFromFiles.includes(fileName)) {
+            this.internal.referencedFromFiles.push(fileName);
         }
     }
 
