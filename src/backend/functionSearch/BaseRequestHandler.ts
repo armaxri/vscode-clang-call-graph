@@ -67,8 +67,7 @@ export class BaseRequestHandler {
         return new TreeItem(
             this.config,
             this.database,
-            bestMatchingFuncElement,
-            file
+            bestMatchingFuncElement
         );
     }
 }

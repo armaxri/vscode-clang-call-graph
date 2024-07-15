@@ -1,23 +1,16 @@
 import { Config } from "../Config";
 import { Database } from "../database/Database";
-import { File, FuncBasics, VirtualFuncBasics } from "../database/cpp_structure";
+import { File, FuncBasics } from "../database/cpp_structure";
 
 export class TreeItem {
     protected config: Config;
     protected database: Database;
     protected func: FuncBasics;
-    protected file: File;
 
-    constructor(
-        config: Config,
-        database: Database,
-        func: FuncBasics,
-        file: File
-    ) {
+    constructor(config: Config, database: Database, func: FuncBasics) {
         this.config = config;
         this.database = database;
         this.func = func;
-        this.file = file;
     }
 
     getFunc(): FuncBasics {
@@ -25,7 +18,7 @@ export class TreeItem {
     }
 
     getFile(): File {
-        return this.file;
+        return this.func.getFile()!;
     }
 
     isMethod(): boolean {
