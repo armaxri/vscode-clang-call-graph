@@ -1,0 +1,38 @@
+{
+  "databaseVersion": 1,
+  "cppFiles": [
+    {
+      "name": "main.cpp",
+      "lastAnalyzed": 1718379292081,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": []
+    }
+  ],
+  "hppFiles": [
+    {
+      "name": "firstHeader.hpp",
+      "lastAnalyzed": 1718379292081,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": [
+        "secondHeader.hpp",
+        "main.cpp"
+      ]
+    },
+    {
+      "name": "secondHeader.hpp",
+      "lastAnalyzed": 1718379292081,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": [
+        "main.cpp"
+      ]
+    }
+  ]
+}
