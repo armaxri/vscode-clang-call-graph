@@ -1,4 +1,4 @@
-import { CppFile, Equal, HppFile } from "./cpp_structure";
+import { CppFile, Equal, FuncBasics, HppFile } from "./cpp_structure";
 
 export { CppFile, Equal, HppFile };
 
@@ -14,6 +14,8 @@ export interface Database extends Equal {
     getHppFile(name: string): HppFile | null;
     getOrAddHppFile(name: string): HppFile;
     removeHppFileAndDependingContent(name: string): void;
+
+    getFuncImplsOrOneDecl(func: FuncBasics): FuncBasics[];
 
     writeDatabase(): void;
     resetDatabase(): void;

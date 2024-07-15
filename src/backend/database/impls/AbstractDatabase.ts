@@ -1,5 +1,6 @@
 import { Config } from "../../Config";
 import { CppFile, Database, HppFile } from "../Database";
+import { FuncBasics, VirtualFuncBasics } from "../cpp_structure";
 import { elementEquals } from "../helper/equality_helper";
 
 export abstract class AbstractDatabase implements Database {
@@ -24,6 +25,39 @@ export abstract class AbstractDatabase implements Database {
     abstract getHppFile(name: string): HppFile | null;
     abstract getOrAddHppFile(name: string): HppFile;
     abstract removeHppFileAndDependingContent(name: string): void;
+
+    abstract getMatchingFuncImpls(func: FuncBasics): FuncBasics[];
+    abstract getMatchingVirtualFuncImpls(
+        func: VirtualFuncBasics
+    ): VirtualFuncBasics[];
+
+    getFuncImplsOrOneDecl(func: FuncBasics): FuncBasics[] {
+        const funcs: FuncBasics[] = [];
+
+        if (!func.isVirtual()) {
+            funcs.push(...this.getMatchingFuncImpls(func));
+
+            if (funcs.length === 0) {
+                const decl = func.getFile()?.findFuncDecl(func);
+                if (decl) {
+                    funcs.push(decl);
+                }
+            }
+        } else {
+            funcs.push(
+                ...this.getMatchingVirtualFuncImpls(func as VirtualFuncBasics)
+            );
+
+            if (funcs.length === 0) {
+                const decl = func.getFile()?.findVirtualFuncDecl(func);
+                if (decl) {
+                    funcs.push(decl);
+                }
+            }
+        }
+
+        return funcs;
+    }
 
     abstract writeDatabase(): void;
     abstract resetDatabase(): void;

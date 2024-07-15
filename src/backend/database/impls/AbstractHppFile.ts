@@ -1,5 +1,6 @@
 import {
     CppClass,
+    File,
     FuncBasics,
     FuncCreationArgs,
     FuncDeclaration,
@@ -13,10 +14,12 @@ import { elementEquals } from "../helper/equality_helper";
 import { getMatchingFuncs } from "../helper/location_helper";
 
 export abstract class AbstractHppFile implements HppFile {
-    abstract getReferencedFromCppFiles(): string[];
-    abstract addReferencedFromCppFile(fileName: string): void;
+    abstract getReferencedFromFiles(): string[];
+    abstract addReferencedFromFile(fileName: string): void;
 
     abstract getName(): string;
+
+    abstract getIncludes(): File[];
 
     abstract getLastAnalyzed(): number;
     abstract justAnalyzed(): void;
@@ -73,8 +76,69 @@ export abstract class AbstractHppFile implements HppFile {
         return this.addVirtualFuncImpl(args);
     }
 
-    private referencedFromCppFilesEquals(otherList: string[]): boolean {
-        const thisList = this.getReferencedFromCppFiles();
+    findFuncDecl(func: FuncBasics): FuncBasics | null {
+        var finding = this.getFuncDecls().find(
+            (funcDecl) =>
+                funcDecl.getFuncAstName() === func.getFuncAstName() &&
+                funcDecl.getFuncName() === func.getFuncName() &&
+                funcDecl.getQualType() === func.getQualType()
+        );
+
+        if (finding) {
+            return finding;
+        }
+
+        this.getClasses().forEach((element) => {
+            const match = element.findFuncDecl(func);
+            if (match) {
+                finding = match;
+                return;
+            }
+        });
+
+        if (finding) {
+            return finding;
+        }
+
+        this.getIncludes().forEach((element) => {
+            const match = element.findFuncDecl(func);
+            if (match) {
+                finding = match;
+                return;
+            }
+        });
+
+        return finding ? finding : null;
+    }
+
+    findVirtualFuncDecl(func: FuncBasics): FuncBasics | null {
+        var finding: FuncBasics | undefined = undefined;
+
+        this.getClasses().forEach((element) => {
+            const match = element.findVirtualFuncDecl(func);
+            if (match) {
+                finding = match;
+                return;
+            }
+        });
+
+        if (finding) {
+            return finding;
+        }
+
+        this.getIncludes().forEach((element) => {
+            const match = element.findVirtualFuncDecl(func);
+            if (match) {
+                finding = match;
+                return;
+            }
+        });
+
+        return finding ? finding : null;
+    }
+
+    private referencedFromFilesEquals(otherList: string[]): boolean {
+        const thisList = this.getReferencedFromFiles();
 
         // istanbul ignore next
         if (!otherList && !thisList) {
@@ -103,9 +167,7 @@ export abstract class AbstractHppFile implements HppFile {
             this.getName() === other.getName() &&
             // Sadly we can't compare the analyzed time.
             // this.getLastAnalyzed() === other.getLastAnalyzed() &&
-            this.referencedFromCppFilesEquals(
-                other.getReferencedFromCppFiles()
-            ) &&
+            this.referencedFromFilesEquals(other.getReferencedFromFiles()) &&
             elementEquals<CppClass>(this.getClasses(), other.getClasses()) &&
             elementEquals<FuncDeclaration>(
                 this.getFuncDecls(),

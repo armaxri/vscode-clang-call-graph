@@ -1,4 +1,5 @@
 import {
+    File,
     FuncCreationArgs,
     FuncDeclaration,
     FuncType,
@@ -13,6 +14,8 @@ export abstract class AbstractFuncDeclaration implements FuncDeclaration {
     abstract getFuncAstName(): string;
     abstract getQualType(): string;
     abstract getRange(): Range;
+
+    abstract getFile(): File | null;
 
     equals(otherInput: any): boolean {
         const other = otherInput as FuncDeclaration;
@@ -51,10 +54,10 @@ export abstract class AbstractFuncDeclaration implements FuncDeclaration {
     }
 
     getFuncType(): FuncType {
-        return FuncType.declaration ;
+        return FuncType.declaration;
     }
 
     isVirtual(): boolean {
-       return false;
+        return false;
     }
 }

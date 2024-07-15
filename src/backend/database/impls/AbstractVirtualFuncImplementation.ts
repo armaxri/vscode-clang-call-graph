@@ -1,4 +1,5 @@
 import {
+    File,
     FuncBasics,
     FuncCall,
     FuncCallCreationArgs,
@@ -25,6 +26,8 @@ export abstract class AbstractVirtualFuncImplementation
     abstract getQualType(): string;
     abstract getRange(): Range;
     abstract getBaseFuncAstName(): string;
+
+    abstract getFile(): File | null;
 
     abstract getFuncCalls(): FuncCall[];
     abstract addFuncCall(funcCall: FuncCallCreationArgs): FuncCall;

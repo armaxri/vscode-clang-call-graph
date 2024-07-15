@@ -12,6 +12,7 @@
   "activationEvents": [
     "onLanguage:cpp"
   ],
+  "preview": true,
   "main": "./out/extension/extension.js",
   "preview": true,
   "contributes": {

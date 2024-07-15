@@ -1,10 +1,12 @@
 import {
     CppClass,
+    File,
     FuncBasics,
     FuncCreationArgs,
     FuncDeclaration,
     FuncImplementation,
     Location,
+    VirtualFuncBasics,
     VirtualFuncCreationArgs,
     VirtualFuncDeclaration,
     VirtualFuncImplementation,
@@ -14,6 +16,8 @@ import { getMatchingFuncs } from "../helper/location_helper";
 
 export abstract class AbstractCppClass implements CppClass {
     abstract getName(): string;
+
+    abstract getFile(): File | null;
 
     abstract getParentClasses(): CppClass[];
     abstract getParentClassNames(): string[];
@@ -95,6 +99,55 @@ export abstract class AbstractCppClass implements CppClass {
             return foundFunc;
         }
         return this.addVirtualFuncImpl(args);
+    }
+
+    findFuncDecl(func: FuncBasics): FuncBasics | null {
+        var finding = this.getFuncDecls().find(
+            (funcDecl) =>
+                funcDecl.getFuncAstName() === func.getFuncAstName() &&
+                funcDecl.getFuncName() === func.getFuncName() &&
+                funcDecl.getQualType() === func.getQualType()
+        );
+
+        if (finding) {
+            return finding;
+        }
+
+        this.getClasses().forEach((element) => {
+            const match = element.findFuncDecl(func);
+            if (match) {
+                finding = match;
+                return;
+            }
+        });
+
+        return finding ? finding : null;
+    }
+
+    findVirtualFuncDecl(func: FuncBasics): FuncBasics | null {
+        var finding: FuncBasics | undefined = this.getVirtualFuncDecls().find(
+            (funcDecl) =>
+                funcDecl.getBaseFuncAstName() ===
+                    (func as VirtualFuncBasics).getBaseFuncAstName() &&
+                funcDecl.getFuncName() ===
+                    (func as VirtualFuncBasics).getFuncName() &&
+                funcDecl.getQualType() ===
+                    (func as VirtualFuncBasics).getQualType()
+        );
+
+        if (finding) {
+            return finding;
+        }
+
+        this.getClasses().forEach((element) => {
+            const match = element.findVirtualFuncDecl(func);
+            if (match) {
+                finding = match;
+                return;
+            }
+        });
+
+        return finding ? finding : null;
     }
 
     findBaseFunction(

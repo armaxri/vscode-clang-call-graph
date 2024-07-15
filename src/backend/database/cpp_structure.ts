@@ -42,6 +42,12 @@ export interface Equal {
     equals(other: any): boolean;
 }
 
+export interface InFile {
+    // Helper that is used during later analysis of the database content.
+    // The optional null is required for the object creation.
+    getFile(): File | null;
+}
+
 export interface MatchingFuncs {
     getMatchingFuncs(location: Location): FuncBasics[];
 }
@@ -52,7 +58,7 @@ export enum FuncType {
     call = "call",
 }
 
-export interface FuncBasics extends Equal {
+export interface FuncBasics extends Equal, InFile {
     getFuncName(): string;
     getFuncAstName(): string;
     getQualType(): string;
@@ -91,17 +97,15 @@ export interface FuncDeclaration extends FuncBasics {}
 export interface FuncImplementation extends FuncImplBasics {}
 export interface FuncCall extends FuncBasics {}
 
-export interface VirtualFuncBasics {
+export interface VirtualFuncBasics extends FuncBasics {
     getBaseFuncAstName(): string;
 }
 
-export interface VirtualFuncDeclaration
-    extends FuncDeclaration,
-        VirtualFuncBasics {}
+export interface VirtualFuncDeclaration extends VirtualFuncBasics {}
 export interface VirtualFuncImplementation
-    extends FuncImplementation,
+    extends FuncImplBasics,
         VirtualFuncBasics {}
-export interface VirtualFuncCall extends FuncCall, VirtualFuncBasics {}
+export interface VirtualFuncCall extends VirtualFuncBasics {}
 
 export interface MainDeclLocation extends Equal, MatchingFuncs {
     getClasses(): CppClass[];
@@ -123,9 +127,12 @@ export interface MainDeclLocation extends Equal, MatchingFuncs {
     getOrAddVirtualFuncImpl(
         args: VirtualFuncCreationArgs
     ): VirtualFuncImplementation;
+
+    findFuncDecl(func: FuncBasics): FuncBasics | null;
+    findVirtualFuncDecl(func: FuncBasics): FuncBasics | null;
 }
 
-export interface CppClass extends MainDeclLocation {
+export interface CppClass extends MainDeclLocation, InFile {
     getName(): string;
 
     getParentClasses(): CppClass[];
@@ -150,6 +157,8 @@ export interface CppClass extends MainDeclLocation {
 export interface File extends MainDeclLocation {
     getName(): string;
 
+    getIncludes(): File[];
+
     getLastAnalyzed(): number;
     justAnalyzed(): void;
 }
@@ -157,6 +166,6 @@ export interface File extends MainDeclLocation {
 export interface CppFile extends File {}
 
 export interface HppFile extends File {
-    getReferencedFromCppFiles(): string[];
-    addReferencedFromCppFile(fileName: string): void;
+    getReferencedFromFiles(): string[];
+    addReferencedFromFile(fileName: string): void;
 }

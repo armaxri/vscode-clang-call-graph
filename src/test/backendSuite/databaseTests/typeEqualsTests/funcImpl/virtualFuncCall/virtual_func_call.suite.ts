@@ -5,6 +5,7 @@ import {
     getEmptyReferenceDatabase,
     prepareDatabaseEqualityTests,
 } from "../../database_equality_tests";
+import { FuncType } from "../../../../../../backend/database/cpp_structure";
 
 suite("Virtual Func Call", () => {
     addSuitesInSubDirsSuites(__dirname);
@@ -42,7 +43,7 @@ suite("Virtual Func Call", () => {
                     },
                 });
 
-                funcImpl.addVirtualFuncCall({
+                const funcCall = funcImpl.addVirtualFuncCall({
                     func: addFuncDecl,
                     range: {
                         start: { line: 20, column: 6 },
@@ -53,6 +54,9 @@ suite("Virtual Func Call", () => {
                 database.writeDatabase();
 
                 assert.ok(database.equals(referenceDatabase));
+
+                assert.ok(funcCall.isVirtual());
+                assert.equal(funcCall.getFuncType(), FuncType.call);
             });
         });
     });

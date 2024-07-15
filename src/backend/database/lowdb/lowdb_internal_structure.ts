@@ -62,7 +62,7 @@ export type LowdbInternalHppFile = {
     funcDecls: LowdbInternalFuncMentioning[];
     funcImpls: LowdbInternalFuncImplementation[];
     virtualFuncImpls: LowdbInternalVirtualFuncImplementation[];
-    referencedFromCppFiles: string[];
+    referencedFromFiles: string[];
 };
 
 export type LowdbInternalDatabase = {

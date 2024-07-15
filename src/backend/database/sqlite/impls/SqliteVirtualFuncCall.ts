@@ -1,6 +1,8 @@
-import { Range, VirtualFuncCreationArgs } from "../../cpp_structure";
+import { File, Range, VirtualFuncCreationArgs } from "../../cpp_structure";
 import { AbstractVirtualFuncCall } from "../../impls/AbstractVirtualFuncCall";
 import { InternalSqliteDatabase } from "../InternalSqliteDatabase";
+import { SqliteFuncImplementation } from "./SqliteFuncImplementation";
+import { SqliteVirtualFuncImplementation } from "./SqliteVirtualFuncImplementation";
 
 export class SqliteVirtualFuncCall extends AbstractVirtualFuncCall {
     private internal: InternalSqliteDatabase;
@@ -144,6 +146,44 @@ export class SqliteVirtualFuncCall extends AbstractVirtualFuncCall {
                 },
             });
         });
+    }
+
+    private getImplIds(): [number | null, number | null] {
+        const row = this.internal.db
+            .prepare(
+                "SELECT func_impl_id, virtual_func_impl_id FROM virtual_func_calls WHERE id=(?)"
+            )
+            .get(this.id);
+
+        return [(row as any).func_impl_id, (row as any).virtual_func_impl_id];
+    }
+
+    getFile(): File | null {
+        const [funcImplId, virtualFuncImplId] = this.getImplIds();
+
+        if (funcImplId !== null) {
+            const impl = SqliteFuncImplementation.getFuncImplById(
+                this.internal,
+                funcImplId
+            );
+
+            if (impl !== null) {
+                return impl.getFile();
+            }
+        }
+        if (virtualFuncImplId !== null) {
+            const impl = SqliteVirtualFuncImplementation.getVirtualFuncImplById(
+                this.internal,
+                virtualFuncImplId
+            );
+
+            if (impl !== null) {
+                return impl.getFile();
+            }
+        }
+
+        // istanbul ignore next
+        return null;
     }
 
     removeAndChildren(): void {

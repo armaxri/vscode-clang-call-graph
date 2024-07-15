@@ -78,7 +78,7 @@
         }
       ],
       "virtualFuncImpls": [],
-      "referencedFromCppFiles": []
+      "referencedFromFiles": []
     }
   ]
 }

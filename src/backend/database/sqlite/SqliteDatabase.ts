@@ -1,9 +1,16 @@
 import { Config } from "../../Config";
-import { CppFile, HppFile } from "../cpp_structure";
+import {
+    CppFile,
+    FuncBasics,
+    HppFile,
+    VirtualFuncBasics,
+} from "../cpp_structure";
 import { AbstractDatabase } from "../impls/AbstractDatabase";
 import { InternalSqliteDatabase } from "./InternalSqliteDatabase";
 import { SqliteCppFile } from "./impls/SqliteCppFile";
+import { SqliteFuncImplementation } from "./impls/SqliteFuncImplementation";
 import { SqliteHppFile } from "./impls/SqliteHppFile";
+import { SqliteVirtualFuncImplementation } from "./impls/SqliteVirtualFuncImplementation";
 
 export class SqliteDatabase extends AbstractDatabase {
     private internal: InternalSqliteDatabase;
@@ -64,6 +71,20 @@ export class SqliteDatabase extends AbstractDatabase {
         if (hppFile) {
             hppFile.removeAndChildren();
         }
+    }
+
+    getMatchingFuncImpls(func: FuncBasics): FuncBasics[] {
+        return SqliteFuncImplementation.getMatchingFuncImpls(
+            this.internal,
+            func
+        );
+    }
+
+    getMatchingVirtualFuncImpls(func: VirtualFuncBasics): VirtualFuncBasics[] {
+        return SqliteVirtualFuncImplementation.getMatchingVirtualFuncImpls(
+            this.internal,
+            func
+        );
     }
 
     writeDatabase(): void {
