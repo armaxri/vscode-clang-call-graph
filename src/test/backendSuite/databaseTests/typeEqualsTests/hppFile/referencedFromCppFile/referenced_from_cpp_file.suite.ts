@@ -81,4 +81,40 @@ suite("Referenced from Cpp Files", () => {
             });
         });
     });
+
+    suite("Equality with simple header referenced by a header", () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
+                const [database, referenceDatabase] =
+                    prepareDatabaseEqualityTests(
+                        __dirname,
+                        "simple_referenced_from_hpp_file_expected_db.json",
+                        testData
+                    );
+                const cppFile = database.getOrAddCppFile("main.cpp");
+                const hppFile1 = database.getOrAddHppFile("firstHeader.hpp");
+                const hppFile2 = database.getOrAddHppFile("secondHeader.hpp");
+
+                hppFile1.addReferencedFromFile(cppFile.getName());
+                hppFile1.addReferencedFromFile(hppFile2.getName());
+                hppFile2.addReferencedFromFile(cppFile.getName());
+
+                database.writeDatabase();
+
+                assert.strictEqual(hppFile1.getReferencedFromFiles().length, 2);
+                assert.deepStrictEqual(hppFile1.getReferencedFromFiles(), [
+                    cppFile.getName(),
+                    hppFile2.getName(),
+                ]);
+
+                assert.strictEqual(hppFile2.getReferencedFromFiles().length, 1);
+                assert.strictEqual(
+                    hppFile2.getReferencedFromFiles()[0],
+                    cppFile.getName()
+                );
+
+                assert.ok(database.equals(referenceDatabase));
+            });
+        });
+    });
 });
