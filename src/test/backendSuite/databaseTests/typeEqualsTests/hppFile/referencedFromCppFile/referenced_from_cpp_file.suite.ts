@@ -33,7 +33,6 @@ suite("Referenced from Cpp Files", () => {
         });
     });
 
-    /*
     suite("Get or add with simple parent class", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
             test(`${DatabaseType[testData]}`, () => {
@@ -51,10 +50,7 @@ suite("Referenced from Cpp Files", () => {
 
                 database.writeDatabase();
 
-                assert.strictEqual(
-                    hppFile.getReferencedFromFiles().length,
-                    1
-                );
+                assert.strictEqual(hppFile.getReferencedFromFiles().length, 1);
                 assert.strictEqual(
                     hppFile.getReferencedFromFiles()[0],
                     cppFile.getName()
@@ -64,7 +60,6 @@ suite("Referenced from Cpp Files", () => {
             });
         });
     });
-    */
 
     suite("No equality with simple parent class (missing connection)", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
