@@ -79,6 +79,12 @@ class MockFile implements File {
     getMatchingFuncs(location: Location): FuncBasics[] {
         throw new Error("Method not implemented.");
     }
+    findFuncDecl(func: FuncBasics): FuncBasics | null {
+        throw new Error("Method not implemented.");
+    }
+    findVirtualFuncDecl(func: FuncBasics): FuncBasics | null {
+        throw new Error("Method not implemented.");
+    }
 }
 
 suite("Func Search Object", () => {
