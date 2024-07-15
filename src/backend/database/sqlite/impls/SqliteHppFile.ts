@@ -224,8 +224,12 @@ export class SqliteHppFile extends AbstractHppFile {
     }
 
     addReferencedFromFile(fileName: string): void {
-        this.addReferencedFromFileInternal(fileName);
-        this.referencedFromFiles.push(fileName);
+        if (!this.referencedFromFiles.includes(fileName)) {
+            {
+                this.addReferencedFromFileInternal(fileName);
+                this.referencedFromFiles.push(fileName);
+            }
+        }
     }
 
     getClasses(): CppClass[] {
