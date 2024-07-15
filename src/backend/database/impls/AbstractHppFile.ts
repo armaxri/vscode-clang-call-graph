@@ -1,5 +1,6 @@
 import {
     CppClass,
+    File,
     FuncBasics,
     FuncCreationArgs,
     FuncDeclaration,
@@ -17,6 +18,8 @@ export abstract class AbstractHppFile implements HppFile {
     abstract addReferencedFromFile(fileName: string): void;
 
     abstract getName(): string;
+
+    abstract getIncludes(): File[];
 
     abstract getLastAnalyzed(): number;
     abstract justAnalyzed(): void;
