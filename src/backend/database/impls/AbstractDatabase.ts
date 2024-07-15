@@ -31,14 +31,6 @@ export abstract class AbstractDatabase implements Database {
         func: VirtualFuncBasics
     ): VirtualFuncBasics[];
 
-    private searchAlternativeDecl(func: FuncBasics): FuncBasics {
-        throw new Error("Method not implemented.");
-    }
-
-    private searchAlternativeVirtualDecl(func: FuncBasics): FuncBasics {
-        throw new Error("Method not implemented.");
-    }
-
     getFuncImplsOrOneDecl(func: FuncBasics): FuncBasics[] {
         const funcs: FuncBasics[] = [];
 
@@ -46,7 +38,10 @@ export abstract class AbstractDatabase implements Database {
             funcs.push(...this.getMatchingFuncImpls(func));
 
             if (funcs.length === 0) {
-                funcs.push(this.searchAlternativeDecl(func));
+                const decl = func.getFile()?.findFuncDecl(func);
+                if (decl) {
+                    funcs.push(decl);
+                }
             }
         } else {
             funcs.push(
@@ -54,7 +49,10 @@ export abstract class AbstractDatabase implements Database {
             );
 
             if (funcs.length === 0) {
-                funcs.push(this.searchAlternativeVirtualDecl(func));
+                const decl = func.getFile()?.findVirtualFuncDecl(func);
+                if (decl) {
+                    funcs.push(decl);
+                }
             }
         }
 

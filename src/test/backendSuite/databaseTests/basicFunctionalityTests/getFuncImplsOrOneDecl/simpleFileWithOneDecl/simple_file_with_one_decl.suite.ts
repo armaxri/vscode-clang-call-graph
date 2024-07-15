@@ -34,6 +34,7 @@ suite("Simple File With One Decl", () => {
                     funcName: "func",
                     funcAstName: "func",
                     qualType: "int",
+                    file: file,
                 });
 
                 const foundMatches =
@@ -72,6 +73,7 @@ suite("Simple File With One Decl", () => {
                     funcAstName: "func",
                     qualType: "int",
                     isVirtual: true,
+                    file: file,
                 });
 
                 const foundMatches =
