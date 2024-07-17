@@ -20,4 +20,8 @@ export class CallHierarchyItem extends vscode.CallHierarchyItem {
 
         this.treeItem = treeItem;
     }
+
+    getTreeItem(): TreeItem {
+        return this.treeItem;
+    }
 }
