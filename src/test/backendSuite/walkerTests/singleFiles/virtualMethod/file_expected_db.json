@@ -3,7 +3,7 @@
   "cppFiles": [
     {
       "name": "/backendSuite/walkerTests/singleFiles/virtualMethod/file.cpp",
-      "lastAnalyzed": 1714318232946,
+      "lastAnalyzed": 1721259928349,
       "classes": [
         {
           "name": "TestClass",
@@ -27,7 +27,24 @@
             }
           ],
           "funcImpls": [],
-          "virtualFuncDecls": [],
+          "virtualFuncDecls": [
+            {
+              "funcName": "sub",
+              "funcAstName": "__ZN9TestClass3subEii",
+              "qualType": "int (int, int)",
+              "range": {
+                "start": {
+                  "line": 4,
+                  "column": 15
+                },
+                "end": {
+                  "line": 4,
+                  "column": 18
+                }
+              },
+              "baseFuncAstName": "__ZN9TestClass3subEii"
+            }
+          ],
           "virtualFuncImpls": [
             {
               "funcName": "add",
@@ -35,12 +52,12 @@
               "qualType": "int (int, int)",
               "range": {
                 "start": {
-                  "line": 4,
-                  "column": 17
+                  "line": 3,
+                  "column": 15
                 },
                 "end": {
-                  "line": 4,
-                  "column": 20
+                  "line": 3,
+                  "column": 18
                 }
               },
               "baseFuncAstName": "__ZN9TestClass3addEii",
@@ -58,11 +75,11 @@
           "qualType": "int (int, char **)",
           "range": {
             "start": {
-              "line": 10,
+              "line": 7,
               "column": 5
             },
             "end": {
-              "line": 10,
+              "line": 7,
               "column": 9
             }
           },
@@ -75,12 +92,28 @@
               "qualType": "int (int, int)",
               "range": {
                 "start": {
-                  "line": 13,
-                  "column": 12
+                  "line": 9,
+                  "column": 10
                 },
                 "end": {
-                  "line": 13,
-                  "column": 26
+                  "line": 9,
+                  "column": 24
+                }
+              }
+            },
+            {
+              "funcName": "sub",
+              "funcAstName": "__ZN9TestClass3subEii",
+              "baseFuncAstName": "__ZN9TestClass3subEii",
+              "qualType": "int (int, int)",
+              "range": {
+                "start": {
+                  "line": 9,
+                  "column": 27
+                },
+                "end": {
+                  "line": 9,
+                  "column": 41
                 }
               }
             }
