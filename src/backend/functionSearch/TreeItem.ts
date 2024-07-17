@@ -35,6 +35,12 @@ export class TreeItem {
     getIncomingCalls(cancellationToken: CancellationToken): TreeItem[] {
         const incomingCalls: TreeItem[] = [];
 
+        this.database.getFuncCallers(this.func).forEach((caller) => {
+            incomingCalls.push(
+                new TreeItem(this.config, this.database, caller)
+            );
+        });
+
         return incomingCalls;
     }
 

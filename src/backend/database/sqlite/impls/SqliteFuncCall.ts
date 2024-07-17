@@ -1,4 +1,4 @@
-import { File, FuncCreationArgs, Range } from "../../cpp_structure";
+import { File, FuncBasics, FuncCreationArgs, Range } from "../../cpp_structure";
 import { AbstractFuncCall } from "../../impls/AbstractFuncCall";
 import { InternalSqliteDatabase } from "../InternalSqliteDatabase";
 import { SqliteFuncImplementation } from "./SqliteFuncImplementation";
@@ -140,6 +140,43 @@ export class SqliteFuncCall extends AbstractFuncCall {
             );
     }
 
+    static getMatchingCalls(
+        internalDb: InternalSqliteDatabase,
+        func: FuncBasics
+    ): SqliteFuncCall[] {
+        return internalDb.db
+            .prepare(
+                `
+            SELECT *
+            FROM func_calls
+            WHERE func_name = @funcName AND func_ast_name = @funcAstName AND qual_type = @qualType
+            `
+            )
+            .all({
+                funcName: func.getFuncName(),
+                funcAstName: func.getFuncAstName(),
+                qualType: func.getQualType(),
+            })
+            .map(
+                (row) =>
+                    new SqliteFuncCall(internalDb, (row as any).id, {
+                        funcName: (row as any).func_name,
+                        funcAstName: (row as any).func_ast_name,
+                        qualType: (row as any).qual_type,
+                        range: {
+                            start: {
+                                line: (row as any).range_start_line,
+                                column: (row as any).range_start_column,
+                            },
+                            end: {
+                                line: (row as any).range_end_line,
+                                column: (row as any).range_end_column,
+                            },
+                        },
+                    })
+            );
+    }
+
     private getImplIds(): [number | null, number | null] {
         const row = this.internal.db
             .prepare(
@@ -148,6 +185,26 @@ export class SqliteFuncCall extends AbstractFuncCall {
             .get(this.id);
 
         return [(row as any).func_impl_id, (row as any).virtual_func_impl_id];
+    }
+
+    getCaller(): FuncBasics | null {
+        const [funcImplId, virtualFuncImplId] = this.getImplIds();
+
+        if (funcImplId !== null) {
+            return SqliteFuncImplementation.getFuncImplById(
+                this.internal,
+                funcImplId
+            );
+        }
+        if (virtualFuncImplId !== null) {
+            return SqliteVirtualFuncImplementation.getVirtualFuncImplById(
+                this.internal,
+                virtualFuncImplId
+            );
+        }
+
+        // istanbul ignore next
+        return null;
     }
 
     getFile(): File | null {

@@ -146,6 +146,20 @@ export class LowdbDatabase extends AbstractDatabase {
         return matchingFuncs;
     }
 
+    getFuncCallers(func: FuncBasics): FuncBasics[] {
+        const callers: FuncBasics[] = [];
+
+        this.getCppFiles().forEach((cppFile) => {
+            callers.push(...(cppFile as LowdbCppFile).getFuncCallers(func));
+        });
+
+        this.getHppFiles().forEach((hppFile) => {
+            callers.push(...(hppFile as LowdbHppFile).getFuncCallers(func));
+        });
+
+        return callers;
+    }
+
     writeDatabase(): void {
         this.database.write();
     }

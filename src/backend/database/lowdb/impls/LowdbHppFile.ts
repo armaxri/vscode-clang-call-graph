@@ -227,4 +227,34 @@ export class LowdbHppFile extends AbstractHppFile {
 
         return matchingFuncs;
     }
+
+    getFuncCallers(func: FuncBasics): FuncBasics[] {
+        const matchingFuncs: FuncBasics[] = [];
+
+        this.getClasses().forEach((cppClass) => {
+            matchingFuncs.push(
+                ...(cppClass as LowdbCppClass).getFuncCallers(func)
+            );
+        });
+
+        this.getFuncImpls().forEach((funcImpl) => {
+            if (
+                (funcImpl as LowdbFuncImplementation).hasMatchingFuncCall(func)
+            ) {
+                matchingFuncs.push(funcImpl);
+            }
+        });
+
+        this.getVirtualFuncImpls().forEach((virtualFuncImpl) => {
+            if (
+                (
+                    virtualFuncImpl as LowdbVirtualFuncImplementation
+                ).hasMatchingFuncCall(func)
+            ) {
+                matchingFuncs.push(virtualFuncImpl);
+            }
+        });
+
+        return matchingFuncs;
+    }
 }
