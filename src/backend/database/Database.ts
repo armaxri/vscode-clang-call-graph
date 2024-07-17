@@ -16,6 +16,7 @@ export interface Database extends Equal {
     removeHppFileAndDependingContent(name: string): void;
 
     getFuncImplsOrOneDecl(func: FuncBasics): FuncBasics[];
+    getFuncCallers(func: FuncBasics): FuncBasics[];
 
     writeDatabase(): void;
     resetDatabase(): void;

@@ -14,6 +14,7 @@
   ],
   "preview": true,
   "main": "./out/extension/extension.js",
+  "preview": true,
   "contributes": {
     "commands": [
       {

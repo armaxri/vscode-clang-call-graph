@@ -59,6 +59,8 @@ export abstract class AbstractDatabase implements Database {
         return funcs;
     }
 
+    abstract getFuncCallers(func: FuncBasics): FuncBasics[];
+
     abstract writeDatabase(): void;
     abstract resetDatabase(): void;
 

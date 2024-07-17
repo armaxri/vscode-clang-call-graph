@@ -8,8 +8,10 @@ import {
 import { AbstractDatabase } from "../impls/AbstractDatabase";
 import { InternalSqliteDatabase } from "./InternalSqliteDatabase";
 import { SqliteCppFile } from "./impls/SqliteCppFile";
+import { SqliteFuncCall } from "./impls/SqliteFuncCall";
 import { SqliteFuncImplementation } from "./impls/SqliteFuncImplementation";
 import { SqliteHppFile } from "./impls/SqliteHppFile";
+import { SqliteVirtualFuncCall } from "./impls/SqliteVirtualFuncCall";
 import { SqliteVirtualFuncImplementation } from "./impls/SqliteVirtualFuncImplementation";
 
 export class SqliteDatabase extends AbstractDatabase {
@@ -85,6 +87,34 @@ export class SqliteDatabase extends AbstractDatabase {
             this.internal,
             func
         );
+    }
+
+    getFuncCallers(func: FuncBasics): FuncBasics[] {
+        const callers: FuncBasics[] = [];
+
+        if (!func.isVirtual()) {
+            SqliteFuncCall.getMatchingCalls(this.internal, func).forEach(
+                (call) => {
+                    const caller = call.getCaller();
+
+                    if (caller) {
+                        callers.push(caller);
+                    }
+                }
+            );
+        } else {
+            SqliteVirtualFuncCall.getMatchingCalls(this.internal, func).forEach(
+                (call) => {
+                    const caller = call.getCaller();
+
+                    if (caller) {
+                        callers.push(caller);
+                    }
+                }
+            );
+        }
+
+        return callers;
     }
 
     writeDatabase(): void {

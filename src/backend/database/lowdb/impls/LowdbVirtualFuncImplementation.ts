@@ -3,6 +3,7 @@ import {
     FuncCall,
     FuncCallCreationArgs,
     Range,
+    VirtualFuncBasics,
     VirtualFuncCall,
     VirtualFuncCallCreationArgs,
 } from "../../cpp_structure";
@@ -104,5 +105,24 @@ export class LowdbVirtualFuncImplementation extends AbstractVirtualFuncImplement
 
     getRange(): Range {
         return this.internal.range;
+    }
+
+    hasMatchingFuncCall(func: FuncCall): boolean {
+        if (!func.isVirtual()) {
+            return this.internal.funcCalls.some(
+                (internalFuncCall) =>
+                    internalFuncCall.funcName === func.getFuncName() &&
+                    internalFuncCall.funcAstName === func.getFuncAstName() &&
+                    internalFuncCall.qualType === func.getQualType()
+            );
+        } else {
+            return this.internal.virtualFuncCalls.some(
+                (internalVirtualFuncCall) =>
+                    internalVirtualFuncCall.funcName === func.getFuncName() &&
+                    internalVirtualFuncCall.baseFuncAstName ===
+                        (func as VirtualFuncBasics).getBaseFuncAstName() &&
+                    internalVirtualFuncCall.qualType === func.getQualType()
+            );
+        }
     }
 }
