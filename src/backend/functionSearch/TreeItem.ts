@@ -35,8 +35,6 @@ export class TreeItem {
     getIncomingCalls(cancellationToken: CancellationToken): TreeItem[] {
         const incomingCalls: TreeItem[] = [];
 
-        throw new Error("Method not implemented.");
-
         return incomingCalls;
     }
 
