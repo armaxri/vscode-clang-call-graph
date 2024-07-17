@@ -22,6 +22,7 @@ export class TreeItem {
     }
 
     isMethod(): boolean {
+        // TODO: This is only a part of the question. Non virtual methods are not covered yet.
         return this.func.isVirtual();
     }
 }
