@@ -2121,8 +2121,8 @@
           "tokLen": 3
         },
         "end": {
-          "offset": 369,
-          "line": 29,
+          "offset": 416,
+          "line": 31,
           "col": 1,
           "tokLen": 1
         }
@@ -2196,8 +2196,8 @@
               "tokLen": 1
             },
             "end": {
-              "offset": 369,
-              "line": 29,
+              "offset": 416,
+              "line": 31,
               "col": 1,
               "tokLen": 1
             }
@@ -2208,14 +2208,14 @@
               "kind": "ReturnStmt",
               "range": {
                 "begin": {
-                  "offset": 267,
-                  "line": 24,
+                  "offset": 291,
+                  "line": 25,
                   "col": 5,
                   "tokLen": 6
                 },
                 "end": {
-                  "offset": 366,
-                  "line": 28,
+                  "offset": 390,
+                  "line": 29,
                   "col": 17,
                   "tokLen": 1
                 }
@@ -2226,14 +2226,14 @@
                   "kind": "BinaryOperator",
                   "range": {
                     "begin": {
-                      "offset": 274,
-                      "line": 24,
+                      "offset": 298,
+                      "line": 25,
                       "col": 12,
                       "tokLen": 4
                     },
                     "end": {
-                      "offset": 366,
-                      "line": 28,
+                      "offset": 390,
+                      "line": 29,
                       "col": 17,
                       "tokLen": 1
                     }
@@ -2249,14 +2249,14 @@
                       "kind": "BinaryOperator",
                       "range": {
                         "begin": {
-                          "offset": 274,
-                          "line": 24,
+                          "offset": 298,
+                          "line": 25,
                           "col": 12,
                           "tokLen": 4
                         },
                         "end": {
-                          "offset": 330,
-                          "line": 26,
+                          "offset": 354,
+                          "line": 27,
                           "col": 18,
                           "tokLen": 1
                         }
@@ -2272,14 +2272,14 @@
                           "kind": "BinaryOperator",
                           "range": {
                             "begin": {
-                              "offset": 274,
-                              "line": 24,
+                              "offset": 298,
+                              "line": 25,
                               "col": 12,
                               "tokLen": 4
                             },
                             "end": {
-                              "offset": 309,
-                              "line": 25,
+                              "offset": 333,
+                              "line": 26,
                               "col": 13,
                               "tokLen": 1
                             }
@@ -2295,13 +2295,13 @@
                               "kind": "CallExpr",
                               "range": {
                                 "begin": {
-                                  "offset": 274,
-                                  "line": 24,
+                                  "offset": 298,
+                                  "line": 25,
                                   "col": 12,
                                   "tokLen": 4
                                 },
                                 "end": {
-                                  "offset": 283,
+                                  "offset": 307,
                                   "col": 21,
                                   "tokLen": 1
                                 }
@@ -2316,12 +2316,12 @@
                                   "kind": "ImplicitCastExpr",
                                   "range": {
                                     "begin": {
-                                      "offset": 274,
+                                      "offset": 298,
                                       "col": 12,
                                       "tokLen": 4
                                     },
                                     "end": {
-                                      "offset": 274,
+                                      "offset": 298,
                                       "col": 12,
                                       "tokLen": 4
                                     }
@@ -2337,12 +2337,12 @@
                                       "kind": "DeclRefExpr",
                                       "range": {
                                         "begin": {
-                                          "offset": 274,
+                                          "offset": 298,
                                           "col": 12,
                                           "tokLen": 4
                                         },
                                         "end": {
-                                          "offset": 274,
+                                          "offset": 298,
                                           "col": 12,
                                           "tokLen": 4
                                         }
@@ -2367,12 +2367,12 @@
                                   "kind": "IntegerLiteral",
                                   "range": {
                                     "begin": {
-                                      "offset": 279,
+                                      "offset": 303,
                                       "col": 17,
                                       "tokLen": 1
                                     },
                                     "end": {
-                                      "offset": 279,
+                                      "offset": 303,
                                       "col": 17,
                                       "tokLen": 1
                                     }
@@ -2388,12 +2388,12 @@
                                   "kind": "IntegerLiteral",
                                   "range": {
                                     "begin": {
-                                      "offset": 282,
+                                      "offset": 306,
                                       "col": 20,
                                       "tokLen": 1
                                     },
                                     "end": {
-                                      "offset": 282,
+                                      "offset": 306,
                                       "col": 20,
                                       "tokLen": 1
                                     }
@@ -2411,13 +2411,13 @@
                               "kind": "CallExpr",
                               "range": {
                                 "begin": {
-                                  "offset": 287,
+                                  "offset": 311,
                                   "col": 25,
                                   "tokLen": 3
                                 },
                                 "end": {
-                                  "offset": 309,
-                                  "line": 25,
+                                  "offset": 333,
+                                  "line": 26,
                                   "col": 13,
                                   "tokLen": 1
                                 }
@@ -2432,13 +2432,13 @@
                                   "kind": "ImplicitCastExpr",
                                   "range": {
                                     "begin": {
-                                      "offset": 287,
-                                      "line": 24,
+                                      "offset": 311,
+                                      "line": 25,
                                       "col": 25,
                                       "tokLen": 3
                                     },
                                     "end": {
-                                      "offset": 292,
+                                      "offset": 316,
                                       "col": 30,
                                       "tokLen": 3
                                     }
@@ -2454,12 +2454,12 @@
                                       "kind": "DeclRefExpr",
                                       "range": {
                                         "begin": {
-                                          "offset": 287,
+                                          "offset": 311,
                                           "col": 25,
                                           "tokLen": 3
                                         },
                                         "end": {
-                                          "offset": 292,
+                                          "offset": 316,
                                           "col": 30,
                                           "tokLen": 3
                                         }
@@ -2484,13 +2484,13 @@
                                   "kind": "IntegerLiteral",
                                   "range": {
                                     "begin": {
-                                      "offset": 305,
-                                      "line": 25,
+                                      "offset": 329,
+                                      "line": 26,
                                       "col": 9,
                                       "tokLen": 1
                                     },
                                     "end": {
-                                      "offset": 305,
+                                      "offset": 329,
                                       "col": 9,
                                       "tokLen": 1
                                     }
@@ -2506,12 +2506,12 @@
                                   "kind": "IntegerLiteral",
                                   "range": {
                                     "begin": {
-                                      "offset": 308,
+                                      "offset": 332,
                                       "col": 12,
                                       "tokLen": 1
                                     },
                                     "end": {
-                                      "offset": 308,
+                                      "offset": 332,
                                       "col": 12,
                                       "tokLen": 1
                                     }
@@ -2531,13 +2531,13 @@
                           "kind": "CallExpr",
                           "range": {
                             "begin": {
-                              "offset": 321,
-                              "line": 26,
+                              "offset": 345,
+                              "line": 27,
                               "col": 9,
                               "tokLen": 3
                             },
                             "end": {
-                              "offset": 330,
+                              "offset": 354,
                               "col": 18,
                               "tokLen": 1
                             }
@@ -2552,12 +2552,12 @@
                               "kind": "ImplicitCastExpr",
                               "range": {
                                 "begin": {
-                                  "offset": 321,
+                                  "offset": 345,
                                   "col": 9,
                                   "tokLen": 3
                                 },
                                 "end": {
-                                  "offset": 321,
+                                  "offset": 345,
                                   "col": 9,
                                   "tokLen": 3
                                 }
@@ -2573,12 +2573,12 @@
                                   "kind": "DeclRefExpr",
                                   "range": {
                                     "begin": {
-                                      "offset": 321,
+                                      "offset": 345,
                                       "col": 9,
                                       "tokLen": 3
                                     },
                                     "end": {
-                                      "offset": 321,
+                                      "offset": 345,
                                       "col": 9,
                                       "tokLen": 3
                                     }
@@ -2603,12 +2603,12 @@
                               "kind": "IntegerLiteral",
                               "range": {
                                 "begin": {
-                                  "offset": 325,
+                                  "offset": 349,
                                   "col": 13,
                                   "tokLen": 1
                                 },
                                 "end": {
-                                  "offset": 325,
+                                  "offset": 349,
                                   "col": 13,
                                   "tokLen": 1
                                 }
@@ -2624,12 +2624,12 @@
                               "kind": "IntegerLiteral",
                               "range": {
                                 "begin": {
-                                  "offset": 328,
+                                  "offset": 352,
                                   "col": 16,
                                   "tokLen": 2
                                 },
                                 "end": {
-                                  "offset": 328,
+                                  "offset": 352,
                                   "col": 16,
                                   "tokLen": 2
                                 }
@@ -2649,14 +2649,14 @@
                       "kind": "CallExpr",
                       "range": {
                         "begin": {
-                          "offset": 342,
-                          "line": 27,
+                          "offset": 366,
+                          "line": 28,
                           "col": 9,
                           "tokLen": 6
                         },
                         "end": {
-                          "offset": 366,
-                          "line": 28,
+                          "offset": 390,
+                          "line": 29,
                           "col": 17,
                           "tokLen": 1
                         }
@@ -2671,13 +2671,13 @@
                           "kind": "ImplicitCastExpr",
                           "range": {
                             "begin": {
-                              "offset": 342,
-                              "line": 27,
+                              "offset": 366,
+                              "line": 28,
                               "col": 9,
                               "tokLen": 6
                             },
                             "end": {
-                              "offset": 342,
+                              "offset": 366,
                               "col": 9,
                               "tokLen": 6
                             }
@@ -2693,12 +2693,12 @@
                               "kind": "DeclRefExpr",
                               "range": {
                                 "begin": {
-                                  "offset": 342,
+                                  "offset": 366,
                                   "col": 9,
                                   "tokLen": 6
                                 },
                                 "end": {
-                                  "offset": 342,
+                                  "offset": 366,
                                   "col": 9,
                                   "tokLen": 6
                                 }
@@ -2723,13 +2723,13 @@
                           "kind": "IntegerLiteral",
                           "range": {
                             "begin": {
-                              "offset": 362,
-                              "line": 28,
+                              "offset": 386,
+                              "line": 29,
                               "col": 13,
                               "tokLen": 1
                             },
                             "end": {
-                              "offset": 362,
+                              "offset": 386,
                               "col": 13,
                               "tokLen": 1
                             }
@@ -2745,12 +2745,12 @@
                           "kind": "IntegerLiteral",
                           "range": {
                             "begin": {
-                              "offset": 365,
+                              "offset": 389,
                               "col": 16,
                               "tokLen": 1
                             },
                             "end": {
-                              "offset": 365,
+                              "offset": 389,
                               "col": 16,
                               "tokLen": 1
                             }

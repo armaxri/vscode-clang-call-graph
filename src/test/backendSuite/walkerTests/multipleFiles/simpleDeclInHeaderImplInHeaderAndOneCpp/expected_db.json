@@ -3,7 +3,7 @@
   "cppFiles": [
     {
       "name": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/main.cpp",
-      "lastAnalyzed": 1720997972189,
+      "lastAnalyzed": 1721330052721,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [
@@ -30,11 +30,11 @@
           "qualType": "int (int, char **)",
           "range": {
             "start": {
-              "line": 5,
+              "line": 8,
               "column": 5
             },
             "end": {
-              "line": 5,
+              "line": 8,
               "column": 9
             }
           },
@@ -45,12 +45,12 @@
               "qualType": "int (int, int)",
               "range": {
                 "start": {
-                  "line": 5,
-                  "column": 43
+                  "line": 10,
+                  "column": 12
                 },
                 "end": {
-                  "line": 5,
-                  "column": 58
+                  "line": 10,
+                  "column": 27
                 }
               }
             }
@@ -64,7 +64,7 @@
   "hppFiles": [
     {
       "name": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/firstHeader.h",
-      "lastAnalyzed": 1720997972188,
+      "lastAnalyzed": 1721330052721,
       "classes": [],
       "funcDecls": [
         {
@@ -92,7 +92,7 @@
     },
     {
       "name": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/secondHeader.h",
-      "lastAnalyzed": 1720997972189,
+      "lastAnalyzed": 1721330052721,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [
@@ -117,12 +117,12 @@
               "qualType": "int (int, int)",
               "range": {
                 "start": {
-                  "line": 3,
-                  "column": 44
+                  "line": 5,
+                  "column": 12
                 },
                 "end": {
-                  "line": 3,
-                  "column": 59
+                  "line": 5,
+                  "column": 27
                 }
               }
             }

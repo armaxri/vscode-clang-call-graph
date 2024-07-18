@@ -3,7 +3,7 @@
   "cppFiles": [
     {
       "name": "/backendSuite/walkerTests/singleFiles/structMethod/file.cpp",
-      "lastAnalyzed": 1714318232943,
+      "lastAnalyzed": 1721330052767,
       "classes": [
         {
           "name": "TestStruct",

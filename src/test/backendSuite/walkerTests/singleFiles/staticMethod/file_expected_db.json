@@ -3,7 +3,7 @@
   "cppFiles": [
     {
       "name": "/backendSuite/walkerTests/singleFiles/staticMethod/file.cpp",
-      "lastAnalyzed": 1714318232939,
+      "lastAnalyzed": 1721330052763,
       "classes": [
         {
           "name": "TestClass",

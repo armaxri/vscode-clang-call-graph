@@ -1472,8 +1472,9 @@
           }
         },
         "end": {
-          "offset": 86,
-          "col": 61,
+          "offset": 90,
+          "line": 6,
+          "col": 1,
           "tokLen": 1,
           "includedFrom": {
             "file": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/main.cpp"
@@ -1492,6 +1493,7 @@
           "kind": "ParmVarDecl",
           "loc": {
             "offset": 44,
+            "line": 3,
             "col": 19,
             "tokLen": 4,
             "includedFrom": {
@@ -1563,15 +1565,17 @@
           "range": {
             "begin": {
               "offset": 60,
-              "col": 35,
+              "line": 4,
+              "col": 1,
               "tokLen": 1,
               "includedFrom": {
                 "file": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/main.cpp"
               }
             },
             "end": {
-              "offset": 86,
-              "col": 61,
+              "offset": 90,
+              "line": 6,
+              "col": 1,
               "tokLen": 1,
               "includedFrom": {
                 "file": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/main.cpp"
@@ -1584,16 +1588,17 @@
               "kind": "ReturnStmt",
               "range": {
                 "begin": {
-                  "offset": 62,
-                  "col": 37,
+                  "offset": 66,
+                  "line": 5,
+                  "col": 5,
                   "tokLen": 6,
                   "includedFrom": {
                     "file": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/main.cpp"
                   }
                 },
                 "end": {
-                  "offset": 83,
-                  "col": 58,
+                  "offset": 87,
+                  "col": 26,
                   "tokLen": 1,
                   "includedFrom": {
                     "file": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/main.cpp"
@@ -1606,16 +1611,16 @@
                   "kind": "CallExpr",
                   "range": {
                     "begin": {
-                      "offset": 69,
-                      "col": 44,
+                      "offset": 73,
+                      "col": 12,
                       "tokLen": 3,
                       "includedFrom": {
                         "file": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/main.cpp"
                       }
                     },
                     "end": {
-                      "offset": 83,
-                      "col": 58,
+                      "offset": 87,
+                      "col": 26,
                       "tokLen": 1,
                       "includedFrom": {
                         "file": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/main.cpp"
@@ -1632,16 +1637,16 @@
                       "kind": "ImplicitCastExpr",
                       "range": {
                         "begin": {
-                          "offset": 69,
-                          "col": 44,
+                          "offset": 73,
+                          "col": 12,
                           "tokLen": 3,
                           "includedFrom": {
                             "file": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/main.cpp"
                           }
                         },
                         "end": {
-                          "offset": 69,
-                          "col": 44,
+                          "offset": 73,
+                          "col": 12,
                           "tokLen": 3,
                           "includedFrom": {
                             "file": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/main.cpp"
@@ -1659,16 +1664,16 @@
                           "kind": "DeclRefExpr",
                           "range": {
                             "begin": {
-                              "offset": 69,
-                              "col": 44,
+                              "offset": 73,
+                              "col": 12,
                               "tokLen": 3,
                               "includedFrom": {
                                 "file": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/main.cpp"
                               }
                             },
                             "end": {
-                              "offset": 69,
-                              "col": 44,
+                              "offset": 73,
+                              "col": 12,
                               "tokLen": 3,
                               "includedFrom": {
                                 "file": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/main.cpp"
@@ -1695,16 +1700,16 @@
                       "kind": "ImplicitCastExpr",
                       "range": {
                         "begin": {
-                          "offset": 73,
-                          "col": 48,
+                          "offset": 77,
+                          "col": 16,
                           "tokLen": 4,
                           "includedFrom": {
                             "file": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/main.cpp"
                           }
                         },
                         "end": {
-                          "offset": 73,
-                          "col": 48,
+                          "offset": 77,
+                          "col": 16,
                           "tokLen": 4,
                           "includedFrom": {
                             "file": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/main.cpp"
@@ -1722,16 +1727,16 @@
                           "kind": "DeclRefExpr",
                           "range": {
                             "begin": {
-                              "offset": 73,
-                              "col": 48,
+                              "offset": 77,
+                              "col": 16,
                               "tokLen": 4,
                               "includedFrom": {
                                 "file": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/main.cpp"
                               }
                             },
                             "end": {
-                              "offset": 73,
-                              "col": 48,
+                              "offset": 77,
+                              "col": 16,
                               "tokLen": 4,
                               "includedFrom": {
                                 "file": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/main.cpp"
@@ -1758,16 +1763,16 @@
                       "kind": "ImplicitCastExpr",
                       "range": {
                         "begin": {
-                          "offset": 79,
-                          "col": 54,
+                          "offset": 83,
+                          "col": 22,
                           "tokLen": 4,
                           "includedFrom": {
                             "file": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/main.cpp"
                           }
                         },
                         "end": {
-                          "offset": 79,
-                          "col": 54,
+                          "offset": 83,
+                          "col": 22,
                           "tokLen": 4,
                           "includedFrom": {
                             "file": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/main.cpp"
@@ -1785,16 +1790,16 @@
                           "kind": "DeclRefExpr",
                           "range": {
                             "begin": {
-                              "offset": 79,
-                              "col": 54,
+                              "offset": 83,
+                              "col": 22,
                               "tokLen": 4,
                               "includedFrom": {
                                 "file": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/main.cpp"
                               }
                             },
                             "end": {
-                              "offset": 79,
-                              "col": 54,
+                              "offset": 83,
+                              "col": 22,
                               "tokLen": 4,
                               "includedFrom": {
                                 "file": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/main.cpp"
@@ -1841,8 +1846,9 @@
           "tokLen": 3
         },
         "end": {
-          "offset": 77,
-          "col": 51,
+          "offset": 81,
+          "line": 6,
+          "col": 1,
           "tokLen": 1
         }
       },
@@ -1859,6 +1865,7 @@
           "kind": "ParmVarDecl",
           "loc": {
             "offset": 39,
+            "line": 3,
             "col": 13,
             "tokLen": 4
           },
@@ -1912,12 +1919,14 @@
           "range": {
             "begin": {
               "offset": 55,
-              "col": 29,
+              "line": 4,
+              "col": 1,
               "tokLen": 1
             },
             "end": {
-              "offset": 77,
-              "col": 51,
+              "offset": 81,
+              "line": 6,
+              "col": 1,
               "tokLen": 1
             }
           },
@@ -1927,13 +1936,14 @@
               "kind": "ReturnStmt",
               "range": {
                 "begin": {
-                  "offset": 57,
-                  "col": 31,
+                  "offset": 61,
+                  "line": 5,
+                  "col": 5,
                   "tokLen": 6
                 },
                 "end": {
-                  "offset": 71,
-                  "col": 45,
+                  "offset": 75,
+                  "col": 19,
                   "tokLen": 4
                 }
               },
@@ -1943,13 +1953,13 @@
                   "kind": "BinaryOperator",
                   "range": {
                     "begin": {
-                      "offset": 64,
-                      "col": 38,
+                      "offset": 68,
+                      "col": 12,
                       "tokLen": 4
                     },
                     "end": {
-                      "offset": 71,
-                      "col": 45,
+                      "offset": 75,
+                      "col": 19,
                       "tokLen": 4
                     }
                   },
@@ -1964,13 +1974,13 @@
                       "kind": "ImplicitCastExpr",
                       "range": {
                         "begin": {
-                          "offset": 64,
-                          "col": 38,
+                          "offset": 68,
+                          "col": 12,
                           "tokLen": 4
                         },
                         "end": {
-                          "offset": 64,
-                          "col": 38,
+                          "offset": 68,
+                          "col": 12,
                           "tokLen": 4
                         }
                       },
@@ -1985,13 +1995,13 @@
                           "kind": "DeclRefExpr",
                           "range": {
                             "begin": {
-                              "offset": 64,
-                              "col": 38,
+                              "offset": 68,
+                              "col": 12,
                               "tokLen": 4
                             },
                             "end": {
-                              "offset": 64,
-                              "col": 38,
+                              "offset": 68,
+                              "col": 12,
                               "tokLen": 4
                             }
                           },
@@ -2015,13 +2025,13 @@
                       "kind": "ImplicitCastExpr",
                       "range": {
                         "begin": {
-                          "offset": 71,
-                          "col": 45,
+                          "offset": 75,
+                          "col": 19,
                           "tokLen": 4
                         },
                         "end": {
-                          "offset": 71,
-                          "col": 45,
+                          "offset": 75,
+                          "col": 19,
                           "tokLen": 4
                         }
                       },
@@ -2036,13 +2046,13 @@
                           "kind": "DeclRefExpr",
                           "range": {
                             "begin": {
-                              "offset": 71,
-                              "col": 45,
+                              "offset": 75,
+                              "col": 19,
                               "tokLen": 4
                             },
                             "end": {
-                              "offset": 71,
-                              "col": 45,
+                              "offset": 75,
+                              "col": 19,
                               "tokLen": 4
                             }
                           },
@@ -2073,20 +2083,21 @@
       "id": "0x000000000000008e",
       "kind": "FunctionDecl",
       "loc": {
-        "offset": 84,
-        "line": 5,
+        "offset": 88,
+        "line": 8,
         "col": 5,
         "tokLen": 4
       },
       "range": {
         "begin": {
-          "offset": 80,
+          "offset": 84,
           "col": 1,
           "tokLen": 3
         },
         "end": {
-          "offset": 139,
-          "col": 60,
+          "offset": 147,
+          "line": 11,
+          "col": 1,
           "tokLen": 1
         }
       },
@@ -2100,18 +2111,19 @@
           "id": "0x000000000000008f",
           "kind": "ParmVarDecl",
           "loc": {
-            "offset": 93,
+            "offset": 97,
+            "line": 8,
             "col": 14,
             "tokLen": 4
           },
           "range": {
             "begin": {
-              "offset": 89,
+              "offset": 93,
               "col": 10,
               "tokLen": 3
             },
             "end": {
-              "offset": 93,
+              "offset": 97,
               "col": 14,
               "tokLen": 4
             }
@@ -2125,18 +2137,18 @@
           "id": "0x0000000000000090",
           "kind": "ParmVarDecl",
           "loc": {
-            "offset": 105,
+            "offset": 109,
             "col": 26,
             "tokLen": 4
           },
           "range": {
             "begin": {
-              "offset": 99,
+              "offset": 103,
               "col": 20,
               "tokLen": 4
             },
             "end": {
-              "offset": 110,
+              "offset": 114,
               "col": 31,
               "tokLen": 1
             }
@@ -2152,13 +2164,15 @@
           "kind": "CompoundStmt",
           "range": {
             "begin": {
-              "offset": 113,
-              "col": 34,
+              "offset": 117,
+              "line": 9,
+              "col": 1,
               "tokLen": 1
             },
             "end": {
-              "offset": 139,
-              "col": 60,
+              "offset": 147,
+              "line": 11,
+              "col": 1,
               "tokLen": 1
             }
           },
@@ -2168,13 +2182,14 @@
               "kind": "ReturnStmt",
               "range": {
                 "begin": {
-                  "offset": 115,
-                  "col": 36,
+                  "offset": 123,
+                  "line": 10,
+                  "col": 5,
                   "tokLen": 6
                 },
                 "end": {
-                  "offset": 136,
-                  "col": 57,
+                  "offset": 144,
+                  "col": 26,
                   "tokLen": 1
                 }
               },
@@ -2184,13 +2199,13 @@
                   "kind": "CallExpr",
                   "range": {
                     "begin": {
-                      "offset": 122,
-                      "col": 43,
+                      "offset": 130,
+                      "col": 12,
                       "tokLen": 9
                     },
                     "end": {
-                      "offset": 136,
-                      "col": 57,
+                      "offset": 144,
+                      "col": 26,
                       "tokLen": 1
                     }
                   },
@@ -2204,13 +2219,13 @@
                       "kind": "ImplicitCastExpr",
                       "range": {
                         "begin": {
-                          "offset": 122,
-                          "col": 43,
+                          "offset": 130,
+                          "col": 12,
                           "tokLen": 9
                         },
                         "end": {
-                          "offset": 122,
-                          "col": 43,
+                          "offset": 130,
+                          "col": 12,
                           "tokLen": 9
                         }
                       },
@@ -2225,13 +2240,13 @@
                           "kind": "DeclRefExpr",
                           "range": {
                             "begin": {
-                              "offset": 122,
-                              "col": 43,
+                              "offset": 130,
+                              "col": 12,
                               "tokLen": 9
                             },
                             "end": {
-                              "offset": 122,
-                              "col": 43,
+                              "offset": 130,
+                              "col": 12,
                               "tokLen": 9
                             }
                           },
@@ -2255,13 +2270,13 @@
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
-                          "offset": 132,
-                          "col": 53,
+                          "offset": 140,
+                          "col": 22,
                           "tokLen": 1
                         },
                         "end": {
-                          "offset": 132,
-                          "col": 53,
+                          "offset": 140,
+                          "col": 22,
                           "tokLen": 1
                         }
                       },
@@ -2276,13 +2291,13 @@
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
-                          "offset": 135,
-                          "col": 56,
+                          "offset": 143,
+                          "col": 25,
                           "tokLen": 1
                         },
                         "end": {
-                          "offset": 135,
-                          "col": 56,
+                          "offset": 143,
+                          "col": 25,
                           "tokLen": 1
                         }
                       },

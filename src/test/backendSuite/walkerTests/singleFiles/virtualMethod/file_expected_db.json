@@ -3,7 +3,7 @@
   "cppFiles": [
     {
       "name": "/backendSuite/walkerTests/singleFiles/virtualMethod/file.cpp",
-      "lastAnalyzed": 1721259928349,
+      "lastAnalyzed": 1721330052770,
       "classes": [
         {
           "name": "TestClass",
@@ -34,12 +34,12 @@
               "qualType": "int (int, int)",
               "range": {
                 "start": {
-                  "line": 4,
-                  "column": 15
+                  "line": 8,
+                  "column": 17
                 },
                 "end": {
-                  "line": 4,
-                  "column": 18
+                  "line": 8,
+                  "column": 20
                 }
               },
               "baseFuncAstName": "__ZN9TestClass3subEii"
@@ -52,12 +52,12 @@
               "qualType": "int (int, int)",
               "range": {
                 "start": {
-                  "line": 3,
-                  "column": 15
+                  "line": 4,
+                  "column": 17
                 },
                 "end": {
-                  "line": 3,
-                  "column": 18
+                  "line": 4,
+                  "column": 20
                 }
               },
               "baseFuncAstName": "__ZN9TestClass3addEii",
@@ -75,11 +75,11 @@
           "qualType": "int (int, char **)",
           "range": {
             "start": {
-              "line": 7,
+              "line": 11,
               "column": 5
             },
             "end": {
-              "line": 7,
+              "line": 11,
               "column": 9
             }
           },
@@ -92,12 +92,12 @@
               "qualType": "int (int, int)",
               "range": {
                 "start": {
-                  "line": 9,
-                  "column": 10
+                  "line": 14,
+                  "column": 12
                 },
                 "end": {
-                  "line": 9,
-                  "column": 24
+                  "line": 14,
+                  "column": 26
                 }
               }
             },
@@ -108,12 +108,12 @@
               "qualType": "int (int, int)",
               "range": {
                 "start": {
-                  "line": 9,
-                  "column": 27
+                  "line": 14,
+                  "column": 29
                 },
                 "end": {
-                  "line": 9,
-                  "column": 41
+                  "line": 14,
+                  "column": 43
                 }
               }
             }

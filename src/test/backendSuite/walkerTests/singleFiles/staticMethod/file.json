@@ -1358,7 +1358,7 @@
           "tokLen": 5
         },
         "end": {
-          "offset": 105,
+          "offset": 107,
           "line": 8,
           "col": 1,
           "tokLen": 1
@@ -1448,20 +1448,20 @@
           "id": "0x0000000000000077",
           "kind": "AccessSpecDecl",
           "loc": {
-            "offset": 18,
+            "offset": 20,
             "line": 3,
-            "col": 1,
+            "col": 3,
             "tokLen": 6
           },
           "range": {
             "begin": {
-              "offset": 18,
-              "col": 1,
+              "offset": 20,
+              "col": 3,
               "tokLen": 6
             },
             "end": {
-              "offset": 24,
-              "col": 7,
+              "offset": 26,
+              "col": 9,
               "tokLen": 1
             }
           },
@@ -1471,19 +1471,19 @@
           "id": "0x0000000000000078",
           "kind": "CXXMethodDecl",
           "loc": {
-            "offset": 41,
+            "offset": 43,
             "line": 4,
             "col": 16,
             "tokLen": 3
           },
           "range": {
             "begin": {
-              "offset": 30,
+              "offset": 32,
               "col": 5,
               "tokLen": 6
             },
             "end": {
-              "offset": 103,
+              "offset": 105,
               "line": 7,
               "col": 5,
               "tokLen": 1
@@ -1501,19 +1501,19 @@
               "id": "0x0000000000000079",
               "kind": "ParmVarDecl",
               "loc": {
-                "offset": 49,
+                "offset": 51,
                 "line": 4,
                 "col": 24,
                 "tokLen": 4
               },
               "range": {
                 "begin": {
-                  "offset": 45,
+                  "offset": 47,
                   "col": 20,
                   "tokLen": 3
                 },
                 "end": {
-                  "offset": 49,
+                  "offset": 51,
                   "col": 24,
                   "tokLen": 4
                 }
@@ -1528,18 +1528,18 @@
               "id": "0x000000000000007a",
               "kind": "ParmVarDecl",
               "loc": {
-                "offset": 59,
+                "offset": 61,
                 "col": 34,
                 "tokLen": 4
               },
               "range": {
                 "begin": {
-                  "offset": 55,
+                  "offset": 57,
                   "col": 30,
                   "tokLen": 3
                 },
                 "end": {
-                  "offset": 59,
+                  "offset": 61,
                   "col": 34,
                   "tokLen": 4
                 }
@@ -1555,13 +1555,13 @@
               "kind": "CompoundStmt",
               "range": {
                 "begin": {
-                  "offset": 69,
+                  "offset": 71,
                   "line": 5,
                   "col": 5,
                   "tokLen": 1
                 },
                 "end": {
-                  "offset": 103,
+                  "offset": 105,
                   "line": 7,
                   "col": 5,
                   "tokLen": 1
@@ -1573,13 +1573,13 @@
                   "kind": "ReturnStmt",
                   "range": {
                     "begin": {
-                      "offset": 79,
+                      "offset": 81,
                       "line": 6,
                       "col": 9,
                       "tokLen": 6
                     },
                     "end": {
-                      "offset": 93,
+                      "offset": 95,
                       "col": 23,
                       "tokLen": 4
                     }
@@ -1590,12 +1590,12 @@
                       "kind": "BinaryOperator",
                       "range": {
                         "begin": {
-                          "offset": 86,
+                          "offset": 88,
                           "col": 16,
                           "tokLen": 4
                         },
                         "end": {
-                          "offset": 93,
+                          "offset": 95,
                           "col": 23,
                           "tokLen": 4
                         }
@@ -1611,12 +1611,12 @@
                           "kind": "ImplicitCastExpr",
                           "range": {
                             "begin": {
-                              "offset": 86,
+                              "offset": 88,
                               "col": 16,
                               "tokLen": 4
                             },
                             "end": {
-                              "offset": 86,
+                              "offset": 88,
                               "col": 16,
                               "tokLen": 4
                             }
@@ -1632,12 +1632,12 @@
                               "kind": "DeclRefExpr",
                               "range": {
                                 "begin": {
-                                  "offset": 86,
+                                  "offset": 88,
                                   "col": 16,
                                   "tokLen": 4
                                 },
                                 "end": {
-                                  "offset": 86,
+                                  "offset": 88,
                                   "col": 16,
                                   "tokLen": 4
                                 }
@@ -1662,12 +1662,12 @@
                           "kind": "ImplicitCastExpr",
                           "range": {
                             "begin": {
-                              "offset": 93,
+                              "offset": 95,
                               "col": 23,
                               "tokLen": 4
                             },
                             "end": {
-                              "offset": 93,
+                              "offset": 95,
                               "col": 23,
                               "tokLen": 4
                             }
@@ -1683,12 +1683,12 @@
                               "kind": "DeclRefExpr",
                               "range": {
                                 "begin": {
-                                  "offset": 93,
+                                  "offset": 95,
                                   "col": 23,
                                   "tokLen": 4
                                 },
                                 "end": {
-                                  "offset": 93,
+                                  "offset": 95,
                                   "col": 23,
                                   "tokLen": 4
                                 }
@@ -1722,19 +1722,19 @@
       "id": "0x0000000000000082",
       "kind": "FunctionDecl",
       "loc": {
-        "offset": 113,
+        "offset": 115,
         "line": 10,
         "col": 5,
         "tokLen": 4
       },
       "range": {
         "begin": {
-          "offset": 109,
+          "offset": 111,
           "col": 1,
           "tokLen": 3
         },
         "end": {
-          "offset": 177,
+          "offset": 179,
           "line": 13,
           "col": 1,
           "tokLen": 1
@@ -1750,19 +1750,19 @@
           "id": "0x0000000000000083",
           "kind": "ParmVarDecl",
           "loc": {
-            "offset": 122,
+            "offset": 124,
             "line": 10,
             "col": 14,
             "tokLen": 4
           },
           "range": {
             "begin": {
-              "offset": 118,
+              "offset": 120,
               "col": 10,
               "tokLen": 3
             },
             "end": {
-              "offset": 122,
+              "offset": 124,
               "col": 14,
               "tokLen": 4
             }
@@ -1776,18 +1776,18 @@
           "id": "0x0000000000000084",
           "kind": "ParmVarDecl",
           "loc": {
-            "offset": 134,
+            "offset": 136,
             "col": 26,
             "tokLen": 4
           },
           "range": {
             "begin": {
-              "offset": 128,
+              "offset": 130,
               "col": 20,
               "tokLen": 4
             },
             "end": {
-              "offset": 139,
+              "offset": 141,
               "col": 31,
               "tokLen": 1
             }
@@ -1803,13 +1803,13 @@
           "kind": "CompoundStmt",
           "range": {
             "begin": {
-              "offset": 142,
+              "offset": 144,
               "line": 11,
               "col": 1,
               "tokLen": 1
             },
             "end": {
-              "offset": 177,
+              "offset": 179,
               "line": 13,
               "col": 1,
               "tokLen": 1
@@ -1821,13 +1821,13 @@
               "kind": "ReturnStmt",
               "range": {
                 "begin": {
-                  "offset": 148,
+                  "offset": 150,
                   "line": 12,
                   "col": 5,
                   "tokLen": 6
                 },
                 "end": {
-                  "offset": 174,
+                  "offset": 176,
                   "col": 31,
                   "tokLen": 1
                 }
@@ -1838,12 +1838,12 @@
                   "kind": "CallExpr",
                   "range": {
                     "begin": {
-                      "offset": 155,
+                      "offset": 157,
                       "col": 12,
                       "tokLen": 9
                     },
                     "end": {
-                      "offset": 174,
+                      "offset": 176,
                       "col": 31,
                       "tokLen": 1
                     }
@@ -1858,12 +1858,12 @@
                       "kind": "ImplicitCastExpr",
                       "range": {
                         "begin": {
-                          "offset": 155,
+                          "offset": 157,
                           "col": 12,
                           "tokLen": 9
                         },
                         "end": {
-                          "offset": 166,
+                          "offset": 168,
                           "col": 23,
                           "tokLen": 3
                         }
@@ -1879,12 +1879,12 @@
                           "kind": "DeclRefExpr",
                           "range": {
                             "begin": {
-                              "offset": 155,
+                              "offset": 157,
                               "col": 12,
                               "tokLen": 9
                             },
                             "end": {
-                              "offset": 166,
+                              "offset": 168,
                               "col": 23,
                               "tokLen": 3
                             }
@@ -1909,12 +1909,12 @@
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
-                          "offset": 170,
+                          "offset": 172,
                           "col": 27,
                           "tokLen": 1
                         },
                         "end": {
-                          "offset": 170,
+                          "offset": 172,
                           "col": 27,
                           "tokLen": 1
                         }
@@ -1930,12 +1930,12 @@
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
-                          "offset": 173,
+                          "offset": 175,
                           "col": 30,
                           "tokLen": 1
                         },
                         "end": {
-                          "offset": 173,
+                          "offset": 175,
                           "col": 30,
                           "tokLen": 1
                         }

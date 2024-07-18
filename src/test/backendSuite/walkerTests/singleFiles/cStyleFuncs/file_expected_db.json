@@ -3,7 +3,7 @@
   "cppFiles": [
     {
       "name": "/backendSuite/walkerTests/singleFiles/cStyleFuncs/file.cpp",
-      "lastAnalyzed": 1714317242704,
+      "lastAnalyzed": 1721330052738,
       "classes": [],
       "funcDecls": [
         {
@@ -108,11 +108,11 @@
               "qualType": "int (int, int)",
               "range": {
                 "start": {
-                  "line": 24,
+                  "line": 25,
                   "column": 12
                 },
                 "end": {
-                  "line": 24,
+                  "line": 25,
                   "column": 22
                 }
               }
@@ -123,11 +123,11 @@
               "qualType": "int (int, int)",
               "range": {
                 "start": {
-                  "line": 24,
+                  "line": 25,
                   "column": 25
                 },
                 "end": {
-                  "line": 25,
+                  "line": 26,
                   "column": 14
                 }
               }
@@ -138,11 +138,11 @@
               "qualType": "int (int, int)",
               "range": {
                 "start": {
-                  "line": 26,
+                  "line": 27,
                   "column": 9
                 },
                 "end": {
-                  "line": 26,
+                  "line": 27,
                   "column": 19
                 }
               }
@@ -153,11 +153,11 @@
               "qualType": "int (int, int)",
               "range": {
                 "start": {
-                  "line": 27,
+                  "line": 28,
                   "column": 9
                 },
                 "end": {
-                  "line": 28,
+                  "line": 29,
                   "column": 18
                 }
               }

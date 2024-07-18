@@ -1466,8 +1466,9 @@
           "tokLen": 3
         },
         "end": {
-          "offset": 74,
-          "col": 54,
+          "offset": 78,
+          "line": 6,
+          "col": 1,
           "tokLen": 1
         }
       },
@@ -1482,6 +1483,7 @@
           "kind": "ParmVarDecl",
           "loc": {
             "offset": 34,
+            "line": 3,
             "col": 14,
             "tokLen": 4
           },
@@ -1534,12 +1536,14 @@
           "range": {
             "begin": {
               "offset": 54,
-              "col": 34,
+              "line": 4,
+              "col": 1,
               "tokLen": 1
             },
             "end": {
-              "offset": 74,
-              "col": 54,
+              "offset": 78,
+              "line": 6,
+              "col": 1,
               "tokLen": 1
             }
           },
@@ -1549,13 +1553,14 @@
               "kind": "ReturnStmt",
               "range": {
                 "begin": {
-                  "offset": 56,
-                  "col": 36,
+                  "offset": 60,
+                  "line": 5,
+                  "col": 5,
                   "tokLen": 6
                 },
                 "end": {
-                  "offset": 71,
-                  "col": 51,
+                  "offset": 75,
+                  "col": 20,
                   "tokLen": 1
                 }
               },
@@ -1565,13 +1570,13 @@
                   "kind": "CallExpr",
                   "range": {
                     "begin": {
-                      "offset": 63,
-                      "col": 43,
+                      "offset": 67,
+                      "col": 12,
                       "tokLen": 3
                     },
                     "end": {
-                      "offset": 71,
-                      "col": 51,
+                      "offset": 75,
+                      "col": 20,
                       "tokLen": 1
                     }
                   },
@@ -1585,13 +1590,13 @@
                       "kind": "ImplicitCastExpr",
                       "range": {
                         "begin": {
-                          "offset": 63,
-                          "col": 43,
+                          "offset": 67,
+                          "col": 12,
                           "tokLen": 3
                         },
                         "end": {
-                          "offset": 63,
-                          "col": 43,
+                          "offset": 67,
+                          "col": 12,
                           "tokLen": 3
                         }
                       },
@@ -1606,13 +1611,13 @@
                           "kind": "DeclRefExpr",
                           "range": {
                             "begin": {
-                              "offset": 63,
-                              "col": 43,
+                              "offset": 67,
+                              "col": 12,
                               "tokLen": 3
                             },
                             "end": {
-                              "offset": 63,
-                              "col": 43,
+                              "offset": 67,
+                              "col": 12,
                               "tokLen": 3
                             }
                           },
@@ -1636,13 +1641,13 @@
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
-                          "offset": 67,
-                          "col": 47,
+                          "offset": 71,
+                          "col": 16,
                           "tokLen": 1
                         },
                         "end": {
-                          "offset": 67,
-                          "col": 47,
+                          "offset": 71,
+                          "col": 16,
                           "tokLen": 1
                         }
                       },
@@ -1657,13 +1662,13 @@
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
-                          "offset": 70,
-                          "col": 50,
+                          "offset": 74,
+                          "col": 19,
                           "tokLen": 1
                         },
                         "end": {
-                          "offset": 70,
-                          "col": 50,
+                          "offset": 74,
+                          "col": 19,
                           "tokLen": 1
                         }
                       },

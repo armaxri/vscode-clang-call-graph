@@ -3,7 +3,7 @@
   "cppFiles": [
     {
       "name": "/backendSuite/walkerTests/singleFiles/inheritedVirtualMethod/file.cpp",
-      "lastAnalyzed": 1714318232931,
+      "lastAnalyzed": 1721330052753,
       "classes": [
         {
           "name": "TestBaseClass",
