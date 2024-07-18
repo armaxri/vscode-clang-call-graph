@@ -58,10 +58,6 @@ export class ClangAstWalker implements AstWalker {
         this.database.writeDatabase();
     }
 
-    getFileName(): string {
-        return this.fileName;
-    }
-
     private analyzeAstElement(astElement: clangAst.AstElement) {
         // The file name and the source line are only mentioned in the first
         // seen element of the file.

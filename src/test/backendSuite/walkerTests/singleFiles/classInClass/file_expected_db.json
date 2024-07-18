@@ -1,0 +1,87 @@
+{
+  "databaseVersion": 1,
+  "cppFiles": [
+    {
+      "name": "/backendSuite/walkerTests/singleFiles/classInClass/file.cpp",
+      "lastAnalyzed": 1714317242704,
+      "classes": [
+        {
+          "name": "OuterTestClass",
+          "parentClasses": [],
+          "classes": [
+            {
+              "name": "InnerTestClass",
+              "parentClasses": [],
+              "classes": [],
+              "funcDecls": [],
+              "funcImpls": [
+                {
+                  "funcName": "add",
+                  "funcAstName": "__ZN14OuterTestClass14InnerTestClass3addEii",
+                  "qualType": "int (int, int)",
+                  "range": {
+                    "start": {
+                      "line": 5,
+                      "column": 9
+                    },
+                    "end": {
+                      "line": 5,
+                      "column": 12
+                    }
+                  },
+                  "funcCalls": [],
+                  "virtualFuncCalls": []
+                }
+              ],
+              "virtualFuncDecls": [],
+              "virtualFuncImpls": []
+            }
+          ],
+          "funcDecls": [],
+          "funcImpls": [],
+          "virtualFuncDecls": [],
+          "virtualFuncImpls": []
+        }
+      ],
+      "funcDecls": [],
+      "funcImpls": [
+        {
+          "funcName": "main",
+          "funcAstName": "_main",
+          "qualType": "int (int, char **)",
+          "range": {
+            "start": {
+              "line": 9,
+              "column": 5
+            },
+            "end": {
+              "line": 9,
+              "column": 9
+            }
+          },
+          "funcCalls": [
+            {
+              "funcName": "add",
+              "funcAstName": "__ZN14OuterTestClass14InnerTestClass3addEii",
+              "qualType": "int (int, int)",
+              "range": {
+                "start": {
+                  "line": 11,
+                  "column": 10
+                },
+                "end": {
+                  "line": 11,
+                  "column": 24
+                }
+              }
+            }
+          ],
+          "virtualFuncCalls": []
+        }
+      ],
+      "virtualFuncDecls": [],
+      "virtualFuncImpls": []
+    }
+  ],
+  "hppFiles": []
+}
