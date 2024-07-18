@@ -1,6 +1,6 @@
-# clang-call-graph README
+# Clang Call Graph
 
-This is the README for your extension "clang-call-graph". After writing up a brief description, we recommend including the following sections.
+**Early Testing Version!** This extension uses LLVM/Clang to create an extensive call graph out of your project.
 
 ## Features
 
@@ -14,7 +14,7 @@ For example if there is an image subfolder under your extension project workspac
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+Your development environment is all you need. No additional downloads are required.
 
 ## Extension Settings
 
@@ -24,48 +24,18 @@ For example:
 
 This extension contributes the following settings:
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+-   `myExtension.enable`: Enable/disable this extension.
+-   `myExtension.thing`: Set to `blah` to do something.
 
 ## Known Issues
 
-* For the detection of the function name, the whole range is used from the beginning of the first character to the closing bracket and not just the function name part. This comes from a limitation of clang´s AST. On the function call `foo::add(4, 4)` clang will report as location for the function start only the namespace `foo`.
+-   [Only clang compiler commands are supported:](https://github.com/armaxri/vscode-clang-call-graph/issues/2) The extension only supports clang compiler commands. This is due to the fact that the extension uses clang´s AST to generate the call graph. Other compilers like gcc or msvc do not provide the necessary information in the AST.
+-   [Location exceeds the actual function name:](https://github.com/armaxri/vscode-clang-call-graph/issues/1) For the detection of the function name, the whole range is used from the beginning of the first character to the closing bracket and not just the function name part. This comes from a limitation of clang´s AST. On the function call `foo::add(4, 4)` clang will report as location for the function start only the namespace `foo`.
 
 ## Release Notes
 
 Users appreciate release notes as you update your extension.
 
-### 1.0.0
+### 0.0.1
 
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Initial release of Clang Call Graph extension.
