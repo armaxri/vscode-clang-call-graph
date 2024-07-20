@@ -78,29 +78,37 @@ export class ClangAstWalker implements AstWalker {
         // Therefore we need to cache the value.
         this.handleLocAndRange(astElement);
 
-        if (astElement.kind === "CXXRecordDecl") {
-            this.handleClassDecl(astElement);
-        } else if (
-            astElement.kind === "FunctionDecl" ||
-            astElement.kind === "CXXMethodDecl"
-        ) {
-            this.handleFunctionDecl(astElement);
-        } else {
-            if (
-                astElement.kind === "CallExpr" ||
-                astElement.kind === "CXXMemberCallExpr"
-            ) {
-                this.updateLastCallExprLocation(astElement);
-            } else if (
-                astElement.kind === "DeclRefExpr" ||
-                astElement.kind === "MemberExpr"
-            ) {
-                this.handleExprStmt(astElement);
-            }
-
+        if (this.currentlyAnalyzedFile === undefined) {
             if (astElement.inner) {
                 for (const newAstElement of astElement.inner) {
                     this.analyzeAstElement(newAstElement);
+                }
+            }
+        } else {
+            if (astElement.kind === "CXXRecordDecl") {
+                this.handleClassDecl(astElement);
+            } else if (
+                astElement.kind === "FunctionDecl" ||
+                astElement.kind === "CXXMethodDecl"
+            ) {
+                this.handleFunctionDecl(astElement);
+            } else {
+                if (
+                    astElement.kind === "CallExpr" ||
+                    astElement.kind === "CXXMemberCallExpr"
+                ) {
+                    this.updateLastCallExprLocation(astElement);
+                } else if (
+                    astElement.kind === "DeclRefExpr" ||
+                    astElement.kind === "MemberExpr"
+                ) {
+                    this.handleExprStmt(astElement);
+                }
+
+                if (astElement.inner) {
+                    for (const newAstElement of astElement.inner) {
+                        this.analyzeAstElement(newAstElement);
+                    }
                 }
             }
         }
