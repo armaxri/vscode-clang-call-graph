@@ -3,33 +3,37 @@
 // Hover to view descriptions of existing attributes.
 // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
 {
-	"version": "0.2.0",
-	"configurations": [
-		{
-			"name": "Run Extension on Walker Tests Suit 00",
-			"type": "extensionHost",
-			"request": "launch",
-			"args": [
-				"--extensionDevelopmentPath=${workspaceFolder}",
-                "${workspaceFolder}/src/test/suite/walkerTests/suit00"
-			],
-			"outFiles": [
-				"${workspaceFolder}/out/**/*.js"
-			],
-			"preLaunchTask": "${defaultBuildTask}"
-		},
-		{
-			"name": "Extension Tests",
-			"type": "extensionHost",
-			"request": "launch",
-			"args": [
-				"--extensionDevelopmentPath=${workspaceFolder}",
-				"--extensionTestsPath=${workspaceFolder}/out/test/extensionSuite/index"
-			],
-			"outFiles": [
-				"${workspaceFolder}/out/test/**/*.js"
-			],
-			"preLaunchTask": "${defaultBuildTask}"
-		}
-	]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Extension on Walker Tests Suit 00",
+      "type": "extensionHost",
+      "request": "launch",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}",
+        "${workspaceFolder}/src/test/suite/walkerTests/suit00"
+      ],
+      "outFiles": ["${workspaceFolder}/out/**/*.js"],
+      "preLaunchTask": "${defaultBuildTask}"
+    },
+    {
+      "name": "Extension Tests",
+      "type": "extensionHost",
+      "request": "launch",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}",
+        "--extensionTestsPath=${workspaceFolder}/out/test/extensionSuite/index"
+      ],
+      "outFiles": ["${workspaceFolder}/out/test/**/*.js"],
+      "preLaunchTask": "${defaultBuildTask}"
+    },
+    {
+      "name": "Debug Python Helper",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/create_clang_json.py",
+      "args": ["-u", "-a"],
+      "console": "integratedTerminal"
+    }
+  ]
 }

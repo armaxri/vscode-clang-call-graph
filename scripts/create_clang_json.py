@@ -63,25 +63,28 @@ def adjust_id_lines(json_lines):
     """Adjust the ids of the json file."""
     new_lines = []
     known_ids = {}
-    current_id = 0
+
+    def get_known_id(old_id):
+        if old_id not in known_ids.keys():
+            known_ids[old_id] = known_ids.__len__() + 1
+        return known_ids[old_id]
+
     for line in json_lines:
         if '  "id": "' in line:
             left_string, old_id, end_char = split_json_line(line)
-            if old_id not in known_ids.keys():
-                current_id += 1
-                used_id = current_id
-                known_ids[old_id] = current_id
-            else:
-                used_id = known_ids[old_id]
             new_lines.append(
-                left_string + '": "0x' + format(used_id, f"0{16}x") + '"' + end_char
+                left_string
+                + '": "0x'
+                + format(get_known_id(old_id), f"0{16}x")
+                + '"'
+                + end_char
             )
         elif '  "previousDecl": "' in line:
             left_string, old_id, end_char = split_json_line(line)
             new_lines.append(
                 left_string
                 + '": "0x'
-                + format(known_ids[old_id], f"0{16}x")
+                + format(get_known_id(old_id), f"0{16}x")
                 + '"'
                 + end_char
             )
@@ -90,7 +93,7 @@ def adjust_id_lines(json_lines):
             new_lines.append(
                 left_string
                 + '": "0x'
-                + format(known_ids[old_id], f"0{16}x")
+                + format(get_known_id(old_id), f"0{16}x")
                 + '"'
                 + end_char
             )
