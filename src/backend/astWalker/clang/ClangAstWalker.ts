@@ -55,9 +55,7 @@ export class ClangAstWalker implements AstWalker {
         try {
             if (this.baseAstElement.kind !== "TranslationUnitDecl") {
                 console.error(
-                    `Expected TranslationUnitDecl, got "${
-                        this.baseAstElement.kind
-                    }" as first element in file "${this.getFileName()}".`
+                    `Expected TranslationUnitDecl, got "${this.baseAstElement.kind}" as first element in file "${this.fileName}".`
                 );
                 // TODO: Report to user an internal error.
                 return;
@@ -68,7 +66,7 @@ export class ClangAstWalker implements AstWalker {
             this.database.writeDatabase();
         } catch (error) {
             console.error(
-                `Internal error during analysis of file "${this.getFileName()}": ${error}`
+                `Internal error during analysis of file "${this.fileName}": ${error}`
             );
             // TODO: Report to user an internal error.
         }
