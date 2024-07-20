@@ -1,6 +1,6 @@
-import { CppFile, Equal, FuncBasics, HppFile } from "./cpp_structure";
+import { File, CppFile, Equal, FuncBasics, HppFile } from "./cpp_structure";
 
-export { CppFile, Equal, HppFile };
+export { File, CppFile, Equal, HppFile };
 
 export interface Database extends Equal {
     getCppFiles(): CppFile[];
