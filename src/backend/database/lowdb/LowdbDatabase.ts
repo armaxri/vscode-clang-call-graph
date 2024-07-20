@@ -9,6 +9,7 @@ import {
 import { LowdbCppFile } from "./impls/LowdbCppFile";
 import { LowdbHppFile } from "./impls/LowdbHppFile";
 import { AbstractDatabase } from "../impls/AbstractDatabase";
+import { FuncBasics, VirtualFuncBasics } from "../cpp_structure";
 
 export class LowdbDatabase extends AbstractDatabase {
     private adapter!: JSONFileSync<LowdbInternalDatabase>;
@@ -26,12 +27,16 @@ export class LowdbDatabase extends AbstractDatabase {
         });
     }
 
-    hasCppFile(name: string): boolean {
-        return (
-            this.database.data.cppFiles.find(
-                (cppFile) => cppFile.name === name
-            ) !== undefined
+    getCppFile(name: string): db.CppFile | null {
+        var file = this.database.data.cppFiles.find(
+            (cppFile) => cppFile.name === name
         );
+
+        if (!file) {
+            return null;
+        }
+
+        return new LowdbCppFile(this.database, file);
     }
 
     getOrAddCppFile(name: string): db.CppFile {
@@ -66,12 +71,16 @@ export class LowdbDatabase extends AbstractDatabase {
         });
     }
 
-    hasHppFile(name: string): boolean {
-        return (
-            this.database.data.hppFiles.find(
-                (hppFile) => hppFile.name === name
-            ) !== undefined
+    getHppFile(name: string): db.HppFile | null {
+        var file = this.database.data.hppFiles.find(
+            (hppFile) => hppFile.name === name
         );
+
+        if (!file) {
+            return null;
+        }
+
+        return new LowdbHppFile(this.database, file);
     }
 
     getOrAddHppFile(name: string): db.HppFile {
@@ -87,7 +96,7 @@ export class LowdbDatabase extends AbstractDatabase {
                 funcDecls: [],
                 funcImpls: [],
                 virtualFuncImpls: [],
-                referencedFromCppFiles: [],
+                referencedFromFiles: [],
             };
             this.database.data.hppFiles.push(file);
         }
@@ -99,6 +108,56 @@ export class LowdbDatabase extends AbstractDatabase {
         this.database.data.hppFiles = this.database.data.hppFiles.filter(
             (hppFile) => hppFile.name !== name
         );
+    }
+
+    getMatchingFuncImpls(func: FuncBasics): FuncBasics[] {
+        const matchingFuncs: FuncBasics[] = [];
+
+        this.getCppFiles().forEach((cppFile) => {
+            matchingFuncs.push(
+                ...(cppFile as LowdbCppFile).getMatchingFuncImpls(func)
+            );
+        });
+
+        this.getHppFiles().forEach((hppFile) => {
+            matchingFuncs.push(
+                ...(hppFile as LowdbHppFile).getMatchingFuncImpls(func)
+            );
+        });
+
+        return matchingFuncs;
+    }
+
+    getMatchingVirtualFuncImpls(func: VirtualFuncBasics): VirtualFuncBasics[] {
+        const matchingFuncs: VirtualFuncBasics[] = [];
+
+        this.getCppFiles().forEach((cppFile) => {
+            matchingFuncs.push(
+                ...(cppFile as LowdbCppFile).getMatchingVirtualFuncImpls(func)
+            );
+        });
+
+        this.getHppFiles().forEach((hppFile) => {
+            matchingFuncs.push(
+                ...(hppFile as LowdbHppFile).getMatchingVirtualFuncImpls(func)
+            );
+        });
+
+        return matchingFuncs;
+    }
+
+    getFuncCallers(func: FuncBasics): FuncBasics[] {
+        const callers: FuncBasics[] = [];
+
+        this.getCppFiles().forEach((cppFile) => {
+            callers.push(...(cppFile as LowdbCppFile).getFuncCallers(func));
+        });
+
+        this.getHppFiles().forEach((hppFile) => {
+            callers.push(...(hppFile as LowdbHppFile).getFuncCallers(func));
+        });
+
+        return callers;
     }
 
     writeDatabase(): void {

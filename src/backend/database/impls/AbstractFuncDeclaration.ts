@@ -1,6 +1,8 @@
 import {
+    File,
     FuncCreationArgs,
     FuncDeclaration,
+    FuncType,
     Location,
     Range,
     rangeIsEqual,
@@ -12,6 +14,8 @@ export abstract class AbstractFuncDeclaration implements FuncDeclaration {
     abstract getFuncAstName(): string;
     abstract getQualType(): string;
     abstract getRange(): Range;
+
+    abstract getFile(): File | null;
 
     equals(otherInput: any): boolean {
         const other = otherInput as FuncDeclaration;
@@ -47,5 +51,13 @@ export abstract class AbstractFuncDeclaration implements FuncDeclaration {
 
     matchesLocation(location: Location): boolean {
         return isLocationWithinRange(location, this.getRange());
+    }
+
+    getFuncType(): FuncType {
+        return FuncType.declaration;
+    }
+
+    isVirtual(): boolean {
+        return false;
     }
 }

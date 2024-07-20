@@ -5,6 +5,8 @@ import {
     VirtualFuncCall,
     VirtualFuncCallCreationArgs,
     VirtualFuncCreationArgs,
+    File,
+    VirtualFuncBasics,
 } from "../../cpp_structure";
 import {
     funcCallArgs2FuncArgs,
@@ -12,7 +14,10 @@ import {
 } from "../../helper/func_creation_args_converter";
 import { AbstractVirtualFuncImplementation } from "../../impls/AbstractVirtualFuncImplementation";
 import { InternalSqliteDatabase } from "../InternalSqliteDatabase";
+import { SqliteCppClass } from "./SqliteCppClass";
+import { SqliteCppFile } from "./SqliteCppFile";
 import { SqliteFuncCall } from "./SqliteFuncCall";
+import { SqliteHppFile } from "./SqliteHppFile";
 import { SqliteVirtualFuncCall } from "./SqliteVirtualFuncCall";
 
 export class SqliteVirtualFuncImplementation extends AbstractVirtualFuncImplementation {
@@ -116,6 +121,42 @@ export class SqliteVirtualFuncImplementation extends AbstractVirtualFuncImplemen
         return new SqliteVirtualFuncImplementation(internalDb, funcId, args);
     }
 
+    static getVirtualFuncImplById(
+        internalDb: InternalSqliteDatabase,
+        id: number
+    ): SqliteVirtualFuncImplementation | null {
+        const row = internalDb.db
+            .prepare(
+                `
+            SELECT * FROM virtual_func_implementations
+            WHERE id = @id
+        `
+            )
+            .get({ id });
+
+        // istanbul ignore next
+        if (row === undefined) {
+            return null;
+        }
+
+        return new SqliteVirtualFuncImplementation(internalDb, id, {
+            baseFuncAstName: (row as any).base_func_ast_name,
+            funcName: (row as any).func_name,
+            funcAstName: (row as any).func_ast_name,
+            qualType: (row as any).qual_type,
+            range: {
+                start: {
+                    line: (row as any).range_start_line,
+                    column: (row as any).range_start_column,
+                },
+                end: {
+                    line: (row as any).range_end_line,
+                    column: (row as any).range_end_column,
+                },
+            },
+        });
+    }
+
     static getVirtualFuncImpls(
         internalDb: InternalSqliteDatabase,
         parent: {
@@ -165,6 +206,94 @@ export class SqliteVirtualFuncImplementation extends AbstractVirtualFuncImplemen
         }
 
         return virtualFuncImpls;
+    }
+
+    static getMatchingVirtualFuncImpls(
+        internalDb: InternalSqliteDatabase,
+        func: VirtualFuncBasics
+    ): SqliteVirtualFuncImplementation[] {
+        const funcImpls: SqliteVirtualFuncImplementation[] = [];
+
+        internalDb.db
+            .prepare(
+                "SELECT * FROM virtual_func_implementations WHERE func_name=(?) AND base_func_ast_name=(?) AND qual_type=(?)"
+            )
+            .all(
+                func.getFuncName(),
+                func.getBaseFuncAstName(),
+                func.getQualType()
+            )
+            .forEach((row) => {
+                const funcImpl = new SqliteVirtualFuncImplementation(
+                    internalDb,
+                    (row as any).id,
+                    {
+                        baseFuncAstName: (row as any).base_func_ast_name,
+                        funcName: (row as any).func_name,
+                        funcAstName: (row as any).func_ast_name,
+                        qualType: (row as any).qual_type,
+                        range: {
+                            start: {
+                                line: (row as any).range_start_line,
+                                column: (row as any).range_start_column,
+                            },
+                            end: {
+                                line: (row as any).range_end_line,
+                                column: (row as any).range_end_column,
+                            },
+                        },
+                    }
+                );
+
+                funcImpls.push(funcImpl);
+            });
+
+        return funcImpls;
+    }
+
+    private getCppHppFileAndCppClassIds(): [
+        number | null,
+        number | null,
+        number | null
+    ] {
+        const row = this.internal.db
+            .prepare(
+                "SELECT cpp_file_id, hpp_file_id, cpp_class_id FROM virtual_func_implementations WHERE id=(?)"
+            )
+            .get(this.id);
+
+        return [
+            (row as any).cpp_file_id,
+            (row as any).hpp_file_id,
+            (row as any).cpp_class_id,
+        ];
+    }
+
+    getFile(): File | null {
+        const [cppFileId, hppFileId, cppClassId] =
+            this.getCppHppFileAndCppClassIds();
+
+        if (cppFileId !== null) {
+            return SqliteCppFile.getCppFileById(this.internal, cppFileId);
+        }
+
+        if (hppFileId !== null) {
+            return SqliteHppFile.getHppFileById(this.internal, hppFileId);
+        }
+
+        if (cppClassId !== null) {
+            const cppClass = SqliteCppClass.getCppClassById(
+                this.internal,
+                cppClassId
+            );
+
+            if (cppClass !== null) {
+                return cppClass.getFile();
+            }
+        }
+
+        // istanbul ignore next
+        return null;
     }
 
     removeAndChildren(): void {

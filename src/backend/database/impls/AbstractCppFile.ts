@@ -1,12 +1,12 @@
 import {
     CppClass,
     CppFile,
+    File,
     FuncBasics,
     FuncCreationArgs,
     FuncDeclaration,
     FuncImplementation,
     Location,
-    Ranged,
     VirtualFuncCreationArgs,
     VirtualFuncImplementation,
 } from "../cpp_structure";
@@ -15,6 +15,8 @@ import { getMatchingFuncs } from "../helper/location_helper";
 
 export abstract class AbstractCppFile implements CppFile {
     abstract getName(): string;
+
+    abstract getIncludes(): File[];
 
     abstract getLastAnalyzed(): number;
     abstract justAnalyzed(): void;
@@ -71,6 +73,67 @@ export abstract class AbstractCppFile implements CppFile {
         return this.addVirtualFuncImpl(args);
     }
 
+    findFuncDecl(func: FuncBasics): FuncBasics | null {
+        var finding = this.getFuncDecls().find(
+            (funcDecl) =>
+                funcDecl.getFuncAstName() === func.getFuncAstName() &&
+                funcDecl.getFuncName() === func.getFuncName() &&
+                funcDecl.getQualType() === func.getQualType()
+        );
+
+        if (finding) {
+            return finding;
+        }
+
+        this.getClasses().forEach((element) => {
+            const match = element.findFuncDecl(func);
+            if (match) {
+                finding = match;
+                return;
+            }
+        });
+
+        if (finding) {
+            return finding;
+        }
+
+        this.getIncludes().forEach((element) => {
+            const match = element.findFuncDecl(func);
+            if (match) {
+                finding = match;
+                return;
+            }
+        });
+
+        return finding ? finding : null;
+    }
+
+    findVirtualFuncDecl(func: FuncBasics): FuncBasics | null {
+        var finding: FuncBasics | undefined = undefined;
+
+        this.getClasses().forEach((element) => {
+            const match = element.findVirtualFuncDecl(func);
+            if (match) {
+                finding = match;
+                return;
+            }
+        });
+
+        if (finding) {
+            return finding;
+        }
+
+        this.getIncludes().forEach((element) => {
+            const match = element.findVirtualFuncDecl(func);
+            if (match) {
+                finding = match;
+                return;
+            }
+        });
+
+        return finding ? finding : null;
+    }
+
     equals(otherInput: any): boolean {
         const other = otherInput as CppFile;
 
@@ -99,7 +162,7 @@ export abstract class AbstractCppFile implements CppFile {
         );
     }
 
-    getMatchingFuncs(location: Location): Ranged[] {
+    getMatchingFuncs(location: Location): FuncBasics[] {
         return getMatchingFuncs(location, this);
     }
 }

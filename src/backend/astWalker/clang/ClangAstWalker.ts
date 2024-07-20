@@ -74,10 +74,6 @@ export class ClangAstWalker implements AstWalker {
         }
     }
 
-    getFileName(): string {
-        return this.fileName;
-    }
-
     private analyzeAstElement(astElement: clangAst.AstElement) {
         // The file name and the source line are only mentioned in the first
         // seen element of the file.
@@ -127,7 +123,16 @@ export class ClangAstWalker implements AstWalker {
 
                 (
                     this.currentlyAnalyzedFile as db.HppFile
-                ).addReferencedFromCppFile(this.fileName);
+                ).addReferencedFromFile(this.fileName);
+
+                if (
+                    astElement.loc.includedFrom &&
+                    astElement.loc.includedFrom.file
+                ) {
+                    (
+                        this.currentlyAnalyzedFile as db.HppFile
+                    ).addReferencedFromFile(astElement.loc.includedFrom.file);
+                }
             }
         }
         if (astElement.loc && astElement.loc.line) {

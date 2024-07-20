@@ -6,6 +6,7 @@ import { CallHierarchyProvider } from "./CallHierarchyProvider";
 import { ClangAstWalkerFactory } from "../backend/astWalker/clang/ClangAstWalkerFactory";
 import { Database } from "../backend/database/Database";
 import { createDatabase } from "../backend/database/helper/database_factory";
+import { BaseRequestHandler } from "../backend/functionSearch/BaseRequestHandler";
 
 let callGraphDatabase: Database;
 let callGraphParser: ClangFilesystemWatcher;
@@ -19,11 +20,17 @@ export async function activate(context: vscode.ExtensionContext) {
 
     let config = new VscodeConfig();
     let database = createDatabase(config);
+    let userInterface = new VscodeUserInterface();
     callGraphParser = new ClangFilesystemWatcher(
         config,
-        new VscodeUserInterface(),
+        userInterface,
         new ClangAstWalkerFactory(),
         database
+    );
+    let requestHandler = new BaseRequestHandler(
+        config,
+        database,
+        userInterface
     );
 
     context.subscriptions.push(
@@ -53,12 +60,12 @@ export async function activate(context: vscode.ExtensionContext) {
         )
     );
 
-    //    const disposableCallHierarchyProvider =
-    //        vscode.languages.registerCallHierarchyProvider(
-    //            ["c", "cpp"],
-    //            new ClangCallHierarchyProvider()
-    //        );
-    //    context.subscriptions.push(disposableCallHierarchyProvider);
+    const disposableCallHierarchyProvider =
+        vscode.languages.registerCallHierarchyProvider(
+            ["c", "cpp"],
+            new CallHierarchyProvider(requestHandler)
+        );
+    context.subscriptions.push(disposableCallHierarchyProvider);
 }
 
 // This method is called when your extension is deactivated

@@ -1465,8 +1465,9 @@
           "tokLen": 3
         },
         "end": {
-          "offset": 71,
-          "col": 51,
+          "offset": 75,
+          "line": 6,
+          "col": 1,
           "tokLen": 1
         }
       },
@@ -1482,6 +1483,7 @@
           "kind": "ParmVarDecl",
           "loc": {
             "offset": 33,
+            "line": 3,
             "col": 13,
             "tokLen": 4
           },
@@ -1535,12 +1537,14 @@
           "range": {
             "begin": {
               "offset": 49,
-              "col": 29,
+              "line": 4,
+              "col": 1,
               "tokLen": 1
             },
             "end": {
-              "offset": 71,
-              "col": 51,
+              "offset": 75,
+              "line": 6,
+              "col": 1,
               "tokLen": 1
             }
           },
@@ -1550,13 +1554,14 @@
               "kind": "ReturnStmt",
               "range": {
                 "begin": {
-                  "offset": 51,
-                  "col": 31,
+                  "offset": 55,
+                  "line": 5,
+                  "col": 5,
                   "tokLen": 6
                 },
                 "end": {
-                  "offset": 65,
-                  "col": 45,
+                  "offset": 69,
+                  "col": 19,
                   "tokLen": 4
                 }
               },
@@ -1566,13 +1571,13 @@
                   "kind": "BinaryOperator",
                   "range": {
                     "begin": {
-                      "offset": 58,
-                      "col": 38,
+                      "offset": 62,
+                      "col": 12,
                       "tokLen": 4
                     },
                     "end": {
-                      "offset": 65,
-                      "col": 45,
+                      "offset": 69,
+                      "col": 19,
                       "tokLen": 4
                     }
                   },
@@ -1587,13 +1592,13 @@
                       "kind": "ImplicitCastExpr",
                       "range": {
                         "begin": {
-                          "offset": 58,
-                          "col": 38,
+                          "offset": 62,
+                          "col": 12,
                           "tokLen": 4
                         },
                         "end": {
-                          "offset": 58,
-                          "col": 38,
+                          "offset": 62,
+                          "col": 12,
                           "tokLen": 4
                         }
                       },
@@ -1608,13 +1613,13 @@
                           "kind": "DeclRefExpr",
                           "range": {
                             "begin": {
-                              "offset": 58,
-                              "col": 38,
+                              "offset": 62,
+                              "col": 12,
                               "tokLen": 4
                             },
                             "end": {
-                              "offset": 58,
-                              "col": 38,
+                              "offset": 62,
+                              "col": 12,
                               "tokLen": 4
                             }
                           },
@@ -1638,13 +1643,13 @@
                       "kind": "ImplicitCastExpr",
                       "range": {
                         "begin": {
-                          "offset": 65,
-                          "col": 45,
+                          "offset": 69,
+                          "col": 19,
                           "tokLen": 4
                         },
                         "end": {
-                          "offset": 65,
-                          "col": 45,
+                          "offset": 69,
+                          "col": 19,
                           "tokLen": 4
                         }
                       },
@@ -1659,13 +1664,13 @@
                           "kind": "DeclRefExpr",
                           "range": {
                             "begin": {
-                              "offset": 65,
-                              "col": 45,
+                              "offset": 69,
+                              "col": 19,
                               "tokLen": 4
                             },
                             "end": {
-                              "offset": 65,
-                              "col": 45,
+                              "offset": 69,
+                              "col": 19,
                               "tokLen": 4
                             }
                           },

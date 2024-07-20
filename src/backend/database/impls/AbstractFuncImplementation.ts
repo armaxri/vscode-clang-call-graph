@@ -1,11 +1,13 @@
 import {
+    File,
+    FuncBasics,
     FuncCall,
     FuncCallCreationArgs,
     FuncCreationArgs,
     FuncImplementation,
+    FuncType,
     Location,
     Range,
-    Ranged,
     VirtualFuncCall,
     VirtualFuncCallCreationArgs,
     rangeIsEqual,
@@ -21,6 +23,8 @@ export abstract class AbstractFuncImplementation implements FuncImplementation {
     abstract getFuncAstName(): string;
     abstract getQualType(): string;
     abstract getRange(): Range;
+
+    abstract getFile(): File | null;
 
     abstract getFuncCalls(): FuncCall[];
     abstract addFuncCall(funcCall: FuncCallCreationArgs): FuncCall;
@@ -98,7 +102,15 @@ export abstract class AbstractFuncImplementation implements FuncImplementation {
         return isLocationWithinRange(location, this.getRange());
     }
 
-    getMatchingFuncs(location: Location): Ranged[] {
+    getMatchingFuncs(location: Location): FuncBasics[] {
         return getMatchingFuncsInImpls(location, this);
+    }
+
+    getFuncType(): FuncType {
+        return FuncType.implementation;
+    }
+
+    isVirtual(): boolean {
+        return false;
     }
 }

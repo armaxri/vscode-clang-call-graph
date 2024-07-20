@@ -9,7 +9,7 @@
       "funcDecls": [],
       "funcImpls": [],
       "virtualFuncImpls": [],
-      "referencedFromCppFiles": []
+      "referencedFromFiles": []
     },
     {
       "name": "FooFile.h",
@@ -18,7 +18,7 @@
       "funcDecls": [],
       "funcImpls": [],
       "virtualFuncImpls": [],
-      "referencedFromCppFiles": []
+      "referencedFromFiles": []
     },
     {
       "name": "BarFile.h",
@@ -27,7 +27,7 @@
       "funcDecls": [],
       "funcImpls": [],
       "virtualFuncImpls": [],
-      "referencedFromCppFiles": []
+      "referencedFromFiles": []
     }
   ]
 }

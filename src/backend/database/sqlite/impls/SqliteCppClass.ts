@@ -6,11 +6,14 @@ import {
     VirtualFuncDeclaration,
     VirtualFuncCreationArgs,
     VirtualFuncImplementation,
+    File,
 } from "../../cpp_structure";
 import { AbstractCppClass } from "../../impls/AbstractCppClass";
 import { InternalSqliteDatabase } from "../InternalSqliteDatabase";
+import { SqliteCppFile } from "./SqliteCppFile";
 import { SqliteFuncDeclaration } from "./SqliteFuncDeclaration";
 import { SqliteFuncImplementation } from "./SqliteFuncImplementation";
+import { SqliteHppFile } from "./SqliteHppFile";
 import { SqliteVirtualFuncDeclaration } from "./SqliteVirtualFuncDeclaration";
 import { SqliteVirtualFuncImplementation } from "./SqliteVirtualFuncImplementation";
 
@@ -111,6 +114,22 @@ export class SqliteCppClass extends AbstractCppClass {
         );
 
         return new SqliteCppClass(internalDb, classId, className);
+    }
+
+    static getCppClassById(
+        internalDb: InternalSqliteDatabase,
+        id: number
+    ): SqliteCppClass | null {
+        const row = internalDb.db
+            .prepare("SELECT * FROM cpp_classes WHERE id=(?)")
+            .get(id);
+
+        if (row !== undefined) {
+            return new SqliteCppClass(internalDb, id, (row as any).class_name);
+        }
+
+        // istanbul ignore next
+        return null;
     }
 
     static getCppClasses(
@@ -220,8 +239,53 @@ export class SqliteCppClass extends AbstractCppClass {
             .run(this.id);
     }
 
+    private getCppHppFileAndCppClassIds(): [
+        number | null,
+        number | null,
+        number | null
+    ] {
+        const row = this.internal.db
+            .prepare(
+                "SELECT cpp_file_id, hpp_file_id, cpp_class_id FROM cpp_classes WHERE id=(?)"
+            )
+            .get(this.id);
+
+        return [
+            (row as any).cpp_file_id,
+            (row as any).hpp_file_id,
+            (row as any).cpp_class_id,
+        ];
+    }
+
     getName(): string {
         return this.className;
+    }
+
+    getFile(): File | null {
+        const [cppFileId, hppFileId, cppClassId] =
+            this.getCppHppFileAndCppClassIds();
+
+        if (cppFileId !== null) {
+            return SqliteCppFile.getCppFileById(this.internal, cppFileId);
+        }
+
+        if (hppFileId !== null) {
+            return SqliteHppFile.getHppFileById(this.internal, hppFileId);
+        }
+
+        if (cppClassId !== null) {
+            const cppClass = SqliteCppClass.getCppClassById(
+                this.internal,
+                cppClassId
+            );
+
+            if (cppClass !== null) {
+                return cppClass.getFile();
+            }
+        }
+
+        // istanbul ignore next
+        return null;
     }
 
     getParentClasses(): CppClass[] {

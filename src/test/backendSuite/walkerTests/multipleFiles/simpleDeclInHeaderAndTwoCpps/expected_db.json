@@ -3,7 +3,7 @@
   "cppFiles": [
     {
       "name": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderAndTwoCpps/impl.cpp",
-      "lastAnalyzed": 1714318232922,
+      "lastAnalyzed": 1721330052709,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [
@@ -29,7 +29,7 @@
     },
     {
       "name": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderAndTwoCpps/main.cpp",
-      "lastAnalyzed": 1714318232922,
+      "lastAnalyzed": 1721330052709,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [
@@ -54,12 +54,12 @@
               "qualType": "int (int, int)",
               "range": {
                 "start": {
-                  "line": 3,
-                  "column": 43
+                  "line": 5,
+                  "column": 12
                 },
                 "end": {
-                  "line": 3,
-                  "column": 52
+                  "line": 5,
+                  "column": 21
                 }
               }
             }
@@ -73,7 +73,7 @@
   "hppFiles": [
     {
       "name": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderAndTwoCpps/header.h",
-      "lastAnalyzed": 1714318232921,
+      "lastAnalyzed": 1721330052709,
       "classes": [],
       "funcDecls": [
         {
@@ -94,7 +94,7 @@
       ],
       "funcImpls": [],
       "virtualFuncImpls": [],
-      "referencedFromCppFiles": [
+      "referencedFromFiles": [
         "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderAndTwoCpps/impl.cpp",
         "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderAndTwoCpps/main.cpp"
       ]

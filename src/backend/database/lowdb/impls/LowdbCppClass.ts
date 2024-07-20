@@ -1,8 +1,11 @@
 import {
     CppClass,
+    File,
+    FuncBasics,
     FuncCreationArgs,
     FuncDeclaration,
     FuncImplementation,
+    VirtualFuncBasics,
     VirtualFuncCreationArgs,
     VirtualFuncDeclaration,
     VirtualFuncImplementation,
@@ -22,6 +25,7 @@ export class LowdbCppClass extends AbstractCppClass {
     private database: LowSync<LowdbInternalDatabase>;
     private internal: LowdbInternalCppClass;
     private parentClasses: LowdbCppClass[] = [];
+    private file: File | null = null;
 
     constructor(
         database: LowSync<LowdbInternalDatabase>,
@@ -64,6 +68,14 @@ export class LowdbCppClass extends AbstractCppClass {
         return this.internal.name;
     }
 
+    setFile(file: File): void {
+        this.file = file;
+    }
+
+    getFile(): File | null {
+        return this.file;
+    }
+
     getParentClasses(): CppClass[] {
         return this.parentClasses;
     }
@@ -96,13 +108,21 @@ export class LowdbCppClass extends AbstractCppClass {
         };
         this.internal.classes.push(internalClass);
 
-        return new LowdbCppClass(this.database, internalClass);
+        const newClass = new LowdbCppClass(this.database, internalClass);
+        if (this.file) {
+            newClass.setFile(this.file);
+        }
+        return newClass;
     }
 
     getFuncDecls(): FuncDeclaration[] {
-        return this.internal.funcDecls.map(
-            (internalFuncDecl) => new LowdbFuncDeclaration(internalFuncDecl)
-        );
+        return this.internal.funcDecls.map((internalFuncDecl) => {
+            const newDecl = new LowdbFuncDeclaration(internalFuncDecl);
+            if (this.file) {
+                newDecl.setFile(this.file);
+            }
+            return newDecl;
+        });
     }
 
     addFuncDecl(args: FuncCreationArgs): FuncDeclaration {
@@ -114,13 +134,21 @@ export class LowdbCppClass extends AbstractCppClass {
         };
         this.internal.funcDecls.push(internalFuncDecl);
 
-        return new LowdbFuncDeclaration(internalFuncDecl);
+        const newDecl = new LowdbFuncDeclaration(internalFuncDecl);
+        if (this.file) {
+            newDecl.setFile(this.file);
+        }
+        return newDecl;
     }
 
     getFuncImpls(): FuncImplementation[] {
-        return this.internal.funcImpls.map(
-            (internalFuncImpl) => new LowdbFuncImplementation(internalFuncImpl)
-        );
+        return this.internal.funcImpls.map((internalFuncImpl) => {
+            const newImpl = new LowdbFuncImplementation(internalFuncImpl);
+            if (this.file) {
+                newImpl.setFile(this.file);
+            }
+            return newImpl;
+        });
     }
 
     addFuncImpl(args: FuncCreationArgs): FuncImplementation {
@@ -134,14 +162,23 @@ export class LowdbCppClass extends AbstractCppClass {
         };
         this.internal.funcImpls.push(internalFuncImpl);
 
-        return new LowdbFuncImplementation(internalFuncImpl);
+        const newImpl = new LowdbFuncImplementation(internalFuncImpl);
+        if (this.file) {
+            newImpl.setFile(this.file);
+        }
+        return newImpl;
     }
 
     getVirtualFuncDecls(): VirtualFuncDeclaration[] {
-        return this.internal.virtualFuncDecls.map(
-            (internalVirtualFuncDecl) =>
-                new LowdbVirtualFuncDeclaration(internalVirtualFuncDecl)
-        );
+        return this.internal.virtualFuncDecls.map((internalVirtualFuncDecl) => {
+            const newFuncDecl = new LowdbVirtualFuncDeclaration(
+                internalVirtualFuncDecl
+            );
+            if (this.file) {
+                newFuncDecl.setFile(this.file);
+            }
+            return newFuncDecl;
+        });
     }
 
     addVirtualFuncDecl(args: VirtualFuncCreationArgs): VirtualFuncDeclaration {
@@ -154,14 +191,25 @@ export class LowdbCppClass extends AbstractCppClass {
         };
         this.internal.virtualFuncDecls.push(internalVirtualFuncDecl);
 
-        return new LowdbVirtualFuncDeclaration(internalVirtualFuncDecl);
+        const newFuncDecl = new LowdbVirtualFuncDeclaration(
+            internalVirtualFuncDecl
+        );
+        if (this.file) {
+            newFuncDecl.setFile(this.file);
+        }
+        return newFuncDecl;
     }
 
     getVirtualFuncImpls(): VirtualFuncImplementation[] {
-        return this.internal.virtualFuncImpls.map(
-            (internalVirtualFuncImpl) =>
-                new LowdbVirtualFuncImplementation(internalVirtualFuncImpl)
-        );
+        return this.internal.virtualFuncImpls.map((internalVirtualFuncImpl) => {
+            const newFuncImpl = new LowdbVirtualFuncImplementation(
+                internalVirtualFuncImpl
+            );
+            if (this.file) {
+                newFuncImpl.setFile(this.file);
+            }
+            return newFuncImpl;
+        });
     }
 
     addVirtualFuncImpl(
@@ -178,6 +226,97 @@ export class LowdbCppClass extends AbstractCppClass {
         };
         this.internal.virtualFuncImpls.push(internalVirtualFuncImpl);
 
-        return new LowdbVirtualFuncImplementation(internalVirtualFuncImpl);
+        const newFuncImpl = new LowdbVirtualFuncImplementation(
+            internalVirtualFuncImpl
+        );
+        if (this.file) {
+            newFuncImpl.setFile(this.file);
+        }
+        return newFuncImpl;
+    }
+
+    getMatchingFuncImpls(func: FuncBasics): FuncBasics[] {
+        const matchingFuncs: FuncBasics[] = [];
+
+        this.getClasses().forEach((cppClass) => {
+            matchingFuncs.push(
+                ...(cppClass as LowdbCppClass).getMatchingFuncImpls(func)
+            );
+        });
+
+        this.internal.funcImpls.forEach((internalFuncImpl) => {
+            if (
+                internalFuncImpl.funcName === func.getFuncName() &&
+                internalFuncImpl.funcAstName === func.getFuncAstName() &&
+                internalFuncImpl.qualType === func.getQualType()
+            ) {
+                const newImpl = new LowdbFuncImplementation(internalFuncImpl);
+                if (this.file) {
+                    newImpl.setFile(this.file);
+                }
+                matchingFuncs.push(newImpl);
+            }
+        });
+
+        return matchingFuncs;
+    }
+
+    getMatchingVirtualFuncImpls(func: VirtualFuncBasics): VirtualFuncBasics[] {
+        const matchingFuncs: VirtualFuncBasics[] = [];
+
+        this.getClasses().forEach((cppClass) => {
+            matchingFuncs.push(
+                ...(cppClass as LowdbCppClass).getMatchingVirtualFuncImpls(func)
+            );
+        });
+
+        this.internal.virtualFuncImpls.forEach((internalFuncImpl) => {
+            if (
+                internalFuncImpl.funcName === func.getFuncName() &&
+                internalFuncImpl.baseFuncAstName ===
+                    func.getBaseFuncAstName() &&
+                internalFuncImpl.qualType === func.getQualType()
+            ) {
+                const newImpl = new LowdbVirtualFuncImplementation(
+                    internalFuncImpl
+                );
+                if (this.file) {
+                    newImpl.setFile(this.file);
+                }
+                matchingFuncs.push(newImpl);
+            }
+        });
+
+        return matchingFuncs;
+    }
+
+    getFuncCallers(func: FuncBasics): FuncBasics[] {
+        const matchingFuncs: FuncBasics[] = [];
+
+        this.getClasses().forEach((cppClass) => {
+            matchingFuncs.push(
+                ...(cppClass as LowdbCppClass).getFuncCallers(func)
+            );
+        });
+
+        this.getFuncImpls().forEach((funcImpl) => {
+            if (
+                (funcImpl as LowdbFuncImplementation).hasMatchingFuncCall(func)
+            ) {
+                matchingFuncs.push(funcImpl);
+            }
+        });
+
+        this.getVirtualFuncImpls().forEach((virtualFuncImpl) => {
+            if (
+                (
+                    virtualFuncImpl as LowdbVirtualFuncImplementation
+                ).hasMatchingFuncCall(func)
+            ) {
+                matchingFuncs.push(virtualFuncImpl);
+            }
+        });
+
+        return matchingFuncs;
     }
 }

@@ -1,0 +1,173 @@
+{
+  "databaseVersion": 1,
+  "cppFiles": [
+    {
+      "name": "/backendSuite/walkerTests/singleFiles/cStyleFuncs/file.cpp",
+      "lastAnalyzed": 1721330052738,
+      "classes": [],
+      "funcDecls": [
+        {
+          "funcName": "mult",
+          "funcAstName": "__Z4multii",
+          "qualType": "int (int, int)",
+          "range": {
+            "start": {
+              "line": 1,
+              "column": 5
+            },
+            "end": {
+              "line": 1,
+              "column": 9
+            }
+          }
+        },
+        {
+          "funcName": "add",
+          "funcAstName": "__ZN3foo3addEii",
+          "qualType": "int (int, int)",
+          "range": {
+            "start": {
+              "line": 11,
+              "column": 5
+            },
+            "end": {
+              "line": 11,
+              "column": 8
+            }
+          }
+        },
+        {
+          "funcName": "sub",
+          "funcAstName": "__Z3subii",
+          "qualType": "int (int, int)",
+          "range": {
+            "start": {
+              "line": 15,
+              "column": 5
+            },
+            "end": {
+              "line": 15,
+              "column": 8
+            }
+          }
+        }
+      ],
+      "funcImpls": [
+        {
+          "funcName": "divide",
+          "funcAstName": "__Z6divideii",
+          "qualType": "int (int, int)",
+          "range": {
+            "start": {
+              "line": 3,
+              "column": 5
+            },
+            "end": {
+              "line": 3,
+              "column": 11
+            }
+          },
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "sub",
+          "funcAstName": "__Z3subii",
+          "qualType": "int (int, int)",
+          "range": {
+            "start": {
+              "line": 17,
+              "column": 5
+            },
+            "end": {
+              "line": 17,
+              "column": 8
+            }
+          },
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "main",
+          "funcAstName": "_main",
+          "qualType": "int (int, char **)",
+          "range": {
+            "start": {
+              "line": 22,
+              "column": 5
+            },
+            "end": {
+              "line": 22,
+              "column": 9
+            }
+          },
+          "funcCalls": [
+            {
+              "funcName": "mult",
+              "funcAstName": "__Z4multii",
+              "qualType": "int (int, int)",
+              "range": {
+                "start": {
+                  "line": 25,
+                  "column": 12
+                },
+                "end": {
+                  "line": 25,
+                  "column": 22
+                }
+              }
+            },
+            {
+              "funcName": "add",
+              "funcAstName": "__ZN3foo3addEii",
+              "qualType": "int (int, int)",
+              "range": {
+                "start": {
+                  "line": 25,
+                  "column": 25
+                },
+                "end": {
+                  "line": 26,
+                  "column": 14
+                }
+              }
+            },
+            {
+              "funcName": "sub",
+              "funcAstName": "__Z3subii",
+              "qualType": "int (int, int)",
+              "range": {
+                "start": {
+                  "line": 27,
+                  "column": 9
+                },
+                "end": {
+                  "line": 27,
+                  "column": 19
+                }
+              }
+            },
+            {
+              "funcName": "divide",
+              "funcAstName": "__Z6divideii",
+              "qualType": "int (int, int)",
+              "range": {
+                "start": {
+                  "line": 28,
+                  "column": 9
+                },
+                "end": {
+                  "line": 29,
+                  "column": 18
+                }
+              }
+            }
+          ],
+          "virtualFuncCalls": []
+        }
+      ],
+      "virtualFuncImpls": []
+    }
+  ],
+  "hppFiles": []
+}

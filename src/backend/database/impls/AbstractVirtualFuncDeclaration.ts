@@ -1,4 +1,6 @@
 import {
+    File,
+    FuncType,
     Location,
     Range,
     VirtualFuncCreationArgs,
@@ -15,6 +17,8 @@ export abstract class AbstractVirtualFuncDeclaration
     abstract getFuncAstName(): string;
     abstract getQualType(): string;
     abstract getRange(): Range;
+
+    abstract getFile(): File | null;
 
     equals(otherInput: any): boolean {
         const other = otherInput as VirtualFuncDeclaration;
@@ -52,5 +56,13 @@ export abstract class AbstractVirtualFuncDeclaration
 
     matchesLocation(location: Location): boolean {
         return isLocationWithinRange(location, this.getRange());
+    }
+
+    getFuncType(): FuncType {
+        return FuncType.declaration;
+    }
+
+    isVirtual(): boolean {
+        return true;
     }
 }

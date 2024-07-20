@@ -1,0 +1,139 @@
+{
+  "databaseVersion": 1,
+  "cppFiles": [
+    {
+      "name": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/main.cpp",
+      "lastAnalyzed": 1721330052721,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [
+        {
+          "funcName": "add",
+          "funcAstName": "__Z3addii",
+          "qualType": "int (int, int)",
+          "range": {
+            "start": {
+              "line": 3,
+              "column": 5
+            },
+            "end": {
+              "line": 3,
+              "column": 8
+            }
+          },
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "main",
+          "funcAstName": "_main",
+          "qualType": "int (int, char **)",
+          "range": {
+            "start": {
+              "line": 8,
+              "column": 5
+            },
+            "end": {
+              "line": 8,
+              "column": 9
+            }
+          },
+          "funcCalls": [
+            {
+              "funcName": "calculate",
+              "funcAstName": "__Z9calculateii",
+              "qualType": "int (int, int)",
+              "range": {
+                "start": {
+                  "line": 10,
+                  "column": 12
+                },
+                "end": {
+                  "line": 10,
+                  "column": 27
+                }
+              }
+            }
+          ],
+          "virtualFuncCalls": []
+        }
+      ],
+      "virtualFuncImpls": []
+    }
+  ],
+  "hppFiles": [
+    {
+      "name": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/firstHeader.h",
+      "lastAnalyzed": 1721330052721,
+      "classes": [],
+      "funcDecls": [
+        {
+          "funcName": "add",
+          "funcAstName": "__Z3addii",
+          "qualType": "int (int, int)",
+          "range": {
+            "start": {
+              "line": 1,
+              "column": 5
+            },
+            "end": {
+              "line": 1,
+              "column": 8
+            }
+          }
+        }
+      ],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": [
+        "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/main.cpp",
+        "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/secondHeader.h"
+      ]
+    },
+    {
+      "name": "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/secondHeader.h",
+      "lastAnalyzed": 1721330052721,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [
+        {
+          "funcName": "calculate",
+          "funcAstName": "__Z9calculateii",
+          "qualType": "int (int, int)",
+          "range": {
+            "start": {
+              "line": 3,
+              "column": 5
+            },
+            "end": {
+              "line": 3,
+              "column": 14
+            }
+          },
+          "funcCalls": [
+            {
+              "funcName": "add",
+              "funcAstName": "__Z3addii",
+              "qualType": "int (int, int)",
+              "range": {
+                "start": {
+                  "line": 5,
+                  "column": 12
+                },
+                "end": {
+                  "line": 5,
+                  "column": 27
+                }
+              }
+            }
+          ],
+          "virtualFuncCalls": []
+        }
+      ],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": [
+        "/backendSuite/walkerTests/multipleFiles/simpleDeclInHeaderImplInHeaderAndOneCpp/main.cpp"
+      ]
+    }
+  ]
+}
