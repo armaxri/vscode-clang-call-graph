@@ -2,48 +2,159 @@
   "databaseVersion": 1,
   "cppFiles": [
     {
-      "name": "/backendSuite/walkerTests/singleFiles/classInClass/file.cpp",
-      "lastAnalyzed": 1721330052746,
+      "name": "/backendSuite/walkerTests/singleFiles/classRawPointerCall/file.cpp",
+      "lastAnalyzed": 1721486155245,
       "classes": [
         {
-          "name": "OuterTestClass",
+          "name": "TestClass",
           "parentClasses": [],
-          "classes": [
+          "classes": [],
+          "funcDecls": [],
+          "funcImpls": [
             {
-              "name": "InnerTestClass",
-              "parentClasses": [],
-              "classes": [],
-              "funcDecls": [],
-              "funcImpls": [
-                {
-                  "funcName": "add",
-                  "funcAstName": "__ZN14OuterTestClass14InnerTestClass3addEii",
-                  "qualType": "int (int, int)",
-                  "range": {
-                    "start": {
-                      "line": 7,
-                      "column": 13
-                    },
-                    "end": {
-                      "line": 7,
-                      "column": 16
-                    }
-                  },
-                  "funcCalls": [],
-                  "virtualFuncCalls": []
+              "funcName": "add",
+              "funcAstName": "__ZN9TestClass3addEii",
+              "qualType": "int (int, int)",
+              "range": {
+                "start": {
+                  "line": 4,
+                  "column": 9
+                },
+                "end": {
+                  "line": 4,
+                  "column": 12
                 }
-              ],
-              "virtualFuncDecls": [],
-              "virtualFuncImpls": []
+              },
+              "funcCalls": [],
+              "virtualFuncCalls": []
             }
           ],
-          "funcDecls": [],
-          "funcImpls": [],
           "virtualFuncDecls": [],
           "virtualFuncImpls": []
         }
       ],
-      "funcDecls": [],
+      "funcDecls": [
+        {
+          "funcName": "operator new",
+          "funcAstName": "__Znwm",
+          "qualType": "void *(unsigned long)",
+          "range": {
+            "start": {
+              "line": 10,
+              "column": -1
+            },
+            "end": {
+              "line": 10,
+              "column": -1
+            }
+          }
+        },
+        {
+          "funcName": "operator new",
+          "funcAstName": "__ZnwmSt11align_val_t",
+          "qualType": "void *(unsigned long, std::align_val_t)",
+          "range": {
+            "start": {
+              "line": 10,
+              "column": -1
+            },
+            "end": {
+              "line": 10,
+              "column": -1
+            }
+          }
+        },
+        {
+          "funcName": "operator new[]",
+          "funcAstName": "__Znam",
+          "qualType": "void *(unsigned long)",
+          "range": {
+            "start": {
+              "line": 10,
+              "column": -1
+            },
+            "end": {
+              "line": 10,
+              "column": -1
+            }
+          }
+        },
+        {
+          "funcName": "operator new[]",
+          "funcAstName": "__ZnamSt11align_val_t",
+          "qualType": "void *(unsigned long, std::align_val_t)",
+          "range": {
+            "start": {
+              "line": 10,
+              "column": -1
+            },
+            "end": {
+              "line": 10,
+              "column": -1
+            }
+          }
+        },
+        {
+          "funcName": "operator delete",
+          "funcAstName": "__ZdlPv",
+          "qualType": "void (void *) noexcept",
+          "range": {
+            "start": {
+              "line": 10,
+              "column": -1
+            },
+            "end": {
+              "line": 10,
+              "column": -1
+            }
+          }
+        },
+        {
+          "funcName": "operator delete",
+          "funcAstName": "__ZdlPvSt11align_val_t",
+          "qualType": "void (void *, std::align_val_t) noexcept",
+          "range": {
+            "start": {
+              "line": 10,
+              "column": -1
+            },
+            "end": {
+              "line": 10,
+              "column": -1
+            }
+          }
+        },
+        {
+          "funcName": "operator delete[]",
+          "funcAstName": "__ZdaPv",
+          "qualType": "void (void *) noexcept",
+          "range": {
+            "start": {
+              "line": 10,
+              "column": -1
+            },
+            "end": {
+              "line": 10,
+              "column": -1
+            }
+          }
+        },
+        {
+          "funcName": "operator delete[]",
+          "funcAstName": "__ZdaPvSt11align_val_t",
+          "qualType": "void (void *, std::align_val_t) noexcept",
+          "range": {
+            "start": {
+              "line": 10,
+              "column": -1
+            },
+            "end": {
+              "line": 10,
+              "column": -1
+            }
+          }
+        }
+      ],
       "funcImpls": [
         {
           "funcName": "main",
@@ -51,27 +162,27 @@
           "qualType": "int (int, char **)",
           "range": {
             "start": {
-              "line": 14,
+              "line": 10,
               "column": 5
             },
             "end": {
-              "line": 14,
+              "line": 10,
               "column": 9
             }
           },
           "funcCalls": [
             {
               "funcName": "add",
-              "funcAstName": "__ZN14OuterTestClass14InnerTestClass3addEii",
+              "funcAstName": "__ZN9TestClass3addEii",
               "qualType": "int (int, int)",
               "range": {
                 "start": {
-                  "line": 17,
+                  "line": 13,
                   "column": 12
                 },
                 "end": {
-                  "line": 17,
-                  "column": 26
+                  "line": 13,
+                  "column": 27
                 }
               }
             }

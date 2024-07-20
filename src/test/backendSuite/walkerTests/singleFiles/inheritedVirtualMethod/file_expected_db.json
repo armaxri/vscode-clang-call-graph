@@ -3,7 +3,7 @@
   "cppFiles": [
     {
       "name": "/backendSuite/walkerTests/singleFiles/inheritedVirtualMethod/file.cpp",
-      "lastAnalyzed": 1721330052753,
+      "lastAnalyzed": 1721486155263,
       "classes": [
         {
           "name": "TestBaseClass",
@@ -14,6 +14,21 @@
               "funcName": "operator=",
               "funcAstName": "__ZN13TestBaseClassaSERKS_",
               "qualType": "TestBaseClass &(const TestBaseClass &)",
+              "range": {
+                "start": {
+                  "line": 1,
+                  "column": 7
+                },
+                "end": {
+                  "line": 1,
+                  "column": 20
+                }
+              }
+            },
+            {
+              "funcName": "operator=",
+              "funcAstName": "__ZN13TestBaseClassaSEOS_",
+              "qualType": "TestBaseClass &(TestBaseClass &&)",
               "range": {
                 "start": {
                   "line": 1,
@@ -60,6 +75,21 @@
               "funcName": "operator=",
               "funcAstName": "__ZN9TestClassaSERKS_",
               "qualType": "TestClass &(const TestClass &)",
+              "range": {
+                "start": {
+                  "line": 10,
+                  "column": 7
+                },
+                "end": {
+                  "line": 10,
+                  "column": 16
+                }
+              }
+            },
+            {
+              "funcName": "operator=",
+              "funcAstName": "__ZN9TestClassaSEOS_",
+              "qualType": "TestClass &(TestClass &&)",
               "range": {
                 "start": {
                   "line": 10,

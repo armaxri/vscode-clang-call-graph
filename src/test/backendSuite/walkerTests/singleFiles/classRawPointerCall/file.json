@@ -1387,6 +1387,7 @@
         "defaultCtor": {
           "defaultedIsConstexpr": true,
           "exists": true,
+          "isConstexpr": true,
           "trivial": true
         },
         "dtor": {
@@ -1395,6 +1396,7 @@
           "simple": true,
           "trivial": true
         },
+        "hasConstexprNonCopyMoveConstructor": true,
         "isAggregate": true,
         "isEmpty": true,
         "isLiteral": true,
@@ -1410,7 +1412,6 @@
         },
         "moveCtor": {
           "exists": true,
-          "needsImplicit": true,
           "simple": true,
           "trivial": true
         }
@@ -1738,9 +1739,10 @@
           "name": "TestClass",
           "mangledName": "__ZN9TestClassC1Ev",
           "type": {
-            "qualType": "void () throw()"
+            "qualType": "void () noexcept"
           },
           "inline": true,
+          "constexpr": true,
           "explicitlyDefaulted": "default"
         },
         {
@@ -1770,6 +1772,7 @@
             "qualType": "void (const TestClass &)"
           },
           "inline": true,
+          "constexpr": true,
           "explicitlyDefaulted": "default",
           "inner": [
             {
@@ -1797,11 +1800,67 @@
               }
             }
           ]
+        },
+        {
+          "id": "0x0000000000000085",
+          "kind": "CXXConstructorDecl",
+          "loc": {
+            "offset": 6,
+            "col": 7,
+            "tokLen": 9
+          },
+          "range": {
+            "begin": {
+              "offset": 6,
+              "col": 7,
+              "tokLen": 9
+            },
+            "end": {
+              "offset": 6,
+              "col": 7,
+              "tokLen": 9
+            }
+          },
+          "isImplicit": true,
+          "name": "TestClass",
+          "mangledName": "__ZN9TestClassC1EOS_",
+          "type": {
+            "qualType": "void (TestClass &&)"
+          },
+          "inline": true,
+          "constexpr": true,
+          "explicitlyDefaulted": "default",
+          "inner": [
+            {
+              "id": "0x0000000000000086",
+              "kind": "ParmVarDecl",
+              "loc": {
+                "offset": 6,
+                "col": 7,
+                "tokLen": 9
+              },
+              "range": {
+                "begin": {
+                  "offset": 6,
+                  "col": 7,
+                  "tokLen": 9
+                },
+                "end": {
+                  "offset": 6,
+                  "col": 7,
+                  "tokLen": 9
+                }
+              },
+              "type": {
+                "qualType": "TestClass &&"
+              }
+            }
+          ]
         }
       ]
     },
     {
-      "id": "0x0000000000000085",
+      "id": "0x0000000000000087",
       "kind": "FunctionDecl",
       "loc": {
         "offset": 108,
@@ -1829,7 +1888,7 @@
       },
       "inner": [
         {
-          "id": "0x0000000000000086",
+          "id": "0x0000000000000088",
           "kind": "ParmVarDecl",
           "loc": {
             "offset": 117,
@@ -1855,7 +1914,7 @@
           }
         },
         {
-          "id": "0x0000000000000087",
+          "id": "0x0000000000000089",
           "kind": "ParmVarDecl",
           "loc": {
             "offset": 129,
@@ -1881,7 +1940,7 @@
           }
         },
         {
-          "id": "0x0000000000000088",
+          "id": "0x000000000000008a",
           "kind": "CompoundStmt",
           "range": {
             "begin": {
@@ -1899,7 +1958,7 @@
           },
           "inner": [
             {
-              "id": "0x0000000000000089",
+              "id": "0x000000000000008b",
               "kind": "DeclStmt",
               "range": {
                 "begin": {
@@ -1916,7 +1975,7 @@
               },
               "inner": [
                 {
-                  "id": "0x000000000000008a",
+                  "id": "0x000000000000008c",
                   "kind": "VarDecl",
                   "loc": {
                     "offset": 148,
@@ -1944,7 +2003,7 @@
                   "init": "c",
                   "inner": [
                     {
-                      "id": "0x000000000000008b",
+                      "id": "0x000000000000008d",
                       "kind": "CXXNewExpr",
                       "range": {
                         "begin": {
@@ -1964,24 +2023,24 @@
                       "valueCategory": "prvalue",
                       "initStyle": "call",
                       "operatorNewDecl": {
-                        "id": "0x000000000000008c",
+                        "id": "0x000000000000008e",
                         "kind": "FunctionDecl",
                         "name": "operator new",
                         "type": {
-                          "qualType": "void *(unsigned long) throw(std::bad_alloc)"
+                          "qualType": "void *(unsigned long)"
                         }
                       },
                       "operatorDeleteDecl": {
-                        "id": "0x000000000000008d",
+                        "id": "0x000000000000008f",
                         "kind": "FunctionDecl",
                         "name": "operator delete",
                         "type": {
-                          "qualType": "void (void *) throw()"
+                          "qualType": "void (void *) noexcept"
                         }
                       },
                       "inner": [
                         {
-                          "id": "0x000000000000008e",
+                          "id": "0x0000000000000090",
                           "kind": "CXXConstructExpr",
                           "range": {
                             "begin": {
@@ -2001,7 +2060,7 @@
                           },
                           "valueCategory": "prvalue",
                           "ctorType": {
-                            "qualType": "void () throw()"
+                            "qualType": "void () noexcept"
                           },
                           "zeroing": true,
                           "hadMultipleCandidates": true,
@@ -2014,7 +2073,7 @@
               ]
             },
             {
-              "id": "0x000000000000008f",
+              "id": "0x0000000000000091",
               "kind": "ReturnStmt",
               "range": {
                 "begin": {
@@ -2031,7 +2090,7 @@
               },
               "inner": [
                 {
-                  "id": "0x0000000000000090",
+                  "id": "0x0000000000000092",
                   "kind": "CXXMemberCallExpr",
                   "range": {
                     "begin": {
@@ -2051,7 +2110,7 @@
                   "valueCategory": "prvalue",
                   "inner": [
                     {
-                      "id": "0x0000000000000091",
+                      "id": "0x0000000000000093",
                       "kind": "MemberExpr",
                       "range": {
                         "begin": {
@@ -2074,7 +2133,7 @@
                       "referencedMemberDecl": "0x0000000000000078",
                       "inner": [
                         {
-                          "id": "0x0000000000000092",
+                          "id": "0x0000000000000094",
                           "kind": "ImplicitCastExpr",
                           "range": {
                             "begin": {
@@ -2096,7 +2155,7 @@
                           "castKind": "LValueToRValue",
                           "inner": [
                             {
-                              "id": "0x0000000000000093",
+                              "id": "0x0000000000000095",
                               "kind": "DeclRefExpr",
                               "range": {
                                 "begin": {
@@ -2116,7 +2175,7 @@
                               },
                               "valueCategory": "lvalue",
                               "referencedDecl": {
-                                "id": "0x000000000000008a",
+                                "id": "0x000000000000008c",
                                 "kind": "VarDecl",
                                 "name": "test",
                                 "type": {
@@ -2130,7 +2189,7 @@
                       ]
                     },
                     {
-                      "id": "0x0000000000000094",
+                      "id": "0x0000000000000096",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -2151,7 +2210,7 @@
                       "value": "1"
                     },
                     {
-                      "id": "0x0000000000000095",
+                      "id": "0x0000000000000097",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -2180,7 +2239,7 @@
       ]
     },
     {
-      "id": "0x000000000000008c",
+      "id": "0x000000000000008e",
       "kind": "FunctionDecl",
       "loc": {},
       "range": {
@@ -2192,11 +2251,11 @@
       "name": "operator new",
       "mangledName": "__Znwm",
       "type": {
-        "qualType": "void *(unsigned long) throw(std::bad_alloc)"
+        "qualType": "void *(unsigned long)"
       },
       "inner": [
         {
-          "id": "0x0000000000000096",
+          "id": "0x0000000000000098",
           "kind": "ParmVarDecl",
           "loc": {},
           "range": {
@@ -2209,7 +2268,7 @@
           }
         },
         {
-          "id": "0x0000000000000097",
+          "id": "0x0000000000000099",
           "kind": "VisibilityAttr",
           "range": {
             "begin": {},
@@ -2218,7 +2277,7 @@
           "implicit": true
         },
         {
-          "id": "0x0000000000000098",
+          "id": "0x000000000000009a",
           "kind": "ReturnsNonNullAttr",
           "range": {
             "begin": {},
@@ -2227,7 +2286,7 @@
           "implicit": true
         },
         {
-          "id": "0x0000000000000099",
+          "id": "0x000000000000009b",
           "kind": "AllocSizeAttr",
           "range": {
             "begin": {},
@@ -2238,7 +2297,86 @@
       ]
     },
     {
-      "id": "0x000000000000009a",
+      "id": "0x000000000000009c",
+      "kind": "FunctionDecl",
+      "loc": {},
+      "range": {
+        "begin": {},
+        "end": {}
+      },
+      "isImplicit": true,
+      "name": "operator new",
+      "mangledName": "__ZnwmSt11align_val_t",
+      "type": {
+        "qualType": "void *(unsigned long, std::align_val_t)"
+      },
+      "inner": [
+        {
+          "id": "0x000000000000009d",
+          "kind": "ParmVarDecl",
+          "loc": {},
+          "range": {
+            "begin": {},
+            "end": {}
+          },
+          "isImplicit": true,
+          "type": {
+            "qualType": "unsigned long"
+          }
+        },
+        {
+          "id": "0x000000000000009e",
+          "kind": "ParmVarDecl",
+          "loc": {},
+          "range": {
+            "begin": {},
+            "end": {}
+          },
+          "isImplicit": true,
+          "type": {
+            "qualType": "std::align_val_t"
+          }
+        },
+        {
+          "id": "0x000000000000009f",
+          "kind": "VisibilityAttr",
+          "range": {
+            "begin": {},
+            "end": {}
+          },
+          "implicit": true
+        },
+        {
+          "id": "0x00000000000000a0",
+          "kind": "ReturnsNonNullAttr",
+          "range": {
+            "begin": {},
+            "end": {}
+          },
+          "implicit": true
+        },
+        {
+          "id": "0x00000000000000a1",
+          "kind": "AllocSizeAttr",
+          "range": {
+            "begin": {},
+            "end": {}
+          },
+          "implicit": true
+        },
+        {
+          "id": "0x00000000000000a2",
+          "kind": "AllocAlignAttr",
+          "range": {
+            "begin": {},
+            "end": {}
+          },
+          "implicit": true
+        }
+      ]
+    },
+    {
+      "id": "0x00000000000000a3",
       "kind": "FunctionDecl",
       "loc": {},
       "range": {
@@ -2249,11 +2387,11 @@
       "name": "operator new[]",
       "mangledName": "__Znam",
       "type": {
-        "qualType": "void *(unsigned long) throw(std::bad_alloc)"
+        "qualType": "void *(unsigned long)"
       },
       "inner": [
         {
-          "id": "0x000000000000009b",
+          "id": "0x00000000000000a4",
           "kind": "ParmVarDecl",
           "loc": {},
           "range": {
@@ -2266,7 +2404,7 @@
           }
         },
         {
-          "id": "0x000000000000009c",
+          "id": "0x00000000000000a5",
           "kind": "VisibilityAttr",
           "range": {
             "begin": {},
@@ -2275,7 +2413,7 @@
           "implicit": true
         },
         {
-          "id": "0x000000000000009d",
+          "id": "0x00000000000000a6",
           "kind": "ReturnsNonNullAttr",
           "range": {
             "begin": {},
@@ -2284,7 +2422,7 @@
           "implicit": true
         },
         {
-          "id": "0x000000000000009e",
+          "id": "0x00000000000000a7",
           "kind": "AllocSizeAttr",
           "range": {
             "begin": {},
@@ -2295,7 +2433,86 @@
       ]
     },
     {
-      "id": "0x000000000000008d",
+      "id": "0x00000000000000a8",
+      "kind": "FunctionDecl",
+      "loc": {},
+      "range": {
+        "begin": {},
+        "end": {}
+      },
+      "isImplicit": true,
+      "name": "operator new[]",
+      "mangledName": "__ZnamSt11align_val_t",
+      "type": {
+        "qualType": "void *(unsigned long, std::align_val_t)"
+      },
+      "inner": [
+        {
+          "id": "0x00000000000000a9",
+          "kind": "ParmVarDecl",
+          "loc": {},
+          "range": {
+            "begin": {},
+            "end": {}
+          },
+          "isImplicit": true,
+          "type": {
+            "qualType": "unsigned long"
+          }
+        },
+        {
+          "id": "0x00000000000000aa",
+          "kind": "ParmVarDecl",
+          "loc": {},
+          "range": {
+            "begin": {},
+            "end": {}
+          },
+          "isImplicit": true,
+          "type": {
+            "qualType": "std::align_val_t"
+          }
+        },
+        {
+          "id": "0x00000000000000ab",
+          "kind": "VisibilityAttr",
+          "range": {
+            "begin": {},
+            "end": {}
+          },
+          "implicit": true
+        },
+        {
+          "id": "0x00000000000000ac",
+          "kind": "ReturnsNonNullAttr",
+          "range": {
+            "begin": {},
+            "end": {}
+          },
+          "implicit": true
+        },
+        {
+          "id": "0x00000000000000ad",
+          "kind": "AllocSizeAttr",
+          "range": {
+            "begin": {},
+            "end": {}
+          },
+          "implicit": true
+        },
+        {
+          "id": "0x00000000000000ae",
+          "kind": "AllocAlignAttr",
+          "range": {
+            "begin": {},
+            "end": {}
+          },
+          "implicit": true
+        }
+      ]
+    },
+    {
+      "id": "0x000000000000008f",
       "kind": "FunctionDecl",
       "loc": {},
       "range": {
@@ -2307,11 +2524,11 @@
       "name": "operator delete",
       "mangledName": "__ZdlPv",
       "type": {
-        "qualType": "void (void *) throw()"
+        "qualType": "void (void *) noexcept"
       },
       "inner": [
         {
-          "id": "0x000000000000009f",
+          "id": "0x00000000000000af",
           "kind": "ParmVarDecl",
           "loc": {},
           "range": {
@@ -2324,7 +2541,7 @@
           }
         },
         {
-          "id": "0x00000000000000a0",
+          "id": "0x00000000000000b0",
           "kind": "VisibilityAttr",
           "range": {
             "begin": {},
@@ -2335,7 +2552,7 @@
       ]
     },
     {
-      "id": "0x00000000000000a1",
+      "id": "0x00000000000000b1",
       "kind": "FunctionDecl",
       "loc": {},
       "range": {
@@ -2343,14 +2560,14 @@
         "end": {}
       },
       "isImplicit": true,
-      "name": "operator delete[]",
-      "mangledName": "__ZdaPv",
+      "name": "operator delete",
+      "mangledName": "__ZdlPvSt11align_val_t",
       "type": {
-        "qualType": "void (void *) throw()"
+        "qualType": "void (void *, std::align_val_t) noexcept"
       },
       "inner": [
         {
-          "id": "0x00000000000000a2",
+          "id": "0x00000000000000b2",
           "kind": "ParmVarDecl",
           "loc": {},
           "range": {
@@ -2363,7 +2580,111 @@
           }
         },
         {
-          "id": "0x00000000000000a3",
+          "id": "0x00000000000000b3",
+          "kind": "ParmVarDecl",
+          "loc": {},
+          "range": {
+            "begin": {},
+            "end": {}
+          },
+          "isImplicit": true,
+          "type": {
+            "qualType": "std::align_val_t"
+          }
+        },
+        {
+          "id": "0x00000000000000b4",
+          "kind": "VisibilityAttr",
+          "range": {
+            "begin": {},
+            "end": {}
+          },
+          "implicit": true
+        }
+      ]
+    },
+    {
+      "id": "0x00000000000000b5",
+      "kind": "FunctionDecl",
+      "loc": {},
+      "range": {
+        "begin": {},
+        "end": {}
+      },
+      "isImplicit": true,
+      "name": "operator delete[]",
+      "mangledName": "__ZdaPv",
+      "type": {
+        "qualType": "void (void *) noexcept"
+      },
+      "inner": [
+        {
+          "id": "0x00000000000000b6",
+          "kind": "ParmVarDecl",
+          "loc": {},
+          "range": {
+            "begin": {},
+            "end": {}
+          },
+          "isImplicit": true,
+          "type": {
+            "qualType": "void *"
+          }
+        },
+        {
+          "id": "0x00000000000000b7",
+          "kind": "VisibilityAttr",
+          "range": {
+            "begin": {},
+            "end": {}
+          },
+          "implicit": true
+        }
+      ]
+    },
+    {
+      "id": "0x00000000000000b8",
+      "kind": "FunctionDecl",
+      "loc": {},
+      "range": {
+        "begin": {},
+        "end": {}
+      },
+      "isImplicit": true,
+      "name": "operator delete[]",
+      "mangledName": "__ZdaPvSt11align_val_t",
+      "type": {
+        "qualType": "void (void *, std::align_val_t) noexcept"
+      },
+      "inner": [
+        {
+          "id": "0x00000000000000b9",
+          "kind": "ParmVarDecl",
+          "loc": {},
+          "range": {
+            "begin": {},
+            "end": {}
+          },
+          "isImplicit": true,
+          "type": {
+            "qualType": "void *"
+          }
+        },
+        {
+          "id": "0x00000000000000ba",
+          "kind": "ParmVarDecl",
+          "loc": {},
+          "range": {
+            "begin": {},
+            "end": {}
+          },
+          "isImplicit": true,
+          "type": {
+            "qualType": "std::align_val_t"
+          }
+        },
+        {
+          "id": "0x00000000000000bb",
           "kind": "VisibilityAttr",
           "range": {
             "begin": {},
