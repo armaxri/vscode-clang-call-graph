@@ -253,6 +253,13 @@ export class ClangAstWalker implements AstWalker {
     }
 
     private handleClassDecl(astElement: clangAst.AstElement) {
+        if (astElement.name === undefined || astElement.name === "") {
+            console.error(
+                `Class declaration without name in file "${this.fileName}".`
+            );
+            return;
+        }
+
         const newClass =
             this.activeClassStack.length === 0
                 ? this.currentlyAnalyzedFile!.getOrAddClass(astElement.name!)
