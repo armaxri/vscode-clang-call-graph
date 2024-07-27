@@ -280,7 +280,7 @@ export class ClangAstWalker implements AstWalker {
                 const foundClass = this.knownClasses.find(
                     (knownClass) => knownClass.getName() === base.type.qualType
                 );
-                if (foundClass) {
+                if (foundClass && !foundClass.getName().startsWith("__")) {
                     newClass.getOrAddParentClass(foundClass);
                 }
             });
@@ -314,7 +314,10 @@ export class ClangAstWalker implements AstWalker {
         const currentCallingFuncName = this.callingFunc;
 
         if (isElementVirtualFuncDeclaration(astElement)) {
-            this.handleVirtualFuncDecl(astElement);
+            // Skip some internal virtual functions.
+            if (this.activeClassStack.length !== 0) {
+                this.handleVirtualFuncDecl(astElement);
+            }
         } else {
             this.handleFuncDecl(astElement);
         }
