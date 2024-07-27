@@ -64,7 +64,11 @@ export class ClangAstWalker implements AstWalker {
             if (this.baseAstElement.inner) {
                 for (const innerAstElement of this.baseAstElement.inner) {
                     this.handleFileLocation(innerAstElement);
-                    this.analyzeAstElement(innerAstElement);
+
+                    // We don't want to record built-in functions. They are not interesting for users.
+                    if (this.currentlyAnalyzedFile !== undefined) {
+                        this.analyzeAstElement(innerAstElement);
+                    }
                 }
             }
 
