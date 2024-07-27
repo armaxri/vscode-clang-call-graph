@@ -260,6 +260,14 @@ export class ClangAstWalker implements AstWalker {
             return;
         }
 
+        if (astElement.name.startsWith("__")) {
+            // These are internal classes, which are not interesting for the user.
+            console.error(
+                `Skipped internal class "${astElement.name}" in file "${this.fileName}".`
+            );
+            return;
+        }
+
         const newClass =
             this.activeClassStack.length === 0
                 ? this.currentlyAnalyzedFile!.getOrAddClass(astElement.name!)
