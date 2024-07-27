@@ -60,7 +60,13 @@ export class ClangAstWalker implements AstWalker {
                 // TODO: Report to user an internal error.
                 return;
             }
-            this.analyzeAstElement(this.baseAstElement);
+
+            if (this.baseAstElement.inner) {
+                for (const innerAstElement of this.baseAstElement.inner) {
+                    this.handleFileLocation(innerAstElement);
+                    this.analyzeAstElement(innerAstElement);
+                }
+            }
 
             this.currentlyAnalyzedFile?.justAnalyzed();
             this.database.writeDatabase();
@@ -78,43 +84,35 @@ export class ClangAstWalker implements AstWalker {
         // Therefore we need to cache the value.
         this.handleLocAndRange(astElement);
 
-        if (this.currentlyAnalyzedFile === undefined) {
+        if (astElement.kind === "CXXRecordDecl") {
+            this.handleClassDecl(astElement);
+        } else if (
+            astElement.kind === "FunctionDecl" ||
+            astElement.kind === "CXXMethodDecl"
+        ) {
+            this.handleFunctionDecl(astElement);
+        } else {
+            if (
+                astElement.kind === "CallExpr" ||
+                astElement.kind === "CXXMemberCallExpr"
+            ) {
+                this.updateLastCallExprLocation(astElement);
+            } else if (
+                astElement.kind === "DeclRefExpr" ||
+                astElement.kind === "MemberExpr"
+            ) {
+                this.handleExprStmt(astElement);
+            }
+
             if (astElement.inner) {
                 for (const newAstElement of astElement.inner) {
                     this.analyzeAstElement(newAstElement);
                 }
             }
-        } else {
-            if (astElement.kind === "CXXRecordDecl") {
-                this.handleClassDecl(astElement);
-            } else if (
-                astElement.kind === "FunctionDecl" ||
-                astElement.kind === "CXXMethodDecl"
-            ) {
-                this.handleFunctionDecl(astElement);
-            } else {
-                if (
-                    astElement.kind === "CallExpr" ||
-                    astElement.kind === "CXXMemberCallExpr"
-                ) {
-                    this.updateLastCallExprLocation(astElement);
-                } else if (
-                    astElement.kind === "DeclRefExpr" ||
-                    astElement.kind === "MemberExpr"
-                ) {
-                    this.handleExprStmt(astElement);
-                }
-
-                if (astElement.inner) {
-                    for (const newAstElement of astElement.inner) {
-                        this.analyzeAstElement(newAstElement);
-                    }
-                }
-            }
         }
     }
 
-    private handleLocAndRange(astElement: clangAst.AstElement) {
+    private handleFileLocation(astElement: clangAst.AstElement) {
         if (astElement.loc && astElement.loc.file) {
             this.currentlyAnalyzedFile?.justAnalyzed();
 
@@ -141,6 +139,9 @@ export class ClangAstWalker implements AstWalker {
                 }
             }
         }
+    }
+
+    private handleLocAndRange(astElement: clangAst.AstElement) {
         if (astElement.loc && astElement.loc.line) {
             this.lastSeenLocLineNumber = astElement.loc.line;
         }
