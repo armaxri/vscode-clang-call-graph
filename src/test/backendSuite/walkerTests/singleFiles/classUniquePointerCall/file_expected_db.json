@@ -3,7 +3,7 @@
   "cppFiles": [
     {
       "name": "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-      "lastAnalyzed": 1722202120359,
+      "lastAnalyzed": 1722203764121,
       "classes": [
         {
           "name": "TestClass",
@@ -105,7 +105,7 @@
   "hppFiles": [
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/stddef.h",
-      "lastAnalyzed": 1722202120065,
+      "lastAnalyzed": 1722203763760,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -117,7 +117,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/__stddef_max_align_t.h",
-      "lastAnalyzed": 1722202120065,
+      "lastAnalyzed": 1722203763760,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -129,7 +129,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/stddef.h",
-      "lastAnalyzed": 1722202120070,
+      "lastAnalyzed": 1722203763761,
       "classes": [
         {
           "name": "is_array",
@@ -806,7 +806,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__exception/exception.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [
         {
           "name": "exception",
@@ -932,7 +932,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/_types.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -944,7 +944,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -956,7 +956,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_types.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [
         {
           "name": "_opaque_pthread_attr_t",
@@ -1050,7 +1050,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1062,7 +1062,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/wait.h",
-      "lastAnalyzed": 1722202120072,
+      "lastAnalyzed": 1722203763761,
       "classes": [
         {
           "name": "wait",
@@ -1175,7 +1175,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_pid_t.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1187,7 +1187,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_id_t.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1199,7 +1199,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/signal.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1211,7 +1211,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_int8_t.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1223,7 +1223,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_int16_t.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1235,7 +1235,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_int32_t.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1247,7 +1247,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_int64_t.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1259,7 +1259,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_u_int8_t.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1271,7 +1271,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_u_int16_t.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1283,7 +1283,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_u_int32_t.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1295,7 +1295,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_u_int64_t.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1307,7 +1307,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1319,7 +1319,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_intptr_t.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1331,7 +1331,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_uintptr_t.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1343,7 +1343,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_attr_t.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1355,7 +1355,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_sigset_t.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1367,7 +1367,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_uid_t.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1379,7 +1379,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/signal.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [
         {
           "name": "sigval",
@@ -1453,7 +1453,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types/_uint8_t.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1465,7 +1465,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types/_uint16_t.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1477,7 +1477,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types/_uint32_t.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1489,7 +1489,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types/_uint64_t.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1501,7 +1501,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdint.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1513,7 +1513,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1525,7 +1525,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types/_uintmax_t.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [
         {
           "name": "timeval",
@@ -1547,7 +1547,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/resource.h",
-      "lastAnalyzed": 1722202120071,
+      "lastAnalyzed": 1722203763761,
       "classes": [
         {
           "name": "rusage",
@@ -1756,7 +1756,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/libkern/arm/OSByteOrder.h",
-      "lastAnalyzed": 1722202120072,
+      "lastAnalyzed": 1722203763761,
       "classes": [
         {
           "name": "_OSUnalignedU16",
@@ -1786,38 +1786,7 @@
           "virtualFuncImpls": []
         }
       ],
-      "funcDecls": [
-        {
-          "funcName": "__builtin_bswap32",
-          "funcAstName": "___builtin_bswap32",
-          "qualType": "unsigned int (unsigned int) noexcept",
-          "range": {
-            "start": {
-              "line": 30,
-              "column": 10
-            },
-            "end": {
-              "line": 30,
-              "column": 27
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_bswap64",
-          "funcAstName": "___builtin_bswap64",
-          "qualType": "unsigned long long (unsigned long long) noexcept",
-          "range": {
-            "start": {
-              "line": 42,
-              "column": 9
-            },
-            "end": {
-              "line": 42,
-              "column": 26
-            }
-          }
-        }
-      ],
+      "funcDecls": [],
       "funcImpls": [
         {
           "funcName": "_OSSwapInt16",
@@ -2077,7 +2046,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_ct_rune_t.h",
-      "lastAnalyzed": 1722202120072,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -2089,7 +2058,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_rune_t.h",
-      "lastAnalyzed": 1722202120072,
+      "lastAnalyzed": 1722203763761,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -2101,7 +2070,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdlib.h",
-      "lastAnalyzed": 1722202120072,
+      "lastAnalyzed": 1722203763762,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -2113,7 +2082,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/malloc/_malloc_type.h",
-      "lastAnalyzed": 1722202120072,
+      "lastAnalyzed": 1722203763762,
       "classes": [
         {
           "name": "_malloc_zone_t",
@@ -3411,7 +3380,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_dev_t.h",
-      "lastAnalyzed": 1722202120072,
+      "lastAnalyzed": 1722203763762,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -3423,7 +3392,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_mode_t.h",
-      "lastAnalyzed": 1722202120073,
+      "lastAnalyzed": 1722203763762,
       "classes": [],
       "funcDecls": [
         {
@@ -4051,85 +4020,9 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/stdlib.h",
-      "lastAnalyzed": 1722202120073,
+      "lastAnalyzed": 1722203763762,
       "classes": [],
-      "funcDecls": [
-        {
-          "funcName": "__builtin_labs",
-          "funcAstName": "___builtin_labs",
-          "qualType": "long (long) noexcept",
-          "range": {
-            "start": {
-              "line": 114,
-              "column": 10
-            },
-            "end": {
-              "line": 114,
-              "column": 24
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_llabs",
-          "funcAstName": "___builtin_llabs",
-          "qualType": "long long (long long) noexcept",
-          "range": {
-            "start": {
-              "line": 117,
-              "column": 10
-            },
-            "end": {
-              "line": 117,
-              "column": 25
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_fabsf",
-          "funcAstName": "___builtin_fabsf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 122,
-              "column": 10
-            },
-            "end": {
-              "line": 122,
-              "column": 25
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_fabs",
-          "funcAstName": "___builtin_fabs",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 126,
-              "column": 10
-            },
-            "end": {
-              "line": 126,
-              "column": 24
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_fabsl",
-          "funcAstName": "___builtin_fabsl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 131,
-              "column": 10
-            },
-            "end": {
-              "line": 131,
-              "column": 25
-            }
-          }
-        }
-      ],
+      "funcDecls": [],
       "funcImpls": [
         {
           "funcName": "abs",
@@ -4291,7 +4184,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/new",
-      "lastAnalyzed": 1722202120074,
+      "lastAnalyzed": 1722203763763,
       "classes": [
         {
           "name": "nothrow_t",
@@ -4865,51 +4758,6 @@
               "column": 82
             }
           }
-        },
-        {
-          "funcName": "__builtin_operator_new",
-          "funcAstName": "___builtin_operator_new",
-          "qualType": "void *(unsigned long)",
-          "range": {
-            "start": {
-              "line": 298,
-              "column": 10
-            },
-            "end": {
-              "line": 298,
-              "column": 32
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_operator_delete",
-          "funcAstName": "___builtin_operator_delete",
-          "qualType": "void (void *) noexcept",
-          "range": {
-            "start": {
-              "line": 308,
-              "column": 3
-            },
-            "end": {
-              "line": 308,
-              "column": 28
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_launder",
-          "funcAstName": "___builtin_launder",
-          "qualType": "void *(void *) noexcept",
-          "range": {
-            "start": {
-              "line": 373,
-              "column": 12
-            },
-            "end": {
-              "line": 373,
-              "column": 29
-            }
-          }
         }
       ],
       "funcImpls": [
@@ -5347,7 +5195,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__exception/operations.h",
-      "lastAnalyzed": 1722202120074,
+      "lastAnalyzed": 1722203763763,
       "classes": [
         {
           "name": "exception_ptr",
@@ -5460,7 +5308,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__exception/exception_ptr.h",
-      "lastAnalyzed": 1722202120074,
+      "lastAnalyzed": 1722203763763,
       "classes": [
         {
           "name": "exception_ptr",
@@ -5660,7 +5508,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__exception/nested_exception.h",
-      "lastAnalyzed": 1722202120075,
+      "lastAnalyzed": 1722203763763,
       "classes": [
         {
           "name": "nested_exception",
@@ -5731,7 +5579,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__exception/terminate.h",
-      "lastAnalyzed": 1722202120090,
+      "lastAnalyzed": 1722203763774,
       "classes": [
         {
           "name": "hash",
@@ -7107,21 +6955,6 @@
           }
         },
         {
-          "funcName": "__builtin_is_constant_evaluated",
-          "funcAstName": "___builtin_is_constant_evaluated",
-          "qualType": "bool () noexcept",
-          "range": {
-            "start": {
-              "line": 22,
-              "column": 10
-            },
-            "end": {
-              "line": 22,
-              "column": 41
-            }
-          }
-        },
-        {
           "funcName": "max",
           "funcAstName": "__ZNSt3__123__libcpp_numeric_limitsIiLb1EE3maxB8ue170006Ev",
           "qualType": "type () noexcept",
@@ -8322,141 +8155,6 @@
           }
         },
         {
-          "funcName": "__builtin_huge_valf",
-          "funcAstName": "___builtin_huge_valf",
-          "qualType": "float () noexcept",
-          "range": {
-            "start": {
-              "line": 328,
-              "column": 90
-            },
-            "end": {
-              "line": 328,
-              "column": 109
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_nanf",
-          "funcAstName": "___builtin_nanf",
-          "qualType": "float (const char *) noexcept",
-          "range": {
-            "start": {
-              "line": 329,
-              "column": 91
-            },
-            "end": {
-              "line": 329,
-              "column": 105
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_nansf",
-          "funcAstName": "___builtin_nansf",
-          "qualType": "float (const char *) noexcept",
-          "range": {
-            "start": {
-              "line": 330,
-              "column": 95
-            },
-            "end": {
-              "line": 330,
-              "column": 110
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_huge_val",
-          "funcAstName": "___builtin_huge_val",
-          "qualType": "double () noexcept",
-          "range": {
-            "start": {
-              "line": 378,
-              "column": 90
-            },
-            "end": {
-              "line": 378,
-              "column": 108
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_nan",
-          "funcAstName": "___builtin_nan",
-          "qualType": "double (const char *) noexcept",
-          "range": {
-            "start": {
-              "line": 379,
-              "column": 91
-            },
-            "end": {
-              "line": 379,
-              "column": 104
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_nans",
-          "funcAstName": "___builtin_nans",
-          "qualType": "double (const char *) noexcept",
-          "range": {
-            "start": {
-              "line": 380,
-              "column": 95
-            },
-            "end": {
-              "line": 380,
-              "column": 109
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_huge_vall",
-          "funcAstName": "___builtin_huge_vall",
-          "qualType": "long double () noexcept",
-          "range": {
-            "start": {
-              "line": 428,
-              "column": 90
-            },
-            "end": {
-              "line": 428,
-              "column": 109
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_nanl",
-          "funcAstName": "___builtin_nanl",
-          "qualType": "long double (const char *) noexcept",
-          "range": {
-            "start": {
-              "line": 429,
-              "column": 91
-            },
-            "end": {
-              "line": 429,
-              "column": 105
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_nansl",
-          "funcAstName": "___builtin_nansl",
-          "qualType": "long double (const char *) noexcept",
-          "range": {
-            "start": {
-              "line": 430,
-              "column": 95
-            },
-            "end": {
-              "line": 430,
-              "column": 110
-            }
-          }
-        },
-        {
           "funcName": "allocate",
           "funcAstName": "__ZNSt3__19allocatorINS_19__for_overwrite_tagEE8allocateB8ue170006Em",
           "qualType": "std::__for_overwrite_tag *(size_t)",
@@ -8483,21 +8181,6 @@
             "end": {
               "line": 126,
               "column": 20
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_assume_aligned",
-          "funcAstName": "___builtin_assume_aligned",
-          "qualType": "void *(const void *, unsigned long, ...) noexcept",
-          "range": {
-            "start": {
-              "line": 38,
-              "column": 30
-            },
-            "end": {
-              "line": 38,
-              "column": 54
             }
           }
         },
@@ -9928,7 +9611,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/initializer_list",
-      "lastAnalyzed": 1722202120163,
+      "lastAnalyzed": 1722203763822,
       "classes": [
         {
           "name": "initializer_list",
@@ -11213,21 +10896,6 @@
           }
         },
         {
-          "funcName": "__builtin_unreachable",
-          "funcAstName": "___builtin_unreachable",
-          "qualType": "void () __attribute__((noreturn)) noexcept",
-          "range": {
-            "start": {
-              "line": 23,
-              "column": 5
-            },
-            "end": {
-              "line": 23,
-              "column": 26
-            }
-          }
-        },
-        {
           "funcName": "operator=",
           "funcAstName": "__ZNSt3__118__sfinae_ctor_baseILb0ELb0EEaSERKS1_",
           "qualType": "__sfinae_ctor_base<false, false> &(const __sfinae_ctor_base<false, false> &)",
@@ -11404,111 +11072,6 @@
             "end": {
               "line": 177,
               "column": 33
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_constant_p",
-          "funcAstName": "___builtin_constant_p",
-          "qualType": "int (...) noexcept",
-          "range": {
-            "start": {
-              "line": 42,
-              "column": 10
-            },
-            "end": {
-              "line": 42,
-              "column": 30
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_strlen",
-          "funcAstName": "___builtin_strlen",
-          "qualType": "unsigned long (const char *) noexcept",
-          "range": {
-            "start": {
-              "line": 49,
-              "column": 10
-            },
-            "end": {
-              "line": 49,
-              "column": 26
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_memcmp",
-          "funcAstName": "___builtin_memcmp",
-          "qualType": "int (const void *, const void *, unsigned long) noexcept",
-          "range": {
-            "start": {
-              "line": 66,
-              "column": 14
-            },
-            "end": {
-              "line": 66,
-              "column": 30
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_char_memchr",
-          "funcAstName": "___builtin_char_memchr",
-          "qualType": "char *(const char *, int, unsigned long) noexcept",
-          "range": {
-            "start": {
-              "line": 124,
-              "column": 14
-            },
-            "end": {
-              "line": 124,
-              "column": 35
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_memcpy",
-          "funcAstName": "___builtin_memcpy",
-          "qualType": "void *(void *, const void *, unsigned long) noexcept",
-          "range": {
-            "start": {
-              "line": 135,
-              "column": 5
-            },
-            "end": {
-              "line": 135,
-              "column": 21
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_memchr",
-          "funcAstName": "___builtin_memchr",
-          "qualType": "void *(const void *, int, unsigned long) noexcept",
-          "range": {
-            "start": {
-              "line": 136,
-              "column": 30
-            },
-            "end": {
-              "line": 136,
-              "column": 46
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_memmove",
-          "funcAstName": "___builtin_memmove",
-          "qualType": "void *(void *, const void *, unsigned long) noexcept",
-          "range": {
-            "start": {
-              "line": 200,
-              "column": 9
-            },
-            "end": {
-              "line": 200,
-              "column": 26
             }
           }
         },
@@ -12306,7 +11869,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_ssize_t.h",
-      "lastAnalyzed": 1722202120163,
+      "lastAnalyzed": 1722203763823,
       "classes": [],
       "funcDecls": [
         {
@@ -12709,7 +12272,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/string.h",
-      "lastAnalyzed": 1722202120182,
+      "lastAnalyzed": 1722203763914,
       "classes": [
         {
           "name": "_PairT",
@@ -12954,66 +12517,6 @@
         }
       ],
       "funcDecls": [
-        {
-          "funcName": "__builtin_strchr",
-          "funcAstName": "___builtin_strchr",
-          "qualType": "char *(const char *, int) noexcept",
-          "range": {
-            "start": {
-              "line": 74,
-              "column": 10
-            },
-            "end": {
-              "line": 74,
-              "column": 26
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_strpbrk",
-          "funcAstName": "___builtin_strpbrk",
-          "qualType": "char *(const char *, const char *) noexcept",
-          "range": {
-            "start": {
-              "line": 81,
-              "column": 10
-            },
-            "end": {
-              "line": 81,
-              "column": 27
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_strrchr",
-          "funcAstName": "___builtin_strrchr",
-          "qualType": "char *(const char *, int) noexcept",
-          "range": {
-            "start": {
-              "line": 88,
-              "column": 10
-            },
-            "end": {
-              "line": 88,
-              "column": 27
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_strstr",
-          "funcAstName": "___builtin_strstr",
-          "qualType": "char *(const char *, const char *) noexcept",
-          "range": {
-            "start": {
-              "line": 102,
-              "column": 10
-            },
-            "end": {
-              "line": 102,
-              "column": 26
-            }
-          }
-        },
         {
           "funcName": "operator()",
           "funcAstName": "__ZNKSt3__113__scalar_hashIxLm1EEclB8ue170006Ex",
@@ -13357,23 +12860,7 @@
               "column": 75
             }
           },
-          "funcCalls": [
-            {
-              "funcName": "__builtin_memchr",
-              "funcAstName": "___builtin_memchr",
-              "qualType": "void *(const void *, int, unsigned long) noexcept",
-              "range": {
-                "start": {
-                  "line": 95,
-                  "column": 10
-                },
-                "end": {
-                  "line": 95,
-                  "column": 41
-                }
-              }
-            }
-          ],
+          "funcCalls": [],
           "virtualFuncCalls": []
         },
         {
@@ -13390,23 +12877,7 @@
               "column": 69
             }
           },
-          "funcCalls": [
-            {
-              "funcName": "__builtin_memchr",
-              "funcAstName": "___builtin_memchr",
-              "qualType": "void *(const void *, int, unsigned long) noexcept",
-              "range": {
-                "start": {
-                  "line": 98,
-                  "column": 10
-                },
-                "end": {
-                  "line": 98,
-                  "column": 41
-                }
-              }
-            }
-          ],
+          "funcCalls": [],
           "virtualFuncCalls": []
         },
         {
@@ -15150,7 +14621,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_mbstate_t.h",
-      "lastAnalyzed": 1722202120183,
+      "lastAnalyzed": 1722203763915,
       "classes": [
         {
           "name": "ios_base",
@@ -15638,7 +15109,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/typeinfo",
-      "lastAnalyzed": 1722202120199,
+      "lastAnalyzed": 1722203763987,
       "classes": [
         {
           "name": "type_info",
@@ -15993,21 +15464,6 @@
         }
       ],
       "funcDecls": [
-        {
-          "funcName": "__builtin_strcmp",
-          "funcAstName": "___builtin_strcmp",
-          "qualType": "int (const char *, const char *) noexcept",
-          "range": {
-            "start": {
-              "line": 234,
-              "column": 32
-            },
-            "end": {
-              "line": 234,
-              "column": 48
-            }
-          }
-        },
         {
           "funcName": "__get_sp_mut",
           "funcAstName": "__ZNSt3__112__get_sp_mutEPKv",
@@ -19247,51 +18703,6 @@
               "column": 20
             }
           }
-        },
-        {
-          "funcName": "__builtin_inff",
-          "funcAstName": "___builtin_inff",
-          "qualType": "float () noexcept",
-          "range": {
-            "start": {
-              "line": 192,
-              "column": 50
-            },
-            "end": {
-              "line": 192,
-              "column": 64
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_inf",
-          "funcAstName": "___builtin_inf",
-          "qualType": "double () noexcept",
-          "range": {
-            "start": {
-              "line": 195,
-              "column": 49
-            },
-            "end": {
-              "line": 195,
-              "column": 62
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_infl",
-          "funcAstName": "___builtin_infl",
-          "qualType": "long double () noexcept",
-          "range": {
-            "start": {
-              "line": 198,
-              "column": 50
-            },
-            "end": {
-              "line": 198,
-              "column": 64
-            }
-          }
         }
       ],
       "funcImpls": [
@@ -19394,23 +18805,7 @@
               "column": 46
             }
           },
-          "funcCalls": [
-            {
-              "funcName": "__builtin_fabsf",
-              "funcAstName": "___builtin_fabsf",
-              "qualType": "float (float) noexcept",
-              "range": {
-                "start": {
-                  "line": 192,
-                  "column": 26
-                },
-                "end": {
-                  "line": 192,
-                  "column": 46
-                }
-              }
-            }
-          ],
+          "funcCalls": [],
           "virtualFuncCalls": []
         },
         {
@@ -19427,23 +18822,7 @@
               "column": 46
             }
           },
-          "funcCalls": [
-            {
-              "funcName": "__builtin_fabs",
-              "funcAstName": "___builtin_fabs",
-              "qualType": "double (double) noexcept",
-              "range": {
-                "start": {
-                  "line": 195,
-                  "column": 26
-                },
-                "end": {
-                  "line": 195,
-                  "column": 45
-                }
-              }
-            }
-          ],
+          "funcCalls": [],
           "virtualFuncCalls": []
         },
         {
@@ -19460,23 +18839,7 @@
               "column": 46
             }
           },
-          "funcCalls": [
-            {
-              "funcName": "__builtin_fabsl",
-              "funcAstName": "___builtin_fabsl",
-              "qualType": "long double (long double) noexcept",
-              "range": {
-                "start": {
-                  "line": 198,
-                  "column": 26
-                },
-                "end": {
-                  "line": 198,
-                  "column": 46
-                }
-              }
-            }
-          ],
+          "funcCalls": [],
           "virtualFuncCalls": []
         },
         {
@@ -19493,23 +18856,7 @@
               "column": 43
             }
           },
-          "funcCalls": [
-            {
-              "funcName": "__builtin_fabsf",
-              "funcAstName": "___builtin_fabsf",
-              "qualType": "float (float) noexcept",
-              "range": {
-                "start": {
-                  "line": 201,
-                  "column": 12
-                },
-                "end": {
-                  "line": 201,
-                  "column": 32
-                }
-              }
-            }
-          ],
+          "funcCalls": [],
           "virtualFuncCalls": []
         },
         {
@@ -19526,23 +18873,7 @@
               "column": 43
             }
           },
-          "funcCalls": [
-            {
-              "funcName": "__builtin_fabs",
-              "funcAstName": "___builtin_fabs",
-              "qualType": "double (double) noexcept",
-              "range": {
-                "start": {
-                  "line": 204,
-                  "column": 12
-                },
-                "end": {
-                  "line": 204,
-                  "column": 31
-                }
-              }
-            }
-          ],
+          "funcCalls": [],
           "virtualFuncCalls": []
         },
         {
@@ -19559,23 +18890,7 @@
               "column": 43
             }
           },
-          "funcCalls": [
-            {
-              "funcName": "__builtin_fabsl",
-              "funcAstName": "___builtin_fabsl",
-              "qualType": "long double (long double) noexcept",
-              "range": {
-                "start": {
-                  "line": 207,
-                  "column": 12
-                },
-                "end": {
-                  "line": 207,
-                  "column": 32
-                }
-              }
-            }
-          ],
+          "funcCalls": [],
           "virtualFuncCalls": []
         },
         {
@@ -19709,21 +19024,6 @@
                   "column": 35
                 }
               }
-            },
-            {
-              "funcName": "__builtin_fabsf",
-              "funcAstName": "___builtin_fabsf",
-              "qualType": "float (float) noexcept",
-              "range": {
-                "start": {
-                  "line": 245,
-                  "column": 39
-                },
-                "end": {
-                  "line": 245,
-                  "column": 59
-                }
-              }
             }
           ],
           "virtualFuncCalls": []
@@ -19757,21 +19057,6 @@
                   "column": 35
                 }
               }
-            },
-            {
-              "funcName": "__builtin_fabs",
-              "funcAstName": "___builtin_fabs",
-              "qualType": "double (double) noexcept",
-              "range": {
-                "start": {
-                  "line": 248,
-                  "column": 39
-                },
-                "end": {
-                  "line": 248,
-                  "column": 58
-                }
-              }
             }
           ],
           "virtualFuncCalls": []
@@ -19803,21 +19088,6 @@
                 "end": {
                   "line": 251,
                   "column": 35
-                }
-              }
-            },
-            {
-              "funcName": "__builtin_fabsl",
-              "funcAstName": "___builtin_fabsl",
-              "qualType": "long double (long double) noexcept",
-              "range": {
-                "start": {
-                  "line": 251,
-                  "column": 39
-                },
-                "end": {
-                  "line": 251,
-                  "column": 59
                 }
               }
             }
@@ -19965,7 +19235,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/math.h",
-      "lastAnalyzed": 1722202120286,
+      "lastAnalyzed": 1722203764071,
       "classes": [
         {
           "name": "tuple",
@@ -20259,2631 +19529,6 @@
             "end": {
               "line": 893,
               "column": 34
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_signbit",
-          "funcAstName": "___builtin_signbit",
-          "qualType": "int (...) noexcept",
-          "range": {
-            "start": {
-              "line": 371,
-              "column": 10
-            },
-            "end": {
-              "line": 371,
-              "column": 27
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_fpclassify",
-          "funcAstName": "___builtin_fpclassify",
-          "qualType": "int (int, int, int, int, int, ...) noexcept",
-          "range": {
-            "start": {
-              "line": 388,
-              "column": 10
-            },
-            "end": {
-              "line": 388,
-              "column": 30
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_isfinite",
-          "funcAstName": "___builtin_isfinite",
-          "qualType": "int (...) noexcept",
-          "range": {
-            "start": {
-              "line": 404,
-              "column": 10
-            },
-            "end": {
-              "line": 404,
-              "column": 28
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_isinf",
-          "funcAstName": "___builtin_isinf",
-          "qualType": "int (...) noexcept",
-          "range": {
-            "start": {
-              "line": 418,
-              "column": 10
-            },
-            "end": {
-              "line": 418,
-              "column": 25
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_isnan",
-          "funcAstName": "___builtin_isnan",
-          "qualType": "int (...) noexcept",
-          "range": {
-            "start": {
-              "line": 446,
-              "column": 10
-            },
-            "end": {
-              "line": 446,
-              "column": 25
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_isnormal",
-          "funcAstName": "___builtin_isnormal",
-          "qualType": "int (...) noexcept",
-          "range": {
-            "start": {
-              "line": 472,
-              "column": 10
-            },
-            "end": {
-              "line": 472,
-              "column": 28
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_isgreater",
-          "funcAstName": "___builtin_isgreater",
-          "qualType": "int (...) noexcept",
-          "range": {
-            "start": {
-              "line": 487,
-              "column": 10
-            },
-            "end": {
-              "line": 487,
-              "column": 29
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_isgreaterequal",
-          "funcAstName": "___builtin_isgreaterequal",
-          "qualType": "int (...) noexcept",
-          "range": {
-            "start": {
-              "line": 497,
-              "column": 10
-            },
-            "end": {
-              "line": 497,
-              "column": 34
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_isless",
-          "funcAstName": "___builtin_isless",
-          "qualType": "int (...) noexcept",
-          "range": {
-            "start": {
-              "line": 507,
-              "column": 10
-            },
-            "end": {
-              "line": 507,
-              "column": 26
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_islessequal",
-          "funcAstName": "___builtin_islessequal",
-          "qualType": "int (...) noexcept",
-          "range": {
-            "start": {
-              "line": 517,
-              "column": 10
-            },
-            "end": {
-              "line": 517,
-              "column": 31
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_islessgreater",
-          "funcAstName": "___builtin_islessgreater",
-          "qualType": "int (...) noexcept",
-          "range": {
-            "start": {
-              "line": 527,
-              "column": 10
-            },
-            "end": {
-              "line": 527,
-              "column": 33
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_isunordered",
-          "funcAstName": "___builtin_isunordered",
-          "qualType": "int (...) noexcept",
-          "range": {
-            "start": {
-              "line": 537,
-              "column": 10
-            },
-            "end": {
-              "line": 537,
-              "column": 31
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_acosf",
-          "funcAstName": "___builtin_acosf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 557,
-              "column": 82
-            },
-            "end": {
-              "line": 557,
-              "column": 97
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_acos",
-          "funcAstName": "___builtin_acos",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 561,
-              "column": 10
-            },
-            "end": {
-              "line": 561,
-              "column": 24
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_acosl",
-          "funcAstName": "___builtin_acosl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 564,
-              "column": 82
-            },
-            "end": {
-              "line": 564,
-              "column": 97
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_asinf",
-          "funcAstName": "___builtin_asinf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 573,
-              "column": 82
-            },
-            "end": {
-              "line": 573,
-              "column": 97
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_asin",
-          "funcAstName": "___builtin_asin",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 577,
-              "column": 10
-            },
-            "end": {
-              "line": 577,
-              "column": 24
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_asinl",
-          "funcAstName": "___builtin_asinl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 580,
-              "column": 82
-            },
-            "end": {
-              "line": 580,
-              "column": 97
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_atanf",
-          "funcAstName": "___builtin_atanf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 589,
-              "column": 82
-            },
-            "end": {
-              "line": 589,
-              "column": 97
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_atan",
-          "funcAstName": "___builtin_atan",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 593,
-              "column": 10
-            },
-            "end": {
-              "line": 593,
-              "column": 24
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_atanl",
-          "funcAstName": "___builtin_atanl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 596,
-              "column": 82
-            },
-            "end": {
-              "line": 596,
-              "column": 97
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_atan2f",
-          "funcAstName": "___builtin_atan2f",
-          "qualType": "float (float, float) noexcept",
-          "range": {
-            "start": {
-              "line": 605,
-              "column": 100
-            },
-            "end": {
-              "line": 605,
-              "column": 116
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_atan2",
-          "funcAstName": "___builtin_atan2",
-          "qualType": "double (double, double) noexcept",
-          "range": {
-            "start": {
-              "line": 609,
-              "column": 10
-            },
-            "end": {
-              "line": 609,
-              "column": 25
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_atan2l",
-          "funcAstName": "___builtin_atan2l",
-          "qualType": "long double (long double, long double) noexcept",
-          "range": {
-            "start": {
-              "line": 612,
-              "column": 100
-            },
-            "end": {
-              "line": 612,
-              "column": 116
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_ceilf",
-          "funcAstName": "___builtin_ceilf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 632,
-              "column": 104
-            },
-            "end": {
-              "line": 632,
-              "column": 119
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_ceil",
-          "funcAstName": "___builtin_ceil",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 636,
-              "column": 10
-            },
-            "end": {
-              "line": 636,
-              "column": 24
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_ceill",
-          "funcAstName": "___builtin_ceill",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 639,
-              "column": 104
-            },
-            "end": {
-              "line": 639,
-              "column": 119
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_cosf",
-          "funcAstName": "___builtin_cosf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 648,
-              "column": 81
-            },
-            "end": {
-              "line": 648,
-              "column": 95
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_cos",
-          "funcAstName": "___builtin_cos",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 652,
-              "column": 10
-            },
-            "end": {
-              "line": 652,
-              "column": 23
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_cosl",
-          "funcAstName": "___builtin_cosl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 655,
-              "column": 81
-            },
-            "end": {
-              "line": 655,
-              "column": 95
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_coshf",
-          "funcAstName": "___builtin_coshf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 664,
-              "column": 82
-            },
-            "end": {
-              "line": 664,
-              "column": 97
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_cosh",
-          "funcAstName": "___builtin_cosh",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 668,
-              "column": 10
-            },
-            "end": {
-              "line": 668,
-              "column": 24
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_coshl",
-          "funcAstName": "___builtin_coshl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 671,
-              "column": 82
-            },
-            "end": {
-              "line": 671,
-              "column": 97
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_expf",
-          "funcAstName": "___builtin_expf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 680,
-              "column": 81
-            },
-            "end": {
-              "line": 680,
-              "column": 95
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_exp",
-          "funcAstName": "___builtin_exp",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 684,
-              "column": 10
-            },
-            "end": {
-              "line": 684,
-              "column": 23
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_expl",
-          "funcAstName": "___builtin_expl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 687,
-              "column": 81
-            },
-            "end": {
-              "line": 687,
-              "column": 95
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_floorf",
-          "funcAstName": "___builtin_floorf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 712,
-              "column": 105
-            },
-            "end": {
-              "line": 712,
-              "column": 121
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_floor",
-          "funcAstName": "___builtin_floor",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 716,
-              "column": 10
-            },
-            "end": {
-              "line": 716,
-              "column": 25
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_floorl",
-          "funcAstName": "___builtin_floorl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 719,
-              "column": 105
-            },
-            "end": {
-              "line": 719,
-              "column": 121
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_fmodf",
-          "funcAstName": "___builtin_fmodf",
-          "qualType": "float (float, float) noexcept",
-          "range": {
-            "start": {
-              "line": 728,
-              "column": 99
-            },
-            "end": {
-              "line": 728,
-              "column": 114
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_fmod",
-          "funcAstName": "___builtin_fmod",
-          "qualType": "double (double, double) noexcept",
-          "range": {
-            "start": {
-              "line": 732,
-              "column": 10
-            },
-            "end": {
-              "line": 732,
-              "column": 24
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_fmodl",
-          "funcAstName": "___builtin_fmodl",
-          "qualType": "long double (long double, long double) noexcept",
-          "range": {
-            "start": {
-              "line": 735,
-              "column": 99
-            },
-            "end": {
-              "line": 735,
-              "column": 114
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_frexpf",
-          "funcAstName": "___builtin_frexpf",
-          "qualType": "float (float, int *) noexcept",
-          "range": {
-            "start": {
-              "line": 755,
-              "column": 93
-            },
-            "end": {
-              "line": 755,
-              "column": 109
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_frexp",
-          "funcAstName": "___builtin_frexp",
-          "qualType": "double (double, int *) noexcept",
-          "range": {
-            "start": {
-              "line": 759,
-              "column": 10
-            },
-            "end": {
-              "line": 759,
-              "column": 25
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_frexpl",
-          "funcAstName": "___builtin_frexpl",
-          "qualType": "long double (long double, int *) noexcept",
-          "range": {
-            "start": {
-              "line": 762,
-              "column": 93
-            },
-            "end": {
-              "line": 762,
-              "column": 109
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_ldexpf",
-          "funcAstName": "___builtin_ldexpf",
-          "qualType": "float (float, int) noexcept",
-          "range": {
-            "start": {
-              "line": 771,
-              "column": 92
-            },
-            "end": {
-              "line": 771,
-              "column": 108
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_ldexp",
-          "funcAstName": "___builtin_ldexp",
-          "qualType": "double (double, int) noexcept",
-          "range": {
-            "start": {
-              "line": 775,
-              "column": 10
-            },
-            "end": {
-              "line": 775,
-              "column": 25
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_ldexpl",
-          "funcAstName": "___builtin_ldexpl",
-          "qualType": "long double (long double, int) noexcept",
-          "range": {
-            "start": {
-              "line": 778,
-              "column": 92
-            },
-            "end": {
-              "line": 778,
-              "column": 108
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_logf",
-          "funcAstName": "___builtin_logf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 787,
-              "column": 81
-            },
-            "end": {
-              "line": 787,
-              "column": 95
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_log",
-          "funcAstName": "___builtin_log",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 791,
-              "column": 10
-            },
-            "end": {
-              "line": 791,
-              "column": 23
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_logl",
-          "funcAstName": "___builtin_logl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 794,
-              "column": 81
-            },
-            "end": {
-              "line": 794,
-              "column": 95
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_log10f",
-          "funcAstName": "___builtin_log10f",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 803,
-              "column": 83
-            },
-            "end": {
-              "line": 803,
-              "column": 99
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_log10",
-          "funcAstName": "___builtin_log10",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 808,
-              "column": 10
-            },
-            "end": {
-              "line": 808,
-              "column": 25
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_log10l",
-          "funcAstName": "___builtin_log10l",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 811,
-              "column": 83
-            },
-            "end": {
-              "line": 811,
-              "column": 99
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_modff",
-          "funcAstName": "___builtin_modff",
-          "qualType": "float (float, float *) noexcept",
-          "range": {
-            "start": {
-              "line": 820,
-              "column": 100
-            },
-            "end": {
-              "line": 820,
-              "column": 115
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_modf",
-          "funcAstName": "___builtin_modf",
-          "qualType": "double (double, double *) noexcept",
-          "range": {
-            "start": {
-              "line": 824,
-              "column": 10
-            },
-            "end": {
-              "line": 824,
-              "column": 24
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_modfl",
-          "funcAstName": "___builtin_modfl",
-          "qualType": "long double (long double, long double *) noexcept",
-          "range": {
-            "start": {
-              "line": 827,
-              "column": 100
-            },
-            "end": {
-              "line": 827,
-              "column": 115
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_powf",
-          "funcAstName": "___builtin_powf",
-          "qualType": "float (float, float) noexcept",
-          "range": {
-            "start": {
-              "line": 831,
-              "column": 98
-            },
-            "end": {
-              "line": 831,
-              "column": 112
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_pow",
-          "funcAstName": "___builtin_pow",
-          "qualType": "double (double, double) noexcept",
-          "range": {
-            "start": {
-              "line": 835,
-              "column": 10
-            },
-            "end": {
-              "line": 835,
-              "column": 23
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_powl",
-          "funcAstName": "___builtin_powl",
-          "qualType": "long double (long double, long double) noexcept",
-          "range": {
-            "start": {
-              "line": 838,
-              "column": 98
-            },
-            "end": {
-              "line": 838,
-              "column": 112
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_sinf",
-          "funcAstName": "___builtin_sinf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 858,
-              "column": 81
-            },
-            "end": {
-              "line": 858,
-              "column": 95
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_sin",
-          "funcAstName": "___builtin_sin",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 862,
-              "column": 10
-            },
-            "end": {
-              "line": 862,
-              "column": 23
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_sinl",
-          "funcAstName": "___builtin_sinl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 865,
-              "column": 81
-            },
-            "end": {
-              "line": 865,
-              "column": 95
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_sinhf",
-          "funcAstName": "___builtin_sinhf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 874,
-              "column": 82
-            },
-            "end": {
-              "line": 874,
-              "column": 97
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_sinh",
-          "funcAstName": "___builtin_sinh",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 878,
-              "column": 10
-            },
-            "end": {
-              "line": 878,
-              "column": 24
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_sinhl",
-          "funcAstName": "___builtin_sinhl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 881,
-              "column": 82
-            },
-            "end": {
-              "line": 881,
-              "column": 97
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_sqrtf",
-          "funcAstName": "___builtin_sqrtf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 890,
-              "column": 82
-            },
-            "end": {
-              "line": 890,
-              "column": 97
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_sqrt",
-          "funcAstName": "___builtin_sqrt",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 894,
-              "column": 10
-            },
-            "end": {
-              "line": 894,
-              "column": 24
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_sqrtl",
-          "funcAstName": "___builtin_sqrtl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 897,
-              "column": 82
-            },
-            "end": {
-              "line": 897,
-              "column": 97
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_tanf",
-          "funcAstName": "___builtin_tanf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 906,
-              "column": 81
-            },
-            "end": {
-              "line": 906,
-              "column": 95
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_tan",
-          "funcAstName": "___builtin_tan",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 910,
-              "column": 10
-            },
-            "end": {
-              "line": 910,
-              "column": 23
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_tanl",
-          "funcAstName": "___builtin_tanl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 913,
-              "column": 81
-            },
-            "end": {
-              "line": 913,
-              "column": 95
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_tanhf",
-          "funcAstName": "___builtin_tanhf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 922,
-              "column": 82
-            },
-            "end": {
-              "line": 922,
-              "column": 97
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_tanh",
-          "funcAstName": "___builtin_tanh",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 926,
-              "column": 10
-            },
-            "end": {
-              "line": 926,
-              "column": 24
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_tanhl",
-          "funcAstName": "___builtin_tanhl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 929,
-              "column": 82
-            },
-            "end": {
-              "line": 929,
-              "column": 97
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_acoshf",
-          "funcAstName": "___builtin_acoshf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 938,
-              "column": 83
-            },
-            "end": {
-              "line": 938,
-              "column": 99
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_acosh",
-          "funcAstName": "___builtin_acosh",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 942,
-              "column": 10
-            },
-            "end": {
-              "line": 942,
-              "column": 25
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_acoshl",
-          "funcAstName": "___builtin_acoshl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 945,
-              "column": 83
-            },
-            "end": {
-              "line": 945,
-              "column": 99
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_asinhf",
-          "funcAstName": "___builtin_asinhf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 954,
-              "column": 83
-            },
-            "end": {
-              "line": 954,
-              "column": 99
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_asinh",
-          "funcAstName": "___builtin_asinh",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 958,
-              "column": 10
-            },
-            "end": {
-              "line": 958,
-              "column": 25
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_asinhl",
-          "funcAstName": "___builtin_asinhl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 961,
-              "column": 83
-            },
-            "end": {
-              "line": 961,
-              "column": 99
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_atanhf",
-          "funcAstName": "___builtin_atanhf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 970,
-              "column": 83
-            },
-            "end": {
-              "line": 970,
-              "column": 99
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_atanh",
-          "funcAstName": "___builtin_atanh",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 974,
-              "column": 10
-            },
-            "end": {
-              "line": 974,
-              "column": 25
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_atanhl",
-          "funcAstName": "___builtin_atanhl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 977,
-              "column": 83
-            },
-            "end": {
-              "line": 977,
-              "column": 99
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_cbrtf",
-          "funcAstName": "___builtin_cbrtf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 986,
-              "column": 104
-            },
-            "end": {
-              "line": 986,
-              "column": 119
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_cbrt",
-          "funcAstName": "___builtin_cbrt",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 990,
-              "column": 10
-            },
-            "end": {
-              "line": 990,
-              "column": 24
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_cbrtl",
-          "funcAstName": "___builtin_cbrtl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 993,
-              "column": 104
-            },
-            "end": {
-              "line": 993,
-              "column": 119
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_copysignf",
-          "funcAstName": "___builtin_copysignf",
-          "qualType": "float (float, float) noexcept",
-          "range": {
-            "start": {
-              "line": 1003,
-              "column": 12
-            },
-            "end": {
-              "line": 1003,
-              "column": 31
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_copysignl",
-          "funcAstName": "___builtin_copysignl",
-          "qualType": "long double (long double, long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1007,
-              "column": 12
-            },
-            "end": {
-              "line": 1007,
-              "column": 31
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_copysign",
-          "funcAstName": "___builtin_copysign",
-          "qualType": "double (double, double) noexcept",
-          "range": {
-            "start": {
-              "line": 1019,
-              "column": 12
-            },
-            "end": {
-              "line": 1019,
-              "column": 30
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_erff",
-          "funcAstName": "___builtin_erff",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 1024,
-              "column": 81
-            },
-            "end": {
-              "line": 1024,
-              "column": 95
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_erf",
-          "funcAstName": "___builtin_erf",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 1028,
-              "column": 10
-            },
-            "end": {
-              "line": 1028,
-              "column": 23
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_erfl",
-          "funcAstName": "___builtin_erfl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1031,
-              "column": 81
-            },
-            "end": {
-              "line": 1031,
-              "column": 95
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_erfcf",
-          "funcAstName": "___builtin_erfcf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 1040,
-              "column": 82
-            },
-            "end": {
-              "line": 1040,
-              "column": 97
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_erfc",
-          "funcAstName": "___builtin_erfc",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 1044,
-              "column": 10
-            },
-            "end": {
-              "line": 1044,
-              "column": 24
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_erfcl",
-          "funcAstName": "___builtin_erfcl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1047,
-              "column": 82
-            },
-            "end": {
-              "line": 1047,
-              "column": 97
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_exp2f",
-          "funcAstName": "___builtin_exp2f",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 1056,
-              "column": 82
-            },
-            "end": {
-              "line": 1056,
-              "column": 97
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_exp2",
-          "funcAstName": "___builtin_exp2",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 1060,
-              "column": 10
-            },
-            "end": {
-              "line": 1060,
-              "column": 24
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_exp2l",
-          "funcAstName": "___builtin_exp2l",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1063,
-              "column": 82
-            },
-            "end": {
-              "line": 1063,
-              "column": 97
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_expm1f",
-          "funcAstName": "___builtin_expm1f",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 1072,
-              "column": 83
-            },
-            "end": {
-              "line": 1072,
-              "column": 99
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_expm1",
-          "funcAstName": "___builtin_expm1",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 1076,
-              "column": 10
-            },
-            "end": {
-              "line": 1076,
-              "column": 25
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_expm1l",
-          "funcAstName": "___builtin_expm1l",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1079,
-              "column": 83
-            },
-            "end": {
-              "line": 1079,
-              "column": 99
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_fdimf",
-          "funcAstName": "___builtin_fdimf",
-          "qualType": "float (float, float) noexcept",
-          "range": {
-            "start": {
-              "line": 1088,
-              "column": 99
-            },
-            "end": {
-              "line": 1088,
-              "column": 114
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_fdim",
-          "funcAstName": "___builtin_fdim",
-          "qualType": "double (double, double) noexcept",
-          "range": {
-            "start": {
-              "line": 1092,
-              "column": 10
-            },
-            "end": {
-              "line": 1092,
-              "column": 24
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_fdiml",
-          "funcAstName": "___builtin_fdiml",
-          "qualType": "long double (long double, long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1095,
-              "column": 99
-            },
-            "end": {
-              "line": 1095,
-              "column": 114
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_fmaf",
-          "funcAstName": "___builtin_fmaf",
-          "qualType": "float (float, float, float) noexcept",
-          "range": {
-            "start": {
-              "line": 1117,
-              "column": 12
-            },
-            "end": {
-              "line": 1117,
-              "column": 26
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_fma",
-          "funcAstName": "___builtin_fma",
-          "qualType": "double (double, double, double) noexcept",
-          "range": {
-            "start": {
-              "line": 1123,
-              "column": 10
-            },
-            "end": {
-              "line": 1123,
-              "column": 23
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_fmal",
-          "funcAstName": "___builtin_fmal",
-          "qualType": "long double (long double, long double, long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1128,
-              "column": 12
-            },
-            "end": {
-              "line": 1128,
-              "column": 26
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_fmaxf",
-          "funcAstName": "___builtin_fmaxf",
-          "qualType": "float (float, float) noexcept",
-          "range": {
-            "start": {
-              "line": 1151,
-              "column": 121
-            },
-            "end": {
-              "line": 1151,
-              "column": 136
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_fmax",
-          "funcAstName": "___builtin_fmax",
-          "qualType": "double (double, double) noexcept",
-          "range": {
-            "start": {
-              "line": 1155,
-              "column": 10
-            },
-            "end": {
-              "line": 1155,
-              "column": 24
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_fmaxl",
-          "funcAstName": "___builtin_fmaxl",
-          "qualType": "long double (long double, long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1158,
-              "column": 121
-            },
-            "end": {
-              "line": 1158,
-              "column": 136
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_fminf",
-          "funcAstName": "___builtin_fminf",
-          "qualType": "float (float, float) noexcept",
-          "range": {
-            "start": {
-              "line": 1178,
-              "column": 121
-            },
-            "end": {
-              "line": 1178,
-              "column": 136
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_fmin",
-          "funcAstName": "___builtin_fmin",
-          "qualType": "double (double, double) noexcept",
-          "range": {
-            "start": {
-              "line": 1182,
-              "column": 10
-            },
-            "end": {
-              "line": 1182,
-              "column": 24
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_fminl",
-          "funcAstName": "___builtin_fminl",
-          "qualType": "long double (long double, long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1185,
-              "column": 121
-            },
-            "end": {
-              "line": 1185,
-              "column": 136
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_hypotf",
-          "funcAstName": "___builtin_hypotf",
-          "qualType": "float (float, float) noexcept",
-          "range": {
-            "start": {
-              "line": 1205,
-              "column": 100
-            },
-            "end": {
-              "line": 1205,
-              "column": 116
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_hypot",
-          "funcAstName": "___builtin_hypot",
-          "qualType": "double (double, double) noexcept",
-          "range": {
-            "start": {
-              "line": 1209,
-              "column": 10
-            },
-            "end": {
-              "line": 1209,
-              "column": 25
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_hypotl",
-          "funcAstName": "___builtin_hypotl",
-          "qualType": "long double (long double, long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1212,
-              "column": 100
-            },
-            "end": {
-              "line": 1212,
-              "column": 116
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_ilogbf",
-          "funcAstName": "___builtin_ilogbf",
-          "qualType": "int (float) noexcept",
-          "range": {
-            "start": {
-              "line": 1232,
-              "column": 75
-            },
-            "end": {
-              "line": 1232,
-              "column": 91
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_ilogb",
-          "funcAstName": "___builtin_ilogb",
-          "qualType": "int (double) noexcept",
-          "range": {
-            "start": {
-              "line": 1236,
-              "column": 10
-            },
-            "end": {
-              "line": 1236,
-              "column": 25
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_ilogbl",
-          "funcAstName": "___builtin_ilogbl",
-          "qualType": "int (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1239,
-              "column": 75
-            },
-            "end": {
-              "line": 1239,
-              "column": 91
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_lgammaf",
-          "funcAstName": "___builtin_lgammaf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 1248,
-              "column": 84
-            },
-            "end": {
-              "line": 1248,
-              "column": 101
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_lgamma",
-          "funcAstName": "___builtin_lgamma",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 1252,
-              "column": 10
-            },
-            "end": {
-              "line": 1252,
-              "column": 26
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_lgammal",
-          "funcAstName": "___builtin_lgammal",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1255,
-              "column": 84
-            },
-            "end": {
-              "line": 1255,
-              "column": 101
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_llrintf",
-          "funcAstName": "___builtin_llrintf",
-          "qualType": "long long (float) noexcept",
-          "range": {
-            "start": {
-              "line": 1266,
-              "column": 12
-            },
-            "end": {
-              "line": 1266,
-              "column": 29
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_llrint",
-          "funcAstName": "___builtin_llrint",
-          "qualType": "long long (double) noexcept",
-          "range": {
-            "start": {
-              "line": 1271,
-              "column": 10
-            },
-            "end": {
-              "line": 1271,
-              "column": 26
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_llrintl",
-          "funcAstName": "___builtin_llrintl",
-          "qualType": "long long (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1276,
-              "column": 12
-            },
-            "end": {
-              "line": 1276,
-              "column": 29
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_llroundf",
-          "funcAstName": "___builtin_llroundf",
-          "qualType": "long long (float) noexcept",
-          "range": {
-            "start": {
-              "line": 1291,
-              "column": 12
-            },
-            "end": {
-              "line": 1291,
-              "column": 30
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_llround",
-          "funcAstName": "___builtin_llround",
-          "qualType": "long long (double) noexcept",
-          "range": {
-            "start": {
-              "line": 1296,
-              "column": 10
-            },
-            "end": {
-              "line": 1296,
-              "column": 27
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_llroundl",
-          "funcAstName": "___builtin_llroundl",
-          "qualType": "long long (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1301,
-              "column": 12
-            },
-            "end": {
-              "line": 1301,
-              "column": 30
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_log1pf",
-          "funcAstName": "___builtin_log1pf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 1314,
-              "column": 83
-            },
-            "end": {
-              "line": 1314,
-              "column": 99
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_log1p",
-          "funcAstName": "___builtin_log1p",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 1318,
-              "column": 10
-            },
-            "end": {
-              "line": 1318,
-              "column": 25
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_log1pl",
-          "funcAstName": "___builtin_log1pl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1321,
-              "column": 83
-            },
-            "end": {
-              "line": 1321,
-              "column": 99
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_log2f",
-          "funcAstName": "___builtin_log2f",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 1330,
-              "column": 82
-            },
-            "end": {
-              "line": 1330,
-              "column": 97
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_log2",
-          "funcAstName": "___builtin_log2",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 1334,
-              "column": 10
-            },
-            "end": {
-              "line": 1334,
-              "column": 24
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_log2l",
-          "funcAstName": "___builtin_log2l",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1337,
-              "column": 82
-            },
-            "end": {
-              "line": 1337,
-              "column": 97
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_logbf",
-          "funcAstName": "___builtin_logbf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 1346,
-              "column": 82
-            },
-            "end": {
-              "line": 1346,
-              "column": 97
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_logb",
-          "funcAstName": "___builtin_logb",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 1350,
-              "column": 10
-            },
-            "end": {
-              "line": 1350,
-              "column": 24
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_logbl",
-          "funcAstName": "___builtin_logbl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1353,
-              "column": 82
-            },
-            "end": {
-              "line": 1353,
-              "column": 97
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_lrintf",
-          "funcAstName": "___builtin_lrintf",
-          "qualType": "long (float) noexcept",
-          "range": {
-            "start": {
-              "line": 1364,
-              "column": 12
-            },
-            "end": {
-              "line": 1364,
-              "column": 28
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_lrint",
-          "funcAstName": "___builtin_lrint",
-          "qualType": "long (double) noexcept",
-          "range": {
-            "start": {
-              "line": 1369,
-              "column": 10
-            },
-            "end": {
-              "line": 1369,
-              "column": 25
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_lrintl",
-          "funcAstName": "___builtin_lrintl",
-          "qualType": "long (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1374,
-              "column": 12
-            },
-            "end": {
-              "line": 1374,
-              "column": 28
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_lroundf",
-          "funcAstName": "___builtin_lroundf",
-          "qualType": "long (float) noexcept",
-          "range": {
-            "start": {
-              "line": 1389,
-              "column": 12
-            },
-            "end": {
-              "line": 1389,
-              "column": 29
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_lround",
-          "funcAstName": "___builtin_lround",
-          "qualType": "long (double) noexcept",
-          "range": {
-            "start": {
-              "line": 1394,
-              "column": 10
-            },
-            "end": {
-              "line": 1394,
-              "column": 26
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_lroundl",
-          "funcAstName": "___builtin_lroundl",
-          "qualType": "long (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1399,
-              "column": 12
-            },
-            "end": {
-              "line": 1399,
-              "column": 29
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_nearbyintf",
-          "funcAstName": "___builtin_nearbyintf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 1414,
-              "column": 109
-            },
-            "end": {
-              "line": 1414,
-              "column": 129
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_nearbyint",
-          "funcAstName": "___builtin_nearbyint",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 1418,
-              "column": 10
-            },
-            "end": {
-              "line": 1418,
-              "column": 29
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_nearbyintl",
-          "funcAstName": "___builtin_nearbyintl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1421,
-              "column": 109
-            },
-            "end": {
-              "line": 1421,
-              "column": 129
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_nextafterf",
-          "funcAstName": "___builtin_nextafterf",
-          "qualType": "float (float, float) noexcept",
-          "range": {
-            "start": {
-              "line": 1430,
-              "column": 104
-            },
-            "end": {
-              "line": 1430,
-              "column": 124
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_nextafter",
-          "funcAstName": "___builtin_nextafter",
-          "qualType": "double (double, double) noexcept",
-          "range": {
-            "start": {
-              "line": 1434,
-              "column": 10
-            },
-            "end": {
-              "line": 1434,
-              "column": 29
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_nextafterl",
-          "funcAstName": "___builtin_nextafterl",
-          "qualType": "long double (long double, long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1437,
-              "column": 104
-            },
-            "end": {
-              "line": 1437,
-              "column": 124
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_nexttowardf",
-          "funcAstName": "___builtin_nexttowardf",
-          "qualType": "float (float, long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1457,
-              "column": 105
-            },
-            "end": {
-              "line": 1457,
-              "column": 126
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_nexttoward",
-          "funcAstName": "___builtin_nexttoward",
-          "qualType": "double (double, long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1461,
-              "column": 10
-            },
-            "end": {
-              "line": 1461,
-              "column": 30
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_nexttowardl",
-          "funcAstName": "___builtin_nexttowardl",
-          "qualType": "long double (long double, long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1464,
-              "column": 105
-            },
-            "end": {
-              "line": 1464,
-              "column": 126
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_remainderf",
-          "funcAstName": "___builtin_remainderf",
-          "qualType": "float (float, float) noexcept",
-          "range": {
-            "start": {
-              "line": 1473,
-              "column": 104
-            },
-            "end": {
-              "line": 1473,
-              "column": 124
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_remainder",
-          "funcAstName": "___builtin_remainder",
-          "qualType": "double (double, double) noexcept",
-          "range": {
-            "start": {
-              "line": 1477,
-              "column": 10
-            },
-            "end": {
-              "line": 1477,
-              "column": 29
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_remainderl",
-          "funcAstName": "___builtin_remainderl",
-          "qualType": "long double (long double, long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1480,
-              "column": 104
-            },
-            "end": {
-              "line": 1480,
-              "column": 124
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_remquof",
-          "funcAstName": "___builtin_remquof",
-          "qualType": "float (float, float, int *) noexcept",
-          "range": {
-            "start": {
-              "line": 1500,
-              "column": 111
-            },
-            "end": {
-              "line": 1500,
-              "column": 128
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_remquo",
-          "funcAstName": "___builtin_remquo",
-          "qualType": "double (double, double, int *) noexcept",
-          "range": {
-            "start": {
-              "line": 1504,
-              "column": 10
-            },
-            "end": {
-              "line": 1504,
-              "column": 26
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_remquol",
-          "funcAstName": "___builtin_remquol",
-          "qualType": "long double (long double, long double, int *) noexcept",
-          "range": {
-            "start": {
-              "line": 1507,
-              "column": 111
-            },
-            "end": {
-              "line": 1507,
-              "column": 128
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_rintf",
-          "funcAstName": "___builtin_rintf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 1529,
-              "column": 12
-            },
-            "end": {
-              "line": 1529,
-              "column": 27
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_rint",
-          "funcAstName": "___builtin_rint",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 1534,
-              "column": 10
-            },
-            "end": {
-              "line": 1534,
-              "column": 24
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_rintl",
-          "funcAstName": "___builtin_rintl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1539,
-              "column": 12
-            },
-            "end": {
-              "line": 1539,
-              "column": 27
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_round",
-          "funcAstName": "___builtin_round",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 1554,
-              "column": 12
-            },
-            "end": {
-              "line": 1554,
-              "column": 27
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_roundl",
-          "funcAstName": "___builtin_roundl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1564,
-              "column": 12
-            },
-            "end": {
-              "line": 1564,
-              "column": 28
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_scalblnf",
-          "funcAstName": "___builtin_scalblnf",
-          "qualType": "float (float, long) noexcept",
-          "range": {
-            "start": {
-              "line": 1577,
-              "column": 95
-            },
-            "end": {
-              "line": 1577,
-              "column": 113
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_scalbln",
-          "funcAstName": "___builtin_scalbln",
-          "qualType": "double (double, long) noexcept",
-          "range": {
-            "start": {
-              "line": 1581,
-              "column": 10
-            },
-            "end": {
-              "line": 1581,
-              "column": 27
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_scalblnl",
-          "funcAstName": "___builtin_scalblnl",
-          "qualType": "long double (long double, long) noexcept",
-          "range": {
-            "start": {
-              "line": 1584,
-              "column": 95
-            },
-            "end": {
-              "line": 1584,
-              "column": 113
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_scalbnf",
-          "funcAstName": "___builtin_scalbnf",
-          "qualType": "float (float, int) noexcept",
-          "range": {
-            "start": {
-              "line": 1593,
-              "column": 93
-            },
-            "end": {
-              "line": 1593,
-              "column": 110
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_scalbn",
-          "funcAstName": "___builtin_scalbn",
-          "qualType": "double (double, int) noexcept",
-          "range": {
-            "start": {
-              "line": 1597,
-              "column": 10
-            },
-            "end": {
-              "line": 1597,
-              "column": 26
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_scalbnl",
-          "funcAstName": "___builtin_scalbnl",
-          "qualType": "long double (long double, int) noexcept",
-          "range": {
-            "start": {
-              "line": 1600,
-              "column": 93
-            },
-            "end": {
-              "line": 1600,
-              "column": 110
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_tgammaf",
-          "funcAstName": "___builtin_tgammaf",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 1609,
-              "column": 84
-            },
-            "end": {
-              "line": 1609,
-              "column": 101
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_tgamma",
-          "funcAstName": "___builtin_tgamma",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 1613,
-              "column": 10
-            },
-            "end": {
-              "line": 1613,
-              "column": 26
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_tgammal",
-          "funcAstName": "___builtin_tgammal",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1616,
-              "column": 84
-            },
-            "end": {
-              "line": 1616,
-              "column": 101
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_trunc",
-          "funcAstName": "___builtin_trunc",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 1627,
-              "column": 12
-            },
-            "end": {
-              "line": 1627,
-              "column": 27
-            }
-          }
-        },
-        {
-          "funcName": "__builtin_truncl",
-          "funcAstName": "___builtin_truncl",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 1637,
-              "column": 12
-            },
-            "end": {
-              "line": 1637,
-              "column": 28
             }
           }
         },
@@ -26982,23 +23627,7 @@
               "column": 68
             }
           },
-          "funcCalls": [
-            {
-              "funcName": "__builtin_fabsf",
-              "funcAstName": "___builtin_fabsf",
-              "qualType": "float (float) noexcept",
-              "range": {
-                "start": {
-                  "line": 690,
-                  "column": 104
-                },
-                "end": {
-                  "line": 690,
-                  "column": 124
-                }
-              }
-            }
-          ],
+          "funcCalls": [],
           "virtualFuncCalls": []
         },
         {
@@ -27015,23 +23644,7 @@
               "column": 68
             }
           },
-          "funcCalls": [
-            {
-              "funcName": "__builtin_fabsl",
-              "funcAstName": "___builtin_fabsl",
-              "qualType": "long double (long double) noexcept",
-              "range": {
-                "start": {
-                  "line": 700,
-                  "column": 104
-                },
-                "end": {
-                  "line": 700,
-                  "column": 124
-                }
-              }
-            }
-          ],
+          "funcCalls": [],
           "virtualFuncCalls": []
         },
         {
@@ -28745,23 +25358,7 @@
               "column": 18
             }
           },
-          "funcCalls": [
-            {
-              "funcName": "__builtin_isnan",
-              "funcAstName": "___builtin_isnan",
-              "qualType": "int (...) noexcept",
-              "range": {
-                "start": {
-                  "line": 577,
-                  "column": 12
-                },
-                "end": {
-                  "line": 577,
-                  "column": 37
-                }
-              }
-            }
-          ],
+          "funcCalls": [],
           "virtualFuncCalls": []
         },
         {
@@ -28778,23 +25375,7 @@
               "column": 18
             }
           },
-          "funcCalls": [
-            {
-              "funcName": "__builtin_isnan",
-              "funcAstName": "___builtin_isnan",
-              "qualType": "int (...) noexcept",
-              "range": {
-                "start": {
-                  "line": 577,
-                  "column": 12
-                },
-                "end": {
-                  "line": 577,
-                  "column": 37
-                }
-              }
-            }
-          ],
+          "funcCalls": [],
           "virtualFuncCalls": []
         },
         {
@@ -28811,23 +25392,7 @@
               "column": 18
             }
           },
-          "funcCalls": [
-            {
-              "funcName": "__builtin_isnan",
-              "funcAstName": "___builtin_isnan",
-              "qualType": "int (...) noexcept",
-              "range": {
-                "start": {
-                  "line": 577,
-                  "column": 12
-                },
-                "end": {
-                  "line": 577,
-                  "column": 37
-                }
-              }
-            }
-          ],
+          "funcCalls": [],
           "virtualFuncCalls": []
         },
         {
@@ -28844,23 +25409,7 @@
               "column": 74
             }
           },
-          "funcCalls": [
-            {
-              "funcName": "__builtin_copysignf",
-              "funcAstName": "___builtin_copysignf",
-              "qualType": "float (float, float) noexcept",
-              "range": {
-                "start": {
-                  "line": 632,
-                  "column": 12
-                },
-                "end": {
-                  "line": 632,
-                  "column": 41
-                }
-              }
-            }
-          ],
+          "funcCalls": [],
           "virtualFuncCalls": []
         },
         {
@@ -28877,23 +25426,7 @@
               "column": 75
             }
           },
-          "funcCalls": [
-            {
-              "funcName": "__builtin_copysign",
-              "funcAstName": "___builtin_copysign",
-              "qualType": "double (double, double) noexcept",
-              "range": {
-                "start": {
-                  "line": 636,
-                  "column": 12
-                },
-                "end": {
-                  "line": 636,
-                  "column": 40
-                }
-              }
-            }
-          ],
+          "funcCalls": [],
           "virtualFuncCalls": []
         },
         {
@@ -28910,23 +25443,7 @@
               "column": 21
             }
           },
-          "funcCalls": [
-            {
-              "funcName": "__builtin_copysignl",
-              "funcAstName": "___builtin_copysignl",
-              "qualType": "long double (long double, long double) noexcept",
-              "range": {
-                "start": {
-                  "line": 641,
-                  "column": 12
-                },
-                "end": {
-                  "line": 641,
-                  "column": 41
-                }
-              }
-            }
-          ],
+          "funcCalls": [],
           "virtualFuncCalls": []
         },
         {
@@ -28943,23 +25460,7 @@
               "column": 70
             }
           },
-          "funcCalls": [
-            {
-              "funcName": "__builtin_fabsf",
-              "funcAstName": "___builtin_fabsf",
-              "qualType": "float (float) noexcept",
-              "range": {
-                "start": {
-                  "line": 655,
-                  "column": 12
-                },
-                "end": {
-                  "line": 655,
-                  "column": 32
-                }
-              }
-            }
-          ],
+          "funcCalls": [],
           "virtualFuncCalls": []
         },
         {
@@ -28976,23 +25477,7 @@
               "column": 71
             }
           },
-          "funcCalls": [
-            {
-              "funcName": "__builtin_fabs",
-              "funcAstName": "___builtin_fabs",
-              "qualType": "double (double) noexcept",
-              "range": {
-                "start": {
-                  "line": 659,
-                  "column": 12
-                },
-                "end": {
-                  "line": 659,
-                  "column": 31
-                }
-              }
-            }
-          ],
+          "funcCalls": [],
           "virtualFuncCalls": []
         },
         {
@@ -29009,23 +25494,7 @@
               "column": 76
             }
           },
-          "funcCalls": [
-            {
-              "funcName": "__builtin_fabsl",
-              "funcAstName": "___builtin_fabsl",
-              "qualType": "long double (long double) noexcept",
-              "range": {
-                "start": {
-                  "line": 663,
-                  "column": 12
-                },
-                "end": {
-                  "line": 663,
-                  "column": 32
-                }
-              }
-            }
-          ],
+          "funcCalls": [],
           "virtualFuncCalls": []
         },
         {
@@ -29085,21 +25554,6 @@
                 "end": {
                   "line": 676,
                   "column": 36
-                }
-              }
-            },
-            {
-              "funcName": "__builtin_fmaxf",
-              "funcAstName": "___builtin_fmaxf",
-              "qualType": "float (float, float) noexcept",
-              "range": {
-                "start": {
-                  "line": 681,
-                  "column": 10
-                },
-                "end": {
-                  "line": 681,
-                  "column": 35
                 }
               }
             }
@@ -29165,21 +25619,6 @@
                   "column": 36
                 }
               }
-            },
-            {
-              "funcName": "__builtin_fmax",
-              "funcAstName": "___builtin_fmax",
-              "qualType": "double (double, double) noexcept",
-              "range": {
-                "start": {
-                  "line": 694,
-                  "column": 10
-                },
-                "end": {
-                  "line": 694,
-                  "column": 34
-                }
-              }
             }
           ],
           "virtualFuncCalls": []
@@ -29241,21 +25680,6 @@
                 "end": {
                   "line": 703,
                   "column": 36
-                }
-              }
-            },
-            {
-              "funcName": "__builtin_fmaxl",
-              "funcAstName": "___builtin_fmaxl",
-              "qualType": "long double (long double, long double) noexcept",
-              "range": {
-                "start": {
-                  "line": 708,
-                  "column": 10
-                },
-                "end": {
-                  "line": 708,
-                  "column": 35
                 }
               }
             }
@@ -30873,7 +27297,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_clock_t.h",
-      "lastAnalyzed": 1722202120286,
+      "lastAnalyzed": 1722203764071,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -30885,7 +27309,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_time_t.h",
-      "lastAnalyzed": 1722202120287,
+      "lastAnalyzed": 1722203764071,
       "classes": [
         {
           "name": "timespec",
@@ -30907,7 +27331,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/time.h",
-      "lastAnalyzed": 1722202120292,
+      "lastAnalyzed": 1722203764074,
       "classes": [
         {
           "name": "tm",
@@ -31844,7 +28268,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_cond_t.h",
-      "lastAnalyzed": 1722202120292,
+      "lastAnalyzed": 1722203764074,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -31856,7 +28280,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_condattr_t.h",
-      "lastAnalyzed": 1722202120292,
+      "lastAnalyzed": 1722203764074,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -31868,7 +28292,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_key_t.h",
-      "lastAnalyzed": 1722202120292,
+      "lastAnalyzed": 1722203764074,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -31880,7 +28304,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_mutex_t.h",
-      "lastAnalyzed": 1722202120292,
+      "lastAnalyzed": 1722203764074,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -31892,7 +28316,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_mutexattr_t.h",
-      "lastAnalyzed": 1722202120292,
+      "lastAnalyzed": 1722203764074,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -31904,7 +28328,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_once_t.h",
-      "lastAnalyzed": 1722202120292,
+      "lastAnalyzed": 1722203764074,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -31916,7 +28340,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_rwlock_t.h",
-      "lastAnalyzed": 1722202120292,
+      "lastAnalyzed": 1722203764074,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -31928,7 +28352,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_rwlockattr_t.h",
-      "lastAnalyzed": 1722202120292,
+      "lastAnalyzed": 1722203764074,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -31940,7 +28364,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_t.h",
-      "lastAnalyzed": 1722202120292,
+      "lastAnalyzed": 1722203764074,
       "classes": [
         {
           "name": "pthread_override_s",
@@ -32083,7 +28507,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_mach_port_t.h",
-      "lastAnalyzed": 1722202120292,
+      "lastAnalyzed": 1722203764075,
       "classes": [],
       "funcDecls": [
         {
@@ -33596,7 +30020,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__threading_support",
-      "lastAnalyzed": 1722202120324,
+      "lastAnalyzed": 1722203764097,
       "classes": [
         {
           "name": "atomic",
@@ -36943,7 +33367,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/variant",
-      "lastAnalyzed": 1722202120359,
+      "lastAnalyzed": 1722203764120,
       "classes": [
         {
           "name": "bad_variant_access",

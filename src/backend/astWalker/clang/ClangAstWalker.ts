@@ -302,6 +302,11 @@ export class ClangAstWalker implements AstWalker {
     }
 
     private handleFunctionDecl(astElement: clangAst.AstElement) {
+        if (astElement.name!.startsWith("__builtin_")) {
+            // These are internal functions, which are not interesting for the user.
+            return;
+        }
+
         // Function declaration in function declaration is no C++ thing.
         // But still we do this since maybe we one day walk some nice
         // language like python or C++ gets extended.
