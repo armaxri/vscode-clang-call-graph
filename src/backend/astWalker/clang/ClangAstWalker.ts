@@ -254,17 +254,11 @@ export class ClangAstWalker implements AstWalker {
 
     private handleClassDecl(astElement: clangAst.AstElement) {
         if (astElement.name === undefined || astElement.name === "") {
-            console.error(
-                `Class declaration without name in file "${this.fileName}".`
-            );
             return;
         }
 
         if (astElement.name.startsWith("__")) {
             // These are internal classes, which are not interesting for the user.
-            console.error(
-                `Skipped internal class "${astElement.name}" in file "${this.fileName}".`
-            );
             return;
         }
 
@@ -387,6 +381,15 @@ export class ClangAstWalker implements AstWalker {
     }
 
     private handleFuncDecl(astElement: clangAst.AstElement): void {
+        if (
+            astElement.name === undefined ||
+            astElement.name === "" ||
+            astElement.mangledName === undefined ||
+            astElement.mangledName === ""
+        ) {
+            return;
+        }
+
         const creationArgs = this.createFuncMentioningArgs(astElement);
 
         const id = Number(astElement.id);
