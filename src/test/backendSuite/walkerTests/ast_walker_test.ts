@@ -68,7 +68,9 @@ function createAndRunAstWalker(
     filenames: string[],
     mockConfig: MockConfig
 ): Database {
-    new PathUtils(mockConfig.getLowdbDatabasePath().pathString()).tryToRemove();
+    new PathUtils(
+        mockConfig.getSelectedDatabasePath().pathString()
+    ).tryToRemove();
 
     var database = createDatabase(mockConfig);
     for (const filename of filenames) {
