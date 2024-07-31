@@ -61,6 +61,8 @@ export class ClangAstWalker implements AstWalker {
                 return;
             }
 
+            const startTime = Date.now();
+
             if (this.baseAstElement.inner) {
                 for (const innerAstElement of this.baseAstElement.inner) {
                     this.handleFileLocation(innerAstElement);
@@ -74,6 +76,12 @@ export class ClangAstWalker implements AstWalker {
 
             this.currentlyAnalyzedFile?.justAnalyzed();
             this.database.writeDatabase();
+
+            const endTime = Date.now();
+            const elapsedTime = endTime - startTime;
+            console.log(
+                `Took ${elapsedTime}ms to analyze file "${this.fileName}".`
+            );
         } catch (error) {
             console.error(
                 `Internal error during analysis of file "${this.fileName}": ${error}`
