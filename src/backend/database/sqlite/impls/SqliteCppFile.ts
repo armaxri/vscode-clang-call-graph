@@ -55,10 +55,6 @@ export class SqliteCppFile extends AbstractCppFile {
             });
     }
 
-    getSqliteId(): number {
-        return this.id;
-    }
-
     static createTableCalls(internalDb: InternalSqliteDatabase): void {
         internalDb.db.exec(`
             CREATE TABLE cpp_files (
@@ -127,19 +123,6 @@ export class SqliteCppFile extends AbstractCppFile {
         }
 
         return null;
-    }
-
-    static getOrAddCppFile(
-        internalDb: InternalSqliteDatabase,
-        fileName: string
-    ): SqliteCppFile {
-        const cppFile = SqliteCppFile.getCppFile(internalDb, fileName);
-
-        if (cppFile) {
-            return cppFile;
-        }
-
-        return SqliteCppFile.createCppFile(internalDb, fileName);
     }
 
     static getCppFiles(internalDb: InternalSqliteDatabase): SqliteCppFile[] {

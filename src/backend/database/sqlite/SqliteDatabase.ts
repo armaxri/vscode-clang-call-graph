@@ -32,7 +32,13 @@ export class SqliteDatabase extends AbstractDatabase {
     }
 
     getOrAddCppFile(name: string): CppFile {
-        return SqliteCppFile.getOrAddCppFile(this.internal, name);
+        const cppFile = this.getCppFile(name);
+
+        if (cppFile) {
+            return cppFile;
+        }
+
+        return SqliteCppFile.createCppFile(this.internal, name);
     }
 
     removeCppFileAndDependingContent(name: string): void {
@@ -52,7 +58,13 @@ export class SqliteDatabase extends AbstractDatabase {
     }
 
     getOrAddHppFile(name: string): HppFile {
-        return SqliteHppFile.getOrAddHppFile(this.internal, name);
+        const hppFile = this.getHppFile(name);
+
+        if (hppFile) {
+            return hppFile;
+        }
+
+        return SqliteHppFile.createHppFile(this.internal, name);
     }
 
     removeHppFileAndDependingContent(name: string): void {

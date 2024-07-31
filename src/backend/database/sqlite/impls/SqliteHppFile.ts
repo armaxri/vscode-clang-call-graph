@@ -11,7 +11,6 @@ import {
 import { AbstractHppFile } from "../../impls/AbstractHppFile";
 import { InternalSqliteDatabase } from "../InternalSqliteDatabase";
 import { SqliteCppClass } from "./SqliteCppClass";
-import { SqliteCppFile } from "./SqliteCppFile";
 import { SqliteFuncDeclaration } from "./SqliteFuncDeclaration";
 import { SqliteFuncImplementation } from "./SqliteFuncImplementation";
 import { SqliteVirtualFuncImplementation } from "./SqliteVirtualFuncImplementation";
@@ -59,10 +58,6 @@ export class SqliteHppFile extends AbstractHppFile {
         this.referencedFromFiles.push(
             ...this.getReferencedFromHppFilesInternal()
         );
-    }
-
-    getSqliteId(): number {
-        return this.id;
     }
 
     static createTableCalls(internalDb: InternalSqliteDatabase): void {
@@ -157,19 +152,6 @@ export class SqliteHppFile extends AbstractHppFile {
         return null;
     }
 
-    static getOrAddHppFile(
-        internalDb: InternalSqliteDatabase,
-        fileName: string
-    ): SqliteHppFile {
-        const hppFile = SqliteHppFile.getHppFile(internalDb, fileName);
-
-        if (hppFile) {
-            return hppFile;
-        }
-
-        return SqliteHppFile.createHppFile(internalDb, fileName);
-    }
-
     static getHppFiles(internalDb: InternalSqliteDatabase): SqliteHppFile[] {
         const hppFiles: SqliteHppFile[] = [];
 
@@ -221,25 +203,19 @@ export class SqliteHppFile extends AbstractHppFile {
     }
 
     private addReferencedFromCppFileInternal(fileName: string): void {
-        // Ensure that referenced files exist in the database before referencing them.
-        const cppFile = SqliteCppFile.getOrAddCppFile(this.internal, fileName);
-
         this.internal.db
             .prepare(
-                "INSERT INTO cpp_files_2_hpp_files (cpp_file_id, hpp_file_id) VALUES ((?), (?))"
+                "INSERT INTO cpp_files_2_hpp_files (cpp_file_id, hpp_file_id) VALUES ((SELECT id FROM cpp_files WHERE file_name=(?)), (?))"
             )
-            .run((cppFile as SqliteCppFile).getSqliteId(), this.id);
+            .run(fileName, this.id);
     }
 
     private addReferencedFromHppFileInternal(fileName: string): void {
-        // Ensure that referenced files exist in the database before referencing them.
-        const hppFile = SqliteHppFile.getOrAddHppFile(this.internal, fileName);
-
         this.internal.db
             .prepare(
-                "INSERT INTO hpp_files_2_hpp_files (hpp_file_id, current_hpp_file_id) VALUES ((?), (?))"
+                "INSERT INTO hpp_files_2_hpp_files (hpp_file_id, current_hpp_file_id) VALUES ((SELECT id FROM hpp_files WHERE file_name=(?)), (?))"
             )
-            .run((hppFile as SqliteHppFile).getSqliteId(), this.id);
+            .run(fileName, this.id);
     }
 
     removeAndChildren(): void {
