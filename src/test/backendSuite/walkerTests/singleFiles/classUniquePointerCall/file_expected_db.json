@@ -3,7 +3,7 @@
   "cppFiles": [
     {
       "name": "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-      "lastAnalyzed": 1722203764121,
+      "lastAnalyzed": 1722468181925,
       "classes": [
         {
           "name": "TestClass",
@@ -105,7 +105,7 @@
   "hppFiles": [
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/stddef.h",
-      "lastAnalyzed": 1722203763760,
+      "lastAnalyzed": 1722468181728,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -116,20 +116,8 @@
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/__stddef_max_align_t.h",
-      "lastAnalyzed": 1722203763760,
-      "classes": [],
-      "funcDecls": [],
-      "funcImpls": [],
-      "virtualFuncImpls": [],
-      "referencedFromFiles": [
-        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/stddef.h"
-      ]
-    },
-    {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/stddef.h",
-      "lastAnalyzed": 1722203763761,
+      "lastAnalyzed": 1722468181729,
       "classes": [
         {
           "name": "is_array",
@@ -805,8 +793,29 @@
       ]
     },
     {
+      "name": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/__stddef_max_align_t.h",
+      "lastAnalyzed": 1722468181728,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": [
+        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/stddef.h"
+      ]
+    },
+    {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cstddef",
+      "lastAnalyzed": 1722468181728,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": []
+    },
+    {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__exception/exception.h",
-      "lastAnalyzed": 1722203763761,
+      "lastAnalyzed": 1722468181729,
       "classes": [
         {
           "name": "exception",
@@ -931,8 +940,1019 @@
       ]
     },
     {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/new",
+      "lastAnalyzed": 1722468181732,
+      "classes": [
+        {
+          "name": "nothrow_t",
+          "parentClasses": [],
+          "classes": [],
+          "funcDecls": [],
+          "funcImpls": [],
+          "virtualFuncDecls": [],
+          "virtualFuncImpls": []
+        },
+        {
+          "name": "bad_alloc",
+          "parentClasses": [
+            "exception"
+          ],
+          "classes": [],
+          "funcDecls": [
+            {
+              "funcName": "operator=",
+              "funcAstName": "__ZNSt9bad_allocaSERKS_",
+              "qualType": "std::bad_alloc &(const std::bad_alloc &)",
+              "range": {
+                "start": {
+                  "line": 131,
+                  "column": 33
+                },
+                "end": {
+                  "line": 131,
+                  "column": 42
+                }
+              }
+            }
+          ],
+          "funcImpls": [],
+          "virtualFuncDecls": [
+            {
+              "funcName": "what",
+              "funcAstName": "__ZNKSt9bad_alloc4whatEv",
+              "qualType": "const char *() const noexcept",
+              "range": {
+                "start": {
+                  "line": 137,
+                  "column": 17
+                },
+                "end": {
+                  "line": 137,
+                  "column": 21
+                }
+              },
+              "baseFuncAstName": "__ZNKSt9exception4whatEv"
+            }
+          ],
+          "virtualFuncImpls": []
+        },
+        {
+          "name": "bad_array_new_length",
+          "parentClasses": [
+            "bad_alloc"
+          ],
+          "classes": [],
+          "funcDecls": [
+            {
+              "funcName": "operator=",
+              "funcAstName": "__ZNSt20bad_array_new_lengthaSERKS_",
+              "qualType": "std::bad_array_new_length &(const std::bad_array_new_length &)",
+              "range": {
+                "start": {
+                  "line": 140,
+                  "column": 33
+                },
+                "end": {
+                  "line": 140,
+                  "column": 53
+                }
+              }
+            }
+          ],
+          "funcImpls": [],
+          "virtualFuncDecls": [
+            {
+              "funcName": "what",
+              "funcAstName": "__ZNKSt20bad_array_new_length4whatEv",
+              "qualType": "const char *() const noexcept",
+              "range": {
+                "start": {
+                  "line": 146,
+                  "column": 17
+                },
+                "end": {
+                  "line": 146,
+                  "column": 21
+                }
+              },
+              "baseFuncAstName": "__ZNKSt9exception4whatEv"
+            }
+          ],
+          "virtualFuncImpls": []
+        },
+        {
+          "name": "destroying_delete_t",
+          "parentClasses": [],
+          "classes": [],
+          "funcDecls": [],
+          "funcImpls": [],
+          "virtualFuncDecls": [],
+          "virtualFuncImpls": []
+        }
+      ],
+      "funcDecls": [
+        {
+          "funcName": "set_new_handler",
+          "funcAstName": "__ZSt15set_new_handlerPFvvE",
+          "qualType": "new_handler (new_handler) noexcept",
+          "range": {
+            "start": {
+              "line": 150,
+              "column": 39
+            },
+            "end": {
+              "line": 150,
+              "column": 54
+            }
+          }
+        },
+        {
+          "funcName": "get_new_handler",
+          "funcAstName": "__ZSt15get_new_handlerv",
+          "qualType": "new_handler () noexcept",
+          "range": {
+            "start": {
+              "line": 151,
+              "column": 39
+            },
+            "end": {
+              "line": 151,
+              "column": 54
+            }
+          }
+        },
+        {
+          "funcName": "__throw_bad_alloc",
+          "funcAstName": "__ZSt17__throw_bad_allocv",
+          "qualType": "void ()",
+          "range": {
+            "start": {
+              "line": 173,
+              "column": 49
+            },
+            "end": {
+              "line": 173,
+              "column": 66
+            }
+          }
+        },
+        {
+          "funcName": "operator new",
+          "funcAstName": "__Znwm",
+          "qualType": "void *(unsigned long)",
+          "range": {
+            "start": {
+              "line": 201,
+              "column": -1
+            },
+            "end": {
+              "line": 201,
+              "column": -1
+            }
+          }
+        },
+        {
+          "funcName": "operator new",
+          "funcAstName": "__ZnwmSt11align_val_t",
+          "qualType": "void *(unsigned long, std::align_val_t)",
+          "range": {
+            "start": {
+              "line": 201,
+              "column": -1
+            },
+            "end": {
+              "line": 201,
+              "column": -1
+            }
+          }
+        },
+        {
+          "funcName": "operator new[]",
+          "funcAstName": "__Znam",
+          "qualType": "void *(unsigned long)",
+          "range": {
+            "start": {
+              "line": 201,
+              "column": -1
+            },
+            "end": {
+              "line": 201,
+              "column": -1
+            }
+          }
+        },
+        {
+          "funcName": "operator new[]",
+          "funcAstName": "__ZnamSt11align_val_t",
+          "qualType": "void *(unsigned long, std::align_val_t)",
+          "range": {
+            "start": {
+              "line": 201,
+              "column": -1
+            },
+            "end": {
+              "line": 201,
+              "column": -1
+            }
+          }
+        },
+        {
+          "funcName": "operator delete",
+          "funcAstName": "__ZdlPv",
+          "qualType": "void (void *) noexcept",
+          "range": {
+            "start": {
+              "line": 201,
+              "column": -1
+            },
+            "end": {
+              "line": 201,
+              "column": -1
+            }
+          }
+        },
+        {
+          "funcName": "operator delete",
+          "funcAstName": "__ZdlPvSt11align_val_t",
+          "qualType": "void (void *, std::align_val_t) noexcept",
+          "range": {
+            "start": {
+              "line": 201,
+              "column": -1
+            },
+            "end": {
+              "line": 201,
+              "column": -1
+            }
+          }
+        },
+        {
+          "funcName": "operator delete[]",
+          "funcAstName": "__ZdaPv",
+          "qualType": "void (void *) noexcept",
+          "range": {
+            "start": {
+              "line": 201,
+              "column": -1
+            },
+            "end": {
+              "line": 201,
+              "column": -1
+            }
+          }
+        },
+        {
+          "funcName": "operator delete[]",
+          "funcAstName": "__ZdaPvSt11align_val_t",
+          "qualType": "void (void *, std::align_val_t) noexcept",
+          "range": {
+            "start": {
+              "line": 201,
+              "column": -1
+            },
+            "end": {
+              "line": 201,
+              "column": -1
+            }
+          }
+        },
+        {
+          "funcName": "operator new",
+          "funcAstName": "__Znwm",
+          "qualType": "void *(std::size_t)",
+          "range": {
+            "start": {
+              "line": 243,
+              "column": 66
+            },
+            "end": {
+              "line": 243,
+              "column": 74
+            }
+          }
+        },
+        {
+          "funcName": "operator new",
+          "funcAstName": "__ZnwmRKSt9nothrow_t",
+          "qualType": "void *(std::size_t, const std::nothrow_t &) noexcept",
+          "range": {
+            "start": {
+              "line": 244,
+              "column": 66
+            },
+            "end": {
+              "line": 244,
+              "column": 74
+            }
+          }
+        },
+        {
+          "funcName": "operator delete",
+          "funcAstName": "__ZdlPv",
+          "qualType": "void (void *) noexcept",
+          "range": {
+            "start": {
+              "line": 245,
+              "column": 36
+            },
+            "end": {
+              "line": 245,
+              "column": 44
+            }
+          }
+        },
+        {
+          "funcName": "operator delete",
+          "funcAstName": "__ZdlPvRKSt9nothrow_t",
+          "qualType": "void (void *, const std::nothrow_t &) noexcept",
+          "range": {
+            "start": {
+              "line": 246,
+              "column": 36
+            },
+            "end": {
+              "line": 246,
+              "column": 44
+            }
+          }
+        },
+        {
+          "funcName": "operator delete",
+          "funcAstName": "__ZdlPvm",
+          "qualType": "void (void *, std::size_t) noexcept",
+          "range": {
+            "start": {
+              "line": 248,
+              "column": 74
+            },
+            "end": {
+              "line": 248,
+              "column": 82
+            }
+          }
+        },
+        {
+          "funcName": "operator new[]",
+          "funcAstName": "__Znam",
+          "qualType": "void *(std::size_t)",
+          "range": {
+            "start": {
+              "line": 251,
+              "column": 66
+            },
+            "end": {
+              "line": 251,
+              "column": 74
+            }
+          }
+        },
+        {
+          "funcName": "operator new[]",
+          "funcAstName": "__ZnamRKSt9nothrow_t",
+          "qualType": "void *(std::size_t, const std::nothrow_t &) noexcept",
+          "range": {
+            "start": {
+              "line": 252,
+              "column": 66
+            },
+            "end": {
+              "line": 252,
+              "column": 74
+            }
+          }
+        },
+        {
+          "funcName": "operator delete[]",
+          "funcAstName": "__ZdaPv",
+          "qualType": "void (void *) noexcept",
+          "range": {
+            "start": {
+              "line": 253,
+              "column": 36
+            },
+            "end": {
+              "line": 253,
+              "column": 44
+            }
+          }
+        },
+        {
+          "funcName": "operator delete[]",
+          "funcAstName": "__ZdaPvRKSt9nothrow_t",
+          "qualType": "void (void *, const std::nothrow_t &) noexcept",
+          "range": {
+            "start": {
+              "line": 254,
+              "column": 36
+            },
+            "end": {
+              "line": 254,
+              "column": 44
+            }
+          }
+        },
+        {
+          "funcName": "operator delete[]",
+          "funcAstName": "__ZdaPvm",
+          "qualType": "void (void *, std::size_t) noexcept",
+          "range": {
+            "start": {
+              "line": 256,
+              "column": 74
+            },
+            "end": {
+              "line": 256,
+              "column": 82
+            }
+          }
+        },
+        {
+          "funcName": "operator new",
+          "funcAstName": "__ZnwmSt11align_val_t",
+          "qualType": "void *(std::size_t, std::align_val_t)",
+          "range": {
+            "start": {
+              "line": 260,
+              "column": 66
+            },
+            "end": {
+              "line": 260,
+              "column": 74
+            }
+          }
+        },
+        {
+          "funcName": "operator new",
+          "funcAstName": "__ZnwmSt11align_val_tRKSt9nothrow_t",
+          "qualType": "void *(std::size_t, std::align_val_t, const std::nothrow_t &) noexcept",
+          "range": {
+            "start": {
+              "line": 261,
+              "column": 66
+            },
+            "end": {
+              "line": 261,
+              "column": 74
+            }
+          }
+        },
+        {
+          "funcName": "operator delete",
+          "funcAstName": "__ZdlPvSt11align_val_t",
+          "qualType": "void (void *, std::align_val_t) noexcept",
+          "range": {
+            "start": {
+              "line": 262,
+              "column": 36
+            },
+            "end": {
+              "line": 262,
+              "column": 44
+            }
+          }
+        },
+        {
+          "funcName": "operator delete",
+          "funcAstName": "__ZdlPvSt11align_val_tRKSt9nothrow_t",
+          "qualType": "void (void *, std::align_val_t, const std::nothrow_t &) noexcept",
+          "range": {
+            "start": {
+              "line": 263,
+              "column": 36
+            },
+            "end": {
+              "line": 263,
+              "column": 44
+            }
+          }
+        },
+        {
+          "funcName": "operator delete",
+          "funcAstName": "__ZdlPvmSt11align_val_t",
+          "qualType": "void (void *, std::size_t, std::align_val_t) noexcept",
+          "range": {
+            "start": {
+              "line": 265,
+              "column": 74
+            },
+            "end": {
+              "line": 265,
+              "column": 82
+            }
+          }
+        },
+        {
+          "funcName": "operator new[]",
+          "funcAstName": "__ZnamSt11align_val_t",
+          "qualType": "void *(std::size_t, std::align_val_t)",
+          "range": {
+            "start": {
+              "line": 268,
+              "column": 66
+            },
+            "end": {
+              "line": 268,
+              "column": 74
+            }
+          }
+        },
+        {
+          "funcName": "operator new[]",
+          "funcAstName": "__ZnamSt11align_val_tRKSt9nothrow_t",
+          "qualType": "void *(std::size_t, std::align_val_t, const std::nothrow_t &) noexcept",
+          "range": {
+            "start": {
+              "line": 269,
+              "column": 66
+            },
+            "end": {
+              "line": 269,
+              "column": 74
+            }
+          }
+        },
+        {
+          "funcName": "operator delete[]",
+          "funcAstName": "__ZdaPvSt11align_val_t",
+          "qualType": "void (void *, std::align_val_t) noexcept",
+          "range": {
+            "start": {
+              "line": 270,
+              "column": 36
+            },
+            "end": {
+              "line": 270,
+              "column": 44
+            }
+          }
+        },
+        {
+          "funcName": "operator delete[]",
+          "funcAstName": "__ZdaPvSt11align_val_tRKSt9nothrow_t",
+          "qualType": "void (void *, std::align_val_t, const std::nothrow_t &) noexcept",
+          "range": {
+            "start": {
+              "line": 271,
+              "column": 36
+            },
+            "end": {
+              "line": 271,
+              "column": 44
+            }
+          }
+        },
+        {
+          "funcName": "operator delete[]",
+          "funcAstName": "__ZdaPvmSt11align_val_t",
+          "qualType": "void (void *, std::size_t, std::align_val_t) noexcept",
+          "range": {
+            "start": {
+              "line": 273,
+              "column": 74
+            },
+            "end": {
+              "line": 273,
+              "column": 82
+            }
+          }
+        }
+      ],
+      "funcImpls": [
+        {
+          "funcName": "__throw_bad_array_new_length",
+          "funcAstName": "__ZSt28__throw_bad_array_new_lengthB8ue170006v",
+          "qualType": "void ()",
+          "range": {
+            "start": {
+              "line": 176,
+              "column": 6
+            },
+            "end": {
+              "line": 176,
+              "column": 34
+            }
+          },
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "operator new",
+          "funcAstName": "__ZnwB8ue170006mPv",
+          "qualType": "void *(std::size_t, void *) noexcept",
+          "range": {
+            "start": {
+              "line": 277,
+              "column": 70
+            },
+            "end": {
+              "line": 277,
+              "column": 78
+            }
+          },
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "operator new[]",
+          "funcAstName": "__ZnaB8ue170006mPv",
+          "qualType": "void *(std::size_t, void *) noexcept",
+          "range": {
+            "start": {
+              "line": 278,
+              "column": 70
+            },
+            "end": {
+              "line": 278,
+              "column": 78
+            }
+          },
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "operator delete",
+          "funcAstName": "__ZdlB8ue170006PvS_",
+          "qualType": "void (void *, void *) noexcept",
+          "range": {
+            "start": {
+              "line": 279,
+              "column": 40
+            },
+            "end": {
+              "line": 279,
+              "column": 48
+            }
+          },
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "operator delete[]",
+          "funcAstName": "__ZdaB8ue170006PvS_",
+          "qualType": "void (void *, void *) noexcept",
+          "range": {
+            "start": {
+              "line": 280,
+              "column": 40
+            },
+            "end": {
+              "line": 280,
+              "column": 48
+            }
+          },
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "__is_overaligned_for_new",
+          "funcAstName": "__ZNSt3__124__is_overaligned_for_newB8ue170006Em",
+          "qualType": "bool (size_t) noexcept",
+          "range": {
+            "start": {
+              "line": 286,
+              "column": 57
+            },
+            "end": {
+              "line": 286,
+              "column": 81
+            }
+          },
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "__libcpp_operator_new",
+          "funcAstName": "__ZNSt3__121__libcpp_operator_newB8ue170006IJmSt11align_val_tEEEPvDpT_",
+          "qualType": "void *(unsigned long, std::align_val_t)",
+          "range": {
+            "start": {
+              "line": 296,
+              "column": 7
+            },
+            "end": {
+              "line": 296,
+              "column": 28
+            }
+          },
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "__libcpp_operator_new",
+          "funcAstName": "__ZNSt3__121__libcpp_operator_newB8ue170006IJmEEEPvDpT_",
+          "qualType": "void *(unsigned long)",
+          "range": {
+            "start": {
+              "line": 296,
+              "column": 7
+            },
+            "end": {
+              "line": 296,
+              "column": 28
+            }
+          },
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "__libcpp_operator_delete",
+          "funcAstName": "__ZNSt3__124__libcpp_operator_deleteB8ue170006IJPvSt11align_val_tEEEvDpT_",
+          "qualType": "void (void *, std::align_val_t)",
+          "range": {
+            "start": {
+              "line": 306,
+              "column": 6
+            },
+            "end": {
+              "line": 306,
+              "column": 30
+            }
+          },
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "__libcpp_operator_delete",
+          "funcAstName": "__ZNSt3__124__libcpp_operator_deleteB8ue170006IJPvEEEvDpT_",
+          "qualType": "void (void *)",
+          "range": {
+            "start": {
+              "line": 306,
+              "column": 6
+            },
+            "end": {
+              "line": 306,
+              "column": 30
+            }
+          },
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "__libcpp_allocate",
+          "funcAstName": "__ZNSt3__117__libcpp_allocateB8ue170006Emm",
+          "qualType": "void *(size_t, size_t)",
+          "range": {
+            "start": {
+              "line": 315,
+              "column": 7
+            },
+            "end": {
+              "line": 315,
+              "column": 24
+            }
+          },
+          "funcCalls": [
+            {
+              "funcName": "__is_overaligned_for_new",
+              "funcAstName": "__ZNSt3__124__is_overaligned_for_newB8ue170006Em",
+              "qualType": "bool (size_t) noexcept",
+              "range": {
+                "start": {
+                  "line": 317,
+                  "column": 7
+                },
+                "end": {
+                  "line": 317,
+                  "column": 40
+                }
+              }
+            },
+            {
+              "funcName": "__libcpp_operator_new",
+              "funcAstName": "__ZNSt3__121__libcpp_operator_newB8ue170006IJmSt11align_val_tEEEPvDpT_",
+              "qualType": "void *(unsigned long, std::align_val_t)",
+              "range": {
+                "start": {
+                  "line": 319,
+                  "column": 12
+                },
+                "end": {
+                  "line": 319,
+                  "column": 54
+                }
+              }
+            },
+            {
+              "funcName": "__libcpp_operator_new",
+              "funcAstName": "__ZNSt3__121__libcpp_operator_newB8ue170006IJmEEEPvDpT_",
+              "qualType": "void *(unsigned long)",
+              "range": {
+                "start": {
+                  "line": 324,
+                  "column": 10
+                },
+                "end": {
+                  "line": 324,
+                  "column": 39
+                }
+              }
+            }
+          ],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "__do_deallocate_handle_size",
+          "funcAstName": "__ZNSt3__127__do_deallocate_handle_sizeB8ue170006IJSt11align_val_tEEEvPvmDpT_",
+          "qualType": "void (void *, size_t, std::align_val_t)",
+          "range": {
+            "start": {
+              "line": 329,
+              "column": 6
+            },
+            "end": {
+              "line": 329,
+              "column": 33
+            }
+          },
+          "funcCalls": [
+            {
+              "funcName": "__libcpp_operator_delete",
+              "funcAstName": "__ZNSt3__124__libcpp_operator_deleteB8ue170006IJPvSt11align_val_tEEEvDpT_",
+              "qualType": "void (void *, std::align_val_t)",
+              "range": {
+                "start": {
+                  "line": 332,
+                  "column": 10
+                },
+                "end": {
+                  "line": 332,
+                  "column": 57
+                }
+              }
+            }
+          ],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "__do_deallocate_handle_size",
+          "funcAstName": "__ZNSt3__127__do_deallocate_handle_sizeB8ue170006IJEEEvPvmDpT_",
+          "qualType": "void (void *, size_t)",
+          "range": {
+            "start": {
+              "line": 329,
+              "column": 6
+            },
+            "end": {
+              "line": 329,
+              "column": 33
+            }
+          },
+          "funcCalls": [
+            {
+              "funcName": "__libcpp_operator_delete",
+              "funcAstName": "__ZNSt3__124__libcpp_operator_deleteB8ue170006IJPvEEEvDpT_",
+              "qualType": "void (void *)",
+              "range": {
+                "start": {
+                  "line": 332,
+                  "column": 10
+                },
+                "end": {
+                  "line": 332,
+                  "column": 57
+                }
+              }
+            }
+          ],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "__libcpp_deallocate",
+          "funcAstName": "__ZNSt3__119__libcpp_deallocateB8ue170006EPvmm",
+          "qualType": "void (void *, size_t, size_t)",
+          "range": {
+            "start": {
+              "line": 339,
+              "column": 6
+            },
+            "end": {
+              "line": 339,
+              "column": 25
+            }
+          },
+          "funcCalls": [
+            {
+              "funcName": "__is_overaligned_for_new",
+              "funcAstName": "__ZNSt3__124__is_overaligned_for_newB8ue170006Em",
+              "qualType": "bool (size_t) noexcept",
+              "range": {
+                "start": {
+                  "line": 344,
+                  "column": 9
+                },
+                "end": {
+                  "line": 344,
+                  "column": 42
+                }
+              }
+            },
+            {
+              "funcName": "__do_deallocate_handle_size",
+              "funcAstName": "__ZNSt3__127__do_deallocate_handle_sizeB8ue170006IJSt11align_val_tEEEvPvmDpT_",
+              "qualType": "void (void *, size_t, std::align_val_t)",
+              "range": {
+                "start": {
+                  "line": 346,
+                  "column": 14
+                },
+                "end": {
+                  "line": 346,
+                  "column": 69
+                }
+              }
+            },
+            {
+              "funcName": "__do_deallocate_handle_size",
+              "funcAstName": "__ZNSt3__127__do_deallocate_handle_sizeB8ue170006IJEEEvPvmDpT_",
+              "qualType": "void (void *, size_t)",
+              "range": {
+                "start": {
+                  "line": 348,
+                  "column": 14
+                },
+                "end": {
+                  "line": 348,
+                  "column": 56
+                }
+              }
+            }
+          ],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "__libcpp_deallocate_unsized",
+          "funcAstName": "__ZNSt3__127__libcpp_deallocate_unsizedB8ue170006EPvm",
+          "qualType": "void (void *, size_t)",
+          "range": {
+            "start": {
+              "line": 353,
+              "column": 39
+            },
+            "end": {
+              "line": 353,
+              "column": 66
+            }
+          },
+          "funcCalls": [
+            {
+              "funcName": "__is_overaligned_for_new",
+              "funcAstName": "__ZNSt3__124__is_overaligned_for_newB8ue170006Em",
+              "qualType": "bool (size_t) noexcept",
+              "range": {
+                "start": {
+                  "line": 358,
+                  "column": 9
+                },
+                "end": {
+                  "line": 358,
+                  "column": 42
+                }
+              }
+            },
+            {
+              "funcName": "__libcpp_operator_delete",
+              "funcAstName": "__ZNSt3__124__libcpp_operator_deleteB8ue170006IJPvSt11align_val_tEEEvDpT_",
+              "qualType": "void (void *, std::align_val_t)",
+              "range": {
+                "start": {
+                  "line": 360,
+                  "column": 14
+                },
+                "end": {
+                  "line": 360,
+                  "column": 58
+                }
+              }
+            },
+            {
+              "funcName": "__libcpp_operator_delete",
+              "funcAstName": "__ZNSt3__124__libcpp_operator_deleteB8ue170006IJPvEEEvDpT_",
+              "qualType": "void (void *)",
+              "range": {
+                "start": {
+                  "line": 362,
+                  "column": 14
+                },
+                "end": {
+                  "line": 362,
+                  "column": 45
+                }
+              }
+            }
+          ],
+          "virtualFuncCalls": []
+        }
+      ],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": [
+        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/construct_at.h"
+      ]
+    },
+    {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/_types.h",
-      "lastAnalyzed": 1722203763761,
+      "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -943,8 +1963,17 @@
       ]
     },
     {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/machine/_types.h",
+      "lastAnalyzed": 1722468181729,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": []
+    },
+    {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types.h",
-      "lastAnalyzed": 1722203763761,
+      "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -955,8 +1984,20 @@
       ]
     },
     {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types.h",
+      "lastAnalyzed": 1722468181729,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": [
+        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdlib.h"
+      ]
+    },
+    {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_types.h",
-      "lastAnalyzed": 1722203763761,
+      "lastAnalyzed": 1722468181729,
       "classes": [
         {
           "name": "_opaque_pthread_attr_t",
@@ -1049,20 +2090,20 @@
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types.h",
-      "lastAnalyzed": 1722203763761,
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdlib.h",
+      "lastAnalyzed": 1722468181730,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdlib.h"
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/stdlib.h"
       ]
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/wait.h",
-      "lastAnalyzed": 1722203763761,
+      "lastAnalyzed": 1722468181730,
       "classes": [
         {
           "name": "wait",
@@ -1175,7 +2216,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_pid_t.h",
-      "lastAnalyzed": 1722203763761,
+      "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1187,7 +2228,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_id_t.h",
-      "lastAnalyzed": 1722203763761,
+      "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1199,7 +2240,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/signal.h",
-      "lastAnalyzed": 1722203763761,
+      "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1210,92 +2251,17 @@
       ]
     },
     {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/machine/signal.h",
+      "lastAnalyzed": 1722468181729,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": []
+    },
+    {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_int8_t.h",
-      "lastAnalyzed": 1722203763761,
-      "classes": [],
-      "funcDecls": [],
-      "funcImpls": [],
-      "virtualFuncImpls": [],
-      "referencedFromFiles": [
-        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h"
-      ]
-    },
-    {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_int16_t.h",
-      "lastAnalyzed": 1722203763761,
-      "classes": [],
-      "funcDecls": [],
-      "funcImpls": [],
-      "virtualFuncImpls": [],
-      "referencedFromFiles": [
-        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h"
-      ]
-    },
-    {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_int32_t.h",
-      "lastAnalyzed": 1722203763761,
-      "classes": [],
-      "funcDecls": [],
-      "funcImpls": [],
-      "virtualFuncImpls": [],
-      "referencedFromFiles": [
-        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h"
-      ]
-    },
-    {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_int64_t.h",
-      "lastAnalyzed": 1722203763761,
-      "classes": [],
-      "funcDecls": [],
-      "funcImpls": [],
-      "virtualFuncImpls": [],
-      "referencedFromFiles": [
-        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h"
-      ]
-    },
-    {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_u_int8_t.h",
-      "lastAnalyzed": 1722203763761,
-      "classes": [],
-      "funcDecls": [],
-      "funcImpls": [],
-      "virtualFuncImpls": [],
-      "referencedFromFiles": [
-        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h"
-      ]
-    },
-    {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_u_int16_t.h",
-      "lastAnalyzed": 1722203763761,
-      "classes": [],
-      "funcDecls": [],
-      "funcImpls": [],
-      "virtualFuncImpls": [],
-      "referencedFromFiles": [
-        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h"
-      ]
-    },
-    {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_u_int32_t.h",
-      "lastAnalyzed": 1722203763761,
-      "classes": [],
-      "funcDecls": [],
-      "funcImpls": [],
-      "virtualFuncImpls": [],
-      "referencedFromFiles": [
-        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h"
-      ]
-    },
-    {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_u_int64_t.h",
-      "lastAnalyzed": 1722203763761,
+      "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1307,7 +2273,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h",
-      "lastAnalyzed": 1722203763761,
+      "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1318,8 +2284,101 @@
       ]
     },
     {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_int16_t.h",
+      "lastAnalyzed": 1722468181729,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": [
+        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h"
+      ]
+    },
+    {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_int32_t.h",
+      "lastAnalyzed": 1722468181729,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": [
+        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h"
+      ]
+    },
+    {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_int64_t.h",
+      "lastAnalyzed": 1722468181729,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": [
+        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h"
+      ]
+    },
+    {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_u_int8_t.h",
+      "lastAnalyzed": 1722468181729,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": [
+        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h"
+      ]
+    },
+    {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_u_int16_t.h",
+      "lastAnalyzed": 1722468181729,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": [
+        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h"
+      ]
+    },
+    {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_u_int32_t.h",
+      "lastAnalyzed": 1722468181729,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": [
+        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h"
+      ]
+    },
+    {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_u_int64_t.h",
+      "lastAnalyzed": 1722468181729,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": [
+        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h"
+      ]
+    },
+    {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/machine/types.h",
+      "lastAnalyzed": 1722468181729,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": []
+    },
+    {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_intptr_t.h",
-      "lastAnalyzed": 1722203763761,
+      "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1331,7 +2390,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_uintptr_t.h",
-      "lastAnalyzed": 1722203763761,
+      "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1343,31 +2402,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_attr_t.h",
-      "lastAnalyzed": 1722203763761,
-      "classes": [],
-      "funcDecls": [],
-      "funcImpls": [],
-      "virtualFuncImpls": [],
-      "referencedFromFiles": [
-        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/signal.h"
-      ]
-    },
-    {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_sigset_t.h",
-      "lastAnalyzed": 1722203763761,
-      "classes": [],
-      "funcDecls": [],
-      "funcImpls": [],
-      "virtualFuncImpls": [],
-      "referencedFromFiles": [
-        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/signal.h"
-      ]
-    },
-    {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_uid_t.h",
-      "lastAnalyzed": 1722203763761,
+      "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1379,7 +2414,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/signal.h",
-      "lastAnalyzed": 1722203763761,
+      "lastAnalyzed": 1722468181729,
       "classes": [
         {
           "name": "sigval",
@@ -1452,44 +2487,32 @@
       ]
     },
     {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_sigset_t.h",
+      "lastAnalyzed": 1722468181729,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": [
+        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/signal.h"
+      ]
+    },
+    {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_uid_t.h",
+      "lastAnalyzed": 1722468181729,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": [
+        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/signal.h"
+      ]
+    },
+    {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types/_uint8_t.h",
-      "lastAnalyzed": 1722203763761,
-      "classes": [],
-      "funcDecls": [],
-      "funcImpls": [],
-      "virtualFuncImpls": [],
-      "referencedFromFiles": [
-        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdint.h"
-      ]
-    },
-    {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types/_uint16_t.h",
-      "lastAnalyzed": 1722203763761,
-      "classes": [],
-      "funcDecls": [],
-      "funcImpls": [],
-      "virtualFuncImpls": [],
-      "referencedFromFiles": [
-        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdint.h"
-      ]
-    },
-    {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types/_uint32_t.h",
-      "lastAnalyzed": 1722203763761,
-      "classes": [],
-      "funcDecls": [],
-      "funcImpls": [],
-      "virtualFuncImpls": [],
-      "referencedFromFiles": [
-        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdint.h"
-      ]
-    },
-    {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types/_uint64_t.h",
-      "lastAnalyzed": 1722203763761,
+      "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1501,7 +2524,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdint.h",
-      "lastAnalyzed": 1722203763761,
+      "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1512,8 +2535,53 @@
       ]
     },
     {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types/_uint16_t.h",
+      "lastAnalyzed": 1722468181729,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": [
+        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdint.h"
+      ]
+    },
+    {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types/_uint32_t.h",
+      "lastAnalyzed": 1722468181729,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": [
+        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdint.h"
+      ]
+    },
+    {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types/_uint64_t.h",
+      "lastAnalyzed": 1722468181729,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": [
+        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdint.h"
+      ]
+    },
+    {
+      "name": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/stdint.h",
+      "lastAnalyzed": 1722468181729,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": []
+    },
+    {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h",
-      "lastAnalyzed": 1722203763761,
+      "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -1525,7 +2593,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types/_uintmax_t.h",
-      "lastAnalyzed": 1722203763761,
+      "lastAnalyzed": 1722468181729,
       "classes": [
         {
           "name": "timeval",
@@ -1547,7 +2615,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/resource.h",
-      "lastAnalyzed": 1722203763761,
+      "lastAnalyzed": 1722468181730,
       "classes": [
         {
           "name": "rusage",
@@ -1756,7 +2824,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/libkern/arm/OSByteOrder.h",
-      "lastAnalyzed": 1722203763761,
+      "lastAnalyzed": 1722468181730,
       "classes": [
         {
           "name": "_OSUnalignedU16",
@@ -2045,8 +3113,17 @@
       ]
     },
     {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/libkern/_OSByteOrder.h",
+      "lastAnalyzed": 1722468181730,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": []
+    },
+    {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_ct_rune_t.h",
-      "lastAnalyzed": 1722203763761,
+      "lastAnalyzed": 1722468181730,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -2058,7 +3135,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_rune_t.h",
-      "lastAnalyzed": 1722203763761,
+      "lastAnalyzed": 1722468181730,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -2069,20 +3146,172 @@
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdlib.h",
-      "lastAnalyzed": 1722203763762,
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/stdlib.h",
+      "lastAnalyzed": 1722468181731,
       "classes": [],
       "funcDecls": [],
-      "funcImpls": [],
+      "funcImpls": [
+        {
+          "funcName": "abs",
+          "funcAstName": "__Z3absB8ue170006l",
+          "qualType": "long (long) noexcept",
+          "range": {
+            "start": {
+              "line": 113,
+              "column": 61
+            },
+            "end": {
+              "line": 113,
+              "column": 64
+            }
+          },
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "abs",
+          "funcAstName": "__Z3absB8ue170006x",
+          "qualType": "long long (long long) noexcept",
+          "range": {
+            "start": {
+              "line": 116,
+              "column": 66
+            },
+            "end": {
+              "line": 116,
+              "column": 69
+            }
+          },
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "abs",
+          "funcAstName": "__Z3absB8ue170006f",
+          "qualType": "float (float) noexcept",
+          "range": {
+            "start": {
+              "line": 121,
+              "column": 62
+            },
+            "end": {
+              "line": 121,
+              "column": 65
+            }
+          },
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "abs",
+          "funcAstName": "__Z3absB8ue170006d",
+          "qualType": "double (double) noexcept",
+          "range": {
+            "start": {
+              "line": 125,
+              "column": 63
+            },
+            "end": {
+              "line": 125,
+              "column": 66
+            }
+          },
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "abs",
+          "funcAstName": "__Z3absB8ue170006e",
+          "qualType": "long double (long double) noexcept",
+          "range": {
+            "start": {
+              "line": 130,
+              "column": 1
+            },
+            "end": {
+              "line": 130,
+              "column": 4
+            }
+          },
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "div",
+          "funcAstName": "__Z3divB8ue170006ll",
+          "qualType": "ldiv_t (long, long) noexcept",
+          "range": {
+            "start": {
+              "line": 148,
+              "column": 41
+            },
+            "end": {
+              "line": 148,
+              "column": 44
+            }
+          },
+          "funcCalls": [
+            {
+              "funcName": "ldiv",
+              "funcAstName": "_ldiv",
+              "qualType": "ldiv_t (long, long)",
+              "range": {
+                "start": {
+                  "line": 149,
+                  "column": 10
+                },
+                "end": {
+                  "line": 149,
+                  "column": 26
+                }
+              }
+            }
+          ],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "div",
+          "funcAstName": "__Z3divB8ue170006xx",
+          "qualType": "lldiv_t (long long, long long) noexcept",
+          "range": {
+            "start": {
+              "line": 152,
+              "column": 42
+            },
+            "end": {
+              "line": 152,
+              "column": 45
+            }
+          },
+          "funcCalls": [
+            {
+              "funcName": "lldiv",
+              "funcAstName": "_lldiv",
+              "qualType": "lldiv_t (long long, long long)",
+              "range": {
+                "start": {
+                  "line": 154,
+                  "column": 10
+                },
+                "end": {
+                  "line": 154,
+                  "column": 27
+                }
+              }
+            }
+          ],
+          "virtualFuncCalls": []
+        }
+      ],
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/stdlib.h"
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cstdlib"
       ]
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/malloc/_malloc_type.h",
-      "lastAnalyzed": 1722203763762,
+      "lastAnalyzed": 1722468181730,
       "classes": [
         {
           "name": "_malloc_zone_t",
@@ -3379,8 +4608,17 @@
       ]
     },
     {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/malloc/_malloc.h",
+      "lastAnalyzed": 1722468181730,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": []
+    },
+    {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_dev_t.h",
-      "lastAnalyzed": 1722203763762,
+      "lastAnalyzed": 1722468181730,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -3392,7 +4630,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_mode_t.h",
-      "lastAnalyzed": 1722203763762,
+      "lastAnalyzed": 1722468181730,
       "classes": [],
       "funcDecls": [
         {
@@ -4019,1183 +5257,26 @@
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/stdlib.h",
-      "lastAnalyzed": 1722203763762,
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cstdlib",
+      "lastAnalyzed": 1722468181730,
       "classes": [],
       "funcDecls": [],
-      "funcImpls": [
-        {
-          "funcName": "abs",
-          "funcAstName": "__Z3absB8ue170006l",
-          "qualType": "long (long) noexcept",
-          "range": {
-            "start": {
-              "line": 113,
-              "column": 61
-            },
-            "end": {
-              "line": 113,
-              "column": 64
-            }
-          },
-          "funcCalls": [],
-          "virtualFuncCalls": []
-        },
-        {
-          "funcName": "abs",
-          "funcAstName": "__Z3absB8ue170006x",
-          "qualType": "long long (long long) noexcept",
-          "range": {
-            "start": {
-              "line": 116,
-              "column": 66
-            },
-            "end": {
-              "line": 116,
-              "column": 69
-            }
-          },
-          "funcCalls": [],
-          "virtualFuncCalls": []
-        },
-        {
-          "funcName": "abs",
-          "funcAstName": "__Z3absB8ue170006f",
-          "qualType": "float (float) noexcept",
-          "range": {
-            "start": {
-              "line": 121,
-              "column": 62
-            },
-            "end": {
-              "line": 121,
-              "column": 65
-            }
-          },
-          "funcCalls": [],
-          "virtualFuncCalls": []
-        },
-        {
-          "funcName": "abs",
-          "funcAstName": "__Z3absB8ue170006d",
-          "qualType": "double (double) noexcept",
-          "range": {
-            "start": {
-              "line": 125,
-              "column": 63
-            },
-            "end": {
-              "line": 125,
-              "column": 66
-            }
-          },
-          "funcCalls": [],
-          "virtualFuncCalls": []
-        },
-        {
-          "funcName": "abs",
-          "funcAstName": "__Z3absB8ue170006e",
-          "qualType": "long double (long double) noexcept",
-          "range": {
-            "start": {
-              "line": 130,
-              "column": 1
-            },
-            "end": {
-              "line": 130,
-              "column": 4
-            }
-          },
-          "funcCalls": [],
-          "virtualFuncCalls": []
-        },
-        {
-          "funcName": "div",
-          "funcAstName": "__Z3divB8ue170006ll",
-          "qualType": "ldiv_t (long, long) noexcept",
-          "range": {
-            "start": {
-              "line": 148,
-              "column": 41
-            },
-            "end": {
-              "line": 148,
-              "column": 44
-            }
-          },
-          "funcCalls": [
-            {
-              "funcName": "ldiv",
-              "funcAstName": "_ldiv",
-              "qualType": "ldiv_t (long, long)",
-              "range": {
-                "start": {
-                  "line": 149,
-                  "column": 10
-                },
-                "end": {
-                  "line": 149,
-                  "column": 26
-                }
-              }
-            }
-          ],
-          "virtualFuncCalls": []
-        },
-        {
-          "funcName": "div",
-          "funcAstName": "__Z3divB8ue170006xx",
-          "qualType": "lldiv_t (long long, long long) noexcept",
-          "range": {
-            "start": {
-              "line": 152,
-              "column": 42
-            },
-            "end": {
-              "line": 152,
-              "column": 45
-            }
-          },
-          "funcCalls": [
-            {
-              "funcName": "lldiv",
-              "funcAstName": "_lldiv",
-              "qualType": "lldiv_t (long long, long long)",
-              "range": {
-                "start": {
-                  "line": 154,
-                  "column": 10
-                },
-                "end": {
-                  "line": 154,
-                  "column": 27
-                }
-              }
-            }
-          ],
-          "virtualFuncCalls": []
-        }
-      ],
+      "funcImpls": [],
       "virtualFuncImpls": [],
-      "referencedFromFiles": [
-        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cstdlib"
-      ]
+      "referencedFromFiles": []
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/new",
-      "lastAnalyzed": 1722203763763,
-      "classes": [
-        {
-          "name": "nothrow_t",
-          "parentClasses": [],
-          "classes": [],
-          "funcDecls": [],
-          "funcImpls": [],
-          "virtualFuncDecls": [],
-          "virtualFuncImpls": []
-        },
-        {
-          "name": "bad_alloc",
-          "parentClasses": [
-            "exception"
-          ],
-          "classes": [],
-          "funcDecls": [
-            {
-              "funcName": "operator=",
-              "funcAstName": "__ZNSt9bad_allocaSERKS_",
-              "qualType": "std::bad_alloc &(const std::bad_alloc &)",
-              "range": {
-                "start": {
-                  "line": 131,
-                  "column": 33
-                },
-                "end": {
-                  "line": 131,
-                  "column": 42
-                }
-              }
-            }
-          ],
-          "funcImpls": [],
-          "virtualFuncDecls": [
-            {
-              "funcName": "what",
-              "funcAstName": "__ZNKSt9bad_alloc4whatEv",
-              "qualType": "const char *() const noexcept",
-              "range": {
-                "start": {
-                  "line": 137,
-                  "column": 17
-                },
-                "end": {
-                  "line": 137,
-                  "column": 21
-                }
-              },
-              "baseFuncAstName": "__ZNKSt9exception4whatEv"
-            }
-          ],
-          "virtualFuncImpls": []
-        },
-        {
-          "name": "bad_array_new_length",
-          "parentClasses": [
-            "bad_alloc"
-          ],
-          "classes": [],
-          "funcDecls": [
-            {
-              "funcName": "operator=",
-              "funcAstName": "__ZNSt20bad_array_new_lengthaSERKS_",
-              "qualType": "std::bad_array_new_length &(const std::bad_array_new_length &)",
-              "range": {
-                "start": {
-                  "line": 140,
-                  "column": 33
-                },
-                "end": {
-                  "line": 140,
-                  "column": 53
-                }
-              }
-            }
-          ],
-          "funcImpls": [],
-          "virtualFuncDecls": [
-            {
-              "funcName": "what",
-              "funcAstName": "__ZNKSt20bad_array_new_length4whatEv",
-              "qualType": "const char *() const noexcept",
-              "range": {
-                "start": {
-                  "line": 146,
-                  "column": 17
-                },
-                "end": {
-                  "line": 146,
-                  "column": 21
-                }
-              },
-              "baseFuncAstName": "__ZNKSt9exception4whatEv"
-            }
-          ],
-          "virtualFuncImpls": []
-        },
-        {
-          "name": "destroying_delete_t",
-          "parentClasses": [],
-          "classes": [],
-          "funcDecls": [],
-          "funcImpls": [],
-          "virtualFuncDecls": [],
-          "virtualFuncImpls": []
-        }
-      ],
-      "funcDecls": [
-        {
-          "funcName": "set_new_handler",
-          "funcAstName": "__ZSt15set_new_handlerPFvvE",
-          "qualType": "new_handler (new_handler) noexcept",
-          "range": {
-            "start": {
-              "line": 150,
-              "column": 39
-            },
-            "end": {
-              "line": 150,
-              "column": 54
-            }
-          }
-        },
-        {
-          "funcName": "get_new_handler",
-          "funcAstName": "__ZSt15get_new_handlerv",
-          "qualType": "new_handler () noexcept",
-          "range": {
-            "start": {
-              "line": 151,
-              "column": 39
-            },
-            "end": {
-              "line": 151,
-              "column": 54
-            }
-          }
-        },
-        {
-          "funcName": "__throw_bad_alloc",
-          "funcAstName": "__ZSt17__throw_bad_allocv",
-          "qualType": "void ()",
-          "range": {
-            "start": {
-              "line": 173,
-              "column": 49
-            },
-            "end": {
-              "line": 173,
-              "column": 66
-            }
-          }
-        },
-        {
-          "funcName": "operator new",
-          "funcAstName": "__Znwm",
-          "qualType": "void *(unsigned long)",
-          "range": {
-            "start": {
-              "line": 201,
-              "column": -1
-            },
-            "end": {
-              "line": 201,
-              "column": -1
-            }
-          }
-        },
-        {
-          "funcName": "operator new",
-          "funcAstName": "__ZnwmSt11align_val_t",
-          "qualType": "void *(unsigned long, std::align_val_t)",
-          "range": {
-            "start": {
-              "line": 201,
-              "column": -1
-            },
-            "end": {
-              "line": 201,
-              "column": -1
-            }
-          }
-        },
-        {
-          "funcName": "operator new[]",
-          "funcAstName": "__Znam",
-          "qualType": "void *(unsigned long)",
-          "range": {
-            "start": {
-              "line": 201,
-              "column": -1
-            },
-            "end": {
-              "line": 201,
-              "column": -1
-            }
-          }
-        },
-        {
-          "funcName": "operator new[]",
-          "funcAstName": "__ZnamSt11align_val_t",
-          "qualType": "void *(unsigned long, std::align_val_t)",
-          "range": {
-            "start": {
-              "line": 201,
-              "column": -1
-            },
-            "end": {
-              "line": 201,
-              "column": -1
-            }
-          }
-        },
-        {
-          "funcName": "operator delete",
-          "funcAstName": "__ZdlPv",
-          "qualType": "void (void *) noexcept",
-          "range": {
-            "start": {
-              "line": 201,
-              "column": -1
-            },
-            "end": {
-              "line": 201,
-              "column": -1
-            }
-          }
-        },
-        {
-          "funcName": "operator delete",
-          "funcAstName": "__ZdlPvSt11align_val_t",
-          "qualType": "void (void *, std::align_val_t) noexcept",
-          "range": {
-            "start": {
-              "line": 201,
-              "column": -1
-            },
-            "end": {
-              "line": 201,
-              "column": -1
-            }
-          }
-        },
-        {
-          "funcName": "operator delete[]",
-          "funcAstName": "__ZdaPv",
-          "qualType": "void (void *) noexcept",
-          "range": {
-            "start": {
-              "line": 201,
-              "column": -1
-            },
-            "end": {
-              "line": 201,
-              "column": -1
-            }
-          }
-        },
-        {
-          "funcName": "operator delete[]",
-          "funcAstName": "__ZdaPvSt11align_val_t",
-          "qualType": "void (void *, std::align_val_t) noexcept",
-          "range": {
-            "start": {
-              "line": 201,
-              "column": -1
-            },
-            "end": {
-              "line": 201,
-              "column": -1
-            }
-          }
-        },
-        {
-          "funcName": "operator new",
-          "funcAstName": "__Znwm",
-          "qualType": "void *(std::size_t)",
-          "range": {
-            "start": {
-              "line": 243,
-              "column": 66
-            },
-            "end": {
-              "line": 243,
-              "column": 74
-            }
-          }
-        },
-        {
-          "funcName": "operator new",
-          "funcAstName": "__ZnwmRKSt9nothrow_t",
-          "qualType": "void *(std::size_t, const std::nothrow_t &) noexcept",
-          "range": {
-            "start": {
-              "line": 244,
-              "column": 66
-            },
-            "end": {
-              "line": 244,
-              "column": 74
-            }
-          }
-        },
-        {
-          "funcName": "operator delete",
-          "funcAstName": "__ZdlPv",
-          "qualType": "void (void *) noexcept",
-          "range": {
-            "start": {
-              "line": 245,
-              "column": 36
-            },
-            "end": {
-              "line": 245,
-              "column": 44
-            }
-          }
-        },
-        {
-          "funcName": "operator delete",
-          "funcAstName": "__ZdlPvRKSt9nothrow_t",
-          "qualType": "void (void *, const std::nothrow_t &) noexcept",
-          "range": {
-            "start": {
-              "line": 246,
-              "column": 36
-            },
-            "end": {
-              "line": 246,
-              "column": 44
-            }
-          }
-        },
-        {
-          "funcName": "operator delete",
-          "funcAstName": "__ZdlPvm",
-          "qualType": "void (void *, std::size_t) noexcept",
-          "range": {
-            "start": {
-              "line": 248,
-              "column": 74
-            },
-            "end": {
-              "line": 248,
-              "column": 82
-            }
-          }
-        },
-        {
-          "funcName": "operator new[]",
-          "funcAstName": "__Znam",
-          "qualType": "void *(std::size_t)",
-          "range": {
-            "start": {
-              "line": 251,
-              "column": 66
-            },
-            "end": {
-              "line": 251,
-              "column": 74
-            }
-          }
-        },
-        {
-          "funcName": "operator new[]",
-          "funcAstName": "__ZnamRKSt9nothrow_t",
-          "qualType": "void *(std::size_t, const std::nothrow_t &) noexcept",
-          "range": {
-            "start": {
-              "line": 252,
-              "column": 66
-            },
-            "end": {
-              "line": 252,
-              "column": 74
-            }
-          }
-        },
-        {
-          "funcName": "operator delete[]",
-          "funcAstName": "__ZdaPv",
-          "qualType": "void (void *) noexcept",
-          "range": {
-            "start": {
-              "line": 253,
-              "column": 36
-            },
-            "end": {
-              "line": 253,
-              "column": 44
-            }
-          }
-        },
-        {
-          "funcName": "operator delete[]",
-          "funcAstName": "__ZdaPvRKSt9nothrow_t",
-          "qualType": "void (void *, const std::nothrow_t &) noexcept",
-          "range": {
-            "start": {
-              "line": 254,
-              "column": 36
-            },
-            "end": {
-              "line": 254,
-              "column": 44
-            }
-          }
-        },
-        {
-          "funcName": "operator delete[]",
-          "funcAstName": "__ZdaPvm",
-          "qualType": "void (void *, std::size_t) noexcept",
-          "range": {
-            "start": {
-              "line": 256,
-              "column": 74
-            },
-            "end": {
-              "line": 256,
-              "column": 82
-            }
-          }
-        },
-        {
-          "funcName": "operator new",
-          "funcAstName": "__ZnwmSt11align_val_t",
-          "qualType": "void *(std::size_t, std::align_val_t)",
-          "range": {
-            "start": {
-              "line": 260,
-              "column": 66
-            },
-            "end": {
-              "line": 260,
-              "column": 74
-            }
-          }
-        },
-        {
-          "funcName": "operator new",
-          "funcAstName": "__ZnwmSt11align_val_tRKSt9nothrow_t",
-          "qualType": "void *(std::size_t, std::align_val_t, const std::nothrow_t &) noexcept",
-          "range": {
-            "start": {
-              "line": 261,
-              "column": 66
-            },
-            "end": {
-              "line": 261,
-              "column": 74
-            }
-          }
-        },
-        {
-          "funcName": "operator delete",
-          "funcAstName": "__ZdlPvSt11align_val_t",
-          "qualType": "void (void *, std::align_val_t) noexcept",
-          "range": {
-            "start": {
-              "line": 262,
-              "column": 36
-            },
-            "end": {
-              "line": 262,
-              "column": 44
-            }
-          }
-        },
-        {
-          "funcName": "operator delete",
-          "funcAstName": "__ZdlPvSt11align_val_tRKSt9nothrow_t",
-          "qualType": "void (void *, std::align_val_t, const std::nothrow_t &) noexcept",
-          "range": {
-            "start": {
-              "line": 263,
-              "column": 36
-            },
-            "end": {
-              "line": 263,
-              "column": 44
-            }
-          }
-        },
-        {
-          "funcName": "operator delete",
-          "funcAstName": "__ZdlPvmSt11align_val_t",
-          "qualType": "void (void *, std::size_t, std::align_val_t) noexcept",
-          "range": {
-            "start": {
-              "line": 265,
-              "column": 74
-            },
-            "end": {
-              "line": 265,
-              "column": 82
-            }
-          }
-        },
-        {
-          "funcName": "operator new[]",
-          "funcAstName": "__ZnamSt11align_val_t",
-          "qualType": "void *(std::size_t, std::align_val_t)",
-          "range": {
-            "start": {
-              "line": 268,
-              "column": 66
-            },
-            "end": {
-              "line": 268,
-              "column": 74
-            }
-          }
-        },
-        {
-          "funcName": "operator new[]",
-          "funcAstName": "__ZnamSt11align_val_tRKSt9nothrow_t",
-          "qualType": "void *(std::size_t, std::align_val_t, const std::nothrow_t &) noexcept",
-          "range": {
-            "start": {
-              "line": 269,
-              "column": 66
-            },
-            "end": {
-              "line": 269,
-              "column": 74
-            }
-          }
-        },
-        {
-          "funcName": "operator delete[]",
-          "funcAstName": "__ZdaPvSt11align_val_t",
-          "qualType": "void (void *, std::align_val_t) noexcept",
-          "range": {
-            "start": {
-              "line": 270,
-              "column": 36
-            },
-            "end": {
-              "line": 270,
-              "column": 44
-            }
-          }
-        },
-        {
-          "funcName": "operator delete[]",
-          "funcAstName": "__ZdaPvSt11align_val_tRKSt9nothrow_t",
-          "qualType": "void (void *, std::align_val_t, const std::nothrow_t &) noexcept",
-          "range": {
-            "start": {
-              "line": 271,
-              "column": 36
-            },
-            "end": {
-              "line": 271,
-              "column": 44
-            }
-          }
-        },
-        {
-          "funcName": "operator delete[]",
-          "funcAstName": "__ZdaPvmSt11align_val_t",
-          "qualType": "void (void *, std::size_t, std::align_val_t) noexcept",
-          "range": {
-            "start": {
-              "line": 273,
-              "column": 74
-            },
-            "end": {
-              "line": 273,
-              "column": 82
-            }
-          }
-        }
-      ],
-      "funcImpls": [
-        {
-          "funcName": "__throw_bad_array_new_length",
-          "funcAstName": "__ZSt28__throw_bad_array_new_lengthB8ue170006v",
-          "qualType": "void ()",
-          "range": {
-            "start": {
-              "line": 176,
-              "column": 6
-            },
-            "end": {
-              "line": 176,
-              "column": 34
-            }
-          },
-          "funcCalls": [],
-          "virtualFuncCalls": []
-        },
-        {
-          "funcName": "operator new",
-          "funcAstName": "__ZnwB8ue170006mPv",
-          "qualType": "void *(std::size_t, void *) noexcept",
-          "range": {
-            "start": {
-              "line": 277,
-              "column": 70
-            },
-            "end": {
-              "line": 277,
-              "column": 78
-            }
-          },
-          "funcCalls": [],
-          "virtualFuncCalls": []
-        },
-        {
-          "funcName": "operator new[]",
-          "funcAstName": "__ZnaB8ue170006mPv",
-          "qualType": "void *(std::size_t, void *) noexcept",
-          "range": {
-            "start": {
-              "line": 278,
-              "column": 70
-            },
-            "end": {
-              "line": 278,
-              "column": 78
-            }
-          },
-          "funcCalls": [],
-          "virtualFuncCalls": []
-        },
-        {
-          "funcName": "operator delete",
-          "funcAstName": "__ZdlB8ue170006PvS_",
-          "qualType": "void (void *, void *) noexcept",
-          "range": {
-            "start": {
-              "line": 279,
-              "column": 40
-            },
-            "end": {
-              "line": 279,
-              "column": 48
-            }
-          },
-          "funcCalls": [],
-          "virtualFuncCalls": []
-        },
-        {
-          "funcName": "operator delete[]",
-          "funcAstName": "__ZdaB8ue170006PvS_",
-          "qualType": "void (void *, void *) noexcept",
-          "range": {
-            "start": {
-              "line": 280,
-              "column": 40
-            },
-            "end": {
-              "line": 280,
-              "column": 48
-            }
-          },
-          "funcCalls": [],
-          "virtualFuncCalls": []
-        },
-        {
-          "funcName": "__is_overaligned_for_new",
-          "funcAstName": "__ZNSt3__124__is_overaligned_for_newB8ue170006Em",
-          "qualType": "bool (size_t) noexcept",
-          "range": {
-            "start": {
-              "line": 286,
-              "column": 57
-            },
-            "end": {
-              "line": 286,
-              "column": 81
-            }
-          },
-          "funcCalls": [],
-          "virtualFuncCalls": []
-        },
-        {
-          "funcName": "__libcpp_operator_new",
-          "funcAstName": "__ZNSt3__121__libcpp_operator_newB8ue170006IJmSt11align_val_tEEEPvDpT_",
-          "qualType": "void *(unsigned long, std::align_val_t)",
-          "range": {
-            "start": {
-              "line": 296,
-              "column": 7
-            },
-            "end": {
-              "line": 296,
-              "column": 28
-            }
-          },
-          "funcCalls": [],
-          "virtualFuncCalls": []
-        },
-        {
-          "funcName": "__libcpp_operator_new",
-          "funcAstName": "__ZNSt3__121__libcpp_operator_newB8ue170006IJmEEEPvDpT_",
-          "qualType": "void *(unsigned long)",
-          "range": {
-            "start": {
-              "line": 296,
-              "column": 7
-            },
-            "end": {
-              "line": 296,
-              "column": 28
-            }
-          },
-          "funcCalls": [],
-          "virtualFuncCalls": []
-        },
-        {
-          "funcName": "__libcpp_operator_delete",
-          "funcAstName": "__ZNSt3__124__libcpp_operator_deleteB8ue170006IJPvSt11align_val_tEEEvDpT_",
-          "qualType": "void (void *, std::align_val_t)",
-          "range": {
-            "start": {
-              "line": 306,
-              "column": 6
-            },
-            "end": {
-              "line": 306,
-              "column": 30
-            }
-          },
-          "funcCalls": [],
-          "virtualFuncCalls": []
-        },
-        {
-          "funcName": "__libcpp_operator_delete",
-          "funcAstName": "__ZNSt3__124__libcpp_operator_deleteB8ue170006IJPvEEEvDpT_",
-          "qualType": "void (void *)",
-          "range": {
-            "start": {
-              "line": 306,
-              "column": 6
-            },
-            "end": {
-              "line": 306,
-              "column": 30
-            }
-          },
-          "funcCalls": [],
-          "virtualFuncCalls": []
-        },
-        {
-          "funcName": "__libcpp_allocate",
-          "funcAstName": "__ZNSt3__117__libcpp_allocateB8ue170006Emm",
-          "qualType": "void *(size_t, size_t)",
-          "range": {
-            "start": {
-              "line": 315,
-              "column": 7
-            },
-            "end": {
-              "line": 315,
-              "column": 24
-            }
-          },
-          "funcCalls": [
-            {
-              "funcName": "__is_overaligned_for_new",
-              "funcAstName": "__ZNSt3__124__is_overaligned_for_newB8ue170006Em",
-              "qualType": "bool (size_t) noexcept",
-              "range": {
-                "start": {
-                  "line": 317,
-                  "column": 7
-                },
-                "end": {
-                  "line": 317,
-                  "column": 40
-                }
-              }
-            },
-            {
-              "funcName": "__libcpp_operator_new",
-              "funcAstName": "__ZNSt3__121__libcpp_operator_newB8ue170006IJmSt11align_val_tEEEPvDpT_",
-              "qualType": "void *(unsigned long, std::align_val_t)",
-              "range": {
-                "start": {
-                  "line": 319,
-                  "column": 12
-                },
-                "end": {
-                  "line": 319,
-                  "column": 54
-                }
-              }
-            },
-            {
-              "funcName": "__libcpp_operator_new",
-              "funcAstName": "__ZNSt3__121__libcpp_operator_newB8ue170006IJmEEEPvDpT_",
-              "qualType": "void *(unsigned long)",
-              "range": {
-                "start": {
-                  "line": 324,
-                  "column": 10
-                },
-                "end": {
-                  "line": 324,
-                  "column": 39
-                }
-              }
-            }
-          ],
-          "virtualFuncCalls": []
-        },
-        {
-          "funcName": "__do_deallocate_handle_size",
-          "funcAstName": "__ZNSt3__127__do_deallocate_handle_sizeB8ue170006IJSt11align_val_tEEEvPvmDpT_",
-          "qualType": "void (void *, size_t, std::align_val_t)",
-          "range": {
-            "start": {
-              "line": 329,
-              "column": 6
-            },
-            "end": {
-              "line": 329,
-              "column": 33
-            }
-          },
-          "funcCalls": [
-            {
-              "funcName": "__libcpp_operator_delete",
-              "funcAstName": "__ZNSt3__124__libcpp_operator_deleteB8ue170006IJPvSt11align_val_tEEEvDpT_",
-              "qualType": "void (void *, std::align_val_t)",
-              "range": {
-                "start": {
-                  "line": 332,
-                  "column": 10
-                },
-                "end": {
-                  "line": 332,
-                  "column": 57
-                }
-              }
-            }
-          ],
-          "virtualFuncCalls": []
-        },
-        {
-          "funcName": "__do_deallocate_handle_size",
-          "funcAstName": "__ZNSt3__127__do_deallocate_handle_sizeB8ue170006IJEEEvPvmDpT_",
-          "qualType": "void (void *, size_t)",
-          "range": {
-            "start": {
-              "line": 329,
-              "column": 6
-            },
-            "end": {
-              "line": 329,
-              "column": 33
-            }
-          },
-          "funcCalls": [
-            {
-              "funcName": "__libcpp_operator_delete",
-              "funcAstName": "__ZNSt3__124__libcpp_operator_deleteB8ue170006IJPvEEEvDpT_",
-              "qualType": "void (void *)",
-              "range": {
-                "start": {
-                  "line": 332,
-                  "column": 10
-                },
-                "end": {
-                  "line": 332,
-                  "column": 57
-                }
-              }
-            }
-          ],
-          "virtualFuncCalls": []
-        },
-        {
-          "funcName": "__libcpp_deallocate",
-          "funcAstName": "__ZNSt3__119__libcpp_deallocateB8ue170006EPvmm",
-          "qualType": "void (void *, size_t, size_t)",
-          "range": {
-            "start": {
-              "line": 339,
-              "column": 6
-            },
-            "end": {
-              "line": 339,
-              "column": 25
-            }
-          },
-          "funcCalls": [
-            {
-              "funcName": "__is_overaligned_for_new",
-              "funcAstName": "__ZNSt3__124__is_overaligned_for_newB8ue170006Em",
-              "qualType": "bool (size_t) noexcept",
-              "range": {
-                "start": {
-                  "line": 344,
-                  "column": 9
-                },
-                "end": {
-                  "line": 344,
-                  "column": 42
-                }
-              }
-            },
-            {
-              "funcName": "__do_deallocate_handle_size",
-              "funcAstName": "__ZNSt3__127__do_deallocate_handle_sizeB8ue170006IJSt11align_val_tEEEvPvmDpT_",
-              "qualType": "void (void *, size_t, std::align_val_t)",
-              "range": {
-                "start": {
-                  "line": 346,
-                  "column": 14
-                },
-                "end": {
-                  "line": 346,
-                  "column": 69
-                }
-              }
-            },
-            {
-              "funcName": "__do_deallocate_handle_size",
-              "funcAstName": "__ZNSt3__127__do_deallocate_handle_sizeB8ue170006IJEEEvPvmDpT_",
-              "qualType": "void (void *, size_t)",
-              "range": {
-                "start": {
-                  "line": 348,
-                  "column": 14
-                },
-                "end": {
-                  "line": 348,
-                  "column": 56
-                }
-              }
-            }
-          ],
-          "virtualFuncCalls": []
-        },
-        {
-          "funcName": "__libcpp_deallocate_unsized",
-          "funcAstName": "__ZNSt3__127__libcpp_deallocate_unsizedB8ue170006EPvm",
-          "qualType": "void (void *, size_t)",
-          "range": {
-            "start": {
-              "line": 353,
-              "column": 39
-            },
-            "end": {
-              "line": 353,
-              "column": 66
-            }
-          },
-          "funcCalls": [
-            {
-              "funcName": "__is_overaligned_for_new",
-              "funcAstName": "__ZNSt3__124__is_overaligned_for_newB8ue170006Em",
-              "qualType": "bool (size_t) noexcept",
-              "range": {
-                "start": {
-                  "line": 358,
-                  "column": 9
-                },
-                "end": {
-                  "line": 358,
-                  "column": 42
-                }
-              }
-            },
-            {
-              "funcName": "__libcpp_operator_delete",
-              "funcAstName": "__ZNSt3__124__libcpp_operator_deleteB8ue170006IJPvSt11align_val_tEEEvDpT_",
-              "qualType": "void (void *, std::align_val_t)",
-              "range": {
-                "start": {
-                  "line": 360,
-                  "column": 14
-                },
-                "end": {
-                  "line": 360,
-                  "column": 58
-                }
-              }
-            },
-            {
-              "funcName": "__libcpp_operator_delete",
-              "funcAstName": "__ZNSt3__124__libcpp_operator_deleteB8ue170006IJPvEEEvDpT_",
-              "qualType": "void (void *)",
-              "range": {
-                "start": {
-                  "line": 362,
-                  "column": 14
-                },
-                "end": {
-                  "line": 362,
-                  "column": 45
-                }
-              }
-            }
-          ],
-          "virtualFuncCalls": []
-        }
-      ],
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/construct_at.h",
+      "lastAnalyzed": 1722468181731,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
       "virtualFuncImpls": [],
-      "referencedFromFiles": [
-        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/construct_at.h"
-      ]
+      "referencedFromFiles": []
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__exception/operations.h",
-      "lastAnalyzed": 1722203763763,
+      "lastAnalyzed": 1722468181732,
       "classes": [
         {
           "name": "exception_ptr",
@@ -5308,7 +5389,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__exception/exception_ptr.h",
-      "lastAnalyzed": 1722203763763,
+      "lastAnalyzed": 1722468181732,
       "classes": [
         {
           "name": "exception_ptr",
@@ -5507,8 +5588,17 @@
       ]
     },
     {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/exception",
+      "lastAnalyzed": 1722468181732,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": []
+    },
+    {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__exception/nested_exception.h",
-      "lastAnalyzed": 1722203763763,
+      "lastAnalyzed": 1722468181732,
       "classes": [
         {
           "name": "nested_exception",
@@ -5579,7 +5669,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__exception/terminate.h",
-      "lastAnalyzed": 1722203763774,
+      "lastAnalyzed": 1722468181743,
       "classes": [
         {
           "name": "hash",
@@ -9611,7 +9701,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/initializer_list",
-      "lastAnalyzed": 1722203763822,
+      "lastAnalyzed": 1722468181765,
       "classes": [
         {
           "name": "initializer_list",
@@ -11868,8 +11958,17 @@
       ]
     },
     {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/concepts.h",
+      "lastAnalyzed": 1722468181743,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": []
+    },
+    {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_ssize_t.h",
-      "lastAnalyzed": 1722203763823,
+      "lastAnalyzed": 1722468181765,
       "classes": [],
       "funcDecls": [
         {
@@ -12271,8 +12370,17 @@
       ]
     },
     {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/string.h",
+      "lastAnalyzed": 1722468181765,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": []
+    },
+    {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/string.h",
-      "lastAnalyzed": 1722203763914,
+      "lastAnalyzed": 1722468181782,
       "classes": [
         {
           "name": "_PairT",
@@ -14620,8 +14728,17 @@
       ]
     },
     {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cstring",
+      "lastAnalyzed": 1722468181765,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": []
+    },
+    {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_mbstate_t.h",
-      "lastAnalyzed": 1722203763915,
+      "lastAnalyzed": 1722468181783,
       "classes": [
         {
           "name": "ios_base",
@@ -15108,8 +15225,17 @@
       ]
     },
     {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__mbstate_t.h",
+      "lastAnalyzed": 1722468181782,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": []
+    },
+    {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/typeinfo",
-      "lastAnalyzed": 1722203763987,
+      "lastAnalyzed": 1722468181797,
       "classes": [
         {
           "name": "type_info",
@@ -19234,8 +19360,17 @@
       ]
     },
     {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h",
+      "lastAnalyzed": 1722468181783,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": []
+    },
+    {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/math.h",
-      "lastAnalyzed": 1722203764071,
+      "lastAnalyzed": 1722468181865,
       "classes": [
         {
           "name": "tuple",
@@ -27296,8 +27431,17 @@
       ]
     },
     {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cmath",
+      "lastAnalyzed": 1722468181797,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": []
+    },
+    {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_clock_t.h",
-      "lastAnalyzed": 1722203764071,
+      "lastAnalyzed": 1722468181865,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -27308,30 +27452,8 @@
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_time_t.h",
-      "lastAnalyzed": 1722203764071,
-      "classes": [
-        {
-          "name": "timespec",
-          "parentClasses": [],
-          "classes": [],
-          "funcDecls": [],
-          "funcImpls": [],
-          "virtualFuncDecls": [],
-          "virtualFuncImpls": []
-        }
-      ],
-      "funcDecls": [],
-      "funcImpls": [],
-      "virtualFuncImpls": [],
-      "referencedFromFiles": [
-        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/time.h"
-      ]
-    },
-    {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/time.h",
-      "lastAnalyzed": 1722203764074,
+      "lastAnalyzed": 1722468181870,
       "classes": [
         {
           "name": "tm",
@@ -28267,8 +28389,39 @@
       ]
     },
     {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_time_t.h",
+      "lastAnalyzed": 1722468181866,
+      "classes": [
+        {
+          "name": "timespec",
+          "parentClasses": [],
+          "classes": [],
+          "funcDecls": [],
+          "funcImpls": [],
+          "virtualFuncDecls": [],
+          "virtualFuncImpls": []
+        }
+      ],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": [
+        "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/time.h"
+      ]
+    },
+    {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/ctime",
+      "lastAnalyzed": 1722468181866,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": []
+    },
+    {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_cond_t.h",
-      "lastAnalyzed": 1722203764074,
+      "lastAnalyzed": 1722468181870,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -28279,8 +28432,17 @@
       ]
     },
     {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/pthread.h",
+      "lastAnalyzed": 1722468181870,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": []
+    },
+    {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_condattr_t.h",
-      "lastAnalyzed": 1722203764074,
+      "lastAnalyzed": 1722468181870,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -28292,7 +28454,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_key_t.h",
-      "lastAnalyzed": 1722203764074,
+      "lastAnalyzed": 1722468181870,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -28304,7 +28466,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_mutex_t.h",
-      "lastAnalyzed": 1722203764074,
+      "lastAnalyzed": 1722468181870,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -28316,7 +28478,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_mutexattr_t.h",
-      "lastAnalyzed": 1722203764074,
+      "lastAnalyzed": 1722468181870,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -28328,7 +28490,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_once_t.h",
-      "lastAnalyzed": 1722203764074,
+      "lastAnalyzed": 1722468181870,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -28340,7 +28502,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_rwlock_t.h",
-      "lastAnalyzed": 1722203764074,
+      "lastAnalyzed": 1722468181870,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -28352,7 +28514,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_rwlockattr_t.h",
-      "lastAnalyzed": 1722203764074,
+      "lastAnalyzed": 1722468181870,
       "classes": [],
       "funcDecls": [],
       "funcImpls": [],
@@ -28364,7 +28526,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_t.h",
-      "lastAnalyzed": 1722203764074,
+      "lastAnalyzed": 1722468181870,
       "classes": [
         {
           "name": "pthread_override_s",
@@ -28507,7 +28669,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_mach_port_t.h",
-      "lastAnalyzed": 1722203764075,
+      "lastAnalyzed": 1722468181870,
       "classes": [],
       "funcDecls": [
         {
@@ -30020,7 +30182,7 @@
     },
     {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__threading_support",
-      "lastAnalyzed": 1722203764097,
+      "lastAnalyzed": 1722468181896,
       "classes": [
         {
           "name": "atomic",
@@ -33366,8 +33528,17 @@
       ]
     },
     {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__atomic/atomic_sync.h",
+      "lastAnalyzed": 1722468181870,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": []
+    },
+    {
       "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/variant",
-      "lastAnalyzed": 1722203764120,
+      "lastAnalyzed": 1722468181925,
       "classes": [
         {
           "name": "bad_variant_access",
@@ -33794,6 +33965,15 @@
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
         "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/common_iterator.h"
       ]
+    },
+    {
+      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/common_iterator.h",
+      "lastAnalyzed": 1722468181896,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": []
     }
   ]
 }

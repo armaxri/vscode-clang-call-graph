@@ -63,6 +63,9 @@ export class ClangAstWalker implements AstWalker {
 
             const startTime = Date.now();
 
+            // Create the file in the database, so that we can reference it.
+            this.database.getOrAddCppFile(this.fileName);
+
             if (this.baseAstElement.inner) {
                 for (const innerAstElement of this.baseAstElement.inner) {
                     this.handleFileLocation(innerAstElement);
@@ -143,11 +146,17 @@ export class ClangAstWalker implements AstWalker {
 
                 if (
                     astElement.loc.includedFrom &&
-                    astElement.loc.includedFrom.file
+                    astElement.loc.includedFrom.file &&
+                    astElement.loc.includedFrom.file !== this.fileName
                 ) {
+                    // Ensure that the file exists in the database.
+                    const hppFile = this.database.getOrAddHppFile(
+                        astElement.loc.includedFrom.file
+                    );
+
                     (
                         this.currentlyAnalyzedFile as db.HppFile
-                    ).addReferencedFromFile(astElement.loc.includedFrom.file);
+                    ).addReferencedFromFile(hppFile.getName());
                 }
             }
         }
