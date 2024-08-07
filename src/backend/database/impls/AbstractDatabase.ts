@@ -72,9 +72,75 @@ export abstract class AbstractDatabase implements Database {
             return false;
         }
 
-        return (
-            elementEquals<CppFile>(this.getCppFiles(), other.getCppFiles()) &&
-            elementEquals<HppFile>(this.getHppFiles(), other.getHppFiles())
-        );
+        var allMatched = true;
+
+        const thisCppFiles = this.getCppFiles();
+        const otherCppFiles = other.getCppFiles();
+        const thisHppFiles = this.getHppFiles();
+        const otherHppFiles = other.getHppFiles();
+
+        thisCppFiles.forEach((cppFile) => {
+            if (
+                !otherCppFiles.some((otherCppFile) => {
+                    if (cppFile.getName() === otherCppFile.getName()) {
+                        if (!cppFile.equals(otherCppFile)) {
+                            console.log(
+                                `CppFile ${cppFile.getName()} not equal`
+                            );
+                            allMatched = false;
+                        }
+                        return true;
+                    }
+                    return false;
+                })
+            ) {
+                allMatched = false;
+                console.log(`CppFile ${cppFile.getName()} not found`);
+            }
+        });
+
+        otherCppFiles.forEach((otherCppFile) => {
+            if (
+                !thisCppFiles.some((cppFile) => {
+                    return cppFile.getName() === otherCppFile.getName();
+                })
+            ) {
+                allMatched = false;
+                console.log(`CppFile ${otherCppFile.getName()} not found`);
+            }
+        });
+
+        thisHppFiles.forEach((hppFile) => {
+            if (
+                !otherHppFiles.some((otherHppFile) => {
+                    if (hppFile.getName() === otherHppFile.getName()) {
+                        if (!hppFile.equals(otherHppFile)) {
+                            console.log(
+                                `HppFile ${hppFile.getName()} not equal`
+                            );
+                            allMatched = false;
+                        }
+                        return true;
+                    }
+                    return false;
+                })
+            ) {
+                allMatched = false;
+                console.log(`HppFile ${hppFile.getName()} not found`);
+            }
+        });
+
+        otherHppFiles.forEach((otherHppFile) => {
+            if (
+                !thisHppFiles.some((hppFile) => {
+                    return hppFile.getName() === otherHppFile.getName();
+                })
+            ) {
+                allMatched = false;
+                console.log(`HppFile ${otherHppFile.getName()} not found`);
+            }
+        });
+
+        return allMatched;
     }
 }
