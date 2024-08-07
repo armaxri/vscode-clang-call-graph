@@ -145,14 +145,23 @@ export abstract class AbstractHppFile implements HppFile {
             return true;
         }
 
-        if (!otherList || !thisList || thisList.length !== otherList.length) {
-            return false;
-        }
+        var allMatched = true;
 
-        return (
-            thisList.every((fileName) => otherList.includes(fileName)) &&
-            otherList.every((fileName) => thisList.includes(fileName))
-        );
+        thisList.forEach((fileName) => {
+            if (!otherList.includes(fileName)) {
+                console.log(`Didn't find ${fileName} in other list`);
+                allMatched = false;
+            }
+        });
+
+        otherList.forEach((fileName) => {
+            if (!thisList.includes(fileName)) {
+                console.log(`Didn't find ${fileName} in this list`);
+                allMatched = false;
+            }
+        });
+
+        return allMatched;
     }
 
     equals(otherInput: any): boolean {
@@ -163,25 +172,55 @@ export abstract class AbstractHppFile implements HppFile {
             return false;
         }
 
-        return (
-            this.getName() === other.getName() &&
-            // Sadly we can't compare the analyzed time.
-            // this.getLastAnalyzed() === other.getLastAnalyzed() &&
-            this.referencedFromFilesEquals(other.getReferencedFromFiles()) &&
-            elementEquals<CppClass>(this.getClasses(), other.getClasses()) &&
-            elementEquals<FuncDeclaration>(
+        if (this.getName() !== other.getName()) {
+            console.log(
+                `Name mismatch: ${this.getName()} !== ${other.getName()}`
+            );
+            return false;
+        }
+
+        // Sadly we can't compare the analyzed time.
+        // this.getLastAnalyzed() === other.getLastAnalyzed()
+
+        if (!this.referencedFromFilesEquals(other.getReferencedFromFiles())) {
+            console.log(`ReferencedFromFiles mismatch`);
+            return false;
+        }
+
+        if (!elementEquals<CppClass>(this.getClasses(), other.getClasses())) {
+            console.log(`Classes mismatch`);
+            return false;
+        }
+
+        if (
+            !elementEquals<FuncDeclaration>(
                 this.getFuncDecls(),
                 other.getFuncDecls()
-            ) &&
-            elementEquals<FuncImplementation>(
+            )
+        ) {
+            console.log(`Func declarations mismatch`);
+            return false;
+        }
+        if (
+            !elementEquals<FuncImplementation>(
                 this.getFuncImpls(),
                 other.getFuncImpls()
-            ) &&
-            elementEquals<VirtualFuncImplementation>(
+            )
+        ) {
+            console.log(`Func implementations mismatch`);
+            return false;
+        }
+        if (
+            !elementEquals<VirtualFuncImplementation>(
                 this.getVirtualFuncImpls(),
                 other.getVirtualFuncImpls()
             )
-        );
+        ) {
+            console.log(`Virtual func implementations mismatch`);
+            return false;
+        }
+
+        return true;
     }
 
     getMatchingFuncs(location: Location): FuncBasics[] {
