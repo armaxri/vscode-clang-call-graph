@@ -14,6 +14,7 @@ import {
 import { DatabaseType } from "../../../backend/Config";
 import { Database } from "../../../backend/database/Database";
 import { createDatabase } from "../../../backend/database/helper/database_factory";
+import { assertDatabaseEquals } from "../helper/database_equality";
 
 function loadAst(dirname: string, filename: string): astJson.AstElement {
     const filePath = new PathUtils(dirname, filename);
@@ -170,8 +171,7 @@ export function testAstWalkerAgainstSpecificDatabase(
         "--------------------------------------------------------------------------------"
     );
 
-    // TODO: This is somehow not satisfying. Is there a real equal?
-    assert.ok(database.equals(expectedDatabase));
+    assertDatabaseEquals(database, expectedDatabase);
 
     endTime = new Date().getTime();
     console.log(
