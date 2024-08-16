@@ -17,22 +17,6 @@ export abstract class AbstractFuncCall implements FuncCall {
 
     abstract getFile(): File | null;
 
-    equals(otherInput: any): boolean {
-        const other = otherInput as FuncCall;
-
-        // istanbul ignore next
-        if (!other) {
-            return false;
-        }
-
-        return (
-            this.getFuncName() === other.getFuncName() &&
-            this.getFuncAstName() === other.getFuncAstName() &&
-            this.getQualType() === other.getQualType() &&
-            rangeIsEqual(this.getRange(), other.getRange())
-        );
-    }
-
     baseEquals(otherInput: any): boolean {
         const other = otherInput as FuncCallCreationArgs;
 

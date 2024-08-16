@@ -1,6 +1,7 @@
 import assert from "assert";
 import { addSuitesInSubDirsSuites } from "../../../../helper/mocha_test_helper";
 import { createCleanLowdbDatabase } from "../../../../helper/database_helper";
+import { assertFuncEquals } from "../../../../helper/database_equality";
 
 suite("Func Impl", () => {
     addSuitesInSubDirsSuites(__dirname);
@@ -86,7 +87,7 @@ suite("Func Impl", () => {
         const matches = funcImpl.getMatchingFuncs({ line: 3, column: 5 });
 
         assert.strictEqual(matches.length, 1);
-        assert.ok(matches[0].equals(funcImpl));
+        assertFuncEquals(matches[0], funcImpl);
     });
 
     test("getMatchingFuncs call", () => {
@@ -123,7 +124,7 @@ suite("Func Impl", () => {
         const matches = funcImpl.getMatchingFuncs({ line: 2, column: 5 });
 
         assert.strictEqual(matches.length, 1);
-        assert.ok(matches[0].equals(func));
+        assertFuncEquals(matches[0], func);
     });
 
     test("getMatchingFuncs no matches", () => {

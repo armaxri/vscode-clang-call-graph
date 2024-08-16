@@ -18,23 +18,6 @@ export abstract class AbstractVirtualFuncCall implements VirtualFuncCall {
 
     abstract getFile(): File | null;
 
-    equals(otherInput: any): boolean {
-        const other = otherInput as VirtualFuncCall;
-
-        // istanbul ignore next
-        if (!other) {
-            return false;
-        }
-
-        return (
-            this.getFuncName() === other.getFuncName() &&
-            this.getFuncAstName() === other.getFuncAstName() &&
-            this.getQualType() === other.getQualType() &&
-            rangeIsEqual(this.getRange(), other.getRange()) &&
-            this.getBaseFuncAstName() === other.getBaseFuncAstName()
-        );
-    }
-
     baseEquals(otherInput: any): boolean {
         const other = otherInput as VirtualFuncCallCreationArgs;
 

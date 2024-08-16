@@ -11,7 +11,6 @@ import {
     VirtualFuncDeclaration,
     VirtualFuncImplementation,
 } from "../cpp_structure";
-import { elementEquals } from "../helper/equality_helper";
 import { getMatchingFuncs } from "../helper/location_helper";
 
 export abstract class AbstractCppClass implements CppClass {
@@ -175,50 +174,6 @@ export abstract class AbstractCppClass implements CppClass {
                 func.getQualType() === qualType
         );
         return foundFunc;
-    }
-
-    private parentClassNamesEquals(otherList: string[]): boolean {
-        const thisList = this.getParentClassNames();
-
-        if (thisList.length !== otherList.length) {
-            return false;
-        }
-
-        return (
-            thisList.every((fileName) => otherList.includes(fileName)) &&
-            otherList.every((fileName) => thisList.includes(fileName))
-        );
-    }
-
-    equals(otherInput: any): boolean {
-        const other = otherInput as CppClass;
-
-        // istanbul ignore next
-        if (!other) {
-            return false;
-        }
-
-        return (
-            this.getName() === other.getName() &&
-            this.parentClassNamesEquals(other.getParentClassNames()) &&
-            elementEquals<CppClass>(this.getClasses(), other.getClasses()) &&
-            elementEquals<FuncDeclaration>(
-                this.getFuncDecls(),
-                other.getFuncDecls()
-            ) &&
-            elementEquals<FuncImplementation>(
-                this.getFuncImpls(),
-                other.getFuncImpls()
-            ) &&
-            elementEquals<VirtualFuncDeclaration>(
-                this.getVirtualFuncDecls(),
-                other.getVirtualFuncDecls()
-            ) &&
-            elementEquals<VirtualFuncImplementation>(
-                this.getVirtualFuncImpls(),
-                other.getVirtualFuncImpls()
-            )
-        );
     }
 
     getMatchingFuncs(location: Location): FuncBasics[] {

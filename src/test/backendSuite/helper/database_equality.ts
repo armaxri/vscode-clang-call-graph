@@ -231,7 +231,7 @@ export function assertFuncEquals(
     }
 }
 
-function sortFuncs(funcs: FuncBasics[]): FuncBasics[] {
+export function sortFuncs(funcs: FuncBasics[]): FuncBasics[] {
     return funcs.sort((a, b) => {
         var compValue = a.getFuncAstName().localeCompare(b.getFuncAstName());
         if (compValue !== 0) {

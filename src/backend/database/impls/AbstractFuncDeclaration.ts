@@ -17,22 +17,6 @@ export abstract class AbstractFuncDeclaration implements FuncDeclaration {
 
     abstract getFile(): File | null;
 
-    equals(otherInput: any): boolean {
-        const other = otherInput as FuncDeclaration;
-
-        // istanbul ignore next
-        if (!other) {
-            return false;
-        }
-
-        return (
-            this.getFuncName() === other.getFuncName() &&
-            this.getFuncAstName() === other.getFuncAstName() &&
-            this.getQualType() === other.getQualType() &&
-            rangeIsEqual(this.getRange(), other.getRange())
-        );
-    }
-
     baseEquals(otherInput: any): boolean {
         const other = otherInput as FuncCreationArgs;
 

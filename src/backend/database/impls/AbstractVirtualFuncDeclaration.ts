@@ -20,23 +20,6 @@ export abstract class AbstractVirtualFuncDeclaration
 
     abstract getFile(): File | null;
 
-    equals(otherInput: any): boolean {
-        const other = otherInput as VirtualFuncDeclaration;
-
-        // istanbul ignore next
-        if (!other) {
-            return false;
-        }
-
-        return (
-            this.getFuncName() === other.getFuncName() &&
-            this.getFuncAstName() === other.getFuncAstName() &&
-            this.getQualType() === other.getQualType() &&
-            rangeIsEqual(this.getRange(), other.getRange()) &&
-            this.getBaseFuncAstName() === other.getBaseFuncAstName()
-        );
-    }
-
     baseEquals(otherInput: any): boolean {
         const other = otherInput as VirtualFuncCreationArgs;
 

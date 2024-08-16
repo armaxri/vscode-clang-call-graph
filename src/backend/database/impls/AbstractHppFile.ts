@@ -10,7 +10,6 @@ import {
     VirtualFuncCreationArgs,
     VirtualFuncImplementation,
 } from "../cpp_structure";
-import { elementEquals } from "../helper/equality_helper";
 import { getMatchingFuncs } from "../helper/location_helper";
 
 export abstract class AbstractHppFile implements HppFile {
@@ -135,33 +134,6 @@ export abstract class AbstractHppFile implements HppFile {
         });
 
         return finding ? finding : null;
-    }
-
-    private referencedFromFilesEquals(otherList: string[]): boolean {
-        const thisList = this.getReferencedFromFiles();
-
-        // istanbul ignore next
-        if (!otherList && !thisList) {
-            return true;
-        }
-
-        var allMatched = true;
-
-        thisList.forEach((fileName) => {
-            if (!otherList.includes(fileName)) {
-                console.log(`Didn't find ${fileName} in other list`);
-                allMatched = false;
-            }
-        });
-
-        otherList.forEach((fileName) => {
-            if (!thisList.includes(fileName)) {
-                console.log(`Didn't find ${fileName} in this list`);
-                allMatched = false;
-            }
-        });
-
-        return allMatched;
     }
 
     getMatchingFuncs(location: Location): FuncBasics[] {

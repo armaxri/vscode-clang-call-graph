@@ -10,7 +10,6 @@ import {
     VirtualFuncCreationArgs,
     VirtualFuncImplementation,
 } from "../cpp_structure";
-import { elementEquals } from "../helper/equality_helper";
 import { getMatchingFuncs } from "../helper/location_helper";
 
 export abstract class AbstractCppFile implements CppFile {

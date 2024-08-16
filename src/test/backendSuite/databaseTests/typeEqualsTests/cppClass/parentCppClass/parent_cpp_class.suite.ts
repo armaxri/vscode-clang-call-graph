@@ -6,7 +6,10 @@ import {
     openDatabase,
     prepareDatabaseEqualityTests,
 } from "../../database_equality_tests";
-import { assertDatabaseEquals } from "../../../../helper/database_equality";
+import {
+    assertCppClassEquals,
+    assertDatabaseEquals,
+} from "../../../../helper/database_equality";
 
 suite("Parent Cpp Class", () => {
     addSuitesInSubDirsSuites(__dirname);
@@ -198,7 +201,7 @@ suite("Parent Cpp Class", () => {
                 const parentClasses = childClass.getParentClasses();
 
                 assert.strictEqual(parentClasses.length, 1);
-                assert.ok(parentClasses[0].equals(parentClass));
+                assertCppClassEquals(parentClasses[0], parentClass);
             });
         });
     });
