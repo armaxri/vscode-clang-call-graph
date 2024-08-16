@@ -45,7 +45,8 @@
       ],
       "funcDecls": [],
       "funcImpls": [],
-      "virtualFuncImpls": []
+      "virtualFuncImpls": [],
+      "referencedFromFiles": []
     }
   ]
 }

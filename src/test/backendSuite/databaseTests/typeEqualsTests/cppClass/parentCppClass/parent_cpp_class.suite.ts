@@ -6,6 +6,7 @@ import {
     openDatabase,
     prepareDatabaseEqualityTests,
 } from "../../database_equality_tests";
+import { assertDatabaseEquals } from "../../../../helper/database_equality";
 
 suite("Parent Cpp Class", () => {
     addSuitesInSubDirsSuites(__dirname);
@@ -29,7 +30,7 @@ suite("Parent Cpp Class", () => {
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
             });
         });
     });
@@ -54,7 +55,7 @@ suite("Parent Cpp Class", () => {
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
             });
         });
     });
@@ -84,7 +85,7 @@ suite("Parent Cpp Class", () => {
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
             });
         });
     });
@@ -115,7 +116,9 @@ suite("Parent Cpp Class", () => {
 
                     database.writeDatabase();
 
-                    assert.ok(!database.equals(referenceDatabase));
+                    assert.throws(() =>
+                        assertDatabaseEquals(database, referenceDatabase)
+                    );
                 });
             });
         }
@@ -141,7 +144,7 @@ suite("Parent Cpp Class", () => {
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
             });
         });
     });
@@ -169,7 +172,9 @@ suite("Parent Cpp Class", () => {
 
                     database.writeDatabase();
 
-                    assert.ok(!database.equals(referenceDatabase));
+                    assert.throws(() =>
+                        assertDatabaseEquals(database, referenceDatabase)
+                    );
                 });
             });
         }
@@ -220,7 +225,7 @@ suite("Parent Cpp Class", () => {
 
                 const newDatabase = openDatabase(__dirname, testData);
 
-                assert.ok(newDatabase.equals(referenceDatabase));
+                assertDatabaseEquals(newDatabase, referenceDatabase);
             });
         });
     });
@@ -243,7 +248,7 @@ suite("Parent Cpp Class", () => {
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
             });
         });
     });
@@ -269,11 +274,11 @@ suite("Parent Cpp Class", () => {
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database,referenceDatabase);
 
                 database.removeCppFileAndDependingContent(cppFile.getName());
                 database.writeDatabase();
-                assert.ok(database.equals(getEmptyReferenceDatabase()));
+                assertDatabaseEquals(database, getEmptyReferenceDatabase());
             });
         });
     });

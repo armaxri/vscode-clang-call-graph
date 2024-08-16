@@ -5,6 +5,7 @@ import {
     getEmptyReferenceDatabase,
     prepareDatabaseEqualityTests,
 } from "../../database_equality_tests";
+import { assertDatabaseEquals } from "../../../../helper/database_equality";
 
 suite("Func Decl", () => {
     addSuitesInSubDirsSuites(__dirname);
@@ -33,7 +34,7 @@ suite("Func Decl", () => {
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
             });
         });
     });
@@ -72,7 +73,7 @@ suite("Func Decl", () => {
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
             });
         });
     });
@@ -128,7 +129,7 @@ suite("Func Decl", () => {
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
             });
         });
     });
@@ -175,7 +176,9 @@ suite("Func Decl", () => {
 
                 database.writeDatabase();
 
-                assert.ok(!database.equals(referenceDatabase));
+                assert.throws(() =>
+                    assertDatabaseEquals(database, referenceDatabase)
+                );
             });
         });
     });
@@ -204,7 +207,9 @@ suite("Func Decl", () => {
 
                 database.writeDatabase();
 
-                assert.ok(!database.equals(referenceDatabase));
+                assert.throws(() =>
+                    assertDatabaseEquals(database, referenceDatabase)
+                );
             });
         });
     });
@@ -233,7 +238,9 @@ suite("Func Decl", () => {
 
                 database.writeDatabase();
 
-                assert.ok(!database.equals(referenceDatabase));
+                assert.throws(() =>
+                    assertDatabaseEquals(database, referenceDatabase)
+                );
             });
         });
     });
@@ -262,11 +269,11 @@ suite("Func Decl", () => {
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
 
                 database.removeCppFileAndDependingContent(cppFile.getName());
                 database.writeDatabase();
-                assert.ok(database.equals(getEmptyReferenceDatabase()));
+                assertDatabaseEquals(database, getEmptyReferenceDatabase());
             });
         });
     });

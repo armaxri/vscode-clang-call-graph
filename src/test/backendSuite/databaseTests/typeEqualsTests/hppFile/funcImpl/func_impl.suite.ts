@@ -6,6 +6,7 @@ import {
     loadReferenceDb,
     prepareDatabaseEqualityTests,
 } from "../../database_equality_tests";
+import { assertDatabaseEquals } from "../../../../helper/database_equality";
 
 suite("Func Impl", () => {
     addSuitesInSubDirsSuites(__dirname);
@@ -34,7 +35,7 @@ suite("Func Impl", () => {
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
             });
         });
     });
@@ -72,7 +73,7 @@ suite("Func Impl", () => {
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
             });
         });
     });
@@ -128,7 +129,7 @@ suite("Func Impl", () => {
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
             });
         });
     });
@@ -177,7 +178,9 @@ suite("Func Impl", () => {
 
                     database.writeDatabase();
 
-                    assert.ok(!database.equals(referenceDatabase));
+                    assert.throws(() =>
+                        assertDatabaseEquals(database, referenceDatabase)
+                    );
                 });
             });
         }
@@ -207,7 +210,9 @@ suite("Func Impl", () => {
 
                 database.writeDatabase();
 
-                assert.ok(!database.equals(referenceDatabase));
+                assert.throws(() =>
+                    assertDatabaseEquals(database, referenceDatabase)
+                );
             });
         });
     });
@@ -236,7 +241,9 @@ suite("Func Impl", () => {
 
                 database.writeDatabase();
 
-                assert.ok(!database.equals(referenceDatabase));
+                assert.throws(() =>
+                    assertDatabaseEquals(database, referenceDatabase)
+                );
             });
         });
     });
@@ -265,11 +272,11 @@ suite("Func Impl", () => {
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
 
                 database.removeHppFileAndDependingContent(hppFile.getName());
                 database.writeDatabase();
-                assert.ok(database.equals(getEmptyReferenceDatabase()));
+                assertDatabaseEquals(database, getEmptyReferenceDatabase());
             });
         });
     });

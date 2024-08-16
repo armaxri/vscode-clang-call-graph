@@ -4,7 +4,11 @@ import {
     CppClass,
     CppFile,
     File,
+    FuncBasics,
+    FuncImplBasics,
+    FuncType,
     MainDeclLocation,
+    VirtualFuncBasics,
 } from "../../../backend/database/cpp_structure";
 
 export function assertDatabaseEquals(
@@ -61,38 +65,44 @@ export function assertMainDeclLocationEquals(
         assertCppClassEquals(actualClass, expectedClass!);
     });
 
+    const actualFuncDecls = actual.getFuncDecls();
+    const expectedFuncDecls = expected.getFuncDecls();
+
     assert.deepEqual(
-        actual
-            .getFuncDecls()
-            .map((func) => func.getFuncAstName())
-            .sort(),
-        expected
-            .getFuncDecls()
-            .map((func) => func.getFuncAstName())
-            .sort()
-    );
-    assert.deepEqual(
-        actual
-            .getFuncImpls()
-            .map((func) => func.getFuncAstName())
-            .sort(),
-        expected
-            .getFuncImpls()
-            .map((func) => func.getFuncAstName())
-            .sort()
-    );
-    assert.deepEqual(
-        actual
-            .getVirtualFuncImpls()
-            .map((func) => func.getFuncAstName())
-            .sort(),
-        expected
-            .getVirtualFuncImpls()
-            .map((func) => func.getFuncAstName())
-            .sort()
+        actualFuncDecls.map((func) => func.getFuncAstName()).sort(),
+        expectedFuncDecls.map((func) => func.getFuncAstName()).sort()
     );
 
-    // TODO: Deeper comparison of functions.
+    const actualFuncImpls = actual.getFuncImpls();
+    const expectedFuncImpls = expected.getFuncImpls();
+
+    assert.deepEqual(
+        actualFuncImpls.map((func) => func.getFuncAstName()).sort(),
+        expectedFuncImpls.map((func) => func.getFuncAstName()).sort()
+    );
+
+    const actualVirtualFuncImpls = actual.getVirtualFuncImpls();
+    const expectedVirtualFuncImpls = expected.getVirtualFuncImpls();
+
+    assert.deepEqual(
+        actualVirtualFuncImpls.map((func) => func.getFuncAstName()).sort(),
+        expectedVirtualFuncImpls.map((func) => func.getFuncAstName()).sort()
+    );
+
+    for (let i = 0; i < actualFuncDecls.length; i++) {
+        assertFuncEquals(actualFuncDecls[i], expectedFuncDecls[i]);
+    }
+
+    for (let i = 0; i < actualFuncImpls.length; i++) {
+        assertFuncEquals(actualFuncImpls[i], expectedFuncImpls[i]);
+    }
+
+    for (let i = 0; i < actualVirtualFuncImpls.length; i++) {
+        assertFuncEquals(
+            actualVirtualFuncImpls[i],
+            expectedVirtualFuncImpls[i]
+        );
+    }
 }
 
 export function assertCppClassEquals(
@@ -106,18 +116,20 @@ export function assertCppClassEquals(
         expected.getParentClassNames().sort()
     );
 
+    const actualVirtualFuncDecls = actual.getVirtualFuncDecls();
+    const expectedVirtualFuncDecls = expected.getVirtualFuncDecls();
+
     assert.deepEqual(
-        actual
-            .getVirtualFuncDecls()
-            .map((func) => func.getFuncAstName())
-            .sort(),
-        expected
-            .getVirtualFuncDecls()
-            .map((func) => func.getFuncAstName())
-            .sort()
+        actualVirtualFuncDecls.map((func) => func.getFuncAstName()).sort(),
+        expectedVirtualFuncDecls.map((func) => func.getFuncAstName()).sort()
     );
 
-    // TODO: Deeper comparison of virtual functions.
+    for (let i = 0; i < actualVirtualFuncDecls.length; i++) {
+        assertFuncEquals(
+            actualVirtualFuncDecls[i],
+            expectedVirtualFuncDecls[i]
+        );
+    }
 }
 
 export function assertFileEquals(actual: File, expected: File): void {
@@ -155,4 +167,113 @@ export function assertHeaderFileEquals(
         actual.getReferencedFromFiles().sort(),
         expected.getReferencedFromFiles().sort()
     );
+}
+
+export function assertFuncEquals(
+    actual: FuncBasics,
+    expected: FuncBasics
+): void {
+    assert.deepEqual(actual.getFuncName(), expected.getFuncName());
+    assert.deepEqual(actual.getFuncAstName(), expected.getFuncAstName());
+    assert.deepEqual(actual.getQualType(), expected.getQualType());
+    assert.deepEqual(actual.getRange(), expected.getRange());
+    assert.deepEqual(actual.getFuncType(), expected.getFuncType());
+    assert.deepEqual(actual.isVirtual(), expected.isVirtual());
+
+    if (actual.isVirtual()) {
+        assert.deepEqual(
+            (actual as VirtualFuncBasics).getBaseFuncAstName(),
+            (expected as VirtualFuncBasics).getBaseFuncAstName()
+        );
+    }
+
+    if (actual.getFuncType() === FuncType.implementation) {
+        const actualImpl = actual as FuncImplBasics;
+        const expectedImpl = expected as FuncImplBasics;
+
+        const sortedActualFuncCalls = sortFuncs(actualImpl.getFuncCalls());
+        const sortedExpectedFuncCalls = sortFuncs(expectedImpl.getFuncCalls());
+
+        assert.deepEqual(
+            sortedActualFuncCalls.map((func) => func.getFuncAstName()).sort(),
+            sortedExpectedFuncCalls.map((func) => func.getFuncAstName()).sort()
+        );
+
+        const sortedActualVirtualFuncCalls = sortFuncs(
+            actualImpl.getVirtualFuncCalls()
+        );
+        const sortedExpectedVirtualFuncCalls = sortFuncs(
+            expectedImpl.getVirtualFuncCalls()
+        );
+
+        assert.deepEqual(
+            sortedActualVirtualFuncCalls
+                .map((func) => func.getFuncAstName())
+                .sort(),
+            sortedExpectedVirtualFuncCalls
+                .map((func) => func.getFuncAstName())
+                .sort()
+        );
+
+        for (let i = 0; i < sortedActualFuncCalls.length; i++) {
+            assertFuncEquals(
+                sortedActualFuncCalls[i],
+                sortedExpectedFuncCalls[i]
+            );
+        }
+
+        for (let i = 0; i < sortedActualVirtualFuncCalls.length; i++) {
+            assertFuncEquals(
+                sortedActualVirtualFuncCalls[i],
+                sortedExpectedVirtualFuncCalls[i]
+            );
+        }
+    }
+}
+
+function sortFuncs(funcs: FuncBasics[]): FuncBasics[] {
+    return funcs.sort((a, b) => {
+        var compValue = a.getFuncAstName().localeCompare(b.getFuncAstName());
+        if (compValue !== 0) {
+            return compValue;
+        }
+        compValue = a.getFuncName().localeCompare(b.getFuncName());
+        if (compValue !== 0) {
+            return compValue;
+        }
+        compValue = a.getQualType().localeCompare(b.getQualType());
+        if (compValue !== 0) {
+            return compValue;
+        }
+        compValue = a.getRange().start.line - b.getRange().start.line;
+        if (compValue !== 0) {
+            return compValue;
+        }
+        compValue = a.getRange().start.column - b.getRange().start.column;
+        if (compValue !== 0) {
+            return compValue;
+        }
+        compValue = a.getRange().end.line - b.getRange().end.line;
+        if (compValue !== 0) {
+            return compValue;
+        }
+        compValue = a.getRange().end.column - b.getRange().end.column;
+        if (compValue !== 0) {
+            return compValue;
+        }
+        compValue = a.getFuncType().localeCompare(b.getFuncType());
+        if (compValue !== 0) {
+            return compValue;
+        }
+        if (a.isVirtual() && b.isVirtual()) {
+            compValue = (a as VirtualFuncBasics)
+                .getBaseFuncAstName()
+                .localeCompare((b as VirtualFuncBasics).getBaseFuncAstName());
+            if (compValue !== 0) {
+                return compValue;
+            }
+        }
+
+        return 0;
+    });
 }

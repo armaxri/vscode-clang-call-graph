@@ -6,6 +6,7 @@ import {
     prepareDatabaseEqualityTests,
 } from "../../database_equality_tests";
 import { FuncType } from "../../../../../../backend/database/cpp_structure";
+import { assertDatabaseEquals } from "../../../../helper/database_equality";
 
 suite("Virtual Func Call", () => {
     addSuitesInSubDirsSuites(__dirname);
@@ -53,7 +54,7 @@ suite("Virtual Func Call", () => {
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
 
                 assert.ok(funcCall.isVirtual());
                 assert.equal(funcCall.getFuncType(), FuncType.call);
@@ -111,7 +112,7 @@ suite("Virtual Func Call", () => {
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
             });
         });
     });
@@ -210,7 +211,7 @@ suite("Virtual Func Call", () => {
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
             });
         });
     });
@@ -302,7 +303,9 @@ suite("Virtual Func Call", () => {
 
                 database.writeDatabase();
 
-                assert.ok(!database.equals(referenceDatabase));
+                assert.throws(() =>
+                    assertDatabaseEquals(database, referenceDatabase)
+                );
             });
         });
     });
@@ -350,7 +353,9 @@ suite("Virtual Func Call", () => {
 
                 database.writeDatabase();
 
-                assert.ok(!database.equals(referenceDatabase));
+                assert.throws(() =>
+                    assertDatabaseEquals(database, referenceDatabase)
+                );
             });
         });
     });
@@ -398,7 +403,9 @@ suite("Virtual Func Call", () => {
 
                 database.writeDatabase();
 
-                assert.ok(!database.equals(referenceDatabase));
+                assert.throws(() =>
+                    assertDatabaseEquals(database, referenceDatabase)
+                );
             });
         });
     });
@@ -446,11 +453,11 @@ suite("Virtual Func Call", () => {
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
 
                 database.removeCppFileAndDependingContent(cppFile.getName());
                 database.writeDatabase();
-                assert.ok(database.equals(getEmptyReferenceDatabase()));
+                assertDatabaseEquals(database, getEmptyReferenceDatabase());
             });
         });
     });

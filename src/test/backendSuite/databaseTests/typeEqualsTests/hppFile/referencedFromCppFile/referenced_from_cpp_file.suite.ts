@@ -2,6 +2,7 @@ import assert from "assert";
 import { DatabaseType } from "../../../../../../backend/Config";
 import { addSuitesInSubDirsSuites } from "../../../../helper/mocha_test_helper";
 import { prepareDatabaseEqualityTests } from "../../database_equality_tests";
+import { assertDatabaseEquals } from "../../../../helper/database_equality";
 
 suite("Referenced from Cpp Files", () => {
     addSuitesInSubDirsSuites(__dirname);
@@ -28,7 +29,7 @@ suite("Referenced from Cpp Files", () => {
                     cppFile.getName()
                 );
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
             });
         });
     });
@@ -56,7 +57,7 @@ suite("Referenced from Cpp Files", () => {
                     cppFile.getName()
                 );
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
             });
         });
     });
@@ -77,7 +78,9 @@ suite("Referenced from Cpp Files", () => {
 
                 assert.strictEqual(hppFile.getReferencedFromFiles().length, 0);
 
-                assert.ok(!database.equals(referenceDatabase));
+                assert.throws(() =>
+                    assertDatabaseEquals(database, referenceDatabase)
+                );
             });
         });
     });
@@ -113,7 +116,7 @@ suite("Referenced from Cpp Files", () => {
                     cppFile.getName()
                 );
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
             });
         });
     });

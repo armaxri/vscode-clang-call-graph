@@ -2,7 +2,7 @@ import { CppFile, Equal, FuncBasics, HppFile } from "./cpp_structure";
 
 export { CppFile, Equal, HppFile };
 
-export interface Database extends Equal {
+export interface Database {
     getCppFiles(): CppFile[];
     hasCppFile(name: string): boolean;
     getCppFile(name: string): CppFile | null;

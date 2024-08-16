@@ -2,6 +2,10 @@ import assert from "assert";
 import { DatabaseType } from "../../../../../../backend/Config";
 import { addSuitesInSubDirsSuites } from "../../../../helper/mocha_test_helper";
 import { prepareDatabaseEqualityTests } from "../../database_equality_tests";
+import {
+    assertDatabaseEquals,
+    assertHeaderFileEquals,
+} from "../../../../helper/database_equality";
 
 suite("Hpp File", () => {
     addSuitesInSubDirsSuites(__dirname);
@@ -19,7 +23,7 @@ suite("Hpp File", () => {
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
             });
         });
     });
@@ -35,11 +39,11 @@ suite("Hpp File", () => {
                     );
                 const firstAdd = database.getOrAddHppFile("TestFile.h");
                 const secondAdd = database.getOrAddHppFile("TestFile.h");
-                assert.ok(firstAdd.equals(secondAdd));
+                assertHeaderFileEquals(firstAdd, secondAdd);
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
             });
         });
     });
@@ -59,7 +63,7 @@ suite("Hpp File", () => {
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
             });
         });
     });
@@ -78,7 +82,9 @@ suite("Hpp File", () => {
 
                 database.writeDatabase();
 
-                assert.ok(!database.equals(referenceDatabase));
+                assert.throws(() =>
+                    assertDatabaseEquals(database, referenceDatabase)
+                );
             });
         });
     });
@@ -97,7 +103,9 @@ suite("Hpp File", () => {
 
                 database.writeDatabase();
 
-                assert.ok(!database.equals(referenceDatabase));
+                assert.throws(() =>
+                    assertDatabaseEquals(database, referenceDatabase)
+                );
             });
         });
     });
@@ -117,7 +125,9 @@ suite("Hpp File", () => {
 
                 database.writeDatabase();
 
-                assert.ok(!database.equals(referenceDatabase));
+                assert.throws(() =>
+                    assertDatabaseEquals(database, referenceDatabase)
+                );
             });
         });
     });
@@ -135,7 +145,9 @@ suite("Hpp File", () => {
 
                 database.writeDatabase();
 
-                assert.ok(!database.equals(referenceDatabase));
+                assert.throws(() =>
+                    assertDatabaseEquals(database, referenceDatabase)
+                );
             });
         });
     });
@@ -153,7 +165,9 @@ suite("Hpp File", () => {
 
                 database.writeDatabase();
 
-                assert.ok(!database.equals(referenceDatabase));
+                assert.throws(() =>
+                    assertDatabaseEquals(database, referenceDatabase)
+                );
             });
         });
     });
@@ -174,7 +188,7 @@ suite("Hpp File", () => {
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
             });
         });
     });
@@ -198,7 +212,9 @@ suite("Hpp File", () => {
                 database.writeDatabase();
 
                 // Should not be equal until the second file was removed.
-                assert.ok(!database.equals(referenceDatabase));
+                assert.throws(() =>
+                    assertDatabaseEquals(database, referenceDatabase)
+                );
 
                 database.removeHppFileAndDependingContent(additionalFileName);
                 assert.ok(database.hasHppFile(fileName));
@@ -206,7 +222,7 @@ suite("Hpp File", () => {
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
             });
         });
     });
