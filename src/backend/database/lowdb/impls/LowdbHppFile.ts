@@ -163,6 +163,7 @@ export class LowdbHppFile extends AbstractHppFile {
     }
 
     getReferencedFromFiles(): string[] {
+        // istanbul ignore next
         if (!this.internal.referencedFromFiles) {
             return [];
         }
