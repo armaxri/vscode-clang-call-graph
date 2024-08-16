@@ -14,6 +14,7 @@ import {
 import { DatabaseType } from "../../../backend/Config";
 import { Database } from "../../../backend/database/Database";
 import { createDatabase } from "../../../backend/database/helper/database_factory";
+import { assertDatabaseEquals } from "../helper/database_equality";
 
 function loadAst(dirname: string, filename: string): astJson.AstElement {
     const filePath = new PathUtils(dirname, filename);
@@ -68,7 +69,9 @@ function createAndRunAstWalker(
     filenames: string[],
     mockConfig: MockConfig
 ): Database {
-    new PathUtils(mockConfig.getLowdbDatabasePath().pathString()).tryToRemove();
+    new PathUtils(
+        mockConfig.getSelectedDatabasePath().pathString()
+    ).tryToRemove();
 
     var database = createDatabase(mockConfig);
     for (const filename of filenames) {
@@ -125,11 +128,32 @@ export function testAstWalkerAgainstSpecificDatabase(
     databaseType: DatabaseType
 ) {
     const mockConfig = new MockConfig(callingFileDirName, databaseType);
+
+    console.log(
+        "--------------------------------------------------------------------------------"
+    );
+    console.log("Starting ast walking.");
+    console.log(
+        "--------------------------------------------------------------------------------"
+    );
+
+    var startTime = new Date().getTime();
+
     const database = createAndRunAstWalker(
         callingFileDirName,
         filenames,
         mockConfig
     );
+
+    var endTime = new Date().getTime();
+    console.log(
+        "--------------------------------------------------------------------------------"
+    );
+    console.log(`Finished ast walking in ${endTime - startTime}ms.`);
+    console.log(
+        "--------------------------------------------------------------------------------"
+    );
+
     database.writeDatabase();
 
     const expectedDatabase = loadExpectedLowdbDatabase(
@@ -137,8 +161,26 @@ export function testAstWalkerAgainstSpecificDatabase(
         referenceFilename
     );
 
-    // TODO: This is somehow not satisfying. Is there a real equal?
-    assert.ok(database.equals(expectedDatabase));
+    startTime = new Date().getTime();
+
+    console.log(
+        "--------------------------------------------------------------------------------"
+    );
+    console.log("Starting assert checks.");
+    console.log(
+        "--------------------------------------------------------------------------------"
+    );
+
+    assertDatabaseEquals(database, expectedDatabase);
+
+    endTime = new Date().getTime();
+    console.log(
+        "--------------------------------------------------------------------------------"
+    );
+    console.log(`Finished assert checks in ${endTime - startTime}ms.`);
+    console.log(
+        "--------------------------------------------------------------------------------"
+    );
 }
 
 function checkFileLists(

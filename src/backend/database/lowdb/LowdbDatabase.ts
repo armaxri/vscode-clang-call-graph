@@ -191,8 +191,4 @@ export class LowdbDatabase extends AbstractDatabase {
             `Database initialized with "${databasePath}" as storage location.`
         );
     }
-
-    equals(otherInput: any): boolean {
-        return super.equals(otherInput);
-    }
 }

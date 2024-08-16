@@ -10,7 +10,6 @@ import {
     VirtualFuncCreationArgs,
     VirtualFuncImplementation,
 } from "../cpp_structure";
-import { elementEquals } from "../helper/equality_helper";
 import { getMatchingFuncs } from "../helper/location_helper";
 
 export abstract class AbstractCppFile implements CppFile {
@@ -132,34 +131,6 @@ export abstract class AbstractCppFile implements CppFile {
         });
 
         return finding ? finding : null;
-    }
-
-    equals(otherInput: any): boolean {
-        const other = otherInput as CppFile;
-
-        // istanbul ignore next
-        if (!other) {
-            return false;
-        }
-
-        return (
-            this.getName() === other.getName() &&
-            // Sadly we can't compare the analyzed time.
-            // this.getLastAnalyzed() === other.getLastAnalyzed()
-            elementEquals<CppClass>(this.getClasses(), other.getClasses()) &&
-            elementEquals<FuncDeclaration>(
-                this.getFuncDecls(),
-                other.getFuncDecls()
-            ) &&
-            elementEquals<FuncImplementation>(
-                this.getFuncImpls(),
-                other.getFuncImpls()
-            ) &&
-            elementEquals<VirtualFuncImplementation>(
-                this.getVirtualFuncImpls(),
-                other.getVirtualFuncImpls()
-            )
-        );
     }
 
     getMatchingFuncs(location: Location): FuncBasics[] {

@@ -2,6 +2,7 @@ import assert from "assert";
 import { DatabaseType } from "../../../../../../backend/Config";
 import { addSuitesInSubDirsSuites } from "../../../../helper/mocha_test_helper";
 import { openNewDatabase } from "../../database_equality_tests";
+import { assertFuncEquals } from "../../../../helper/database_equality";
 
 suite("Find Base function", () => {
     addSuitesInSubDirsSuites(__dirname);
@@ -29,10 +30,9 @@ suite("Find Base function", () => {
 
                 database.writeDatabase();
 
-                assert.ok(
-                    cppClass
-                        .findBaseFunction("add", "int (int, int)")
-                        ?.equals(virtualFuncDecl)
+                assertFuncEquals(
+                    cppClass.findBaseFunction("add", "int (int, int)")!,
+                    virtualFuncDecl
                 );
             });
         });
@@ -61,10 +61,9 @@ suite("Find Base function", () => {
 
                 database.writeDatabase();
 
-                assert.ok(
-                    cppClass
-                        .findBaseFunction("add", "int (int, int)")
-                        ?.equals(virtualFuncImpl)
+                assertFuncEquals(
+                    cppClass.findBaseFunction("add", "int (int, int)")!,
+                    virtualFuncImpl
                 );
             });
         });

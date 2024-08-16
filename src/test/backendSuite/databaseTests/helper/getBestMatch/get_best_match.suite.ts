@@ -8,6 +8,7 @@ import {
     Range,
     rangeIsEqual,
 } from "../../../../../backend/database/cpp_structure";
+import { assertFuncEquals } from "../../../helper/database_equality";
 
 class MockLocation implements FuncBasics {
     private range: Range;
@@ -79,22 +80,19 @@ suite("Get best location match", () => {
             end: { line: 3, column: 50 },
         });
 
-        assert.ok(
-            getBestMatch([outerRange, innerRange, mostInnerRange]).equals(
-                mostInnerRange
-            )
+        assertFuncEquals(
+            getBestMatch([outerRange, innerRange, mostInnerRange]),
+            mostInnerRange
         );
 
-        assert.ok(
-            getBestMatch([mostInnerRange, outerRange, innerRange]).equals(
-                mostInnerRange
-            )
+        assertFuncEquals(
+            getBestMatch([mostInnerRange, outerRange, innerRange]),
+            mostInnerRange
         );
 
-        assert.ok(
-            getBestMatch([innerRange, mostInnerRange, outerRange]).equals(
-                mostInnerRange
-            )
+        assertFuncEquals(
+            getBestMatch([innerRange, mostInnerRange, outerRange]),
+            mostInnerRange
         );
     });
 });

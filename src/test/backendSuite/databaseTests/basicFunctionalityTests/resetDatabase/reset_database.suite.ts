@@ -5,6 +5,7 @@ import {
     loadReferenceDb,
     prepareDatabaseEqualityTests,
 } from "../../typeEqualsTests/database_equality_tests";
+import { assertDatabaseEquals } from "../../../helper/database_equality";
 
 suite("Reset Database", () => {
     addSuitesInSubDirsSuites(__dirname);
@@ -22,7 +23,7 @@ suite("Reset Database", () => {
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
 
                 database.resetDatabase();
                 database.writeDatabase();
@@ -32,7 +33,7 @@ suite("Reset Database", () => {
                     "empty_expected_db.json"
                 );
 
-                assert.ok(database.equals(emptyDatabase));
+                assertDatabaseEquals(database, emptyDatabase);
             });
         });
     });
@@ -61,7 +62,7 @@ suite("Reset Database", () => {
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
 
                 database.resetDatabase();
                 database.writeDatabase();
@@ -71,7 +72,7 @@ suite("Reset Database", () => {
                     "empty_expected_db.json"
                 );
 
-                assert.ok(database.equals(emptyDatabase));
+                assertDatabaseEquals(database, emptyDatabase);
             });
         });
     });

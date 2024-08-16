@@ -2,6 +2,7 @@ import assert from "assert";
 import { DatabaseType } from "../../../../../../backend/Config";
 import { addSuitesInSubDirsSuites } from "../../../../helper/mocha_test_helper";
 import { openNewDatabase } from "../../../typeEqualsTests/database_equality_tests";
+import { assertFuncEquals } from "../../../../helper/database_equality";
 
 suite("Hpp File", () => {
     addSuitesInSubDirsSuites(__dirname);
@@ -46,7 +47,7 @@ suite("Hpp File", () => {
                 const funcImpls = database.getFuncCallers(funcDecl);
 
                 assert.equal(funcImpls.length, 1);
-                assert.ok(funcImpls[0].equals(funcImpl));
+                assertFuncEquals(funcImpls[0], funcImpl);
             });
         });
     });
@@ -92,7 +93,7 @@ suite("Hpp File", () => {
                 const funcImpls = database.getFuncCallers(funcDecl);
 
                 assert.equal(funcImpls.length, 1);
-                assert.ok(funcImpls[0].equals(funcImpl));
+                assertFuncEquals(funcImpls[0], funcImpl);
             });
         });
     });
@@ -139,7 +140,7 @@ suite("Hpp File", () => {
                 const funcImpls = database.getFuncCallers(funcDecl);
 
                 assert.equal(funcImpls.length, 1);
-                assert.ok(funcImpls[0].equals(funcImpl));
+                assertFuncEquals(funcImpls[0], funcImpl);
             });
         });
     });
@@ -185,7 +186,7 @@ suite("Hpp File", () => {
                 const funcImpls = database.getFuncCallers(funcDecl);
 
                 assert.equal(funcImpls.length, 1);
-                assert.ok(funcImpls[0].equals(funcImpl));
+                assertFuncEquals(funcImpls[0], funcImpl);
             });
         });
     });
@@ -232,7 +233,7 @@ suite("Hpp File", () => {
                 const funcImpls = database.getFuncCallers(funcDecl);
 
                 assert.equal(funcImpls.length, 1);
-                assert.ok(funcImpls[0].equals(funcImpl));
+                assertFuncEquals(funcImpls[0], funcImpl);
             });
         });
     });
@@ -279,7 +280,7 @@ suite("Hpp File", () => {
                 const funcImpls = database.getFuncCallers(funcDecl);
 
                 assert.equal(funcImpls.length, 1);
-                assert.ok(funcImpls[0].equals(funcImpl));
+                assertFuncEquals(funcImpls[0], funcImpl);
             });
         });
     });
@@ -327,7 +328,7 @@ suite("Hpp File", () => {
                 const funcImpls = database.getFuncCallers(funcDecl);
 
                 assert.equal(funcImpls.length, 1);
-                assert.ok(funcImpls[0].equals(funcImpl));
+                assertFuncEquals(funcImpls[0], funcImpl);
             });
         });
     });
@@ -375,7 +376,7 @@ suite("Hpp File", () => {
                 const funcImpls = database.getFuncCallers(funcDecl);
 
                 assert.equal(funcImpls.length, 1);
-                assert.ok(funcImpls[0].equals(funcImpl));
+                assertFuncEquals(funcImpls[0], funcImpl);
             });
         });
     });
@@ -424,7 +425,7 @@ suite("Hpp File", () => {
                 const funcImpls = database.getFuncCallers(funcDecl);
 
                 assert.equal(funcImpls.length, 1);
-                assert.ok(funcImpls[0].equals(funcImpl));
+                assertFuncEquals(funcImpls[0], funcImpl);
             });
         });
     });
