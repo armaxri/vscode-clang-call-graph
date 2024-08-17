@@ -1,6 +1,7 @@
 import assert from "assert";
 import { addSuitesInSubDirsSuites } from "../../../../helper/mocha_test_helper";
 import { createCleanLowdbDatabase } from "../../../../helper/database_helper";
+import { assertFuncEquals } from "../../../../helper/database_equality";
 
 suite("Cpp Class", () => {
     addSuitesInSubDirsSuites(__dirname);
@@ -42,7 +43,7 @@ suite("Cpp Class", () => {
         const matches = cppClass.getMatchingFuncs({ line: 2, column: 5 });
 
         assert.strictEqual(matches.length, 1);
-        assert.ok(matches[0].equals(func));
+        assertFuncEquals(matches[0], func);
     });
 
     test("getMatchingFuncs virtual func decl", () => {
@@ -82,7 +83,7 @@ suite("Cpp Class", () => {
         const matches = cppClass.getMatchingFuncs({ line: 1, column: 5 });
 
         assert.strictEqual(matches.length, 1);
-        assert.ok(matches[0].equals(func2call));
+        assertFuncEquals(matches[0], func2call);
     });
 
     test("getMatchingFuncs virtual func impl", () => {
@@ -122,7 +123,7 @@ suite("Cpp Class", () => {
         const matches = cppClass.getMatchingFuncs({ line: 3, column: 5 });
 
         assert.strictEqual(matches.length, 1);
-        assert.ok(matches[0].equals(funcImpl));
+        assertFuncEquals(matches[0], funcImpl);
     });
 
     test("getMatchingFuncs no matches", () => {
@@ -210,7 +211,7 @@ suite("Cpp Class", () => {
         const matches = outerCppClass.getMatchingFuncs({ line: 2, column: 5 });
 
         assert.strictEqual(matches.length, 1);
-        assert.ok(matches[0].equals(func));
+        assertFuncEquals(matches[0], func);
     });
 
     test("getMatchingFuncs virtual func decl inner class", () => {
@@ -251,7 +252,7 @@ suite("Cpp Class", () => {
         const matches = outerCppClass.getMatchingFuncs({ line: 1, column: 5 });
 
         assert.strictEqual(matches.length, 1);
-        assert.ok(matches[0].equals(func2call));
+        assertFuncEquals(matches[0], func2call);
     });
 
     test("getMatchingFuncs virtual func impl inner class", () => {
@@ -292,6 +293,6 @@ suite("Cpp Class", () => {
         const matches = outerCppClass.getMatchingFuncs({ line: 3, column: 5 });
 
         assert.strictEqual(matches.length, 1);
-        assert.ok(matches[0].equals(funcImpl));
+        assertFuncEquals(matches[0], funcImpl);
     });
 });

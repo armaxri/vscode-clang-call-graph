@@ -12,7 +12,6 @@ import {
     VirtualFuncCallCreationArgs,
     rangeIsEqual,
 } from "../cpp_structure";
-import { elementEquals } from "../helper/equality_helper";
 import {
     getMatchingFuncsInImpls,
     isLocationWithinRange,
@@ -56,30 +55,6 @@ export abstract class AbstractFuncImplementation implements FuncImplementation {
         }
 
         return this.addVirtualFuncCall(virtualFuncCall);
-    }
-
-    equals(otherInput: any): boolean {
-        const other = otherInput as FuncImplementation;
-
-        // istanbul ignore next
-        if (!other) {
-            return false;
-        }
-
-        return (
-            this.getFuncName() === other.getFuncName() &&
-            this.getFuncAstName() === other.getFuncAstName() &&
-            this.getQualType() === other.getQualType() &&
-            rangeIsEqual(this.getRange(), other.getRange()) &&
-            elementEquals<FuncCall>(
-                this.getFuncCalls(),
-                other.getFuncCalls()
-            ) &&
-            elementEquals<VirtualFuncCall>(
-                this.getVirtualFuncCalls(),
-                other.getVirtualFuncCalls()
-            )
-        );
     }
 
     baseEquals(otherInput: any): boolean {

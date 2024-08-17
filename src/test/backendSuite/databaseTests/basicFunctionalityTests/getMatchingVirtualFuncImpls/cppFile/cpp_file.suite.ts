@@ -4,6 +4,10 @@ import { addSuitesInSubDirsSuites } from "../../../../helper/mocha_test_helper";
 import { openNewDatabase } from "../../../typeEqualsTests/database_equality_tests";
 import { AbstractDatabase } from "../../../../../../backend/database/impls/AbstractDatabase";
 import { FuncSearchObject } from "../../../../../../backend/database/FuncSearchObject";
+import {
+    assertFuncEquals,
+    sortFuncs,
+} from "../../../../helper/database_equality";
 
 suite("Cpp File", () => {
     addSuitesInSubDirsSuites(__dirname);
@@ -41,7 +45,7 @@ suite("Cpp File", () => {
                     database.getMatchingVirtualFuncImpls(funcSearchObject);
 
                 assert.equal(foundMatches.length, 1);
-                assert.ok(foundMatches[0].equals(func));
+                assertFuncEquals(foundMatches[0], func);
             });
         });
     });
@@ -80,7 +84,7 @@ suite("Cpp File", () => {
                     database.getMatchingVirtualFuncImpls(funcSearchObject);
 
                 assert.equal(foundMatches.length, 1);
-                assert.ok(foundMatches[0].equals(func));
+                assertFuncEquals(foundMatches[0], func);
             });
         });
     });
@@ -120,7 +124,7 @@ suite("Cpp File", () => {
                     database.getMatchingVirtualFuncImpls(funcSearchObject);
 
                 assert.equal(foundMatches.length, 1);
-                assert.ok(foundMatches[0].equals(func));
+                assertFuncEquals(foundMatches[0], func);
             });
         });
     });
@@ -206,17 +210,14 @@ suite("Cpp File", () => {
                     qualType: "int",
                 });
 
-                const foundMatches =
-                    database.getMatchingVirtualFuncImpls(funcSearchObject);
+                const foundMatches = sortFuncs(
+                    database.getMatchingVirtualFuncImpls(funcSearchObject)
+                );
 
                 assert.equal(foundMatches.length, 2);
-                if (foundMatches[0].equals(func1)) {
-                    assert.ok(foundMatches[0].equals(func1));
-                    assert.ok(foundMatches[1].equals(func2));
-                } else {
-                    assert.ok(foundMatches[0].equals(func2));
-                    assert.ok(foundMatches[1].equals(func1));
-                }
+
+                assertFuncEquals(foundMatches[0], func1);
+                assertFuncEquals(foundMatches[1], func2);
             });
         });
     });

@@ -4,6 +4,7 @@ import { createCleanLowdbDatabase } from "../../../helper/database_helper";
 import { addSuitesInSubDirsSuites } from "../../../helper/mocha_test_helper";
 import { MockConfig } from "../../../helper/MockConfig";
 import { TreeItem } from "../../../../../backend/functionSearch/TreeItem";
+import { assertFuncEquals } from "../../../helper/database_equality";
 
 suite("Get Outgoing Calls", () => {
     addSuitesInSubDirsSuites(__dirname);
@@ -82,8 +83,8 @@ suite("Get Outgoing Calls", () => {
                 ? outgoingCalls[1]
                 : outgoingCalls[0];
 
-        assert.ok(addCallItem.getFunc().equals(addDecl));
-        assert.ok(subCallItem.getFunc().equals(subImpl));
+        assertFuncEquals(addCallItem.getFunc(), addDecl);
+        assertFuncEquals(subCallItem.getFunc(), subImpl);
     });
 
     test("Simple virtual functions", () => {
@@ -191,24 +192,24 @@ suite("Get Outgoing Calls", () => {
             (item) => item.getFunc().getFuncAstName() === "childClass_add"
         );
         assert.notEqual(addChildCallItem, undefined);
-        assert.ok(addChildCallItem?.getFunc().equals(childClassAddImpl));
+        assertFuncEquals(addChildCallItem!.getFunc(), childClassAddImpl);
 
         const subChildCallItem = outgoingCalls.find(
             (item) => item.getFunc().getFuncAstName() === "childClass_sub"
         );
         assert.notEqual(subChildCallItem, undefined);
-        assert.ok(subChildCallItem?.getFunc().equals(childClassSubImpl));
+        assertFuncEquals(subChildCallItem!.getFunc(), childClassSubImpl);
 
         const subBaseCallItem = outgoingCalls.find(
             (item) => item.getFunc().getFuncAstName() === "baseClass_sub"
         );
         assert.notEqual(subBaseCallItem, undefined);
-        assert.ok(subBaseCallItem?.getFunc().equals(baseClassSubImpl));
+        assertFuncEquals(subBaseCallItem!.getFunc(), baseClassSubImpl);
 
         const multiChildCallItem = outgoingCalls.find(
             (item) => item.getFunc().getFuncAstName() === "childClass_multi"
         );
         assert.notEqual(multiChildCallItem, undefined);
-        assert.ok(multiChildCallItem?.getFunc().equals(childClassMultiDecl));
+        assertFuncEquals(multiChildCallItem!.getFunc(), childClassMultiDecl);
     });
 });

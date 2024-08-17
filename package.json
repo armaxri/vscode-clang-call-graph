@@ -3,6 +3,15 @@
   "displayName": "Clang Call Graph",
   "description": "Generate call graphs for C and C++ using LLVM/Clang.",
   "version": "0.0.1",
+  "preview": true,
+  "publisher": "armaxri",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/armaxri/vscode-clang-call-graph"
+  },
+  "bugs": {
+    "url": "https://github.com/armaxri/vscode-clang-call-graph/issues"
+  },
   "engines": {
     "vscode": "^1.90.0"
   },
@@ -12,9 +21,7 @@
   "activationEvents": [
     "onLanguage:cpp"
   ],
-  "preview": true,
   "main": "./out/extension/extension.js",
-  "preview": true,
   "contributes": {
     "commands": [
       {
@@ -70,7 +77,6 @@
   "dependencies": {
     "@identityinvest/lowdb": "^7.0.1",
     "better-sqlite3": "^11.0.0",
-    "nyc": "^17.0.0",
     "ts-node": "^10.9.2"
   },
   "devDependencies": {
@@ -84,6 +90,7 @@
     "@vscode/test-electron": "^2.3.9",
     "eslint": "^8.57.0",
     "mocha": "^10.1.0",
+    "nyc": "^17.0.0",
     "source-map-support": "^0.5.21",
     "typescript": "^5.3.3"
   }

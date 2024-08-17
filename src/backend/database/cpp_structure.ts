@@ -38,10 +38,6 @@ export type VirtualFuncCallCreationArgs = {
     range: Range;
 };
 
-export interface Equal {
-    equals(other: any): boolean;
-}
-
 export interface InFile {
     // Helper that is used during later analysis of the database content.
     // The optional null is required for the object creation.
@@ -58,7 +54,7 @@ export enum FuncType {
     call = "call",
 }
 
-export interface FuncBasics extends Equal, InFile {
+export interface FuncBasics extends InFile {
     getFuncName(): string;
     getFuncAstName(): string;
     getQualType(): string;
@@ -107,7 +103,7 @@ export interface VirtualFuncImplementation
         VirtualFuncBasics {}
 export interface VirtualFuncCall extends VirtualFuncBasics {}
 
-export interface MainDeclLocation extends Equal, MatchingFuncs {
+export interface MainDeclLocation extends MatchingFuncs {
     getClasses(): CppClass[];
     addClass(className: string): CppClass;
     getOrAddClass(className: string): CppClass;

@@ -3,6 +3,8 @@ import { DatabaseType } from "../../../../../../backend/Config";
 import { addSuitesInSubDirsSuites } from "../../../../helper/mocha_test_helper";
 import { openNewDatabase } from "../../../typeEqualsTests/database_equality_tests";
 import { AbstractDatabase } from "../../../../../../backend/database/impls/AbstractDatabase";
+import { assertHeaderFileEquals } from "../../../../helper/database_equality";
+import { HppFile } from "../../../../../../backend/database/cpp_structure";
 
 suite("Cpp File", () => {
     addSuitesInSubDirsSuites(__dirname);
@@ -23,7 +25,10 @@ suite("Cpp File", () => {
                 database.writeDatabase();
 
                 assert.equal(cppFile.getIncludes().length, 1);
-                assert.ok(cppFile.getIncludes()[0].equals(hppFile));
+                assertHeaderFileEquals(
+                    cppFile.getIncludes()[0] as HppFile,
+                    hppFile
+                );
             });
         });
     });
@@ -54,8 +59,9 @@ suite("Cpp File", () => {
                 assert.equal(includingCppFile.getIncludes().length, 2);
                 assert.equal(middleHppFile.getIncludes().length, 1);
                 assert.equal(includedHppFile.getIncludes().length, 0);
-                assert.ok(
-                    middleHppFile.getIncludes()[0].equals(includedHppFile)
+                assertHeaderFileEquals(
+                    middleHppFile.getIncludes()[0] as HppFile,
+                    includedHppFile
                 );
                 assert.deepEqual(
                     includingCppFile

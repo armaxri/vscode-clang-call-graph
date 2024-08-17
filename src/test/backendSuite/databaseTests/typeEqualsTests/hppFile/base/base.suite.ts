@@ -3,6 +3,7 @@ import { DatabaseType } from "../../../../../../backend/Config";
 import { addSuitesInSubDirsSuites } from "../../../../helper/mocha_test_helper";
 import { prepareDatabaseEqualityTests } from "../../database_equality_tests";
 import { delay } from "../../../../../../backend/utils/utils";
+import { assertDatabaseEquals } from "../../../../helper/database_equality";
 
 suite("Base", () => {
     addSuitesInSubDirsSuites(__dirname);
@@ -20,7 +21,7 @@ suite("Base", () => {
 
                 database.writeDatabase();
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
             });
         });
     });
@@ -49,7 +50,9 @@ suite("Base", () => {
 
                 database.writeDatabase();
 
-                assert.ok(!database.equals(referenceDatabase));
+                assert.throws(() =>
+                    assertDatabaseEquals(database, referenceDatabase)
+                );
             });
         });
     });
@@ -84,7 +87,7 @@ suite("Base", () => {
                 const timestamp3 = Date.now();
                 await delay(2);
 
-                assert.ok(database.equals(referenceDatabase));
+                assertDatabaseEquals(database, referenceDatabase);
 
                 assert.ok(hppFile.getLastAnalyzed() > timestamp2);
                 assert.ok(hppFile.getLastAnalyzed() < timestamp3);

@@ -7,6 +7,7 @@ import { TreeItem } from "../../../../../backend/functionSearch/TreeItem";
 import { FuncBasics } from "../../../../../backend/database/cpp_structure";
 import { Config } from "../../../../../backend/Config";
 import { Database } from "../../../../../backend/database/Database";
+import { assertFuncEquals } from "../../../helper/database_equality";
 
 function setUpNonVirtualFunctionsTest(): [
     Config,
@@ -222,7 +223,7 @@ suite("Get Incoming Calls", () => {
             (item) => item.getFunc().getFuncAstName() === "test1"
         );
         assert.notEqual(testImpl1CallItem, undefined);
-        assert.ok(testImpl1CallItem?.getFunc().equals(testImpl1));
+        assertFuncEquals(testImpl1CallItem!.getFunc(), testImpl1);
     });
 
     test("Simple non virtual functions get from implementation", () => {
@@ -241,13 +242,13 @@ suite("Get Incoming Calls", () => {
             (item) => item.getFunc().getFuncAstName() === "test1"
         );
         assert.notEqual(testImpl1CallItem, undefined);
-        assert.ok(testImpl1CallItem?.getFunc().equals(testImpl1));
+        assertFuncEquals(testImpl1CallItem!.getFunc(), testImpl1);
 
         const testImpl2CallItem = incomingCalls.find(
             (item) => item.getFunc().getFuncAstName() === "test2"
         );
         assert.notEqual(testImpl2CallItem, undefined);
-        assert.ok(testImpl2CallItem?.getFunc().equals(testImpl2));
+        assertFuncEquals(testImpl2CallItem!.getFunc(), testImpl2);
     });
 
     test("Simple virtual functions get from base class declaration", () => {
@@ -273,13 +274,13 @@ suite("Get Incoming Calls", () => {
             (item) => item.getFunc().getFuncAstName() === "test1"
         );
         assert.notEqual(testImpl1CallItem, undefined);
-        assert.ok(testImpl1CallItem?.getFunc().equals(testImpl1));
+        assertFuncEquals(testImpl1CallItem!.getFunc(), testImpl1);
 
         const testImpl2CallItem = incomingCalls.find(
             (item) => item.getFunc().getFuncAstName() === "test2"
         );
         assert.notEqual(testImpl2CallItem, undefined);
-        assert.ok(testImpl2CallItem?.getFunc().equals(testImpl2));
+        assertFuncEquals(testImpl2CallItem!.getFunc(), testImpl2);
     });
 
     test("Simple virtual functions get from child class implementation", () => {
@@ -305,13 +306,13 @@ suite("Get Incoming Calls", () => {
             (item) => item.getFunc().getFuncAstName() === "test1"
         );
         assert.notEqual(testImpl1CallItem, undefined);
-        assert.ok(testImpl1CallItem?.getFunc().equals(testImpl1));
+        assertFuncEquals(testImpl1CallItem!.getFunc(), testImpl1);
 
         const testImpl2CallItem = incomingCalls.find(
             (item) => item.getFunc().getFuncAstName() === "test2"
         );
         assert.notEqual(testImpl2CallItem, undefined);
-        assert.ok(testImpl2CallItem?.getFunc().equals(testImpl2));
+        assertFuncEquals(testImpl2CallItem!.getFunc(), testImpl2);
     });
 
     test("Simple virtual functions get from base class implementation", () => {
@@ -337,12 +338,12 @@ suite("Get Incoming Calls", () => {
             (item) => item.getFunc().getFuncAstName() === "test1"
         );
         assert.notEqual(testImpl1CallItem, undefined);
-        assert.ok(testImpl1CallItem?.getFunc().equals(testImpl1));
+        assertFuncEquals(testImpl1CallItem!.getFunc(), testImpl1);
 
         const testImpl2CallItem = incomingCalls.find(
             (item) => item.getFunc().getFuncAstName() === "test2"
         );
         assert.notEqual(testImpl2CallItem, undefined);
-        assert.ok(testImpl2CallItem?.getFunc().equals(testImpl2));
+        assertFuncEquals(testImpl2CallItem!.getFunc(), testImpl2);
     });
 });

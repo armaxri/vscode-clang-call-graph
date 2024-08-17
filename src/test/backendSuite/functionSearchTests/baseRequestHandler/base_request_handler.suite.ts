@@ -6,6 +6,7 @@ import { createCleanLowdbDatabase } from "../../helper/database_helper";
 import { addSuitesInSubDirsSuites } from "../../helper/mocha_test_helper";
 import { MockConfig } from "../../helper/MockConfig";
 import { MockUserInterface } from "../../helper/MockUserInterface";
+import { assertFuncEquals } from "../../helper/database_equality";
 
 function mainTestSetup(): [BaseRequestHandler, FuncBasics] {
     const config = new MockConfig(__dirname);
@@ -44,7 +45,7 @@ suite("Base Request Handler", () => {
 
         assert.notEqual(treeItem, null);
         assert.equal(treeItem?.isMethod(), false);
-        assert.ok(treeItem?.getFunc().equals(decl));
+        assertFuncEquals(treeItem!.getFunc(), decl);
         assert.equal(treeItem?.getFile().getName(), "test.cpp");
     });
 
@@ -100,7 +101,7 @@ suite("Base Request Handler", () => {
 
         assert.notEqual(treeItem, null);
         assert.equal(treeItem?.isMethod(), false);
-        assert.ok(treeItem?.getFunc().equals(decl));
+        assertFuncEquals(treeItem!.getFunc(), decl);
         assert.equal(treeItem?.getFile().getName(), "test.h");
     });
 });

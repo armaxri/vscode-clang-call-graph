@@ -4,6 +4,7 @@ import { addSuitesInSubDirsSuites } from "../../../../helper/mocha_test_helper";
 import { openNewDatabase } from "../../../typeEqualsTests/database_equality_tests";
 import { AbstractDatabase } from "../../../../../../backend/database/impls/AbstractDatabase";
 import { FuncSearchObject } from "../../../../../../backend/database/FuncSearchObject";
+import { assertFuncEquals } from "../../../../helper/database_equality";
 
 suite("Cpp File", () => {
     addSuitesInSubDirsSuites(__dirname);
@@ -44,7 +45,7 @@ suite("Cpp File", () => {
                 const foundMatch = file.findVirtualFuncDecl(funcSearchObject);
 
                 assert.notEqual(foundMatch, null);
-                assert.ok(foundMatch!.equals(func));
+                assertFuncEquals(foundMatch!, func);
             });
         });
     });
@@ -86,7 +87,7 @@ suite("Cpp File", () => {
                 const foundMatch = file.findVirtualFuncDecl(funcSearchObject);
 
                 assert.notEqual(foundMatch, null);
-                assert.ok(foundMatch!.equals(func));
+                assertFuncEquals(foundMatch!, func);
             });
         });
     });
@@ -129,7 +130,7 @@ suite("Cpp File", () => {
                 const foundMatch = file.findVirtualFuncDecl(funcSearchObject);
 
                 assert.notEqual(foundMatch, null);
-                assert.ok(foundMatch!.equals(func));
+                assertFuncEquals(foundMatch!, func);
             });
         });
     });
