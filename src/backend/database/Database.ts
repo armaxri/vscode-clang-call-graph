@@ -1,6 +1,6 @@
-import { CppFile, FuncBasics, HppFile } from "./cpp_structure";
+import { CppFile, FuncBasics, HppFile, File } from "./cpp_structure";
 
-export { CppFile, HppFile };
+export { CppFile, HppFile, File };
 
 export interface Database {
     getCppFiles(): CppFile[];

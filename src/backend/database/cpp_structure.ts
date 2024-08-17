@@ -104,6 +104,8 @@ export interface VirtualFuncImplementation
 export interface VirtualFuncCall extends VirtualFuncBasics {}
 
 export interface MainDeclLocation extends MatchingFuncs {
+    getName(): string;
+
     getClasses(): CppClass[];
     addClass(className: string): CppClass;
     getOrAddClass(className: string): CppClass;
@@ -129,8 +131,6 @@ export interface MainDeclLocation extends MatchingFuncs {
 }
 
 export interface CppClass extends MainDeclLocation, InFile {
-    getName(): string;
-
     getParentClasses(): CppClass[];
     getParentClassNames(): string[];
     addParentClass(parentClass: CppClass): CppClass;
@@ -151,8 +151,6 @@ export interface CppClass extends MainDeclLocation, InFile {
 }
 
 export interface File extends MainDeclLocation {
-    getName(): string;
-
     getIncludes(): File[];
 
     getLastAnalyzed(): number;

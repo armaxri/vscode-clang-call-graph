@@ -55,7 +55,8 @@ export function assertMainDeclLocationEquals(
 
     assert.deepEqual(
         actualClasses.map((classInst) => classInst.getName()).sort(),
-        expectedClasses.map((classInst) => classInst.getName()).sort()
+        expectedClasses.map((classInst) => classInst.getName()).sort(),
+        `Classes do not match for MainDeclLocation ${actual.getName()}`
     );
 
     actualClasses.forEach((actualClass) => {
@@ -70,7 +71,8 @@ export function assertMainDeclLocationEquals(
 
     assert.deepEqual(
         actualFuncDecls.map((func) => func.getFuncAstName()).sort(),
-        expectedFuncDecls.map((func) => func.getFuncAstName()).sort()
+        expectedFuncDecls.map((func) => func.getFuncAstName()).sort(),
+        `Function declarations do not match for MainDeclLocation ${actual.getName()}`
     );
 
     const actualFuncImpls = actual.getFuncImpls();
@@ -78,7 +80,8 @@ export function assertMainDeclLocationEquals(
 
     assert.deepEqual(
         actualFuncImpls.map((func) => func.getFuncAstName()).sort(),
-        expectedFuncImpls.map((func) => func.getFuncAstName()).sort()
+        expectedFuncImpls.map((func) => func.getFuncAstName()).sort(),
+        `Function implementations do not match for MainDeclLocation ${actual.getName()}`
     );
 
     const actualVirtualFuncImpls = actual.getVirtualFuncImpls();
@@ -86,7 +89,8 @@ export function assertMainDeclLocationEquals(
 
     assert.deepEqual(
         actualVirtualFuncImpls.map((func) => func.getFuncAstName()).sort(),
-        expectedVirtualFuncImpls.map((func) => func.getFuncAstName()).sort()
+        expectedVirtualFuncImpls.map((func) => func.getFuncAstName()).sort(),
+        `Virtual function implementations do not match for MainDeclLocation ${actual.getName()}`
     );
 
     for (let i = 0; i < actualFuncDecls.length; i++) {
@@ -113,7 +117,8 @@ export function assertCppClassEquals(
 
     assert.deepEqual(
         actual.getParentClassNames().sort(),
-        expected.getParentClassNames().sort()
+        expected.getParentClassNames().sort(),
+        `Parent classes do not match for class ${actual.getName()}`
     );
 
     const actualVirtualFuncDecls = actual.getVirtualFuncDecls();
@@ -121,7 +126,8 @@ export function assertCppClassEquals(
 
     assert.deepEqual(
         actualVirtualFuncDecls.map((func) => func.getFuncAstName()).sort(),
-        expectedVirtualFuncDecls.map((func) => func.getFuncAstName()).sort()
+        expectedVirtualFuncDecls.map((func) => func.getFuncAstName()).sort(),
+        `Virtual function declarations do not match for class ${actual.getName()}`
     );
 
     for (let i = 0; i < actualVirtualFuncDecls.length; i++) {
@@ -144,7 +150,8 @@ export function assertFileEquals(actual: File, expected: File): void {
         expected
             .getIncludes()
             .map((file) => file.getName())
-            .sort()
+            .sort(),
+        `Includes do not match for file ${actual.getName()}`
     );
 
     // Skip due to connection to the system clock.
@@ -165,7 +172,8 @@ export function assertHeaderFileEquals(
 
     assert.deepEqual(
         actual.getReferencedFromFiles().sort(),
-        expected.getReferencedFromFiles().sort()
+        expected.getReferencedFromFiles().sort(),
+        `Referenced from files do not match for file ${actual.getName()}`
     );
 }
 
