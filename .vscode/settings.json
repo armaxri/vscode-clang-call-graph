@@ -1,26 +1,27 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-    "files.exclude": {
-        "out": false // set this to true to hide the "out" folder with the compiled JS files
-    },
-    "search.exclude": {
-        "out": true // set this to false to include "out" folder in search results
-    },
-    "editor.formatOnSave": true,
-    // Turn off tsc task auto detection since we have the necessary tasks as npm scripts
-    "typescript.tsc.autoDetect": "off",
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "cSpell.diagnosticLevel": "Hint",
-    "cSpell.enableFiletypes": ["*"],
-    "mochaExplorer.ui": "tdd",
-    "mochaExplorer.files": "./out/test/backendSuite/**/*.test.js",
-    "mochaExplorer.require": "source-map-support/register",
-    "mochaExplorer.watch": [
-        "./out/test/backendSuite/**/*.test.js",
-        "./out/backend/**/*.js"
-    ],
-    "cmake.configureOnOpen": false,
-    "cSpell.words": ["Impls", "rowid"]
+  "files.exclude": {
+    "out": false // set this to true to hide the "out" folder with the compiled JS files
+  },
+  "search.exclude": {
+    "out": true // set this to false to include "out" folder in search results
+  },
+  "editor.formatOnSave": true,
+  // Turn off tsc task auto detection since we have the necessary tasks as npm scripts
+  "typescript.tsc.autoDetect": "off",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "cSpell.diagnosticLevel": "Hint",
+  "cSpell.enableFiletypes": ["*"],
+  "mochaExplorer.ui": "tdd",
+  "mochaExplorer.files": "./out/test/backendSuite/**/*.test.js",
+  "mochaExplorer.require": "source-map-support/register",
+  "mochaExplorer.watch": [
+    "./out/test/backendSuite/**/*.test.js",
+    "./out/backend/**/*.js"
+  ],
+  "mochaExplorer.timeout": 20000,
+  "cmake.configureOnOpen": false,
+  "cSpell.words": ["Impls", "rowid"]
 }
