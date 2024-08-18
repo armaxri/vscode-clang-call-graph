@@ -23,7 +23,7 @@ suite("C++ File Ending Helper", () => {
         assert.strictEqual(getFileType("foo.h"), FileType.header);
         assert.strictEqual(getFileType("foo.H"), FileType.header);
 
-        assert.strictEqual(getFileType("foo.hppp"), FileType.none);
-        assert.strictEqual(getFileType("foo.cppp"), FileType.none);
+        assert.strictEqual(getFileType("foo"), FileType.header);
+        assert.strictEqual(getFileType("foo.cppp"), FileType.header);
     });
 });

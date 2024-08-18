@@ -1,7 +1,6 @@
 export enum FileType {
     source,
     header,
-    none,
 }
 
 export function getFileType(fileName: string): FileType {
@@ -14,12 +13,6 @@ export function getFileType(fileName: string): FileType {
         fileName.toLowerCase().endsWith(".c")
     ) {
         return FileType.source;
-    } else if (
-        fileName.toLowerCase().endsWith(".hpp") ||
-        fileName.toLowerCase().endsWith(".h")
-    ) {
-        return FileType.header;
-    } else {
-        return FileType.none;
     }
+    return FileType.header;
 }
