@@ -25,6 +25,14 @@ def remove_project_test_dir_prefix(path):
     return path.replace(str(project_dir), "")
 
 
+def replace_clang_installation_path(path):
+    """Replace the clang installation path with the clang command."""
+    string_components = path.split("/usr/")
+    if len(string_components) < 2:
+        return path
+    return path.replace(string_components[0], "/clang++")
+
+
 def get_cpp_files_int_test_dir():
     """Get all the cpp files in the test directory."""
     project_dir = get_project_test_dir()
@@ -52,6 +60,7 @@ def find_lines_with_file_string(json_lines):
             left_string, file_string, end_char = split_json_line(line)
             file_path = str(pathlib.Path(file_string).absolute())
             file_path = remove_project_test_dir_prefix(file_path)
+            file_path = replace_clang_installation_path(file_path)
             new_lines.append(left_string + '": "' + file_path + '"' + end_char)
         else:
             new_lines.append(line)

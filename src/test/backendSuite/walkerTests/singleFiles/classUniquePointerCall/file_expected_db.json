@@ -104,7 +104,7 @@
   ],
   "hppFiles": [
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/stddef.h",
+      "name": "/clang++/usr/lib/clang/15.0.0/include/stddef.h",
       "lastAnalyzed": 1722468181728,
       "classes": [],
       "funcDecls": [],
@@ -112,11 +112,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/stddef.h"
+        "/clang++/usr/include/c++/v1/stddef.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/stddef.h",
+      "name": "/clang++/usr/include/c++/v1/stddef.h",
       "lastAnalyzed": 1722468181729,
       "classes": [
         {
@@ -789,11 +789,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cstddef"
+        "/clang++/usr/include/c++/v1/cstddef"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/__stddef_max_align_t.h",
+      "name": "/clang++/usr/lib/clang/15.0.0/include/__stddef_max_align_t.h",
       "lastAnalyzed": 1722468181728,
       "classes": [],
       "funcDecls": [],
@@ -801,11 +801,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/stddef.h"
+        "/clang++/usr/lib/clang/15.0.0/include/stddef.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cstddef",
+      "name": "/clang++/usr/include/c++/v1/cstddef",
       "lastAnalyzed": 1722468181728,
       "classes": [],
       "funcDecls": [],
@@ -814,7 +814,7 @@
       "referencedFromFiles": []
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__exception/exception.h",
+      "name": "/clang++/usr/include/c++/v1/__exception/exception.h",
       "lastAnalyzed": 1722468181729,
       "classes": [
         {
@@ -936,11 +936,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/new"
+        "/clang++/usr/include/c++/v1/new"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/new",
+      "name": "/clang++/usr/include/c++/v1/new",
       "lastAnalyzed": 1722468181732,
       "classes": [
         {
@@ -1947,11 +1947,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/construct_at.h"
+        "/clang++/usr/include/c++/v1/__memory/construct_at.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/_types.h",
+      "name": "/clang++/usr/include/arm/_types.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -1959,11 +1959,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/machine/_types.h"
+        "/clang++/usr/include/machine/_types.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/machine/_types.h",
+      "name": "/clang++/usr/include/machine/_types.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -1972,7 +1972,7 @@
       "referencedFromFiles": []
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types.h",
+      "name": "/clang++/usr/include/sys/_types.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -1980,11 +1980,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types.h"
+        "/clang++/usr/include/_types.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types.h",
+      "name": "/clang++/usr/include/_types.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -1992,11 +1992,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdlib.h"
+        "/clang++/usr/include/stdlib.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_types.h",
+      "name": "/clang++/usr/include/sys/_pthread/_pthread_types.h",
       "lastAnalyzed": 1722468181729,
       "classes": [
         {
@@ -2086,11 +2086,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types.h"
+        "/clang++/usr/include/sys/_types.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdlib.h",
+      "name": "/clang++/usr/include/stdlib.h",
       "lastAnalyzed": 1722468181730,
       "classes": [],
       "funcDecls": [],
@@ -2098,11 +2098,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/stdlib.h"
+        "/clang++/usr/include/c++/v1/stdlib.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/wait.h",
+      "name": "/clang++/usr/include/sys/wait.h",
       "lastAnalyzed": 1722468181730,
       "classes": [
         {
@@ -2211,11 +2211,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdlib.h"
+        "/clang++/usr/include/stdlib.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_pid_t.h",
+      "name": "/clang++/usr/include/sys/_types/_pid_t.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2223,11 +2223,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/wait.h"
+        "/clang++/usr/include/sys/wait.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_id_t.h",
+      "name": "/clang++/usr/include/sys/_types/_id_t.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2235,11 +2235,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/wait.h"
+        "/clang++/usr/include/sys/wait.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/signal.h",
+      "name": "/clang++/usr/include/arm/signal.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2247,11 +2247,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/machine/signal.h"
+        "/clang++/usr/include/machine/signal.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/machine/signal.h",
+      "name": "/clang++/usr/include/machine/signal.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2260,7 +2260,7 @@
       "referencedFromFiles": []
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_int8_t.h",
+      "name": "/clang++/usr/include/sys/_types/_int8_t.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2268,11 +2268,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h"
+        "/clang++/usr/include/arm/types.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h",
+      "name": "/clang++/usr/include/arm/types.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2280,11 +2280,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/machine/types.h"
+        "/clang++/usr/include/machine/types.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_int16_t.h",
+      "name": "/clang++/usr/include/sys/_types/_int16_t.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2292,11 +2292,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h"
+        "/clang++/usr/include/arm/types.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_int32_t.h",
+      "name": "/clang++/usr/include/sys/_types/_int32_t.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2304,11 +2304,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h"
+        "/clang++/usr/include/arm/types.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_int64_t.h",
+      "name": "/clang++/usr/include/sys/_types/_int64_t.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2316,11 +2316,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h"
+        "/clang++/usr/include/arm/types.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_u_int8_t.h",
+      "name": "/clang++/usr/include/sys/_types/_u_int8_t.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2328,11 +2328,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h"
+        "/clang++/usr/include/arm/types.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_u_int16_t.h",
+      "name": "/clang++/usr/include/sys/_types/_u_int16_t.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2340,11 +2340,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h"
+        "/clang++/usr/include/arm/types.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_u_int32_t.h",
+      "name": "/clang++/usr/include/sys/_types/_u_int32_t.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2352,11 +2352,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h"
+        "/clang++/usr/include/arm/types.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_u_int64_t.h",
+      "name": "/clang++/usr/include/sys/_types/_u_int64_t.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2364,11 +2364,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h"
+        "/clang++/usr/include/arm/types.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/machine/types.h",
+      "name": "/clang++/usr/include/machine/types.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2377,7 +2377,7 @@
       "referencedFromFiles": []
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_intptr_t.h",
+      "name": "/clang++/usr/include/sys/_types/_intptr_t.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2385,11 +2385,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h"
+        "/clang++/usr/include/arm/types.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_uintptr_t.h",
+      "name": "/clang++/usr/include/sys/_types/_uintptr_t.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2397,11 +2397,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/arm/types.h"
+        "/clang++/usr/include/arm/types.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_attr_t.h",
+      "name": "/clang++/usr/include/sys/_pthread/_pthread_attr_t.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2409,11 +2409,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/signal.h"
+        "/clang++/usr/include/sys/signal.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/signal.h",
+      "name": "/clang++/usr/include/sys/signal.h",
       "lastAnalyzed": 1722468181729,
       "classes": [
         {
@@ -2483,11 +2483,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/wait.h"
+        "/clang++/usr/include/sys/wait.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_sigset_t.h",
+      "name": "/clang++/usr/include/sys/_types/_sigset_t.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2495,11 +2495,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/signal.h"
+        "/clang++/usr/include/sys/signal.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_uid_t.h",
+      "name": "/clang++/usr/include/sys/_types/_uid_t.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2507,11 +2507,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/signal.h"
+        "/clang++/usr/include/sys/signal.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types/_uint8_t.h",
+      "name": "/clang++/usr/include/_types/_uint8_t.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2519,11 +2519,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdint.h"
+        "/clang++/usr/include/stdint.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdint.h",
+      "name": "/clang++/usr/include/stdint.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2531,11 +2531,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/stdint.h"
+        "/clang++/usr/lib/clang/15.0.0/include/stdint.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types/_uint16_t.h",
+      "name": "/clang++/usr/include/_types/_uint16_t.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2543,11 +2543,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdint.h"
+        "/clang++/usr/include/stdint.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types/_uint32_t.h",
+      "name": "/clang++/usr/include/_types/_uint32_t.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2555,11 +2555,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdint.h"
+        "/clang++/usr/include/stdint.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types/_uint64_t.h",
+      "name": "/clang++/usr/include/_types/_uint64_t.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2567,11 +2567,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdint.h"
+        "/clang++/usr/include/stdint.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/stdint.h",
+      "name": "/clang++/usr/lib/clang/15.0.0/include/stdint.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2580,7 +2580,7 @@
       "referencedFromFiles": []
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h",
+      "name": "/clang++/usr/include/_types/_intmax_t.h",
       "lastAnalyzed": 1722468181729,
       "classes": [],
       "funcDecls": [],
@@ -2588,11 +2588,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdint.h"
+        "/clang++/usr/include/stdint.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types/_uintmax_t.h",
+      "name": "/clang++/usr/include/_types/_uintmax_t.h",
       "lastAnalyzed": 1722468181729,
       "classes": [
         {
@@ -2610,11 +2610,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdint.h"
+        "/clang++/usr/include/stdint.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/resource.h",
+      "name": "/clang++/usr/include/sys/resource.h",
       "lastAnalyzed": 1722468181730,
       "classes": [
         {
@@ -2819,11 +2819,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/wait.h"
+        "/clang++/usr/include/sys/wait.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/libkern/arm/OSByteOrder.h",
+      "name": "/clang++/usr/include/libkern/arm/OSByteOrder.h",
       "lastAnalyzed": 1722468181730,
       "classes": [
         {
@@ -3109,11 +3109,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/libkern/_OSByteOrder.h"
+        "/clang++/usr/include/libkern/_OSByteOrder.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/libkern/_OSByteOrder.h",
+      "name": "/clang++/usr/include/libkern/_OSByteOrder.h",
       "lastAnalyzed": 1722468181730,
       "classes": [],
       "funcDecls": [],
@@ -3122,7 +3122,7 @@
       "referencedFromFiles": []
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_ct_rune_t.h",
+      "name": "/clang++/usr/include/sys/_types/_ct_rune_t.h",
       "lastAnalyzed": 1722468181730,
       "classes": [],
       "funcDecls": [],
@@ -3130,11 +3130,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdlib.h"
+        "/clang++/usr/include/stdlib.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_rune_t.h",
+      "name": "/clang++/usr/include/sys/_types/_rune_t.h",
       "lastAnalyzed": 1722468181730,
       "classes": [],
       "funcDecls": [],
@@ -3142,11 +3142,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdlib.h"
+        "/clang++/usr/include/stdlib.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/stdlib.h",
+      "name": "/clang++/usr/include/c++/v1/stdlib.h",
       "lastAnalyzed": 1722468181731,
       "classes": [],
       "funcDecls": [],
@@ -3306,11 +3306,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cstdlib"
+        "/clang++/usr/include/c++/v1/cstdlib"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/malloc/_malloc_type.h",
+      "name": "/clang++/usr/include/malloc/_malloc_type.h",
       "lastAnalyzed": 1722468181730,
       "classes": [
         {
@@ -4604,11 +4604,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/malloc/_malloc.h"
+        "/clang++/usr/include/malloc/_malloc.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/malloc/_malloc.h",
+      "name": "/clang++/usr/include/malloc/_malloc.h",
       "lastAnalyzed": 1722468181730,
       "classes": [],
       "funcDecls": [],
@@ -4617,7 +4617,7 @@
       "referencedFromFiles": []
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_dev_t.h",
+      "name": "/clang++/usr/include/sys/_types/_dev_t.h",
       "lastAnalyzed": 1722468181730,
       "classes": [],
       "funcDecls": [],
@@ -4625,11 +4625,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdlib.h"
+        "/clang++/usr/include/stdlib.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_mode_t.h",
+      "name": "/clang++/usr/include/sys/_types/_mode_t.h",
       "lastAnalyzed": 1722468181730,
       "classes": [],
       "funcDecls": [
@@ -5253,11 +5253,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdlib.h"
+        "/clang++/usr/include/stdlib.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cstdlib",
+      "name": "/clang++/usr/include/c++/v1/cstdlib",
       "lastAnalyzed": 1722468181730,
       "classes": [],
       "funcDecls": [],
@@ -5266,7 +5266,7 @@
       "referencedFromFiles": []
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/construct_at.h",
+      "name": "/clang++/usr/include/c++/v1/__memory/construct_at.h",
       "lastAnalyzed": 1722468181731,
       "classes": [],
       "funcDecls": [],
@@ -5275,7 +5275,7 @@
       "referencedFromFiles": []
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__exception/operations.h",
+      "name": "/clang++/usr/include/c++/v1/__exception/operations.h",
       "lastAnalyzed": 1722468181732,
       "classes": [
         {
@@ -5384,11 +5384,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__exception/exception_ptr.h"
+        "/clang++/usr/include/c++/v1/__exception/exception_ptr.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__exception/exception_ptr.h",
+      "name": "/clang++/usr/include/c++/v1/__exception/exception_ptr.h",
       "lastAnalyzed": 1722468181732,
       "classes": [
         {
@@ -5584,11 +5584,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/exception"
+        "/clang++/usr/include/c++/v1/exception"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/exception",
+      "name": "/clang++/usr/include/c++/v1/exception",
       "lastAnalyzed": 1722468181732,
       "classes": [],
       "funcDecls": [],
@@ -5597,7 +5597,7 @@
       "referencedFromFiles": []
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__exception/nested_exception.h",
+      "name": "/clang++/usr/include/c++/v1/__exception/nested_exception.h",
       "lastAnalyzed": 1722468181732,
       "classes": [
         {
@@ -5664,11 +5664,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/exception"
+        "/clang++/usr/include/c++/v1/exception"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__exception/terminate.h",
+      "name": "/clang++/usr/include/c++/v1/__exception/terminate.h",
       "lastAnalyzed": 1722468181743,
       "classes": [
         {
@@ -9696,11 +9696,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/exception"
+        "/clang++/usr/include/c++/v1/exception"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/initializer_list",
+      "name": "/clang++/usr/include/c++/v1/initializer_list",
       "lastAnalyzed": 1722468181765,
       "classes": [
         {
@@ -11954,11 +11954,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/concepts.h"
+        "/clang++/usr/include/c++/v1/__ranges/concepts.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/concepts.h",
+      "name": "/clang++/usr/include/c++/v1/__ranges/concepts.h",
       "lastAnalyzed": 1722468181743,
       "classes": [],
       "funcDecls": [],
@@ -11967,7 +11967,7 @@
       "referencedFromFiles": []
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_ssize_t.h",
+      "name": "/clang++/usr/include/sys/_types/_ssize_t.h",
       "lastAnalyzed": 1722468181765,
       "classes": [],
       "funcDecls": [
@@ -12366,11 +12366,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/string.h"
+        "/clang++/usr/include/string.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/string.h",
+      "name": "/clang++/usr/include/string.h",
       "lastAnalyzed": 1722468181765,
       "classes": [],
       "funcDecls": [],
@@ -12379,7 +12379,7 @@
       "referencedFromFiles": []
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/string.h",
+      "name": "/clang++/usr/include/c++/v1/string.h",
       "lastAnalyzed": 1722468181782,
       "classes": [
         {
@@ -14724,11 +14724,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cstring"
+        "/clang++/usr/include/c++/v1/cstring"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cstring",
+      "name": "/clang++/usr/include/c++/v1/cstring",
       "lastAnalyzed": 1722468181765,
       "classes": [],
       "funcDecls": [],
@@ -14737,7 +14737,7 @@
       "referencedFromFiles": []
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_mbstate_t.h",
+      "name": "/clang++/usr/include/sys/_types/_mbstate_t.h",
       "lastAnalyzed": 1722468181783,
       "classes": [
         {
@@ -15221,11 +15221,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__mbstate_t.h"
+        "/clang++/usr/include/c++/v1/__mbstate_t.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__mbstate_t.h",
+      "name": "/clang++/usr/include/c++/v1/__mbstate_t.h",
       "lastAnalyzed": 1722468181782,
       "classes": [],
       "funcDecls": [],
@@ -15234,7 +15234,7 @@
       "referencedFromFiles": []
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/typeinfo",
+      "name": "/clang++/usr/include/c++/v1/typeinfo",
       "lastAnalyzed": 1722468181797,
       "classes": [
         {
@@ -19356,11 +19356,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h"
+        "/clang++/usr/include/c++/v1/__memory/shared_ptr.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h",
+      "name": "/clang++/usr/include/c++/v1/__memory/shared_ptr.h",
       "lastAnalyzed": 1722468181783,
       "classes": [],
       "funcDecls": [],
@@ -19369,7 +19369,7 @@
       "referencedFromFiles": []
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/math.h",
+      "name": "/clang++/usr/include/c++/v1/math.h",
       "lastAnalyzed": 1722468181865,
       "classes": [
         {
@@ -27427,11 +27427,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cmath"
+        "/clang++/usr/include/c++/v1/cmath"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cmath",
+      "name": "/clang++/usr/include/c++/v1/cmath",
       "lastAnalyzed": 1722468181797,
       "classes": [],
       "funcDecls": [],
@@ -27440,7 +27440,7 @@
       "referencedFromFiles": []
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_clock_t.h",
+      "name": "/clang++/usr/include/sys/_types/_clock_t.h",
       "lastAnalyzed": 1722468181865,
       "classes": [],
       "funcDecls": [],
@@ -27448,11 +27448,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/time.h"
+        "/clang++/usr/include/time.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/time.h",
+      "name": "/clang++/usr/include/time.h",
       "lastAnalyzed": 1722468181870,
       "classes": [
         {
@@ -28385,11 +28385,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/ctime"
+        "/clang++/usr/include/c++/v1/ctime"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_time_t.h",
+      "name": "/clang++/usr/include/sys/_types/_time_t.h",
       "lastAnalyzed": 1722468181866,
       "classes": [
         {
@@ -28407,11 +28407,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/time.h"
+        "/clang++/usr/include/time.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/ctime",
+      "name": "/clang++/usr/include/c++/v1/ctime",
       "lastAnalyzed": 1722468181866,
       "classes": [],
       "funcDecls": [],
@@ -28420,7 +28420,7 @@
       "referencedFromFiles": []
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_cond_t.h",
+      "name": "/clang++/usr/include/sys/_pthread/_pthread_cond_t.h",
       "lastAnalyzed": 1722468181870,
       "classes": [],
       "funcDecls": [],
@@ -28428,11 +28428,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/pthread.h"
+        "/clang++/usr/include/pthread.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/pthread.h",
+      "name": "/clang++/usr/include/pthread.h",
       "lastAnalyzed": 1722468181870,
       "classes": [],
       "funcDecls": [],
@@ -28441,7 +28441,7 @@
       "referencedFromFiles": []
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_condattr_t.h",
+      "name": "/clang++/usr/include/sys/_pthread/_pthread_condattr_t.h",
       "lastAnalyzed": 1722468181870,
       "classes": [],
       "funcDecls": [],
@@ -28449,11 +28449,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/pthread.h"
+        "/clang++/usr/include/pthread.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_key_t.h",
+      "name": "/clang++/usr/include/sys/_pthread/_pthread_key_t.h",
       "lastAnalyzed": 1722468181870,
       "classes": [],
       "funcDecls": [],
@@ -28461,11 +28461,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/pthread.h"
+        "/clang++/usr/include/pthread.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_mutex_t.h",
+      "name": "/clang++/usr/include/sys/_pthread/_pthread_mutex_t.h",
       "lastAnalyzed": 1722468181870,
       "classes": [],
       "funcDecls": [],
@@ -28473,11 +28473,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/pthread.h"
+        "/clang++/usr/include/pthread.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_mutexattr_t.h",
+      "name": "/clang++/usr/include/sys/_pthread/_pthread_mutexattr_t.h",
       "lastAnalyzed": 1722468181870,
       "classes": [],
       "funcDecls": [],
@@ -28485,11 +28485,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/pthread.h"
+        "/clang++/usr/include/pthread.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_once_t.h",
+      "name": "/clang++/usr/include/sys/_pthread/_pthread_once_t.h",
       "lastAnalyzed": 1722468181870,
       "classes": [],
       "funcDecls": [],
@@ -28497,11 +28497,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/pthread.h"
+        "/clang++/usr/include/pthread.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_rwlock_t.h",
+      "name": "/clang++/usr/include/sys/_pthread/_pthread_rwlock_t.h",
       "lastAnalyzed": 1722468181870,
       "classes": [],
       "funcDecls": [],
@@ -28509,11 +28509,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/pthread.h"
+        "/clang++/usr/include/pthread.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_rwlockattr_t.h",
+      "name": "/clang++/usr/include/sys/_pthread/_pthread_rwlockattr_t.h",
       "lastAnalyzed": 1722468181870,
       "classes": [],
       "funcDecls": [],
@@ -28521,11 +28521,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/pthread.h"
+        "/clang++/usr/include/pthread.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_t.h",
+      "name": "/clang++/usr/include/sys/_pthread/_pthread_t.h",
       "lastAnalyzed": 1722468181870,
       "classes": [
         {
@@ -28664,11 +28664,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/pthread.h"
+        "/clang++/usr/include/pthread.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_mach_port_t.h",
+      "name": "/clang++/usr/include/sys/_types/_mach_port_t.h",
       "lastAnalyzed": 1722468181870,
       "classes": [],
       "funcDecls": [
@@ -30177,11 +30177,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/pthread.h"
+        "/clang++/usr/include/pthread.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__threading_support",
+      "name": "/clang++/usr/include/c++/v1/__threading_support",
       "lastAnalyzed": 1722468181896,
       "classes": [
         {
@@ -33524,11 +33524,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__atomic/atomic_sync.h"
+        "/clang++/usr/include/c++/v1/__atomic/atomic_sync.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__atomic/atomic_sync.h",
+      "name": "/clang++/usr/include/c++/v1/__atomic/atomic_sync.h",
       "lastAnalyzed": 1722468181870,
       "classes": [],
       "funcDecls": [],
@@ -33537,7 +33537,7 @@
       "referencedFromFiles": []
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/variant",
+      "name": "/clang++/usr/include/c++/v1/variant",
       "lastAnalyzed": 1722468181925,
       "classes": [
         {
@@ -33963,11 +33963,11 @@
       "virtualFuncImpls": [],
       "referencedFromFiles": [
         "/backendSuite/walkerTests/singleFiles/classUniquePointerCall/file.cpp",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/common_iterator.h"
+        "/clang++/usr/include/c++/v1/__iterator/common_iterator.h"
       ]
     },
     {
-      "name": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/common_iterator.h",
+      "name": "/clang++/usr/include/c++/v1/__iterator/common_iterator.h",
       "lastAnalyzed": 1722468181896,
       "classes": [],
       "funcDecls": [],
