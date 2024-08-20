@@ -256,11 +256,10 @@ suite("Parent Cpp Class", () => {
         });
     });
 
-    /*
-    TODO:
+    // Handle this in #9 task.
     suite("Removed all database content", () => {
-        [DatabaseType.lowdb, DatabaseType.sqlite].forEach( (testData) => {
-            test(`${DatabaseType[testData]}`,  () => {
+        [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
+            test(`${DatabaseType[testData]}`, () => {
                 const [database, referenceDatabase] =
                     prepareDatabaseEqualityTests(
                         __dirname,
@@ -277,7 +276,7 @@ suite("Parent Cpp Class", () => {
 
                 database.writeDatabase();
 
-                assertDatabaseEquals(database,referenceDatabase);
+                assertDatabaseEquals(database, referenceDatabase);
 
                 database.removeCppFileAndDependingContent(cppFile.getName());
                 database.writeDatabase();
@@ -285,5 +284,4 @@ suite("Parent Cpp Class", () => {
             });
         });
     });
-    */
 });
