@@ -69,7 +69,7 @@ export interface FuncBasics extends InFile {
     // support interfaces during runtime. So a comparison like
     // instance of is not working and we need another workaround
     // to get the actual type information.
-    // TODO: Evaluate if the databases itself can be refactored
+    // TODO(#11): Evaluate if the databases itself can be refactored
     // using these flags with simplification.
     getFuncType(): FuncType;
     isVirtual(): boolean;

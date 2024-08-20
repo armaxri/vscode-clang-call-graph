@@ -11,7 +11,7 @@ export class CallHierarchyItem extends vscode.CallHierarchyItem {
                 ? vscode.SymbolKind.Method
                 : vscode.SymbolKind.Function,
             treeItem.getFunc().getFuncName(),
-            // TODO: Evaluate this.
+            // TODO(#14): Evaluate this.
             "",
             vscode.Uri.file(treeItem.getFile().getName()),
             range2vscodeRange(treeItem.getFunc().getRange()),

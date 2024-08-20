@@ -57,7 +57,7 @@ export class ClangAstWalker implements AstWalker {
                 console.error(
                     `Expected TranslationUnitDecl, got "${this.baseAstElement.kind}" as first element in file "${this.fileName}".`
                 );
-                // TODO: Report to user an internal error.
+                // TODO(#10): Report to user an internal error.
                 return;
             }
 
@@ -89,7 +89,7 @@ export class ClangAstWalker implements AstWalker {
             console.error(
                 `Internal error during analysis of file "${this.fileName}": ${error}`
             );
-            // TODO: Report to user an internal error.
+            // TODO(#10): Report to user an internal error.
         }
     }
 

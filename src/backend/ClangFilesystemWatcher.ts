@@ -93,7 +93,7 @@ export class ClangFilesystemWatcher {
     private async watchFilesystem() {
         console.log("Filesystem watching thread started.");
 
-        // TODO: Start with an initial compile commands list update.
+        // TODO(#15): Start with an initial compile commands list update.
         // While it looks good to have a fresh list of compile commands,
         // maybe we want to skip this later, so in IDE restarts no full
         // index has to be rebuild all the time.
@@ -109,7 +109,7 @@ export class ClangFilesystemWatcher {
 
         while (this.state === FilesystemWatcherState.running) {
             if (await this.isThereANewCompileCommandsList()) {
-                // TODO: Maybe additional steps need to be done here.
+                // TODO(#15): Maybe additional steps need to be done here.
                 // Should the task list be cleared?
                 // Do we need to clean the database?
                 // Do we need to stop the workers?
@@ -132,7 +132,7 @@ export class ClangFilesystemWatcher {
     }
 
     private async isThereANewCompileCommandsList(): Promise<boolean> {
-        // TODO: Do a proper file check here.
+        // TODO(#15): Do a proper file check here.
         return false;
     }
 
@@ -178,10 +178,10 @@ export class ClangFilesystemWatcher {
     }
 
     private async searchCppFileChanges(): Promise<boolean> {
-        // TODO: Do a proper file check here.
+        // TODO(#15): Do a proper file check here.
         // Do we want to check all files during each iteration?
 
-        // TODO: Currently we only track cpp files and no header files.
+        // TODO(#15): Currently we only track cpp files and no header files.
         // A mechanism to track header files is needed.
         return false;
     }

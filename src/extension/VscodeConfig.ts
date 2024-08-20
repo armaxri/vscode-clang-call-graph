@@ -36,9 +36,6 @@ export class VscodeConfig extends Config {
         return numOfParserThreads;
     }
 
-    // TODO: Implement this:
-    // getSelectedDatabaseType(): DatabaseType {}
-
     getCallGraphDatabaseDir(): string {
         const config = this.getExtensionConfig();
         const callGraphDatabaseDir = assignPath(
@@ -50,12 +47,12 @@ export class VscodeConfig extends Config {
     }
 
     getSelectedDatabaseType(): DatabaseType {
-        // TODO: Implement this.
+        // TODO(#12): Implement this.
         return DatabaseType.lowdb;
     }
 
     getCallGraphDatabasePath(): string {
-        // TODO: Remove this method.
+        // TODO(#12): Remove this method.
         const config = this.getExtensionConfig();
         const callGraphDatabasePath = assignPath(
             config.get<string>("callGraphDatabasePath"),
@@ -67,7 +64,7 @@ export class VscodeConfig extends Config {
 
     useDatabaseCaching(): boolean {
         // Currently not a real configuration option.
-        // TODO: Do some testing if this is a good idea.
+        // TODO(#13): Do some testing if this is a good idea.
         // May use a fixed strategy or make it configurable.
         return true;
     }

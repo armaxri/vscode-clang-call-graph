@@ -28,7 +28,7 @@ export class TreeItem {
     }
 
     isMethod(): boolean {
-        // TODO: This is only a part of the question. Non virtual methods are not covered yet.
+        // TODO(#14): This is only a part of the question. Non virtual methods are not covered yet.
         return this.func.isVirtual();
     }
 
@@ -51,7 +51,7 @@ export class TreeItem {
         if (this.func.getFuncType() === FuncType.implementation) {
             const funcImpl = this.func as FuncImplBasics;
 
-            // TODO: Consider first ordering the calls by appearance before searching the impls.
+            // TODO(#14): Consider first ordering the calls by appearance before searching the impls.
 
             // We get the func calls and map them directly to the corresponding implementations.
             funcImpl.getFuncCalls().forEach((funcCall) => {
