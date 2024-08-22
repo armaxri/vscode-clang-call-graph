@@ -235,6 +235,18 @@ export class SqliteCppClass extends AbstractCppClass {
         });
 
         this.internal.db
+            .prepare(
+                "DELETE FROM cpp_classes_2_cpp_classes WHERE parent_class_id=(?)"
+            )
+            .run(this.id);
+
+        this.internal.db
+            .prepare(
+                "DELETE FROM cpp_classes_2_cpp_classes WHERE child_class_id=(?)"
+            )
+            .run(this.id);
+
+        this.internal.db
             .prepare("DELETE FROM cpp_classes WHERE id=(?)")
             .run(this.id);
     }
