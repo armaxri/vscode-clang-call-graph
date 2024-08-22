@@ -1,2 +1,2 @@
 *.json
-!expected_db.json
+!*_expected_db.json
