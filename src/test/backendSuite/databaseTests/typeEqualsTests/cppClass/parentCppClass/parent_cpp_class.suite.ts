@@ -256,7 +256,6 @@ suite("Parent Cpp Class", () => {
         });
     });
 
-    // Handle this in #9 task.
     suite("Removed all database content", () => {
         [DatabaseType.lowdb, DatabaseType.sqlite].forEach((testData) => {
             test(`${DatabaseType[testData]}`, () => {
