@@ -18,6 +18,12 @@ type SimpleVirtualFuncDeclaration = {
     mentioningData: cpp.VirtualFuncDeclaration | cpp.VirtualFuncImplementation;
 };
 
+// In case of template classes, we need to delay the function call creation.
+type DelayedFuncCall = {
+    calledFuncId: number;
+    funcImplementation: cpp.FuncImplementation;
+};
+
 export class ClangAstWalker implements AstWalker {
     private fileName: string = "";
     private database: db.Database;
@@ -37,6 +43,7 @@ export class ClangAstWalker implements AstWalker {
     private callingFunc: cpp.FuncImplementation | undefined;
     private knownClasses: cpp.CppClass[] = [];
     private activeClassStack: cpp.CppClass[] = [];
+    private delayedFuncCalls: DelayedFuncCall[] = [];
 
     private funcDeclarations: SimpleFuncDeclaration[] = [];
     private virtualFuncDeclarations: SimpleVirtualFuncDeclaration[] = [];
@@ -106,6 +113,8 @@ export class ClangAstWalker implements AstWalker {
             astElement.kind === "CXXMethodDecl"
         ) {
             this.handleFunctionDecl(astElement);
+        } else if (astElement.kind === "ClassTemplateSpecializationDecl") {
+            this.handleTemplateClassSpecialization(astElement);
         } else {
             if (
                 astElement.kind === "CallExpr" ||
@@ -274,7 +283,7 @@ export class ClangAstWalker implements AstWalker {
             return;
         }
 
-        if (astElement.name.startsWith("__")) {
+        if (astElement.name.startsWith("__") || astElement?.isImplicit) {
             // These are internal classes, which are not interesting for the user.
             return;
         }
@@ -347,6 +356,28 @@ export class ClangAstWalker implements AstWalker {
         this.callingFunc = currentCallingFuncName;
     }
 
+    private handleTemplateClassSpecialization(astElement: clangAst.AstElement) {
+        const templateClass = this.knownClasses.find(
+            (knownClass) => knownClass.getName() === astElement.name
+        );
+
+        if (templateClass) {
+            this.activeClassStack.push(templateClass);
+
+            if (astElement.inner) {
+                for (const newAstElement of astElement.inner) {
+                    this.analyzeAstElement(newAstElement);
+                }
+            }
+
+            this.activeClassStack.pop();
+        } else {
+            console.error(
+                `Template class "${astElement.name}" is not known in file "${this.fileName}".`
+            );
+        }
+    }
+
     private handleExprStmt(astElement: clangAst.AstElement) {
         const calledFuncId: string | undefined = astElement.referencedDecl
             ? astElement.kind === "DeclRefExpr"
@@ -372,6 +403,13 @@ export class ClangAstWalker implements AstWalker {
                         referencedVirtualDecl
                     );
                     this.callingFunc?.getOrAddVirtualFuncCall(funcCall);
+                } else {
+                    // In case of template classes, we need to delay the function call creation.
+                    const delayedFuncCall: DelayedFuncCall = {
+                        calledFuncId: Number(calledFuncId),
+                        funcImplementation: this.callingFunc!,
+                    };
+                    this.delayedFuncCalls.push(delayedFuncCall);
                 }
             }
         }
@@ -400,6 +438,18 @@ export class ClangAstWalker implements AstWalker {
             this.callingFunc =
                 virtualFuncMentioning as cpp.VirtualFuncImplementation;
         }
+
+        this.delayedFuncCalls.forEach((delayedFuncCall) => {
+            if (delayedFuncCall.calledFuncId === id) {
+                const funcCall = this.createVirtualFuncCallArgs({
+                    id,
+                    mentioningData: virtualFuncMentioning,
+                });
+                delayedFuncCall.funcImplementation.getOrAddVirtualFuncCall(
+                    funcCall
+                );
+            }
+        });
     }
 
     private handleFuncDecl(astElement: clangAst.AstElement): void {
@@ -428,6 +478,16 @@ export class ClangAstWalker implements AstWalker {
         if (hasCompoundStmtInInner(astElement)) {
             this.callingFunc = funcMentioning as cpp.FuncImplementation;
         }
+
+        this.delayedFuncCalls.forEach((delayedFuncCall) => {
+            if (delayedFuncCall.calledFuncId === id) {
+                const funcCall = this.createFuncCallArgs({
+                    id,
+                    mentioningData: funcMentioning,
+                });
+                delayedFuncCall.funcImplementation.getOrAddFuncCall(funcCall);
+            }
+        });
     }
 
     private createFuncMentioningArgs(
