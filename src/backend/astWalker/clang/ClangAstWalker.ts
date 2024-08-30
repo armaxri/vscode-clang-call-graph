@@ -372,9 +372,11 @@ export class ClangAstWalker implements AstWalker {
 
             this.activeClassStack.pop();
         } else {
-            console.error(
-                `Template class "${astElement.name}" is not known in file "${this.fileName}".`
-            );
+            if (!astElement.name?.startsWith("__")) {
+                console.error(
+                    `Template class "${astElement.name}" is not known in file "${this.fileName}".`
+                );
+            }
         }
     }
 
