@@ -22,7 +22,7 @@
                 },
                 "end": {
                   "line": 4,
-                  "column": 23
+                  "column": 19
                 }
               },
               "funcCalls": [
@@ -78,23 +78,6 @@
       ],
       "funcDecls": [],
       "funcImpls": [
-        {
-          "funcName": "foo",
-          "funcAstName": "__ZN13TemplateClassI11SimpleClassE3fooEv",
-          "qualType": "int ()",
-          "range": {
-            "start": {
-              "line": 4,
-              "column": 16
-            },
-            "end": {
-              "line": 4,
-              "column": 19
-            }
-          },
-          "funcCalls": [],
-          "virtualFuncCalls": []
-        },
         {
           "funcName": "main",
           "funcAstName": "_main",
