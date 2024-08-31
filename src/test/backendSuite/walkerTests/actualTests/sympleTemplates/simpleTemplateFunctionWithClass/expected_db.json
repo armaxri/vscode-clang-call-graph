@@ -1,0 +1,109 @@
+{
+  "databaseVersion": 1,
+  "cppFiles": [
+    {
+      "name": "/backendSuite/walkerTests/actualTests/sympleTemplates/simpleTemplateFunctionWithClass/file.cpp",
+      "lastAnalyzed": 1725143677656,
+      "classes": [
+        {
+          "name": "SimpleClass",
+          "parentClasses": [],
+          "classes": [],
+          "funcDecls": [],
+          "funcImpls": [
+            {
+              "funcName": "ba",
+              "funcAstName": "__ZN11SimpleClass2baEv",
+              "qualType": "int ()",
+              "range": {
+                "start": {
+                  "line": 9,
+                  "column": 16
+                },
+                "end": {
+                  "line": 9,
+                  "column": 18
+                }
+              },
+              "funcCalls": [],
+              "virtualFuncCalls": []
+            }
+          ],
+          "virtualFuncDecls": [],
+          "virtualFuncImpls": []
+        }
+      ],
+      "funcDecls": [],
+      "funcImpls": [
+        {
+          "funcName": "foo",
+          "funcAstName": "__Z3fooI11SimpleClassEiv",
+          "qualType": "int ()",
+          "range": {
+            "start": {
+              "line": 1,
+              "column": 24
+            },
+            "end": {
+              "line": 1,
+              "column": 27
+            }
+          },
+          "funcCalls": [
+            {
+              "funcName": "ba",
+              "funcAstName": "__ZN11SimpleClass2baEv",
+              "qualType": "int ()",
+              "range": {
+                "start": {
+                  "line": 3,
+                  "column": 12
+                },
+                "end": {
+                  "line": 3,
+                  "column": 19
+                }
+              }
+            }
+          ],
+          "virtualFuncCalls": []
+        },
+        {
+          "funcName": "main",
+          "funcAstName": "_main",
+          "qualType": "int (int, char **)",
+          "range": {
+            "start": {
+              "line": 15,
+              "column": 5
+            },
+            "end": {
+              "line": 15,
+              "column": 9
+            }
+          },
+          "funcCalls": [
+            {
+              "funcName": "foo",
+              "funcAstName": "__Z3fooI11SimpleClassEiv",
+              "qualType": "int ()",
+              "range": {
+                "start": {
+                  "line": 17,
+                  "column": 12
+                },
+                "end": {
+                  "line": 17,
+                  "column": 30
+                }
+              }
+            }
+          ],
+          "virtualFuncCalls": []
+        }
+      ],
+      "virtualFuncImpls": []
+    }
+  ],
+  "hppFiles": []
+}
