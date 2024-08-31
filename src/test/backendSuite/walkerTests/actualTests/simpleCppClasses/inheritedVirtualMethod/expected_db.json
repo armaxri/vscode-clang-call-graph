@@ -1,0 +1,187 @@
+{
+  "databaseVersion": 1,
+  "cppFiles": [
+    {
+      "name": "/backendSuite/walkerTests/actualTests/simpleCppClasses/inheritedVirtualMethod/file.cpp",
+      "lastAnalyzed": 1721486155263,
+      "classes": [
+        {
+          "name": "TestBaseClass",
+          "parentClasses": [],
+          "classes": [],
+          "funcDecls": [
+            {
+              "funcName": "operator=",
+              "funcAstName": "__ZN13TestBaseClassaSERKS_",
+              "qualType": "TestBaseClass &(const TestBaseClass &)",
+              "range": {
+                "start": {
+                  "line": 1,
+                  "column": 7
+                },
+                "end": {
+                  "line": 1,
+                  "column": 20
+                }
+              }
+            },
+            {
+              "funcName": "operator=",
+              "funcAstName": "__ZN13TestBaseClassaSEOS_",
+              "qualType": "TestBaseClass &(TestBaseClass &&)",
+              "range": {
+                "start": {
+                  "line": 1,
+                  "column": 7
+                },
+                "end": {
+                  "line": 1,
+                  "column": 20
+                }
+              }
+            }
+          ],
+          "funcImpls": [],
+          "virtualFuncDecls": [],
+          "virtualFuncImpls": [
+            {
+              "funcName": "add",
+              "funcAstName": "__ZN13TestBaseClass3addEii",
+              "qualType": "int (int, int)",
+              "range": {
+                "start": {
+                  "line": 4,
+                  "column": 17
+                },
+                "end": {
+                  "line": 4,
+                  "column": 20
+                }
+              },
+              "baseFuncAstName": "__ZN13TestBaseClass3addEii",
+              "funcCalls": [],
+              "virtualFuncCalls": []
+            }
+          ]
+        },
+        {
+          "name": "TestClass",
+          "parentClasses": [
+            "TestBaseClass"
+          ],
+          "classes": [],
+          "funcDecls": [
+            {
+              "funcName": "operator=",
+              "funcAstName": "__ZN9TestClassaSERKS_",
+              "qualType": "TestClass &(const TestClass &)",
+              "range": {
+                "start": {
+                  "line": 10,
+                  "column": 7
+                },
+                "end": {
+                  "line": 10,
+                  "column": 16
+                }
+              }
+            },
+            {
+              "funcName": "operator=",
+              "funcAstName": "__ZN9TestClassaSEOS_",
+              "qualType": "TestClass &(TestClass &&)",
+              "range": {
+                "start": {
+                  "line": 10,
+                  "column": 7
+                },
+                "end": {
+                  "line": 10,
+                  "column": 16
+                }
+              }
+            }
+          ],
+          "funcImpls": [],
+          "virtualFuncDecls": [],
+          "virtualFuncImpls": [
+            {
+              "funcName": "add",
+              "funcAstName": "__ZN9TestClass3addEii",
+              "qualType": "int (int, int)",
+              "range": {
+                "start": {
+                  "line": 13,
+                  "column": 9
+                },
+                "end": {
+                  "line": 13,
+                  "column": 12
+                }
+              },
+              "baseFuncAstName": "__ZN13TestBaseClass3addEii",
+              "funcCalls": [],
+              "virtualFuncCalls": [
+                {
+                  "funcName": "add",
+                  "funcAstName": "__ZN13TestBaseClass3addEii",
+                  "baseFuncAstName": "__ZN13TestBaseClass3addEii",
+                  "qualType": "int (int, int)",
+                  "range": {
+                    "start": {
+                      "line": 15,
+                      "column": 16
+                    },
+                    "end": {
+                      "line": 15,
+                      "column": 46
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "funcDecls": [],
+      "funcImpls": [
+        {
+          "funcName": "main",
+          "funcAstName": "_main",
+          "qualType": "int (int, char **)",
+          "range": {
+            "start": {
+              "line": 19,
+              "column": 5
+            },
+            "end": {
+              "line": 19,
+              "column": 9
+            }
+          },
+          "funcCalls": [],
+          "virtualFuncCalls": [
+            {
+              "funcName": "add",
+              "funcAstName": "__ZN9TestClass3addEii",
+              "baseFuncAstName": "__ZN13TestBaseClass3addEii",
+              "qualType": "int (int, int)",
+              "range": {
+                "start": {
+                  "line": 22,
+                  "column": 12
+                },
+                "end": {
+                  "line": 22,
+                  "column": 31
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "virtualFuncImpls": []
+    }
+  ],
+  "hppFiles": []
+}
