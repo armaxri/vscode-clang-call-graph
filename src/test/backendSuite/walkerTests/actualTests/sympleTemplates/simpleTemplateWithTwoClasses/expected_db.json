@@ -1,0 +1,194 @@
+{
+  "databaseVersion": 1,
+  "cppFiles": [
+    {
+      "name": "/backendSuite/walkerTests/actualTests/sympleTemplates/simpleTemplateWithTwoClasses/file.cpp",
+      "lastAnalyzed": 1724426420819,
+      "classes": [
+        {
+          "name": "TemplateClass",
+          "parentClasses": [],
+          "classes": [],
+          "funcDecls": [],
+          "funcImpls": [
+            {
+              "funcName": "foo",
+              "funcAstName": "__ZN13TemplateClassI12SimpleClassAE3fooEv",
+              "qualType": "int ()",
+              "range": {
+                "start": {
+                  "line": 4,
+                  "column": 16
+                },
+                "end": {
+                  "line": 4,
+                  "column": 19
+                }
+              },
+              "funcCalls": [
+                {
+                  "funcName": "ba",
+                  "funcAstName": "__ZN12SimpleClassA2baEv",
+                  "qualType": "int ()",
+                  "range": {
+                    "start": {
+                      "line": 6,
+                      "column": 16
+                    },
+                    "end": {
+                      "line": 6,
+                      "column": 23
+                    }
+                  }
+                }
+              ],
+              "virtualFuncCalls": []
+            },
+            {
+              "funcName": "foo",
+              "funcAstName": "__ZN13TemplateClassI12SimpleClassBE3fooEv",
+              "qualType": "int ()",
+              "range": {
+                "start": {
+                  "line": 4,
+                  "column": 16
+                },
+                "end": {
+                  "line": 4,
+                  "column": 19
+                }
+              },
+              "funcCalls": [
+                {
+                  "funcName": "ba",
+                  "funcAstName": "__ZN12SimpleClassB2baEv",
+                  "qualType": "int ()",
+                  "range": {
+                    "start": {
+                      "line": 6,
+                      "column": 16
+                    },
+                    "end": {
+                      "line": 6,
+                      "column": 23
+                    }
+                  }
+                }
+              ],
+              "virtualFuncCalls": []
+            }
+          ],
+          "virtualFuncDecls": [],
+          "virtualFuncImpls": []
+        },
+        {
+          "name": "SimpleClassA",
+          "parentClasses": [],
+          "classes": [],
+          "funcDecls": [],
+          "funcImpls": [
+            {
+              "funcName": "ba",
+              "funcAstName": "__ZN12SimpleClassA2baEv",
+              "qualType": "int ()",
+              "range": {
+                "start": {
+                  "line": 13,
+                  "column": 16
+                },
+                "end": {
+                  "line": 13,
+                  "column": 18
+                }
+              },
+              "funcCalls": [],
+              "virtualFuncCalls": []
+            }
+          ],
+          "virtualFuncDecls": [],
+          "virtualFuncImpls": []
+        },
+        {
+          "name": "SimpleClassB",
+          "parentClasses": [],
+          "classes": [],
+          "funcDecls": [],
+          "funcImpls": [
+            {
+              "funcName": "ba",
+              "funcAstName": "__ZN12SimpleClassB2baEv",
+              "qualType": "int ()",
+              "range": {
+                "start": {
+                  "line": 22,
+                  "column": 16
+                },
+                "end": {
+                  "line": 22,
+                  "column": 18
+                }
+              },
+              "funcCalls": [],
+              "virtualFuncCalls": []
+            }
+          ],
+          "virtualFuncDecls": [],
+          "virtualFuncImpls": []
+        }
+      ],
+      "funcDecls": [],
+      "funcImpls": [
+        {
+          "funcName": "main",
+          "funcAstName": "_main",
+          "qualType": "int (int, char **)",
+          "range": {
+            "start": {
+              "line": 28,
+              "column": 5
+            },
+            "end": {
+              "line": 28,
+              "column": 9
+            }
+          },
+          "funcCalls": [
+            {
+              "funcName": "foo",
+              "funcAstName": "__ZN13TemplateClassI12SimpleClassAE3fooEv",
+              "qualType": "int ()",
+              "range": {
+                "start": {
+                  "line": 32,
+                  "column": 12
+                },
+                "end": {
+                  "line": 32,
+                  "column": 27
+                }
+              }
+            },
+            {
+              "funcName": "foo",
+              "funcAstName": "__ZN13TemplateClassI12SimpleClassBE3fooEv",
+              "qualType": "int ()",
+              "range": {
+                "start": {
+                  "line": 32,
+                  "column": 30
+                },
+                "end": {
+                  "line": 32,
+                  "column": 45
+                }
+              }
+            }
+          ],
+          "virtualFuncCalls": []
+        }
+      ],
+      "virtualFuncImpls": []
+    }
+  ],
+  "hppFiles": []
+}

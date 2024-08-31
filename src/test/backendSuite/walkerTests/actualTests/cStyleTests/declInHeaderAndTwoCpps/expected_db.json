@@ -1,0 +1,103 @@
+{
+  "databaseVersion": 1,
+  "cppFiles": [
+    {
+      "name": "/backendSuite/walkerTests/actualTests/cStyleTests/declInHeaderAndTwoCpps/impl.cpp",
+      "lastAnalyzed": 1722468178921,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [
+        {
+          "funcName": "add",
+          "funcAstName": "__Z3addii",
+          "qualType": "int (int, int)",
+          "range": {
+            "start": {
+              "line": 3,
+              "column": 5
+            },
+            "end": {
+              "line": 3,
+              "column": 8
+            }
+          },
+          "funcCalls": [],
+          "virtualFuncCalls": []
+        }
+      ],
+      "virtualFuncImpls": []
+    },
+    {
+      "name": "/backendSuite/walkerTests/actualTests/cStyleTests/declInHeaderAndTwoCpps/main.cpp",
+      "lastAnalyzed": 1722468178921,
+      "classes": [],
+      "funcDecls": [],
+      "funcImpls": [
+        {
+          "funcName": "main",
+          "funcAstName": "_main",
+          "qualType": "int (int, char **)",
+          "range": {
+            "start": {
+              "line": 3,
+              "column": 5
+            },
+            "end": {
+              "line": 3,
+              "column": 9
+            }
+          },
+          "funcCalls": [
+            {
+              "funcName": "add",
+              "funcAstName": "__Z3addii",
+              "qualType": "int (int, int)",
+              "range": {
+                "start": {
+                  "line": 5,
+                  "column": 12
+                },
+                "end": {
+                  "line": 5,
+                  "column": 21
+                }
+              }
+            }
+          ],
+          "virtualFuncCalls": []
+        }
+      ],
+      "virtualFuncImpls": []
+    }
+  ],
+  "hppFiles": [
+    {
+      "name": "/backendSuite/walkerTests/actualTests/cStyleTests/declInHeaderAndTwoCpps/header.h",
+      "lastAnalyzed": 1722468178921,
+      "classes": [],
+      "funcDecls": [
+        {
+          "funcName": "add",
+          "funcAstName": "__Z3addii",
+          "qualType": "int (int, int)",
+          "range": {
+            "start": {
+              "line": 1,
+              "column": 5
+            },
+            "end": {
+              "line": 1,
+              "column": 8
+            }
+          }
+        }
+      ],
+      "funcImpls": [],
+      "virtualFuncImpls": [],
+      "referencedFromFiles": [
+        "/backendSuite/walkerTests/actualTests/cStyleTests/declInHeaderAndTwoCpps/impl.cpp",
+        "/backendSuite/walkerTests/actualTests/cStyleTests/declInHeaderAndTwoCpps/main.cpp"
+      ]
+    }
+  ]
+}
