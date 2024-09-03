@@ -1,0 +1,152 @@
+{
+  "databaseVersion": 1,
+  "cppFiles": [
+    {
+      "name": "/backendSuite/walkerTests/actualTests/sympleTemplates/simpleTemplateClassVirtualFunc/file.cpp",
+      "lastAnalyzed": 1725401842228,
+      "classes": [
+        {
+          "name": "TemplateClass",
+          "parentClasses": [],
+          "classes": [],
+          "funcDecls": [],
+          "funcImpls": [
+            {
+              "funcName": "foo",
+              "funcAstName": "__ZN13TemplateClassI11SimpleClassE3fooERS0_",
+              "qualType": "int (SimpleClass &)",
+              "range": {
+                "start": {
+                  "line": 4,
+                  "column": 16
+                },
+                "end": {
+                  "line": 4,
+                  "column": 19
+                }
+              },
+              "funcCalls": [],
+              "virtualFuncCalls": [
+                {
+                  "funcName": "ba",
+                  "funcAstName": "__ZN11SimpleClass2baEv",
+                  "baseFuncAstName": "__ZN11SimpleClass2baEv",
+                  "qualType": "int ()",
+                  "range": {
+                    "start": {
+                      "line": 6,
+                      "column": 16
+                    },
+                    "end": {
+                      "line": 6,
+                      "column": 22
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "virtualFuncDecls": [],
+          "virtualFuncImpls": []
+        },
+        {
+          "name": "SimpleClass",
+          "parentClasses": [],
+          "classes": [],
+          "funcDecls": [
+            {
+              "funcName": "operator=",
+              "funcAstName": "__ZN11SimpleClassaSERKS_",
+              "qualType": "SimpleClass &(const SimpleClass &)",
+              "range": {
+                "start": {
+                  "line": 10,
+                  "column": 7
+                },
+                "end": {
+                  "line": 10,
+                  "column": 18
+                }
+              }
+            },
+            {
+              "funcName": "operator=",
+              "funcAstName": "__ZN11SimpleClassaSEOS_",
+              "qualType": "SimpleClass &(SimpleClass &&)",
+              "range": {
+                "start": {
+                  "line": 10,
+                  "column": 7
+                },
+                "end": {
+                  "line": 10,
+                  "column": 18
+                }
+              }
+            }
+          ],
+          "funcImpls": [],
+          "virtualFuncDecls": [],
+          "virtualFuncImpls": [
+            {
+              "funcName": "ba",
+              "funcAstName": "__ZN11SimpleClass2baEv",
+              "qualType": "int ()",
+              "range": {
+                "start": {
+                  "line": 13,
+                  "column": 17
+                },
+                "end": {
+                  "line": 13,
+                  "column": 19
+                }
+              },
+              "baseFuncAstName": "__ZN11SimpleClass2baEv",
+              "funcCalls": [],
+              "virtualFuncCalls": []
+            }
+          ]
+        }
+      ],
+      "funcDecls": [],
+      "funcImpls": [
+        {
+          "funcName": "main",
+          "funcAstName": "_main",
+          "qualType": "int (int, char **)",
+          "range": {
+            "start": {
+              "line": 19,
+              "column": 5
+            },
+            "end": {
+              "line": 19,
+              "column": 9
+            }
+          },
+          "funcCalls": [
+            {
+              "funcName": "foo",
+              "funcAstName": "__ZN13TemplateClassI11SimpleClassE3fooERS0_",
+              "qualType": "int (SimpleClass &)",
+              "range": {
+                "start": {
+                  "line": 22,
+                  "column": 12
+                },
+                "end": {
+                  "line": 22,
+                  "column": 53
+                }
+              }
+            }
+          ],
+          "virtualFuncCalls": []
+        }
+      ],
+      "virtualFuncImpls": []
+    }
+  ],
+  "hppFiles": []
+}
