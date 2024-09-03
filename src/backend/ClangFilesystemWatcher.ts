@@ -165,7 +165,8 @@ export class ClangFilesystemWatcher {
         var walker = this.walkerFactory.createAstWalker(
             compileCommand.file,
             compileCommand.command,
-            this.database
+            this.database,
+            this.userInterface
         );
 
         walker.walkAst();
