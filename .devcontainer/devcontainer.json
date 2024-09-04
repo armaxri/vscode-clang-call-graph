@@ -22,6 +22,33 @@
       "version": "latest"
     },
     "ghcr.io/joshuanianji/devcontainer-features/github-cli-persistence:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "EditorConfig.EditorConfig",
+        "ms-vscode.cpptools",
+        "twxs.cmake",
+        "ms-vscode.cmake-tools",
+        "DavidAnson.vscode-markdownlint",
+        "ms-python.debugpy",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.black-formatter",
+        "streetsidesoftware.code-spell-checker",
+        "ouweiya.copy-file-name",
+        "GitHub.vscode-pull-request-github",
+        "hbenl.vscode-mocha-test-adapter",
+        "ryu1kn.text-marker",
+        "ms-python.isort",
+        "GitHub.copilot-chat",
+        "GitHub.copilot",
+        "eamodio.gitlens",
+        "qwtel.sqlite-viewer"
+      ]
+    }
   }
 
   // Features to add to the dev container. More info: https://containers.dev/features.
