@@ -8,5 +8,5 @@ export interface AstWalkerFactory {
         command: string,
         database: Database,
         userInterface: UserInterface
-    ): AstWalker;
+    ): AstWalker | null;
 }

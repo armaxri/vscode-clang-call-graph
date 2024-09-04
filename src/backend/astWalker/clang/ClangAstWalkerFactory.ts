@@ -11,11 +11,13 @@ export class ClangAstWalkerFactory implements AstWalkerFactory {
         command: string,
         database: Database,
         userInterface: UserInterface
-    ): AstWalker {
-        return new ClangAstWalker(
-            fileName,
-            database,
-            fileReaderFunc(command, userInterface)
-        );
+    ): AstWalker | null {
+        const ast = fileReaderFunc(fileName, command, userInterface);
+
+        if (ast !== null) {
+            return new ClangAstWalker(fileName, database, ast);
+        }
+
+        return null;
     }
 }

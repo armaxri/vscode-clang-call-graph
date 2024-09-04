@@ -4,12 +4,32 @@ import * as childProcess from "child_process";
 import { UserInterface } from "../../UserInterface";
 
 export function fileReaderFunc(
+    fileName: string,
     command: string,
     userInterface: UserInterface
-): clangAst.AstElement {
+): clangAst.AstElement | null {
     const newCommand = createClangAstCall(command);
-    const astJson = childProcess.execSync(newCommand.join(" ")).toString();
-    const ast = JSON.parse(astJson) as clangAst.AstElement;
 
-    return ast;
+    var processOutput: string;
+
+    try {
+        processOutput = childProcess.execSync(newCommand.join(" ")).toString();
+    } catch (error) {
+        userInterface.displayError(
+            `Error on parsing file "${fileName}" using command "${command}" resulting error message: ${error}`
+        );
+
+        return null;
+    }
+
+    try {
+        const ast = JSON.parse(processOutput) as clangAst.AstElement;
+        return ast;
+    } catch (error) {
+        userInterface.displayError(
+            `Error on parsing file "${fileName}" using command "${command}" resulting error message: ${error}`
+        );
+    }
+
+    return null;
 }

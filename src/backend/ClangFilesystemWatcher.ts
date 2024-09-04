@@ -169,6 +169,10 @@ export class ClangFilesystemWatcher {
             this.userInterface
         );
 
+        if (walker === null) {
+            return;
+        }
+
         walker.walkAst();
 
         this.analyzedFiles.push({
