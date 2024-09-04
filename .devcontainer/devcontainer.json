@@ -6,10 +6,6 @@
     "dockerfile": "Dockerfile"
   },
   "features": {
-    "ghcr.io/devcontainers/features/git-lfs:1": {
-      "autoPull": true,
-      "version": "latest"
-    },
     "ghcr.io/devcontainers/features/github-cli:1": {
       "installDirectlyFromGitHubRelease": true,
       "version": "latest"
