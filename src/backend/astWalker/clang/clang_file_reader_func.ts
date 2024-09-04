@@ -1,23 +1,19 @@
 import * as clangAst from "./clang_ast_json";
 import { createClangAstCall } from "../../utils/utils";
 import * as childProcess from "child_process";
-import { UserInterface } from "../../UserInterface";
+import { FileAnalysisHandle } from "../FileAnalysisHandle";
 
 export function fileReaderFunc(
-    fileName: string,
-    command: string,
-    userInterface: UserInterface
+    fileHandle: FileAnalysisHandle
 ): clangAst.AstElement | null {
-    const newCommand = createClangAstCall(command);
+    const newCommand = createClangAstCall(fileHandle.getCommand());
 
     var processOutput: string;
 
     try {
         processOutput = childProcess.execSync(newCommand.join(" ")).toString();
     } catch (error) {
-        userInterface.displayError(
-            `Error on parsing file "${fileName}" using command "${command}" resulting error message: ${error}`
-        );
+        fileHandle.handleFileParsingError(error as string);
 
         return null;
     }
@@ -26,9 +22,7 @@ export function fileReaderFunc(
         const ast = JSON.parse(processOutput) as clangAst.AstElement;
         return ast;
     } catch (error) {
-        userInterface.displayError(
-            `Error on parsing file "${fileName}" using command "${command}" resulting error message: ${error}`
-        );
+        fileHandle.handleFileParsingError(error as string);
     }
 
     return null;

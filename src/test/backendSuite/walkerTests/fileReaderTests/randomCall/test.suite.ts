@@ -8,10 +8,12 @@ suite("random call", () => {
 
     test('run "cd .."', () => {
         const userInterface: MockUserInterface = new MockUserInterface();
-        assert.equal(
-            fileReaderFunc("invalidCppCall.cpp", "cd ..", userInterface),
-            null
+        const fileHandle = userInterface.createFileAnalysisHandle(
+            "invalidCppCall.cpp",
+            "cd .."
         );
+
+        assert.equal(fileReaderFunc(fileHandle), null);
         assert.equal(userInterface.loggedErrors.length, 1);
         assert.equal(
             userInterface.loggedErrors[0],
@@ -21,10 +23,12 @@ suite("random call", () => {
 
     test('run "clang -v"', () => {
         const userInterface: MockUserInterface = new MockUserInterface();
-        assert.equal(
-            fileReaderFunc("invalidCppCall.cpp", "clang -v", userInterface),
-            null
+        const fileHandle = userInterface.createFileAnalysisHandle(
+            "invalidCppCall.cpp",
+            "clang -v"
         );
+
+        assert.equal(fileReaderFunc(fileHandle), null);
         assert.equal(userInterface.loggedErrors.length, 1);
         assert.equal(
             userInterface.loggedErrors[0],
@@ -34,14 +38,12 @@ suite("random call", () => {
 
     test('run clang with no existing file "clang++ -c keks.cpp -std=c++20 -o keks.o"', () => {
         const userInterface: MockUserInterface = new MockUserInterface();
-        assert.equal(
-            fileReaderFunc(
-                "invalidCppCall.cpp",
-                "clang++ -c keks.cpp -std=c++20 -o keks.o",
-                userInterface
-            ),
-            null
+        const fileHandle = userInterface.createFileAnalysisHandle(
+            "invalidCppCall.cpp",
+            "clang++ -c keks.cpp -std=c++20 -o keks.o"
         );
+
+        assert.equal(fileReaderFunc(fileHandle), null);
         assert.equal(userInterface.loggedErrors.length, 1);
         assert.ok(
             userInterface.loggedErrors[0].startsWith(

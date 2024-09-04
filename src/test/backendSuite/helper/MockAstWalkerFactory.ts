@@ -1,5 +1,6 @@
 import { AstWalker } from "../../../backend/astWalker/AstWalker";
 import { AstWalkerFactory } from "../../../backend/astWalker/AstWalkerFactory";
+import { FileAnalysisHandle } from "../../../backend/astWalker/FileAnalysisHandle";
 import { Database } from "../../../backend/database/Database";
 import { MockAstWalker } from "./MockAstWalker";
 
@@ -16,12 +17,15 @@ export class MockAstWalkerFactory implements AstWalkerFactory {
     constructor() {}
 
     public createAstWalker(
-        fileName: string,
-        command: string,
-        database: Database
+        database: Database,
+        fileHandle: FileAnalysisHandle
     ): AstWalker {
-        this.receivedRequests.push({ fileName, command, database });
-        const newAstWalker = new MockAstWalker(fileName);
+        this.receivedRequests.push({
+            fileName: fileHandle.getFileName(),
+            command: fileHandle.getCommand(),
+            database,
+        });
+        const newAstWalker = new MockAstWalker(fileHandle.getFileName());
         this.generatedAstWalkers.push(newAstWalker);
 
         return newAstWalker;

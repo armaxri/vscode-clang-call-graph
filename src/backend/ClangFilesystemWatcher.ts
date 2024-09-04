@@ -162,11 +162,14 @@ export class ClangFilesystemWatcher {
     }
 
     private async parseCppFile(compileCommand: ICompileCommand) {
-        var walker = this.walkerFactory.createAstWalker(
+        const fileHandle = this.userInterface.createFileAnalysisHandle(
             compileCommand.file,
-            compileCommand.command,
+            compileCommand.command
+        );
+
+        const walker = this.walkerFactory.createAstWalker(
             this.database,
-            this.userInterface
+            fileHandle
         );
 
         if (walker === null) {

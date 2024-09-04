@@ -2,20 +2,18 @@ import { ClangAstWalker } from "./ClangAstWalker";
 import { AstWalkerFactory } from "../AstWalkerFactory";
 import { Database } from "../../database/Database";
 import { AstWalker } from "../AstWalker";
-import { UserInterface } from "../../UserInterface";
 import { fileReaderFunc } from "./clang_file_reader_func";
+import { FileAnalysisHandle } from "../FileAnalysisHandle";
 
 export class ClangAstWalkerFactory implements AstWalkerFactory {
     createAstWalker(
-        fileName: string,
-        command: string,
         database: Database,
-        userInterface: UserInterface
+        fileHandle: FileAnalysisHandle
     ): AstWalker | null {
-        const ast = fileReaderFunc(fileName, command, userInterface);
+        const ast = fileReaderFunc(fileHandle);
 
         if (ast !== null) {
-            return new ClangAstWalker(fileName, database, ast);
+            return new ClangAstWalker(fileHandle.getFileName(), database, ast);
         }
 
         return null;

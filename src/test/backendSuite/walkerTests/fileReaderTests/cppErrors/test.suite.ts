@@ -14,10 +14,12 @@ suite("cpp errors", () => {
             "/src/"
         )}/defectHeader.cpp -std=c++20 -o defectHeader.o`;
 
-        assert.equal(
-            fileReaderFunc("defectHeader.cpp", call, userInterface),
-            null
+        const fileHandle = userInterface.createFileAnalysisHandle(
+            "defectHeader.cpp",
+            call
         );
+
+        assert.equal(fileReaderFunc(fileHandle), null);
         assert.equal(userInterface.loggedErrors.length, 1);
         assert.ok(
             userInterface.loggedErrors[0].startsWith(
