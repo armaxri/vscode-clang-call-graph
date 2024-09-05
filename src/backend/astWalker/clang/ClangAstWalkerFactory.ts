@@ -13,7 +13,7 @@ export class ClangAstWalkerFactory implements AstWalkerFactory {
         const ast = fileReaderFunc(fileHandle);
 
         if (ast !== null) {
-            return new ClangAstWalker(fileHandle.getFileName(), database, ast);
+            return new ClangAstWalker(fileHandle, database, ast);
         }
 
         return null;
