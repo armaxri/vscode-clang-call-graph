@@ -375,10 +375,8 @@ export class ClangAstWalker implements AstWalker {
             // istanbul ignore next
             if (!astElement.name?.startsWith("__")) {
                 // istanbul ignore next
-                console.error(
-                    `Template class "${
-                        astElement.name
-                    }" is not known in file "${this.fileHandle.getFileName()}".`
+                this.fileHandle.logInternalError(
+                    `Template class "${astElement.name}" is not known.`
                 );
             }
         }

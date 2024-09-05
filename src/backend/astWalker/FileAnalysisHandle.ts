@@ -46,4 +46,10 @@ export class FileAnalysisHandle {
             `Error on walking file "${this.fileName}" using command "${this.command}" resulting error message: ${error}`
         );
     }
+
+    public logInternalError(error: string): void {
+        this.userInterface.displayError(
+            `Internal error on walking file "${this.fileName}" using command "${this.command}" resulting error message: ${error}`
+        );
+    }
 }
