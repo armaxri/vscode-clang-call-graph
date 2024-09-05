@@ -89,14 +89,9 @@ export class ClangAstWalker implements AstWalker {
 
             const endTime = Date.now();
             const elapsedTime = endTime - startTime;
-            console.log(
-                `Took ${elapsedTime}ms to analyze file "${this.fileHandle.getFileName()}".`
-            );
+            this.fileHandle.fileHandledSuccessfully(elapsedTime);
         } catch (error) {
-            console.error(
-                `Internal error during analysis of file "${this.fileHandle.getFileName()}": ${error}`
-            );
-            // TODO(#10): Report to user an internal error.
+            this.fileHandle.handleFileWalkingError(error as string);
         }
     }
 
@@ -372,8 +367,14 @@ export class ClangAstWalker implements AstWalker {
             }
 
             this.activeClassStack.pop();
-        } else {
+        }
+        // The following is a fallback, if the template class is not known.
+        // This is not a realistic scenario and should not happen.
+        // istanbul ignore next
+        else {
+            // istanbul ignore next
             if (!astElement.name?.startsWith("__")) {
+                // istanbul ignore next
                 console.error(
                     `Template class "${
                         astElement.name
@@ -387,7 +388,8 @@ export class ClangAstWalker implements AstWalker {
         const calledFuncId: string | undefined = astElement.referencedDecl
             ? astElement.kind === "DeclRefExpr"
                 ? astElement.referencedDecl.id
-                : astElement.referencedMemberDecl
+                : // istanbul ignore next
+                  undefined // could be astElement.referencedMemberDecl
             : astElement.referencedMemberDecl
             ? astElement.referencedMemberDecl
             : // istanbul ignore next

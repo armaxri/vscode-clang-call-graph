@@ -28,8 +28,11 @@ export class FileAnalysisHandle {
         return this.fileHandled;
     }
 
-    public fileHandledSuccessfully(): void {
+    public fileHandledSuccessfully(usedTime: number): void {
         this.fileHandled = true;
+        this.userInterface.displayError(
+            `File "${this.fileName}" successfully handled using command "${this.command}" in ${usedTime} ms.`
+        );
     }
 
     public handleFileParsingError(error: string): void {
