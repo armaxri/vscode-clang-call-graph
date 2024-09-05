@@ -62,12 +62,9 @@ export class ClangAstWalker implements AstWalker {
     walkAst() {
         try {
             if (this.baseAstElement.kind !== "TranslationUnitDecl") {
-                console.error(
-                    `Expected TranslationUnitDecl, got "${
-                        this.baseAstElement.kind
-                    }" as first element in file "${this.fileHandle.getFileName()}".`
+                this.fileHandle.handleFileWalkingError(
+                    `Expected TranslationUnitDecl, got "${this.baseAstElement.kind}" as first element.`
                 );
-                // TODO(#10): Report to user an internal error.
                 return;
             }
 

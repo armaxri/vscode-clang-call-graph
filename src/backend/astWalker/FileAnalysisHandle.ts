@@ -37,4 +37,10 @@ export class FileAnalysisHandle {
             `Error on parsing file "${this.fileName}" using command "${this.command}" resulting error message: ${error}`
         );
     }
+
+    public handleFileWalkingError(error: string): void {
+        this.userInterface.displayError(
+            `Error on walking file "${this.fileName}" using command "${this.command}" resulting error message: ${error}`
+        );
+    }
 }
