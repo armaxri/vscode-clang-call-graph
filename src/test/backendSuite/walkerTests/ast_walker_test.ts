@@ -54,7 +54,7 @@ function loadExpectedDatabase(
     return convertedDatabase;
 }
 
-function loadExpectedLowdbDatabase(
+export function loadExpectedLowdbDatabase(
     dirname: string,
     filename: string
 ): LowdbDatabase {
@@ -73,7 +73,7 @@ function createAndRunAstWalker(
         mockConfig.getSelectedDatabasePath().pathString()
     ).tryToRemove();
 
-    var database = createDatabase(mockConfig);
+    const database = createDatabase(mockConfig);
     for (const filename of filenames) {
         const astWalker = new ClangAstWalker(
             getCppNameFromJsonFile(callingFileDirName, filename),
