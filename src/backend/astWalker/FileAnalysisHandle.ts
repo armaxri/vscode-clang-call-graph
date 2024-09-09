@@ -36,18 +36,21 @@ export class FileAnalysisHandle {
     }
 
     public handleFileParsingError(error: string): void {
+        this.fileHandled = true;
         this.userInterface.displayError(
             `Error on parsing file "${this.fileName}" using command "${this.command}" resulting error message: ${error}`
         );
     }
 
     public handleFileWalkingError(error: string): void {
+        this.fileHandled = true;
         this.userInterface.displayError(
             `Error on walking file "${this.fileName}" using command "${this.command}" resulting error message: ${error}`
         );
     }
 
     public logInternalError(error: string): void {
+        this.fileHandled = true;
         this.userInterface.displayError(
             `Internal error on walking file "${this.fileName}" using command "${this.command}" resulting error message: ${error}`
         );

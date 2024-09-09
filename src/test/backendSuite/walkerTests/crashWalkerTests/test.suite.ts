@@ -44,6 +44,7 @@ suite("Crash Walker Tests", () => {
                 `Error on walking file "defectFile.cpp" using command "${call}" resulting error message: Expected TranslationUnitDecl, got "clang" as first element.`
             )
         );
+        assert.ok(fileHandle.fileHandlingCompleted());
 
         const expectedDatabase = loadExpectedLowdbDatabase(
             adjustTsToJsPath(__dirname),

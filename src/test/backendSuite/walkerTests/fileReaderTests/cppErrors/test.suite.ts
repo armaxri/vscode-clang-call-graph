@@ -26,5 +26,6 @@ suite("cpp errors", () => {
                 `Error on parsing file "defectHeader.cpp" using command "${call}" resulting error message: Error: Command failed: clang++ -c`
             )
         );
+        assert.ok(fileHandle.fileHandlingCompleted());
     });
 });

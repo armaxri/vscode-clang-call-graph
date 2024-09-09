@@ -49,5 +49,6 @@ suite("Passing Parsing", () => {
         database.writeDatabase();
 
         assertDatabaseEquals(database, expectedDatabase);
+        assert.ok(!fileHandle.fileHandlingCompleted());
     });
 });

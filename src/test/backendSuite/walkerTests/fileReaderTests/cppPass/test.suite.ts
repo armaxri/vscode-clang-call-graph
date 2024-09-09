@@ -21,5 +21,6 @@ suite("cpp pass", () => {
 
         assert.notEqual(fileReaderFunc(fileHandle), null);
         assert.equal(userInterface.loggedErrors.length, 0);
+        assert.ok(!fileHandle.fileHandlingCompleted());
     });
 });
