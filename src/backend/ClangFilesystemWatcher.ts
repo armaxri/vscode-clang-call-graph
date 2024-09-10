@@ -30,12 +30,6 @@ export class ClangFilesystemWatcher {
     private database: Database;
     private walkerFactory: AstWalkerFactory;
 
-    // This number is used during busy waiting to avoid high CPU usage.
-    // 0.1 seconds should be an appropriate waiting period for users to feel no delay but still have a good performance.
-    // It is optionally configurable from the constructor, so that tests can use a lower value,
-    // or may even use a higher value to test correct behavior.
-    private workerDelay: number = 100;
-
     // The C and C++ files are analyzed in parallel by a group of workers.
     // This array stores the promises of the workers, so that the main thread can await them on shutdown.
     // The file changes are observed by the starting thread of the startWatching method.
@@ -48,17 +42,12 @@ export class ClangFilesystemWatcher {
         config: Config,
         userInterface: UserInterface,
         walkerFactory: AstWalkerFactory,
-        database: Database,
-        workerDelay?: number
+        database: Database
     ) {
         this.config = config;
         this.userInterface = userInterface;
         this.database = database;
         this.walkerFactory = walkerFactory;
-
-        if (workerDelay !== undefined) {
-            this.workerDelay = workerDelay;
-        }
     }
 
     public isRunning(): boolean {
@@ -117,7 +106,7 @@ export class ClangFilesystemWatcher {
             } else if (await this.searchCppFileChanges()) {
                 // Nothing to do here. The actions happens earlier.
             } else {
-                await delay(this.workerDelay);
+                await delay(this.config.getFileSystemWatcherWorkerDelay());
             }
         }
 
@@ -202,7 +191,7 @@ export class ClangFilesystemWatcher {
             if (task !== undefined) {
                 await this.parseCppFile(task);
             } else {
-                await delay(this.workerDelay);
+                await delay(this.config.getFileSystemWatcherWorkerDelay());
             }
         }
 

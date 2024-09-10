@@ -23,6 +23,11 @@ export abstract class Config {
     protected sqliteDatabaseName = "clang_call_graph.sqlite3";
     protected lowdbDatabaseName = "clang_call_graph.json";
     protected verbose: boolean = false;
+    // This number is used during busy waiting to avoid high CPU usage.
+    // 0.1 seconds should be an appropriate waiting period for users to feel no delay but still have a good performance.
+    // It is optionally configurable from the constructor, so that tests can use a lower value,
+    // or may even use a higher value to test correct behavior.
+    protected fileSystemWatcherWorkerDelay: number = 100;
 
     constructor() {}
 
@@ -86,5 +91,9 @@ export abstract class Config {
     // For development purposes.
     runVerbose(): boolean {
         return this.verbose;
+    }
+
+    getFileSystemWatcherWorkerDelay(): number {
+        return this.fileSystemWatcherWorkerDelay;
     }
 }
