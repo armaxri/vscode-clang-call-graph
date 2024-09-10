@@ -20,7 +20,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
     let config = new VscodeConfig();
     let database = createDatabase(config);
-    let userInterface = new VscodeUserInterface();
+    let userInterface = new VscodeUserInterface(config);
     callGraphParser = new ClangFilesystemWatcher(
         config,
         userInterface,

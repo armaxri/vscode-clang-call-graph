@@ -16,7 +16,9 @@ suite("Crash Walker Tests", () => {
 
     test("missing TranslationUnitDecl", () => {
         const mockConfig = new MockConfig(__dirname, DatabaseType.lowdb);
-        const userInterface: MockUserInterface = new MockUserInterface();
+        const userInterface: MockUserInterface = new MockUserInterface(
+            mockConfig
+        );
         new PathUtils(
             mockConfig.getSelectedDatabasePath().pathString()
         ).tryToRemove();

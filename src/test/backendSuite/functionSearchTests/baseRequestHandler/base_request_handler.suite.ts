@@ -11,7 +11,7 @@ import { assertFuncEquals } from "../../helper/database_equality";
 function mainTestSetup(): [BaseRequestHandler, FuncBasics] {
     const config = new MockConfig(__dirname);
     const database = createCleanLowdbDatabase(__dirname);
-    const userInterface = new MockUserInterface();
+    const userInterface = new MockUserInterface(config);
 
     const handler = new BaseRequestHandler(config, database, userInterface);
 
@@ -76,7 +76,7 @@ suite("Base Request Handler", () => {
     test("Basic decl match in header", () => {
         const config = new MockConfig(__dirname);
         const database = createCleanLowdbDatabase(__dirname);
-        const userInterface = new MockUserInterface();
+        const userInterface = new MockUserInterface(config);
 
         const handler = new BaseRequestHandler(config, database, userInterface);
 

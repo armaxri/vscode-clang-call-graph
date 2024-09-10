@@ -1,7 +1,13 @@
 import { FileAnalysisHandle } from "./astWalker/FileAnalysisHandle";
+import { Config } from "./Config";
 
 export abstract class UserInterface {
     private activeFileAnalysisHandles: FileAnalysisHandle[] = [];
+    protected config: Config;
+
+    constructor(config: Config) {
+        this.config = config;
+    }
 
     abstract displayError(message: string): void;
 

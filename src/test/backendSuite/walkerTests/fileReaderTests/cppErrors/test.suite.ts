@@ -2,12 +2,16 @@ import assert from "assert";
 import { addSuitesInSubDirsSuites } from "../../../helper/mocha_test_helper";
 import { MockUserInterface } from "../../../helper/MockUserInterface";
 import { fileReaderFunc } from "../../../../../backend/astWalker/clang/clang_file_reader_func";
+import { MockConfig } from "../../../helper/MockConfig";
 
 suite("cpp errors", () => {
     addSuitesInSubDirsSuites(__dirname);
 
     test("run clang error in include name", () => {
-        const userInterface: MockUserInterface = new MockUserInterface();
+        const mockConfig = new MockConfig(__dirname);
+        const userInterface: MockUserInterface = new MockUserInterface(
+            mockConfig
+        );
 
         const call = `clang++ -c ${__dirname.replace(
             "/out/",

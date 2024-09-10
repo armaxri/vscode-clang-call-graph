@@ -76,7 +76,7 @@ function createAndRunAstWalker(
     ).tryToRemove();
 
     const database = createDatabase(mockConfig);
-    const userInterface = new MockUserInterface();
+    const userInterface = new MockUserInterface(mockConfig);
 
     for (const filename of filenames) {
         const fileHandle = userInterface.createFileAnalysisHandle(

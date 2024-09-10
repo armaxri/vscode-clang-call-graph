@@ -2,12 +2,16 @@ import assert from "assert";
 import { addSuitesInSubDirsSuites } from "../../../helper/mocha_test_helper";
 import { MockUserInterface } from "../../../helper/MockUserInterface";
 import { fileReaderFunc } from "../../../../../backend/astWalker/clang/clang_file_reader_func";
+import { MockConfig } from "../../../helper/MockConfig";
 
 suite("random call", () => {
     addSuitesInSubDirsSuites(__dirname);
 
     test('run "cd .."', () => {
-        const userInterface: MockUserInterface = new MockUserInterface();
+        const mockConfig = new MockConfig(__dirname);
+        const userInterface: MockUserInterface = new MockUserInterface(
+            mockConfig
+        );
         const fileHandle = userInterface.createFileAnalysisHandle(
             "invalidCppCall.cpp",
             "cd .."
@@ -23,7 +27,10 @@ suite("random call", () => {
     });
 
     test('run "clang -v"', () => {
-        const userInterface: MockUserInterface = new MockUserInterface();
+        const mockConfig = new MockConfig(__dirname);
+        const userInterface: MockUserInterface = new MockUserInterface(
+            mockConfig
+        );
         const fileHandle = userInterface.createFileAnalysisHandle(
             "invalidCppCall.cpp",
             "clang -v"
@@ -39,7 +46,10 @@ suite("random call", () => {
     });
 
     test('run clang with no existing file "clang++ -c keks.cpp -std=c++20 -o keks.o"', () => {
-        const userInterface: MockUserInterface = new MockUserInterface();
+        const mockConfig = new MockConfig(__dirname);
+        const userInterface: MockUserInterface = new MockUserInterface(
+            mockConfig
+        );
         const fileHandle = userInterface.createFileAnalysisHandle(
             "invalidCppCall.cpp",
             "clang++ -c keks.cpp -std=c++20 -o keks.o"

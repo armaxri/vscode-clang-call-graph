@@ -15,7 +15,9 @@ suite("Passing Parsing", () => {
 
     test("run clang error in include name", () => {
         const mockConfig = new MockConfig(__dirname, DatabaseType.lowdb);
-        const userInterface: MockUserInterface = new MockUserInterface();
+        const userInterface: MockUserInterface = new MockUserInterface(
+            mockConfig
+        );
         new PathUtils(
             mockConfig.getSelectedDatabasePath().pathString()
         ).tryToRemove();
