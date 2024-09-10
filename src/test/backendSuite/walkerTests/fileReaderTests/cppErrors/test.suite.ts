@@ -27,5 +27,6 @@ suite("cpp errors", () => {
             )
         );
         assert.ok(fileHandle.fileHandlingCompleted());
+        assert.ok(!fileHandle.fileWasHandledSuccessfully());
     });
 });

@@ -5,6 +5,7 @@ export class FileAnalysisHandle {
     private command: string;
     private userInterface: UserInterface;
     private fileHandled: boolean = false;
+    private fileHandlingSuccessfully: boolean = false;
 
     constructor(
         fileName: string,
@@ -28,8 +29,13 @@ export class FileAnalysisHandle {
         return this.fileHandled;
     }
 
+    public fileWasHandledSuccessfully(): boolean {
+        return this.fileHandlingSuccessfully;
+    }
+
     public fileHandledSuccessfully(usedTime: number): void {
         this.fileHandled = true;
+        this.fileHandlingSuccessfully = true;
         this.userInterface.displayError(
             `File "${this.fileName}" successfully handled using command "${this.command}" in ${usedTime} ms.`
         );

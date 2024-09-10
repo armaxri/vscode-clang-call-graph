@@ -45,6 +45,7 @@ suite("Crash Walker Tests", () => {
             )
         );
         assert.ok(fileHandle.fileHandlingCompleted());
+        assert.ok(!fileHandle.fileWasHandledSuccessfully());
 
         const expectedDatabase = loadExpectedLowdbDatabase(
             adjustTsToJsPath(__dirname),

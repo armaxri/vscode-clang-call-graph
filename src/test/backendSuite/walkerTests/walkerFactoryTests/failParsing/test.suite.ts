@@ -51,5 +51,6 @@ suite("Fail Parsing", () => {
 
         assertDatabaseEquals(database, expectedDatabase);
         assert.ok(fileHandle.fileHandlingCompleted());
+        assert.ok(!fileHandle.fileWasHandledSuccessfully());
     });
 });
