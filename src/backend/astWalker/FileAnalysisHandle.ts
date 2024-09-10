@@ -49,6 +49,8 @@ export class FileAnalysisHandle {
         );
     }
 
+    // The following function is just a fallback for internal errors that are not expected.
+    // istanbul ignore next
     public logInternalError(error: string): void {
         this.fileHandled = true;
         this.userInterface.displayError(
