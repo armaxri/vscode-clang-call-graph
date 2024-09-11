@@ -9,7 +9,9 @@ export abstract class UserInterface {
         this.config = config;
     }
 
-    abstract logError(message: string): void;
+    logError(message: string): void {
+        console.error(message);
+    }
 
     abstract displayError(message: string): void;
 
