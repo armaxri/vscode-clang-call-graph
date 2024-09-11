@@ -7,7 +7,7 @@ suite("MockUserInterface Test Suite", () => {
         const config = new MockConfig(__dirname);
         const userInterface = new MockUserInterface(config);
         assert.strictEqual(userInterface.loggedErrors.length, 0);
-        userInterface.displayError("error");
+        userInterface.logError("error");
         assert.strictEqual(userInterface.loggedErrors.length, 1);
         assert.strictEqual(userInterface.loggedErrors[0], "error");
     });

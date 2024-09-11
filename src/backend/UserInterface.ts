@@ -9,6 +9,8 @@ export abstract class UserInterface {
         this.config = config;
     }
 
+    abstract logError(message: string): void;
+
     abstract displayError(message: string): void;
 
     createFileAnalysisHandle(
