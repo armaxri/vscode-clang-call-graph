@@ -142,7 +142,7 @@ export class ClangFilesystemWatcher {
         } catch (error) {
             const message = `Failed to read "${compileCommandsJsonPath}" or the file is not a valid compile_commands.json file.`;
             console.error(message);
-            this.userInterface.displayError(message);
+            this.userInterface.logError(message);
 
             return false;
         }
