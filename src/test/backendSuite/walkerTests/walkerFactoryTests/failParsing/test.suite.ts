@@ -5,7 +5,6 @@ import { MockConfig } from "../../../helper/MockConfig";
 import { DatabaseType } from "../../../../../backend/Config";
 import { ClangAstWalkerFactory } from "../../../../../backend/astWalker/clang/ClangAstWalkerFactory";
 import { PathUtils } from "../../../../../backend/utils/PathUtils";
-import { createDatabase } from "../../../../../backend/database/helper/database_factory";
 import { loadExpectedLowdbDatabase } from "../../ast_walker_test";
 import { adjustTsToJsPath } from "../../../helper/path_helper";
 import { assertDatabaseEquals } from "../../../helper/database_equality";
@@ -22,7 +21,7 @@ suite("Fail Parsing", () => {
             mockConfig.getSelectedDatabasePath().pathString()
         ).tryToRemove();
 
-        const database = createDatabase(mockConfig);
+        const database = mockConfig.createDatabase();
 
         const call = `clang++ -c ${__dirname.replace(
             "/out/",

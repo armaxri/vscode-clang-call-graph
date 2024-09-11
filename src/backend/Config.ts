@@ -1,3 +1,6 @@
+import { Database } from "./database/Database";
+import { LowdbDatabase } from "./database/lowdb/LowdbDatabase";
+import { SqliteDatabase } from "./database/sqlite/SqliteDatabase";
 import { PathUtils } from "./utils/PathUtils";
 
 export enum DatabaseType {
@@ -95,5 +98,20 @@ export abstract class Config {
 
     getFileSystemWatcherWorkerDelay(): number {
         return this.fileSystemWatcherWorkerDelay;
+    }
+
+    createDatabase(): Database {
+        switch (this.getSelectedDatabaseType()) {
+            case DatabaseType.lowdb:
+                return new LowdbDatabase(this);
+            case DatabaseType.sqlite:
+                return new SqliteDatabase(this);
+            // istanbul ignore next
+            default:
+                throw new Error(
+                    "Database type not supported: " +
+                        this.getSelectedDatabaseType()
+                );
+        }
     }
 }

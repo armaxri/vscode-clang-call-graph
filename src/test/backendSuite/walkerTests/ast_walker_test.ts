@@ -13,9 +13,7 @@ import {
 } from "../../../backend/database/lowdb/lowdb_internal_structure";
 import { DatabaseType } from "../../../backend/Config";
 import { Database } from "../../../backend/database/Database";
-import { createDatabase } from "../../../backend/database/helper/database_factory";
 import { assertDatabaseEquals } from "../helper/database_equality";
-import { FileAnalysisHandle } from "../../../backend/astWalker/FileAnalysisHandle";
 import { MockUserInterface } from "../helper/MockUserInterface";
 
 function loadAst(dirname: string, filename: string): astJson.AstElement {
@@ -75,7 +73,7 @@ function createAndRunAstWalker(
         mockConfig.getSelectedDatabasePath().pathString()
     ).tryToRemove();
 
-    const database = createDatabase(mockConfig);
+    const database = mockConfig.createDatabase();
     const userInterface = new MockUserInterface(mockConfig);
 
     for (const filename of filenames) {
