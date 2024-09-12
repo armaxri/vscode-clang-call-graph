@@ -97,26 +97,26 @@ suite("Path Utils Test Suite", () => {
         assert.ok(!path.doesExist());
 
         const timestamp1 = Date.now();
-        await delay(5);
+        await delay(20);
 
         path.createFile();
         assert.ok(path.doesExist());
-        await delay(5);
+        await delay(20);
         const modificationTime1 = path.getModificationTime().getTime();
         assert.ok(modificationTime1 > timestamp1);
 
-        await delay(5);
+        await delay(20);
         const timestamp2 = Date.now();
         assert.ok(modificationTime1 < timestamp2);
-        await delay(5);
+        await delay(20);
 
         fs.writeFileSync(path.pathString(), testContent);
 
-        await delay(5);
+        await delay(20);
         const modificationTime2 = path.getModificationTime().getTime();
         assert.ok(modificationTime2 > timestamp2);
 
-        await delay(5);
+        await delay(20);
         const timestamp3 = Date.now();
         assert.ok(modificationTime2 < timestamp3);
 
