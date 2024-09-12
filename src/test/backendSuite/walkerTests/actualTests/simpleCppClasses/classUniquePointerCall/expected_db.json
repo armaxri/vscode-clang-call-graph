@@ -166,7 +166,7 @@
       "funcDecls": [
         {
           "funcName": "align",
-          "funcAstName": "__ZNSt3__15alignEmmRPvRm",
+          "funcAstName": "ZNSt3__15alignEmmRPvRm",
           "qualType": "void *(size_t, size_t, void *&, size_t &)",
           "range": {
             "start": {
@@ -181,7 +181,7 @@
         },
         {
           "funcName": "__declval",
-          "funcAstName": "__ZNSt3__19__declvalIPvEEOT_i",
+          "funcAstName": "ZNSt3__19__declvalIPvEEOT_i",
           "qualType": "void *&&(int)",
           "range": {
             "start": {
@@ -196,7 +196,7 @@
         },
         {
           "funcName": "__declval",
-          "funcAstName": "__ZNSt3__19__declvalIlEEOT_i",
+          "funcAstName": "ZNSt3__19__declvalIlEEOT_i",
           "qualType": "long &&(int)",
           "range": {
             "start": {
@@ -211,7 +211,7 @@
         },
         {
           "funcName": "__declval",
-          "funcAstName": "__ZNSt3__19__declvalIiEEOT_i",
+          "funcAstName": "ZNSt3__19__declvalIiEEOT_i",
           "qualType": "int &&(int)",
           "range": {
             "start": {
@@ -226,7 +226,7 @@
         },
         {
           "funcName": "__declval",
-          "funcAstName": "__ZNSt3__19__declvalIeEEOT_i",
+          "funcAstName": "ZNSt3__19__declvalIeEEOT_i",
           "qualType": "long double &&(int)",
           "range": {
             "start": {
@@ -241,7 +241,7 @@
         },
         {
           "funcName": "__declval",
-          "funcAstName": "__ZNSt3__19__declvalIxEEOT_i",
+          "funcAstName": "ZNSt3__19__declvalIxEEOT_i",
           "qualType": "long long &&(int)",
           "range": {
             "start": {
@@ -256,7 +256,7 @@
         },
         {
           "funcName": "__declval",
-          "funcAstName": "__ZNSt3__19__declvalIbEEOT_i",
+          "funcAstName": "ZNSt3__19__declvalIbEEOT_i",
           "qualType": "bool &&(int)",
           "range": {
             "start": {
@@ -271,7 +271,7 @@
         },
         {
           "funcName": "__declval",
-          "funcAstName": "__ZNSt3__19__declvalIPvEET_l",
+          "funcAstName": "ZNSt3__19__declvalIPvEET_l",
           "qualType": "void *(long)",
           "range": {
             "start": {
@@ -286,7 +286,7 @@
         },
         {
           "funcName": "__declval",
-          "funcAstName": "__ZNSt3__19__declvalIlEET_l",
+          "funcAstName": "ZNSt3__19__declvalIlEET_l",
           "qualType": "long (long)",
           "range": {
             "start": {
@@ -301,7 +301,7 @@
         },
         {
           "funcName": "__declval",
-          "funcAstName": "__ZNSt3__19__declvalIiEET_l",
+          "funcAstName": "ZNSt3__19__declvalIiEET_l",
           "qualType": "int (long)",
           "range": {
             "start": {
@@ -316,7 +316,7 @@
         },
         {
           "funcName": "__declval",
-          "funcAstName": "__ZNSt3__19__declvalIeEET_l",
+          "funcAstName": "ZNSt3__19__declvalIeEET_l",
           "qualType": "long double (long)",
           "range": {
             "start": {
@@ -331,7 +331,7 @@
         },
         {
           "funcName": "__declval",
-          "funcAstName": "__ZNSt3__19__declvalIxEET_l",
+          "funcAstName": "ZNSt3__19__declvalIxEET_l",
           "qualType": "long long (long)",
           "range": {
             "start": {
@@ -346,7 +346,7 @@
         },
         {
           "funcName": "__declval",
-          "funcAstName": "__ZNSt3__19__declvalIbEET_l",
+          "funcAstName": "ZNSt3__19__declvalIbEET_l",
           "qualType": "bool (long)",
           "range": {
             "start": {
@@ -361,7 +361,7 @@
         },
         {
           "funcName": "declval",
-          "funcAstName": "__ZNSt3__17declvalIPvEEDTclsr3stdE9__declvalIT_ELi0EEEv",
+          "funcAstName": "ZNSt3__17declvalIPvEEDTclsr3stdE9__declvalIT_ELi0EEEv",
           "qualType": "decltype(std::__declval<void *>(0)) () noexcept",
           "range": {
             "start": {
@@ -376,7 +376,7 @@
         },
         {
           "funcName": "declval",
-          "funcAstName": "__ZNSt3__17declvalIlEEDTclsr3stdE9__declvalIT_ELi0EEEv",
+          "funcAstName": "ZNSt3__17declvalIlEEDTclsr3stdE9__declvalIT_ELi0EEEv",
           "qualType": "decltype(std::__declval<long>(0)) () noexcept",
           "range": {
             "start": {
@@ -391,7 +391,7 @@
         },
         {
           "funcName": "declval",
-          "funcAstName": "__ZNSt3__17declvalIiEEDTclsr3stdE9__declvalIT_ELi0EEEv",
+          "funcAstName": "ZNSt3__17declvalIiEEDTclsr3stdE9__declvalIT_ELi0EEEv",
           "qualType": "decltype(std::__declval<int>(0)) () noexcept",
           "range": {
             "start": {
@@ -406,7 +406,7 @@
         },
         {
           "funcName": "declval",
-          "funcAstName": "__ZNSt3__17declvalIeEEDTclsr3stdE9__declvalIT_ELi0EEEv",
+          "funcAstName": "ZNSt3__17declvalIeEEDTclsr3stdE9__declvalIT_ELi0EEEv",
           "qualType": "decltype(std::__declval<long double>(0)) () noexcept",
           "range": {
             "start": {
@@ -421,7 +421,7 @@
         },
         {
           "funcName": "declval",
-          "funcAstName": "__ZNSt3__17declvalIxEEDTclsr3stdE9__declvalIT_ELi0EEEv",
+          "funcAstName": "ZNSt3__17declvalIxEEDTclsr3stdE9__declvalIT_ELi0EEEv",
           "qualType": "decltype(std::__declval<long long>(0)) () noexcept",
           "range": {
             "start": {
@@ -436,7 +436,7 @@
         },
         {
           "funcName": "declval",
-          "funcAstName": "__ZNSt3__17declvalIbEEDTclsr3stdE9__declvalIT_ELi0EEEv",
+          "funcAstName": "ZNSt3__17declvalIbEEDTclsr3stdE9__declvalIT_ELi0EEEv",
           "qualType": "decltype(std::__declval<bool>(0)) () noexcept",
           "range": {
             "start": {
@@ -451,7 +451,7 @@
         },
         {
           "funcName": "forward",
-          "funcAstName": "__ZNSt3__17forwardB8ue170006IbEEOT_Ru20__remove_reference_tIS1_E",
+          "funcAstName": "ZNSt3__17forwardB8ue170006IbEEOT_Ru20__remove_reference_tIS1_E",
           "qualType": "bool &&(__libcpp_remove_reference_t<bool> &) noexcept",
           "range": {
             "start": {
@@ -466,7 +466,7 @@
         },
         {
           "funcName": "forward",
-          "funcAstName": "__ZNSt3__17forwardB8ue170006ImEEOT_Ru20__remove_reference_tIS1_E",
+          "funcAstName": "ZNSt3__17forwardB8ue170006ImEEOT_Ru20__remove_reference_tIS1_E",
           "qualType": "unsigned long &&(__libcpp_remove_reference_t<unsigned long> &) noexcept",
           "range": {
             "start": {
@@ -481,7 +481,7 @@
         },
         {
           "funcName": "forward",
-          "funcAstName": "__ZNSt3__17forwardB8ue170006IRP9TestClassEEOT_Ru20__remove_reference_tIS4_E",
+          "funcAstName": "ZNSt3__17forwardB8ue170006IRP9TestClassEEOT_Ru20__remove_reference_tIS4_E",
           "qualType": "TestClass *&(__libcpp_remove_reference_t<TestClass *&> &) noexcept",
           "range": {
             "start": {
@@ -496,7 +496,7 @@
         },
         {
           "funcName": "forward",
-          "funcAstName": "__ZNSt3__17forwardB8ue170006INS_16__value_init_tagEEEOT_Ru20__remove_reference_tIS2_E",
+          "funcAstName": "ZNSt3__17forwardB8ue170006INS_16__value_init_tagEEEOT_Ru20__remove_reference_tIS2_E",
           "qualType": "std::__value_init_tag &&(__libcpp_remove_reference_t<__value_init_tag> &) noexcept",
           "range": {
             "start": {
@@ -511,7 +511,7 @@
         },
         {
           "funcName": "move",
-          "funcAstName": "__ZNSt3__14moveB8ue170006IRmEEOu20__remove_reference_tIT_EOS2_",
+          "funcAstName": "ZNSt3__14moveB8ue170006IRmEEOu20__remove_reference_tIT_EOS2_",
           "qualType": "__libcpp_remove_reference_t<unsigned long &> &&(unsigned long &) noexcept",
           "range": {
             "start": {
@@ -528,7 +528,7 @@
       "funcImpls": [
         {
           "funcName": "operator|",
-          "funcAstName": "__ZStorB8ue170006St4byteS_",
+          "funcAstName": "ZStorB8ue170006St4byteS_",
           "qualType": "byte (byte, byte) noexcept",
           "range": {
             "start": {
@@ -545,7 +545,7 @@
         },
         {
           "funcName": "operator|=",
-          "funcAstName": "__ZStoRB8ue170006RSt4byteS_",
+          "funcAstName": "ZStoRB8ue170006RSt4byteS_",
           "qualType": "byte &(byte &, byte) noexcept",
           "range": {
             "start": {
@@ -560,7 +560,7 @@
           "funcCalls": [
             {
               "funcName": "operator|",
-              "funcAstName": "__ZStorB8ue170006St4byteS_",
+              "funcAstName": "ZStorB8ue170006St4byteS_",
               "qualType": "byte (byte, byte) noexcept",
               "range": {
                 "start": {
@@ -578,7 +578,7 @@
         },
         {
           "funcName": "operator&",
-          "funcAstName": "__ZStanB8ue170006St4byteS_",
+          "funcAstName": "ZStanB8ue170006St4byteS_",
           "qualType": "byte (byte, byte) noexcept",
           "range": {
             "start": {
@@ -595,7 +595,7 @@
         },
         {
           "funcName": "operator&=",
-          "funcAstName": "__ZStaNB8ue170006RSt4byteS_",
+          "funcAstName": "ZStaNB8ue170006RSt4byteS_",
           "qualType": "byte &(byte &, byte) noexcept",
           "range": {
             "start": {
@@ -610,7 +610,7 @@
           "funcCalls": [
             {
               "funcName": "operator&",
-              "funcAstName": "__ZStanB8ue170006St4byteS_",
+              "funcAstName": "ZStanB8ue170006St4byteS_",
               "qualType": "byte (byte, byte) noexcept",
               "range": {
                 "start": {
@@ -628,7 +628,7 @@
         },
         {
           "funcName": "operator^",
-          "funcAstName": "__ZSteoB8ue170006St4byteS_",
+          "funcAstName": "ZSteoB8ue170006St4byteS_",
           "qualType": "byte (byte, byte) noexcept",
           "range": {
             "start": {
@@ -645,7 +645,7 @@
         },
         {
           "funcName": "operator^=",
-          "funcAstName": "__ZSteOB8ue170006RSt4byteS_",
+          "funcAstName": "ZSteOB8ue170006RSt4byteS_",
           "qualType": "byte &(byte &, byte) noexcept",
           "range": {
             "start": {
@@ -660,7 +660,7 @@
           "funcCalls": [
             {
               "funcName": "operator^",
-              "funcAstName": "__ZSteoB8ue170006St4byteS_",
+              "funcAstName": "ZSteoB8ue170006St4byteS_",
               "qualType": "byte (byte, byte) noexcept",
               "range": {
                 "start": {
@@ -678,7 +678,7 @@
         },
         {
           "funcName": "operator~",
-          "funcAstName": "__ZStcoB8ue170006St4byte",
+          "funcAstName": "ZStcoB8ue170006St4byte",
           "qualType": "byte (byte) noexcept",
           "range": {
             "start": {
@@ -732,7 +732,7 @@
           "funcDecls": [
             {
               "funcName": "operator=",
-              "funcAstName": "__ZNSt9exceptionaSERKS_",
+              "funcAstName": "ZNSt9exceptionaSERKS_",
               "qualType": "std::exception &(const std::exception &)",
               "range": {
                 "start": {
@@ -750,7 +750,7 @@
           "virtualFuncDecls": [
             {
               "funcName": "what",
-              "funcAstName": "__ZNKSt9exception4whatEv",
+              "funcAstName": "ZNKSt9exception4whatEv",
               "qualType": "const char *() const noexcept",
               "range": {
                 "start": {
@@ -762,7 +762,7 @@
                   "column": 27
                 }
               },
-              "baseFuncAstName": "__ZNKSt9exception4whatEv"
+              "baseFuncAstName": "ZNKSt9exception4whatEv"
             }
           ],
           "virtualFuncImpls": []
@@ -776,7 +776,7 @@
           "funcDecls": [
             {
               "funcName": "operator=",
-              "funcAstName": "__ZNSt13bad_exceptionaSERKS_",
+              "funcAstName": "ZNSt13bad_exceptionaSERKS_",
               "qualType": "std::bad_exception &(const std::bad_exception &)",
               "range": {
                 "start": {
@@ -794,7 +794,7 @@
           "virtualFuncDecls": [
             {
               "funcName": "what",
-              "funcAstName": "__ZNKSt13bad_exception4whatEv",
+              "funcAstName": "ZNKSt13bad_exception4whatEv",
               "qualType": "const char *() const noexcept",
               "range": {
                 "start": {
@@ -806,7 +806,7 @@
                   "column": 19
                 }
               },
-              "baseFuncAstName": "__ZNKSt9exception4whatEv"
+              "baseFuncAstName": "ZNKSt9exception4whatEv"
             }
           ],
           "virtualFuncImpls": []
@@ -869,7 +869,7 @@
           "funcDecls": [
             {
               "funcName": "operator=",
-              "funcAstName": "__ZNSt9bad_allocaSERKS_",
+              "funcAstName": "ZNSt9bad_allocaSERKS_",
               "qualType": "std::bad_alloc &(const std::bad_alloc &)",
               "range": {
                 "start": {
@@ -887,7 +887,7 @@
           "virtualFuncDecls": [
             {
               "funcName": "what",
-              "funcAstName": "__ZNKSt9bad_alloc4whatEv",
+              "funcAstName": "ZNKSt9bad_alloc4whatEv",
               "qualType": "const char *() const noexcept",
               "range": {
                 "start": {
@@ -899,7 +899,7 @@
                   "column": 21
                 }
               },
-              "baseFuncAstName": "__ZNKSt9exception4whatEv"
+              "baseFuncAstName": "ZNKSt9exception4whatEv"
             }
           ],
           "virtualFuncImpls": []
@@ -913,7 +913,7 @@
           "funcDecls": [
             {
               "funcName": "operator=",
-              "funcAstName": "__ZNSt20bad_array_new_lengthaSERKS_",
+              "funcAstName": "ZNSt20bad_array_new_lengthaSERKS_",
               "qualType": "std::bad_array_new_length &(const std::bad_array_new_length &)",
               "range": {
                 "start": {
@@ -931,7 +931,7 @@
           "virtualFuncDecls": [
             {
               "funcName": "what",
-              "funcAstName": "__ZNKSt20bad_array_new_length4whatEv",
+              "funcAstName": "ZNKSt20bad_array_new_length4whatEv",
               "qualType": "const char *() const noexcept",
               "range": {
                 "start": {
@@ -943,7 +943,7 @@
                   "column": 21
                 }
               },
-              "baseFuncAstName": "__ZNKSt9exception4whatEv"
+              "baseFuncAstName": "ZNKSt9exception4whatEv"
             }
           ],
           "virtualFuncImpls": []
@@ -961,7 +961,7 @@
       "funcDecls": [
         {
           "funcName": "set_new_handler",
-          "funcAstName": "__ZSt15set_new_handlerPFvvE",
+          "funcAstName": "ZSt15set_new_handlerPFvvE",
           "qualType": "new_handler (new_handler) noexcept",
           "range": {
             "start": {
@@ -976,7 +976,7 @@
         },
         {
           "funcName": "get_new_handler",
-          "funcAstName": "__ZSt15get_new_handlerv",
+          "funcAstName": "ZSt15get_new_handlerv",
           "qualType": "new_handler () noexcept",
           "range": {
             "start": {
@@ -991,7 +991,7 @@
         },
         {
           "funcName": "__throw_bad_alloc",
-          "funcAstName": "__ZSt17__throw_bad_allocv",
+          "funcAstName": "ZSt17__throw_bad_allocv",
           "qualType": "void ()",
           "range": {
             "start": {
@@ -1006,7 +1006,7 @@
         },
         {
           "funcName": "operator new",
-          "funcAstName": "__Znwm",
+          "funcAstName": "Znwm",
           "qualType": "void *(unsigned long)",
           "range": {
             "start": {
@@ -1021,7 +1021,7 @@
         },
         {
           "funcName": "operator new",
-          "funcAstName": "__ZnwmSt11align_val_t",
+          "funcAstName": "ZnwmSt11align_val_t",
           "qualType": "void *(unsigned long, std::align_val_t)",
           "range": {
             "start": {
@@ -1036,7 +1036,7 @@
         },
         {
           "funcName": "operator new[]",
-          "funcAstName": "__Znam",
+          "funcAstName": "Znam",
           "qualType": "void *(unsigned long)",
           "range": {
             "start": {
@@ -1051,7 +1051,7 @@
         },
         {
           "funcName": "operator new[]",
-          "funcAstName": "__ZnamSt11align_val_t",
+          "funcAstName": "ZnamSt11align_val_t",
           "qualType": "void *(unsigned long, std::align_val_t)",
           "range": {
             "start": {
@@ -1066,7 +1066,7 @@
         },
         {
           "funcName": "operator delete",
-          "funcAstName": "__ZdlPv",
+          "funcAstName": "ZdlPv",
           "qualType": "void (void *) noexcept",
           "range": {
             "start": {
@@ -1081,7 +1081,7 @@
         },
         {
           "funcName": "operator delete",
-          "funcAstName": "__ZdlPvSt11align_val_t",
+          "funcAstName": "ZdlPvSt11align_val_t",
           "qualType": "void (void *, std::align_val_t) noexcept",
           "range": {
             "start": {
@@ -1096,7 +1096,7 @@
         },
         {
           "funcName": "operator delete[]",
-          "funcAstName": "__ZdaPv",
+          "funcAstName": "ZdaPv",
           "qualType": "void (void *) noexcept",
           "range": {
             "start": {
@@ -1111,7 +1111,7 @@
         },
         {
           "funcName": "operator delete[]",
-          "funcAstName": "__ZdaPvSt11align_val_t",
+          "funcAstName": "ZdaPvSt11align_val_t",
           "qualType": "void (void *, std::align_val_t) noexcept",
           "range": {
             "start": {
@@ -1126,7 +1126,7 @@
         },
         {
           "funcName": "operator new",
-          "funcAstName": "__Znwm",
+          "funcAstName": "Znwm",
           "qualType": "void *(std::size_t)",
           "range": {
             "start": {
@@ -1141,7 +1141,7 @@
         },
         {
           "funcName": "operator new",
-          "funcAstName": "__ZnwmRKSt9nothrow_t",
+          "funcAstName": "ZnwmRKSt9nothrow_t",
           "qualType": "void *(std::size_t, const std::nothrow_t &) noexcept",
           "range": {
             "start": {
@@ -1156,7 +1156,7 @@
         },
         {
           "funcName": "operator delete",
-          "funcAstName": "__ZdlPv",
+          "funcAstName": "ZdlPv",
           "qualType": "void (void *) noexcept",
           "range": {
             "start": {
@@ -1171,7 +1171,7 @@
         },
         {
           "funcName": "operator delete",
-          "funcAstName": "__ZdlPvRKSt9nothrow_t",
+          "funcAstName": "ZdlPvRKSt9nothrow_t",
           "qualType": "void (void *, const std::nothrow_t &) noexcept",
           "range": {
             "start": {
@@ -1186,7 +1186,7 @@
         },
         {
           "funcName": "operator delete",
-          "funcAstName": "__ZdlPvm",
+          "funcAstName": "ZdlPvm",
           "qualType": "void (void *, std::size_t) noexcept",
           "range": {
             "start": {
@@ -1201,7 +1201,7 @@
         },
         {
           "funcName": "operator new[]",
-          "funcAstName": "__Znam",
+          "funcAstName": "Znam",
           "qualType": "void *(std::size_t)",
           "range": {
             "start": {
@@ -1216,7 +1216,7 @@
         },
         {
           "funcName": "operator new[]",
-          "funcAstName": "__ZnamRKSt9nothrow_t",
+          "funcAstName": "ZnamRKSt9nothrow_t",
           "qualType": "void *(std::size_t, const std::nothrow_t &) noexcept",
           "range": {
             "start": {
@@ -1231,7 +1231,7 @@
         },
         {
           "funcName": "operator delete[]",
-          "funcAstName": "__ZdaPv",
+          "funcAstName": "ZdaPv",
           "qualType": "void (void *) noexcept",
           "range": {
             "start": {
@@ -1246,7 +1246,7 @@
         },
         {
           "funcName": "operator delete[]",
-          "funcAstName": "__ZdaPvRKSt9nothrow_t",
+          "funcAstName": "ZdaPvRKSt9nothrow_t",
           "qualType": "void (void *, const std::nothrow_t &) noexcept",
           "range": {
             "start": {
@@ -1261,7 +1261,7 @@
         },
         {
           "funcName": "operator delete[]",
-          "funcAstName": "__ZdaPvm",
+          "funcAstName": "ZdaPvm",
           "qualType": "void (void *, std::size_t) noexcept",
           "range": {
             "start": {
@@ -1276,7 +1276,7 @@
         },
         {
           "funcName": "operator new",
-          "funcAstName": "__ZnwmSt11align_val_t",
+          "funcAstName": "ZnwmSt11align_val_t",
           "qualType": "void *(std::size_t, std::align_val_t)",
           "range": {
             "start": {
@@ -1291,7 +1291,7 @@
         },
         {
           "funcName": "operator new",
-          "funcAstName": "__ZnwmSt11align_val_tRKSt9nothrow_t",
+          "funcAstName": "ZnwmSt11align_val_tRKSt9nothrow_t",
           "qualType": "void *(std::size_t, std::align_val_t, const std::nothrow_t &) noexcept",
           "range": {
             "start": {
@@ -1306,7 +1306,7 @@
         },
         {
           "funcName": "operator delete",
-          "funcAstName": "__ZdlPvSt11align_val_t",
+          "funcAstName": "ZdlPvSt11align_val_t",
           "qualType": "void (void *, std::align_val_t) noexcept",
           "range": {
             "start": {
@@ -1321,7 +1321,7 @@
         },
         {
           "funcName": "operator delete",
-          "funcAstName": "__ZdlPvSt11align_val_tRKSt9nothrow_t",
+          "funcAstName": "ZdlPvSt11align_val_tRKSt9nothrow_t",
           "qualType": "void (void *, std::align_val_t, const std::nothrow_t &) noexcept",
           "range": {
             "start": {
@@ -1336,7 +1336,7 @@
         },
         {
           "funcName": "operator delete",
-          "funcAstName": "__ZdlPvmSt11align_val_t",
+          "funcAstName": "ZdlPvmSt11align_val_t",
           "qualType": "void (void *, std::size_t, std::align_val_t) noexcept",
           "range": {
             "start": {
@@ -1351,7 +1351,7 @@
         },
         {
           "funcName": "operator new[]",
-          "funcAstName": "__ZnamSt11align_val_t",
+          "funcAstName": "ZnamSt11align_val_t",
           "qualType": "void *(std::size_t, std::align_val_t)",
           "range": {
             "start": {
@@ -1366,7 +1366,7 @@
         },
         {
           "funcName": "operator new[]",
-          "funcAstName": "__ZnamSt11align_val_tRKSt9nothrow_t",
+          "funcAstName": "ZnamSt11align_val_tRKSt9nothrow_t",
           "qualType": "void *(std::size_t, std::align_val_t, const std::nothrow_t &) noexcept",
           "range": {
             "start": {
@@ -1381,7 +1381,7 @@
         },
         {
           "funcName": "operator delete[]",
-          "funcAstName": "__ZdaPvSt11align_val_t",
+          "funcAstName": "ZdaPvSt11align_val_t",
           "qualType": "void (void *, std::align_val_t) noexcept",
           "range": {
             "start": {
@@ -1396,7 +1396,7 @@
         },
         {
           "funcName": "operator delete[]",
-          "funcAstName": "__ZdaPvSt11align_val_tRKSt9nothrow_t",
+          "funcAstName": "ZdaPvSt11align_val_tRKSt9nothrow_t",
           "qualType": "void (void *, std::align_val_t, const std::nothrow_t &) noexcept",
           "range": {
             "start": {
@@ -1411,7 +1411,7 @@
         },
         {
           "funcName": "operator delete[]",
-          "funcAstName": "__ZdaPvmSt11align_val_t",
+          "funcAstName": "ZdaPvmSt11align_val_t",
           "qualType": "void (void *, std::size_t, std::align_val_t) noexcept",
           "range": {
             "start": {
@@ -1428,7 +1428,7 @@
       "funcImpls": [
         {
           "funcName": "__throw_bad_array_new_length",
-          "funcAstName": "__ZSt28__throw_bad_array_new_lengthB8ue170006v",
+          "funcAstName": "ZSt28__throw_bad_array_new_lengthB8ue170006v",
           "qualType": "void ()",
           "range": {
             "start": {
@@ -1445,7 +1445,7 @@
         },
         {
           "funcName": "operator new",
-          "funcAstName": "__ZnwB8ue170006mPv",
+          "funcAstName": "ZnwB8ue170006mPv",
           "qualType": "void *(std::size_t, void *) noexcept",
           "range": {
             "start": {
@@ -1462,7 +1462,7 @@
         },
         {
           "funcName": "operator new[]",
-          "funcAstName": "__ZnaB8ue170006mPv",
+          "funcAstName": "ZnaB8ue170006mPv",
           "qualType": "void *(std::size_t, void *) noexcept",
           "range": {
             "start": {
@@ -1479,7 +1479,7 @@
         },
         {
           "funcName": "operator delete",
-          "funcAstName": "__ZdlB8ue170006PvS_",
+          "funcAstName": "ZdlB8ue170006PvS_",
           "qualType": "void (void *, void *) noexcept",
           "range": {
             "start": {
@@ -1496,7 +1496,7 @@
         },
         {
           "funcName": "operator delete[]",
-          "funcAstName": "__ZdaB8ue170006PvS_",
+          "funcAstName": "ZdaB8ue170006PvS_",
           "qualType": "void (void *, void *) noexcept",
           "range": {
             "start": {
@@ -1513,7 +1513,7 @@
         },
         {
           "funcName": "__is_overaligned_for_new",
-          "funcAstName": "__ZNSt3__124__is_overaligned_for_newB8ue170006Em",
+          "funcAstName": "ZNSt3__124__is_overaligned_for_newB8ue170006Em",
           "qualType": "bool (size_t) noexcept",
           "range": {
             "start": {
@@ -1530,7 +1530,7 @@
         },
         {
           "funcName": "__libcpp_operator_new",
-          "funcAstName": "__ZNSt3__121__libcpp_operator_newB8ue170006IJmSt11align_val_tEEEPvDpT_",
+          "funcAstName": "ZNSt3__121__libcpp_operator_newB8ue170006IJmSt11align_val_tEEEPvDpT_",
           "qualType": "void *(unsigned long, std::align_val_t)",
           "range": {
             "start": {
@@ -1547,7 +1547,7 @@
         },
         {
           "funcName": "__libcpp_operator_new",
-          "funcAstName": "__ZNSt3__121__libcpp_operator_newB8ue170006IJmEEEPvDpT_",
+          "funcAstName": "ZNSt3__121__libcpp_operator_newB8ue170006IJmEEEPvDpT_",
           "qualType": "void *(unsigned long)",
           "range": {
             "start": {
@@ -1564,7 +1564,7 @@
         },
         {
           "funcName": "__libcpp_operator_delete",
-          "funcAstName": "__ZNSt3__124__libcpp_operator_deleteB8ue170006IJPvSt11align_val_tEEEvDpT_",
+          "funcAstName": "ZNSt3__124__libcpp_operator_deleteB8ue170006IJPvSt11align_val_tEEEvDpT_",
           "qualType": "void (void *, std::align_val_t)",
           "range": {
             "start": {
@@ -1581,7 +1581,7 @@
         },
         {
           "funcName": "__libcpp_operator_delete",
-          "funcAstName": "__ZNSt3__124__libcpp_operator_deleteB8ue170006IJPvEEEvDpT_",
+          "funcAstName": "ZNSt3__124__libcpp_operator_deleteB8ue170006IJPvEEEvDpT_",
           "qualType": "void (void *)",
           "range": {
             "start": {
@@ -1598,7 +1598,7 @@
         },
         {
           "funcName": "__libcpp_allocate",
-          "funcAstName": "__ZNSt3__117__libcpp_allocateB8ue170006Emm",
+          "funcAstName": "ZNSt3__117__libcpp_allocateB8ue170006Emm",
           "qualType": "void *(size_t, size_t)",
           "range": {
             "start": {
@@ -1613,7 +1613,7 @@
           "funcCalls": [
             {
               "funcName": "__is_overaligned_for_new",
-              "funcAstName": "__ZNSt3__124__is_overaligned_for_newB8ue170006Em",
+              "funcAstName": "ZNSt3__124__is_overaligned_for_newB8ue170006Em",
               "qualType": "bool (size_t) noexcept",
               "range": {
                 "start": {
@@ -1628,7 +1628,7 @@
             },
             {
               "funcName": "__libcpp_operator_new",
-              "funcAstName": "__ZNSt3__121__libcpp_operator_newB8ue170006IJmSt11align_val_tEEEPvDpT_",
+              "funcAstName": "ZNSt3__121__libcpp_operator_newB8ue170006IJmSt11align_val_tEEEPvDpT_",
               "qualType": "void *(unsigned long, std::align_val_t)",
               "range": {
                 "start": {
@@ -1643,7 +1643,7 @@
             },
             {
               "funcName": "__libcpp_operator_new",
-              "funcAstName": "__ZNSt3__121__libcpp_operator_newB8ue170006IJmEEEPvDpT_",
+              "funcAstName": "ZNSt3__121__libcpp_operator_newB8ue170006IJmEEEPvDpT_",
               "qualType": "void *(unsigned long)",
               "range": {
                 "start": {
@@ -1661,7 +1661,7 @@
         },
         {
           "funcName": "__do_deallocate_handle_size",
-          "funcAstName": "__ZNSt3__127__do_deallocate_handle_sizeB8ue170006IJSt11align_val_tEEEvPvmDpT_",
+          "funcAstName": "ZNSt3__127__do_deallocate_handle_sizeB8ue170006IJSt11align_val_tEEEvPvmDpT_",
           "qualType": "void (void *, size_t, std::align_val_t)",
           "range": {
             "start": {
@@ -1676,7 +1676,7 @@
           "funcCalls": [
             {
               "funcName": "__libcpp_operator_delete",
-              "funcAstName": "__ZNSt3__124__libcpp_operator_deleteB8ue170006IJPvSt11align_val_tEEEvDpT_",
+              "funcAstName": "ZNSt3__124__libcpp_operator_deleteB8ue170006IJPvSt11align_val_tEEEvDpT_",
               "qualType": "void (void *, std::align_val_t)",
               "range": {
                 "start": {
@@ -1694,7 +1694,7 @@
         },
         {
           "funcName": "__do_deallocate_handle_size",
-          "funcAstName": "__ZNSt3__127__do_deallocate_handle_sizeB8ue170006IJEEEvPvmDpT_",
+          "funcAstName": "ZNSt3__127__do_deallocate_handle_sizeB8ue170006IJEEEvPvmDpT_",
           "qualType": "void (void *, size_t)",
           "range": {
             "start": {
@@ -1709,7 +1709,7 @@
           "funcCalls": [
             {
               "funcName": "__libcpp_operator_delete",
-              "funcAstName": "__ZNSt3__124__libcpp_operator_deleteB8ue170006IJPvEEEvDpT_",
+              "funcAstName": "ZNSt3__124__libcpp_operator_deleteB8ue170006IJPvEEEvDpT_",
               "qualType": "void (void *)",
               "range": {
                 "start": {
@@ -1727,7 +1727,7 @@
         },
         {
           "funcName": "__libcpp_deallocate",
-          "funcAstName": "__ZNSt3__119__libcpp_deallocateB8ue170006EPvmm",
+          "funcAstName": "ZNSt3__119__libcpp_deallocateB8ue170006EPvmm",
           "qualType": "void (void *, size_t, size_t)",
           "range": {
             "start": {
@@ -1742,7 +1742,7 @@
           "funcCalls": [
             {
               "funcName": "__is_overaligned_for_new",
-              "funcAstName": "__ZNSt3__124__is_overaligned_for_newB8ue170006Em",
+              "funcAstName": "ZNSt3__124__is_overaligned_for_newB8ue170006Em",
               "qualType": "bool (size_t) noexcept",
               "range": {
                 "start": {
@@ -1757,7 +1757,7 @@
             },
             {
               "funcName": "__do_deallocate_handle_size",
-              "funcAstName": "__ZNSt3__127__do_deallocate_handle_sizeB8ue170006IJSt11align_val_tEEEvPvmDpT_",
+              "funcAstName": "ZNSt3__127__do_deallocate_handle_sizeB8ue170006IJSt11align_val_tEEEvPvmDpT_",
               "qualType": "void (void *, size_t, std::align_val_t)",
               "range": {
                 "start": {
@@ -1772,7 +1772,7 @@
             },
             {
               "funcName": "__do_deallocate_handle_size",
-              "funcAstName": "__ZNSt3__127__do_deallocate_handle_sizeB8ue170006IJEEEvPvmDpT_",
+              "funcAstName": "ZNSt3__127__do_deallocate_handle_sizeB8ue170006IJEEEvPvmDpT_",
               "qualType": "void (void *, size_t)",
               "range": {
                 "start": {
@@ -1790,7 +1790,7 @@
         },
         {
           "funcName": "__libcpp_deallocate_unsized",
-          "funcAstName": "__ZNSt3__127__libcpp_deallocate_unsizedB8ue170006EPvm",
+          "funcAstName": "ZNSt3__127__libcpp_deallocate_unsizedB8ue170006EPvm",
           "qualType": "void (void *, size_t)",
           "range": {
             "start": {
@@ -1805,7 +1805,7 @@
           "funcCalls": [
             {
               "funcName": "__is_overaligned_for_new",
-              "funcAstName": "__ZNSt3__124__is_overaligned_for_newB8ue170006Em",
+              "funcAstName": "ZNSt3__124__is_overaligned_for_newB8ue170006Em",
               "qualType": "bool (size_t) noexcept",
               "range": {
                 "start": {
@@ -1820,7 +1820,7 @@
             },
             {
               "funcName": "__libcpp_operator_delete",
-              "funcAstName": "__ZNSt3__124__libcpp_operator_deleteB8ue170006IJPvSt11align_val_tEEEvDpT_",
+              "funcAstName": "ZNSt3__124__libcpp_operator_deleteB8ue170006IJPvSt11align_val_tEEEvDpT_",
               "qualType": "void (void *, std::align_val_t)",
               "range": {
                 "start": {
@@ -1835,7 +1835,7 @@
             },
             {
               "funcName": "__libcpp_operator_delete",
-              "funcAstName": "__ZNSt3__124__libcpp_operator_deleteB8ue170006IJPvEEEvDpT_",
+              "funcAstName": "ZNSt3__124__libcpp_operator_deleteB8ue170006IJPvEEEvDpT_",
               "qualType": "void (void *)",
               "range": {
                 "start": {
@@ -2026,7 +2026,7 @@
       "funcDecls": [
         {
           "funcName": "wait",
-          "funcAstName": "_wait",
+          "funcAstName": "wait",
           "qualType": "pid_t (int *)",
           "range": {
             "start": {
@@ -2041,7 +2041,7 @@
         },
         {
           "funcName": "waitpid",
-          "funcAstName": "_waitpid",
+          "funcAstName": "waitpid",
           "qualType": "pid_t (pid_t, int *, int)",
           "range": {
             "start": {
@@ -2056,7 +2056,7 @@
         },
         {
           "funcName": "waitid",
-          "funcAstName": "_waitid",
+          "funcAstName": "waitid",
           "qualType": "int (idtype_t, id_t, siginfo_t *, int)",
           "range": {
             "start": {
@@ -2071,7 +2071,7 @@
         },
         {
           "funcName": "wait3",
-          "funcAstName": "_wait3",
+          "funcAstName": "wait3",
           "qualType": "pid_t (int *, int, struct rusage *)",
           "range": {
             "start": {
@@ -2086,7 +2086,7 @@
         },
         {
           "funcName": "wait4",
-          "funcAstName": "_wait4",
+          "funcAstName": "wait4",
           "qualType": "pid_t (pid_t, int *, int, struct rusage *)",
           "range": {
             "start": {
@@ -2101,7 +2101,7 @@
         },
         {
           "funcName": "alloca",
-          "funcAstName": "_alloca",
+          "funcAstName": "alloca",
           "qualType": "void *(size_t)",
           "range": {
             "start": {
@@ -2373,7 +2373,7 @@
       "funcDecls": [
         {
           "funcName": "signal",
-          "funcAstName": "_signal",
+          "funcAstName": "signal",
           "qualType": "void (*(int, void (*)(int)))(int)",
           "range": {
             "start": {
@@ -2619,7 +2619,7 @@
       "funcDecls": [
         {
           "funcName": "getpriority",
-          "funcAstName": "_getpriority",
+          "funcAstName": "getpriority",
           "qualType": "int (int, id_t)",
           "range": {
             "start": {
@@ -2634,7 +2634,7 @@
         },
         {
           "funcName": "getiopolicy_np",
-          "funcAstName": "_getiopolicy_np",
+          "funcAstName": "getiopolicy_np",
           "qualType": "int (int, int)",
           "range": {
             "start": {
@@ -2649,7 +2649,7 @@
         },
         {
           "funcName": "getrlimit",
-          "funcAstName": "_getrlimit",
+          "funcAstName": "getrlimit",
           "qualType": "int (int, struct rlimit *)",
           "range": {
             "start": {
@@ -2664,7 +2664,7 @@
         },
         {
           "funcName": "getrusage",
-          "funcAstName": "_getrusage",
+          "funcAstName": "getrusage",
           "qualType": "int (int, struct rusage *)",
           "range": {
             "start": {
@@ -2679,7 +2679,7 @@
         },
         {
           "funcName": "setpriority",
-          "funcAstName": "_setpriority",
+          "funcAstName": "setpriority",
           "qualType": "int (int, id_t, int)",
           "range": {
             "start": {
@@ -2694,7 +2694,7 @@
         },
         {
           "funcName": "setiopolicy_np",
-          "funcAstName": "_setiopolicy_np",
+          "funcAstName": "setiopolicy_np",
           "qualType": "int (int, int, int)",
           "range": {
             "start": {
@@ -2709,7 +2709,7 @@
         },
         {
           "funcName": "setrlimit",
-          "funcAstName": "_setrlimit",
+          "funcAstName": "setrlimit",
           "qualType": "int (int, const struct rlimit *)",
           "range": {
             "start": {
@@ -2766,7 +2766,7 @@
       "funcImpls": [
         {
           "funcName": "_OSSwapInt16",
-          "funcAstName": "__ZL12_OSSwapInt16t",
+          "funcAstName": "ZL12_OSSwapInt16t",
           "qualType": "uint16_t (uint16_t)",
           "range": {
             "start": {
@@ -2783,7 +2783,7 @@
         },
         {
           "funcName": "_OSSwapInt32",
-          "funcAstName": "__ZL12_OSSwapInt32j",
+          "funcAstName": "ZL12_OSSwapInt32j",
           "qualType": "uint32_t (uint32_t)",
           "range": {
             "start": {
@@ -2800,7 +2800,7 @@
         },
         {
           "funcName": "_OSSwapInt64",
-          "funcAstName": "__ZL12_OSSwapInt64y",
+          "funcAstName": "ZL12_OSSwapInt64y",
           "qualType": "uint64_t (uint64_t)",
           "range": {
             "start": {
@@ -2817,7 +2817,7 @@
         },
         {
           "funcName": "OSReadSwapInt16",
-          "funcAstName": "__ZL15OSReadSwapInt16PVKvm",
+          "funcAstName": "ZL15OSReadSwapInt16PVKvm",
           "qualType": "uint16_t (const volatile void *, uintptr_t)",
           "range": {
             "start": {
@@ -2832,7 +2832,7 @@
           "funcCalls": [
             {
               "funcName": "_OSSwapInt16",
-              "funcAstName": "__ZL12_OSSwapInt16t",
+              "funcAstName": "ZL12_OSSwapInt16t",
               "qualType": "uint16_t (uint16_t)",
               "range": {
                 "start": {
@@ -2850,7 +2850,7 @@
         },
         {
           "funcName": "OSReadSwapInt32",
-          "funcAstName": "__ZL15OSReadSwapInt32PVKvm",
+          "funcAstName": "ZL15OSReadSwapInt32PVKvm",
           "qualType": "uint32_t (const volatile void *, uintptr_t)",
           "range": {
             "start": {
@@ -2865,7 +2865,7 @@
           "funcCalls": [
             {
               "funcName": "_OSSwapInt32",
-              "funcAstName": "__ZL12_OSSwapInt32j",
+              "funcAstName": "ZL12_OSSwapInt32j",
               "qualType": "uint32_t (uint32_t)",
               "range": {
                 "start": {
@@ -2883,7 +2883,7 @@
         },
         {
           "funcName": "OSReadSwapInt64",
-          "funcAstName": "__ZL15OSReadSwapInt64PVKvm",
+          "funcAstName": "ZL15OSReadSwapInt64PVKvm",
           "qualType": "uint64_t (const volatile void *, uintptr_t)",
           "range": {
             "start": {
@@ -2898,7 +2898,7 @@
           "funcCalls": [
             {
               "funcName": "_OSSwapInt64",
-              "funcAstName": "__ZL12_OSSwapInt64y",
+              "funcAstName": "ZL12_OSSwapInt64y",
               "qualType": "uint64_t (uint64_t)",
               "range": {
                 "start": {
@@ -2916,7 +2916,7 @@
         },
         {
           "funcName": "OSWriteSwapInt16",
-          "funcAstName": "__ZL16OSWriteSwapInt16PVvmt",
+          "funcAstName": "ZL16OSWriteSwapInt16PVvmt",
           "qualType": "void (volatile void *, uintptr_t, uint16_t)",
           "range": {
             "start": {
@@ -2931,7 +2931,7 @@
           "funcCalls": [
             {
               "funcName": "_OSSwapInt16",
-              "funcAstName": "__ZL12_OSSwapInt16t",
+              "funcAstName": "ZL12_OSSwapInt16t",
               "qualType": "uint16_t (uint16_t)",
               "range": {
                 "start": {
@@ -2949,7 +2949,7 @@
         },
         {
           "funcName": "OSWriteSwapInt32",
-          "funcAstName": "__ZL16OSWriteSwapInt32PVvmj",
+          "funcAstName": "ZL16OSWriteSwapInt32PVvmj",
           "qualType": "void (volatile void *, uintptr_t, uint32_t)",
           "range": {
             "start": {
@@ -2964,7 +2964,7 @@
           "funcCalls": [
             {
               "funcName": "_OSSwapInt32",
-              "funcAstName": "__ZL12_OSSwapInt32j",
+              "funcAstName": "ZL12_OSSwapInt32j",
               "qualType": "uint32_t (uint32_t)",
               "range": {
                 "start": {
@@ -2982,7 +2982,7 @@
         },
         {
           "funcName": "OSWriteSwapInt64",
-          "funcAstName": "__ZL16OSWriteSwapInt64PVvmy",
+          "funcAstName": "ZL16OSWriteSwapInt64PVvmy",
           "qualType": "void (volatile void *, uintptr_t, uint64_t)",
           "range": {
             "start": {
@@ -2997,7 +2997,7 @@
           "funcCalls": [
             {
               "funcName": "_OSSwapInt64",
-              "funcAstName": "__ZL12_OSSwapInt64y",
+              "funcAstName": "ZL12_OSSwapInt64y",
               "qualType": "uint64_t (uint64_t)",
               "range": {
                 "start": {
@@ -3061,7 +3061,7 @@
       "funcImpls": [
         {
           "funcName": "abs",
-          "funcAstName": "__Z3absB8ue170006l",
+          "funcAstName": "Z3absB8ue170006l",
           "qualType": "long (long) noexcept",
           "range": {
             "start": {
@@ -3078,7 +3078,7 @@
         },
         {
           "funcName": "abs",
-          "funcAstName": "__Z3absB8ue170006x",
+          "funcAstName": "Z3absB8ue170006x",
           "qualType": "long long (long long) noexcept",
           "range": {
             "start": {
@@ -3095,7 +3095,7 @@
         },
         {
           "funcName": "abs",
-          "funcAstName": "__Z3absB8ue170006f",
+          "funcAstName": "Z3absB8ue170006f",
           "qualType": "float (float) noexcept",
           "range": {
             "start": {
@@ -3112,7 +3112,7 @@
         },
         {
           "funcName": "abs",
-          "funcAstName": "__Z3absB8ue170006d",
+          "funcAstName": "Z3absB8ue170006d",
           "qualType": "double (double) noexcept",
           "range": {
             "start": {
@@ -3129,7 +3129,7 @@
         },
         {
           "funcName": "abs",
-          "funcAstName": "__Z3absB8ue170006e",
+          "funcAstName": "Z3absB8ue170006e",
           "qualType": "long double (long double) noexcept",
           "range": {
             "start": {
@@ -3146,7 +3146,7 @@
         },
         {
           "funcName": "div",
-          "funcAstName": "__Z3divB8ue170006ll",
+          "funcAstName": "Z3divB8ue170006ll",
           "qualType": "ldiv_t (long, long) noexcept",
           "range": {
             "start": {
@@ -3161,7 +3161,7 @@
           "funcCalls": [
             {
               "funcName": "ldiv",
-              "funcAstName": "_ldiv",
+              "funcAstName": "ldiv",
               "qualType": "ldiv_t (long, long)",
               "range": {
                 "start": {
@@ -3179,7 +3179,7 @@
         },
         {
           "funcName": "div",
-          "funcAstName": "__Z3divB8ue170006xx",
+          "funcAstName": "Z3divB8ue170006xx",
           "qualType": "lldiv_t (long long, long long) noexcept",
           "range": {
             "start": {
@@ -3194,7 +3194,7 @@
           "funcCalls": [
             {
               "funcName": "lldiv",
-              "funcAstName": "_lldiv",
+              "funcAstName": "lldiv",
               "qualType": "lldiv_t (long long, long long)",
               "range": {
                 "start": {
@@ -3234,7 +3234,7 @@
       "funcDecls": [
         {
           "funcName": "malloc_type_malloc",
-          "funcAstName": "_malloc_type_malloc",
+          "funcAstName": "malloc_type_malloc",
           "qualType": "void *(size_t, malloc_type_id_t)",
           "range": {
             "start": {
@@ -3249,7 +3249,7 @@
         },
         {
           "funcName": "malloc_type_calloc",
-          "funcAstName": "_malloc_type_calloc",
+          "funcAstName": "malloc_type_calloc",
           "qualType": "void *(size_t, size_t, malloc_type_id_t)",
           "range": {
             "start": {
@@ -3264,7 +3264,7 @@
         },
         {
           "funcName": "malloc_type_free",
-          "funcAstName": "_malloc_type_free",
+          "funcAstName": "malloc_type_free",
           "qualType": "void (void *, malloc_type_id_t)",
           "range": {
             "start": {
@@ -3279,7 +3279,7 @@
         },
         {
           "funcName": "malloc_type_realloc",
-          "funcAstName": "_malloc_type_realloc",
+          "funcAstName": "malloc_type_realloc",
           "qualType": "void *(void *, size_t, malloc_type_id_t)",
           "range": {
             "start": {
@@ -3294,7 +3294,7 @@
         },
         {
           "funcName": "malloc_type_valloc",
-          "funcAstName": "_malloc_type_valloc",
+          "funcAstName": "malloc_type_valloc",
           "qualType": "void *(size_t, malloc_type_id_t)",
           "range": {
             "start": {
@@ -3309,7 +3309,7 @@
         },
         {
           "funcName": "malloc_type_aligned_alloc",
-          "funcAstName": "_malloc_type_aligned_alloc",
+          "funcAstName": "malloc_type_aligned_alloc",
           "qualType": "void *(size_t, size_t, malloc_type_id_t)",
           "range": {
             "start": {
@@ -3324,7 +3324,7 @@
         },
         {
           "funcName": "malloc_type_posix_memalign",
-          "funcAstName": "_malloc_type_posix_memalign",
+          "funcAstName": "malloc_type_posix_memalign",
           "qualType": "int (void **, size_t, size_t, malloc_type_id_t)",
           "range": {
             "start": {
@@ -3339,7 +3339,7 @@
         },
         {
           "funcName": "malloc_type_zone_malloc",
-          "funcAstName": "_malloc_type_zone_malloc",
+          "funcAstName": "malloc_type_zone_malloc",
           "qualType": "void *(malloc_zone_t *, size_t, malloc_type_id_t)",
           "range": {
             "start": {
@@ -3354,7 +3354,7 @@
         },
         {
           "funcName": "malloc_type_zone_calloc",
-          "funcAstName": "_malloc_type_zone_calloc",
+          "funcAstName": "malloc_type_zone_calloc",
           "qualType": "void *(malloc_zone_t *, size_t, size_t, malloc_type_id_t)",
           "range": {
             "start": {
@@ -3369,7 +3369,7 @@
         },
         {
           "funcName": "malloc_type_zone_free",
-          "funcAstName": "_malloc_type_zone_free",
+          "funcAstName": "malloc_type_zone_free",
           "qualType": "void (malloc_zone_t *, void *, malloc_type_id_t)",
           "range": {
             "start": {
@@ -3384,7 +3384,7 @@
         },
         {
           "funcName": "malloc_type_zone_realloc",
-          "funcAstName": "_malloc_type_zone_realloc",
+          "funcAstName": "malloc_type_zone_realloc",
           "qualType": "void *(malloc_zone_t *, void *, size_t, malloc_type_id_t)",
           "range": {
             "start": {
@@ -3399,7 +3399,7 @@
         },
         {
           "funcName": "malloc_type_zone_valloc",
-          "funcAstName": "_malloc_type_zone_valloc",
+          "funcAstName": "malloc_type_zone_valloc",
           "qualType": "void *(malloc_zone_t *, size_t, malloc_type_id_t)",
           "range": {
             "start": {
@@ -3414,7 +3414,7 @@
         },
         {
           "funcName": "malloc_type_zone_memalign",
-          "funcAstName": "_malloc_type_zone_memalign",
+          "funcAstName": "malloc_type_zone_memalign",
           "qualType": "void *(malloc_zone_t *, size_t, size_t, malloc_type_id_t)",
           "range": {
             "start": {
@@ -3429,7 +3429,7 @@
         },
         {
           "funcName": "malloc",
-          "funcAstName": "_malloc",
+          "funcAstName": "malloc",
           "qualType": "void *(size_t)",
           "range": {
             "start": {
@@ -3444,7 +3444,7 @@
         },
         {
           "funcName": "calloc",
-          "funcAstName": "_calloc",
+          "funcAstName": "calloc",
           "qualType": "void *(size_t, size_t)",
           "range": {
             "start": {
@@ -3459,7 +3459,7 @@
         },
         {
           "funcName": "free",
-          "funcAstName": "_free",
+          "funcAstName": "free",
           "qualType": "void (void *)",
           "range": {
             "start": {
@@ -3474,7 +3474,7 @@
         },
         {
           "funcName": "realloc",
-          "funcAstName": "_realloc",
+          "funcAstName": "realloc",
           "qualType": "void *(void *, size_t)",
           "range": {
             "start": {
@@ -3489,7 +3489,7 @@
         },
         {
           "funcName": "reallocf",
-          "funcAstName": "_reallocf",
+          "funcAstName": "reallocf",
           "qualType": "void *(void *, size_t)",
           "range": {
             "start": {
@@ -3504,7 +3504,7 @@
         },
         {
           "funcName": "valloc",
-          "funcAstName": "_valloc",
+          "funcAstName": "valloc",
           "qualType": "void *(size_t)",
           "range": {
             "start": {
@@ -3519,7 +3519,7 @@
         },
         {
           "funcName": "aligned_alloc",
-          "funcAstName": "_aligned_alloc",
+          "funcAstName": "aligned_alloc",
           "qualType": "void *(size_t, size_t)",
           "range": {
             "start": {
@@ -3534,7 +3534,7 @@
         },
         {
           "funcName": "posix_memalign",
-          "funcAstName": "_posix_memalign",
+          "funcAstName": "posix_memalign",
           "qualType": "int (void **, size_t, size_t)",
           "range": {
             "start": {
@@ -3549,7 +3549,7 @@
         },
         {
           "funcName": "abort",
-          "funcAstName": "_abort",
+          "funcAstName": "abort",
           "qualType": "void () __attribute__((noreturn))",
           "range": {
             "start": {
@@ -3564,7 +3564,7 @@
         },
         {
           "funcName": "abs",
-          "funcAstName": "_abs",
+          "funcAstName": "abs",
           "qualType": "int (int)",
           "range": {
             "start": {
@@ -3579,7 +3579,7 @@
         },
         {
           "funcName": "atexit",
-          "funcAstName": "_atexit",
+          "funcAstName": "atexit",
           "qualType": "int (void (* _Nonnull)())",
           "range": {
             "start": {
@@ -3594,7 +3594,7 @@
         },
         {
           "funcName": "atof",
-          "funcAstName": "_atof",
+          "funcAstName": "atof",
           "qualType": "double (const char *)",
           "range": {
             "start": {
@@ -3609,7 +3609,7 @@
         },
         {
           "funcName": "atoi",
-          "funcAstName": "_atoi",
+          "funcAstName": "atoi",
           "qualType": "int (const char *)",
           "range": {
             "start": {
@@ -3624,7 +3624,7 @@
         },
         {
           "funcName": "atol",
-          "funcAstName": "_atol",
+          "funcAstName": "atol",
           "qualType": "long (const char *)",
           "range": {
             "start": {
@@ -3639,7 +3639,7 @@
         },
         {
           "funcName": "atoll",
-          "funcAstName": "_atoll",
+          "funcAstName": "atoll",
           "qualType": "long long (const char *)",
           "range": {
             "start": {
@@ -3654,7 +3654,7 @@
         },
         {
           "funcName": "bsearch",
-          "funcAstName": "_bsearch",
+          "funcAstName": "bsearch",
           "qualType": "void *(const void *, const void *, size_t, size_t, int (* _Nonnull)(const void *, const void *))",
           "range": {
             "start": {
@@ -3669,7 +3669,7 @@
         },
         {
           "funcName": "div",
-          "funcAstName": "_div",
+          "funcAstName": "div",
           "qualType": "div_t (int, int)",
           "range": {
             "start": {
@@ -3684,7 +3684,7 @@
         },
         {
           "funcName": "exit",
-          "funcAstName": "_exit",
+          "funcAstName": "exit",
           "qualType": "void (int) __attribute__((noreturn))",
           "range": {
             "start": {
@@ -3699,7 +3699,7 @@
         },
         {
           "funcName": "getenv",
-          "funcAstName": "_getenv",
+          "funcAstName": "getenv",
           "qualType": "char *(const char *)",
           "range": {
             "start": {
@@ -3714,7 +3714,7 @@
         },
         {
           "funcName": "labs",
-          "funcAstName": "_labs",
+          "funcAstName": "labs",
           "qualType": "long (long)",
           "range": {
             "start": {
@@ -3729,7 +3729,7 @@
         },
         {
           "funcName": "ldiv",
-          "funcAstName": "_ldiv",
+          "funcAstName": "ldiv",
           "qualType": "ldiv_t (long, long)",
           "range": {
             "start": {
@@ -3744,7 +3744,7 @@
         },
         {
           "funcName": "llabs",
-          "funcAstName": "_llabs",
+          "funcAstName": "llabs",
           "qualType": "long long (long long)",
           "range": {
             "start": {
@@ -3759,7 +3759,7 @@
         },
         {
           "funcName": "lldiv",
-          "funcAstName": "_lldiv",
+          "funcAstName": "lldiv",
           "qualType": "lldiv_t (long long, long long)",
           "range": {
             "start": {
@@ -3774,7 +3774,7 @@
         },
         {
           "funcName": "mblen",
-          "funcAstName": "_mblen",
+          "funcAstName": "mblen",
           "qualType": "int (const char *, size_t)",
           "range": {
             "start": {
@@ -3789,7 +3789,7 @@
         },
         {
           "funcName": "mbstowcs",
-          "funcAstName": "_mbstowcs",
+          "funcAstName": "mbstowcs",
           "qualType": "size_t (wchar_t *, const char *, size_t)",
           "range": {
             "start": {
@@ -3804,7 +3804,7 @@
         },
         {
           "funcName": "mbtowc",
-          "funcAstName": "_mbtowc",
+          "funcAstName": "mbtowc",
           "qualType": "int (wchar_t *, const char *, size_t)",
           "range": {
             "start": {
@@ -3819,7 +3819,7 @@
         },
         {
           "funcName": "qsort",
-          "funcAstName": "_qsort",
+          "funcAstName": "qsort",
           "qualType": "void (void *, size_t, size_t, int (* _Nonnull)(const void *, const void *))",
           "range": {
             "start": {
@@ -3834,7 +3834,7 @@
         },
         {
           "funcName": "rand",
-          "funcAstName": "_rand",
+          "funcAstName": "rand",
           "qualType": "int ()",
           "range": {
             "start": {
@@ -3849,7 +3849,7 @@
         },
         {
           "funcName": "srand",
-          "funcAstName": "_srand",
+          "funcAstName": "srand",
           "qualType": "void (unsigned int)",
           "range": {
             "start": {
@@ -3864,7 +3864,7 @@
         },
         {
           "funcName": "strtod",
-          "funcAstName": "_strtod",
+          "funcAstName": "strtod",
           "qualType": "double (const char *, char **)",
           "range": {
             "start": {
@@ -3879,7 +3879,7 @@
         },
         {
           "funcName": "strtof",
-          "funcAstName": "_strtof",
+          "funcAstName": "strtof",
           "qualType": "float (const char *, char **)",
           "range": {
             "start": {
@@ -3894,7 +3894,7 @@
         },
         {
           "funcName": "strtol",
-          "funcAstName": "_strtol",
+          "funcAstName": "strtol",
           "qualType": "long (const char *, char **, int)",
           "range": {
             "start": {
@@ -3909,7 +3909,7 @@
         },
         {
           "funcName": "strtold",
-          "funcAstName": "_strtold",
+          "funcAstName": "strtold",
           "qualType": "long double (const char *, char **)",
           "range": {
             "start": {
@@ -3924,7 +3924,7 @@
         },
         {
           "funcName": "strtoll",
-          "funcAstName": "_strtoll",
+          "funcAstName": "strtoll",
           "qualType": "long long (const char *, char **, int)",
           "range": {
             "start": {
@@ -3939,7 +3939,7 @@
         },
         {
           "funcName": "strtoul",
-          "funcAstName": "_strtoul",
+          "funcAstName": "strtoul",
           "qualType": "unsigned long (const char *, char **, int)",
           "range": {
             "start": {
@@ -3954,7 +3954,7 @@
         },
         {
           "funcName": "strtoull",
-          "funcAstName": "_strtoull",
+          "funcAstName": "strtoull",
           "qualType": "unsigned long long (const char *, char **, int)",
           "range": {
             "start": {
@@ -3969,7 +3969,7 @@
         },
         {
           "funcName": "system",
-          "funcAstName": "_system",
+          "funcAstName": "system",
           "qualType": "int (const char *)",
           "range": {
             "start": {
@@ -3984,7 +3984,7 @@
         },
         {
           "funcName": "wcstombs",
-          "funcAstName": "_wcstombs",
+          "funcAstName": "wcstombs",
           "qualType": "size_t (char *, const wchar_t *, size_t)",
           "range": {
             "start": {
@@ -3999,7 +3999,7 @@
         },
         {
           "funcName": "wctomb",
-          "funcAstName": "_wctomb",
+          "funcAstName": "wctomb",
           "qualType": "int (char *, wchar_t)",
           "range": {
             "start": {
@@ -4014,7 +4014,7 @@
         },
         {
           "funcName": "_Exit",
-          "funcAstName": "__Exit",
+          "funcAstName": "Exit",
           "qualType": "void (int) __attribute__((noreturn))",
           "range": {
             "start": {
@@ -4029,7 +4029,7 @@
         },
         {
           "funcName": "a64l",
-          "funcAstName": "_a64l",
+          "funcAstName": "a64l",
           "qualType": "long (const char *)",
           "range": {
             "start": {
@@ -4044,7 +4044,7 @@
         },
         {
           "funcName": "drand48",
-          "funcAstName": "_drand48",
+          "funcAstName": "drand48",
           "qualType": "double ()",
           "range": {
             "start": {
@@ -4059,7 +4059,7 @@
         },
         {
           "funcName": "ecvt",
-          "funcAstName": "_ecvt",
+          "funcAstName": "ecvt",
           "qualType": "char *(double, int, int *, int *)",
           "range": {
             "start": {
@@ -4074,7 +4074,7 @@
         },
         {
           "funcName": "erand48",
-          "funcAstName": "_erand48",
+          "funcAstName": "erand48",
           "qualType": "double (unsigned short *)",
           "range": {
             "start": {
@@ -4089,7 +4089,7 @@
         },
         {
           "funcName": "fcvt",
-          "funcAstName": "_fcvt",
+          "funcAstName": "fcvt",
           "qualType": "char *(double, int, int *, int *)",
           "range": {
             "start": {
@@ -4104,7 +4104,7 @@
         },
         {
           "funcName": "gcvt",
-          "funcAstName": "_gcvt",
+          "funcAstName": "gcvt",
           "qualType": "char *(double, int, char *)",
           "range": {
             "start": {
@@ -4119,7 +4119,7 @@
         },
         {
           "funcName": "getsubopt",
-          "funcAstName": "_getsubopt",
+          "funcAstName": "getsubopt",
           "qualType": "int (char **, char *const *, char **)",
           "range": {
             "start": {
@@ -4134,7 +4134,7 @@
         },
         {
           "funcName": "grantpt",
-          "funcAstName": "_grantpt",
+          "funcAstName": "grantpt",
           "qualType": "int (int)",
           "range": {
             "start": {
@@ -4149,7 +4149,7 @@
         },
         {
           "funcName": "initstate",
-          "funcAstName": "_initstate",
+          "funcAstName": "initstate",
           "qualType": "char *(unsigned int, char *, size_t)",
           "range": {
             "start": {
@@ -4164,7 +4164,7 @@
         },
         {
           "funcName": "jrand48",
-          "funcAstName": "_jrand48",
+          "funcAstName": "jrand48",
           "qualType": "long (unsigned short *)",
           "range": {
             "start": {
@@ -4179,7 +4179,7 @@
         },
         {
           "funcName": "l64a",
-          "funcAstName": "_l64a",
+          "funcAstName": "l64a",
           "qualType": "char *(long)",
           "range": {
             "start": {
@@ -4194,7 +4194,7 @@
         },
         {
           "funcName": "lcong48",
-          "funcAstName": "_lcong48",
+          "funcAstName": "lcong48",
           "qualType": "void (unsigned short *)",
           "range": {
             "start": {
@@ -4209,7 +4209,7 @@
         },
         {
           "funcName": "lrand48",
-          "funcAstName": "_lrand48",
+          "funcAstName": "lrand48",
           "qualType": "long ()",
           "range": {
             "start": {
@@ -4224,7 +4224,7 @@
         },
         {
           "funcName": "mktemp",
-          "funcAstName": "_mktemp",
+          "funcAstName": "mktemp",
           "qualType": "char *(char *)",
           "range": {
             "start": {
@@ -4239,7 +4239,7 @@
         },
         {
           "funcName": "mkstemp",
-          "funcAstName": "_mkstemp",
+          "funcAstName": "mkstemp",
           "qualType": "int (char *)",
           "range": {
             "start": {
@@ -4254,7 +4254,7 @@
         },
         {
           "funcName": "mrand48",
-          "funcAstName": "_mrand48",
+          "funcAstName": "mrand48",
           "qualType": "long ()",
           "range": {
             "start": {
@@ -4269,7 +4269,7 @@
         },
         {
           "funcName": "nrand48",
-          "funcAstName": "_nrand48",
+          "funcAstName": "nrand48",
           "qualType": "long (unsigned short *)",
           "range": {
             "start": {
@@ -4284,7 +4284,7 @@
         },
         {
           "funcName": "posix_openpt",
-          "funcAstName": "_posix_openpt",
+          "funcAstName": "posix_openpt",
           "qualType": "int (int)",
           "range": {
             "start": {
@@ -4299,7 +4299,7 @@
         },
         {
           "funcName": "ptsname",
-          "funcAstName": "_ptsname",
+          "funcAstName": "ptsname",
           "qualType": "char *(int)",
           "range": {
             "start": {
@@ -4314,7 +4314,7 @@
         },
         {
           "funcName": "ptsname_r",
-          "funcAstName": "_ptsname_r",
+          "funcAstName": "ptsname_r",
           "qualType": "int (int, char *, size_t)",
           "range": {
             "start": {
@@ -4329,7 +4329,7 @@
         },
         {
           "funcName": "putenv",
-          "funcAstName": "_putenv",
+          "funcAstName": "putenv",
           "qualType": "int (char *)",
           "range": {
             "start": {
@@ -4344,7 +4344,7 @@
         },
         {
           "funcName": "random",
-          "funcAstName": "_random",
+          "funcAstName": "random",
           "qualType": "long ()",
           "range": {
             "start": {
@@ -4359,7 +4359,7 @@
         },
         {
           "funcName": "rand_r",
-          "funcAstName": "_rand_r",
+          "funcAstName": "rand_r",
           "qualType": "int (unsigned int *)",
           "range": {
             "start": {
@@ -4374,7 +4374,7 @@
         },
         {
           "funcName": "realpath",
-          "funcAstName": "_realpath$DARWIN_EXTSN",
+          "funcAstName": "realpath$DARWIN_EXTSN",
           "qualType": "char *(const char *, char *)",
           "range": {
             "start": {
@@ -4389,7 +4389,7 @@
         },
         {
           "funcName": "seed48",
-          "funcAstName": "_seed48",
+          "funcAstName": "seed48",
           "qualType": "unsigned short *(unsigned short *)",
           "range": {
             "start": {
@@ -4404,7 +4404,7 @@
         },
         {
           "funcName": "setenv",
-          "funcAstName": "_setenv",
+          "funcAstName": "setenv",
           "qualType": "int (const char *, const char *, int)",
           "range": {
             "start": {
@@ -4419,7 +4419,7 @@
         },
         {
           "funcName": "setkey",
-          "funcAstName": "_setkey",
+          "funcAstName": "setkey",
           "qualType": "void (const char *)",
           "range": {
             "start": {
@@ -4434,7 +4434,7 @@
         },
         {
           "funcName": "setstate",
-          "funcAstName": "_setstate",
+          "funcAstName": "setstate",
           "qualType": "char *(const char *)",
           "range": {
             "start": {
@@ -4449,7 +4449,7 @@
         },
         {
           "funcName": "srand48",
-          "funcAstName": "_srand48",
+          "funcAstName": "srand48",
           "qualType": "void (long)",
           "range": {
             "start": {
@@ -4464,7 +4464,7 @@
         },
         {
           "funcName": "srandom",
-          "funcAstName": "_srandom",
+          "funcAstName": "srandom",
           "qualType": "void (unsigned int)",
           "range": {
             "start": {
@@ -4479,7 +4479,7 @@
         },
         {
           "funcName": "unlockpt",
-          "funcAstName": "_unlockpt",
+          "funcAstName": "unlockpt",
           "qualType": "int (int)",
           "range": {
             "start": {
@@ -4494,7 +4494,7 @@
         },
         {
           "funcName": "unsetenv",
-          "funcAstName": "_unsetenv",
+          "funcAstName": "unsetenv",
           "qualType": "int (const char *)",
           "range": {
             "start": {
@@ -4543,7 +4543,7 @@
       "funcDecls": [
         {
           "funcName": "arc4random",
-          "funcAstName": "_arc4random",
+          "funcAstName": "arc4random",
           "qualType": "uint32_t ()",
           "range": {
             "start": {
@@ -4558,7 +4558,7 @@
         },
         {
           "funcName": "arc4random_addrandom",
-          "funcAstName": "_arc4random_addrandom",
+          "funcAstName": "arc4random_addrandom",
           "qualType": "void (unsigned char *, int)",
           "range": {
             "start": {
@@ -4573,7 +4573,7 @@
         },
         {
           "funcName": "arc4random_buf",
-          "funcAstName": "_arc4random_buf",
+          "funcAstName": "arc4random_buf",
           "qualType": "void (void *, size_t)",
           "range": {
             "start": {
@@ -4588,7 +4588,7 @@
         },
         {
           "funcName": "arc4random_stir",
-          "funcAstName": "_arc4random_stir",
+          "funcAstName": "arc4random_stir",
           "qualType": "void ()",
           "range": {
             "start": {
@@ -4603,7 +4603,7 @@
         },
         {
           "funcName": "arc4random_uniform",
-          "funcAstName": "_arc4random_uniform",
+          "funcAstName": "arc4random_uniform",
           "qualType": "uint32_t (uint32_t)",
           "range": {
             "start": {
@@ -4618,7 +4618,7 @@
         },
         {
           "funcName": "atexit_b",
-          "funcAstName": "_atexit_b",
+          "funcAstName": "atexit_b",
           "qualType": "int (void (^ _Nonnull)())",
           "range": {
             "start": {
@@ -4633,7 +4633,7 @@
         },
         {
           "funcName": "bsearch_b",
-          "funcAstName": "_bsearch_b",
+          "funcAstName": "bsearch_b",
           "qualType": "void *(const void *, const void *, size_t, size_t, __attribute__((noescape)) __bsearch_noescape int (^)(const void *, const void *))",
           "range": {
             "start": {
@@ -4648,7 +4648,7 @@
         },
         {
           "funcName": "cgetcap",
-          "funcAstName": "_cgetcap",
+          "funcAstName": "cgetcap",
           "qualType": "char *(char *, const char *, int)",
           "range": {
             "start": {
@@ -4663,7 +4663,7 @@
         },
         {
           "funcName": "cgetclose",
-          "funcAstName": "_cgetclose",
+          "funcAstName": "cgetclose",
           "qualType": "int ()",
           "range": {
             "start": {
@@ -4678,7 +4678,7 @@
         },
         {
           "funcName": "cgetent",
-          "funcAstName": "_cgetent",
+          "funcAstName": "cgetent",
           "qualType": "int (char **, char **, const char *)",
           "range": {
             "start": {
@@ -4693,7 +4693,7 @@
         },
         {
           "funcName": "cgetfirst",
-          "funcAstName": "_cgetfirst",
+          "funcAstName": "cgetfirst",
           "qualType": "int (char **, char **)",
           "range": {
             "start": {
@@ -4708,7 +4708,7 @@
         },
         {
           "funcName": "cgetmatch",
-          "funcAstName": "_cgetmatch",
+          "funcAstName": "cgetmatch",
           "qualType": "int (const char *, const char *)",
           "range": {
             "start": {
@@ -4723,7 +4723,7 @@
         },
         {
           "funcName": "cgetnext",
-          "funcAstName": "_cgetnext",
+          "funcAstName": "cgetnext",
           "qualType": "int (char **, char **)",
           "range": {
             "start": {
@@ -4738,7 +4738,7 @@
         },
         {
           "funcName": "cgetnum",
-          "funcAstName": "_cgetnum",
+          "funcAstName": "cgetnum",
           "qualType": "int (char *, const char *, long *)",
           "range": {
             "start": {
@@ -4753,7 +4753,7 @@
         },
         {
           "funcName": "cgetset",
-          "funcAstName": "_cgetset",
+          "funcAstName": "cgetset",
           "qualType": "int (const char *)",
           "range": {
             "start": {
@@ -4768,7 +4768,7 @@
         },
         {
           "funcName": "cgetstr",
-          "funcAstName": "_cgetstr",
+          "funcAstName": "cgetstr",
           "qualType": "int (char *, const char *, char **)",
           "range": {
             "start": {
@@ -4783,7 +4783,7 @@
         },
         {
           "funcName": "cgetustr",
-          "funcAstName": "_cgetustr",
+          "funcAstName": "cgetustr",
           "qualType": "int (char *, const char *, char **)",
           "range": {
             "start": {
@@ -4798,7 +4798,7 @@
         },
         {
           "funcName": "daemon",
-          "funcAstName": "_daemon",
+          "funcAstName": "daemon",
           "qualType": "int (int, int)",
           "range": {
             "start": {
@@ -4813,7 +4813,7 @@
         },
         {
           "funcName": "devname",
-          "funcAstName": "_devname",
+          "funcAstName": "devname",
           "qualType": "char *(dev_t, mode_t)",
           "range": {
             "start": {
@@ -4828,7 +4828,7 @@
         },
         {
           "funcName": "devname_r",
-          "funcAstName": "_devname_r",
+          "funcAstName": "devname_r",
           "qualType": "char *(dev_t, mode_t, char *, int)",
           "range": {
             "start": {
@@ -4843,7 +4843,7 @@
         },
         {
           "funcName": "getbsize",
-          "funcAstName": "_getbsize",
+          "funcAstName": "getbsize",
           "qualType": "char *(int *, long *)",
           "range": {
             "start": {
@@ -4858,7 +4858,7 @@
         },
         {
           "funcName": "getloadavg",
-          "funcAstName": "_getloadavg",
+          "funcAstName": "getloadavg",
           "qualType": "int (double *, int)",
           "range": {
             "start": {
@@ -4873,7 +4873,7 @@
         },
         {
           "funcName": "getprogname",
-          "funcAstName": "_getprogname",
+          "funcAstName": "getprogname",
           "qualType": "const char *()",
           "range": {
             "start": {
@@ -4888,7 +4888,7 @@
         },
         {
           "funcName": "setprogname",
-          "funcAstName": "_setprogname",
+          "funcAstName": "setprogname",
           "qualType": "void (const char *)",
           "range": {
             "start": {
@@ -4903,7 +4903,7 @@
         },
         {
           "funcName": "heapsort",
-          "funcAstName": "_heapsort",
+          "funcAstName": "heapsort",
           "qualType": "int (void *, size_t, size_t, int (* _Nonnull)(const void *, const void *))",
           "range": {
             "start": {
@@ -4918,7 +4918,7 @@
         },
         {
           "funcName": "heapsort_b",
-          "funcAstName": "_heapsort_b",
+          "funcAstName": "heapsort_b",
           "qualType": "int (void *, size_t, size_t, __attribute__((noescape)) __sort_noescape int (^)(const void *, const void *))",
           "range": {
             "start": {
@@ -4933,7 +4933,7 @@
         },
         {
           "funcName": "mergesort",
-          "funcAstName": "_mergesort",
+          "funcAstName": "mergesort",
           "qualType": "int (void *, size_t, size_t, int (* _Nonnull)(const void *, const void *))",
           "range": {
             "start": {
@@ -4948,7 +4948,7 @@
         },
         {
           "funcName": "mergesort_b",
-          "funcAstName": "_mergesort_b",
+          "funcAstName": "mergesort_b",
           "qualType": "int (void *, size_t, size_t, __attribute__((noescape)) __sort_noescape int (^)(const void *, const void *))",
           "range": {
             "start": {
@@ -4963,7 +4963,7 @@
         },
         {
           "funcName": "psort",
-          "funcAstName": "_psort",
+          "funcAstName": "psort",
           "qualType": "void (void *, size_t, size_t, int (* _Nonnull)(const void *, const void *))",
           "range": {
             "start": {
@@ -4978,7 +4978,7 @@
         },
         {
           "funcName": "psort_b",
-          "funcAstName": "_psort_b",
+          "funcAstName": "psort_b",
           "qualType": "void (void *, size_t, size_t, __attribute__((noescape)) __sort_noescape int (^)(const void *, const void *))",
           "range": {
             "start": {
@@ -4993,7 +4993,7 @@
         },
         {
           "funcName": "psort_r",
-          "funcAstName": "_psort_r",
+          "funcAstName": "psort_r",
           "qualType": "void (void *, size_t, size_t, void *, int (* _Nonnull)(void *, const void *, const void *))",
           "range": {
             "start": {
@@ -5008,7 +5008,7 @@
         },
         {
           "funcName": "qsort_b",
-          "funcAstName": "_qsort_b",
+          "funcAstName": "qsort_b",
           "qualType": "void (void *, size_t, size_t, __attribute__((noescape)) __sort_noescape int (^)(const void *, const void *))",
           "range": {
             "start": {
@@ -5023,7 +5023,7 @@
         },
         {
           "funcName": "qsort_r",
-          "funcAstName": "_qsort_r",
+          "funcAstName": "qsort_r",
           "qualType": "void (void *, size_t, size_t, void *, int (* _Nonnull)(void *, const void *, const void *))",
           "range": {
             "start": {
@@ -5038,7 +5038,7 @@
         },
         {
           "funcName": "radixsort",
-          "funcAstName": "_radixsort",
+          "funcAstName": "radixsort",
           "qualType": "int (const unsigned char **, int, const unsigned char *, unsigned int)",
           "range": {
             "start": {
@@ -5053,7 +5053,7 @@
         },
         {
           "funcName": "rpmatch",
-          "funcAstName": "_rpmatch",
+          "funcAstName": "rpmatch",
           "qualType": "int (const char *)",
           "range": {
             "start": {
@@ -5068,7 +5068,7 @@
         },
         {
           "funcName": "sradixsort",
-          "funcAstName": "_sradixsort",
+          "funcAstName": "sradixsort",
           "qualType": "int (const unsigned char **, int, const unsigned char *, unsigned int)",
           "range": {
             "start": {
@@ -5083,7 +5083,7 @@
         },
         {
           "funcName": "sranddev",
-          "funcAstName": "_sranddev",
+          "funcAstName": "sranddev",
           "qualType": "void ()",
           "range": {
             "start": {
@@ -5098,7 +5098,7 @@
         },
         {
           "funcName": "srandomdev",
-          "funcAstName": "_srandomdev",
+          "funcAstName": "srandomdev",
           "qualType": "void ()",
           "range": {
             "start": {
@@ -5113,7 +5113,7 @@
         },
         {
           "funcName": "strtonum",
-          "funcAstName": "_strtonum",
+          "funcAstName": "strtonum",
           "qualType": "long long (const char *, long long, long long, const char **)",
           "range": {
             "start": {
@@ -5128,7 +5128,7 @@
         },
         {
           "funcName": "strtoq",
-          "funcAstName": "_strtoq",
+          "funcAstName": "strtoq",
           "qualType": "long long (const char *, char **, int)",
           "range": {
             "start": {
@@ -5143,7 +5143,7 @@
         },
         {
           "funcName": "strtouq",
-          "funcAstName": "_strtouq",
+          "funcAstName": "strtouq",
           "qualType": "unsigned long long (const char *, char **, int)",
           "range": {
             "start": {
@@ -5199,7 +5199,7 @@
       "funcDecls": [
         {
           "funcName": "set_terminate",
-          "funcAstName": "__ZSt13set_terminatePFvvE",
+          "funcAstName": "ZSt13set_terminatePFvvE",
           "qualType": "terminate_handler (terminate_handler) noexcept",
           "range": {
             "start": {
@@ -5214,7 +5214,7 @@
         },
         {
           "funcName": "get_terminate",
-          "funcAstName": "__ZSt13get_terminatev",
+          "funcAstName": "ZSt13get_terminatev",
           "qualType": "terminate_handler () noexcept",
           "range": {
             "start": {
@@ -5229,7 +5229,7 @@
         },
         {
           "funcName": "uncaught_exception",
-          "funcAstName": "__ZSt18uncaught_exceptionv",
+          "funcAstName": "ZSt18uncaught_exceptionv",
           "qualType": "bool () noexcept",
           "range": {
             "start": {
@@ -5244,7 +5244,7 @@
         },
         {
           "funcName": "uncaught_exceptions",
-          "funcAstName": "__ZSt19uncaught_exceptionsv",
+          "funcAstName": "ZSt19uncaught_exceptionsv",
           "qualType": "int () noexcept",
           "range": {
             "start": {
@@ -5259,7 +5259,7 @@
         },
         {
           "funcName": "current_exception",
-          "funcAstName": "__ZSt17current_exceptionv",
+          "funcAstName": "ZSt17current_exceptionv",
           "qualType": "exception_ptr () noexcept",
           "range": {
             "start": {
@@ -5274,7 +5274,7 @@
         },
         {
           "funcName": "rethrow_exception",
-          "funcAstName": "__ZSt17rethrow_exceptionSt13exception_ptr",
+          "funcAstName": "ZSt17rethrow_exceptionSt13exception_ptr",
           "qualType": "void (exception_ptr)",
           "range": {
             "start": {
@@ -5306,7 +5306,7 @@
           "funcDecls": [
             {
               "funcName": "operator=",
-              "funcAstName": "__ZNSt13exception_ptraSERKS_",
+              "funcAstName": "ZNSt13exception_ptraSERKS_",
               "qualType": "exception_ptr &(const exception_ptr &) noexcept",
               "range": {
                 "start": {
@@ -5321,7 +5321,7 @@
             },
             {
               "funcName": "current_exception",
-              "funcAstName": "__ZSt17current_exceptionv",
+              "funcAstName": "ZSt17current_exceptionv",
               "qualType": "exception_ptr () noexcept",
               "range": {
                 "start": {
@@ -5336,7 +5336,7 @@
             },
             {
               "funcName": "rethrow_exception",
-              "funcAstName": "__ZSt17rethrow_exceptionSt13exception_ptr",
+              "funcAstName": "ZSt17rethrow_exceptionSt13exception_ptr",
               "qualType": "void (exception_ptr)",
               "range": {
                 "start": {
@@ -5353,7 +5353,7 @@
           "funcImpls": [
             {
               "funcName": "operator==",
-              "funcAstName": "__ZSteqB8ue170006RKSt13exception_ptrS1_",
+              "funcAstName": "ZSteqB8ue170006RKSt13exception_ptrS1_",
               "qualType": "bool (const exception_ptr &, const exception_ptr &) noexcept",
               "range": {
                 "start": {
@@ -5370,7 +5370,7 @@
             },
             {
               "funcName": "operator!=",
-              "funcAstName": "__ZStneB8ue170006RKSt13exception_ptrS1_",
+              "funcAstName": "ZStneB8ue170006RKSt13exception_ptrS1_",
               "qualType": "bool (const exception_ptr &, const exception_ptr &) noexcept",
               "range": {
                 "start": {
@@ -5385,7 +5385,7 @@
               "funcCalls": [
                 {
                   "funcName": "operator==",
-                  "funcAstName": "__ZSteqB8ue170006RKSt13exception_ptrS1_",
+                  "funcAstName": "ZSteqB8ue170006RKSt13exception_ptrS1_",
                   "qualType": "bool (const exception_ptr &, const exception_ptr &) noexcept",
                   "range": {
                     "start": {
@@ -5515,7 +5515,7 @@
           "funcDecls": [
             {
               "funcName": "rethrow_nested",
-              "funcAstName": "__ZNKSt16nested_exception14rethrow_nestedEv",
+              "funcAstName": "ZNKSt16nested_exception14rethrow_nestedEv",
               "qualType": "void () const",
               "range": {
                 "start": {
@@ -5530,7 +5530,7 @@
             },
             {
               "funcName": "operator=",
-              "funcAstName": "__ZNSt16nested_exceptionaSERKS_",
+              "funcAstName": "ZNSt16nested_exceptionaSERKS_",
               "qualType": "std::nested_exception &(const std::nested_exception &)",
               "range": {
                 "start": {
@@ -5547,7 +5547,7 @@
           "funcImpls": [
             {
               "funcName": "nested_ptr",
-              "funcAstName": "__ZNKSt16nested_exception10nested_ptrB8ue170006Ev",
+              "funcAstName": "ZNKSt16nested_exception10nested_ptrB8ue170006Ev",
               "qualType": "exception_ptr () const noexcept",
               "range": {
                 "start": {
@@ -5587,7 +5587,7 @@
           "funcImpls": [
             {
               "funcName": "operator()",
-              "funcAstName": "__ZNKSt3__14hashIbEclB8ue170006Eb",
+              "funcAstName": "ZNKSt3__14hashIbEclB8ue170006Eb",
               "qualType": "size_t (bool) const noexcept",
               "range": {
                 "start": {
@@ -5604,7 +5604,7 @@
             },
             {
               "funcName": "operator()",
-              "funcAstName": "__ZNKSt3__14hashIcEclB8ue170006Ec",
+              "funcAstName": "ZNKSt3__14hashIcEclB8ue170006Ec",
               "qualType": "size_t (char) const noexcept",
               "range": {
                 "start": {
@@ -5621,7 +5621,7 @@
             },
             {
               "funcName": "operator()",
-              "funcAstName": "__ZNKSt3__14hashIaEclB8ue170006Ea",
+              "funcAstName": "ZNKSt3__14hashIaEclB8ue170006Ea",
               "qualType": "size_t (signed char) const noexcept",
               "range": {
                 "start": {
@@ -5638,7 +5638,7 @@
             },
             {
               "funcName": "operator()",
-              "funcAstName": "__ZNKSt3__14hashIhEclB8ue170006Eh",
+              "funcAstName": "ZNKSt3__14hashIhEclB8ue170006Eh",
               "qualType": "size_t (unsigned char) const noexcept",
               "range": {
                 "start": {
@@ -5655,7 +5655,7 @@
             },
             {
               "funcName": "operator()",
-              "funcAstName": "__ZNKSt3__14hashIDuEclB8ue170006EDu",
+              "funcAstName": "ZNKSt3__14hashIDuEclB8ue170006EDu",
               "qualType": "size_t (char8_t) const noexcept",
               "range": {
                 "start": {
@@ -5672,7 +5672,7 @@
             },
             {
               "funcName": "operator()",
-              "funcAstName": "__ZNKSt3__14hashIDsEclB8ue170006EDs",
+              "funcAstName": "ZNKSt3__14hashIDsEclB8ue170006EDs",
               "qualType": "size_t (char16_t) const noexcept",
               "range": {
                 "start": {
@@ -5689,7 +5689,7 @@
             },
             {
               "funcName": "operator()",
-              "funcAstName": "__ZNKSt3__14hashIDiEclB8ue170006EDi",
+              "funcAstName": "ZNKSt3__14hashIDiEclB8ue170006EDi",
               "qualType": "size_t (char32_t) const noexcept",
               "range": {
                 "start": {
@@ -5706,7 +5706,7 @@
             },
             {
               "funcName": "operator()",
-              "funcAstName": "__ZNKSt3__14hashIwEclB8ue170006Ew",
+              "funcAstName": "ZNKSt3__14hashIwEclB8ue170006Ew",
               "qualType": "size_t (wchar_t) const noexcept",
               "range": {
                 "start": {
@@ -5723,7 +5723,7 @@
             },
             {
               "funcName": "operator()",
-              "funcAstName": "__ZNKSt3__14hashIsEclB8ue170006Es",
+              "funcAstName": "ZNKSt3__14hashIsEclB8ue170006Es",
               "qualType": "size_t (short) const noexcept",
               "range": {
                 "start": {
@@ -5740,7 +5740,7 @@
             },
             {
               "funcName": "operator()",
-              "funcAstName": "__ZNKSt3__14hashItEclB8ue170006Et",
+              "funcAstName": "ZNKSt3__14hashItEclB8ue170006Et",
               "qualType": "size_t (unsigned short) const noexcept",
               "range": {
                 "start": {
@@ -5757,7 +5757,7 @@
             },
             {
               "funcName": "operator()",
-              "funcAstName": "__ZNKSt3__14hashIiEclB8ue170006Ei",
+              "funcAstName": "ZNKSt3__14hashIiEclB8ue170006Ei",
               "qualType": "size_t (int) const noexcept",
               "range": {
                 "start": {
@@ -5774,7 +5774,7 @@
             },
             {
               "funcName": "operator()",
-              "funcAstName": "__ZNKSt3__14hashIjEclB8ue170006Ej",
+              "funcAstName": "ZNKSt3__14hashIjEclB8ue170006Ej",
               "qualType": "size_t (unsigned int) const noexcept",
               "range": {
                 "start": {
@@ -5791,7 +5791,7 @@
             },
             {
               "funcName": "operator()",
-              "funcAstName": "__ZNKSt3__14hashIlEclB8ue170006El",
+              "funcAstName": "ZNKSt3__14hashIlEclB8ue170006El",
               "qualType": "size_t (long) const noexcept",
               "range": {
                 "start": {
@@ -5808,7 +5808,7 @@
             },
             {
               "funcName": "operator()",
-              "funcAstName": "__ZNKSt3__14hashImEclB8ue170006Em",
+              "funcAstName": "ZNKSt3__14hashImEclB8ue170006Em",
               "qualType": "size_t (unsigned long) const noexcept",
               "range": {
                 "start": {
@@ -5825,7 +5825,7 @@
             },
             {
               "funcName": "operator()",
-              "funcAstName": "__ZNKSt3__14hashIfEclB8ue170006Ef",
+              "funcAstName": "ZNKSt3__14hashIfEclB8ue170006Ef",
               "qualType": "size_t (float) const noexcept",
               "range": {
                 "start": {
@@ -5842,7 +5842,7 @@
             },
             {
               "funcName": "operator()",
-              "funcAstName": "__ZNKSt3__14hashIdEclB8ue170006Ed",
+              "funcAstName": "ZNKSt3__14hashIdEclB8ue170006Ed",
               "qualType": "size_t (double) const noexcept",
               "range": {
                 "start": {
@@ -5859,7 +5859,7 @@
             },
             {
               "funcName": "operator()",
-              "funcAstName": "__ZNKSt3__14hashIeEclB8ue170006Ee",
+              "funcAstName": "ZNKSt3__14hashIeEclB8ue170006Ee",
               "qualType": "size_t (long double) const noexcept",
               "range": {
                 "start": {
@@ -5876,7 +5876,7 @@
             },
             {
               "funcName": "operator()",
-              "funcAstName": "__ZNKSt3__14hashIDnEclB8ue170006EDn",
+              "funcAstName": "ZNKSt3__14hashIDnEclB8ue170006EDn",
               "qualType": "size_t (nullptr_t) const noexcept",
               "range": {
                 "start": {
@@ -5971,7 +5971,7 @@
               "funcImpls": [
                 {
                   "funcName": "__is_pair_constructible",
-                  "funcAstName": "__ZNSt3__14pairImmE10_CheckArgs23__is_pair_constructibleB8ue170006IRKmS5_EEbv",
+                  "funcAstName": "ZNSt3__14pairImmE10_CheckArgs23__is_pair_constructibleB8ue170006IRKmS5_EEbv",
                   "qualType": "bool ()",
                   "range": {
                     "start": {
@@ -5988,7 +5988,7 @@
                 },
                 {
                   "funcName": "__is_pair_constructible",
-                  "funcAstName": "__ZNSt3__14pairImmE10_CheckArgs23__is_pair_constructibleB8ue170006ImmEEbv",
+                  "funcAstName": "ZNSt3__14pairImmE10_CheckArgs23__is_pair_constructibleB8ue170006ImmEEbv",
                   "qualType": "bool ()",
                   "range": {
                     "start": {
@@ -6005,7 +6005,7 @@
                 },
                 {
                   "funcName": "__is_implicit",
-                  "funcAstName": "__ZNSt3__14pairImmE10_CheckArgs13__is_implicitB8ue170006IRKmS5_EEbv",
+                  "funcAstName": "ZNSt3__14pairImmE10_CheckArgs13__is_implicitB8ue170006IRKmS5_EEbv",
                   "qualType": "bool ()",
                   "range": {
                     "start": {
@@ -6022,7 +6022,7 @@
                 },
                 {
                   "funcName": "__is_implicit",
-                  "funcAstName": "__ZNSt3__14pairImmE10_CheckArgs13__is_implicitB8ue170006ImmEEbv",
+                  "funcAstName": "ZNSt3__14pairImmE10_CheckArgs13__is_implicitB8ue170006ImmEEbv",
                   "qualType": "bool ()",
                   "range": {
                     "start": {
@@ -6039,7 +6039,7 @@
                 },
                 {
                   "funcName": "__enable_explicit",
-                  "funcAstName": "__ZNSt3__14pairImmE10_CheckArgs17__enable_explicitB8ue170006IRKmS5_EEbv",
+                  "funcAstName": "ZNSt3__14pairImmE10_CheckArgs17__enable_explicitB8ue170006IRKmS5_EEbv",
                   "qualType": "bool ()",
                   "range": {
                     "start": {
@@ -6054,7 +6054,7 @@
                   "funcCalls": [
                     {
                       "funcName": "__is_pair_constructible",
-                      "funcAstName": "__ZNSt3__14pairImmE10_CheckArgs23__is_pair_constructibleB8ue170006IRKmS5_EEbv",
+                      "funcAstName": "ZNSt3__14pairImmE10_CheckArgs23__is_pair_constructibleB8ue170006IRKmS5_EEbv",
                       "qualType": "bool ()",
                       "range": {
                         "start": {
@@ -6069,7 +6069,7 @@
                     },
                     {
                       "funcName": "__is_implicit",
-                      "funcAstName": "__ZNSt3__14pairImmE10_CheckArgs13__is_implicitB8ue170006IRKmS5_EEbv",
+                      "funcAstName": "ZNSt3__14pairImmE10_CheckArgs13__is_implicitB8ue170006IRKmS5_EEbv",
                       "qualType": "bool ()",
                       "range": {
                         "start": {
@@ -6087,7 +6087,7 @@
                 },
                 {
                   "funcName": "__enable_explicit",
-                  "funcAstName": "__ZNSt3__14pairImmE10_CheckArgs17__enable_explicitB8ue170006ImmEEbv",
+                  "funcAstName": "ZNSt3__14pairImmE10_CheckArgs17__enable_explicitB8ue170006ImmEEbv",
                   "qualType": "bool ()",
                   "range": {
                     "start": {
@@ -6102,7 +6102,7 @@
                   "funcCalls": [
                     {
                       "funcName": "__is_pair_constructible",
-                      "funcAstName": "__ZNSt3__14pairImmE10_CheckArgs23__is_pair_constructibleB8ue170006ImmEEbv",
+                      "funcAstName": "ZNSt3__14pairImmE10_CheckArgs23__is_pair_constructibleB8ue170006ImmEEbv",
                       "qualType": "bool ()",
                       "range": {
                         "start": {
@@ -6117,7 +6117,7 @@
                     },
                     {
                       "funcName": "__is_implicit",
-                      "funcAstName": "__ZNSt3__14pairImmE10_CheckArgs13__is_implicitB8ue170006ImmEEbv",
+                      "funcAstName": "ZNSt3__14pairImmE10_CheckArgs13__is_implicitB8ue170006ImmEEbv",
                       "qualType": "bool ()",
                       "range": {
                         "start": {
@@ -6135,7 +6135,7 @@
                 },
                 {
                   "funcName": "__enable_implicit",
-                  "funcAstName": "__ZNSt3__14pairImmE10_CheckArgs17__enable_implicitB8ue170006IRKmS5_EEbv",
+                  "funcAstName": "ZNSt3__14pairImmE10_CheckArgs17__enable_implicitB8ue170006IRKmS5_EEbv",
                   "qualType": "bool ()",
                   "range": {
                     "start": {
@@ -6150,7 +6150,7 @@
                   "funcCalls": [
                     {
                       "funcName": "__is_pair_constructible",
-                      "funcAstName": "__ZNSt3__14pairImmE10_CheckArgs23__is_pair_constructibleB8ue170006IRKmS5_EEbv",
+                      "funcAstName": "ZNSt3__14pairImmE10_CheckArgs23__is_pair_constructibleB8ue170006IRKmS5_EEbv",
                       "qualType": "bool ()",
                       "range": {
                         "start": {
@@ -6165,7 +6165,7 @@
                     },
                     {
                       "funcName": "__is_implicit",
-                      "funcAstName": "__ZNSt3__14pairImmE10_CheckArgs13__is_implicitB8ue170006IRKmS5_EEbv",
+                      "funcAstName": "ZNSt3__14pairImmE10_CheckArgs13__is_implicitB8ue170006IRKmS5_EEbv",
                       "qualType": "bool ()",
                       "range": {
                         "start": {
@@ -6183,7 +6183,7 @@
                 },
                 {
                   "funcName": "__enable_implicit",
-                  "funcAstName": "__ZNSt3__14pairImmE10_CheckArgs17__enable_implicitB8ue170006ImmEEbv",
+                  "funcAstName": "ZNSt3__14pairImmE10_CheckArgs17__enable_implicitB8ue170006ImmEEbv",
                   "qualType": "bool ()",
                   "range": {
                     "start": {
@@ -6198,7 +6198,7 @@
                   "funcCalls": [
                     {
                       "funcName": "__is_pair_constructible",
-                      "funcAstName": "__ZNSt3__14pairImmE10_CheckArgs23__is_pair_constructibleB8ue170006ImmEEbv",
+                      "funcAstName": "ZNSt3__14pairImmE10_CheckArgs23__is_pair_constructibleB8ue170006ImmEEbv",
                       "qualType": "bool ()",
                       "range": {
                         "start": {
@@ -6213,7 +6213,7 @@
                     },
                     {
                       "funcName": "__is_implicit",
-                      "funcAstName": "__ZNSt3__14pairImmE10_CheckArgs13__is_implicitB8ue170006ImmEEbv",
+                      "funcAstName": "ZNSt3__14pairImmE10_CheckArgs13__is_implicitB8ue170006ImmEEbv",
                       "qualType": "bool ()",
                       "range": {
                         "start": {
@@ -6237,7 +6237,7 @@
           "funcDecls": [
             {
               "funcName": "operator=",
-              "funcAstName": "__ZNSt3__14pairImmEaSB8ue170006ERKS1_",
+              "funcAstName": "ZNSt3__14pairImmEaSB8ue170006ERKS1_",
               "qualType": "pair<unsigned long, unsigned long> &(const __conditional_t<is_copy_assignable<first_type>::value && is_copy_assignable<second_type>::value, pair<unsigned long, unsigned long>, __nat> &)",
               "range": {
                 "start": {
@@ -6252,7 +6252,7 @@
             },
             {
               "funcName": "operator=",
-              "funcAstName": "__ZNSt3__14pairImmEaSB8ue170006ImmLPv0EEERS1_RKNS0_IT_T0_EE",
+              "funcAstName": "ZNSt3__14pairImmEaSB8ue170006ImmLPv0EEERS1_RKNS0_IT_T0_EE",
               "qualType": "pair<unsigned long, unsigned long> &(const pair<unsigned long, unsigned long> &)",
               "range": {
                 "start": {
@@ -6267,7 +6267,7 @@
             },
             {
               "funcName": "operator=",
-              "funcAstName": "__ZNSt3__14pairImmEaSB8ue170006ImmLPv0EEERS1_ONS0_IT_T0_EE",
+              "funcAstName": "ZNSt3__14pairImmEaSB8ue170006ImmLPv0EEERS1_ONS0_IT_T0_EE",
               "qualType": "pair<unsigned long, unsigned long> &(pair<unsigned long, unsigned long> &&)",
               "range": {
                 "start": {
@@ -6282,7 +6282,7 @@
             },
             {
               "funcName": "swap",
-              "funcAstName": "__ZNSt3__14pairImmE4swapB8ue170006ERS1_",
+              "funcAstName": "ZNSt3__14pairImmE4swapB8ue170006ERS1_",
               "qualType": "void (pair<unsigned long, unsigned long> &)",
               "range": {
                 "start": {
@@ -6299,7 +6299,7 @@
           "funcImpls": [
             {
               "funcName": "operator=",
-              "funcAstName": "__ZNSt3__14pairImmEaSB8ue170006EOS1_",
+              "funcAstName": "ZNSt3__14pairImmEaSB8ue170006EOS1_",
               "qualType": "pair<unsigned long, unsigned long> &(__conditional_t<is_move_assignable<first_type>::value && is_move_assignable<second_type>::value, pair<unsigned long, unsigned long>, __nat> &&) noexcept(is_nothrow_move_assignable<first_type>::value && is_nothrow_move_assignable<second_type>::value)",
               "range": {
                 "start": {
@@ -6314,7 +6314,7 @@
               "funcCalls": [
                 {
                   "funcName": "forward",
-                  "funcAstName": "__ZNSt3__17forwardB8ue170006ImEEOT_Ru20__remove_reference_tIS1_E",
+                  "funcAstName": "ZNSt3__17forwardB8ue170006ImEEOT_Ru20__remove_reference_tIS1_E",
                   "qualType": "unsigned long &&(__libcpp_remove_reference_t<unsigned long> &) noexcept",
                   "range": {
                     "start": {
@@ -6329,7 +6329,7 @@
                 },
                 {
                   "funcName": "forward",
-                  "funcAstName": "__ZNSt3__17forwardB8ue170006ImEEOT_Ru20__remove_reference_tIS1_E",
+                  "funcAstName": "ZNSt3__17forwardB8ue170006ImEEOT_Ru20__remove_reference_tIS1_E",
                   "qualType": "unsigned long &&(__libcpp_remove_reference_t<unsigned long> &) noexcept",
                   "range": {
                     "start": {
@@ -7094,7 +7094,7 @@
           "funcDecls": [
             {
               "funcName": "max",
-              "funcAstName": "__ZNSt3__114numeric_limitsIiE3maxB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIiE3maxB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7109,7 +7109,7 @@
             },
             {
               "funcName": "lowest",
-              "funcAstName": "__ZNSt3__114numeric_limitsIiE6lowestB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIiE6lowestB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7124,7 +7124,7 @@
             },
             {
               "funcName": "epsilon",
-              "funcAstName": "__ZNSt3__114numeric_limitsIiE7epsilonB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIiE7epsilonB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7139,7 +7139,7 @@
             },
             {
               "funcName": "round_error",
-              "funcAstName": "__ZNSt3__114numeric_limitsIiE11round_errorB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIiE11round_errorB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7154,7 +7154,7 @@
             },
             {
               "funcName": "infinity",
-              "funcAstName": "__ZNSt3__114numeric_limitsIiE8infinityB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIiE8infinityB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7169,7 +7169,7 @@
             },
             {
               "funcName": "quiet_NaN",
-              "funcAstName": "__ZNSt3__114numeric_limitsIiE9quiet_NaNB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIiE9quiet_NaNB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7184,7 +7184,7 @@
             },
             {
               "funcName": "signaling_NaN",
-              "funcAstName": "__ZNSt3__114numeric_limitsIiE13signaling_NaNB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIiE13signaling_NaNB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7199,7 +7199,7 @@
             },
             {
               "funcName": "denorm_min",
-              "funcAstName": "__ZNSt3__114numeric_limitsIiE10denorm_minB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIiE10denorm_minB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7214,7 +7214,7 @@
             },
             {
               "funcName": "max",
-              "funcAstName": "__ZNSt3__114numeric_limitsIxE3maxB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIxE3maxB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7229,7 +7229,7 @@
             },
             {
               "funcName": "lowest",
-              "funcAstName": "__ZNSt3__114numeric_limitsIxE6lowestB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIxE6lowestB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7244,7 +7244,7 @@
             },
             {
               "funcName": "epsilon",
-              "funcAstName": "__ZNSt3__114numeric_limitsIxE7epsilonB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIxE7epsilonB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7259,7 +7259,7 @@
             },
             {
               "funcName": "round_error",
-              "funcAstName": "__ZNSt3__114numeric_limitsIxE11round_errorB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIxE11round_errorB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7274,7 +7274,7 @@
             },
             {
               "funcName": "infinity",
-              "funcAstName": "__ZNSt3__114numeric_limitsIxE8infinityB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIxE8infinityB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7289,7 +7289,7 @@
             },
             {
               "funcName": "quiet_NaN",
-              "funcAstName": "__ZNSt3__114numeric_limitsIxE9quiet_NaNB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIxE9quiet_NaNB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7304,7 +7304,7 @@
             },
             {
               "funcName": "signaling_NaN",
-              "funcAstName": "__ZNSt3__114numeric_limitsIxE13signaling_NaNB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIxE13signaling_NaNB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7319,7 +7319,7 @@
             },
             {
               "funcName": "denorm_min",
-              "funcAstName": "__ZNSt3__114numeric_limitsIxE10denorm_minB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIxE10denorm_minB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7334,7 +7334,7 @@
             },
             {
               "funcName": "min",
-              "funcAstName": "__ZNSt3__114numeric_limitsIhE3minB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIhE3minB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7349,7 +7349,7 @@
             },
             {
               "funcName": "lowest",
-              "funcAstName": "__ZNSt3__114numeric_limitsIhE6lowestB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIhE6lowestB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7364,7 +7364,7 @@
             },
             {
               "funcName": "epsilon",
-              "funcAstName": "__ZNSt3__114numeric_limitsIhE7epsilonB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIhE7epsilonB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7379,7 +7379,7 @@
             },
             {
               "funcName": "round_error",
-              "funcAstName": "__ZNSt3__114numeric_limitsIhE11round_errorB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIhE11round_errorB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7394,7 +7394,7 @@
             },
             {
               "funcName": "infinity",
-              "funcAstName": "__ZNSt3__114numeric_limitsIhE8infinityB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIhE8infinityB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7409,7 +7409,7 @@
             },
             {
               "funcName": "quiet_NaN",
-              "funcAstName": "__ZNSt3__114numeric_limitsIhE9quiet_NaNB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIhE9quiet_NaNB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7424,7 +7424,7 @@
             },
             {
               "funcName": "signaling_NaN",
-              "funcAstName": "__ZNSt3__114numeric_limitsIhE13signaling_NaNB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIhE13signaling_NaNB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7439,7 +7439,7 @@
             },
             {
               "funcName": "denorm_min",
-              "funcAstName": "__ZNSt3__114numeric_limitsIhE10denorm_minB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIhE10denorm_minB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7454,7 +7454,7 @@
             },
             {
               "funcName": "min",
-              "funcAstName": "__ZNSt3__114numeric_limitsItE3minB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsItE3minB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7469,7 +7469,7 @@
             },
             {
               "funcName": "lowest",
-              "funcAstName": "__ZNSt3__114numeric_limitsItE6lowestB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsItE6lowestB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7484,7 +7484,7 @@
             },
             {
               "funcName": "epsilon",
-              "funcAstName": "__ZNSt3__114numeric_limitsItE7epsilonB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsItE7epsilonB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7499,7 +7499,7 @@
             },
             {
               "funcName": "round_error",
-              "funcAstName": "__ZNSt3__114numeric_limitsItE11round_errorB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsItE11round_errorB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7514,7 +7514,7 @@
             },
             {
               "funcName": "infinity",
-              "funcAstName": "__ZNSt3__114numeric_limitsItE8infinityB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsItE8infinityB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7529,7 +7529,7 @@
             },
             {
               "funcName": "quiet_NaN",
-              "funcAstName": "__ZNSt3__114numeric_limitsItE9quiet_NaNB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsItE9quiet_NaNB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7544,7 +7544,7 @@
             },
             {
               "funcName": "signaling_NaN",
-              "funcAstName": "__ZNSt3__114numeric_limitsItE13signaling_NaNB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsItE13signaling_NaNB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7559,7 +7559,7 @@
             },
             {
               "funcName": "denorm_min",
-              "funcAstName": "__ZNSt3__114numeric_limitsItE10denorm_minB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsItE10denorm_minB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7574,7 +7574,7 @@
             },
             {
               "funcName": "min",
-              "funcAstName": "__ZNSt3__114numeric_limitsIlE3minB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIlE3minB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7589,7 +7589,7 @@
             },
             {
               "funcName": "lowest",
-              "funcAstName": "__ZNSt3__114numeric_limitsIlE6lowestB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIlE6lowestB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7604,7 +7604,7 @@
             },
             {
               "funcName": "epsilon",
-              "funcAstName": "__ZNSt3__114numeric_limitsIlE7epsilonB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIlE7epsilonB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7619,7 +7619,7 @@
             },
             {
               "funcName": "round_error",
-              "funcAstName": "__ZNSt3__114numeric_limitsIlE11round_errorB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIlE11round_errorB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7634,7 +7634,7 @@
             },
             {
               "funcName": "infinity",
-              "funcAstName": "__ZNSt3__114numeric_limitsIlE8infinityB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIlE8infinityB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7649,7 +7649,7 @@
             },
             {
               "funcName": "quiet_NaN",
-              "funcAstName": "__ZNSt3__114numeric_limitsIlE9quiet_NaNB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIlE9quiet_NaNB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7664,7 +7664,7 @@
             },
             {
               "funcName": "signaling_NaN",
-              "funcAstName": "__ZNSt3__114numeric_limitsIlE13signaling_NaNB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIlE13signaling_NaNB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7679,7 +7679,7 @@
             },
             {
               "funcName": "denorm_min",
-              "funcAstName": "__ZNSt3__114numeric_limitsIlE10denorm_minB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIlE10denorm_minB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7696,7 +7696,7 @@
           "funcImpls": [
             {
               "funcName": "min",
-              "funcAstName": "__ZNSt3__114numeric_limitsIiE3minB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIiE3minB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7713,7 +7713,7 @@
             },
             {
               "funcName": "min",
-              "funcAstName": "__ZNSt3__114numeric_limitsIxE3minB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIxE3minB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7730,7 +7730,7 @@
             },
             {
               "funcName": "max",
-              "funcAstName": "__ZNSt3__114numeric_limitsIhE3maxB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIhE3maxB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7747,7 +7747,7 @@
             },
             {
               "funcName": "max",
-              "funcAstName": "__ZNSt3__114numeric_limitsItE3maxB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsItE3maxB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7764,7 +7764,7 @@
             },
             {
               "funcName": "max",
-              "funcAstName": "__ZNSt3__114numeric_limitsIlE3maxB8ue170006Ev",
+              "funcAstName": "ZNSt3__114numeric_limitsIlE3maxB8ue170006Ev",
               "qualType": "type () noexcept",
               "range": {
                 "start": {
@@ -7799,7 +7799,7 @@
           "funcDecls": [
             {
               "funcName": "allocate",
-              "funcAstName": "__ZNSt3__19allocatorINS_19__for_overwrite_tagEE8allocateB8ue170006Em",
+              "funcAstName": "ZNSt3__19allocatorINS_19__for_overwrite_tagEE8allocateB8ue170006Em",
               "qualType": "std::__for_overwrite_tag *(size_t)",
               "range": {
                 "start": {
@@ -7814,7 +7814,7 @@
             },
             {
               "funcName": "deallocate",
-              "funcAstName": "__ZNSt3__19allocatorINS_19__for_overwrite_tagEE10deallocateB8ue170006EPS1_m",
+              "funcAstName": "ZNSt3__19allocatorINS_19__for_overwrite_tagEE10deallocateB8ue170006EPS1_m",
               "qualType": "void (std::__for_overwrite_tag *, size_t) noexcept",
               "range": {
                 "start": {
@@ -7973,7 +7973,7 @@
           "funcDecls": [
             {
               "funcName": "size",
-              "funcAstName": "__ZNSt3__116integer_sequenceImJEE4sizeB8ue170006Ev",
+              "funcAstName": "ZNSt3__116integer_sequenceImJEE4sizeB8ue170006Ev",
               "qualType": "size_t () noexcept",
               "range": {
                 "start": {
@@ -8031,7 +8031,7 @@
       "funcDecls": [
         {
           "funcName": "terminate",
-          "funcAstName": "__ZSt9terminatev",
+          "funcAstName": "ZSt9terminatev",
           "qualType": "void () noexcept",
           "range": {
             "start": {
@@ -8046,7 +8046,7 @@
         },
         {
           "funcName": "iter_move",
-          "funcAstName": "__ZNSt3__16ranges11__iter_move9iter_moveEv",
+          "funcAstName": "ZNSt3__16ranges11__iter_move9iter_moveEv",
           "qualType": "void ()",
           "range": {
             "start": {
@@ -8063,7 +8063,7 @@
       "funcImpls": [
         {
           "funcName": "is_constant_evaluated",
-          "funcAstName": "__ZNSt3__121is_constant_evaluatedB8ue170006Ev",
+          "funcAstName": "ZNSt3__121is_constant_evaluatedB8ue170006Ev",
           "qualType": "bool () noexcept",
           "range": {
             "start": {
@@ -8080,7 +8080,7 @@
         },
         {
           "funcName": "__libcpp_is_constant_evaluated",
-          "funcAstName": "__ZNSt3__130__libcpp_is_constant_evaluatedB8ue170006Ev",
+          "funcAstName": "ZNSt3__130__libcpp_is_constant_evaluatedB8ue170006Ev",
           "qualType": "bool () noexcept",
           "range": {
             "start": {
@@ -8097,7 +8097,7 @@
         },
         {
           "funcName": "swap",
-          "funcAstName": "__ZNSt3__14swapB8ue170006ImEENS_9enable_ifIXaasr21is_move_constructibleIT_EE5valuesr18is_move_assignableIS2_EE5valueEvE4typeERS2_S5_",
+          "funcAstName": "ZNSt3__14swapB8ue170006ImEENS_9enable_ifIXaasr21is_move_constructibleIT_EE5valuesr18is_move_assignableIS2_EE5valueEvE4typeERS2_S5_",
           "qualType": "__swap_result_t<unsigned long> (unsigned long &, unsigned long &) noexcept(is_nothrow_move_constructible<unsigned long>::value && is_nothrow_move_assignable<unsigned long>::value)",
           "range": {
             "start": {
@@ -8112,7 +8112,7 @@
           "funcCalls": [
             {
               "funcName": "move",
-              "funcAstName": "__ZNSt3__14moveB8ue170006IRmEEOu20__remove_reference_tIT_EOS2_",
+              "funcAstName": "ZNSt3__14moveB8ue170006IRmEEOu20__remove_reference_tIT_EOS2_",
               "qualType": "__libcpp_remove_reference_t<unsigned long &> &&(unsigned long &) noexcept",
               "range": {
                 "start": {
@@ -8127,7 +8127,7 @@
             },
             {
               "funcName": "move",
-              "funcAstName": "__ZNSt3__14moveB8ue170006IRmEEOu20__remove_reference_tIT_EOS2_",
+              "funcAstName": "ZNSt3__14moveB8ue170006IRmEEOu20__remove_reference_tIT_EOS2_",
               "qualType": "__libcpp_remove_reference_t<unsigned long &> &&(unsigned long &) noexcept",
               "range": {
                 "start": {
@@ -8142,7 +8142,7 @@
             },
             {
               "funcName": "move",
-              "funcAstName": "__ZNSt3__14moveB8ue170006IRmEEOu20__remove_reference_tIT_EOS2_",
+              "funcAstName": "ZNSt3__14moveB8ue170006IRmEEOu20__remove_reference_tIT_EOS2_",
               "qualType": "__libcpp_remove_reference_t<unsigned long &> &&(unsigned long &) noexcept",
               "range": {
                 "start": {
@@ -8176,7 +8176,7 @@
           "funcDecls": [
             {
               "funcName": "size",
-              "funcAstName": "__ZNKSt16initializer_listINSt3__116__variant_detail6_TraitEE4sizeB8ue170006Ev",
+              "funcAstName": "ZNKSt16initializer_listINSt3__116__variant_detail6_TraitEE4sizeB8ue170006Ev",
               "qualType": "size_t () const noexcept",
               "range": {
                 "start": {
@@ -8193,7 +8193,7 @@
           "funcImpls": [
             {
               "funcName": "begin",
-              "funcAstName": "__ZNKSt16initializer_listINSt3__116__variant_detail6_TraitEE5beginB8ue170006Ev",
+              "funcAstName": "ZNKSt16initializer_listINSt3__116__variant_detail6_TraitEE5beginB8ue170006Ev",
               "qualType": "const std::__variant_detail::_Trait *() const noexcept",
               "range": {
                 "start": {
@@ -8210,7 +8210,7 @@
             },
             {
               "funcName": "end",
-              "funcAstName": "__ZNKSt16initializer_listINSt3__116__variant_detail6_TraitEE3endB8ue170006Ev",
+              "funcAstName": "ZNKSt16initializer_listINSt3__116__variant_detail6_TraitEE3endB8ue170006Ev",
               "qualType": "const std::__variant_detail::_Trait *() const noexcept",
               "range": {
                 "start": {
@@ -8282,7 +8282,7 @@
           "funcImpls": [
             {
               "funcName": "__is_ordered",
-              "funcAstName": "__ZNKSt3__116partial_ordering12__is_orderedB8ue170006Ev",
+              "funcAstName": "ZNKSt3__116partial_ordering12__is_orderedB8ue170006Ev",
               "qualType": "bool () const noexcept",
               "range": {
                 "start": {
@@ -8299,7 +8299,7 @@
             },
             {
               "funcName": "operator==",
-              "funcAstName": "__ZNSt3__1eqB8ue170006ENS_16partial_orderingES0_",
+              "funcAstName": "ZNSt3__1eqB8ue170006ENS_16partial_orderingES0_",
               "qualType": "bool (partial_ordering, partial_ordering) noexcept",
               "range": {
                 "start": {
@@ -8316,7 +8316,7 @@
             },
             {
               "funcName": "operator==",
-              "funcAstName": "__ZNSt3__1eqB8ue170006ENS_16partial_orderingENS_20_CmpUnspecifiedParamE",
+              "funcAstName": "ZNSt3__1eqB8ue170006ENS_16partial_orderingENS_20_CmpUnspecifiedParamE",
               "qualType": "bool (partial_ordering, _CmpUnspecifiedParam) noexcept",
               "range": {
                 "start": {
@@ -8331,7 +8331,7 @@
               "funcCalls": [
                 {
                   "funcName": "__is_ordered",
-                  "funcAstName": "__ZNKSt3__116partial_ordering12__is_orderedB8ue170006Ev",
+                  "funcAstName": "ZNKSt3__116partial_ordering12__is_orderedB8ue170006Ev",
                   "qualType": "bool () const noexcept",
                   "range": {
                     "start": {
@@ -8349,7 +8349,7 @@
             },
             {
               "funcName": "operator<",
-              "funcAstName": "__ZNSt3__1ltB8ue170006ENS_16partial_orderingENS_20_CmpUnspecifiedParamE",
+              "funcAstName": "ZNSt3__1ltB8ue170006ENS_16partial_orderingENS_20_CmpUnspecifiedParamE",
               "qualType": "bool (partial_ordering, _CmpUnspecifiedParam) noexcept",
               "range": {
                 "start": {
@@ -8364,7 +8364,7 @@
               "funcCalls": [
                 {
                   "funcName": "__is_ordered",
-                  "funcAstName": "__ZNKSt3__116partial_ordering12__is_orderedB8ue170006Ev",
+                  "funcAstName": "ZNKSt3__116partial_ordering12__is_orderedB8ue170006Ev",
                   "qualType": "bool () const noexcept",
                   "range": {
                     "start": {
@@ -8382,7 +8382,7 @@
             },
             {
               "funcName": "operator<=",
-              "funcAstName": "__ZNSt3__1leB8ue170006ENS_16partial_orderingENS_20_CmpUnspecifiedParamE",
+              "funcAstName": "ZNSt3__1leB8ue170006ENS_16partial_orderingENS_20_CmpUnspecifiedParamE",
               "qualType": "bool (partial_ordering, _CmpUnspecifiedParam) noexcept",
               "range": {
                 "start": {
@@ -8397,7 +8397,7 @@
               "funcCalls": [
                 {
                   "funcName": "__is_ordered",
-                  "funcAstName": "__ZNKSt3__116partial_ordering12__is_orderedB8ue170006Ev",
+                  "funcAstName": "ZNKSt3__116partial_ordering12__is_orderedB8ue170006Ev",
                   "qualType": "bool () const noexcept",
                   "range": {
                     "start": {
@@ -8415,7 +8415,7 @@
             },
             {
               "funcName": "operator>",
-              "funcAstName": "__ZNSt3__1gtB8ue170006ENS_16partial_orderingENS_20_CmpUnspecifiedParamE",
+              "funcAstName": "ZNSt3__1gtB8ue170006ENS_16partial_orderingENS_20_CmpUnspecifiedParamE",
               "qualType": "bool (partial_ordering, _CmpUnspecifiedParam) noexcept",
               "range": {
                 "start": {
@@ -8430,7 +8430,7 @@
               "funcCalls": [
                 {
                   "funcName": "__is_ordered",
-                  "funcAstName": "__ZNKSt3__116partial_ordering12__is_orderedB8ue170006Ev",
+                  "funcAstName": "ZNKSt3__116partial_ordering12__is_orderedB8ue170006Ev",
                   "qualType": "bool () const noexcept",
                   "range": {
                     "start": {
@@ -8448,7 +8448,7 @@
             },
             {
               "funcName": "operator>=",
-              "funcAstName": "__ZNSt3__1geB8ue170006ENS_16partial_orderingENS_20_CmpUnspecifiedParamE",
+              "funcAstName": "ZNSt3__1geB8ue170006ENS_16partial_orderingENS_20_CmpUnspecifiedParamE",
               "qualType": "bool (partial_ordering, _CmpUnspecifiedParam) noexcept",
               "range": {
                 "start": {
@@ -8463,7 +8463,7 @@
               "funcCalls": [
                 {
                   "funcName": "__is_ordered",
-                  "funcAstName": "__ZNKSt3__116partial_ordering12__is_orderedB8ue170006Ev",
+                  "funcAstName": "ZNKSt3__116partial_ordering12__is_orderedB8ue170006Ev",
                   "qualType": "bool () const noexcept",
                   "range": {
                     "start": {
@@ -8481,7 +8481,7 @@
             },
             {
               "funcName": "operator<",
-              "funcAstName": "__ZNSt3__1ltB8ue170006ENS_20_CmpUnspecifiedParamENS_16partial_orderingE",
+              "funcAstName": "ZNSt3__1ltB8ue170006ENS_20_CmpUnspecifiedParamENS_16partial_orderingE",
               "qualType": "bool (_CmpUnspecifiedParam, partial_ordering) noexcept",
               "range": {
                 "start": {
@@ -8496,7 +8496,7 @@
               "funcCalls": [
                 {
                   "funcName": "__is_ordered",
-                  "funcAstName": "__ZNKSt3__116partial_ordering12__is_orderedB8ue170006Ev",
+                  "funcAstName": "ZNKSt3__116partial_ordering12__is_orderedB8ue170006Ev",
                   "qualType": "bool () const noexcept",
                   "range": {
                     "start": {
@@ -8514,7 +8514,7 @@
             },
             {
               "funcName": "operator<=",
-              "funcAstName": "__ZNSt3__1leB8ue170006ENS_20_CmpUnspecifiedParamENS_16partial_orderingE",
+              "funcAstName": "ZNSt3__1leB8ue170006ENS_20_CmpUnspecifiedParamENS_16partial_orderingE",
               "qualType": "bool (_CmpUnspecifiedParam, partial_ordering) noexcept",
               "range": {
                 "start": {
@@ -8529,7 +8529,7 @@
               "funcCalls": [
                 {
                   "funcName": "__is_ordered",
-                  "funcAstName": "__ZNKSt3__116partial_ordering12__is_orderedB8ue170006Ev",
+                  "funcAstName": "ZNKSt3__116partial_ordering12__is_orderedB8ue170006Ev",
                   "qualType": "bool () const noexcept",
                   "range": {
                     "start": {
@@ -8547,7 +8547,7 @@
             },
             {
               "funcName": "operator>",
-              "funcAstName": "__ZNSt3__1gtB8ue170006ENS_20_CmpUnspecifiedParamENS_16partial_orderingE",
+              "funcAstName": "ZNSt3__1gtB8ue170006ENS_20_CmpUnspecifiedParamENS_16partial_orderingE",
               "qualType": "bool (_CmpUnspecifiedParam, partial_ordering) noexcept",
               "range": {
                 "start": {
@@ -8562,7 +8562,7 @@
               "funcCalls": [
                 {
                   "funcName": "__is_ordered",
-                  "funcAstName": "__ZNKSt3__116partial_ordering12__is_orderedB8ue170006Ev",
+                  "funcAstName": "ZNKSt3__116partial_ordering12__is_orderedB8ue170006Ev",
                   "qualType": "bool () const noexcept",
                   "range": {
                     "start": {
@@ -8580,7 +8580,7 @@
             },
             {
               "funcName": "operator>=",
-              "funcAstName": "__ZNSt3__1geB8ue170006ENS_20_CmpUnspecifiedParamENS_16partial_orderingE",
+              "funcAstName": "ZNSt3__1geB8ue170006ENS_20_CmpUnspecifiedParamENS_16partial_orderingE",
               "qualType": "bool (_CmpUnspecifiedParam, partial_ordering) noexcept",
               "range": {
                 "start": {
@@ -8595,7 +8595,7 @@
               "funcCalls": [
                 {
                   "funcName": "__is_ordered",
-                  "funcAstName": "__ZNKSt3__116partial_ordering12__is_orderedB8ue170006Ev",
+                  "funcAstName": "ZNKSt3__116partial_ordering12__is_orderedB8ue170006Ev",
                   "qualType": "bool () const noexcept",
                   "range": {
                     "start": {
@@ -8613,7 +8613,7 @@
             },
             {
               "funcName": "operator<=>",
-              "funcAstName": "__ZNSt3__1ssB8ue170006ENS_16partial_orderingENS_20_CmpUnspecifiedParamE",
+              "funcAstName": "ZNSt3__1ssB8ue170006ENS_16partial_orderingENS_20_CmpUnspecifiedParamE",
               "qualType": "partial_ordering (partial_ordering, _CmpUnspecifiedParam) noexcept",
               "range": {
                 "start": {
@@ -8630,7 +8630,7 @@
             },
             {
               "funcName": "operator<=>",
-              "funcAstName": "__ZNSt3__1ssB8ue170006ENS_20_CmpUnspecifiedParamENS_16partial_orderingE",
+              "funcAstName": "ZNSt3__1ssB8ue170006ENS_20_CmpUnspecifiedParamENS_16partial_orderingE",
               "qualType": "partial_ordering (_CmpUnspecifiedParam, partial_ordering) noexcept",
               "range": {
                 "start": {
@@ -8645,7 +8645,7 @@
               "funcCalls": [
                 {
                   "funcName": "operator<",
-                  "funcAstName": "__ZNSt3__1ltB8ue170006ENS_16partial_orderingENS_20_CmpUnspecifiedParamE",
+                  "funcAstName": "ZNSt3__1ltB8ue170006ENS_16partial_orderingENS_20_CmpUnspecifiedParamE",
                   "qualType": "bool (partial_ordering, _CmpUnspecifiedParam) noexcept",
                   "range": {
                     "start": {
@@ -8660,7 +8660,7 @@
                 },
                 {
                   "funcName": "operator>",
-                  "funcAstName": "__ZNSt3__1gtB8ue170006ENS_16partial_orderingENS_20_CmpUnspecifiedParamE",
+                  "funcAstName": "ZNSt3__1gtB8ue170006ENS_16partial_orderingENS_20_CmpUnspecifiedParamE",
                   "qualType": "bool (partial_ordering, _CmpUnspecifiedParam) noexcept",
                   "range": {
                     "start": {
@@ -8687,7 +8687,7 @@
           "funcDecls": [
             {
               "funcName": "operator==",
-              "funcAstName": "__ZNSt3__1eqB8ue170006ENS_13weak_orderingES0_",
+              "funcAstName": "ZNSt3__1eqB8ue170006ENS_13weak_orderingES0_",
               "qualType": "bool (weak_ordering, weak_ordering) noexcept",
               "range": {
                 "start": {
@@ -8704,7 +8704,7 @@
           "funcImpls": [
             {
               "funcName": "operator==",
-              "funcAstName": "__ZNSt3__1eqB8ue170006ENS_13weak_orderingENS_20_CmpUnspecifiedParamE",
+              "funcAstName": "ZNSt3__1eqB8ue170006ENS_13weak_orderingENS_20_CmpUnspecifiedParamE",
               "qualType": "bool (weak_ordering, _CmpUnspecifiedParam) noexcept",
               "range": {
                 "start": {
@@ -8721,7 +8721,7 @@
             },
             {
               "funcName": "operator<",
-              "funcAstName": "__ZNSt3__1ltB8ue170006ENS_13weak_orderingENS_20_CmpUnspecifiedParamE",
+              "funcAstName": "ZNSt3__1ltB8ue170006ENS_13weak_orderingENS_20_CmpUnspecifiedParamE",
               "qualType": "bool (weak_ordering, _CmpUnspecifiedParam) noexcept",
               "range": {
                 "start": {
@@ -8738,7 +8738,7 @@
             },
             {
               "funcName": "operator<=",
-              "funcAstName": "__ZNSt3__1leB8ue170006ENS_13weak_orderingENS_20_CmpUnspecifiedParamE",
+              "funcAstName": "ZNSt3__1leB8ue170006ENS_13weak_orderingENS_20_CmpUnspecifiedParamE",
               "qualType": "bool (weak_ordering, _CmpUnspecifiedParam) noexcept",
               "range": {
                 "start": {
@@ -8755,7 +8755,7 @@
             },
             {
               "funcName": "operator>",
-              "funcAstName": "__ZNSt3__1gtB8ue170006ENS_13weak_orderingENS_20_CmpUnspecifiedParamE",
+              "funcAstName": "ZNSt3__1gtB8ue170006ENS_13weak_orderingENS_20_CmpUnspecifiedParamE",
               "qualType": "bool (weak_ordering, _CmpUnspecifiedParam) noexcept",
               "range": {
                 "start": {
@@ -8772,7 +8772,7 @@
             },
             {
               "funcName": "operator>=",
-              "funcAstName": "__ZNSt3__1geB8ue170006ENS_13weak_orderingENS_20_CmpUnspecifiedParamE",
+              "funcAstName": "ZNSt3__1geB8ue170006ENS_13weak_orderingENS_20_CmpUnspecifiedParamE",
               "qualType": "bool (weak_ordering, _CmpUnspecifiedParam) noexcept",
               "range": {
                 "start": {
@@ -8789,7 +8789,7 @@
             },
             {
               "funcName": "operator<",
-              "funcAstName": "__ZNSt3__1ltB8ue170006ENS_20_CmpUnspecifiedParamENS_13weak_orderingE",
+              "funcAstName": "ZNSt3__1ltB8ue170006ENS_20_CmpUnspecifiedParamENS_13weak_orderingE",
               "qualType": "bool (_CmpUnspecifiedParam, weak_ordering) noexcept",
               "range": {
                 "start": {
@@ -8806,7 +8806,7 @@
             },
             {
               "funcName": "operator<=",
-              "funcAstName": "__ZNSt3__1leB8ue170006ENS_20_CmpUnspecifiedParamENS_13weak_orderingE",
+              "funcAstName": "ZNSt3__1leB8ue170006ENS_20_CmpUnspecifiedParamENS_13weak_orderingE",
               "qualType": "bool (_CmpUnspecifiedParam, weak_ordering) noexcept",
               "range": {
                 "start": {
@@ -8823,7 +8823,7 @@
             },
             {
               "funcName": "operator>",
-              "funcAstName": "__ZNSt3__1gtB8ue170006ENS_20_CmpUnspecifiedParamENS_13weak_orderingE",
+              "funcAstName": "ZNSt3__1gtB8ue170006ENS_20_CmpUnspecifiedParamENS_13weak_orderingE",
               "qualType": "bool (_CmpUnspecifiedParam, weak_ordering) noexcept",
               "range": {
                 "start": {
@@ -8840,7 +8840,7 @@
             },
             {
               "funcName": "operator>=",
-              "funcAstName": "__ZNSt3__1geB8ue170006ENS_20_CmpUnspecifiedParamENS_13weak_orderingE",
+              "funcAstName": "ZNSt3__1geB8ue170006ENS_20_CmpUnspecifiedParamENS_13weak_orderingE",
               "qualType": "bool (_CmpUnspecifiedParam, weak_ordering) noexcept",
               "range": {
                 "start": {
@@ -8857,7 +8857,7 @@
             },
             {
               "funcName": "operator<=>",
-              "funcAstName": "__ZNSt3__1ssB8ue170006ENS_13weak_orderingENS_20_CmpUnspecifiedParamE",
+              "funcAstName": "ZNSt3__1ssB8ue170006ENS_13weak_orderingENS_20_CmpUnspecifiedParamE",
               "qualType": "weak_ordering (weak_ordering, _CmpUnspecifiedParam) noexcept",
               "range": {
                 "start": {
@@ -8874,7 +8874,7 @@
             },
             {
               "funcName": "operator<=>",
-              "funcAstName": "__ZNSt3__1ssB8ue170006ENS_20_CmpUnspecifiedParamENS_13weak_orderingE",
+              "funcAstName": "ZNSt3__1ssB8ue170006ENS_20_CmpUnspecifiedParamENS_13weak_orderingE",
               "qualType": "weak_ordering (_CmpUnspecifiedParam, weak_ordering) noexcept",
               "range": {
                 "start": {
@@ -8889,7 +8889,7 @@
               "funcCalls": [
                 {
                   "funcName": "operator<",
-                  "funcAstName": "__ZNSt3__1ltB8ue170006ENS_13weak_orderingENS_20_CmpUnspecifiedParamE",
+                  "funcAstName": "ZNSt3__1ltB8ue170006ENS_13weak_orderingENS_20_CmpUnspecifiedParamE",
                   "qualType": "bool (weak_ordering, _CmpUnspecifiedParam) noexcept",
                   "range": {
                     "start": {
@@ -8904,7 +8904,7 @@
                 },
                 {
                   "funcName": "operator>",
-                  "funcAstName": "__ZNSt3__1gtB8ue170006ENS_13weak_orderingENS_20_CmpUnspecifiedParamE",
+                  "funcAstName": "ZNSt3__1gtB8ue170006ENS_13weak_orderingENS_20_CmpUnspecifiedParamE",
                   "qualType": "bool (weak_ordering, _CmpUnspecifiedParam) noexcept",
                   "range": {
                     "start": {
@@ -8931,7 +8931,7 @@
           "funcDecls": [
             {
               "funcName": "operator==",
-              "funcAstName": "__ZNSt3__1eqB8ue170006ENS_15strong_orderingES0_",
+              "funcAstName": "ZNSt3__1eqB8ue170006ENS_15strong_orderingES0_",
               "qualType": "bool (strong_ordering, strong_ordering) noexcept",
               "range": {
                 "start": {
@@ -8948,7 +8948,7 @@
           "funcImpls": [
             {
               "funcName": "operator==",
-              "funcAstName": "__ZNSt3__1eqB8ue170006ENS_15strong_orderingENS_20_CmpUnspecifiedParamE",
+              "funcAstName": "ZNSt3__1eqB8ue170006ENS_15strong_orderingENS_20_CmpUnspecifiedParamE",
               "qualType": "bool (strong_ordering, _CmpUnspecifiedParam) noexcept",
               "range": {
                 "start": {
@@ -8965,7 +8965,7 @@
             },
             {
               "funcName": "operator<",
-              "funcAstName": "__ZNSt3__1ltB8ue170006ENS_15strong_orderingENS_20_CmpUnspecifiedParamE",
+              "funcAstName": "ZNSt3__1ltB8ue170006ENS_15strong_orderingENS_20_CmpUnspecifiedParamE",
               "qualType": "bool (strong_ordering, _CmpUnspecifiedParam) noexcept",
               "range": {
                 "start": {
@@ -8982,7 +8982,7 @@
             },
             {
               "funcName": "operator<=",
-              "funcAstName": "__ZNSt3__1leB8ue170006ENS_15strong_orderingENS_20_CmpUnspecifiedParamE",
+              "funcAstName": "ZNSt3__1leB8ue170006ENS_15strong_orderingENS_20_CmpUnspecifiedParamE",
               "qualType": "bool (strong_ordering, _CmpUnspecifiedParam) noexcept",
               "range": {
                 "start": {
@@ -8999,7 +8999,7 @@
             },
             {
               "funcName": "operator>",
-              "funcAstName": "__ZNSt3__1gtB8ue170006ENS_15strong_orderingENS_20_CmpUnspecifiedParamE",
+              "funcAstName": "ZNSt3__1gtB8ue170006ENS_15strong_orderingENS_20_CmpUnspecifiedParamE",
               "qualType": "bool (strong_ordering, _CmpUnspecifiedParam) noexcept",
               "range": {
                 "start": {
@@ -9016,7 +9016,7 @@
             },
             {
               "funcName": "operator>=",
-              "funcAstName": "__ZNSt3__1geB8ue170006ENS_15strong_orderingENS_20_CmpUnspecifiedParamE",
+              "funcAstName": "ZNSt3__1geB8ue170006ENS_15strong_orderingENS_20_CmpUnspecifiedParamE",
               "qualType": "bool (strong_ordering, _CmpUnspecifiedParam) noexcept",
               "range": {
                 "start": {
@@ -9033,7 +9033,7 @@
             },
             {
               "funcName": "operator<",
-              "funcAstName": "__ZNSt3__1ltB8ue170006ENS_20_CmpUnspecifiedParamENS_15strong_orderingE",
+              "funcAstName": "ZNSt3__1ltB8ue170006ENS_20_CmpUnspecifiedParamENS_15strong_orderingE",
               "qualType": "bool (_CmpUnspecifiedParam, strong_ordering) noexcept",
               "range": {
                 "start": {
@@ -9050,7 +9050,7 @@
             },
             {
               "funcName": "operator<=",
-              "funcAstName": "__ZNSt3__1leB8ue170006ENS_20_CmpUnspecifiedParamENS_15strong_orderingE",
+              "funcAstName": "ZNSt3__1leB8ue170006ENS_20_CmpUnspecifiedParamENS_15strong_orderingE",
               "qualType": "bool (_CmpUnspecifiedParam, strong_ordering) noexcept",
               "range": {
                 "start": {
@@ -9067,7 +9067,7 @@
             },
             {
               "funcName": "operator>",
-              "funcAstName": "__ZNSt3__1gtB8ue170006ENS_20_CmpUnspecifiedParamENS_15strong_orderingE",
+              "funcAstName": "ZNSt3__1gtB8ue170006ENS_20_CmpUnspecifiedParamENS_15strong_orderingE",
               "qualType": "bool (_CmpUnspecifiedParam, strong_ordering) noexcept",
               "range": {
                 "start": {
@@ -9084,7 +9084,7 @@
             },
             {
               "funcName": "operator>=",
-              "funcAstName": "__ZNSt3__1geB8ue170006ENS_20_CmpUnspecifiedParamENS_15strong_orderingE",
+              "funcAstName": "ZNSt3__1geB8ue170006ENS_20_CmpUnspecifiedParamENS_15strong_orderingE",
               "qualType": "bool (_CmpUnspecifiedParam, strong_ordering) noexcept",
               "range": {
                 "start": {
@@ -9101,7 +9101,7 @@
             },
             {
               "funcName": "operator<=>",
-              "funcAstName": "__ZNSt3__1ssB8ue170006ENS_15strong_orderingENS_20_CmpUnspecifiedParamE",
+              "funcAstName": "ZNSt3__1ssB8ue170006ENS_15strong_orderingENS_20_CmpUnspecifiedParamE",
               "qualType": "strong_ordering (strong_ordering, _CmpUnspecifiedParam) noexcept",
               "range": {
                 "start": {
@@ -9118,7 +9118,7 @@
             },
             {
               "funcName": "operator<=>",
-              "funcAstName": "__ZNSt3__1ssB8ue170006ENS_20_CmpUnspecifiedParamENS_15strong_orderingE",
+              "funcAstName": "ZNSt3__1ssB8ue170006ENS_20_CmpUnspecifiedParamENS_15strong_orderingE",
               "qualType": "strong_ordering (_CmpUnspecifiedParam, strong_ordering) noexcept",
               "range": {
                 "start": {
@@ -9133,7 +9133,7 @@
               "funcCalls": [
                 {
                   "funcName": "operator<",
-                  "funcAstName": "__ZNSt3__1ltB8ue170006ENS_15strong_orderingENS_20_CmpUnspecifiedParamE",
+                  "funcAstName": "ZNSt3__1ltB8ue170006ENS_15strong_orderingENS_20_CmpUnspecifiedParamE",
                   "qualType": "bool (strong_ordering, _CmpUnspecifiedParam) noexcept",
                   "range": {
                     "start": {
@@ -9148,7 +9148,7 @@
                 },
                 {
                   "funcName": "operator>",
-                  "funcAstName": "__ZNSt3__1gtB8ue170006ENS_15strong_orderingENS_20_CmpUnspecifiedParamE",
+                  "funcAstName": "ZNSt3__1gtB8ue170006ENS_15strong_orderingENS_20_CmpUnspecifiedParamE",
                   "qualType": "bool (strong_ordering, _CmpUnspecifiedParam) noexcept",
                   "range": {
                     "start": {
@@ -9480,7 +9480,7 @@
       "funcDecls": [
         {
           "funcName": "memchr",
-          "funcAstName": "_memchr",
+          "funcAstName": "memchr",
           "qualType": "void *(const void *, int, size_t)",
           "range": {
             "start": {
@@ -9495,7 +9495,7 @@
         },
         {
           "funcName": "memcmp",
-          "funcAstName": "_memcmp",
+          "funcAstName": "memcmp",
           "qualType": "int (const void *, const void *, size_t)",
           "range": {
             "start": {
@@ -9510,7 +9510,7 @@
         },
         {
           "funcName": "memcpy",
-          "funcAstName": "_memcpy",
+          "funcAstName": "memcpy",
           "qualType": "void *(void *, const void *, size_t)",
           "range": {
             "start": {
@@ -9525,7 +9525,7 @@
         },
         {
           "funcName": "memmove",
-          "funcAstName": "_memmove",
+          "funcAstName": "memmove",
           "qualType": "void *(void *, const void *, size_t)",
           "range": {
             "start": {
@@ -9540,7 +9540,7 @@
         },
         {
           "funcName": "memset",
-          "funcAstName": "_memset",
+          "funcAstName": "memset",
           "qualType": "void *(void *, int, size_t)",
           "range": {
             "start": {
@@ -9555,7 +9555,7 @@
         },
         {
           "funcName": "strcat",
-          "funcAstName": "_strcat",
+          "funcAstName": "strcat",
           "qualType": "char *(char *, const char *)",
           "range": {
             "start": {
@@ -9570,7 +9570,7 @@
         },
         {
           "funcName": "strchr",
-          "funcAstName": "_strchr",
+          "funcAstName": "strchr",
           "qualType": "char *(const char *, int)",
           "range": {
             "start": {
@@ -9585,7 +9585,7 @@
         },
         {
           "funcName": "strcmp",
-          "funcAstName": "_strcmp",
+          "funcAstName": "strcmp",
           "qualType": "int (const char *, const char *)",
           "range": {
             "start": {
@@ -9600,7 +9600,7 @@
         },
         {
           "funcName": "strcoll",
-          "funcAstName": "_strcoll",
+          "funcAstName": "strcoll",
           "qualType": "int (const char *, const char *)",
           "range": {
             "start": {
@@ -9615,7 +9615,7 @@
         },
         {
           "funcName": "strcpy",
-          "funcAstName": "_strcpy",
+          "funcAstName": "strcpy",
           "qualType": "char *(char *, const char *)",
           "range": {
             "start": {
@@ -9630,7 +9630,7 @@
         },
         {
           "funcName": "strcspn",
-          "funcAstName": "_strcspn",
+          "funcAstName": "strcspn",
           "qualType": "size_t (const char *, const char *)",
           "range": {
             "start": {
@@ -9645,7 +9645,7 @@
         },
         {
           "funcName": "strerror",
-          "funcAstName": "_strerror",
+          "funcAstName": "strerror",
           "qualType": "char *(int)",
           "range": {
             "start": {
@@ -9660,7 +9660,7 @@
         },
         {
           "funcName": "strlen",
-          "funcAstName": "_strlen",
+          "funcAstName": "strlen",
           "qualType": "size_t (const char *)",
           "range": {
             "start": {
@@ -9675,7 +9675,7 @@
         },
         {
           "funcName": "strncat",
-          "funcAstName": "_strncat",
+          "funcAstName": "strncat",
           "qualType": "char *(char *, const char *, size_t)",
           "range": {
             "start": {
@@ -9690,7 +9690,7 @@
         },
         {
           "funcName": "strncmp",
-          "funcAstName": "_strncmp",
+          "funcAstName": "strncmp",
           "qualType": "int (const char *, const char *, size_t)",
           "range": {
             "start": {
@@ -9705,7 +9705,7 @@
         },
         {
           "funcName": "strncpy",
-          "funcAstName": "_strncpy",
+          "funcAstName": "strncpy",
           "qualType": "char *(char *, const char *, size_t)",
           "range": {
             "start": {
@@ -9720,7 +9720,7 @@
         },
         {
           "funcName": "strpbrk",
-          "funcAstName": "_strpbrk",
+          "funcAstName": "strpbrk",
           "qualType": "char *(const char *, const char *)",
           "range": {
             "start": {
@@ -9735,7 +9735,7 @@
         },
         {
           "funcName": "strrchr",
-          "funcAstName": "_strrchr",
+          "funcAstName": "strrchr",
           "qualType": "char *(const char *, int)",
           "range": {
             "start": {
@@ -9750,7 +9750,7 @@
         },
         {
           "funcName": "strspn",
-          "funcAstName": "_strspn",
+          "funcAstName": "strspn",
           "qualType": "size_t (const char *, const char *)",
           "range": {
             "start": {
@@ -9765,7 +9765,7 @@
         },
         {
           "funcName": "strstr",
-          "funcAstName": "_strstr",
+          "funcAstName": "strstr",
           "qualType": "char *(const char *, const char *)",
           "range": {
             "start": {
@@ -9780,7 +9780,7 @@
         },
         {
           "funcName": "strtok",
-          "funcAstName": "_strtok",
+          "funcAstName": "strtok",
           "qualType": "char *(char *, const char *)",
           "range": {
             "start": {
@@ -9795,7 +9795,7 @@
         },
         {
           "funcName": "strxfrm",
-          "funcAstName": "_strxfrm",
+          "funcAstName": "strxfrm",
           "qualType": "size_t (char *, const char *, size_t)",
           "range": {
             "start": {
@@ -9810,7 +9810,7 @@
         },
         {
           "funcName": "strtok_r",
-          "funcAstName": "_strtok_r",
+          "funcAstName": "strtok_r",
           "qualType": "char *(char *, const char *, char **)",
           "range": {
             "start": {
@@ -9825,7 +9825,7 @@
         },
         {
           "funcName": "strerror_r",
-          "funcAstName": "_strerror_r",
+          "funcAstName": "strerror_r",
           "qualType": "int (int, char *, size_t)",
           "range": {
             "start": {
@@ -9840,7 +9840,7 @@
         },
         {
           "funcName": "strdup",
-          "funcAstName": "_strdup",
+          "funcAstName": "strdup",
           "qualType": "char *(const char *)",
           "range": {
             "start": {
@@ -9855,7 +9855,7 @@
         },
         {
           "funcName": "memccpy",
-          "funcAstName": "_memccpy",
+          "funcAstName": "memccpy",
           "qualType": "void *(void *, const void *, int, size_t)",
           "range": {
             "start": {
@@ -9870,7 +9870,7 @@
         },
         {
           "funcName": "stpcpy",
-          "funcAstName": "_stpcpy",
+          "funcAstName": "stpcpy",
           "qualType": "char *(char *, const char *)",
           "range": {
             "start": {
@@ -9885,7 +9885,7 @@
         },
         {
           "funcName": "stpncpy",
-          "funcAstName": "_stpncpy",
+          "funcAstName": "stpncpy",
           "qualType": "char *(char *, const char *, size_t)",
           "range": {
             "start": {
@@ -9900,7 +9900,7 @@
         },
         {
           "funcName": "strndup",
-          "funcAstName": "_strndup",
+          "funcAstName": "strndup",
           "qualType": "char *(const char *, size_t)",
           "range": {
             "start": {
@@ -9915,7 +9915,7 @@
         },
         {
           "funcName": "strnlen",
-          "funcAstName": "_strnlen",
+          "funcAstName": "strnlen",
           "qualType": "size_t (const char *, size_t)",
           "range": {
             "start": {
@@ -9930,7 +9930,7 @@
         },
         {
           "funcName": "strsignal",
-          "funcAstName": "_strsignal",
+          "funcAstName": "strsignal",
           "qualType": "char *(int)",
           "range": {
             "start": {
@@ -9947,7 +9947,7 @@
       "funcImpls": [
         {
           "funcName": "__convert_to_integral",
-          "funcAstName": "__ZNSt3__121__convert_to_integralB8ue170006Ei",
+          "funcAstName": "ZNSt3__121__convert_to_integralB8ue170006Ei",
           "qualType": "int (int)",
           "range": {
             "start": {
@@ -9964,7 +9964,7 @@
         },
         {
           "funcName": "__convert_to_integral",
-          "funcAstName": "__ZNSt3__121__convert_to_integralB8ue170006Ej",
+          "funcAstName": "ZNSt3__121__convert_to_integralB8ue170006Ej",
           "qualType": "unsigned int (unsigned int)",
           "range": {
             "start": {
@@ -9981,7 +9981,7 @@
         },
         {
           "funcName": "__convert_to_integral",
-          "funcAstName": "__ZNSt3__121__convert_to_integralB8ue170006El",
+          "funcAstName": "ZNSt3__121__convert_to_integralB8ue170006El",
           "qualType": "long (long)",
           "range": {
             "start": {
@@ -9998,7 +9998,7 @@
         },
         {
           "funcName": "__convert_to_integral",
-          "funcAstName": "__ZNSt3__121__convert_to_integralB8ue170006Em",
+          "funcAstName": "ZNSt3__121__convert_to_integralB8ue170006Em",
           "qualType": "unsigned long (unsigned long)",
           "range": {
             "start": {
@@ -10015,7 +10015,7 @@
         },
         {
           "funcName": "__convert_to_integral",
-          "funcAstName": "__ZNSt3__121__convert_to_integralB8ue170006Ex",
+          "funcAstName": "ZNSt3__121__convert_to_integralB8ue170006Ex",
           "qualType": "long long (long long)",
           "range": {
             "start": {
@@ -10032,7 +10032,7 @@
         },
         {
           "funcName": "__convert_to_integral",
-          "funcAstName": "__ZNSt3__121__convert_to_integralB8ue170006Ey",
+          "funcAstName": "ZNSt3__121__convert_to_integralB8ue170006Ey",
           "qualType": "unsigned long long (unsigned long long)",
           "range": {
             "start": {
@@ -10049,7 +10049,7 @@
         },
         {
           "funcName": "__convert_to_integral",
-          "funcAstName": "__ZNSt3__121__convert_to_integralB8ue170006En",
+          "funcAstName": "ZNSt3__121__convert_to_integralB8ue170006En",
           "qualType": "__int128_t (__int128_t)",
           "range": {
             "start": {
@@ -10066,7 +10066,7 @@
         },
         {
           "funcName": "__convert_to_integral",
-          "funcAstName": "__ZNSt3__121__convert_to_integralB8ue170006Eo",
+          "funcAstName": "ZNSt3__121__convert_to_integralB8ue170006Eo",
           "qualType": "__uint128_t (__uint128_t)",
           "range": {
             "start": {
@@ -10083,7 +10083,7 @@
         },
         {
           "funcName": "__libcpp_unreachable",
-          "funcAstName": "__ZNSt3__120__libcpp_unreachableB8ue170006Ev",
+          "funcAstName": "ZNSt3__120__libcpp_unreachableB8ue170006Ev",
           "qualType": "void ()",
           "range": {
             "start": {
@@ -10100,7 +10100,7 @@
         },
         {
           "funcName": "__type_to_enum",
-          "funcAstName": "__ZNSt3__113__comp_detail14__type_to_enumB8ue170006INS_15strong_orderingEEENS0_21_ClassifyCompCategoryEv",
+          "funcAstName": "ZNSt3__113__comp_detail14__type_to_enumB8ue170006INS_15strong_orderingEEENS0_21_ClassifyCompCategoryEv",
           "qualType": "_ClassifyCompCategory () noexcept",
           "range": {
             "start": {
@@ -10117,7 +10117,7 @@
         },
         {
           "funcName": "__type_to_enum",
-          "funcAstName": "__ZNSt3__113__comp_detail14__type_to_enumB8ue170006INS_16partial_orderingEEENS0_21_ClassifyCompCategoryEv",
+          "funcAstName": "ZNSt3__113__comp_detail14__type_to_enumB8ue170006INS_16partial_orderingEEENS0_21_ClassifyCompCategoryEv",
           "qualType": "_ClassifyCompCategory () noexcept",
           "range": {
             "start": {
@@ -10134,7 +10134,7 @@
         },
         {
           "funcName": "__compute_comp_type",
-          "funcAstName": "__ZNSt3__113__comp_detail19__compute_comp_typeB8ue170006ILm3EEENS0_21_ClassifyCompCategoryERAT__KS2_",
+          "funcAstName": "ZNSt3__113__comp_detail19__compute_comp_typeB8ue170006ILm3EEENS0_21_ClassifyCompCategoryERAT__KS2_",
           "qualType": "_ClassifyCompCategory (const _ClassifyCompCategory (&)[3])",
           "range": {
             "start": {
@@ -10151,7 +10151,7 @@
         },
         {
           "funcName": "__get_comp_type",
-          "funcAstName": "__ZNSt3__113__comp_detail15__get_comp_typeB8ue170006IJNS_15strong_orderingENS_16partial_orderingEELb0EEEDav",
+          "funcAstName": "ZNSt3__113__comp_detail15__get_comp_typeB8ue170006IJNS_15strong_orderingENS_16partial_orderingEELb0EEEDav",
           "qualType": "partial_ordering ()",
           "range": {
             "start": {
@@ -10166,7 +10166,7 @@
           "funcCalls": [
             {
               "funcName": "__type_to_enum",
-              "funcAstName": "__ZNSt3__113__comp_detail14__type_to_enumB8ue170006INS_15strong_orderingEEENS0_21_ClassifyCompCategoryEv",
+              "funcAstName": "ZNSt3__113__comp_detail14__type_to_enumB8ue170006INS_15strong_orderingEEENS0_21_ClassifyCompCategoryEv",
               "qualType": "_ClassifyCompCategory () noexcept",
               "range": {
                 "start": {
@@ -10181,7 +10181,7 @@
             },
             {
               "funcName": "__type_to_enum",
-              "funcAstName": "__ZNSt3__113__comp_detail14__type_to_enumB8ue170006INS_16partial_orderingEEENS0_21_ClassifyCompCategoryEv",
+              "funcAstName": "ZNSt3__113__comp_detail14__type_to_enumB8ue170006INS_16partial_orderingEEENS0_21_ClassifyCompCategoryEv",
               "qualType": "_ClassifyCompCategory () noexcept",
               "range": {
                 "start": {
@@ -10196,7 +10196,7 @@
             },
             {
               "funcName": "__compute_comp_type",
-              "funcAstName": "__ZNSt3__113__comp_detail19__compute_comp_typeB8ue170006ILm3EEENS0_21_ClassifyCompCategoryERAT__KS2_",
+              "funcAstName": "ZNSt3__113__comp_detail19__compute_comp_typeB8ue170006ILm3EEENS0_21_ClassifyCompCategoryERAT__KS2_",
               "qualType": "_ClassifyCompCategory (const _ClassifyCompCategory (&)[3])",
               "range": {
                 "start": {
@@ -10214,7 +10214,7 @@
         },
         {
           "funcName": "__constexpr_strlen",
-          "funcAstName": "__ZNSt3__118__constexpr_strlenB8ue170006EPKc",
+          "funcAstName": "ZNSt3__118__constexpr_strlenB8ue170006EPKc",
           "qualType": "size_t (const char *)",
           "range": {
             "start": {
@@ -10252,7 +10252,7 @@
       "funcDecls": [
         {
           "funcName": "memmem",
-          "funcAstName": "_memmem",
+          "funcAstName": "memmem",
           "qualType": "void *(const void *, size_t, const void *, size_t)",
           "range": {
             "start": {
@@ -10267,7 +10267,7 @@
         },
         {
           "funcName": "memset_pattern4",
-          "funcAstName": "_memset_pattern4",
+          "funcAstName": "memset_pattern4",
           "qualType": "void (void *, const void *, size_t)",
           "range": {
             "start": {
@@ -10282,7 +10282,7 @@
         },
         {
           "funcName": "memset_pattern8",
-          "funcAstName": "_memset_pattern8",
+          "funcAstName": "memset_pattern8",
           "qualType": "void (void *, const void *, size_t)",
           "range": {
             "start": {
@@ -10297,7 +10297,7 @@
         },
         {
           "funcName": "memset_pattern16",
-          "funcAstName": "_memset_pattern16",
+          "funcAstName": "memset_pattern16",
           "qualType": "void (void *, const void *, size_t)",
           "range": {
             "start": {
@@ -10312,7 +10312,7 @@
         },
         {
           "funcName": "strcasestr",
-          "funcAstName": "_strcasestr",
+          "funcAstName": "strcasestr",
           "qualType": "char *(const char *, const char *)",
           "range": {
             "start": {
@@ -10327,7 +10327,7 @@
         },
         {
           "funcName": "strnstr",
-          "funcAstName": "_strnstr",
+          "funcAstName": "strnstr",
           "qualType": "char *(const char *, const char *, size_t)",
           "range": {
             "start": {
@@ -10342,7 +10342,7 @@
         },
         {
           "funcName": "strlcat",
-          "funcAstName": "_strlcat",
+          "funcAstName": "strlcat",
           "qualType": "size_t (char *, const char *, size_t)",
           "range": {
             "start": {
@@ -10357,7 +10357,7 @@
         },
         {
           "funcName": "strlcpy",
-          "funcAstName": "_strlcpy",
+          "funcAstName": "strlcpy",
           "qualType": "size_t (char *, const char *, size_t)",
           "range": {
             "start": {
@@ -10372,7 +10372,7 @@
         },
         {
           "funcName": "strmode",
-          "funcAstName": "_strmode",
+          "funcAstName": "strmode",
           "qualType": "void (int, char *)",
           "range": {
             "start": {
@@ -10387,7 +10387,7 @@
         },
         {
           "funcName": "strsep",
-          "funcAstName": "_strsep",
+          "funcAstName": "strsep",
           "qualType": "char *(char **, const char *)",
           "range": {
             "start": {
@@ -10402,7 +10402,7 @@
         },
         {
           "funcName": "swab",
-          "funcAstName": "_swab",
+          "funcAstName": "swab",
           "qualType": "void (const void *, void *, ssize_t)",
           "range": {
             "start": {
@@ -10417,7 +10417,7 @@
         },
         {
           "funcName": "timingsafe_bcmp",
-          "funcAstName": "_timingsafe_bcmp",
+          "funcAstName": "timingsafe_bcmp",
           "qualType": "int (const void *, const void *, size_t)",
           "range": {
             "start": {
@@ -10432,7 +10432,7 @@
         },
         {
           "funcName": "strsignal_r",
-          "funcAstName": "_strsignal_r",
+          "funcAstName": "strsignal_r",
           "qualType": "int (int, char *, size_t)",
           "range": {
             "start": {
@@ -10447,7 +10447,7 @@
         },
         {
           "funcName": "bcmp",
-          "funcAstName": "_bcmp",
+          "funcAstName": "bcmp",
           "qualType": "int (const void *, const void *, size_t)",
           "range": {
             "start": {
@@ -10462,7 +10462,7 @@
         },
         {
           "funcName": "bcopy",
-          "funcAstName": "_bcopy",
+          "funcAstName": "bcopy",
           "qualType": "void (const void *, void *, size_t)",
           "range": {
             "start": {
@@ -10477,7 +10477,7 @@
         },
         {
           "funcName": "bzero",
-          "funcAstName": "_bzero",
+          "funcAstName": "bzero",
           "qualType": "void (void *, size_t)",
           "range": {
             "start": {
@@ -10492,7 +10492,7 @@
         },
         {
           "funcName": "index",
-          "funcAstName": "_index",
+          "funcAstName": "index",
           "qualType": "char *(const char *, int)",
           "range": {
             "start": {
@@ -10507,7 +10507,7 @@
         },
         {
           "funcName": "rindex",
-          "funcAstName": "_rindex",
+          "funcAstName": "rindex",
           "qualType": "char *(const char *, int)",
           "range": {
             "start": {
@@ -10522,7 +10522,7 @@
         },
         {
           "funcName": "ffs",
-          "funcAstName": "_ffs",
+          "funcAstName": "ffs",
           "qualType": "int (int)",
           "range": {
             "start": {
@@ -10537,7 +10537,7 @@
         },
         {
           "funcName": "strcasecmp",
-          "funcAstName": "_strcasecmp",
+          "funcAstName": "strcasecmp",
           "qualType": "int (const char *, const char *)",
           "range": {
             "start": {
@@ -10552,7 +10552,7 @@
         },
         {
           "funcName": "strncasecmp",
-          "funcAstName": "_strncasecmp",
+          "funcAstName": "strncasecmp",
           "qualType": "int (const char *, const char *, size_t)",
           "range": {
             "start": {
@@ -10567,7 +10567,7 @@
         },
         {
           "funcName": "ffsl",
-          "funcAstName": "_ffsl",
+          "funcAstName": "ffsl",
           "qualType": "int (long)",
           "range": {
             "start": {
@@ -10582,7 +10582,7 @@
         },
         {
           "funcName": "ffsll",
-          "funcAstName": "_ffsll",
+          "funcAstName": "ffsll",
           "qualType": "int (long long)",
           "range": {
             "start": {
@@ -10597,7 +10597,7 @@
         },
         {
           "funcName": "fls",
-          "funcAstName": "_fls",
+          "funcAstName": "fls",
           "qualType": "int (int)",
           "range": {
             "start": {
@@ -10612,7 +10612,7 @@
         },
         {
           "funcName": "flsl",
-          "funcAstName": "_flsl",
+          "funcAstName": "flsl",
           "qualType": "int (long)",
           "range": {
             "start": {
@@ -10627,7 +10627,7 @@
         },
         {
           "funcName": "flsll",
-          "funcAstName": "_flsll",
+          "funcAstName": "flsll",
           "qualType": "int (long long)",
           "range": {
             "start": {
@@ -10668,7 +10668,7 @@
           "funcDecls": [
             {
               "funcName": "operator=",
-              "funcAstName": "__ZNSt3__16_PairTaSEOS0_",
+              "funcAstName": "ZNSt3__16_PairTaSEOS0_",
               "qualType": "std::_PairT &(std::_PairT &&)",
               "range": {
                 "start": {
@@ -10685,7 +10685,7 @@
           "funcImpls": [
             {
               "funcName": "operator=",
-              "funcAstName": "__ZNSt3__16_PairTaSERKS0_",
+              "funcAstName": "ZNSt3__16_PairTaSERKS0_",
               "qualType": "std::_PairT &(const std::_PairT &) noexcept",
               "range": {
                 "start": {
@@ -10720,7 +10720,7 @@
           "funcDecls": [
             {
               "funcName": "operator=",
-              "funcAstName": "__ZNSt3__114default_deleteI9TestClassEaSERKS2_",
+              "funcAstName": "ZNSt3__114default_deleteI9TestClassEaSERKS2_",
               "qualType": "std::default_delete<TestClass> &(const std::default_delete<TestClass> &)",
               "range": {
                 "start": {
@@ -10735,7 +10735,7 @@
             },
             {
               "funcName": "operator=",
-              "funcAstName": "__ZNSt3__114default_deleteI9TestClassEaSEOS2_",
+              "funcAstName": "ZNSt3__114default_deleteI9TestClassEaSEOS2_",
               "qualType": "std::default_delete<TestClass> &(std::default_delete<TestClass> &&)",
               "range": {
                 "start": {
@@ -10752,7 +10752,7 @@
           "funcImpls": [
             {
               "funcName": "operator()",
-              "funcAstName": "__ZNKSt3__114default_deleteI9TestClassEclB8ue170006EPS1_",
+              "funcAstName": "ZNKSt3__114default_deleteI9TestClassEclB8ue170006EPS1_",
               "qualType": "void (TestClass *) const noexcept",
               "range": {
                 "start": {
@@ -10787,7 +10787,7 @@
           "funcDecls": [
             {
               "funcName": "operator=",
-              "funcAstName": "__ZNSt3__110unique_ptrI9TestClassNS_14default_deleteIS1_EEEaSB8ue170006EOS4_",
+              "funcAstName": "ZNSt3__110unique_ptrI9TestClassNS_14default_deleteIS1_EEEaSB8ue170006EOS4_",
               "qualType": "unique_ptr<TestClass> &(unique_ptr<TestClass> &&) noexcept",
               "range": {
                 "start": {
@@ -10802,7 +10802,7 @@
             },
             {
               "funcName": "operator=",
-              "funcAstName": "__ZNSt3__110unique_ptrI9TestClassNS_14default_deleteIS1_EEEaSB8ue170006EDn",
+              "funcAstName": "ZNSt3__110unique_ptrI9TestClassNS_14default_deleteIS1_EEEaSB8ue170006EDn",
               "qualType": "unique_ptr<TestClass> &(nullptr_t) noexcept",
               "range": {
                 "start": {
@@ -10817,7 +10817,7 @@
             },
             {
               "funcName": "operator*",
-              "funcAstName": "__ZNKSt3__110unique_ptrI9TestClassNS_14default_deleteIS1_EEEdeB8ue170006Ev",
+              "funcAstName": "ZNKSt3__110unique_ptrI9TestClassNS_14default_deleteIS1_EEEdeB8ue170006Ev",
               "qualType": "__add_lvalue_reference_t<TestClass> () const",
               "range": {
                 "start": {
@@ -10832,7 +10832,7 @@
             },
             {
               "funcName": "get",
-              "funcAstName": "__ZNKSt3__110unique_ptrI9TestClassNS_14default_deleteIS1_EEE3getB8ue170006Ev",
+              "funcAstName": "ZNKSt3__110unique_ptrI9TestClassNS_14default_deleteIS1_EEE3getB8ue170006Ev",
               "qualType": "pointer () const noexcept",
               "range": {
                 "start": {
@@ -10847,7 +10847,7 @@
             },
             {
               "funcName": "get_deleter",
-              "funcAstName": "__ZNSt3__110unique_ptrI9TestClassNS_14default_deleteIS1_EEE11get_deleterB8ue170006Ev",
+              "funcAstName": "ZNSt3__110unique_ptrI9TestClassNS_14default_deleteIS1_EEE11get_deleterB8ue170006Ev",
               "qualType": "deleter_type &() noexcept",
               "range": {
                 "start": {
@@ -10862,7 +10862,7 @@
             },
             {
               "funcName": "get_deleter",
-              "funcAstName": "__ZNKSt3__110unique_ptrI9TestClassNS_14default_deleteIS1_EEE11get_deleterB8ue170006Ev",
+              "funcAstName": "ZNKSt3__110unique_ptrI9TestClassNS_14default_deleteIS1_EEE11get_deleterB8ue170006Ev",
               "qualType": "const deleter_type &() const noexcept",
               "range": {
                 "start": {
@@ -10877,7 +10877,7 @@
             },
             {
               "funcName": "release",
-              "funcAstName": "__ZNSt3__110unique_ptrI9TestClassNS_14default_deleteIS1_EEE7releaseB8ue170006Ev",
+              "funcAstName": "ZNSt3__110unique_ptrI9TestClassNS_14default_deleteIS1_EEE7releaseB8ue170006Ev",
               "qualType": "pointer () noexcept",
               "range": {
                 "start": {
@@ -10894,7 +10894,7 @@
           "funcImpls": [
             {
               "funcName": "operator->",
-              "funcAstName": "__ZNKSt3__110unique_ptrI9TestClassNS_14default_deleteIS1_EEEptB8ue170006Ev",
+              "funcAstName": "ZNKSt3__110unique_ptrI9TestClassNS_14default_deleteIS1_EEEptB8ue170006Ev",
               "qualType": "pointer () const noexcept",
               "range": {
                 "start": {
@@ -10911,7 +10911,7 @@
             },
             {
               "funcName": "reset",
-              "funcAstName": "__ZNSt3__110unique_ptrI9TestClassNS_14default_deleteIS1_EEE5resetB8ue170006EPS1_",
+              "funcAstName": "ZNSt3__110unique_ptrI9TestClassNS_14default_deleteIS1_EEE5resetB8ue170006EPS1_",
               "qualType": "void (pointer) noexcept",
               "range": {
                 "start": {
@@ -10935,7 +10935,7 @@
       "funcImpls": [
         {
           "funcName": "strchr",
-          "funcAstName": "__Z6strchrB8ue170006Ua9enable_ifIXLb1EEEPKci",
+          "funcAstName": "Z6strchrB8ue170006Ua9enable_ifIXLb1EEEPKci",
           "qualType": "const char *(const char *, int)",
           "range": {
             "start": {
@@ -10952,7 +10952,7 @@
         },
         {
           "funcName": "strchr",
-          "funcAstName": "__Z6strchrB8ue170006Ua9enable_ifIXLb1EEEPci",
+          "funcAstName": "Z6strchrB8ue170006Ua9enable_ifIXLb1EEEPci",
           "qualType": "char *(char *, int)",
           "range": {
             "start": {
@@ -10969,7 +10969,7 @@
         },
         {
           "funcName": "strpbrk",
-          "funcAstName": "__Z7strpbrkB8ue170006Ua9enable_ifIXLb1EEEPKcS0_",
+          "funcAstName": "Z7strpbrkB8ue170006Ua9enable_ifIXLb1EEEPKcS0_",
           "qualType": "const char *(const char *, const char *)",
           "range": {
             "start": {
@@ -10986,7 +10986,7 @@
         },
         {
           "funcName": "strpbrk",
-          "funcAstName": "__Z7strpbrkB8ue170006Ua9enable_ifIXLb1EEEPcPKc",
+          "funcAstName": "Z7strpbrkB8ue170006Ua9enable_ifIXLb1EEEPcPKc",
           "qualType": "char *(char *, const char *)",
           "range": {
             "start": {
@@ -11003,7 +11003,7 @@
         },
         {
           "funcName": "strrchr",
-          "funcAstName": "__Z7strrchrB8ue170006Ua9enable_ifIXLb1EEEPKci",
+          "funcAstName": "Z7strrchrB8ue170006Ua9enable_ifIXLb1EEEPKci",
           "qualType": "const char *(const char *, int)",
           "range": {
             "start": {
@@ -11020,7 +11020,7 @@
         },
         {
           "funcName": "strrchr",
-          "funcAstName": "__Z7strrchrB8ue170006Ua9enable_ifIXLb1EEEPci",
+          "funcAstName": "Z7strrchrB8ue170006Ua9enable_ifIXLb1EEEPci",
           "qualType": "char *(char *, int)",
           "range": {
             "start": {
@@ -11037,7 +11037,7 @@
         },
         {
           "funcName": "memchr",
-          "funcAstName": "__Z6memchrB8ue170006Ua9enable_ifIXLb1EEEPKvim",
+          "funcAstName": "Z6memchrB8ue170006Ua9enable_ifIXLb1EEEPKvim",
           "qualType": "const void *(const void *, int, size_t)",
           "range": {
             "start": {
@@ -11054,7 +11054,7 @@
         },
         {
           "funcName": "memchr",
-          "funcAstName": "__Z6memchrB8ue170006Ua9enable_ifIXLb1EEEPvim",
+          "funcAstName": "Z6memchrB8ue170006Ua9enable_ifIXLb1EEEPvim",
           "qualType": "void *(void *, int, size_t)",
           "range": {
             "start": {
@@ -11071,7 +11071,7 @@
         },
         {
           "funcName": "strstr",
-          "funcAstName": "__Z6strstrB8ue170006Ua9enable_ifIXLb1EEEPKcS0_",
+          "funcAstName": "Z6strstrB8ue170006Ua9enable_ifIXLb1EEEPKcS0_",
           "qualType": "const char *(const char *, const char *)",
           "range": {
             "start": {
@@ -11088,7 +11088,7 @@
         },
         {
           "funcName": "strstr",
-          "funcAstName": "__Z6strstrB8ue170006Ua9enable_ifIXLb1EEEPcPKc",
+          "funcAstName": "Z6strstrB8ue170006Ua9enable_ifIXLb1EEEPcPKc",
           "qualType": "char *(char *, const char *)",
           "range": {
             "start": {
@@ -11105,7 +11105,7 @@
         },
         {
           "funcName": "__loadword",
-          "funcAstName": "__ZNSt3__110__loadwordB8ue170006IjEET_PKv",
+          "funcAstName": "ZNSt3__110__loadwordB8ue170006IjEET_PKv",
           "qualType": "unsigned int (const void *)",
           "range": {
             "start": {
@@ -11120,7 +11120,7 @@
           "funcCalls": [
             {
               "funcName": "memcpy",
-              "funcAstName": "_memcpy",
+              "funcAstName": "memcpy",
               "qualType": "void *(void *, const void *, size_t)",
               "range": {
                 "start": {
@@ -11138,7 +11138,7 @@
         },
         {
           "funcName": "__loadword",
-          "funcAstName": "__ZNSt3__110__loadwordB8ue170006ImEET_PKv",
+          "funcAstName": "ZNSt3__110__loadwordB8ue170006ImEET_PKv",
           "qualType": "unsigned long (const void *)",
           "range": {
             "start": {
@@ -11153,7 +11153,7 @@
           "funcCalls": [
             {
               "funcName": "memcpy",
-              "funcAstName": "_memcpy",
+              "funcAstName": "memcpy",
               "qualType": "void *(void *, const void *, size_t)",
               "range": {
                 "start": {
@@ -11171,7 +11171,7 @@
         },
         {
           "funcName": "__hash_combine",
-          "funcAstName": "__ZNSt3__114__hash_combineB8ue170006Emm",
+          "funcAstName": "ZNSt3__114__hash_combineB8ue170006Emm",
           "qualType": "size_t (size_t, size_t) noexcept",
           "range": {
             "start": {

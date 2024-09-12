@@ -9,7 +9,7 @@
       "funcImpls": [
         {
           "funcName": "add",
-          "funcAstName": "__Z3addii",
+          "funcAstName": "Z3addii",
           "qualType": "int (int, int)",
           "range": {
             "start": {
@@ -26,7 +26,7 @@
         },
         {
           "funcName": "main",
-          "funcAstName": "_main",
+          "funcAstName": "main",
           "qualType": "int (int, char **)",
           "range": {
             "start": {
@@ -41,7 +41,7 @@
           "funcCalls": [
             {
               "funcName": "add",
-              "funcAstName": "__Z3addii",
+              "funcAstName": "Z3addii",
               "qualType": "int (int, int)",
               "range": {
                 "start": {
@@ -56,7 +56,7 @@
             },
             {
               "funcName": "add",
-              "funcAstName": "__Z3addii",
+              "funcAstName": "Z3addii",
               "qualType": "int (int, int)",
               "range": {
                 "start": {

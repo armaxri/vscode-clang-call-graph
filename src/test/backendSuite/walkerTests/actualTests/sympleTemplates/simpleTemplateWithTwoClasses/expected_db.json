@@ -13,7 +13,7 @@
           "funcImpls": [
             {
               "funcName": "foo",
-              "funcAstName": "__ZN13TemplateClassI12SimpleClassAE3fooEv",
+              "funcAstName": "ZN13TemplateClassI12SimpleClassAE3fooEv",
               "qualType": "int ()",
               "range": {
                 "start": {
@@ -28,7 +28,7 @@
               "funcCalls": [
                 {
                   "funcName": "ba",
-                  "funcAstName": "__ZN12SimpleClassA2baEv",
+                  "funcAstName": "ZN12SimpleClassA2baEv",
                   "qualType": "int ()",
                   "range": {
                     "start": {
@@ -46,7 +46,7 @@
             },
             {
               "funcName": "foo",
-              "funcAstName": "__ZN13TemplateClassI12SimpleClassBE3fooEv",
+              "funcAstName": "ZN13TemplateClassI12SimpleClassBE3fooEv",
               "qualType": "int ()",
               "range": {
                 "start": {
@@ -61,7 +61,7 @@
               "funcCalls": [
                 {
                   "funcName": "ba",
-                  "funcAstName": "__ZN12SimpleClassB2baEv",
+                  "funcAstName": "ZN12SimpleClassB2baEv",
                   "qualType": "int ()",
                   "range": {
                     "start": {
@@ -89,7 +89,7 @@
           "funcImpls": [
             {
               "funcName": "ba",
-              "funcAstName": "__ZN12SimpleClassA2baEv",
+              "funcAstName": "ZN12SimpleClassA2baEv",
               "qualType": "int ()",
               "range": {
                 "start": {
@@ -116,7 +116,7 @@
           "funcImpls": [
             {
               "funcName": "ba",
-              "funcAstName": "__ZN12SimpleClassB2baEv",
+              "funcAstName": "ZN12SimpleClassB2baEv",
               "qualType": "int ()",
               "range": {
                 "start": {
@@ -140,7 +140,7 @@
       "funcImpls": [
         {
           "funcName": "main",
-          "funcAstName": "_main",
+          "funcAstName": "main",
           "qualType": "int (int, char **)",
           "range": {
             "start": {
@@ -155,7 +155,7 @@
           "funcCalls": [
             {
               "funcName": "foo",
-              "funcAstName": "__ZN13TemplateClassI12SimpleClassAE3fooEv",
+              "funcAstName": "ZN13TemplateClassI12SimpleClassAE3fooEv",
               "qualType": "int ()",
               "range": {
                 "start": {
@@ -170,7 +170,7 @@
             },
             {
               "funcName": "foo",
-              "funcAstName": "__ZN13TemplateClassI12SimpleClassBE3fooEv",
+              "funcAstName": "ZN13TemplateClassI12SimpleClassBE3fooEv",
               "qualType": "int ()",
               "range": {
                 "start": {

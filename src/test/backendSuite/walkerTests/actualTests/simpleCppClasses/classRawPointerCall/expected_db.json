@@ -13,7 +13,7 @@
           "funcImpls": [
             {
               "funcName": "add",
-              "funcAstName": "__ZN9TestClass3addEii",
+              "funcAstName": "ZN9TestClass3addEii",
               "qualType": "int (int, int)",
               "range": {
                 "start": {
@@ -36,7 +36,7 @@
       "funcDecls": [
         {
           "funcName": "operator new",
-          "funcAstName": "__Znwm",
+          "funcAstName": "Znwm",
           "qualType": "void *(unsigned long)",
           "range": {
             "start": {
@@ -51,7 +51,7 @@
         },
         {
           "funcName": "operator new",
-          "funcAstName": "__ZnwmSt11align_val_t",
+          "funcAstName": "ZnwmSt11align_val_t",
           "qualType": "void *(unsigned long, std::align_val_t)",
           "range": {
             "start": {
@@ -66,7 +66,7 @@
         },
         {
           "funcName": "operator new[]",
-          "funcAstName": "__Znam",
+          "funcAstName": "Znam",
           "qualType": "void *(unsigned long)",
           "range": {
             "start": {
@@ -81,7 +81,7 @@
         },
         {
           "funcName": "operator new[]",
-          "funcAstName": "__ZnamSt11align_val_t",
+          "funcAstName": "ZnamSt11align_val_t",
           "qualType": "void *(unsigned long, std::align_val_t)",
           "range": {
             "start": {
@@ -96,7 +96,7 @@
         },
         {
           "funcName": "operator delete",
-          "funcAstName": "__ZdlPv",
+          "funcAstName": "ZdlPv",
           "qualType": "void (void *) noexcept",
           "range": {
             "start": {
@@ -111,7 +111,7 @@
         },
         {
           "funcName": "operator delete",
-          "funcAstName": "__ZdlPvSt11align_val_t",
+          "funcAstName": "ZdlPvSt11align_val_t",
           "qualType": "void (void *, std::align_val_t) noexcept",
           "range": {
             "start": {
@@ -126,7 +126,7 @@
         },
         {
           "funcName": "operator delete[]",
-          "funcAstName": "__ZdaPv",
+          "funcAstName": "ZdaPv",
           "qualType": "void (void *) noexcept",
           "range": {
             "start": {
@@ -141,7 +141,7 @@
         },
         {
           "funcName": "operator delete[]",
-          "funcAstName": "__ZdaPvSt11align_val_t",
+          "funcAstName": "ZdaPvSt11align_val_t",
           "qualType": "void (void *, std::align_val_t) noexcept",
           "range": {
             "start": {
@@ -158,7 +158,7 @@
       "funcImpls": [
         {
           "funcName": "main",
-          "funcAstName": "_main",
+          "funcAstName": "main",
           "qualType": "int (int, char **)",
           "range": {
             "start": {
@@ -173,7 +173,7 @@
           "funcCalls": [
             {
               "funcName": "add",
-              "funcAstName": "__ZN9TestClass3addEii",
+              "funcAstName": "ZN9TestClass3addEii",
               "qualType": "int (int, int)",
               "range": {
                 "start": {

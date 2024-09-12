@@ -12,7 +12,7 @@
           "funcDecls": [
             {
               "funcName": "operator=",
-              "funcAstName": "__ZN9TestClassaSERKS_",
+              "funcAstName": "ZN9TestClassaSERKS_",
               "qualType": "TestClass &(const TestClass &)",
               "range": {
                 "start": {
@@ -27,7 +27,7 @@
             },
             {
               "funcName": "operator=",
-              "funcAstName": "__ZN9TestClassaSEOS_",
+              "funcAstName": "ZN9TestClassaSEOS_",
               "qualType": "TestClass &(TestClass &&)",
               "range": {
                 "start": {
@@ -45,7 +45,7 @@
           "virtualFuncDecls": [
             {
               "funcName": "sub",
-              "funcAstName": "__ZN9TestClass3subEii",
+              "funcAstName": "ZN9TestClass3subEii",
               "qualType": "int (int, int)",
               "range": {
                 "start": {
@@ -57,13 +57,13 @@
                   "column": 20
                 }
               },
-              "baseFuncAstName": "__ZN9TestClass3subEii"
+              "baseFuncAstName": "ZN9TestClass3subEii"
             }
           ],
           "virtualFuncImpls": [
             {
               "funcName": "add",
-              "funcAstName": "__ZN9TestClass3addEii",
+              "funcAstName": "ZN9TestClass3addEii",
               "qualType": "int (int, int)",
               "range": {
                 "start": {
@@ -75,7 +75,7 @@
                   "column": 20
                 }
               },
-              "baseFuncAstName": "__ZN9TestClass3addEii",
+              "baseFuncAstName": "ZN9TestClass3addEii",
               "funcCalls": [],
               "virtualFuncCalls": []
             }
@@ -86,7 +86,7 @@
       "funcImpls": [
         {
           "funcName": "main",
-          "funcAstName": "_main",
+          "funcAstName": "main",
           "qualType": "int (int, char **)",
           "range": {
             "start": {
@@ -102,8 +102,8 @@
           "virtualFuncCalls": [
             {
               "funcName": "add",
-              "funcAstName": "__ZN9TestClass3addEii",
-              "baseFuncAstName": "__ZN9TestClass3addEii",
+              "funcAstName": "ZN9TestClass3addEii",
+              "baseFuncAstName": "ZN9TestClass3addEii",
               "qualType": "int (int, int)",
               "range": {
                 "start": {
@@ -118,8 +118,8 @@
             },
             {
               "funcName": "sub",
-              "funcAstName": "__ZN9TestClass3subEii",
-              "baseFuncAstName": "__ZN9TestClass3subEii",
+              "funcAstName": "ZN9TestClass3subEii",
+              "baseFuncAstName": "ZN9TestClass3subEii",
               "qualType": "int (int, int)",
               "range": {
                 "start": {

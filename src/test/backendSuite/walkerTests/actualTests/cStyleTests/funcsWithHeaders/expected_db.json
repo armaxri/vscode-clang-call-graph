@@ -9,7 +9,7 @@
       "funcImpls": [
         {
           "funcName": "mult",
-          "funcAstName": "__Z4multii",
+          "funcAstName": "Z4multii",
           "qualType": "int (int, int)",
           "range": {
             "start": {
@@ -24,7 +24,7 @@
           "funcCalls": [
             {
               "funcName": "add",
-              "funcAstName": "__ZN3foo3addEii",
+              "funcAstName": "ZN3foo3addEii",
               "qualType": "int (int, int)",
               "range": {
                 "start": {
@@ -42,7 +42,7 @@
         },
         {
           "funcName": "add",
-          "funcAstName": "__ZN3foo3addEii",
+          "funcAstName": "ZN3foo3addEii",
           "qualType": "int (int, int)",
           "range": {
             "start": {
@@ -69,7 +69,7 @@
       "funcDecls": [
         {
           "funcName": "mult",
-          "funcAstName": "__Z4multii",
+          "funcAstName": "Z4multii",
           "qualType": "int (int, int)",
           "range": {
             "start": {
@@ -84,7 +84,7 @@
         },
         {
           "funcName": "add",
-          "funcAstName": "__ZN3foo3addEii",
+          "funcAstName": "ZN3foo3addEii",
           "qualType": "int (int, int)",
           "range": {
             "start": {
@@ -101,7 +101,7 @@
       "funcImpls": [
         {
           "funcName": "divide",
-          "funcAstName": "__Z6divideii",
+          "funcAstName": "Z6divideii",
           "qualType": "int (int, int)",
           "range": {
             "start": {

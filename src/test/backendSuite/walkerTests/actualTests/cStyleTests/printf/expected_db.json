@@ -9,7 +9,7 @@
       "funcImpls": [
         {
           "funcName": "main",
-          "funcAstName": "_main",
+          "funcAstName": "main",
           "qualType": "int (int, char **)",
           "range": {
             "start": {
@@ -24,7 +24,7 @@
           "funcCalls": [
             {
               "funcName": "printf",
-              "funcAstName": "_printf",
+              "funcAstName": "printf",
               "qualType": "int (const char *, ...)",
               "range": {
                 "start": {
@@ -191,7 +191,7 @@
       "funcDecls": [
         {
           "funcName": "clearerr",
-          "funcAstName": "_clearerr",
+          "funcAstName": "clearerr",
           "qualType": "void (FILE *)",
           "range": {
             "start": {
@@ -206,7 +206,7 @@
         },
         {
           "funcName": "fclose",
-          "funcAstName": "_fclose",
+          "funcAstName": "fclose",
           "qualType": "int (FILE *)",
           "range": {
             "start": {
@@ -221,7 +221,7 @@
         },
         {
           "funcName": "feof",
-          "funcAstName": "_feof",
+          "funcAstName": "feof",
           "qualType": "int (FILE *)",
           "range": {
             "start": {
@@ -236,7 +236,7 @@
         },
         {
           "funcName": "ferror",
-          "funcAstName": "_ferror",
+          "funcAstName": "ferror",
           "qualType": "int (FILE *)",
           "range": {
             "start": {
@@ -251,7 +251,7 @@
         },
         {
           "funcName": "fflush",
-          "funcAstName": "_fflush",
+          "funcAstName": "fflush",
           "qualType": "int (FILE *)",
           "range": {
             "start": {
@@ -266,7 +266,7 @@
         },
         {
           "funcName": "fgetc",
-          "funcAstName": "_fgetc",
+          "funcAstName": "fgetc",
           "qualType": "int (FILE *)",
           "range": {
             "start": {
@@ -281,7 +281,7 @@
         },
         {
           "funcName": "fgetpos",
-          "funcAstName": "_fgetpos",
+          "funcAstName": "fgetpos",
           "qualType": "int (FILE *, fpos_t *)",
           "range": {
             "start": {
@@ -296,7 +296,7 @@
         },
         {
           "funcName": "fgets",
-          "funcAstName": "_fgets",
+          "funcAstName": "fgets",
           "qualType": "char *(char *, int, FILE *)",
           "range": {
             "start": {
@@ -311,7 +311,7 @@
         },
         {
           "funcName": "fopen",
-          "funcAstName": "_fopen",
+          "funcAstName": "fopen",
           "qualType": "FILE *(const char *, const char *)",
           "range": {
             "start": {
@@ -326,7 +326,7 @@
         },
         {
           "funcName": "fprintf",
-          "funcAstName": "_fprintf",
+          "funcAstName": "fprintf",
           "qualType": "int (FILE *, const char *, ...)",
           "range": {
             "start": {
@@ -341,7 +341,7 @@
         },
         {
           "funcName": "fputc",
-          "funcAstName": "_fputc",
+          "funcAstName": "fputc",
           "qualType": "int (int, FILE *)",
           "range": {
             "start": {
@@ -356,7 +356,7 @@
         },
         {
           "funcName": "fputs",
-          "funcAstName": "_fputs",
+          "funcAstName": "fputs",
           "qualType": "int (const char *, FILE *)",
           "range": {
             "start": {
@@ -371,7 +371,7 @@
         },
         {
           "funcName": "fread",
-          "funcAstName": "_fread",
+          "funcAstName": "fread",
           "qualType": "size_t (void *, size_t, size_t, FILE *)",
           "range": {
             "start": {
@@ -386,7 +386,7 @@
         },
         {
           "funcName": "freopen",
-          "funcAstName": "_freopen",
+          "funcAstName": "freopen",
           "qualType": "FILE *(const char *, const char *, FILE *)",
           "range": {
             "start": {
@@ -401,7 +401,7 @@
         },
         {
           "funcName": "fscanf",
-          "funcAstName": "_fscanf",
+          "funcAstName": "fscanf",
           "qualType": "int (FILE *, const char *, ...)",
           "range": {
             "start": {
@@ -416,7 +416,7 @@
         },
         {
           "funcName": "fseek",
-          "funcAstName": "_fseek",
+          "funcAstName": "fseek",
           "qualType": "int (FILE *, long, int)",
           "range": {
             "start": {
@@ -431,7 +431,7 @@
         },
         {
           "funcName": "fsetpos",
-          "funcAstName": "_fsetpos",
+          "funcAstName": "fsetpos",
           "qualType": "int (FILE *, const fpos_t *)",
           "range": {
             "start": {
@@ -446,7 +446,7 @@
         },
         {
           "funcName": "ftell",
-          "funcAstName": "_ftell",
+          "funcAstName": "ftell",
           "qualType": "long (FILE *)",
           "range": {
             "start": {
@@ -461,7 +461,7 @@
         },
         {
           "funcName": "fwrite",
-          "funcAstName": "_fwrite",
+          "funcAstName": "fwrite",
           "qualType": "size_t (const void *, size_t, size_t, FILE *)",
           "range": {
             "start": {
@@ -476,7 +476,7 @@
         },
         {
           "funcName": "getc",
-          "funcAstName": "_getc",
+          "funcAstName": "getc",
           "qualType": "int (FILE *)",
           "range": {
             "start": {
@@ -491,7 +491,7 @@
         },
         {
           "funcName": "getchar",
-          "funcAstName": "_getchar",
+          "funcAstName": "getchar",
           "qualType": "int ()",
           "range": {
             "start": {
@@ -506,7 +506,7 @@
         },
         {
           "funcName": "gets",
-          "funcAstName": "_gets",
+          "funcAstName": "gets",
           "qualType": "char *(char *)",
           "range": {
             "start": {
@@ -521,7 +521,7 @@
         },
         {
           "funcName": "perror",
-          "funcAstName": "_perror",
+          "funcAstName": "perror",
           "qualType": "void (const char *)",
           "range": {
             "start": {
@@ -536,7 +536,7 @@
         },
         {
           "funcName": "printf",
-          "funcAstName": "_printf",
+          "funcAstName": "printf",
           "qualType": "int (const char *, ...)",
           "range": {
             "start": {
@@ -551,7 +551,7 @@
         },
         {
           "funcName": "putc",
-          "funcAstName": "_putc",
+          "funcAstName": "putc",
           "qualType": "int (int, FILE *)",
           "range": {
             "start": {
@@ -566,7 +566,7 @@
         },
         {
           "funcName": "putchar",
-          "funcAstName": "_putchar",
+          "funcAstName": "putchar",
           "qualType": "int (int)",
           "range": {
             "start": {
@@ -581,7 +581,7 @@
         },
         {
           "funcName": "puts",
-          "funcAstName": "_puts",
+          "funcAstName": "puts",
           "qualType": "int (const char *)",
           "range": {
             "start": {
@@ -596,7 +596,7 @@
         },
         {
           "funcName": "remove",
-          "funcAstName": "_remove",
+          "funcAstName": "remove",
           "qualType": "int (const char *)",
           "range": {
             "start": {
@@ -611,7 +611,7 @@
         },
         {
           "funcName": "rename",
-          "funcAstName": "_rename",
+          "funcAstName": "rename",
           "qualType": "int (const char *, const char *)",
           "range": {
             "start": {
@@ -626,7 +626,7 @@
         },
         {
           "funcName": "rewind",
-          "funcAstName": "_rewind",
+          "funcAstName": "rewind",
           "qualType": "void (FILE *)",
           "range": {
             "start": {
@@ -641,7 +641,7 @@
         },
         {
           "funcName": "scanf",
-          "funcAstName": "_scanf",
+          "funcAstName": "scanf",
           "qualType": "int (const char *, ...)",
           "range": {
             "start": {
@@ -656,7 +656,7 @@
         },
         {
           "funcName": "setbuf",
-          "funcAstName": "_setbuf",
+          "funcAstName": "setbuf",
           "qualType": "void (FILE *, char *)",
           "range": {
             "start": {
@@ -671,7 +671,7 @@
         },
         {
           "funcName": "setvbuf",
-          "funcAstName": "_setvbuf",
+          "funcAstName": "setvbuf",
           "qualType": "int (FILE *, char *, int, size_t)",
           "range": {
             "start": {
@@ -686,7 +686,7 @@
         },
         {
           "funcName": "sprintf",
-          "funcAstName": "_sprintf",
+          "funcAstName": "sprintf",
           "qualType": "int (char *, const char *, ...)",
           "range": {
             "start": {
@@ -701,7 +701,7 @@
         },
         {
           "funcName": "sscanf",
-          "funcAstName": "_sscanf",
+          "funcAstName": "sscanf",
           "qualType": "int (const char *, const char *, ...)",
           "range": {
             "start": {
@@ -716,7 +716,7 @@
         },
         {
           "funcName": "tmpfile",
-          "funcAstName": "_tmpfile",
+          "funcAstName": "tmpfile",
           "qualType": "FILE *()",
           "range": {
             "start": {
@@ -731,7 +731,7 @@
         },
         {
           "funcName": "tmpnam",
-          "funcAstName": "_tmpnam",
+          "funcAstName": "tmpnam",
           "qualType": "char *(char *)",
           "range": {
             "start": {
@@ -746,7 +746,7 @@
         },
         {
           "funcName": "ungetc",
-          "funcAstName": "_ungetc",
+          "funcAstName": "ungetc",
           "qualType": "int (int, FILE *)",
           "range": {
             "start": {
@@ -761,7 +761,7 @@
         },
         {
           "funcName": "vfprintf",
-          "funcAstName": "_vfprintf",
+          "funcAstName": "vfprintf",
           "qualType": "int (FILE *, const char *, va_list)",
           "range": {
             "start": {
@@ -776,7 +776,7 @@
         },
         {
           "funcName": "vprintf",
-          "funcAstName": "_vprintf",
+          "funcAstName": "vprintf",
           "qualType": "int (const char *, va_list)",
           "range": {
             "start": {
@@ -791,7 +791,7 @@
         },
         {
           "funcName": "vsprintf",
-          "funcAstName": "_vsprintf",
+          "funcAstName": "vsprintf",
           "qualType": "int (char *, const char *, va_list)",
           "range": {
             "start": {
@@ -806,7 +806,7 @@
         },
         {
           "funcName": "ctermid",
-          "funcAstName": "_ctermid",
+          "funcAstName": "ctermid",
           "qualType": "char *(char *)",
           "range": {
             "start": {
@@ -821,7 +821,7 @@
         },
         {
           "funcName": "fdopen",
-          "funcAstName": "_fdopen",
+          "funcAstName": "fdopen",
           "qualType": "FILE *(int, const char *)",
           "range": {
             "start": {
@@ -836,7 +836,7 @@
         },
         {
           "funcName": "fileno",
-          "funcAstName": "_fileno",
+          "funcAstName": "fileno",
           "qualType": "int (FILE *)",
           "range": {
             "start": {
@@ -851,7 +851,7 @@
         },
         {
           "funcName": "pclose",
-          "funcAstName": "_pclose",
+          "funcAstName": "pclose",
           "qualType": "int (FILE *)",
           "range": {
             "start": {
@@ -866,7 +866,7 @@
         },
         {
           "funcName": "popen",
-          "funcAstName": "_popen",
+          "funcAstName": "popen",
           "qualType": "FILE *(const char *, const char *)",
           "range": {
             "start": {
@@ -881,7 +881,7 @@
         },
         {
           "funcName": "__srget",
-          "funcAstName": "___srget",
+          "funcAstName": "srget",
           "qualType": "int (FILE *)",
           "range": {
             "start": {
@@ -896,7 +896,7 @@
         },
         {
           "funcName": "__svfscanf",
-          "funcAstName": "___svfscanf",
+          "funcAstName": "svfscanf",
           "qualType": "int (FILE *, const char *, va_list)",
           "range": {
             "start": {
@@ -911,7 +911,7 @@
         },
         {
           "funcName": "__swbuf",
-          "funcAstName": "___swbuf",
+          "funcAstName": "swbuf",
           "qualType": "int (int, FILE *)",
           "range": {
             "start": {
@@ -926,7 +926,7 @@
         },
         {
           "funcName": "flockfile",
-          "funcAstName": "_flockfile",
+          "funcAstName": "flockfile",
           "qualType": "void (FILE *)",
           "range": {
             "start": {
@@ -941,7 +941,7 @@
         },
         {
           "funcName": "ftrylockfile",
-          "funcAstName": "_ftrylockfile",
+          "funcAstName": "ftrylockfile",
           "qualType": "int (FILE *)",
           "range": {
             "start": {
@@ -956,7 +956,7 @@
         },
         {
           "funcName": "funlockfile",
-          "funcAstName": "_funlockfile",
+          "funcAstName": "funlockfile",
           "qualType": "void (FILE *)",
           "range": {
             "start": {
@@ -971,7 +971,7 @@
         },
         {
           "funcName": "getc_unlocked",
-          "funcAstName": "_getc_unlocked",
+          "funcAstName": "getc_unlocked",
           "qualType": "int (FILE *)",
           "range": {
             "start": {
@@ -986,7 +986,7 @@
         },
         {
           "funcName": "getchar_unlocked",
-          "funcAstName": "_getchar_unlocked",
+          "funcAstName": "getchar_unlocked",
           "qualType": "int ()",
           "range": {
             "start": {
@@ -1001,7 +1001,7 @@
         },
         {
           "funcName": "putc_unlocked",
-          "funcAstName": "_putc_unlocked",
+          "funcAstName": "putc_unlocked",
           "qualType": "int (int, FILE *)",
           "range": {
             "start": {
@@ -1016,7 +1016,7 @@
         },
         {
           "funcName": "putchar_unlocked",
-          "funcAstName": "_putchar_unlocked",
+          "funcAstName": "putchar_unlocked",
           "qualType": "int (int)",
           "range": {
             "start": {
@@ -1031,7 +1031,7 @@
         },
         {
           "funcName": "getw",
-          "funcAstName": "_getw",
+          "funcAstName": "getw",
           "qualType": "int (FILE *)",
           "range": {
             "start": {
@@ -1046,7 +1046,7 @@
         },
         {
           "funcName": "putw",
-          "funcAstName": "_putw",
+          "funcAstName": "putw",
           "qualType": "int (int, FILE *)",
           "range": {
             "start": {
@@ -1061,7 +1061,7 @@
         },
         {
           "funcName": "tempnam",
-          "funcAstName": "_tempnam",
+          "funcAstName": "tempnam",
           "qualType": "char *(const char *, const char *)",
           "range": {
             "start": {
@@ -1078,7 +1078,7 @@
       "funcImpls": [
         {
           "funcName": "__sputc",
-          "funcAstName": "__Z7__sputciP7__sFILE",
+          "funcAstName": "Z7__sputciP7__sFILE",
           "qualType": "int (int, FILE *)",
           "range": {
             "start": {
@@ -1093,7 +1093,7 @@
           "funcCalls": [
             {
               "funcName": "__swbuf",
-              "funcAstName": "___swbuf",
+              "funcAstName": "swbuf",
               "qualType": "int (int, FILE *)",
               "range": {
                 "start": {
@@ -1276,7 +1276,7 @@
       "funcDecls": [
         {
           "funcName": "renameat",
-          "funcAstName": "_renameat",
+          "funcAstName": "renameat",
           "qualType": "int (int, const char *, int, const char *)",
           "range": {
             "start": {
@@ -1291,7 +1291,7 @@
         },
         {
           "funcName": "renamex_np",
-          "funcAstName": "_renamex_np",
+          "funcAstName": "renamex_np",
           "qualType": "int (const char *, const char *, unsigned int)",
           "range": {
             "start": {
@@ -1306,7 +1306,7 @@
         },
         {
           "funcName": "renameatx_np",
-          "funcAstName": "_renameatx_np",
+          "funcAstName": "renameatx_np",
           "qualType": "int (int, const char *, int, const char *, unsigned int)",
           "range": {
             "start": {
@@ -1343,7 +1343,7 @@
       "funcDecls": [
         {
           "funcName": "fseeko",
-          "funcAstName": "_fseeko",
+          "funcAstName": "fseeko",
           "qualType": "int (FILE *, off_t, int)",
           "range": {
             "start": {
@@ -1358,7 +1358,7 @@
         },
         {
           "funcName": "ftello",
-          "funcAstName": "_ftello",
+          "funcAstName": "ftello",
           "qualType": "off_t (FILE *)",
           "range": {
             "start": {
@@ -1373,7 +1373,7 @@
         },
         {
           "funcName": "snprintf",
-          "funcAstName": "_snprintf",
+          "funcAstName": "snprintf",
           "qualType": "int (char *, size_t, const char *, ...)",
           "range": {
             "start": {
@@ -1388,7 +1388,7 @@
         },
         {
           "funcName": "vfscanf",
-          "funcAstName": "_vfscanf",
+          "funcAstName": "vfscanf",
           "qualType": "int (FILE *, const char *, va_list)",
           "range": {
             "start": {
@@ -1403,7 +1403,7 @@
         },
         {
           "funcName": "vscanf",
-          "funcAstName": "_vscanf",
+          "funcAstName": "vscanf",
           "qualType": "int (const char *, va_list)",
           "range": {
             "start": {
@@ -1418,7 +1418,7 @@
         },
         {
           "funcName": "vsnprintf",
-          "funcAstName": "_vsnprintf",
+          "funcAstName": "vsnprintf",
           "qualType": "int (char *, size_t, const char *, va_list)",
           "range": {
             "start": {
@@ -1433,7 +1433,7 @@
         },
         {
           "funcName": "vsscanf",
-          "funcAstName": "_vsscanf",
+          "funcAstName": "vsscanf",
           "qualType": "int (const char *, const char *, va_list)",
           "range": {
             "start": {
@@ -1461,7 +1461,7 @@
       "funcDecls": [
         {
           "funcName": "dprintf",
-          "funcAstName": "_dprintf",
+          "funcAstName": "dprintf",
           "qualType": "int (int, const char *, ...)",
           "range": {
             "start": {
@@ -1476,7 +1476,7 @@
         },
         {
           "funcName": "vdprintf",
-          "funcAstName": "_vdprintf",
+          "funcAstName": "vdprintf",
           "qualType": "int (int, const char *, va_list)",
           "range": {
             "start": {
@@ -1491,7 +1491,7 @@
         },
         {
           "funcName": "getdelim",
-          "funcAstName": "_getdelim",
+          "funcAstName": "getdelim",
           "qualType": "ssize_t (char **, size_t *, int, FILE *)",
           "range": {
             "start": {
@@ -1506,7 +1506,7 @@
         },
         {
           "funcName": "getline",
-          "funcAstName": "_getline",
+          "funcAstName": "getline",
           "qualType": "ssize_t (char **, size_t *, FILE *)",
           "range": {
             "start": {
@@ -1521,7 +1521,7 @@
         },
         {
           "funcName": "fmemopen",
-          "funcAstName": "_fmemopen",
+          "funcAstName": "fmemopen",
           "qualType": "FILE *(void *, size_t, const char *)",
           "range": {
             "start": {
@@ -1536,7 +1536,7 @@
         },
         {
           "funcName": "open_memstream",
-          "funcAstName": "_open_memstream",
+          "funcAstName": "open_memstream",
           "qualType": "FILE *(char **, size_t *)",
           "range": {
             "start": {
@@ -1551,7 +1551,7 @@
         },
         {
           "funcName": "asprintf",
-          "funcAstName": "_asprintf",
+          "funcAstName": "asprintf",
           "qualType": "int (char **, const char *, ...)",
           "range": {
             "start": {
@@ -1566,7 +1566,7 @@
         },
         {
           "funcName": "ctermid_r",
-          "funcAstName": "_ctermid_r",
+          "funcAstName": "ctermid_r",
           "qualType": "char *(char *)",
           "range": {
             "start": {
@@ -1581,7 +1581,7 @@
         },
         {
           "funcName": "fgetln",
-          "funcAstName": "_fgetln",
+          "funcAstName": "fgetln",
           "qualType": "char *(FILE *, size_t *)",
           "range": {
             "start": {
@@ -1596,7 +1596,7 @@
         },
         {
           "funcName": "fmtcheck",
-          "funcAstName": "_fmtcheck",
+          "funcAstName": "fmtcheck",
           "qualType": "const char *(const char *, const char *)",
           "range": {
             "start": {
@@ -1611,7 +1611,7 @@
         },
         {
           "funcName": "fpurge",
-          "funcAstName": "_fpurge",
+          "funcAstName": "fpurge",
           "qualType": "int (FILE *)",
           "range": {
             "start": {
@@ -1626,7 +1626,7 @@
         },
         {
           "funcName": "setbuffer",
-          "funcAstName": "_setbuffer",
+          "funcAstName": "setbuffer",
           "qualType": "void (FILE *, char *, int)",
           "range": {
             "start": {
@@ -1641,7 +1641,7 @@
         },
         {
           "funcName": "setlinebuf",
-          "funcAstName": "_setlinebuf",
+          "funcAstName": "setlinebuf",
           "qualType": "int (FILE *)",
           "range": {
             "start": {
@@ -1656,7 +1656,7 @@
         },
         {
           "funcName": "vasprintf",
-          "funcAstName": "_vasprintf",
+          "funcAstName": "vasprintf",
           "qualType": "int (char **, const char *, va_list)",
           "range": {
             "start": {
@@ -1671,7 +1671,7 @@
         },
         {
           "funcName": "funopen",
-          "funcAstName": "_funopen",
+          "funcAstName": "funopen",
           "qualType": "FILE *(const void *, int (* _Nullable)(void *, char *, int), int (* _Nullable)(void *, const char *, int), fpos_t (* _Nullable)(void *, fpos_t, int), int (* _Nullable)(void *))",
           "range": {
             "start": {

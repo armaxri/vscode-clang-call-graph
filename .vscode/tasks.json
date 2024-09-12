@@ -19,7 +19,7 @@
     {
       "type": "shell",
       "label": "generate test files jsons",
-      "command": "${workspaceFolder}/scripts/create_clang_json.py -u -a",
+      "command": "${workspaceFolder}/scripts/create_clang_json.py -u -a -r",
       "problemMatcher": []
     }
   ]

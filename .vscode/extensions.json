@@ -5,6 +5,10 @@
     "dbaeumer.vscode-eslint",
     "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
-    "pflannery.vscode-versionlens"
+    "github.vscode-pull-request-github",
+    "hbenl.vscode-mocha-test-adapter",
+    "pflannery.vscode-versionlens",
+    "qwtel.sqlite-viewer",
+    "streetsidesoftware.code-spell-checker"
   ]
 }

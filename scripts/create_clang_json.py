@@ -112,7 +112,21 @@ def adjust_id_lines(json_lines):
     return new_lines
 
 
-def generate_json_file(cpp_file, adjust_ids):
+def adjust_underscore_ast_name(json_lines):
+    """Remove the arbitrary number of underscores at the beginning of the ast names."""
+    new_lines = []
+    for line in json_lines:
+        if '  "mangledName": "' in line:
+            left_string, ast_name, end_char = split_json_line(line)
+            new_ast_name = ast_name.lstrip("_")
+            new_lines.append(left_string + '": "' + new_ast_name + '"' + end_char)
+        else:
+            new_lines.append(line)
+
+    return new_lines
+
+
+def generate_json_file(cpp_file, adjust_ids, remove_underscore_ast_name):
     """Generate a json file for a given cpp file."""
     cpp_path = pathlib.Path(cpp_file).absolute()
     cpp_dir_path = cpp_path.parent
@@ -136,6 +150,9 @@ def generate_json_file(cpp_file, adjust_ids):
     if adjust_ids:
         adjusted_output = adjust_id_lines(adjusted_output)
 
+    if remove_underscore_ast_name:
+        adjusted_output = adjust_underscore_ast_name(adjusted_output)
+
     with cpp_json_path.open("w") as target_file:
         target_file.write("\n".join(adjusted_output))
 
@@ -152,7 +169,7 @@ def main(args):
         target_files.extend(get_cpp_files_int_test_dir())
 
     for file in target_files:
-        generate_json_file(file, args.adjust_ids)
+        generate_json_file(file, args.adjust_ids, args.remove_underscore_ast_name)
 
 
 if __name__ == "__main__":
@@ -168,6 +185,12 @@ if __name__ == "__main__":
         "-a",
         "--adjust_ids",
         help="Adjust the ids of the json files.",
+        action="store_true",
+    )
+    parser.add_argument(
+        "-r",
+        "--remove_underscore_ast_name",
+        help="Remove the arbitrary number of underscores at the beginning of the ast names.",
         action="store_true",
     )
     args = parser.parse_args()
