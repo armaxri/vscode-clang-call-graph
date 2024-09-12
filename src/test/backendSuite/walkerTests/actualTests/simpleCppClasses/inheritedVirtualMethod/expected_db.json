@@ -12,7 +12,7 @@
           "funcDecls": [
             {
               "funcName": "operator=",
-              "funcAstName": "__ZN13TestBaseClassaSERKS_",
+              "funcAstName": "ZN13TestBaseClassaSERKS_",
               "qualType": "TestBaseClass &(const TestBaseClass &)",
               "range": {
                 "start": {
@@ -27,7 +27,7 @@
             },
             {
               "funcName": "operator=",
-              "funcAstName": "__ZN13TestBaseClassaSEOS_",
+              "funcAstName": "ZN13TestBaseClassaSEOS_",
               "qualType": "TestBaseClass &(TestBaseClass &&)",
               "range": {
                 "start": {
@@ -46,7 +46,7 @@
           "virtualFuncImpls": [
             {
               "funcName": "add",
-              "funcAstName": "__ZN13TestBaseClass3addEii",
+              "funcAstName": "ZN13TestBaseClass3addEii",
               "qualType": "int (int, int)",
               "range": {
                 "start": {
@@ -58,7 +58,7 @@
                   "column": 20
                 }
               },
-              "baseFuncAstName": "__ZN13TestBaseClass3addEii",
+              "baseFuncAstName": "ZN13TestBaseClass3addEii",
               "funcCalls": [],
               "virtualFuncCalls": []
             }
@@ -73,7 +73,7 @@
           "funcDecls": [
             {
               "funcName": "operator=",
-              "funcAstName": "__ZN9TestClassaSERKS_",
+              "funcAstName": "ZN9TestClassaSERKS_",
               "qualType": "TestClass &(const TestClass &)",
               "range": {
                 "start": {
@@ -88,7 +88,7 @@
             },
             {
               "funcName": "operator=",
-              "funcAstName": "__ZN9TestClassaSEOS_",
+              "funcAstName": "ZN9TestClassaSEOS_",
               "qualType": "TestClass &(TestClass &&)",
               "range": {
                 "start": {
@@ -107,7 +107,7 @@
           "virtualFuncImpls": [
             {
               "funcName": "add",
-              "funcAstName": "__ZN9TestClass3addEii",
+              "funcAstName": "ZN9TestClass3addEii",
               "qualType": "int (int, int)",
               "range": {
                 "start": {
@@ -119,13 +119,13 @@
                   "column": 12
                 }
               },
-              "baseFuncAstName": "__ZN13TestBaseClass3addEii",
+              "baseFuncAstName": "ZN13TestBaseClass3addEii",
               "funcCalls": [],
               "virtualFuncCalls": [
                 {
                   "funcName": "add",
-                  "funcAstName": "__ZN13TestBaseClass3addEii",
-                  "baseFuncAstName": "__ZN13TestBaseClass3addEii",
+                  "funcAstName": "ZN13TestBaseClass3addEii",
+                  "baseFuncAstName": "ZN13TestBaseClass3addEii",
                   "qualType": "int (int, int)",
                   "range": {
                     "start": {
@@ -147,7 +147,7 @@
       "funcImpls": [
         {
           "funcName": "main",
-          "funcAstName": "_main",
+          "funcAstName": "main",
           "qualType": "int (int, char **)",
           "range": {
             "start": {
@@ -163,8 +163,8 @@
           "virtualFuncCalls": [
             {
               "funcName": "add",
-              "funcAstName": "__ZN9TestClass3addEii",
-              "baseFuncAstName": "__ZN13TestBaseClass3addEii",
+              "funcAstName": "ZN9TestClass3addEii",
+              "baseFuncAstName": "ZN13TestBaseClass3addEii",
               "qualType": "int (int, int)",
               "range": {
                 "start": {
