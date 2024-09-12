@@ -9,7 +9,7 @@
       "funcImpls": [
         {
           "funcName": "add",
-          "funcAstName": "__Z3addii",
+          "funcAstName": "Z3addii",
           "qualType": "int (int, int)",
           "range": {
             "start": {
@@ -26,7 +26,7 @@
         },
         {
           "funcName": "main",
-          "funcAstName": "_main",
+          "funcAstName": "main",
           "qualType": "int (int, char **)",
           "range": {
             "start": {
@@ -41,7 +41,7 @@
           "funcCalls": [
             {
               "funcName": "calculate",
-              "funcAstName": "__Z9calculateii",
+              "funcAstName": "Z9calculateii",
               "qualType": "int (int, int)",
               "range": {
                 "start": {
@@ -69,7 +69,7 @@
       "funcDecls": [
         {
           "funcName": "add",
-          "funcAstName": "__Z3addii",
+          "funcAstName": "Z3addii",
           "qualType": "int (int, int)",
           "range": {
             "start": {
@@ -98,7 +98,7 @@
       "funcImpls": [
         {
           "funcName": "calculate",
-          "funcAstName": "__Z9calculateii",
+          "funcAstName": "Z9calculateii",
           "qualType": "int (int, int)",
           "range": {
             "start": {
@@ -113,7 +113,7 @@
           "funcCalls": [
             {
               "funcName": "add",
-              "funcAstName": "__Z3addii",
+              "funcAstName": "Z3addii",
               "qualType": "int (int, int)",
               "range": {
                 "start": {

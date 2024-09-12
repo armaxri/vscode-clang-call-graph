@@ -13,7 +13,7 @@
           "funcImpls": [
             {
               "funcName": "foo",
-              "funcAstName": "__ZN13TemplateClassI11SimpleClassE3fooEv",
+              "funcAstName": "ZN13TemplateClassI11SimpleClassE3fooEv",
               "qualType": "int ()",
               "range": {
                 "start": {
@@ -28,7 +28,7 @@
               "funcCalls": [
                 {
                   "funcName": "ba",
-                  "funcAstName": "__ZN11SimpleClass2baEv",
+                  "funcAstName": "ZN11SimpleClass2baEv",
                   "qualType": "int ()",
                   "range": {
                     "start": {
@@ -56,7 +56,7 @@
           "funcImpls": [
             {
               "funcName": "ba",
-              "funcAstName": "__ZN11SimpleClass2baEv",
+              "funcAstName": "ZN11SimpleClass2baEv",
               "qualType": "int ()",
               "range": {
                 "start": {
@@ -80,7 +80,7 @@
       "funcImpls": [
         {
           "funcName": "main",
-          "funcAstName": "_main",
+          "funcAstName": "main",
           "qualType": "int (int, char **)",
           "range": {
             "start": {
@@ -95,7 +95,7 @@
           "funcCalls": [
             {
               "funcName": "foo",
-              "funcAstName": "__ZN13TemplateClassI11SimpleClassE3fooEv",
+              "funcAstName": "ZN13TemplateClassI11SimpleClassE3fooEv",
               "qualType": "int ()",
               "range": {
                 "start": {
