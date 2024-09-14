@@ -23,5 +23,11 @@
   ],
   "mochaExplorer.timeout": 20000,
   "cmake.configureOnOpen": false,
-  "cSpell.words": ["Impls", "rowid"]
+  "cSpell.words": ["clangd", "Impls", "rowid"],
+  "markdownlint.config": {
+    "default": true,
+    "MD007": { "indent": 4 },
+    "MD036": false,
+    "no-hard-tabs": false
+  }
 }
