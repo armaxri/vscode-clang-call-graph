@@ -6,6 +6,7 @@ import {
 import * as db from "../../database/Database";
 import * as cpp from "../../database/cpp_structure";
 import { AstWalker } from "../AstWalker";
+import { FileAnalysisHandle } from "../FileAnalysisHandle";
 
 // These types are used to cache the types with the ID. Since the ID is changing
 // all the time, it should not be stored in the actual type.
@@ -25,7 +26,7 @@ type DelayedFuncCall = {
 };
 
 export class ClangAstWalker implements AstWalker {
-    private fileName: string = "";
+    private fileHandle: FileAnalysisHandle;
     private database: db.Database;
     private baseAstElement: clangAst.AstElement;
 
@@ -49,11 +50,11 @@ export class ClangAstWalker implements AstWalker {
     private virtualFuncDeclarations: SimpleVirtualFuncDeclaration[] = [];
 
     constructor(
-        fileName: string,
+        fileHandle: FileAnalysisHandle,
         database: db.Database,
         baseAstElement: clangAst.AstElement
     ) {
-        this.fileName = fileName;
+        this.fileHandle = fileHandle;
         this.database = database;
         this.baseAstElement = baseAstElement;
     }
@@ -61,17 +62,16 @@ export class ClangAstWalker implements AstWalker {
     walkAst() {
         try {
             if (this.baseAstElement.kind !== "TranslationUnitDecl") {
-                console.error(
-                    `Expected TranslationUnitDecl, got "${this.baseAstElement.kind}" as first element in file "${this.fileName}".`
+                this.fileHandle.handleFileWalkingError(
+                    `Expected TranslationUnitDecl, got "${this.baseAstElement.kind}" as first element.`
                 );
-                // TODO(#10): Report to user an internal error.
                 return;
             }
 
             const startTime = Date.now();
 
             // Create the file in the database, so that we can reference it.
-            this.database.getOrAddCppFile(this.fileName);
+            this.database.getOrAddCppFile(this.fileHandle.getFileName());
 
             if (this.baseAstElement.inner) {
                 for (const innerAstElement of this.baseAstElement.inner) {
@@ -89,14 +89,9 @@ export class ClangAstWalker implements AstWalker {
 
             const endTime = Date.now();
             const elapsedTime = endTime - startTime;
-            console.log(
-                `Took ${elapsedTime}ms to analyze file "${this.fileName}".`
-            );
+            this.fileHandle.fileHandledSuccessfully(elapsedTime);
         } catch (error) {
-            console.error(
-                `Internal error during analysis of file "${this.fileName}": ${error}`
-            );
-            // TODO(#10): Report to user an internal error.
+            this.fileHandle.handleFileWalkingError(error as string);
         }
     }
 
@@ -140,9 +135,9 @@ export class ClangAstWalker implements AstWalker {
         if (astElement.loc && astElement.loc.file) {
             this.currentlyAnalyzedFile?.justAnalyzed();
 
-            if (astElement.loc.file === this.fileName) {
+            if (astElement.loc.file === this.fileHandle.getFileName()) {
                 this.currentlyAnalyzedFile = this.database.getOrAddCppFile(
-                    this.fileName
+                    this.fileHandle.getFileName()
                 );
             } else {
                 this.currentlyAnalyzedFile = this.database.getOrAddHppFile(
@@ -151,12 +146,13 @@ export class ClangAstWalker implements AstWalker {
 
                 (
                     this.currentlyAnalyzedFile as db.HppFile
-                ).addReferencedFromFile(this.fileName);
+                ).addReferencedFromFile(this.fileHandle.getFileName());
 
                 if (
                     astElement.loc.includedFrom &&
                     astElement.loc.includedFrom.file &&
-                    astElement.loc.includedFrom.file !== this.fileName
+                    astElement.loc.includedFrom.file !==
+                        this.fileHandle.getFileName()
                 ) {
                     // Ensure that the file exists in the database.
                     const hppFile = this.database.getOrAddHppFile(
@@ -371,10 +367,16 @@ export class ClangAstWalker implements AstWalker {
             }
 
             this.activeClassStack.pop();
-        } else {
+        }
+        // The following is a fallback, if the template class is not known.
+        // This is not a realistic scenario and should not happen.
+        // istanbul ignore next
+        else {
+            // istanbul ignore next
             if (!astElement.name?.startsWith("__")) {
-                console.error(
-                    `Template class "${astElement.name}" is not known in file "${this.fileName}".`
+                // istanbul ignore next
+                this.fileHandle.logInternalError(
+                    `Template class "${astElement.name}" is not known.`
                 );
             }
         }
@@ -384,7 +386,8 @@ export class ClangAstWalker implements AstWalker {
         const calledFuncId: string | undefined = astElement.referencedDecl
             ? astElement.kind === "DeclRefExpr"
                 ? astElement.referencedDecl.id
-                : astElement.referencedMemberDecl
+                : // istanbul ignore next
+                  undefined // could be astElement.referencedMemberDecl
             : astElement.referencedMemberDecl
             ? astElement.referencedMemberDecl
             : // istanbul ignore next

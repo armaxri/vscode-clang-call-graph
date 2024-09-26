@@ -29,12 +29,7 @@ export class ClangFilesystemWatcher {
     private userInterface: UserInterface;
     private database: Database;
     private walkerFactory: AstWalkerFactory;
-
-    // This number is used during busy waiting to avoid high CPU usage.
-    // 0.1 seconds should be an appropriate waiting period for users to feel no delay but still have a good performance.
-    // It is optionally configurable from the constructor, so that tests can use a lower value,
-    // or may even use a higher value to test correct behavior.
-    private workerDelay: number = 100;
+    private fileParsingErrorCnt: number = 0;
 
     // The C and C++ files are analyzed in parallel by a group of workers.
     // This array stores the promises of the workers, so that the main thread can await them on shutdown.
@@ -48,17 +43,12 @@ export class ClangFilesystemWatcher {
         config: Config,
         userInterface: UserInterface,
         walkerFactory: AstWalkerFactory,
-        database: Database,
-        workerDelay?: number
+        database: Database
     ) {
         this.config = config;
         this.userInterface = userInterface;
         this.database = database;
         this.walkerFactory = walkerFactory;
-
-        if (workerDelay !== undefined) {
-            this.workerDelay = workerDelay;
-        }
     }
 
     public isRunning(): boolean {
@@ -68,12 +58,21 @@ export class ClangFilesystemWatcher {
         );
     }
 
+    private continueRunning(): boolean {
+        if (this.fileParsingErrorCnt >= this.config.getFileErrorThreshold()) {
+            this.state = FilesystemWatcherState.stopping;
+        }
+
+        return this.state === FilesystemWatcherState.running;
+    }
+
     public async startWatching() {
         console.log("Starting ClangFilesystemWatcher.");
         // When the watcher is started, the database might have changed.
         // Whe don't want to directly remove old databases to allow different watchers,
         // as well as different workspace configurations.
         this.state = FilesystemWatcherState.running;
+        this.fileParsingErrorCnt = 0;
         this.startWorker();
         this.watchFilesystem();
     }
@@ -107,7 +106,7 @@ export class ClangFilesystemWatcher {
 
         console.log("Initial reading of compile_commands.json done.");
 
-        while (this.state === FilesystemWatcherState.running) {
+        while (this.continueRunning()) {
             if (await this.isThereANewCompileCommandsList()) {
                 // TODO(#15): Maybe additional steps need to be done here.
                 // Should the task list be cleared?
@@ -117,7 +116,7 @@ export class ClangFilesystemWatcher {
             } else if (await this.searchCppFileChanges()) {
                 // Nothing to do here. The actions happens earlier.
             } else {
-                await delay(this.workerDelay);
+                await delay(this.config.getFileSystemWatcherWorkerDelay());
             }
         }
 
@@ -153,7 +152,7 @@ export class ClangFilesystemWatcher {
         } catch (error) {
             const message = `Failed to read "${compileCommandsJsonPath}" or the file is not a valid compile_commands.json file.`;
             console.error(message);
-            this.userInterface.displayError(message);
+            this.userInterface.logError(message);
 
             return false;
         }
@@ -162,11 +161,20 @@ export class ClangFilesystemWatcher {
     }
 
     private async parseCppFile(compileCommand: ICompileCommand) {
-        var walker = this.walkerFactory.createAstWalker(
+        const fileHandle = this.userInterface.createFileAnalysisHandle(
             compileCommand.file,
-            compileCommand.command,
-            this.database
+            compileCommand.command
         );
+
+        const walker = this.walkerFactory.createAstWalker(
+            this.database,
+            fileHandle
+        );
+
+        if (walker === null) {
+            this.fileParsingErrorCnt++;
+            return;
+        }
 
         walker.walkAst();
 
@@ -189,12 +197,12 @@ export class ClangFilesystemWatcher {
     private async worker(number: number) {
         console.log(`Worker ${number} started.`);
 
-        while (this.state === FilesystemWatcherState.running) {
+        while (this.continueRunning()) {
             var task = this.workerTasks.pop();
             if (task !== undefined) {
                 await this.parseCppFile(task);
             } else {
-                await delay(this.workerDelay);
+                await delay(this.config.getFileSystemWatcherWorkerDelay());
             }
         }
 

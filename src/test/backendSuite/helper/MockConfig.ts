@@ -20,6 +20,10 @@ export class MockConfig extends Config {
         this.compileCommandsJsonName =
             compileCommandsJsonName ?? super.getCompileCommandsJsonName();
         this.verbose = true;
+
+        // We don't need to actually watch the filesystem in tests,
+        // so we set the interval to 1 ms.
+        this.fileSystemWatcherWorkerDelay = 1;
     }
 
     getCompileCommandsJsonDir(): string {

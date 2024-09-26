@@ -1,3 +1,6 @@
+import { Database } from "./database/Database";
+import { LowdbDatabase } from "./database/lowdb/LowdbDatabase";
+import { SqliteDatabase } from "./database/sqlite/SqliteDatabase";
 import { PathUtils } from "./utils/PathUtils";
 
 export enum DatabaseType {
@@ -23,6 +26,13 @@ export abstract class Config {
     protected sqliteDatabaseName = "clang_call_graph.sqlite3";
     protected lowdbDatabaseName = "clang_call_graph.json";
     protected verbose: boolean = false;
+    protected fileErrorThreshold: number = 10;
+    protected userInterfaceOversightDelay: number = 1000;
+    // This number is used during busy waiting to avoid high CPU usage.
+    // 0.1 seconds should be an appropriate waiting period for users to feel no delay but still have a good performance.
+    // It is optionally configurable from the constructor, so that tests can use a lower value,
+    // or may even use a higher value to test correct behavior.
+    protected fileSystemWatcherWorkerDelay: number = 100;
 
     constructor() {}
 
@@ -86,5 +96,32 @@ export abstract class Config {
     // For development purposes.
     runVerbose(): boolean {
         return this.verbose;
+    }
+
+    getFileErrorThreshold(): number {
+        return this.fileErrorThreshold;
+    }
+
+    getUserInterfaceOversightDelay(): number {
+        return this.userInterfaceOversightDelay;
+    }
+
+    getFileSystemWatcherWorkerDelay(): number {
+        return this.fileSystemWatcherWorkerDelay;
+    }
+
+    createDatabase(): Database {
+        switch (this.getSelectedDatabaseType()) {
+            case DatabaseType.lowdb:
+                return new LowdbDatabase(this);
+            case DatabaseType.sqlite:
+                return new SqliteDatabase(this);
+            // istanbul ignore next
+            default:
+                throw new Error(
+                    "Database type not supported: " +
+                        this.getSelectedDatabaseType()
+                );
+        }
     }
 }

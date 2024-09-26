@@ -1,6 +1,5 @@
 import { DatabaseType } from "../../../../backend/Config";
 import { Database } from "../../../../backend/database/Database";
-import { createDatabase } from "../../../../backend/database/helper/database_factory";
 import { LowdbDatabase } from "../../../../backend/database/lowdb/LowdbDatabase";
 import { MockConfig } from "../../helper/MockConfig";
 import { removeOldDatabase } from "../../helper/database_helper";
@@ -22,7 +21,7 @@ export function openDatabase(
     databaseType: DatabaseType
 ): Database {
     const mockConfig = new MockConfig(callingFileDirName, databaseType);
-    return createDatabase(mockConfig);
+    return mockConfig.createDatabase();
 }
 
 export function openNewDatabase(

@@ -14,12 +14,9 @@ export function createNewFilesystemWatcher(
     return [
         new ClangFilesystemWatcher(
             mockConfig,
-            new MockUserInterface(),
+            new MockUserInterface(mockConfig),
             walkerFactory,
-            database,
-            // We don't need to actually watch the filesystem in tests,
-            // so we set the interval to 1 ms.
-            1
+            database
         ),
         walkerFactory,
         database,

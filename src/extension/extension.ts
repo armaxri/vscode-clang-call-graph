@@ -5,7 +5,6 @@ import { ClangFilesystemWatcher } from "../backend/ClangFilesystemWatcher";
 import { CallHierarchyProvider } from "./CallHierarchyProvider";
 import { ClangAstWalkerFactory } from "../backend/astWalker/clang/ClangAstWalkerFactory";
 import { Database } from "../backend/database/Database";
-import { createDatabase } from "../backend/database/helper/database_factory";
 import { BaseRequestHandler } from "../backend/functionSearch/BaseRequestHandler";
 
 let callGraphDatabase: Database;
@@ -19,8 +18,8 @@ export async function activate(context: vscode.ExtensionContext) {
     );
 
     let config = new VscodeConfig();
-    let database = createDatabase(config);
-    let userInterface = new VscodeUserInterface();
+    let database = config.createDatabase();
+    let userInterface = new VscodeUserInterface(config);
     callGraphParser = new ClangFilesystemWatcher(
         config,
         userInterface,

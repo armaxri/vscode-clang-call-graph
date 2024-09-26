@@ -13,8 +13,8 @@ import {
 } from "../../../backend/database/lowdb/lowdb_internal_structure";
 import { DatabaseType } from "../../../backend/Config";
 import { Database } from "../../../backend/database/Database";
-import { createDatabase } from "../../../backend/database/helper/database_factory";
 import { assertDatabaseEquals } from "../helper/database_equality";
+import { MockUserInterface } from "../helper/MockUserInterface";
 
 function loadAst(dirname: string, filename: string): astJson.AstElement {
     const filePath = new PathUtils(dirname, filename);
@@ -54,7 +54,7 @@ function loadExpectedDatabase(
     return convertedDatabase;
 }
 
-function loadExpectedLowdbDatabase(
+export function loadExpectedLowdbDatabase(
     dirname: string,
     filename: string
 ): LowdbDatabase {
@@ -73,10 +73,17 @@ function createAndRunAstWalker(
         mockConfig.getSelectedDatabasePath().pathString()
     ).tryToRemove();
 
-    var database = createDatabase(mockConfig);
+    const database = mockConfig.createDatabase();
+    const userInterface = new MockUserInterface(mockConfig);
+
     for (const filename of filenames) {
-        const astWalker = new ClangAstWalker(
+        const fileHandle = userInterface.createFileAnalysisHandle(
             getCppNameFromJsonFile(callingFileDirName, filename),
+            ""
+        );
+
+        const astWalker = new ClangAstWalker(
+            fileHandle,
             database,
             loadAst(adjustTsToJsPath(callingFileDirName), filename)
         );

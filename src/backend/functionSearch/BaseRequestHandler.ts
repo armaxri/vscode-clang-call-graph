@@ -39,7 +39,7 @@ export class BaseRequestHandler {
         if (!file) {
             const message = `File not found in parsed files database "${documentName}".`;
 
-            this.userInterface.displayError(message);
+            this.userInterface.logError(message);
 
             if (this.config.runVerbose()) {
                 console.log(message);
@@ -53,7 +53,7 @@ export class BaseRequestHandler {
         if (matchingFuncElements.length === 0) {
             const message = `No function name found at location ${location.line}:${location.column}.`;
 
-            this.userInterface.displayError(message);
+            this.userInterface.logError(message);
 
             if (this.config.runVerbose()) {
                 console.log(message);
