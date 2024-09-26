@@ -29,6 +29,7 @@ export class ClangFilesystemWatcher {
     private userInterface: UserInterface;
     private database: Database;
     private walkerFactory: AstWalkerFactory;
+    private fileParsingErrorCnt: number = 0;
 
     // The C and C++ files are analyzed in parallel by a group of workers.
     // This array stores the promises of the workers, so that the main thread can await them on shutdown.
@@ -57,12 +58,21 @@ export class ClangFilesystemWatcher {
         );
     }
 
+    private continueRunning(): boolean {
+        if (this.fileParsingErrorCnt >= this.config.getFileErrorThreshold()) {
+            this.state = FilesystemWatcherState.stopping;
+        }
+
+        return this.state === FilesystemWatcherState.running;
+    }
+
     public async startWatching() {
         console.log("Starting ClangFilesystemWatcher.");
         // When the watcher is started, the database might have changed.
         // Whe don't want to directly remove old databases to allow different watchers,
         // as well as different workspace configurations.
         this.state = FilesystemWatcherState.running;
+        this.fileParsingErrorCnt = 0;
         this.startWorker();
         this.watchFilesystem();
     }
@@ -96,7 +106,7 @@ export class ClangFilesystemWatcher {
 
         console.log("Initial reading of compile_commands.json done.");
 
-        while (this.state === FilesystemWatcherState.running) {
+        while (this.continueRunning()) {
             if (await this.isThereANewCompileCommandsList()) {
                 // TODO(#15): Maybe additional steps need to be done here.
                 // Should the task list be cleared?
@@ -162,6 +172,7 @@ export class ClangFilesystemWatcher {
         );
 
         if (walker === null) {
+            this.fileParsingErrorCnt++;
             return;
         }
 
@@ -186,7 +197,7 @@ export class ClangFilesystemWatcher {
     private async worker(number: number) {
         console.log(`Worker ${number} started.`);
 
-        while (this.state === FilesystemWatcherState.running) {
+        while (this.continueRunning()) {
             var task = this.workerTasks.pop();
             if (task !== undefined) {
                 await this.parseCppFile(task);
