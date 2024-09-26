@@ -27,7 +27,6 @@ export abstract class Config {
     protected lowdbDatabaseName = "clang_call_graph.json";
     protected verbose: boolean = false;
     protected fileErrorThreshold: number = 10;
-    protected userInterfaceOversightDelay: number = 1000;
     // This number is used during busy waiting to avoid high CPU usage.
     // 0.1 seconds should be an appropriate waiting period for users to feel no delay but still have a good performance.
     // It is optionally configurable from the constructor, so that tests can use a lower value,
@@ -100,10 +99,6 @@ export abstract class Config {
 
     getFileErrorThreshold(): number {
         return this.fileErrorThreshold;
-    }
-
-    getUserInterfaceOversightDelay(): number {
-        return this.userInterfaceOversightDelay;
     }
 
     getFileSystemWatcherWorkerDelay(): number {

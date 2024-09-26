@@ -5,12 +5,12 @@ export class MockUserInterface extends UserInterface {
     public displayedErrors: string[] = [];
 
     logError(message: string): void {
-        console.error(`loggedError: "${message}"`);
+        super.logError(`loggedError: "${message}"`);
         this.loggedErrors.push(message);
     }
 
     displayError(message: string): void {
-        console.error(`displayError: "${message}"`);
+        super.logError(`displayError: "${message}"`);
         this.displayedErrors.push(message);
     }
 }
