@@ -126,9 +126,8 @@ def adjust_underscore_ast_name(json_lines):
     return new_lines
 
 
-def generate_json_file(cpp_file, adjust_ids, remove_underscore_ast_name):
+def generate_json_file(cpp_path, adjust_ids, remove_underscore_ast_name):
     """Generate a json file for a given cpp file."""
-    cpp_path = pathlib.Path(cpp_file).absolute()
     cpp_dir_path = cpp_path.parent
     cpp_json_path = cpp_dir_path / (cpp_path.stem + ".json")
 
@@ -157,6 +156,28 @@ def generate_json_file(cpp_file, adjust_ids, remove_underscore_ast_name):
         target_file.write("\n".join(adjusted_output))
 
 
+def generate_ast_file(cpp_path):
+    """Generate an AST file for a given cpp file."""
+    cpp_dir_path = cpp_path.parent
+    cpp_ast_path = cpp_dir_path / (cpp_path.stem + ".ast")
+
+    process_output = execute_process(
+        [
+            "clang++",
+            f"-I{cpp_dir_path}",
+            "-c",
+            cpp_path,
+            "-std=c++20",
+            "-Xclang",
+            "-ast-dump",
+            "-fsyntax-only",
+        ]
+    )
+
+    with cpp_ast_path.open("w") as target_file:
+        target_file.write(process_output.decode("utf-8"))
+
+
 def main(args):
     """Main function."""
 
@@ -169,7 +190,9 @@ def main(args):
         target_files.extend(get_cpp_files_int_test_dir())
 
     for file in target_files:
-        generate_json_file(file, args.adjust_ids, args.remove_underscore_ast_name)
+        cpp_path = pathlib.Path(file).absolute()
+        generate_json_file(cpp_path, args.adjust_ids, args.remove_underscore_ast_name)
+        generate_ast_file(cpp_path)
 
 
 if __name__ == "__main__":
